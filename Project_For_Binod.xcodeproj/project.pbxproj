@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
+		ACA1EC581FF0B77100FA130D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC571FF0B77100FA130D /* ViewController.swift */; };
+		ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC591FF0B77100FA130D /* Main.storyboard */; };
+		ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */; };
+		ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */; };
+		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACA1EC571FF0B77100FA130D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACA1EC5A1FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project_For_Binod.xcdatamodel; sourceTree = "<group>"; };
+		ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACA1EC641FF0B77100FA130D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACA1EC4F1FF0B77100FA130D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACA1EC491FF0B77000FA130D = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC541FF0B77100FA130D /* Project_For_Binod */,
+				ACA1EC531FF0B77100FA130D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACA1EC531FF0B77100FA130D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACA1EC541FF0B77100FA130D /* Project_For_Binod */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
+				ACA1EC571FF0B77100FA130D /* ViewController.swift */,
+				ACA1EC591FF0B77100FA130D /* Main.storyboard */,
+				ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */,
+				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
+				ACA1EC641FF0B77100FA130D /* Info.plist */,
+				ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */,
+			);
+			path = Project_For_Binod;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACA1EC511FF0B77100FA130D /* Project_For_Binod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACA1EC671FF0B77100FA130D /* Build configuration list for PBXNativeTarget "Project_For_Binod" */;
+			buildPhases = (
+				ACA1EC4E1FF0B77100FA130D /* Sources */,
+				ACA1EC4F1FF0B77100FA130D /* Frameworks */,
+				ACA1EC501FF0B77100FA130D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Project_For_Binod;
+			productName = Project_For_Binod;
+			productReference = ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACA1EC4A1FF0B77000FA130D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = JEC;
+				TargetAttributes = {
+					ACA1EC511FF0B77100FA130D = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 2QZXZME53M;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = ACA1EC4D1FF0B77000FA130D /* Build configuration list for PBXProject "Project_For_Binod" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACA1EC491FF0B77000FA130D;
+			productRefGroup = ACA1EC531FF0B77100FA130D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACA1EC511FF0B77100FA130D /* Project_For_Binod */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACA1EC501FF0B77100FA130D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
+				ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */,
+				ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACA1EC4E1FF0B77100FA130D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA1EC581FF0B77100FA130D /* ViewController.swift in Sources */,
+				ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */,
+				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ACA1EC591FF0B77100FA130D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA1EC5A1FF0B77100FA130D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA1EC621FF0B77100FA130D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACA1EC651FF0B77100FA130D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACA1EC661FF0B77100FA130D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACA1EC681FF0B77100FA130D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2QZXZME53M;
+				INFOPLIST_FILE = Project_For_Binod/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		ACA1EC691FF0B77100FA130D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2QZXZME53M;
+				INFOPLIST_FILE = Project_For_Binod/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACA1EC4D1FF0B77000FA130D /* Build configuration list for PBXProject "Project_For_Binod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA1EC651FF0B77100FA130D /* Debug */,
+				ACA1EC661FF0B77100FA130D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACA1EC671FF0B77100FA130D /* Build configuration list for PBXNativeTarget "Project_For_Binod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA1EC681FF0B77100FA130D /* Debug */,
+				ACA1EC691FF0B77100FA130D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */,
+			);
+			currentVersion = ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */;
+			path = Project_For_Binod.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ACA1EC4A1FF0B77000FA130D /* Project object */;
+}
