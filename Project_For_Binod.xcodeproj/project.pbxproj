@@ -7,23 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
+		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
-		ACA1EC581FF0B77100FA130D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC571FF0B77100FA130D /* ViewController.swift */; };
 		ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC591FF0B77100FA130D /* Main.storyboard */; };
 		ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */; };
 		ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
+		ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC6A1FF0BBEA00FA130D /* UIView_Designable.swift */; };
+		ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC6C1FF0C0F900FA130D /* UIColor_Exension.swift */; };
+		ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC6F1FF1F94200FA130D /* UIButton_Designable.swift */; };
+		ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC731FF203C600FA130D /* UITextField_Designable.swift */; };
+		ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC751FF205B500FA130D /* LoginController.swift */; };
+		ACA6AA07202437A8006B65E4 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA06202437A8006B65E4 /* RegisterController.swift */; };
+		ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA08202499C9006B65E4 /* ResetController.swift */; };
+		ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA0A2024E5F9006B65E4 /* UIImage_Extension.swift */; };
+		ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA0C2025BB0B006B65E4 /* NSMutableData_Extension.swift */; };
+		ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA0E2025D01A006B65E4 /* MembersController.swift */; };
+		ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA102025E8E6006B65E4 /* MembersCell.swift */; };
+		ACA6AA132027E44E006B65E4 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA122027E44E006B65E4 /* EditProfileController.swift */; };
+		ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA14202930AB006B65E4 /* AdminSettingController.swift */; };
+		ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA1620295959006B65E4 /* LogsController.swift */; };
+		ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA182029860E006B65E4 /* LogCell.swift */; };
+		ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6AA1A202A8B9C006B65E4 /* MemberListForAdmin.swift */; };
+		ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1390C2050594200F2A5AB /* NoticeMessageController.swift */; };
+		ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE294E3203D0E8300A435CF /* OverviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACA1EC571FF0B77100FA130D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACA1EC5A1FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project_For_Binod.xcdatamodel; sourceTree = "<group>"; };
 		ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA1EC641FF0B77100FA130D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACA1EC6A1FF0BBEA00FA130D /* UIView_Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Designable.swift; sourceTree = "<group>"; };
+		ACA1EC6C1FF0C0F900FA130D /* UIColor_Exension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_Exension.swift; sourceTree = "<group>"; };
+		ACA1EC6F1FF1F94200FA130D /* UIButton_Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton_Designable.swift; sourceTree = "<group>"; };
+		ACA1EC731FF203C600FA130D /* UITextField_Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField_Designable.swift; sourceTree = "<group>"; };
+		ACA1EC751FF205B500FA130D /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		ACA6AA06202437A8006B65E4 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		ACA6AA08202499C9006B65E4 /* ResetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetController.swift; sourceTree = "<group>"; };
+		ACA6AA0A2024E5F9006B65E4 /* UIImage_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
+		ACA6AA0C2025BB0B006B65E4 /* NSMutableData_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableData_Extension.swift; sourceTree = "<group>"; };
+		ACA6AA0E2025D01A006B65E4 /* MembersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersController.swift; sourceTree = "<group>"; };
+		ACA6AA102025E8E6006B65E4 /* MembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersCell.swift; sourceTree = "<group>"; };
+		ACA6AA122027E44E006B65E4 /* EditProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		ACA6AA14202930AB006B65E4 /* AdminSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSettingController.swift; sourceTree = "<group>"; };
+		ACA6AA1620295959006B65E4 /* LogsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsController.swift; sourceTree = "<group>"; };
+		ACA6AA182029860E006B65E4 /* LogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
+		ACA6AA1A202A8B9C006B65E4 /* MemberListForAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberListForAdmin.swift; sourceTree = "<group>"; };
+		ACE1390C2050594200F2A5AB /* NoticeMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeMessageController.swift; sourceTree = "<group>"; };
+		ACE294E3203D0E8300A435CF /* OverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +94,10 @@
 		ACA1EC541FF0B77100FA130D /* Project_For_Binod */ = {
 			isa = PBXGroup;
 			children = (
+				ACA17BEB2024218600399AD6 /* TabController.swift */,
+				ACA1EC6E1FF0C10000FA130D /* Extension_Designables */,
+				ACA1EC771FF2067E00FA130D /* ViewController */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
-				ACA1EC571FF0B77100FA130D /* ViewController.swift */,
 				ACA1EC591FF0B77100FA130D /* Main.storyboard */,
 				ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
@@ -65,6 +105,39 @@
 				ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */,
 			);
 			path = Project_For_Binod;
+			sourceTree = "<group>";
+		};
+		ACA1EC6E1FF0C10000FA130D /* Extension_Designables */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC6A1FF0BBEA00FA130D /* UIView_Designable.swift */,
+				ACA1EC6C1FF0C0F900FA130D /* UIColor_Exension.swift */,
+				ACA1EC6F1FF1F94200FA130D /* UIButton_Designable.swift */,
+				ACA1EC731FF203C600FA130D /* UITextField_Designable.swift */,
+				ACA6AA0A2024E5F9006B65E4 /* UIImage_Extension.swift */,
+				ACA6AA0C2025BB0B006B65E4 /* NSMutableData_Extension.swift */,
+			);
+			name = Extension_Designables;
+			sourceTree = "<group>";
+		};
+		ACA1EC771FF2067E00FA130D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC751FF205B500FA130D /* LoginController.swift */,
+				ACA17BED20242A7200399AD6 /* HomeController.swift */,
+				ACA6AA06202437A8006B65E4 /* RegisterController.swift */,
+				ACA6AA08202499C9006B65E4 /* ResetController.swift */,
+				ACA6AA0E2025D01A006B65E4 /* MembersController.swift */,
+				ACA6AA102025E8E6006B65E4 /* MembersCell.swift */,
+				ACA6AA122027E44E006B65E4 /* EditProfileController.swift */,
+				ACA6AA14202930AB006B65E4 /* AdminSettingController.swift */,
+				ACA6AA1620295959006B65E4 /* LogsController.swift */,
+				ACA6AA182029860E006B65E4 /* LogCell.swift */,
+				ACA6AA1A202A8B9C006B65E4 /* MemberListForAdmin.swift */,
+				ACE294E3203D0E8300A435CF /* OverviewController.swift */,
+				ACE1390C2050594200F2A5AB /* NoticeMessageController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = JEC;
 				TargetAttributes = {
 					ACA1EC511FF0B77100FA130D = {
@@ -140,9 +213,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACA1EC581FF0B77100FA130D /* ViewController.swift in Sources */,
+				ACA6AA07202437A8006B65E4 /* RegisterController.swift in Sources */,
+				ACA6AA132027E44E006B65E4 /* EditProfileController.swift in Sources */,
+				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
+				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
+				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
+				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
+				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
+				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
+				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
+				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
+				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
+				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
+				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
 				ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */,
+				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
+				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
+				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
+				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
+				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
+				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
+				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +270,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -186,10 +280,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -212,6 +311,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -228,7 +328,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -236,10 +338,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -255,6 +362,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -265,12 +373,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -278,12 +390,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -306,6 +421,7 @@
 				ACA1EC691FF0B77100FA130D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
