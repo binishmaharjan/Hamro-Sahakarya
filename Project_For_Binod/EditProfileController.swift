@@ -38,8 +38,8 @@ class EditProfileController: UIViewController {
         navigationItem.title = "CHANGE PASSWORD"
         
         //Move screen up when keyboard shows
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +51,8 @@ class EditProfileController: UIViewController {
     @IBAction func changeButtonClicked(_ sender: Any) {
         //If All textfields are not filled
         if passwordTextView.text!.isEmpty || repeatPasswordTextView.text!.isEmpty {
-            passwordTextView.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            repeatPasswordTextView.attributedPlaceholder = NSAttributedString(string: "repeat password", attributes: [NSForegroundColorAttributeName : UIColor.red])
+            passwordTextView.attributedPlaceholder = NSAttributedString(string: "password", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            repeatPasswordTextView.attributedPlaceholder = NSAttributedString(string: "repeat password", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
         }else{//Data was passed properly
             // Creating Shortcut
             let password : String = passwordTextView.text!
@@ -142,7 +142,7 @@ class EditProfileController: UIViewController {
     //MARK: Keyboard
     //Functions to move screen up and down when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == false{
                 self.view.frame.origin.y -= 180
                 isScreenUp = true
@@ -151,7 +151,7 @@ class EditProfileController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == true{
                 self.view.frame.origin.y += 180
                 isScreenUp = false
@@ -169,4 +169,15 @@ extension EditProfileController : UITextFieldDelegate{
         return true
         
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

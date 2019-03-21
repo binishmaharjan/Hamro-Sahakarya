@@ -28,15 +28,15 @@ class ResetController: UIViewController {
         emailTextView.delegate = self
         
         //Move screen up when keyboard shows
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: Actions
     @IBAction func sendEmailButtonClicked(_ sender: Any) {
         //If texr is not entered in the text field
         if emailTextView.text!.isEmpty {
-            emailTextView.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName : UIColor.red])
+            emailTextView.attributedPlaceholder = NSAttributedString(string: "email", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
         }else{//Email address was entered
             //Sending request to the php file
             
@@ -103,7 +103,7 @@ class ResetController: UIViewController {
     //MARK: Keyboard
     //Functions to move screen up and down when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == false{
                 self.view.frame.origin.y -= 200
                 isScreenUp = true
@@ -112,7 +112,7 @@ class ResetController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == true{
                 self.view.frame.origin.y += 200
                 isScreenUp = false
@@ -128,4 +128,15 @@ extension ResetController : UITextFieldDelegate {
         emailTextView.resignFirstResponder()
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
