@@ -39,8 +39,8 @@ class LoginController: UIViewController {
         
         
         //Move screen up when keyboard shows
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
         print((navigationController?.navigationBar.bounds.size.height)! + UIApplication.shared.statusBarFrame.height)
@@ -56,8 +56,8 @@ class LoginController: UIViewController {
         
         //if all data are not entered
         if userTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            userTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName : UIColor.red])
+            userTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
         }else{//All data are entered
             /*
              Sending request to the php file
@@ -138,7 +138,7 @@ class LoginController: UIViewController {
     //MARK: Keyboard
     //Functions to move screen up and down when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == false{
                 self.view.frame.origin.y -= 200
                 isScreenUp = true
@@ -147,7 +147,7 @@ class LoginController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == true{
                 self.view.frame.origin.y += 200
                 isScreenUp = false
@@ -166,4 +166,15 @@ extension LoginController : UITextFieldDelegate{
         passwordTextField.resignFirstResponder()
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

@@ -28,9 +28,9 @@ class TabController: UITabBarController {
         
         //color of text Under icon
         //noraml state
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : color], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : color]), for: .normal)
         //selected state
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.white], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.white]), for: .selected)
         
         //Color of unselected  icon with extended UIiMage func
         self.tabBar.items?.forEach({ (item) in
@@ -44,3 +44,14 @@ class TabController: UITabBarController {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

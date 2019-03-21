@@ -43,8 +43,8 @@ class RegisterController: UIViewController{
         
         
         //Move screen up when keyboard shows
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
@@ -59,11 +59,11 @@ class RegisterController: UIViewController{
     @IBAction func registerButtonClicked(_ sender: Any) {
         //If all the text are not entered in the text field
         if usernameTextView.text!.isEmpty || passwordTextView.text!.isEmpty || emailTextView.text!.isEmpty || firstnameTextView.text!.isEmpty || lastnameTextView.text!.isEmpty {
-            usernameTextView.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            passwordTextView.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            emailTextView.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            firstnameTextView.attributedPlaceholder = NSAttributedString(string: "firstname", attributes: [NSForegroundColorAttributeName : UIColor.red])
-            lastnameTextView.attributedPlaceholder = NSAttributedString(string: "lastname", attributes: [NSForegroundColorAttributeName : UIColor.red])
+            usernameTextView.attributedPlaceholder = NSAttributedString(string: "username", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            passwordTextView.attributedPlaceholder = NSAttributedString(string: "password", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            emailTextView.attributedPlaceholder = NSAttributedString(string: "email", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            firstnameTextView.attributedPlaceholder = NSAttributedString(string: "firstname", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
+            lastnameTextView.attributedPlaceholder = NSAttributedString(string: "lastname", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.red]))
         }else{//All text are entered procced to registration
             //Creating the url Component
             var urlComponent :  URLComponents = URLComponents(string: "http://binish.php.xdomain.jp/hamro_sanstha/register.php")!
@@ -127,7 +127,7 @@ class RegisterController: UIViewController{
     //MARK: Keyboard
     //Functions to move screen up and down when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == false{
                 self.view.frame.origin.y -= 175
                 isScreenUp = true
@@ -136,7 +136,7 @@ class RegisterController: UIViewController{
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isScreenUp == true{
                 self.view.frame.origin.y += 175
                 isScreenUp = false
@@ -156,4 +156,15 @@ extension RegisterController :  UITextFieldDelegate {
         emailTextView.resignFirstResponder()
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
