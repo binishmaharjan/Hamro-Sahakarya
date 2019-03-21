@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		64073BA12243E90C00088E61 /* HSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA02243E90C00088E61 /* HSColors.swift */; };
+		64073BA32243ECD600088E61 /* HSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA22243ECD600088E61 /* HSFont.swift */; };
+		64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA82243EE9D00088E61 /* HSLoginViewController.swift */; };
+		64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BAB2243EFD600088E61 /* HSBaseView.swift */; };
+		64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BAD2243F07B00088E61 /* HSViewController.swift */; };
+		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
@@ -35,7 +40,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.release.xcconfig"; sourceTree = "<group>"; };
+		28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.debug.xcconfig"; sourceTree = "<group>"; };
+		2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_For_Binod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64073BA02243E90C00088E61 /* HSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSColors.swift; sourceTree = "<group>"; };
+		64073BA22243ECD600088E61 /* HSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFont.swift; sourceTree = "<group>"; };
+		64073BA82243EE9D00088E61 /* HSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLoginViewController.swift; sourceTree = "<group>"; };
+		64073BAB2243EFD600088E61 /* HSBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBaseView.swift; sourceTree = "<group>"; };
+		64073BAD2243F07B00088E61 /* HSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSViewController.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,12 +81,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CD92483257A4B41C8F6F191 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		64073B9D2243E8A700088E61 /* Version1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +110,11 @@
 		64073B9E2243E8E400088E61 /* Version2 */ = {
 			isa = PBXGroup;
 			children = (
+				64073BA72243EE7400088E61 /* Contorller */,
+				64073BA62243EE6B00088E61 /* View */,
+				64073BA52243EE6400088E61 /* Modal */,
 				64073B9F2243E8F700088E61 /* Utility */,
+				64073BA42243EDFB00088E61 /* Resources */,
 			);
 			name = Version2;
 			sourceTree = "<group>";
@@ -98,8 +123,49 @@
 			isa = PBXGroup;
 			children = (
 				64073BA02243E90C00088E61 /* HSColors.swift */,
+				64073BA22243ECD600088E61 /* HSFont.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		64073BA42243EDFB00088E61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		64073BA52243EE6400088E61 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		64073BA62243EE6B00088E61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64073BAA2243EFB600088E61 /* Base */,
+				64073BA82243EE9D00088E61 /* HSLoginViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		64073BA72243EE7400088E61 /* Contorller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Contorller;
+			sourceTree = "<group>";
+		};
+		64073BAA2243EFB600088E61 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				64073BAB2243EFD600088E61 /* HSBaseView.swift */,
+				64073BAD2243F07B00088E61 /* HSViewController.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -107,6 +173,8 @@
 			children = (
 				ACA1EC541FF0B77100FA130D /* Project_For_Binod */,
 				ACA1EC531FF0B77100FA130D /* Products */,
+				D1730E5E2478296E0A9D5B07 /* Pods */,
+				2CD92483257A4B41C8F6F191 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,7 +191,6 @@
 			children = (
 				64073B9E2243E8E400088E61 /* Version2 */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
-				ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
 				ACA1EC641FF0B77100FA130D /* Info.plist */,
 				64073B9D2243E8A700088E61 /* Version1 */,
@@ -164,6 +231,15 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		D1730E5E2478296E0A9D5B07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */,
+				282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACA1EC671FF0B77100FA130D /* Build configuration list for PBXNativeTarget "Project_For_Binod" */;
 			buildPhases = (
+				BBAFEAABCB0809D312CE1000 /* [CP] Check Pods Manifest.lock */,
 				ACA1EC4E1FF0B77100FA130D /* Sources */,
 				ACA1EC4F1FF0B77100FA130D /* Frameworks */,
 				ACA1EC501FF0B77100FA130D /* Resources */,
+				44E3CA49B90688947E5EB005 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +311,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44E3CA49B90688947E5EB005 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBAFEAABCB0809D312CE1000 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Project_For_Binod-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ACA1EC4E1FF0B77100FA130D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -247,6 +372,8 @@
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
+				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
+				64073BA32243ECD600088E61 /* HSFont.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
@@ -258,8 +385,10 @@
 				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
+				64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */,
 				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
+				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +525,7 @@
 		};
 		ACA1EC681FF0B77100FA130D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -414,6 +544,7 @@
 		};
 		ACA1EC691FF0B77100FA130D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
