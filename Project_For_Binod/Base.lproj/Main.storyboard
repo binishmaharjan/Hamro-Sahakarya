@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nCo-XX-FzQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nCo-XX-FzQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,7 +28,7 @@
                                         <rect key="frame" x="16" y="16" width="343" height="571"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="kJs-W1-2Rb">
-                                                <rect key="frame" x="81" y="24" width="180" height="180"/>
+                                                <rect key="frame" x="81.5" y="24" width="180" height="180"/>
                                                 <color key="backgroundColor" red="0.56078431370000004" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="IJn-YR-5u7"/>
@@ -292,7 +289,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-2v-p6H">
-                                                                            <rect key="frame" x="8" y="9.5" width="65" height="65"/>
+                                                                            <rect key="frame" x="8" y="9" width="65" height="65"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="65" id="ez9-wo-QHb"/>
                                                                                 <constraint firstAttribute="height" constant="65" id="h9K-ti-ODO"/>
@@ -1046,7 +1043,7 @@
                                 <rect key="frame" x="16" y="36" width="343" height="615"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="qge-W1-bko">
-                                        <rect key="frame" x="81" y="25" width="180" height="180"/>
+                                        <rect key="frame" x="81.5" y="25" width="180" height="180"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="bak-Ue-AqJ"/>
@@ -1357,7 +1354,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maharjan Binish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3s-XG-lKl">
-                                                        <rect key="frame" x="116" y="44" width="203" height="19"/>
+                                                        <rect key="frame" x="116" y="43.5" width="203" height="19"/>
                                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                                         <color key="textColor" red="0.23137254901960785" green="0.14509803921568626" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1389,7 +1386,7 @@
                                                         <rect key="frame" x="8" y="120" width="311" height="107"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4M-gY-T2n">
-                                                                <rect key="frame" x="109" y="4" width="94" height="21"/>
+                                                                <rect key="frame" x="108.5" y="4" width="94" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="gGz-Ya-kvV"/>
                                                                     <constraint firstAttribute="width" constant="94" id="uFW-MC-OHC"/>
@@ -1905,7 +1902,7 @@
                                 <rect key="frame" x="16" y="16" width="343" height="571"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="gPD-ct-q10">
-                                        <rect key="frame" x="81" y="24" width="180" height="180"/>
+                                        <rect key="frame" x="81.5" y="24" width="180" height="180"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="DNZ-ZN-qJg"/>
@@ -2288,7 +2285,7 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-i2-ft5">
-                                                        <rect key="frame" x="81" y="24" width="180" height="180"/>
+                                                        <rect key="frame" x="81.5" y="24" width="180" height="180"/>
                                                         <color key="backgroundColor" red="0.56078431370000004" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="180" id="2d9-rt-b50"/>

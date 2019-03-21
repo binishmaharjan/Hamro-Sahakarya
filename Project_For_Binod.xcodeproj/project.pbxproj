@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64073BA12243E90C00088E61 /* HSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA02243E90C00088E61 /* HSColors.swift */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC591FF0B77100FA130D /* Main.storyboard */; };
-		ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */; };
 		ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
 		ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC6A1FF0BBEA00FA130D /* UIView_Designable.swift */; };
@@ -35,12 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64073BA02243E90C00088E61 /* HSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSColors.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC5A1FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project_For_Binod.xcdatamodel; sourceTree = "<group>"; };
 		ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA1EC641FF0B77100FA130D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +75,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64073B9D2243E8A700088E61 /* Version1 */ = {
+			isa = PBXGroup;
+			children = (
+				ACA1EC591FF0B77100FA130D /* Main.storyboard */,
+				ACA17BEB2024218600399AD6 /* TabController.swift */,
+				ACA1EC6E1FF0C10000FA130D /* Extension_Designables */,
+				ACA1EC771FF2067E00FA130D /* ViewController */,
+			);
+			name = Version1;
+			sourceTree = "<group>";
+		};
+		64073B9E2243E8E400088E61 /* Version2 */ = {
+			isa = PBXGroup;
+			children = (
+				64073B9F2243E8F700088E61 /* Utility */,
+			);
+			name = Version2;
+			sourceTree = "<group>";
+		};
+		64073B9F2243E8F700088E61 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				64073BA02243E90C00088E61 /* HSColors.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		ACA1EC491FF0B77000FA130D = {
 			isa = PBXGroup;
 			children = (
@@ -94,15 +121,12 @@
 		ACA1EC541FF0B77100FA130D /* Project_For_Binod */ = {
 			isa = PBXGroup;
 			children = (
-				ACA17BEB2024218600399AD6 /* TabController.swift */,
-				ACA1EC6E1FF0C10000FA130D /* Extension_Designables */,
-				ACA1EC771FF2067E00FA130D /* ViewController */,
+				64073B9E2243E8E400088E61 /* Version2 */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
-				ACA1EC591FF0B77100FA130D /* Main.storyboard */,
 				ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
 				ACA1EC641FF0B77100FA130D /* Info.plist */,
-				ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */,
+				64073B9D2243E8A700088E61 /* Version1 */,
 			);
 			path = Project_For_Binod;
 			sourceTree = "<group>";
@@ -215,6 +239,7 @@
 			files = (
 				ACA6AA07202437A8006B65E4 /* RegisterController.swift in Sources */,
 				ACA6AA132027E44E006B65E4 /* EditProfileController.swift in Sources */,
+				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
@@ -226,7 +251,6 @@
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
-				ACA1EC5E1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
@@ -424,19 +448,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		ACA1EC5C1FF0B77100FA130D /* Project_For_Binod.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */,
-			);
-			currentVersion = ACA1EC5D1FF0B77100FA130D /* Project_For_Binod.xcdatamodel */;
-			path = Project_For_Binod.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = ACA1EC4A1FF0B77000FA130D /* Project object */;
 }
