@@ -12,6 +12,14 @@
 		64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA82243EE9D00088E61 /* HSLoginViewController.swift */; };
 		64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BAB2243EFD600088E61 /* HSBaseView.swift */; };
 		64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BAD2243F07B00088E61 /* HSViewController.swift */; };
+		64073BB02243F43000088E61 /* HSLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BAF2243F43000088E61 /* HSLoginView.swift */; };
+		64073BB42243F93100088E61 /* HSButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BB32243F93100088E61 /* HSButtonView.swift */; };
+		64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BB52243F9C000088E61 /* HSImageButtonView.swift */; };
+		64073BB92243FA2F00088E61 /* HSTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BB82243FA2F00088E61 /* HSTextButton.swift */; };
+		64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BBB2243FAA000088E61 /* Array+extension.swift */; };
+		64073BBE2243FBA200088E61 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BBD2243FBA200088E61 /* Macros.swift */; };
+		64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BBF2244877700088E61 /* HSNotificationManager.swift */; };
+		64073BC222448FC400088E61 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BC122448FC400088E61 /* UIView+extension.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -48,6 +56,14 @@
 		64073BA82243EE9D00088E61 /* HSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLoginViewController.swift; sourceTree = "<group>"; };
 		64073BAB2243EFD600088E61 /* HSBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBaseView.swift; sourceTree = "<group>"; };
 		64073BAD2243F07B00088E61 /* HSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSViewController.swift; sourceTree = "<group>"; };
+		64073BAF2243F43000088E61 /* HSLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLoginView.swift; sourceTree = "<group>"; };
+		64073BB32243F93100088E61 /* HSButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSButtonView.swift; sourceTree = "<group>"; };
+		64073BB52243F9C000088E61 /* HSImageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSImageButtonView.swift; sourceTree = "<group>"; };
+		64073BB82243FA2F00088E61 /* HSTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTextButton.swift; sourceTree = "<group>"; };
+		64073BBB2243FAA000088E61 /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
+		64073BBD2243FBA200088E61 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		64073BBF2244877700088E61 /* HSNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSNotificationManager.swift; sourceTree = "<group>"; };
+		64073BC122448FC400088E61 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +138,11 @@
 		64073B9F2243E8F700088E61 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				64073BBA2243FA8D00088E61 /* Extension */,
 				64073BA02243E90C00088E61 /* HSColors.swift */,
 				64073BA22243ECD600088E61 /* HSFont.swift */,
+				64073BBD2243FBA200088E61 /* Macros.swift */,
+				64073BBF2244877700088E61 /* HSNotificationManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -146,8 +165,9 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64073BB22243F91D00088E61 /* Common */,
 				64073BAA2243EFB600088E61 /* Base */,
-				64073BA82243EE9D00088E61 /* HSLoginViewController.swift */,
+				64073BB12243F48400088E61 /* Login */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -166,6 +186,42 @@
 				64073BAD2243F07B00088E61 /* HSViewController.swift */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		64073BB12243F48400088E61 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				64073BA82243EE9D00088E61 /* HSLoginViewController.swift */,
+				64073BAF2243F43000088E61 /* HSLoginView.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		64073BB22243F91D00088E61 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				64073BB72243FA1400088E61 /* Button */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		64073BB72243FA1400088E61 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				64073BB32243F93100088E61 /* HSButtonView.swift */,
+				64073BB52243F9C000088E61 /* HSImageButtonView.swift */,
+				64073BB82243FA2F00088E61 /* HSTextButton.swift */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
+		64073BBA2243FA8D00088E61 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				64073BBB2243FAA000088E61 /* Array+extension.swift */,
+				64073BC122448FC400088E61 /* UIView+extension.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -269,7 +325,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = JEC;
 				TargetAttributes = {
 					ACA1EC511FF0B77100FA130D = {
@@ -368,16 +424,23 @@
 				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
+				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
 				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
+				64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
 				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
+				64073BBE2243FBA200088E61 /* Macros.swift in Sources */,
 				64073BA32243ECD600088E61 /* HSFont.swift in Sources */,
+				64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
+				64073BB92243FA2F00088E61 /* HSTextButton.swift in Sources */,
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
+				64073BC222448FC400088E61 /* UIView+extension.swift in Sources */,
+				64073BB42243F93100088E61 /* HSButtonView.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
@@ -387,6 +450,7 @@
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
 				64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */,
 				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
+				64073BB02243F43000088E61 /* HSLoginView.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
 			);
@@ -428,6 +492,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -435,6 +500,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -486,6 +552,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -493,6 +560,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -531,11 +599,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -550,10 +620,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
