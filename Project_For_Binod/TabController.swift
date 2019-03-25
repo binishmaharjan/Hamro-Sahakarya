@@ -16,10 +16,10 @@ class TabController: UITabBarController {
         let color = UIColor(red: 222/255, green: 222/255, blue: 222/255, alpha: 1)
         
         ////color of item in tabbar controller
-        self.tabBar.tintColor = UIColor(hex: "3B252C")
+        self.tabBar.tintColor = UIColor(hexString: "3B252C")
         
         //color of background of tabBar controller
-        self.tabBar.barTintColor = UIColor(hex: "8F6593")
+        self.tabBar.barTintColor = UIColor(hexString: "8F6593")
         
         //disable tranlucent
         self.tabBar.isTranslucent = false

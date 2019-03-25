@@ -126,7 +126,7 @@ class OverviewController: UIViewController {
         titleView.trailingAnchor.constraint(equalTo: balancesheetView.trailingAnchor).isActive = true
         titleView.topAnchor.constraint(equalTo: balancesheetView.topAnchor).isActive = true
         titleView.heightAnchor.constraint(equalToConstant: heightRow).isActive = true
-        titleView.backgroundColor = UIColor(hex: "8F6593")
+        titleView.backgroundColor = UIColor(hexString: "8F6593")
         
         //Add titles
         addTitleLabelToBalanceSheet(parentView: titleView)
@@ -174,7 +174,7 @@ class OverviewController: UIViewController {
             titleLabel.textAlignment = .center
             titleLabel.layer.borderWidth = 0.5
             titleLabel.layer.borderColor = UIColor.black.cgColor
-            titleLabel.textColor = UIColor(hex: "3B252C")
+            titleLabel.textColor = UIColor(hexString: "3B252C")
             titleLabel.adjustsFontSizeToFitWidth = true
             titleLabel.font = UIFont(name: "Marker Felt", size: 17)
           
@@ -194,7 +194,7 @@ class OverviewController: UIViewController {
             userColumn.textAlignment = .center
             userColumn.layer.borderWidth = 0.5
             userColumn.layer.borderColor = UIColor.black.cgColor
-            userColumn.textColor = UIColor(hex: "3B252C")
+            userColumn.textColor = UIColor(hexString: "3B252C")
             userColumn.adjustsFontSizeToFitWidth = true
             userColumn.font = UIFont(name: "Marker Felt", size: 17)
             if i == 0 {//Setting the username

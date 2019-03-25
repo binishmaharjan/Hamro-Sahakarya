@@ -19,7 +19,7 @@ class NoticeMessageController: UIViewController{
 
         //Customising the text Area
         NoticeMessageTextView.layer.borderWidth = 1
-        NoticeMessageTextView.layer.borderColor = UIColor(hex: "8F6593")?.cgColor
+      NoticeMessageTextView.layer.borderColor = UIColor(hexString: "8F6593").cgColor
         NoticeMessageTextView.layer.cornerRadius = 5
         
         //Add delegate

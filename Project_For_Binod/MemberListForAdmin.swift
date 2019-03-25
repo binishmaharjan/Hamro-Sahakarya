@@ -35,8 +35,8 @@ class MemberListForAdmin: UIViewController{
         searchBar.delegate = self
         
         //Customizing the searchBar
-        searchBar.barTintColor = UIColor(hex: "8F6593")
-        searchBar.tintColor = UIColor(hex: "3B252C")
+        searchBar.barTintColor = UIColor(hexString: "8F6593")
+        searchBar.tintColor = UIColor(hexString: "3B252C")
         
         //Searching for user
         searchUsers(searchedText: "")

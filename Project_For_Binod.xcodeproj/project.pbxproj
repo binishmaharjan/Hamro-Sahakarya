@@ -20,6 +20,15 @@
 		64073BBE2243FBA200088E61 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BBD2243FBA200088E61 /* Macros.swift */; };
 		64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BBF2244877700088E61 /* HSNotificationManager.swift */; };
 		64073BC222448FC400088E61 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BC122448FC400088E61 /* UIView+extension.swift */; };
+		64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BC422478D1400088E61 /* HSRegisterViewController.swift */; };
+		64073BC722478D3B00088E61 /* HSRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BC622478D3B00088E61 /* HSRegisterView.swift */; };
+		64073BC922479DE000088E61 /* HSUserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BC822479DE000088E61 /* HSUserType.swift */; };
+		64073BCC2247B78200088E61 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BCB2247B78200088E61 /* UIColor+Extension.swift */; };
+		64073BCE2247B8B200088E61 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BCD2247B8B200088E61 /* ColorPickerViewController.swift */; };
+		64073BD02247B91F00088E61 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BCF2247B91F00088E61 /* UIAlertController+Extension.swift */; };
+		64073BD22247B99500088E61 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BD12247B99500088E61 /* GradientSlider.swift */; };
+		64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BD32247BA6F00088E61 /* UIVIew_Extension.swift */; };
+		64073BD62247E7F600088E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD52247E7F600088E61 /* Main.storyboard */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -64,6 +73,15 @@
 		64073BBD2243FBA200088E61 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64073BBF2244877700088E61 /* HSNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSNotificationManager.swift; sourceTree = "<group>"; };
 		64073BC122448FC400088E61 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		64073BC422478D1400088E61 /* HSRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRegisterViewController.swift; sourceTree = "<group>"; };
+		64073BC622478D3B00088E61 /* HSRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRegisterView.swift; sourceTree = "<group>"; };
+		64073BC822479DE000088E61 /* HSUserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUserType.swift; sourceTree = "<group>"; };
+		64073BCB2247B78200088E61 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		64073BCD2247B8B200088E61 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		64073BCF2247B91F00088E61 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		64073BD12247B99500088E61 /* GradientSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
+		64073BD32247BA6F00088E61 /* UIVIew_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIew_Extension.swift; sourceTree = "<group>"; };
+		64073BD52247E7F600088E61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +156,7 @@
 		64073B9F2243E8F700088E61 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				64073BCA2247B76500088E61 /* ColorPicker */,
 				64073BBA2243FA8D00088E61 /* Extension */,
 				64073BA02243E90C00088E61 /* HSColors.swift */,
 				64073BA22243ECD600088E61 /* HSFont.swift */,
@@ -158,6 +177,7 @@
 		64073BA52243EE6400088E61 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				64073BC822479DE000088E61 /* HSUserType.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -165,6 +185,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64073BC322478CF700088E61 /* SignUp */,
 				64073BB22243F91D00088E61 /* Common */,
 				64073BAA2243EFB600088E61 /* Base */,
 				64073BB12243F48400088E61 /* Login */,
@@ -222,6 +243,28 @@
 				64073BC122448FC400088E61 /* UIView+extension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		64073BC322478CF700088E61 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				64073BC422478D1400088E61 /* HSRegisterViewController.swift */,
+				64073BC622478D3B00088E61 /* HSRegisterView.swift */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
+		64073BCA2247B76500088E61 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				64073BCB2247B78200088E61 /* UIColor+Extension.swift */,
+				64073BCD2247B8B200088E61 /* ColorPickerViewController.swift */,
+				64073BCF2247B91F00088E61 /* UIAlertController+Extension.swift */,
+				64073BD12247B99500088E61 /* GradientSlider.swift */,
+				64073BD32247BA6F00088E61 /* UIVIew_Extension.swift */,
+				64073BD52247E7F600088E61 /* Main.storyboard */,
+			);
+			name = ColorPicker;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -362,6 +405,7 @@
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */,
 				ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */,
+				64073BD62247E7F600088E61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,14 +464,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA6AA07202437A8006B65E4 /* RegisterController.swift in Sources */,
+				64073BCC2247B78200088E61 /* UIColor+Extension.swift in Sources */,
+				64073BC922479DE000088E61 /* HSUserType.swift in Sources */,
 				ACA6AA132027E44E006B65E4 /* EditProfileController.swift in Sources */,
 				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
+				64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
 				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
 				64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */,
+				64073BC722478D3B00088E61 /* HSRegisterView.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
 				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
@@ -441,11 +489,15 @@
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
 				64073BC222448FC400088E61 /* UIView+extension.swift in Sources */,
 				64073BB42243F93100088E61 /* HSButtonView.swift in Sources */,
+				64073BD02247B91F00088E61 /* UIAlertController+Extension.swift in Sources */,
+				64073BCE2247B8B200088E61 /* ColorPickerViewController.swift in Sources */,
+				64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
 				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
+				64073BD22247B99500088E61 /* GradientSlider.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
 				64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */,
