@@ -9,13 +9,17 @@
 import UIKit
 import TinyConstraints
 
+protocol HSLoginViewDelegate:NSObjectProtocol{
+  func doubleFingerDoubleTapped()
+}
+
 class HSLoginView:HSBaseView{
   //MARK :Elements
   private weak var scrollView:UIScrollView?
   private weak var contentView:UIView?
   private var contentViewHeightConstraints:Constraint?
   
-  private weak var titleLabel:UILabel?
+  private weak var pageTitle:UILabel?
   
   private weak var emailLabel:UILabel?
   private weak var emailBG:UIView?
@@ -31,6 +35,8 @@ class HSLoginView:HSBaseView{
   private weak var loginBtnBG:UIView?
   private weak var loginBtn:HSTextButton?
   
+  var delegate:HSLoginViewDelegate?
+  
   //MARK:Initializer
   override func didInit() {
     super.didInit()
@@ -40,6 +46,12 @@ class HSLoginView:HSBaseView{
   
   //MARK:Setups
   private func setup(){
+    //double tap gesuture
+    let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+    tap.numberOfTapsRequired = 2
+    tap.numberOfTouchesRequired = 2
+    self.addGestureRecognizer(tap)
+    
     //scroll
     let scrollView = UIScrollView()
     self.scrollView = scrollView
@@ -53,7 +65,7 @@ class HSLoginView:HSBaseView{
     
     //titleLabel
     let titleLabel = UILabel()
-    self.titleLabel = titleLabel
+    self.pageTitle = titleLabel
     let blackAttrs = [NSAttributedString.Key.foregroundColor : HSColors.black]
     let orangeAttrs = [NSAttributedString.Key.foregroundColor : HSColors.orange]
     let titleText = NSMutableAttributedString(string: "Welcome ", attributes: blackAttrs)
@@ -144,7 +156,7 @@ class HSLoginView:HSBaseView{
   private func setupConstraints(){
     guard let scrollView = self.scrollView,
           let contentView = self.contentView,
-          let titleLabel = self.titleLabel,
+          let titleLabel = self.pageTitle,
           let emailLabel = self.emailLabel,
           let emailBG = self.emailBG,
           let emailField = self.emailField,
@@ -233,10 +245,17 @@ extension HSLoginView{
   }
 }
 
+//MARK:Admin Login
+extension HSLoginView{
+  @objc func doubleTapped(){
+    delegate?.doubleFingerDoubleTapped()
+  }
+}
+
 //MARK: Constants
 extension HSLoginView{
-  class Constants{
-    static let TITLE_LABEL_TOP_MARGIN:CGFloat = 75
+  fileprivate class Constants{
+    static let TITLE_LABEL_TOP_MARGIN:CGFloat = 100
     static let LEFT_MARGIN:CGFloat = 30
     static let TITLE_LABEL_BOTTOM_MARGIN:CGFloat = 66
     static let TEXT_FIELD_TOP_MARGIN:CGFloat = 5

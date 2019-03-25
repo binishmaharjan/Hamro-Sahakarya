@@ -1,21 +1,18 @@
 //
-//  HSLoginViewController.swift
+//  HSRegisterViewController.swift
 //  Project_For_Binod
 //
-//  Created by Maharjan Binish on 2019/03/22.
+//  Created by Maharjan Binish on 2019/03/24.
 //  Copyright © 2019 JEC. All rights reserved.
 //
 
 import UIKit
 import TinyConstraints
 
-class HSLoginViewController:HSViewController{
-  //MARK:Variables
-  private weak var mainView:HSLoginView?
+class HSRegisterViewController:HSViewController{
+  //MARK:Elements
+  private weak var mainView:HSRegisterView?
   private var mainViewBottomConstraints:Constraint?
-  
-  private let LOGIN_USERNAME:String = "admin"
-  private let LOGIN_PASSWORD:String = "admin"
   
   //MARK:Initializer
   override func didInit() {
@@ -30,6 +27,14 @@ class HSLoginViewController:HSViewController{
     self.setupConstraints()
   }
   
+  //MARK:Setup
+  private func setup(){
+    let mainView = HSRegisterView()
+    self.mainView = mainView
+    mainView.delegate = self
+    self.view.addSubview(mainView)
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.setupNotification()
@@ -40,16 +45,8 @@ class HSLoginViewController:HSViewController{
     self.tearDownNotification()
   }
   
-  //MARK:Setup
-  private func setup(){
-    let mainView = HSLoginView()
-    self.mainView = mainView
-    mainView.delegate = self
-    self.view.addSubview(mainView)
-  }
-  
   private func setupConstraints(){
-    guard let mainView = self.mainView
+    guard  let mainView = self.mainView
       else {return}
     mainView.edgesToSuperview(excluding: .bottom,usingSafeArea:true)
     mainViewBottomConstraints = mainView.bottomToSuperview()
@@ -57,7 +54,7 @@ class HSLoginViewController:HSViewController{
 }
 
 //MARK : Notification
-extension HSLoginViewController{
+extension HSRegisterViewController{
   
   private func setupNotification(){
     self.tearDownNotification()
@@ -97,51 +94,65 @@ extension HSLoginViewController{
   }
 }
 
-//MARk:Admin Login
-extension HSLoginViewController:HSLoginViewDelegate{
-  func doubleFingerDoubleTapped() {
-    self.showAdminLoginAlert()
+//MARK:Status & Color Field
+extension HSRegisterViewController:HSRegisterViewDelegate{
+  func statusFieldWasPressed() {
+    self.showStatusSelectionMenu()
   }
   
-  private func showAdminLoginAlert(){
-    let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: .alert)
-    //OK Action
-    let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-      guard let textFields = alert.textFields,
-        !textFields.isEmpty
-        else {return}
-      
-      let loginParams = textFields.map{$0.text}
-      
-      self.adminLoginToRegisterPage(loginParams: loginParams)
+  private func showStatusSelectionMenu(){
+    let alertController = UIAlertController(title: "Status Selection", message: "Select From Below", preferredStyle: .actionSheet)
+    //MemberAction
+    let memberAction = UIAlertAction(title: HSUserType.member.rawValue, style: .default) { (_) in
+      self.statusItemWasSelected(status: HSUserType.member)
+    }
+    
+    //Admin Action
+    let adminAction = UIAlertAction(title: HSUserType.admin.rawValue, style: .default) { (_) in
+      self.statusItemWasSelected(status: HSUserType.admin)
     }
     
     //Cancel Action
     let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
     
-    //TextFields
-    alert.addTextField { (adminTextField) in
-      adminTextField.placeholder = LOCALIZE("Username")
-    }
-    alert.addTextField { (passwordTextField) in
-      passwordTextField.placeholder = LOCALIZE("Password")
-      passwordTextField.isSecureTextEntry = true
-    }
-    
-    alert.addAction(okAction)
-    alert.addAction(cancelAction)
-    
-    //Present
-    self.present(alert, animated: true, completion: nil)
+    alertController.addAction(memberAction)
+    alertController.addAction(adminAction)
+    alertController.addAction(cancelAction)
+    self.present(alertController, animated: true, completion: nil)
   }
   
-  private func adminLoginToRegisterPage(loginParams:[String?]){
-    guard let username = loginParams.first as? String,
-          let password = loginParams.last as? String,
-          username == LOGIN_USERNAME,
-          password == LOGIN_PASSWORD
-      else {return}
-    let registerVC = HSRegisterViewController()
-    self.present(registerVC, animated: true, completion: nil)
+  private func statusItemWasSelected(status:HSUserType){
+    guard let mainView = self.mainView else {return}
+    mainView.userStatus = status
+  }
+  
+  func colorFieldWasPressed() {
+    self.showColorPicker()
+  }
+  
+  private func showColorPicker(){
+    let colorAlert = UIAlertController(style: .actionSheet)
+    colorAlert.addColorPicker { (color) in
+      let hexString = color.toHex
+      self.colorWasPicked(hexString: hexString)
+    }
+    colorAlert.addAction(UIAlertAction(title: "Done", style: .destructive, handler: nil))
+    self.present(colorAlert, animated: true, completion: nil)
+  }
+  
+  private func colorWasPicked(hexString:String?){
+    guard let mainView = self.mainView,
+          let hexString = hexString
+    else {return}
+    mainView.userColorHex = hexString
   }
 }
+
+extension HSRegisterViewController:HSButtonViewDelegate{
+  func buttonViewTapped(view: HSButtonView) {
+    if view == mainView?.backBtn{
+      self.dismiss(animated: true, completion: nil)
+    }
+  }
+}
+
