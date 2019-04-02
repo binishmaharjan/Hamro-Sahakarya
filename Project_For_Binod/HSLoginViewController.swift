@@ -145,3 +145,12 @@ extension HSLoginViewController:HSLoginViewDelegate{
     self.present(registerVC, animated: true, completion: nil)
   }
 }
+
+//MARK: Button Delegate
+extension HSLoginViewController:HSButtonViewDelegate{
+  func buttonViewTapped(view: HSButtonView) {
+    if view == mainView?.loginBtn{
+      Dlog("Login")
+    }
+  }
+}

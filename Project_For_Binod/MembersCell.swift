@@ -27,7 +27,6 @@ class MembersCell: UITableViewCell {
         
         //Changing the background color
         self.backgroundColor = UIColor.clear
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

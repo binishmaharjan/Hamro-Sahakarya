@@ -53,7 +53,7 @@ class HSRegisterViewController:HSViewController{
   }
 }
 
-//MARK : Notification
+//MARK:Notification
 extension HSRegisterViewController{
   
   private func setupNotification(){
@@ -148,11 +148,99 @@ extension HSRegisterViewController:HSRegisterViewDelegate{
   }
 }
 
+//MARK:Button Delegate
 extension HSRegisterViewController:HSButtonViewDelegate{
   func buttonViewTapped(view: HSButtonView) {
     if view == mainView?.backBtn{
       self.dismiss(animated: true, completion: nil)
     }
+    
+    if view == mainView?.registerBtn{
+      self.validateFieldsForRegisteringUser()
+    }
+  }
+}
+
+//MARK:RegisterUser
+extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManager{
+  private func validateFieldsForRegisteringUser(){
+
+    guard let email = mainView?.emailField?.text, email.count > 0 else {
+      createDropDownAlert(message: "Enter Email",type: .error)
+      return
+    }
+    
+    guard let username = mainView?.usernameField?.text, username.count > 0 else {
+      createDropDownAlert(message: "Enter Fullname",type: .error)
+      return
+    }
+    
+    guard let password = mainView?.passwordField?.text, password.count > 0 else {
+      createDropDownAlert(message: "Enter Password", type: .error)
+      return
+    }
+    
+    guard let initialAmountString = mainView?.initialAmountField?.text,
+              initialAmountString.count > 0,
+          let initialAmount = Int(initialAmountString) else{
+      createDropDownAlert(message: "Enter Initial Amount", type: .error)
+      return
+    }
+    
+    guard let memeber = mainView?.userStatus else{
+      return
+    }
+    
+    guard let colorHex = mainView?.userColorHex else {
+      return
+    }
+    
+    //Register user
+    self.resgisterEmailUser(email: email, password: password, username: username, initialAmount: initialAmount, status: memeber.rawValue, colorHex: colorHex) { (userId, error) in
+      if let error = error{
+        Dlog(error)
+        self.createDropDownAlert(message: "Error", type: .error)
+        return
+      }
+
+      guard let userId = userId else{
+        Dlog("No userId")
+        self.createDropDownAlert(message: "Error", type: .error)
+        return
+      }
+      
+      //Write info to the database
+      self.writeUserInfoToFireStore(uid: userId, email: email, username: username, initialAmount: initialAmount, keyword: password, status: memeber.rawValue, colorHex: colorHex, completion: { (error) in
+        
+        if let error = error{
+          Dlog(error)
+          self.createDropDownAlert(message: "Error", type: .error)
+          return
+        }
+        
+        //Write Log
+        self.writeLog(logOwner: userId, logCreator: HAMRO_SAHAKARYA, amount: initialAmount, logType: HSLogType.joined.rawValue, dateCreated: HSDate.dateToString(), completion: { (error) in
+          if let error = error{
+            Dlog(error)
+            self.createDropDownAlert(message: "Error", type: .error)
+            return
+          }
+          
+          //Successful
+          self.createDropDownAlert(message: "Account Created", type: .success)
+          self.dismiss(animated: true, completion: nil)
+        })
+
+      })
+      
+    }
+  }
+  
+  private func createDropDownAlert(message:String,type:HSDropDownType){
+    let dropDown = HSDropDownNotification()
+    dropDown.text = LOCALIZE(message)
+    dropDown.type = type
+    appDelegate.window?.addSubview(dropDown)
   }
 }
 

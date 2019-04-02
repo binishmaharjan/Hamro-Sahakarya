@@ -28,11 +28,19 @@ class HSRegisterView:HSBaseView{
   
   private weak var emailLabel:UILabel?
   private weak var emailBG:UIView?
-  private weak var emailField:UITextField?
+  weak var emailField:UITextField?
+  
+  private weak var usernameLabel:UILabel?
+  private weak var usernameBG:UIView?
+  weak var usernameField:UITextField?
   
   private weak var passwordLabel:UILabel?
   private weak var passwordBG:UIView?
-  private weak var passwordField:UITextField?
+  weak var passwordField:UITextField?
+  
+  private weak var initialAmountLabel:UILabel?
+  private weak var initialAmountBG:UIView?
+  weak var initialAmountField:UITextField?
   
   private weak var statusLabel:UILabel?
   private weak var statusBG:UIView?
@@ -42,11 +50,12 @@ class HSRegisterView:HSBaseView{
   private weak var colorBG:UIView?
   
   private weak var registerBtnBG:UIView?
-  private weak var registerBtn:HSTextButton?
+  weak var registerBtn:HSTextButton?
   
   var delegate:HSRegisterViewDelegate?{
     didSet{
       backBtn?.delegate = delegate as? HSButtonViewDelegate
+      registerBtn?.delegate = delegate as? HSButtonViewDelegate
     }
   }
   var userStatus:HSUserType = HSUserType.member{
@@ -82,7 +91,7 @@ class HSRegisterView:HSBaseView{
     //header
     let header = UIView()
     self.header = header
-    contentView.addSubview(header)
+    self.addSubview(header)
     
     //backbtn
     let backBtn = HSImageButtonView()
@@ -127,6 +136,31 @@ class HSRegisterView:HSBaseView{
     emailField.delegate = self
     emailBG.addSubview(emailField)
     
+    //username
+    let usernameLabel = UILabel()
+    self.usernameLabel = usernameLabel
+    usernameLabel.text = LOCALIZE("Fullname")
+    usernameLabel.font = HSFont.normal(size: Constants.TEXT_FONT_SIZE)
+    usernameLabel.textColor = HSColors.grey
+    contentView.addSubview(usernameLabel)
+    
+    let usernameBG = UIView()
+    self.usernameBG = usernameBG
+    usernameBG.backgroundColor = HSColors.white
+    usernameBG.layer.borderColor = HSColors.orange.cgColor
+    usernameBG.layer.borderWidth = Constants.BORDER_WIDTH
+    usernameBG.layer.cornerRadius = Constants.CORNER_RADIUS
+    contentView.addSubview(usernameBG)
+    
+    let usernameField = UITextField()
+    self.usernameField = usernameField
+    usernameField.backgroundColor = HSColors.white
+    usernameField.placeholder = LOCALIZE("Fullname")
+    usernameField.font = HSFont.normal(size: Constants.TEXT_FONT_SIZE)
+    usernameField.textColor = HSColors.black
+    usernameField.delegate = self
+    usernameBG.addSubview(usernameField)
+    
     //password
     let passwordLabel = UILabel()
     self.passwordLabel = passwordLabel
@@ -152,6 +186,32 @@ class HSRegisterView:HSBaseView{
     passwordField.delegate = self
     passwordField.isSecureTextEntry = true
     passwordBG.addSubview(passwordField)
+    
+    
+    //initital amount
+    let initialAmountLabel = UILabel()
+    self.initialAmountLabel = initialAmountLabel
+    initialAmountLabel.text = LOCALIZE("Initial Amount")
+    initialAmountLabel.font = HSFont.normal(size: Constants.TEXT_FONT_SIZE)
+    initialAmountLabel.textColor = HSColors.grey
+    contentView.addSubview(initialAmountLabel)
+    
+    let initialAmountBG = UIView()
+    self.initialAmountBG = initialAmountBG
+    initialAmountBG.backgroundColor = HSColors.white
+    initialAmountBG.layer.borderWidth = Constants.BORDER_WIDTH
+    initialAmountBG.layer.borderColor = HSColors.orange.cgColor
+    initialAmountBG.layer.cornerRadius = Constants.CORNER_RADIUS
+    contentView.addSubview(initialAmountBG)
+    
+    let initialAmountField = UITextField()
+    self.initialAmountField  = initialAmountField
+    initialAmountField.backgroundColor = HSColors.white
+    initialAmountField.placeholder = LOCALIZE("¥0")
+    initialAmountField.font = HSFont.normal(size: Constants.TEXT_FONT_SIZE)
+    initialAmountField.textColor = HSColors.black
+    initialAmountField.delegate = self
+    initialAmountBG.addSubview(initialAmountField)
     
     //status
     let statusLabel = UILabel()
@@ -223,9 +283,15 @@ class HSRegisterView:HSBaseView{
           let emailLabel = self.emailLabel,
           let emailBG = self.emailBG,
           let emailField = self.emailField,
+          let usernameLabel = self.usernameLabel,
+          let usernameBG = self.usernameBG,
+          let usernameField = self.usernameField,
           let passwordLabel = self.passwordLabel,
           let passwordBG = self.passwordBG,
           let passwordField = self.passwordField,
+          let initialAmountLabel = self.initialAmountLabel,
+          let initialAmountBG = self.initialAmountBG,
+          let initialAmountField = self.initialAmountField,
           let statusLabel = self.statusLabel,
           let statusBG = self.statusBG,
           let statusField = self.statusField,
@@ -235,16 +301,17 @@ class HSRegisterView:HSBaseView{
           let registerBtnBG = self.registerBtnBG
     else {return}
     
-    scrollView.edgesToSuperview()
-    
-    contentView.edgesToSuperview()
-    contentView.width(to: scrollView)
-    
     header.edgesToSuperview(excluding:.bottom)
     header.height(Constants.HEADER_H)
     
     backBtn.centerYToSuperview()
     backBtn.leftToSuperview(offset:Constants.BACK_C_X)
+    
+    scrollView.edgesToSuperview(excluding:.top)
+    scrollView.topToBottom(of: header)
+    
+    contentView.edgesToSuperview()
+    contentView.width(to: scrollView)
     
     pageTitle.topToSuperview(offset:Constants.TITLE_LABEL_TOP_MARGIN)
     pageTitle.leftToSuperview(offset:Constants.LEFT_MARGIN)
@@ -262,7 +329,20 @@ class HSRegisterView:HSBaseView{
                                                     bottom: Constants.ZERO,
                                                     right: Constants.TEXT_FIELD_HOR_INSETS))
     
-    passwordLabel.topToBottom(of: emailBG,offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
+    usernameLabel.left(to: emailLabel)
+    usernameLabel.topToBottom(of: emailBG, offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
+    
+    usernameBG.topToBottom(of: usernameLabel, offset: Constants.TEXT_FIELD_TOP_MARGIN)
+    usernameBG.leftToSuperview(offset: Constants.LEFT_MARGIN)
+    usernameBG.rightToSuperview(offset:  -Constants.LEFT_MARGIN)
+    usernameBG.height(Constants.TEXT_FIELD_HEIGHT)
+    
+    usernameField.edgesToSuperview(insets:UIEdgeInsets(top: Constants.ZERO,
+                                                      left: Constants.TEXT_FIELD_HOR_INSETS,
+                                                      bottom: Constants.ZERO,
+                                                      right: Constants.TEXT_FIELD_HOR_INSETS))
+    
+    passwordLabel.topToBottom(of: usernameBG,offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
     passwordLabel.left(to: emailLabel)
     
     passwordBG.topToBottom(of: passwordLabel, offset: Constants.TEXT_FIELD_TOP_MARGIN)
@@ -275,8 +355,21 @@ class HSRegisterView:HSBaseView{
                                                        bottom: Constants.ZERO,
                                                        right: Constants.TEXT_FIELD_HOR_INSETS))
     
+    initialAmountLabel.topToBottom(of: passwordBG,offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
+    initialAmountLabel.left(to: emailLabel)
+    
+    initialAmountBG.topToBottom(of: initialAmountLabel, offset: Constants.TEXT_FIELD_TOP_MARGIN)
+    initialAmountBG.leftToSuperview(offset:Constants.LEFT_MARGIN)
+    initialAmountBG.rightToSuperview(offset:-Constants.LEFT_MARGIN)
+    initialAmountBG.height(Constants.TEXT_FIELD_HEIGHT)
+    
+    initialAmountField.edgesToSuperview(insets:UIEdgeInsets(top: Constants.ZERO,
+                                                            left: Constants.TEXT_FIELD_HOR_INSETS,
+                                                            bottom: Constants.ZERO,
+                                                            right: Constants.TEXT_FIELD_HOR_INSETS))
+    
     statusLabel.left(to: emailLabel)
-    statusLabel.topToBottom(of: passwordBG,offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
+    statusLabel.topToBottom(of: initialAmountBG,offset: Constants.TEXT_FIELD_BOTTOM_MARGIN)
     
     statusBG.topToBottom(of: statusLabel,offset: Constants.TEXT_FIELD_TOP_MARGIN)
     statusBG.leftToSuperview(offset: Constants.LEFT_MARGIN)
@@ -303,11 +396,11 @@ class HSRegisterView:HSBaseView{
     
     registerBtn.edgesToSuperview()
     
-    contentView.bottom(to: registerBtn)
+    contentView.bottom(to: registerBtn,offset:Constants.CONTENT_VIEW_BOTTOM_MARGIN)
   }
 }
 
-//TextField Delegate
+//MARK:TextField Delegate
 extension HSRegisterView:UITextFieldDelegate{
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
@@ -323,13 +416,13 @@ extension HSRegisterView:UITextFieldDelegate{
   }
 }
 
-//Constants
+//MARK:Constants
 extension HSRegisterView{
   fileprivate class Constants{
     static let HEADER_H:CGFloat = 44
     static let BACK_C_X:CGFloat = 12
     
-    static let TITLE_LABEL_TOP_MARGIN:CGFloat = 76
+    static let TITLE_LABEL_TOP_MARGIN:CGFloat = 60
     static let LEFT_MARGIN:CGFloat = 30
     static let TITLE_LABEL_BOTTOM_MARGIN:CGFloat = 66
     static let TEXT_FIELD_TOP_MARGIN:CGFloat = 5
@@ -341,6 +434,7 @@ extension HSRegisterView{
     static let HIDE_BTN_SIZE:CGFloat = 25
     static let HIDE_BTN_TOP_MARGIN:CGFloat = 2
     static let HIDE_BTN_RIGHT_MARGIN:CGFloat = 5
+    static let CONTENT_VIEW_BOTTOM_MARGIN:CGFloat = 5
     static let ZERO:CGFloat = 0
     
     static let TITLE_FONT_SIZE:CGFloat = 28
