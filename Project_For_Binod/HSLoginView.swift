@@ -33,9 +33,13 @@ class HSLoginView:HSBaseView{
   private var isPasswordHidden:Bool = true
   
   private weak var loginBtnBG:UIView?
-  private weak var loginBtn:HSTextButton?
+  weak var loginBtn:HSTextButton?
   
-  var delegate:HSLoginViewDelegate?
+  var delegate:HSLoginViewDelegate?{
+    didSet{
+      loginBtn?.delegate = delegate as? HSButtonViewDelegate
+    }
+  }
   
   //MARK:Initializer
   override func didInit() {

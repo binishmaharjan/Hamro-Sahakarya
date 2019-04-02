@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 //Global variable to store user data
 var user : NSDictionary?
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+      //Firebase Server
+      setupFirebaseServer(application,launchOptions)
+      
       window = UIWindow(frame: UIScreen.main.bounds)
       window?.makeKeyAndVisible()
       window?.rootViewController = HSLoginViewController()
@@ -108,5 +112,21 @@ extension AppDelegate{
     let tabBar = storyBoard.instantiateViewController(withIdentifier: "tabBar")
     //changing the root view to tab bar
     window?.rootViewController = tabBar
+  }
+}
+
+
+extension AppDelegate{
+  private func setupFirebaseServer(_ application : UIApplication, _ launchOptions: [UIApplication.LaunchOptionsKey: Any]?){
+    var firebasePlistName = ""
+    
+    if IS_DEBUG {
+      firebasePlistName = "GoogleService-Info-dev"
+    } else {
+      firebasePlistName = "GoogleService-Info"
+    }
+    if let path = Bundle.main.path(forResource: firebasePlistName, ofType: "plist"), let firbaseOptions = FirebaseOptions(contentsOfFile: path) {
+      FirebaseApp.configure(options: firbaseOptions)
+    }
   }
 }

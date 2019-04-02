@@ -15,16 +15,16 @@ extension UIView {
   /// Should the corner be as circle
   public var circleCorner: Bool {
     get {
-      return min(bounds.size.height, bounds.size.width) / 2 == cornerRadius
+      return min(bounds.size.height, bounds.size.width) / 2 == _cornerRadius
     }
     set {
-      cornerRadius = newValue ? min(bounds.size.height, bounds.size.width) / 2 : cornerRadius
+      _cornerRadius = newValue ? min(bounds.size.height, bounds.size.width) / 2 : _cornerRadius
     }
   }
   
   @IBInspectable
   /// Corner radius of view; also inspectable from Storyboard.
-  public var cornerRadius: CGFloat {
+  public var _cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
     }
@@ -36,7 +36,7 @@ extension UIView {
   
   @IBInspectable
   /// Border color of view; also inspectable from Storyboard.
-  public var borderColor: UIColor? {
+  public var _borderColor: UIColor? {
     get {
       guard let color = layer.borderColor else {
         return nil
@@ -54,7 +54,7 @@ extension UIView {
   
   @IBInspectable
   /// Border width of view; also inspectable from Storyboard.
-  public var borderWidth: CGFloat {
+  public var _borderWidth: CGFloat {
     get {
       return layer.borderWidth
     }
@@ -172,25 +172,25 @@ public extension UIView {
     }
   }
   
-  /// Width of view.
-  public var width: CGFloat {
-    get {
-      return self.frame.size.width
-    }
-    set {
-      self.frame.size.width = newValue
-    }
-  }
-  
-  /// Height of view.
-  public var height: CGFloat {
-    get {
-      return self.frame.size.height
-    }
-    set {
-      self.frame.size.height = newValue
-    }
-  }
+//  /// Width of view.
+//  public var width: CGFloat {
+//    get {
+//      return self.frame.size.width
+//    }
+//    set {
+//      self.frame.size.width = newValue
+//    }
+//  }
+//
+//  /// Height of view.
+//  public var height: CGFloat {
+//    get {
+//      return self.frame.size.height
+//    }
+//    set {
+//      self.frame.size.height = newValue
+//    }
+//  }
 }
 
 extension UIView {

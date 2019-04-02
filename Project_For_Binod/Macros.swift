@@ -51,22 +51,40 @@ func randomID(length: Int) -> String {
 
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let SAFE_AREA_TOP_INSETS = UIApplication.shared.keyWindow?.safeAreaInsets.top
+let HAMRO_SAHAKARYA = "hamro_sahakarya"
 
 
-func getRangeOfSubString(subString: String, fromString: String) -> NSRange {
-  let sampleLinkRange = fromString.range(of: subString)!
-  let startPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.lowerBound)
-  let endPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.upperBound)
-  let linkRange = NSMakeRange(startPos, endPos - startPos)
-  return linkRange
-}
+//MARK:Errors
+let NO_RESULT_ERROR = NSError.init(domain: "No Result", code: -1, userInfo: nil)
 
-extension NSMutableAttributedString {
+
+//MARK:Firestore Constants
+class DatabaseReference{
+  static let HAMRO_SAHAKARYA_REF = "hamro_sahakarya"
+  static let TOTAL_BALANCE = "total_balance"
+  static let CURRENT_BALANCE = "current_balance"
+  static let EXTRA = "extra"
+  static let EXPENSES = "expenses"
+  static let TOTAL_LOAN_GIVEN = "total_loan_given"
   
-  func setColorForText(textForAttribute: String, withColor color: UIColor) {
-    let range: NSRange = self.mutableString.range(of: textForAttribute, options: .caseInsensitive)
-    
-    self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
-  }
+  static let MEMBERS_REF = "members"
+  static let USERNAME = "username"
+  static let UID = "uid"
+  static let EMAIL = "email"
+  static let STATUS = "status"
+  static let COLORHEX = "colorhex"
+  static let ICON_URL = "icon_url"
+  static let MY_ACCOUNT_REF = "my_account"
+  static let LOAN_TAKEN = "loan_taken"
+  static let BALANCE = "balance"
   
+  static let LOGS_REF = "logs"
+  static let LOG_ID = "log_id"
+  static let LOG_OWNER = "log_owner"
+  static let LOG_CREATOR = "log_creator"
+  static let AMOUNT = "amount"
+  static let DESCRIPTION = "description"
+  static let LOG_TYPE = "log_type"
+  static let DATE_CREATED = "date_created"
 }

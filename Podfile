@@ -6,6 +6,12 @@ target 'Project_For_Binod' do
   use_frameworks!
 
   # Pods for Project_For_Binod
+    pod 'Firebase/Auth'
+    pod 'Firebase/Firestore'
+    pod 'Firebase/Core'
+    pod 'Firebase/Storage'
+  
     pod "TinyConstraints"
+    pod 'CodableFirebase', '0.2.1'
 
 end

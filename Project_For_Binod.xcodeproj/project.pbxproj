@@ -29,6 +29,17 @@
 		64073BD22247B99500088E61 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BD12247B99500088E61 /* GradientSlider.swift */; };
 		64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BD32247BA6F00088E61 /* UIVIew_Extension.swift */; };
 		64073BD62247E7F600088E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD52247E7F600088E61 /* Main.storyboard */; };
+		64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */; };
+		64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD922488F0200088E61 /* GoogleService-Info.plist */; };
+		64073BDC224896A600088E61 /* HSRegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BDB224896A600088E61 /* HSRegisterUser.swift */; };
+		64073BDE22489CDB00088E61 /* HSDropDownNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BDD22489CDB00088E61 /* HSDropDownNotification.swift */; };
+		64073BE3224A087E00088E61 /* HSUserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BE2224A087E00088E61 /* HSUserDatabase.swift */; };
+		64073BE6224A093A00088E61 /* HSStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BE5224A093A00088E61 /* HSStorage.swift */; };
+		64073BE8224F08D700088E61 /* HSMemeber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BE7224F08D700088E61 /* HSMemeber.swift */; };
+		64073BEC224F0BC700088E61 /* HSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BEB224F0BC700088E61 /* HSDate.swift */; };
+		64073BEE224F900500088E61 /* HSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BED224F900500088E61 /* HSLog.swift */; };
+		64073BF0224F911800088E61 /* HSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BEF224F911800088E61 /* HSLogType.swift */; };
+		64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF1224F932A00088E61 /* HSGroupLogManager.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -82,9 +93,20 @@
 		64073BD12247B99500088E61 /* GradientSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 		64073BD32247BA6F00088E61 /* UIVIew_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIew_Extension.swift; sourceTree = "<group>"; };
 		64073BD52247E7F600088E61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
+		64073BD922488F0200088E61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64073BDB224896A600088E61 /* HSRegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRegisterUser.swift; sourceTree = "<group>"; };
+		64073BDD22489CDB00088E61 /* HSDropDownNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSDropDownNotification.swift; sourceTree = "<group>"; };
+		64073BE2224A087E00088E61 /* HSUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUserDatabase.swift; sourceTree = "<group>"; };
+		64073BE5224A093A00088E61 /* HSStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSStorage.swift; sourceTree = "<group>"; };
+		64073BE7224F08D700088E61 /* HSMemeber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSMemeber.swift; sourceTree = "<group>"; };
+		64073BEB224F0BC700088E61 /* HSDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSDate.swift; sourceTree = "<group>"; };
+		64073BED224F900500088E61 /* HSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLog.swift; sourceTree = "<group>"; };
+		64073BEF224F911800088E61 /* HSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogType.swift; sourceTree = "<group>"; };
+		64073BF1224F932A00088E61 /* HSGroupLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGroupLogManager.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_For_Binod.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC5A1FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA1EC5F1FF0B77100FA130D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +184,7 @@
 				64073BA22243ECD600088E61 /* HSFont.swift */,
 				64073BBD2243FBA200088E61 /* Macros.swift */,
 				64073BBF2244877700088E61 /* HSNotificationManager.swift */,
+				64073BEB224F0BC700088E61 /* HSDate.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -178,6 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				64073BC822479DE000088E61 /* HSUserType.swift */,
+				64073BE7224F08D700088E61 /* HSMemeber.swift */,
+				64073BED224F900500088E61 /* HSLog.swift */,
+				64073BEF224F911800088E61 /* HSLogType.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -185,6 +211,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64073BDF22489FB400088E61 /* DropDownNotification */,
 				64073BC322478CF700088E61 /* SignUp */,
 				64073BB22243F91D00088E61 /* Common */,
 				64073BAA2243EFB600088E61 /* Base */,
@@ -196,6 +223,9 @@
 		64073BA72243EE7400088E61 /* Contorller */ = {
 			isa = PBXGroup;
 			children = (
+				64073BE4224A092800088E61 /* Storage */,
+				64073BE1224A086400088E61 /* FireStore */,
+				64073BE0224A085700088E61 /* RegisterUser */,
 			);
 			name = Contorller;
 			sourceTree = "<group>";
@@ -267,6 +297,39 @@
 			name = ColorPicker;
 			sourceTree = "<group>";
 		};
+		64073BDF22489FB400088E61 /* DropDownNotification */ = {
+			isa = PBXGroup;
+			children = (
+				64073BDD22489CDB00088E61 /* HSDropDownNotification.swift */,
+			);
+			name = DropDownNotification;
+			sourceTree = "<group>";
+		};
+		64073BE0224A085700088E61 /* RegisterUser */ = {
+			isa = PBXGroup;
+			children = (
+				64073BDB224896A600088E61 /* HSRegisterUser.swift */,
+			);
+			name = RegisterUser;
+			sourceTree = "<group>";
+		};
+		64073BE1224A086400088E61 /* FireStore */ = {
+			isa = PBXGroup;
+			children = (
+				64073BE2224A087E00088E61 /* HSUserDatabase.swift */,
+				64073BF1224F932A00088E61 /* HSGroupLogManager.swift */,
+			);
+			name = FireStore;
+			sourceTree = "<group>";
+		};
+		64073BE4224A092800088E61 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				64073BE5224A093A00088E61 /* HSStorage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		ACA1EC491FF0B77000FA130D = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +343,7 @@
 		ACA1EC531FF0B77100FA130D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */,
+				ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +351,8 @@
 		ACA1EC541FF0B77100FA130D /* Project_For_Binod */ = {
 			isa = PBXGroup;
 			children = (
+				64073BD922488F0200088E61 /* GoogleService-Info.plist */,
+				64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */,
 				64073B9E2243E8E400088E61 /* Version2 */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
@@ -358,7 +423,7 @@
 			);
 			name = Project_For_Binod;
 			productName = Project_For_Binod;
-			productReference = ACA1EC521FF0B77100FA130D /* Project_For_Binod.app */;
+			productReference = ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -403,9 +468,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
+				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */,
 				ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */,
 				64073BD62247E7F600088E61 /* Main.storyboard in Resources */,
+				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,13 +488,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -469,6 +554,8 @@
 				ACA6AA132027E44E006B65E4 /* EditProfileController.swift in Sources */,
 				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
+				64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */,
+				64073BDE22489CDB00088E61 /* HSDropDownNotification.swift in Sources */,
 				64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
@@ -476,6 +563,7 @@
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
 				64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */,
 				64073BC722478D3B00088E61 /* HSRegisterView.swift in Sources */,
+				64073BE3224A087E00088E61 /* HSUserDatabase.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
 				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
@@ -483,6 +571,7 @@
 				64073BA32243ECD600088E61 /* HSFont.swift in Sources */,
 				64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
+				64073BE6224A093A00088E61 /* HSStorage.swift in Sources */,
 				64073BB92243FA2F00088E61 /* HSTextButton.swift in Sources */,
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
@@ -493,16 +582,21 @@
 				64073BCE2247B8B200088E61 /* ColorPickerViewController.swift in Sources */,
 				64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
+				64073BEE224F900500088E61 /* HSLog.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
+				64073BF0224F911800088E61 /* HSLogType.swift in Sources */,
 				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
 				64073BD22247B99500088E61 /* GradientSlider.swift in Sources */,
+				64073BEC224F0BC700088E61 /* HSDate.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
 				64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */,
+				64073BE8224F08D700088E61 /* HSMemeber.swift in Sources */,
 				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
 				64073BB02243F43000088E61 /* HSLoginView.swift in Sources */,
+				64073BDC224896A600088E61 /* HSRegisterUser.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
 			);
@@ -653,8 +747,8 @@
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod-dev";
+				PRODUCT_NAME = HamroSahakarya_dev;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
@@ -675,7 +769,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HamroSahakarya;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
