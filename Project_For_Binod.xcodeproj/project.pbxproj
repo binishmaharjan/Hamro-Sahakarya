@@ -40,6 +40,7 @@
 		64073BEE224F900500088E61 /* HSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BED224F900500088E61 /* HSLog.swift */; };
 		64073BF0224F911800088E61 /* HSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BEF224F911800088E61 /* HSLogType.swift */; };
 		64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF1224F932A00088E61 /* HSGroupLogManager.swift */; };
+		64073BF5225371B800088E61 /* HSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF4225371B800088E61 /* HSTabBarController.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -104,6 +105,7 @@
 		64073BED224F900500088E61 /* HSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLog.swift; sourceTree = "<group>"; };
 		64073BEF224F911800088E61 /* HSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogType.swift; sourceTree = "<group>"; };
 		64073BF1224F932A00088E61 /* HSGroupLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGroupLogManager.swift; sourceTree = "<group>"; };
+		64073BF4225371B800088E61 /* HSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTabBarController.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64073BF32253719B00088E61 /* Tab */,
 				64073BDF22489FB400088E61 /* DropDownNotification */,
 				64073BC322478CF700088E61 /* SignUp */,
 				64073BB22243F91D00088E61 /* Common */,
@@ -328,6 +331,14 @@
 				64073BE5224A093A00088E61 /* HSStorage.swift */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		64073BF32253719B00088E61 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				64073BF4225371B800088E61 /* HSTabBarController.swift */,
+			);
+			name = Tab;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -589,6 +600,7 @@
 				64073BF0224F911800088E61 /* HSLogType.swift in Sources */,
 				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
 				64073BD22247B99500088E61 /* GradientSlider.swift in Sources */,
+				64073BF5225371B800088E61 /* HSTabBarController.swift in Sources */,
 				64073BEC224F0BC700088E61 /* HSDate.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
