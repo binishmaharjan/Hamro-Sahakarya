@@ -196,16 +196,17 @@ extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManag
     }
     
     //Register user
+    HSActivityIndicator.shared.start(view: self.view)
     self.resgisterEmailUser(email: email, password: password, username: username, initialAmount: initialAmount, status: memeber.rawValue, colorHex: colorHex) { (userId, error) in
       if let error = error{
-        Dlog(error)
-        self.createDropDownAlert(message: "Error", type: .error)
+        HSActivityIndicator.shared.stop()
+        self.createDropDownAlert(message: error.localizedDescription, type: .error)
         return
       }
 
       guard let userId = userId else{
-        Dlog("No userId")
-        self.createDropDownAlert(message: "Error", type: .error)
+        HSActivityIndicator.shared.stop()
+        self.createDropDownAlert(message: "No User Id", type: .error)
         return
       }
       
@@ -213,20 +214,21 @@ extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManag
       self.writeUserInfoToFireStore(uid: userId, email: email, username: username, initialAmount: initialAmount, keyword: password, status: memeber.rawValue, colorHex: colorHex, completion: { (error) in
         
         if let error = error{
-          Dlog(error)
-          self.createDropDownAlert(message: "Error", type: .error)
+          HSActivityIndicator.shared.stop()
+          self.createDropDownAlert(message: error.localizedDescription, type: .error)
           return
         }
         
         //Write Log
         self.writeLog(logOwner: userId, logCreator: HAMRO_SAHAKARYA, amount: initialAmount, logType: HSLogType.joined.rawValue, dateCreated: HSDate.dateToString(), completion: { (error) in
           if let error = error{
-            Dlog(error)
-            self.createDropDownAlert(message: "Error", type: .error)
+            HSActivityIndicator.shared.stop()
+            self.createDropDownAlert(message: error.localizedDescription, type: .error)
             return
           }
           
           //Successful
+          HSActivityIndicator.shared.stop()
           self.createDropDownAlert(message: "Account Created", type: .success)
           self.dismiss(animated: true, completion: nil)
         })

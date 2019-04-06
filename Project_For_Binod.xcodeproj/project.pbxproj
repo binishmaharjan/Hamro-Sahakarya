@@ -41,6 +41,8 @@
 		64073BF0224F911800088E61 /* HSLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BEF224F911800088E61 /* HSLogType.swift */; };
 		64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF1224F932A00088E61 /* HSGroupLogManager.swift */; };
 		64073BF5225371B800088E61 /* HSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF4225371B800088E61 /* HSTabBarController.swift */; };
+		6410A917225636B6005A6E03 /* HSUserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A916225636B6005A6E03 /* HSUserLogin.swift */; };
+		6410A91922563CD1005A6E03 /* HSActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -106,6 +108,8 @@
 		64073BEF224F911800088E61 /* HSLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogType.swift; sourceTree = "<group>"; };
 		64073BF1224F932A00088E61 /* HSGroupLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGroupLogManager.swift; sourceTree = "<group>"; };
 		64073BF4225371B800088E61 /* HSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTabBarController.swift; sourceTree = "<group>"; };
+		6410A916225636B6005A6E03 /* HSUserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUserLogin.swift; sourceTree = "<group>"; };
+		6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSActivityIndicator.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +217,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6410A91A22563CDB005A6E03 /* ActivityIndicator */,
 				64073BF32253719B00088E61 /* Tab */,
 				64073BDF22489FB400088E61 /* DropDownNotification */,
 				64073BC322478CF700088E61 /* SignUp */,
@@ -226,6 +231,7 @@
 		64073BA72243EE7400088E61 /* Contorller */ = {
 			isa = PBXGroup;
 			children = (
+				6410A915225636A4005A6E03 /* UserLogin */,
 				64073BE4224A092800088E61 /* Storage */,
 				64073BE1224A086400088E61 /* FireStore */,
 				64073BE0224A085700088E61 /* RegisterUser */,
@@ -339,6 +345,22 @@
 				64073BF4225371B800088E61 /* HSTabBarController.swift */,
 			);
 			name = Tab;
+			sourceTree = "<group>";
+		};
+		6410A915225636A4005A6E03 /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				6410A916225636B6005A6E03 /* HSUserLogin.swift */,
+			);
+			name = UserLogin;
+			sourceTree = "<group>";
+		};
+		6410A91A22563CDB005A6E03 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */,
+			);
+			name = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -568,6 +590,7 @@
 				64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */,
 				64073BDE22489CDB00088E61 /* HSDropDownNotification.swift in Sources */,
 				64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */,
+				6410A917225636B6005A6E03 /* HSUserLogin.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
 				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
@@ -609,6 +632,7 @@
 				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
 				64073BB02243F43000088E61 /* HSLoginView.swift in Sources */,
 				64073BDC224896A600088E61 /* HSRegisterUser.swift in Sources */,
+				6410A91922563CD1005A6E03 /* HSActivityIndicator.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
 			);

@@ -58,7 +58,6 @@ class HSLoginViewController:HSViewController{
 
 //MARK : Notification
 extension HSLoginViewController{
-  
   private func setupNotification(){
     self.tearDownNotification()
     HSNotificationManager.receive(keyboardWillShow: self, selector: #selector(keyboardWilShow(_:)))
@@ -150,7 +149,45 @@ extension HSLoginViewController:HSLoginViewDelegate{
 extension HSLoginViewController:HSButtonViewDelegate{
   func buttonViewTapped(view: HSButtonView) {
     if view == mainView?.loginBtn{
-      Dlog("Login")
+      //Hide Keyboard
+      mainView?.emailField?.resignFirstResponder()
+      mainView?.passwordField?.resignFirstResponder()
+      
+      guard let email = mainView?.emailField?.text,email.count > 0 else {
+        self.createDropDownAlert(message: "Enter Email", type: .error)
+        return
+      }
+      
+      guard let password = mainView?.passwordField?.text,password.count > 0 else {
+        self.createDropDownAlert(message: "Enter Password", type: .error)
+        return
+      }
+      
+      self.userlogin(email: email, password: password)
     }
   }
+}
+
+//MARk:Login Function
+extension HSLoginViewController:HSUserLogin{
+  private func userlogin(email:String,password:String){
+    HSActivityIndicator.shared.start(view: self.view)
+    self.loginWithEmail(email: email, password: password) { (error) in
+      if let error = error{
+        self.createDropDownAlert(message: error.localizedDescription, type: .error)
+        HSActivityIndicator.shared.stop()
+        return
+      }
+      HSActivityIndicator.shared.stop()
+      self.dismiss(animated: true, completion: nil)
+    }
+  }
+  
+  private func createDropDownAlert(message:String,type:HSDropDownType){
+    let dropDown = HSDropDownNotification()
+    dropDown.text = LOCALIZE(message)
+    dropDown.type = type
+    appDelegate.window?.addSubview(dropDown)
+  }
+  
 }

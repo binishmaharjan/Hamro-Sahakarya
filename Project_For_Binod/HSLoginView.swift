@@ -23,11 +23,11 @@ class HSLoginView:HSBaseView{
   
   private weak var emailLabel:UILabel?
   private weak var emailBG:UIView?
-  private weak var emailField:UITextField?
+  weak var emailField:UITextField?
   
   private weak var passwordLabel:UILabel?
   private weak var passwordBG:UIView?
-  private weak var passwordField:UITextField?
+  weak var passwordField:UITextField?
   private weak var hideBG:UIView?
   private weak var hideIcon:UIButton?
   private var isPasswordHidden:Bool = true
