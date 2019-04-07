@@ -128,5 +128,17 @@ extension AppDelegate{
     if let path = Bundle.main.path(forResource: firebasePlistName, ofType: "plist"), let firbaseOptions = FirebaseOptions(contentsOfFile: path) {
       FirebaseApp.configure(options: firbaseOptions)
     }
+    
+    //Setup Session user
+    self.setupSessionUser()
+  }
+  
+  private func setupSessionUser(){
+    guard let user = Auth.auth().currentUser
+      else {
+        Dlog("NO USER LOGGED IN")
+        return
+    }
+      HSSessionManager.shared.userLoggedIn(uid: user.uid)
   }
 }
