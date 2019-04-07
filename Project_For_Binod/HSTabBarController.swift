@@ -21,12 +21,13 @@ class HSTabBarController:UITabBarController{
     super.viewDidLoad()
     self.setupTabBar()
     
-    let view1 = UIViewController()
-    view1.view.backgroundColor = HSColors.white
-    view1.title = nil
-    view1.tabBarItem.image = UIImage(named: "icon_home")?.withRenderingMode(.alwaysOriginal)
-    view1.tabBarItem.selectedImage = UIImage(named: "icon_home_h")?.withRenderingMode(.alwaysOriginal)
-    view1.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
+    let homeView = HSHomeViewController()
+    let homeNav = HSNavigationController(rootViewController:homeView)
+    homeView.view.backgroundColor = HSColors.white
+    homeView.title = nil
+    homeView.tabBarItem.image = UIImage(named: "icon_home")?.withRenderingMode(.alwaysOriginal)
+    homeView.tabBarItem.selectedImage = UIImage(named: "icon_home_h")?.withRenderingMode(.alwaysOriginal)
+    homeView.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
     
     let view2 = UIViewController()
     view2.view.backgroundColor = HSColors.white
@@ -42,7 +43,7 @@ class HSTabBarController:UITabBarController{
     view3.tabBarItem.selectedImage = UIImage(named: "icon_profile_h")?.withRenderingMode(.alwaysOriginal)
     view3.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
     
-    self.viewControllers = [view1,view2,view3]
+    self.viewControllers = [homeNav,view2,view3]
   }
   
   override func viewWillAppear(_ animated: Bool) {

@@ -43,6 +43,11 @@
 		64073BF5225371B800088E61 /* HSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BF4225371B800088E61 /* HSTabBarController.swift */; };
 		6410A917225636B6005A6E03 /* HSUserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A916225636B6005A6E03 /* HSUserLogin.swift */; };
 		6410A91922563CD1005A6E03 /* HSActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */; };
+		6410A91D22582BF5005A6E03 /* HSHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A91C22582BF5005A6E03 /* HSHomeController.swift */; };
+		6410A92222582DF1005A6E03 /* HSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92122582DF1005A6E03 /* HSNavigationController.swift */; };
+		6410A926225835BB005A6E03 /* HSTopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A925225835BB005A6E03 /* HSTopMenu.swift */; };
+		6410A92922587647005A6E03 /* HSTopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92822587647005A6E03 /* HSTopMenuCell.swift */; };
+		6410A92B2258BC86005A6E03 /* HSHomePagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -110,6 +115,11 @@
 		64073BF4225371B800088E61 /* HSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTabBarController.swift; sourceTree = "<group>"; };
 		6410A916225636B6005A6E03 /* HSUserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUserLogin.swift; sourceTree = "<group>"; };
 		6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSActivityIndicator.swift; sourceTree = "<group>"; };
+		6410A91C22582BF5005A6E03 /* HSHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSHomeController.swift; sourceTree = "<group>"; };
+		6410A92122582DF1005A6E03 /* HSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSNavigationController.swift; sourceTree = "<group>"; };
+		6410A925225835BB005A6E03 /* HSTopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenu.swift; sourceTree = "<group>"; };
+		6410A92822587647005A6E03 /* HSTopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenuCell.swift; sourceTree = "<group>"; };
+		6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSHomePagerController.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +227,9 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6410A9272258367A005A6E03 /* CollectionViewCell */,
+				6410A92022582DDA005A6E03 /* NavigationController */,
+				6410A91B22582BE3005A6E03 /* Home */,
 				6410A91A22563CDB005A6E03 /* ActivityIndicator */,
 				64073BF32253719B00088E61 /* Tab */,
 				64073BDF22489FB400088E61 /* DropDownNotification */,
@@ -361,6 +374,48 @@
 				6410A91822563CD1005A6E03 /* HSActivityIndicator.swift */,
 			);
 			name = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		6410A91B22582BE3005A6E03 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6410A924225834F9005A6E03 /* HomePager */,
+				6410A923225834F1005A6E03 /* TopMenu */,
+				6410A91C22582BF5005A6E03 /* HSHomeController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		6410A92022582DDA005A6E03 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				6410A92122582DF1005A6E03 /* HSNavigationController.swift */,
+			);
+			name = NavigationController;
+			sourceTree = "<group>";
+		};
+		6410A923225834F1005A6E03 /* TopMenu */ = {
+			isa = PBXGroup;
+			children = (
+				6410A925225835BB005A6E03 /* HSTopMenu.swift */,
+			);
+			name = TopMenu;
+			sourceTree = "<group>";
+		};
+		6410A924225834F9005A6E03 /* HomePager */ = {
+			isa = PBXGroup;
+			children = (
+				6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */,
+			);
+			name = HomePager;
+			sourceTree = "<group>";
+		};
+		6410A9272258367A005A6E03 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6410A92822587647005A6E03 /* HSTopMenuCell.swift */,
+			);
+			name = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -597,12 +652,14 @@
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
 				64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */,
 				64073BC722478D3B00088E61 /* HSRegisterView.swift in Sources */,
+				6410A91D22582BF5005A6E03 /* HSHomeController.swift in Sources */,
 				64073BE3224A087E00088E61 /* HSUserDatabase.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
 				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
 				64073BBE2243FBA200088E61 /* Macros.swift in Sources */,
 				64073BA32243ECD600088E61 /* HSFont.swift in Sources */,
+				6410A926225835BB005A6E03 /* HSTopMenu.swift in Sources */,
 				64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
 				64073BE6224A093A00088E61 /* HSStorage.swift in Sources */,
@@ -627,11 +684,14 @@
 				64073BEC224F0BC700088E61 /* HSDate.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				ACE1390D2050594200F2A5AB /* NoticeMessageController.swift in Sources */,
+				6410A92B2258BC86005A6E03 /* HSHomePagerController.swift in Sources */,
 				64073BAC2243EFD600088E61 /* HSBaseView.swift in Sources */,
+				6410A92922587647005A6E03 /* HSTopMenuCell.swift in Sources */,
 				64073BE8224F08D700088E61 /* HSMemeber.swift in Sources */,
 				ACE294E4203D0E8300A435CF /* OverviewController.swift in Sources */,
 				64073BB02243F43000088E61 /* HSLoginView.swift in Sources */,
 				64073BDC224896A600088E61 /* HSRegisterUser.swift in Sources */,
+				6410A92222582DF1005A6E03 /* HSNavigationController.swift in Sources */,
 				6410A91922563CD1005A6E03 /* HSActivityIndicator.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
