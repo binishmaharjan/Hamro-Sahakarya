@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640617332259C3E9000325C2 /* HSSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640617322259C3E9000325C2 /* HSSessionManager.swift */; };
 		64073BA12243E90C00088E61 /* HSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA02243E90C00088E61 /* HSColors.swift */; };
 		64073BA32243ECD600088E61 /* HSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA22243ECD600088E61 /* HSFont.swift */; };
 		64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA82243EE9D00088E61 /* HSLoginViewController.swift */; };
@@ -79,6 +80,7 @@
 		282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.release.xcconfig"; sourceTree = "<group>"; };
 		28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_For_Binod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		640617322259C3E9000325C2 /* HSSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSessionManager.swift; sourceTree = "<group>"; };
 		64073BA02243E90C00088E61 /* HSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSColors.swift; sourceTree = "<group>"; };
 		64073BA22243ECD600088E61 /* HSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFont.swift; sourceTree = "<group>"; };
 		64073BA82243EE9D00088E61 /* HSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLoginViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				64073BBD2243FBA200088E61 /* Macros.swift */,
 				64073BBF2244877700088E61 /* HSNotificationManager.swift */,
 				64073BEB224F0BC700088E61 /* HSDate.swift */,
+				640617322259C3E9000325C2 /* HSSessionManager.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
 				64073BEE224F900500088E61 /* HSLog.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
+				640617332259C3E9000325C2 /* HSSessionManager.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
 				64073BF0224F911800088E61 /* HSLogType.swift in Sources */,

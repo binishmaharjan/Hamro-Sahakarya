@@ -34,8 +34,8 @@ class HSNotificationManager:NSObject{
   }
 }
 
+ //MARK: - Keyboard
 extension HSNotificationManager{
-  //MARK: - Keyboard
   static func receive(keyboardDidChangeFrame observer:Any, selector:Selector) {
     let name = UIResponder.keyboardDidChangeFrameNotification
     self.receive(notificationName: name, observer: observer, selector: selector)
@@ -56,4 +56,12 @@ extension HSNotificationManager{
     let name = UIResponder.keyboardWillShowNotification
     self.receive(notificationName: name, observer: observer, selector: selector)
   }
+}
+
+extension HSNotificationManager{
+  //CURRENT_USER_INFO_DOWNLOADED
+  private static let CURRENT_USER_INFO_DOWNLOADED = "CURRENT_USER_INFO_DOWNLOADED"
+  static func postCurrentUserInfoDownloaded(){self.post(name: CURRENT_USER_INFO_DOWNLOADED, object: nil)}
+  static func receive(currentUserInfoDownloaded observer:Any,selector:Selector)
+  {self.receive(name: CURRENT_USER_INFO_DOWNLOADED, observer: observer, selector: selector)}
 }

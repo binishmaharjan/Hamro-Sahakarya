@@ -57,6 +57,8 @@ let HAMRO_SAHAKARYA = "hamro_sahakarya"
 
 //MARK:Errors
 let NO_RESULT_ERROR = NSError.init(domain: "No Result", code: -1, userInfo: nil)
+let NO_SNAPSHOT_ERROR = NSError.init(domain: "No Snapshot", code: -10, userInfo: nil)
+let EMPTY_DATA_ERROR = NSError.init(domain: "Empty Data", code: -20, userInfo: nil)
 
 
 //MARK:Firestore Constants
