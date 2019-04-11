@@ -178,8 +178,15 @@ extension HSLoginViewController:HSUserLogin{
         HSActivityIndicator.shared.stop()
         return
       }
-      HSActivityIndicator.shared.stop()
-      self.dismiss(animated: true, completion: nil)
+      guard let uid = HSSessionManager.shared.uid else{
+        Dlog("NO UID")
+        HSActivityIndicator.shared.stop()
+        return
+      }
+      HSSessionManager.shared.userLoggedIn(uid: uid, completion: {
+        HSActivityIndicator.shared.stop()
+        self.dismiss(animated: true, completion: nil)
+      })
     }
   }
   

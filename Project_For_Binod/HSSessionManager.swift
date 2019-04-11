@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import FirebaseAuth
 
 
 class HSSessionManager{
@@ -17,17 +17,24 @@ class HSSessionManager{
   
   //User
   var user:HSMemeber?
+  
+  var uid:String?{
+    return Auth.auth().currentUser?.uid
+  }
 }
 
 //MARK:User Logged In
 extension HSSessionManager:HSUserDatabase{
-  func userLoggedIn(uid:String){
+  func userLoggedIn(uid:String,completion:(()->())?=nil){
     self.downloadCurrentUserData(uid: uid) { (user, error) in
       if let error = error{
         Dlog(error.localizedDescription)
         return
       }
       self.user = user
+      self.thowUserInfoDidDownloadedNotification()
+      completion?()
+      Dlog(user)
     }
   }
   
