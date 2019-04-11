@@ -54,7 +54,7 @@ class HSTabBarController:UITabBarController{
         let loginVC = HSLoginViewController()
         self.present(loginVC, animated: true, completion: nil)
       }else{
-        
+//        try! Auth.auth().signOut()
       }
     })
   }

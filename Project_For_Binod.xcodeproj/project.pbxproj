@@ -13,6 +13,8 @@
 		6406173B225B83B9000325C2 /* HSProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6406173A225B83B9000325C2 /* HSProfileCell.swift */; };
 		6406173D225B89B0000325C2 /* HSTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6406173C225B89B0000325C2 /* HSTitleCell.swift */; };
 		6406173F225B93BA000325C2 /* HSLogCellAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6406173E225B93BA000325C2 /* HSLogCellAmount.swift */; };
+		64061741225F6310000325C2 /* HSGroupDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64061740225F6310000325C2 /* HSGroupDetails.swift */; };
+		64061743225F6443000325C2 /* HSGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64061742225F6443000325C2 /* HSGroup.swift */; };
 		64073BA12243E90C00088E61 /* HSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA02243E90C00088E61 /* HSColors.swift */; };
 		64073BA32243ECD600088E61 /* HSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA22243ECD600088E61 /* HSFont.swift */; };
 		64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64073BA82243EE9D00088E61 /* HSLoginViewController.swift */; };
@@ -91,6 +93,8 @@
 		6406173A225B83B9000325C2 /* HSProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSProfileCell.swift; sourceTree = "<group>"; };
 		6406173C225B89B0000325C2 /* HSTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTitleCell.swift; sourceTree = "<group>"; };
 		6406173E225B93BA000325C2 /* HSLogCellAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogCellAmount.swift; sourceTree = "<group>"; };
+		64061740225F6310000325C2 /* HSGroupDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGroupDetails.swift; sourceTree = "<group>"; };
+		64061742225F6443000325C2 /* HSGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSGroup.swift; sourceTree = "<group>"; };
 		64073BA02243E90C00088E61 /* HSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSColors.swift; sourceTree = "<group>"; };
 		64073BA22243ECD600088E61 /* HSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSFont.swift; sourceTree = "<group>"; };
 		64073BA82243EE9D00088E61 /* HSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLoginViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				64073BE7224F08D700088E61 /* HSMemeber.swift */,
 				64073BED224F900500088E61 /* HSLog.swift */,
 				64073BEF224F911800088E61 /* HSLogType.swift */,
+				64061742225F6443000325C2 /* HSGroup.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			children = (
 				64073BE2224A087E00088E61 /* HSUserDatabase.swift */,
 				64073BF1224F932A00088E61 /* HSGroupLogManager.swift */,
+				64061740225F6310000325C2 /* HSGroupDetails.swift */,
 			);
 			name = FireStore;
 			sourceTree = "<group>";
@@ -704,7 +710,9 @@
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
 				6406173B225B83B9000325C2 /* HSProfileCell.swift in Sources */,
+				64061743225F6443000325C2 /* HSGroup.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
+				64061741225F6310000325C2 /* HSGroupDetails.swift in Sources */,
 				64073BC222448FC400088E61 /* UIView+extension.swift in Sources */,
 				64073BB42243F93100088E61 /* HSButtonView.swift in Sources */,
 				64073BD02247B91F00088E61 /* UIAlertController+Extension.swift in Sources */,
