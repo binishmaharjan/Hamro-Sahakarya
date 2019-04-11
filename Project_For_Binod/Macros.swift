@@ -64,6 +64,7 @@ let EMPTY_DATA_ERROR = NSError.init(domain: "Empty Data", code: -20, userInfo: n
 //MARK:Firestore Constants
 class DatabaseReference{
   static let HAMRO_SAHAKARYA_REF = "hamro_sahakarya"
+  static let DETAIL_REF = "detail"
   static let TOTAL_BALANCE = "total_balance"
   static let CURRENT_BALANCE = "current_balance"
   static let EXTRA = "extra"

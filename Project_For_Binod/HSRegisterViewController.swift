@@ -162,7 +162,7 @@ extension HSRegisterViewController:HSButtonViewDelegate{
 }
 
 //MARK:RegisterUser
-extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManager{
+extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManager,HSGroupDetail{
   private func validateFieldsForRegisteringUser(){
 
     guard let email = mainView?.emailField?.text, email.count > 0 else {
@@ -227,12 +227,21 @@ extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManag
             return
           }
           
-          //Successful
-          HSActivityIndicator.shared.stop()
-          self.createDropDownAlert(message: "Account Created", type: .success)
-          self.dismiss(animated: true, completion: nil)
+          //Add to total balance
+          self.addToTotalBalanceAndMember(amount: initialAmount, completion: { (error) in
+            if let error = error{
+              HSActivityIndicator.shared.stop()
+              self.createDropDownAlert(message: error.localizedDescription, type: .error)
+            }
+            
+            
+            //Successful
+            HSActivityIndicator.shared.stop()
+            self.createDropDownAlert(message: "Account Created", type: .success)
+            self.dismiss(animated: true, completion: nil)
+            
+          })
         })
-
       })
       
     }
