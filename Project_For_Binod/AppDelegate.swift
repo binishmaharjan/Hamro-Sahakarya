@@ -134,11 +134,11 @@ extension AppDelegate{
   }
   
   private func setupSessionUser(){
-    guard let user = Auth.auth().currentUser
+    guard let uid = HSSessionManager.shared.uid
       else {
         Dlog("NO USER LOGGED IN")
         return
     }
-      HSSessionManager.shared.userLoggedIn(uid: user.uid)
+      HSSessionManager.shared.userLoggedIn(uid: uid)
   }
 }

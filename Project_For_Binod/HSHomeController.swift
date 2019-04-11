@@ -75,16 +75,24 @@ class HSHomeViewController:HSViewController{
       let homePager = self.homePager
       else {return}
     header.edgesToSuperview(excluding:.bottom,usingSafeArea:true)
-    header.height(44)
+    header.height(Constants.HEADER_HEIGHT)
     
     titleLbl.centerInSuperview()
     
     topMenu.topToBottom(of: header)
     topMenu.rightToSuperview()
     topMenu.leftToSuperview()
-    topMenu.height(44)
+    topMenu.height(Constants.TOP_MENU_HEIGHT)
     
     homePager.view.topToBottom(of: topMenu)
     homePager.view.edgesToSuperview(excluding:.top,usingSafeArea:true)
+  }
+}
+
+//MARK:Constants
+extension HSHomeViewController{
+  fileprivate class Constants{
+    static let HEADER_HEIGHT:CGFloat = 44
+    static let TOP_MENU_HEIGHT:CGFloat = 44
   }
 }
