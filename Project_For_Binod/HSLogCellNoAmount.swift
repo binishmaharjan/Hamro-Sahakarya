@@ -1,15 +1,15 @@
 //
-//  HSLogCell.swift
+//  HSLogCellNoAmount.swift
 //  Project_For_Binod
 //
-//  Created by Maharjan Binish on 2019/04/08.
+//  Created by Maharjan Binish on 2019/04/13.
 //  Copyright © 2019 JEC. All rights reserved.
 //
 
 import UIKit
 import TinyConstraints
 
-class HSLogCellAmount:UITableViewCell{
+class HSLogCellNoAmount:UITableViewCell{
   //MARK:Elements
   private weak var container:UIView?
   private weak var logCreatorLabel:UILabel?
@@ -19,7 +19,6 @@ class HSLogCellAmount:UITableViewCell{
   private weak var logOwnerImage:UIImageView?
   private weak var descriptionLabel:UILabel?
   private weak var byLabel:UILabel?
-  private weak var amountLabel:UILabel?
   private weak var dateLabel:UILabel?
   
   var log:HSLog?{
@@ -31,8 +30,6 @@ class HSLogCellAmount:UITableViewCell{
   //MARK:Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    self.setup()
-    self.setupConstraints()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -111,14 +108,6 @@ class HSLogCellAmount:UITableViewCell{
     byLabel.text = LOCALIZE("By:")
     byLabel.font = HSFont.normal(size: 14)
     
-    //Amount
-    let amountLabel = UILabel()
-    self.amountLabel = amountLabel
-    container.addSubview(amountLabel)
-    amountLabel.text = LOCALIZE("Amount:")
-    amountLabel.textColor = HSColors.black
-    amountLabel.font = HSFont.normal(size: 14)
-    
     //Date
     let dateLabel = UILabel()
     self.dateLabel = dateLabel
@@ -130,17 +119,16 @@ class HSLogCellAmount:UITableViewCell{
   
   private func setupConstraints(){
     guard let container = self.container,
-          let logOwnerLabel = self.logOwnerLabel,
-          let logOwnerImage = self.logOwnerImage,
-          let arrowImage = self.arrowImage,
-          let logCreatorLabel = self.logCreatorLabel,
-          let logCreatorImage = self.logCreatorImage,
-          let descriptionLabel = self.descriptionLabel,
-          let byLabel = self.byLabel,
-          let amountLabel = self.amountLabel,
-          let dateLabel = self.dateLabel
+      let logOwnerLabel = self.logOwnerLabel,
+      let logOwnerImage = self.logOwnerImage,
+      let arrowImage = self.arrowImage,
+      let logCreatorLabel = self.logCreatorLabel,
+      let logCreatorImage = self.logCreatorImage,
+      let descriptionLabel = self.descriptionLabel,
+      let byLabel = self.byLabel,
+      let dateLabel = self.dateLabel
       else {return}
-  
+    
     container.edgesToSuperview(insets: UIEdgeInsets(top: Constants.CONTAINER_VER_MARGIN,
                                                     left: Constants.CONTAINER_HOR_MARGIN,
                                                     bottom: Constants.CONTAINER_VER_MARGIN,
@@ -178,20 +166,15 @@ class HSLogCellAmount:UITableViewCell{
     byLabel.left(to: descriptionLabel)
     byLabel.right(to: descriptionLabel)
     
-    amountLabel.topToBottom(of: byLabel,offset: Constants.AMOUNT_LABEL_TOP_MARGIN)
-    amountLabel.left(to: descriptionLabel)
-    amountLabel.right(to: descriptionLabel)
-    
     dateLabel.rightToSuperview(offset:-Constants.DATE_LABEL_RIGHT_MARGIN)
-    dateLabel.topToBottom(of: amountLabel,offset: Constants.DATE_LABEL_TOP_MARGIN)
+    dateLabel.topToBottom(of: byLabel,offset: Constants.DATE_LABEL_TOP_MARGIN)
     
     container.bottom(to: dateLabel,offset:Constants.CONTAINER_BOTTOM_MARGIN)
   }
 }
 
-
 //MARK:Log Was Set
-extension HSLogCellAmount{
+extension HSLogCellNoAmount{
   private func reloadData(){
     guard let log = self.log else {return}
     
@@ -199,13 +182,12 @@ extension HSLogCellAmount{
     logCreatorLabel?.text = log.logCreator
     descriptionLabel?.text = log.logType
     byLabel?.text = "By: \(log.logCreator!)"
-    amountLabel?.text = "Amount: \(String(log.amount!))"
     dateLabel?.text = log.dateCreated
   }
 }
 
 //MARK:Constants
-extension HSLogCellAmount{
+extension HSLogCellNoAmount{
   fileprivate class Constants{
     static let CONTAINER_VER_MARGIN:CGFloat = 5
     static let CONTAINER_HOR_MARGIN:CGFloat = 10
@@ -217,7 +199,6 @@ extension HSLogCellAmount{
     static let DESCRIPTION_TOP_MARGIN:CGFloat = 5
     static let DESCRIPTION_HOR_MARGIN:CGFloat = 10
     static let BY_LABEL_TOP_MARGIN:CGFloat = 5
-    static let AMOUNT_LABEL_TOP_MARGIN:CGFloat = 5
     static let DATE_LABEL_RIGHT_MARGIN:CGFloat = 10
     static let DATE_LABEL_TOP_MARGIN:CGFloat = 2
   }
