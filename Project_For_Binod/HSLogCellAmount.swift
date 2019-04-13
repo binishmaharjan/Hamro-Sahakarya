@@ -22,11 +22,12 @@ class HSLogCellAmount:UITableViewCell{
   private weak var amountLabel:UILabel?
   private weak var dateLabel:UILabel?
   
-  var log:HSLog?{
-    didSet{
-      self.reloadData()
-    }
-  }
+  var log:HSLog?{didSet{self.downloadUsers()}}
+  var owner:HSMemeber?{didSet{isLogOwnerDownloaded = !(owner == nil)}}
+  var creator:HSMemeber?{didSet{isLogCreatorDownloaded = !(creator == nil)}}
+  
+  var isLogOwnerDownloaded:Bool = false{didSet{self.executeReloadData()}}
+  var isLogCreatorDownloaded:Bool = false{didSet{self.executeReloadData()}}
   
   //MARK:Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -191,18 +192,101 @@ class HSLogCellAmount:UITableViewCell{
 
 
 //MARK:Log Was Set
-extension HSLogCellAmount{
-  private func reloadData(){
-    guard let log = self.log else {return}
+extension HSLogCellAmount:HSUserDatabase{
+  private func downloadUsers(){
+    guard let log = self.log,
+          let logOwner = log.logOwner,
+          let logCreator = log.logCreator
+    else {return}
     
-    logOwnerLabel?.text = log.logOwner
-    logCreatorLabel?.text = log.logCreator
-    descriptionLabel?.text = log.logType
-    byLabel?.text = "By: \(log.logCreator!)"
-    amountLabel?.text = "Amount: \(String(log.amount!))"
+    //LOG OWNER
+    if logOwner == HAMRO_SAHAKARYA{
+      let member = HSMemeber.init(uid: HAMRO_SAHAKARYA, username: "Group", email: "", status: "", colorHex: "", iconUrl: "", dateCreated: "", keyword: "", loanTaken: 0, balance: 0, dateUpdated: "")
+      self.owner = member
+    }else{
+      self.downloadUserData(uid: logOwner) { (user, error) in
+        if let error = error{
+          Dlog(error.localizedDescription)
+          return
+        }
+        self.owner = user
+      }
+    }
+   
+    //LOG_CREATOR
+    if logCreator == HAMRO_SAHAKARYA{
+      let member = HSMemeber.init(uid: HAMRO_SAHAKARYA, username: "Group", email: "", status: "", colorHex: "", iconUrl: "", dateCreated: "", keyword: "", loanTaken: 0, balance: 0, dateUpdated: "")
+      self.creator = member
+    }else{
+      self.downloadUserData(uid: logCreator) { (user, error) in
+        if let error = error{
+          Dlog(error.localizedDescription)
+          return
+        }
+        self.creator = user
+      }
+    }
+  }
+  
+  private func shouldReloadData()->Bool{
+    return isLogOwnerDownloaded && isLogCreatorDownloaded
+  }
+  
+  private func executeReloadData(){
+    if shouldReloadData(){
+      self.reloadData()
+    }
+  }
+  
+  private func reloadData(){
+    guard let log = self.log,
+          let owner = self.owner,
+          let creator = self.creator
+      else {return}
+    
+    logOwnerLabel?.text = getFirstName(username: owner.username ?? "")
+    logCreatorLabel?.text = getFirstName(username: creator.username ?? "")
+    byLabel?.text = "-> Supervised By: \(creator.username!)"
+    descriptionLabel?.text = getDescriptionText()
+    amountLabel?.text = "-> Amount: ¥\(log.amount ?? 0)"
     dateLabel?.text = log.dateCreated
   }
+  
+  private func getDescriptionText()->String{
+    guard let log = self.log,
+          let logType = log.logType,
+          let owner = self.owner
+    else {return ""}
+    
+    switch logType {
+    case HSLogType.joined.rawValue:
+      return "\(owner.username ?? "") has JOINED the group.¥\(log.amount ?? 0) has been ADDED as Initial Fee to the group."
+    case HSLogType.left.rawValue:
+      return "\(owner.username ?? "") has LEFT the group.¥\(log.amount ?? 0) has been returned and DEDUCTED from the group."
+    case HSLogType.loanGiven.rawValue:
+      return "\(owner.username ?? "") has been GIVEN the loan of amount ¥\(log.amount ?? 0)."
+    case HSLogType.loanReturned.rawValue:
+      return "\(owner.username ?? "") has been RETURNED the loan of amount ¥\(log.amount ?? 0)."
+    case HSLogType.loanRequested.rawValue:
+      return "\(owner.username ?? "") has been REQUESTED the loan of amount ¥\(log.amount ?? 0)."
+    case HSLogType.monthlyFee.rawValue:
+      return "\(owner.username ?? "") has GIVEN the amount ¥\(log.amount ?? 0) as MONTHLY FEE."
+    case HSLogType.fee.rawValue:
+      return "\(owner.username ?? "") has GIVEN the amount ¥\(log.amount ?? 0) as FEE."
+    case HSLogType.extra.rawValue:
+      return "\(owner.username ?? "") had GIVEN amount of ¥\(log.amount ?? 0) has been ADDED as EXTRA.\nREASON: \(log.reason ?? "")"
+    case HSLogType.expenses.rawValue:
+      return "\(owner.username ?? "") had SPENT amount of ¥\(log.amount ?? 0) has been DEDUCTED as EXPENSES.\nREASON: \(log.reason ?? "")"
+    default:
+      return ""
+    }
+  }
+  
+  private func getFirstName(username:String)->String{
+    return username.components(separatedBy: " ").first ?? username
+  }
 }
+
 
 //MARK:Constants
 extension HSLogCellAmount{

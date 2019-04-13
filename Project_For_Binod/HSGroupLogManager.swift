@@ -12,17 +12,17 @@ import FirebaseFirestore
 
 protocol HSGroupLogManager{
   func writeLog(logOwner:String,logCreator:String,amount:Int,
-                logType:String,dateCreated:String,completion:((Error?)->())?)
+                logType:String,reason:String,dateCreated:String,completion:((Error?)->())?)
   func readUserLog(uid:String,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
   func readUserLogFromLastSnapshot(uid:String,lastSnapshot:QueryDocumentSnapshot,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
 }
 
 extension HSGroupLogManager{
   func writeLog(logOwner:String,logCreator:String,amount:Int,
-                logType:String,dateCreated:String,completion:((Error?)->())?){
+                logType:String,reason:String,dateCreated:String,completion:((Error?)->())?){
     
     let logId = randomID(length: 20)
-    let log = HSLog.init(lodId: logId, logOwner: logOwner, logCreator: logCreator, amount: amount, logType: logType, dateCreated: dateCreated)
+    let log = HSLog.init(lodId: logId, logOwner: logOwner, logCreator: logCreator, amount: amount, logType: logType, reason:reason, dateCreated: dateCreated)
     
     do{
       let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(logId)
