@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import FirebaseFirestore
 
 class HSProfileView:HSBaseView{
   //Elements
@@ -21,8 +22,16 @@ class HSProfileView:HSBaseView{
     didSet{
       titleLabel?.text = user?.username
       self.tableView?.reloadData()
+      self.loadUserLogs()
     }
   }
+  
+  var logs:[HSLog] = [HSLog]()
+  
+  private var lastSnapshot : QueryDocumentSnapshot?
+  private var isLastPage : Bool = false
+  private var isLoading: Bool = false
+  private var LAST_COUNT : Int = 4
   
   typealias CELL1 = HSProfileCell
   let CELL1_CLASS = CELL1.self
@@ -35,6 +44,10 @@ class HSProfileView:HSBaseView{
   typealias CELL3 = HSLogCellAmount
   let CELL3_CLASS = CELL3.self
   let CELL3_ID = NSStringFromClass(CELL3.self)
+  
+  typealias CELL4 = HSLogCellNoAmount
+  let CELL4_CLASS = CELL4.self
+  let CELL4_ID = NSStringFromClass(CELL4.self)
   
   //MARK:Init
   override func didInit() {
@@ -76,11 +89,13 @@ class HSProfileView:HSBaseView{
     tableView.register(CELL1_CLASS, forCellReuseIdentifier: CELL1_ID)
     tableView.register(CELL2_CLASS, forCellReuseIdentifier: CELL2_ID)
     tableView.register(CELL3_CLASS, forCellReuseIdentifier: CELL3_ID)
+    tableView.register(CELL4_CLASS, forCellReuseIdentifier: CELL4_ID)
     tableView.separatorStyle = .none
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableView.automaticDimension
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     tableView.dataSource = self
+    tableView.delegate = self
   }
   
   private func setupConstraints(){
@@ -110,9 +125,9 @@ class HSProfileView:HSBaseView{
 
 
 //MARK:TableView Datasource
-extension HSProfileView:UITableViewDataSource{
+extension HSProfileView:UITableViewDataSource,UITableViewDelegate{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 2 + 5
+    return 2 + logs.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,11 +143,100 @@ extension HSProfileView:UITableViewDataSource{
       return cell
     }
     
-    if let cell = tableView.dequeueReusableCell(withIdentifier: CELL3_ID, for: indexPath) as? CELL3{
-      cell.selectionStyle = .none
-      return cell
+    if indexPath.row >= 2{
+      let log = logs[indexPath.row - 2]
+      if log.logType != HSLogType.madeAdmin.rawValue || log.logType != HSLogType.removedAdmin.rawValue,
+          let cell = tableView.dequeueReusableCell(withIdentifier: CELL3_ID, for: indexPath) as? CELL3{
+        cell.selectionStyle = .none
+        cell.log = log
+        return cell
+      }
+      else if let cell = tableView.dequeueReusableCell(withIdentifier: CELL4_ID, for: indexPath) as? CELL4{
+        cell.selectionStyle = .none
+        cell.log = log
+        return cell
+      }
     }
+    
     return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+    let startLoadingIndex = self.logs.count - LAST_COUNT
+    if !isLoading,indexPath.row >= startLoadingIndex{
+      self.loadMoreUserLogs()
+    }
+  }
+}
+
+
+//MARK:Downoad User Log
+extension HSProfileView:HSGroupLogManager{
+  private func loadUserLogs(){
+    guard let user = user else {return}
+    self.isLoading = true
+    self.readUserLog(uid: user.uid) { (logs, lastSnapshot, isLastPage, error) in
+      if let error = error{
+        Dlog(error.localizedDescription)
+        self.isLoading = false
+        return
+      }
+      
+      guard let isLastPage = isLastPage,
+            let lastSnapshot = lastSnapshot,
+            let logs = logs,
+            !isLastPage
+      else {
+        Dlog("This is Last Page")
+        self.isLoading = false
+        self.isLastPage = true
+        return
+      }
+      
+      self.lastSnapshot = lastSnapshot
+      self.isLastPage = isLastPage
+      self.isLoading = false
+      self.logs = logs
+      self.tableView?.reloadData()
+      
+    }
+  }
+  
+  private func loadMoreUserLogs(){
+    guard !isLastPage else {Dlog("last Page"); return}
+    guard !isLoading else {Dlog("Still Loading"); return }
+    guard let user = user else {return}
+    
+    guard let lastSnapshot = lastSnapshot else {
+      Dlog("No Last Snapshot")
+      return
+    }
+    self.isLoading = true
+    
+    self.readUserLogFromLastSnapshot(uid: user.uid, lastSnapshot: lastSnapshot) { (logs, lastSnapshot, isLastPage, error) in
+      if let error = error{
+        Dlog(error.localizedDescription)
+        self.isLoading = false
+        return
+      }
+      
+      guard let isLastPage = isLastPage,
+        let lastSnapshot = lastSnapshot,
+        let logs = logs,
+        !isLastPage
+        else {
+          Dlog("This is Last Page From More")
+          self.isLoading = false
+          self.isLastPage = true
+          return
+      }
+      
+      self.lastSnapshot = lastSnapshot
+      self.isLastPage = isLastPage
+      self.isLoading = false
+      self.logs = logs
+      self.tableView?.reloadData()
+    }
   }
 }
 

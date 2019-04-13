@@ -56,6 +56,7 @@
 		6410A926225835BB005A6E03 /* HSTopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A925225835BB005A6E03 /* HSTopMenu.swift */; };
 		6410A92922587647005A6E03 /* HSTopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92822587647005A6E03 /* HSTopMenuCell.swift */; };
 		6410A92B2258BC86005A6E03 /* HSHomePagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */; };
+		64C0AA9522619542007A0696 /* HSLogCellNoAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9422619542007A0696 /* HSLogCellNoAmount.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -136,6 +137,7 @@
 		6410A925225835BB005A6E03 /* HSTopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenu.swift; sourceTree = "<group>"; };
 		6410A92822587647005A6E03 /* HSTopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenuCell.swift; sourceTree = "<group>"; };
 		6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSHomePagerController.swift; sourceTree = "<group>"; };
+		64C0AA9422619542007A0696 /* HSLogCellNoAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogCellNoAmount.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +201,7 @@
 				6406173A225B83B9000325C2 /* HSProfileCell.swift */,
 				6406173C225B89B0000325C2 /* HSTitleCell.swift */,
 				6406173E225B93BA000325C2 /* HSLogCellAmount.swift */,
+				64C0AA9422619542007A0696 /* HSLogCellNoAmount.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				64061735225B5663000325C2 /* HSProfileController.swift in Sources */,
 				6406173D225B89B0000325C2 /* HSTitleCell.swift in Sources */,
 				64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */,
+				64C0AA9522619542007A0696 /* HSLogCellNoAmount.swift in Sources */,
 				6410A917225636B6005A6E03 /* HSUserLogin.swift in Sources */,
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
