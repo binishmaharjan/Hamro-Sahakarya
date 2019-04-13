@@ -15,6 +15,7 @@ struct HSLog:Codable{
   let logCreator:String?
   let amount:Int?
   let logType:String?
+  let reason:String?
   let dateCreated:String?
 
   private enum CodingKeys:String,CodingKey{
@@ -23,6 +24,7 @@ struct HSLog:Codable{
     case logCreator = "log_creator"
     case amount
     case logType = "log_type"
+    case reason
     case dateCreated = "date_created"
   }
 }

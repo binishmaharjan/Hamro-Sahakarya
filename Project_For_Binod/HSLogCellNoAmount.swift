@@ -21,11 +21,12 @@ class HSLogCellNoAmount:UITableViewCell{
   private weak var byLabel:UILabel?
   private weak var dateLabel:UILabel?
   
-  var log:HSLog?{
-    didSet{
-      self.reloadData()
-    }
-  }
+  var log:HSLog?{didSet{self.downloadUsers()}}
+  var owner:HSMemeber?{didSet{isLogOwnerDownloaded = !(owner == nil)}}
+  var creator:HSMemeber?{didSet{isLogCreatorDownloaded = !(creator == nil)}}
+  
+  var isLogOwnerDownloaded:Bool = false{didSet{self.executeReloadData()}}
+  var isLogCreatorDownloaded:Bool = false{didSet{self.executeReloadData()}}
   
   //MARK:Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -173,16 +174,83 @@ class HSLogCellNoAmount:UITableViewCell{
   }
 }
 
-//MARK:Log Was Set
-extension HSLogCellNoAmount{
-  private func reloadData(){
-    guard let log = self.log else {return}
+extension HSLogCellNoAmount:HSUserDatabase{
+  private func downloadUsers(){
+    guard let log = self.log,
+      let logOwner = log.logOwner,
+      let logCreator = log.logCreator
+      else {return}
     
-    logOwnerLabel?.text = log.logOwner
-    logCreatorLabel?.text = log.logCreator
-    descriptionLabel?.text = log.logType
-    byLabel?.text = "By: \(log.logCreator!)"
+    //LOG OWNER
+    if logOwner == HAMRO_SAHAKARYA{
+      let member = HSMemeber.init(uid: HAMRO_SAHAKARYA, username: "Group", email: "", status: "", colorHex: "", iconUrl: "", dateCreated: "", keyword: "", loanTaken: 0, balance: 0, dateUpdated: "")
+      self.owner = member
+    }else{
+      self.downloadUserData(uid: logOwner) { (user, error) in
+        if let error = error{
+          Dlog(error.localizedDescription)
+          return
+        }
+        self.owner = user
+      }
+    }
+    
+    //LOG_CREATOR
+    if logCreator == HAMRO_SAHAKARYA{
+      let member = HSMemeber.init(uid: HAMRO_SAHAKARYA, username: "Group", email: "", status: "", colorHex: "", iconUrl: "", dateCreated: "", keyword: "", loanTaken: 0, balance: 0, dateUpdated: "")
+      self.creator = member
+    }else{
+      self.downloadUserData(uid: logCreator) { (user, error) in
+        if let error = error{
+          Dlog(error.localizedDescription)
+          return
+        }
+        self.creator = user
+      }
+    }
+  }
+  
+  private func shouldReloadData()->Bool{
+    return isLogOwnerDownloaded && isLogCreatorDownloaded
+  }
+  
+  private func executeReloadData(){
+    if shouldReloadData(){
+      self.reloadData()
+    }
+  }
+  
+  private func reloadData(){
+    guard let log = self.log,
+      let owner = self.owner,
+      let creator = self.creator
+      else {return}
+    
+    logOwnerLabel?.text = getFirstName(username: owner.username ?? "")
+    logCreatorLabel?.text = getFirstName(username: creator.username ?? "")
+    byLabel?.text = "-> Supervised By: \(creator.username!)"
+    descriptionLabel?.text = getDescriptionText()
     dateLabel?.text = log.dateCreated
+  }
+  
+  private func getDescriptionText()->String{
+    guard let log = self.log,
+      let logType = log.logType,
+      let owner = self.owner
+      else {return ""}
+    
+    switch logType {
+    case HSLogType.madeAdmin.rawValue:
+      return "\(owner.username ?? "") has been MADE admin."
+    case HSLogType.removedAdmin.rawValue:
+      return "\(owner.username ?? "") has been REMOVED from admin."
+    default:
+      return ""
+    }
+  }
+  
+  private func getFirstName(username:String)->String{
+    return username.components(separatedBy: " ").first ?? username
   }
 }
 

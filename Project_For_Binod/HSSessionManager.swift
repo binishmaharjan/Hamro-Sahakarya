@@ -26,7 +26,7 @@ class HSSessionManager{
 //MARK:User Logged In
 extension HSSessionManager:HSUserDatabase{
   func userLoggedIn(uid:String,completion:(()->())?=nil){
-    self.downloadCurrentUserData(uid: uid) { (user, error) in
+    self.downloadUserData(uid: uid) { (user, error) in
       if let error = error{
         Dlog(error.localizedDescription)
         return

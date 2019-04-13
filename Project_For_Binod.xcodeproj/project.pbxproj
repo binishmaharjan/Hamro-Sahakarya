@@ -57,6 +57,7 @@
 		6410A92922587647005A6E03 /* HSTopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92822587647005A6E03 /* HSTopMenuCell.swift */; };
 		6410A92B2258BC86005A6E03 /* HSHomePagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */; };
 		64C0AA9522619542007A0696 /* HSLogCellNoAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9422619542007A0696 /* HSLogCellNoAmount.swift */; };
+		64C0AA9B226198F6007A0696 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9A226198F6007A0696 /* Wrapper.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -138,6 +139,7 @@
 		6410A92822587647005A6E03 /* HSTopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenuCell.swift; sourceTree = "<group>"; };
 		6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSHomePagerController.swift; sourceTree = "<group>"; };
 		64C0AA9422619542007A0696 /* HSLogCellNoAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogCellNoAmount.swift; sourceTree = "<group>"; };
+		64C0AA9A226198F6007A0696 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,11 +257,10 @@
 		64073BA52243EE6400088E61 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				64073BC822479DE000088E61 /* HSUserType.swift */,
-				64073BE7224F08D700088E61 /* HSMemeber.swift */,
-				64073BED224F900500088E61 /* HSLog.swift */,
-				64073BEF224F911800088E61 /* HSLogType.swift */,
-				64061742225F6443000325C2 /* HSGroup.swift */,
+				64C0AA99226198AF007A0696 /* Group */,
+				64C0AA982261989F007A0696 /* Log */,
+				64C0AA9722619886007A0696 /* User */,
+				64C0AA9622619879007A0696 /* WrapperClass */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -459,6 +460,40 @@
 				6410A92822587647005A6E03 /* HSTopMenuCell.swift */,
 			);
 			name = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		64C0AA9622619879007A0696 /* WrapperClass */ = {
+			isa = PBXGroup;
+			children = (
+				64C0AA9A226198F6007A0696 /* Wrapper.swift */,
+			);
+			name = WrapperClass;
+			sourceTree = "<group>";
+		};
+		64C0AA9722619886007A0696 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				64073BE7224F08D700088E61 /* HSMemeber.swift */,
+				64073BC822479DE000088E61 /* HSUserType.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		64C0AA982261989F007A0696 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				64073BEF224F911800088E61 /* HSLogType.swift */,
+				64073BED224F900500088E61 /* HSLog.swift */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		64C0AA99226198AF007A0696 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				64061742225F6443000325C2 /* HSGroup.swift */,
+			);
+			name = Group;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -696,6 +731,7 @@
 				ACA6AA1B202A8B9C006B65E4 /* MemberListForAdmin.swift in Sources */,
 				64073BBC2243FAA000088E61 /* Array+extension.swift in Sources */,
 				ACA1EC6B1FF0BBEA00FA130D /* UIView_Designable.swift in Sources */,
+				64C0AA9B226198F6007A0696 /* Wrapper.swift in Sources */,
 				ACA6AA0F2025D01A006B65E4 /* MembersController.swift in Sources */,
 				64073BB62243F9C000088E61 /* HSImageButtonView.swift in Sources */,
 				64073BC722478D3B00088E61 /* HSRegisterView.swift in Sources */,

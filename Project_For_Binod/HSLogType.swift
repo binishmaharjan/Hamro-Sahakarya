@@ -17,6 +17,7 @@ enum HSLogType:String{
   case loanReturned = "loan_returned"
   case loanRequested = "loan_requested"
   case monthlyFee = "monthly_fee"
+  case fee = "fee"
   case extra = "extra"
   case expenses = "expenses"
   

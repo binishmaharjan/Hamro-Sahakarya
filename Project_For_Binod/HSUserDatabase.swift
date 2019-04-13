@@ -14,7 +14,7 @@ import CodableFirebase
 protocol HSUserDatabase{
   func writeUserInfoToFireStore(uid:String,email:String,username:String,initialAmount:Int,
                                 keyword:String,status:String,colorHex:String,completion:((Error?)->())?)
-  func downloadCurrentUserData(uid:String,completion:((HSMemeber?,Error?)->())?)
+  func downloadUserData(uid:String,completion:((HSMemeber?,Error?)->())?)
 }
 
 extension HSUserDatabase{
@@ -54,7 +54,13 @@ extension HSUserDatabase{
   }
   
   //Downloading Current User Info
-  func downloadCurrentUserData(uid:String,completion:((HSMemeber?,Error?)->())?){
+  func downloadUserData(uid:String,completion:((HSMemeber?,Error?)->())?){
+    if let savedUser = cacheUsers.object(forKey: NSString(string: uid)) as? Wrapper<HSMemeber>{
+      let user = savedUser.value
+      completion?(user,nil)
+      return
+    }
+    
     let ref = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(uid)
     ref.getDocument { (snapshot, error) in
       if let error = error{
@@ -74,6 +80,7 @@ extension HSUserDatabase{
       
       do{
         let userInfo = try FirestoreDecoder().decode(HSMemeber.self,from: data)
+        cacheUsers.setObject(Wrapper<HSMemeber>(_struct: userInfo), forKey: userInfo.uid as NSString)
         completion?(userInfo,nil)
       }catch{
         completion?(nil,error)

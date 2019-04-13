@@ -220,7 +220,7 @@ extension HSRegisterViewController:HSRegisterUser,HSUserDatabase,HSGroupLogManag
         }
         
         //Write Log
-        self.writeLog(logOwner: userId, logCreator: HAMRO_SAHAKARYA, amount: initialAmount, logType: HSLogType.joined.rawValue, dateCreated: HSDate.dateToString(), completion: { (error) in
+        self.writeLog(logOwner: userId, logCreator: HAMRO_SAHAKARYA, amount: initialAmount, logType: HSLogType.joined.rawValue, reason: "", dateCreated: HSDate.dateToString(), completion: { (error) in
           if let error = error{
             HSActivityIndicator.shared.stop()
             self.createDropDownAlert(message: error.localizedDescription, type: .error)

@@ -55,6 +55,9 @@ let SAFE_AREA_TOP_INSETS = UIApplication.shared.keyWindow?.safeAreaInsets.top
 let HAMRO_SAHAKARYA = "hamro_sahakarya"
 
 
+//MARK:CACHE
+let cacheUsers = NSCache<NSString, AnyObject>()
+
 //MARK:Errors
 let NO_RESULT_ERROR = NSError.init(domain: "No Result", code: -1, userInfo: nil)
 let NO_SNAPSHOT_ERROR = NSError.init(domain: "No Snapshot", code: -10, userInfo: nil)
