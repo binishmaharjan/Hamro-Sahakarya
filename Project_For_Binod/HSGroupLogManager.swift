@@ -15,6 +15,9 @@ protocol HSGroupLogManager{
                 logType:String,reason:String,dateCreated:String,completion:((Error?)->())?)
   func readUserLog(uid:String,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
   func readUserLogFromLastSnapshot(uid:String,lastSnapshot:QueryDocumentSnapshot,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
+  
+  func readAllLog(completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
+  func readAllLogFromLastSnapshot(lastSnapshot:QueryDocumentSnapshot,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?)
 }
 
 extension HSGroupLogManager{
@@ -89,6 +92,85 @@ extension HSGroupLogManager{
               .order(by: DatabaseReference.DATE_CREATED, descending: true)
               .limit(to: 10)
               .start(afterDocument: lastSnapshot)
+    
+    DispatchQueue.global(qos: .default).async {
+      ref.getDocuments(completion: { (snapshot, error) in
+        if let error = error{
+          completion?(nil,nil,nil,error)
+          return
+        }
+        
+        guard let snapshot = snapshot else{
+          completion?(nil,nil,nil,NO_SNAPSHOT_ERROR)
+          return
+        }
+        
+        guard let lastSnapshot = snapshot.documents.last else {
+          completion?(nil,nil,true,nil)
+          return
+        }
+        
+        var logs:[HSLog] = [HSLog]()
+        snapshot.documents.forEach({ (document) in
+          let data = document.data()
+          do{
+            let log = try FirestoreDecoder().decode(HSLog.self, from: data)
+            logs.append(log)
+          }catch{
+            completion?(nil,nil,nil,error)
+          }
+        })
+        
+        completion?(logs,lastSnapshot,false,nil)
+      })
+    }
+  }
+  
+  func readAllLog(completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?){
+    let ref = Firestore.firestore()
+      .collection(DatabaseReference.LOGS_REF)
+      .limit(to: 10)
+      .order(by: DatabaseReference.DATE_CREATED, descending: true)
+    
+    DispatchQueue.global(qos: .default).async {
+      ref.getDocuments(completion: { (snapshot, error) in
+        if let error = error{
+          completion?(nil,nil,nil,error)
+          return
+        }
+        
+        guard let snapshot = snapshot else{
+          completion?(nil,nil,nil,NO_SNAPSHOT_ERROR)
+          return
+        }
+        
+        guard let lastSnapshot = snapshot.documents.last else {
+          completion?(nil,nil,true,nil)
+          return
+        }
+        
+        var logs:[HSLog] = [HSLog]()
+        snapshot.documents.forEach({ (document) in
+          let data = document.data()
+          do{
+            let log = try FirestoreDecoder().decode(HSLog.self, from: data)
+            logs.append(log)
+          }catch{
+            completion?(nil,nil,nil,error)
+          }
+        })
+        
+        completion?(logs,lastSnapshot,false,nil)
+      })
+    }
+  }
+  
+  func readAllLogFromLastSnapshot(lastSnapshot:QueryDocumentSnapshot,completion:(([HSLog]?,QueryDocumentSnapshot?,Bool?,Error?)->())?){
+    let ref = Firestore.firestore()
+      .collection(DatabaseReference.LOGS_REF)
+      .order(by: DatabaseReference.DATE_CREATED, descending: true)
+      .limit(to: 10)
+      .start(afterDocument: lastSnapshot)
     
     DispatchQueue.global(qos: .default).async {
       ref.getDocuments(completion: { (snapshot, error) in

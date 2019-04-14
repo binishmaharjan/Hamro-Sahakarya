@@ -29,12 +29,13 @@ class HSTabBarController:UITabBarController{
     homeView.tabBarItem.selectedImage = UIImage(named: "icon_home_h")?.withRenderingMode(.alwaysOriginal)
     homeView.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
     
-    let view2 = UIViewController()
-    view2.view.backgroundColor = HSColors.white
-    view2.title = nil
-    view2.tabBarItem.image = UIImage(named: "icon_log")?.withRenderingMode(.alwaysOriginal)
-    view2.tabBarItem.selectedImage = UIImage(named: "icon_log_h")?.withRenderingMode(.alwaysOriginal)
-    view2.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
+    let logView = HSLogController()
+    let logNav = HSNavigationController(rootViewController: logView)
+    logView.view.backgroundColor = HSColors.white
+    logView.title = nil
+    logView.tabBarItem.image = UIImage(named: "icon_log")?.withRenderingMode(.alwaysOriginal)
+    logView.tabBarItem.selectedImage = UIImage(named: "icon_log_h")?.withRenderingMode(.alwaysOriginal)
+    logView.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
     
     let profileView = HSProfileController()
     let profileNav = HSNavigationController(rootViewController: profileView)
@@ -44,7 +45,7 @@ class HSTabBarController:UITabBarController{
     profileView.tabBarItem.selectedImage = UIImage(named: "icon_profile_h")?.withRenderingMode(.alwaysOriginal)
     profileView.tabBarItem.imageInsets = Constants.TAB_BAR_ITEM_EDGE_INSETS
     
-    self.viewControllers = [homeNav,view2,profileNav]
+    self.viewControllers = [homeNav,logNav,profileNav]
   }
   
   override func viewWillAppear(_ animated: Bool) {
