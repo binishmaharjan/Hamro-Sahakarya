@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import Kingfisher
 
 class HSLogCellNoAmount:UITableViewCell{
   //MARK:Elements
@@ -231,6 +232,17 @@ extension HSLogCellNoAmount:HSUserDatabase{
     byLabel?.text = "-> Supervised By: \(creator.username!)"
     descriptionLabel?.text = getDescriptionText()
     dateLabel?.text = log.dateCreated
+    
+    if let ownerIconString = owner.iconUrl,ownerIconString.count > 0{
+      let url = URL(string: ownerIconString)
+      logOwnerImage?.kf.setImage(with: url)
+    }
+    
+    if let creatorIconString = creator.iconUrl,creatorIconString.count > 0{
+      let url = URL(string: creatorIconString)
+      logCreatorImage?.kf.setImage(with: url)
+    }
+
   }
   
   private func getDescriptionText()->String{

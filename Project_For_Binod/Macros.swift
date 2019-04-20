@@ -63,6 +63,12 @@ let NO_RESULT_ERROR = NSError.init(domain: "No Result", code: -1, userInfo: nil)
 let NO_SNAPSHOT_ERROR = NSError.init(domain: "No Snapshot", code: -10, userInfo: nil)
 let EMPTY_DATA_ERROR = NSError.init(domain: "Empty Data", code: -20, userInfo: nil)
 
+func createDropDownAlert(message:String,type:HSDropDownType){
+  let dropDown = HSDropDownNotification()
+  dropDown.text = LOCALIZE(message)
+  dropDown.type = type
+  appDelegate.window?.addSubview(dropDown)
+}
 
 //MARK:Firestore Constants
 class DatabaseReference{
@@ -93,4 +99,9 @@ class DatabaseReference{
   static let DESCRIPTION = "description"
   static let LOG_TYPE = "log_type"
   static let DATE_CREATED = "date_created"
+}
+
+class StorageReference{
+  static let USER_PROFILE = "user_profile"
+  static let PROFILE_IMAGE = "profile_image.jpg"
 }

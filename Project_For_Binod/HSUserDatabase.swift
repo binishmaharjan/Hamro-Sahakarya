@@ -15,6 +15,7 @@ protocol HSUserDatabase{
   func writeUserInfoToFireStore(uid:String,email:String,username:String,initialAmount:Int,
                                 keyword:String,status:String,colorHex:String,completion:((Error?)->())?)
   func downloadUserData(uid:String,completion:((HSMemeber?,Error?)->())?)
+  func updateProfileURL(url:String,completion:((Error?)->())?)
 }
 
 extension HSUserDatabase{
@@ -86,5 +87,24 @@ extension HSUserDatabase{
         completion?(nil,error)
       }
     }
+  }
+  
+  //Update the url of icon after the change of user profile
+  func updateProfileURL(url:String,completion:((Error?)->())?){
+    guard let user = HSSessionManager.shared.user else {return}
+    
+    let updateDate = [DatabaseReference.ICON_URL : url]
+    let iconUrlRefrence = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+    
+    DispatchQueue.global(qos: .default).async {
+      iconUrlRefrence.updateData(updateDate, completion: { (error) in
+        if let error = error{
+          completion?(error)
+          return
+        }
+        completion?(nil)
+      })
+    }
+    
   }
 }
