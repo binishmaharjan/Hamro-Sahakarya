@@ -63,8 +63,6 @@ class HSSettingMenuCell:UICollectionViewCell{
     
     border.edgesToSuperview(excluding:.top)
     border.height(Constants.BORDER_HEIGHT)
-    
-    self.bottom(to: container)
   }
 }
 

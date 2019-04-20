@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import Kingfisher
 
 class HSLogCellAmount:UITableViewCell{
   //MARK:Elements
@@ -250,6 +251,16 @@ extension HSLogCellAmount:HSUserDatabase{
     descriptionLabel?.text = getDescriptionText()
     amountLabel?.text = "-> Amount: ¥\(log.amount ?? 0)"
     dateLabel?.text = log.dateCreated
+    
+    if let ownerIconString = owner.iconUrl,ownerIconString.count > 0{
+      let url = URL(string: ownerIconString)
+      logOwnerImage?.kf.setImage(with: url)
+    }
+    
+    if let creatorIconString = creator.iconUrl,creatorIconString.count > 0{
+      let url = URL(string: creatorIconString)
+      logCreatorImage?.kf.setImage(with: url)
+    }
   }
   
   private func getDescriptionText()->String{

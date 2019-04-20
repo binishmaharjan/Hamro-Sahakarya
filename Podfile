@@ -13,5 +13,7 @@ target 'Project_For_Binod' do
   
     pod "TinyConstraints"
     pod 'CodableFirebase', '0.2.1'
+    pod 'Gallery'
+    pod 'Kingfisher'
 
 end

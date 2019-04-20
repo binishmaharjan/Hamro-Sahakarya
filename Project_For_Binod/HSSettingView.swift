@@ -9,6 +9,25 @@
 import UIKit
 import TinyConstraints
 
+protocol HSSettingDelegate:NSObjectProtocol{
+  func changeProfilePicturePressed()
+  func changePasswordPressed()
+  func requestForLoanPressed()
+  func termsAndConditionPressed()
+  func privacyPolicyPressed()
+  func logoutPressed()
+  //Admin Menu
+  func addAmountPressed()
+  func addMonthlyFeePressed()
+  func loanMemberPressed()
+  func loanReturnedPressed()
+  func addExpensePressed()
+  func addExtraPressed()
+  func deleteUserPressed()
+  func makeAdminPressed()
+  func removeAdminPressed()
+}
+
 class HSSettingView:HSBaseView{
   //Elements
   private weak var header:UIView?
@@ -40,9 +59,9 @@ class HSSettingView:HSBaseView{
   
   //Menu Items
   private let sectionTitle:[String] = ["Users","Others","Admin"]
-  private let userMenu:[String] = ["Edit Profile","Request For Loan"]
+  private let userMenu:[String] = ["Change Picture","Change Password","Request For Loan"]
   private let otherMenu:[String] = ["Terms & Conditon","Privacy Policy","Logout"]
-  private let adminMenu:[String] = ["Delete User","Make Admin","Remove Admin","Add Amount","Add Monthly Fee","Loan a Member","Loan Returned","Add Expense","Add Extra"]
+  private let adminMenu:[String] = ["Add Amount","Add Monthly Fee","Loan a Member","Loan Returned","Add Expense","Add Extra","Delete User","Make Admin","Remove Admin"]
 
   //MARK:Init
   override func didInit() {
@@ -167,6 +186,44 @@ extension HSSettingView:UICollectionViewDelegate,UICollectionViewDataSource,UICo
     return .init(width: self.frame.width, height: 50)
   }
   
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let delegate = self.delegate as? HSSettingDelegate else {return}
+    switch (indexPath.section,indexPath.row) {
+    case (0,0):
+      delegate.changeProfilePicturePressed()
+    case (0,1):
+      delegate.changePasswordPressed()
+    case (0,2):
+      delegate.requestForLoanPressed()
+    case (1,0):
+      delegate.termsAndConditionPressed()
+    case (1,1):
+      delegate.privacyPolicyPressed()
+    case (1,2):
+      delegate.logoutPressed()
+    case (2,0):
+      delegate.addAmountPressed()
+    case (2,1):
+      delegate.addMonthlyFeePressed()
+    case (2,2):
+      delegate.loanMemberPressed()
+    case (2,3):
+      delegate.loanReturnedPressed()
+    case (2,4):
+      delegate.addExpensePressed()
+    case (2,5):
+      delegate.addExtraPressed()
+    case (2,6):
+      delegate.deleteUserPressed()
+    case (2,7):
+      delegate.makeAdminPressed()
+    case (2,8):
+      delegate.removeAdminPressed()
+    default:
+      Dlog()
+    }
+  }
   /*
    Necessary Files and Method For Stretchy Header
    HSImageHeaderView

@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import Kingfisher
 
 
 class HSProfileCell:UITableViewCell{
@@ -101,6 +102,10 @@ class HSProfileCell:UITableViewCell{
     
       usernameLabel.text = user.username
       emailLabel.text = user.email
+    
+    guard let iconUrl = user.iconUrl,iconUrl.count > 0 else {return}
+    let url = URL(string: iconUrl)
+    profileImage.kf.setImage(with: url)
   }
 }
 
