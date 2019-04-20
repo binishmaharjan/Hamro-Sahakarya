@@ -18,6 +18,9 @@ class HSProfileView:HSBaseView{
   private var settingIcon:HSImageButtonView?
   private var tableView:UITableView?
   
+  //Closure
+  var settingIconTapped:(()->())?
+  
   var user:HSMemeber?{
     didSet{
       titleLabel?.text = user?.username
@@ -80,6 +83,7 @@ class HSProfileView:HSBaseView{
     self.settingIcon = settingIcon
     settingIconBG.addSubview(settingIcon)
     settingIcon.image = UIImage(named: "icon_setting")
+    settingIcon.delegate = self
     settingIcon.buttonMargin = .zero
     
     //TableView
@@ -238,6 +242,15 @@ extension HSProfileView:HSGroupLogManager{
         self.logs.append(log)
       })
       self.tableView?.reloadData()
+    }
+  }
+}
+
+//MARK:Setting
+extension HSProfileView : HSButtonViewDelegate{
+  func buttonViewTapped(view: HSButtonView) {
+    if view == settingIcon{
+       self.settingIconTapped?()
     }
   }
 }

@@ -36,6 +36,7 @@ class HSProfileController:HSViewController{
   private func setup(){
     let mainView = HSProfileView()
     self.mainView = mainView
+    mainView.settingIconTapped = self.settingIconPressed
     self.view.addSubview(mainView)
   }
   
@@ -59,5 +60,13 @@ extension HSProfileController{
   @objc func receiveSessionUserDownloaded(_ notification:Notification){
     guard let mainView = self.mainView else {return}
     mainView.user = HSSessionManager.shared.user
+  }
+}
+
+//Closure
+extension HSProfileController{
+  private func settingIconPressed(){
+    let settingVC = HSSettingController()
+    self.navigationController?.pushViewController(settingVC, animated: true)
   }
 }

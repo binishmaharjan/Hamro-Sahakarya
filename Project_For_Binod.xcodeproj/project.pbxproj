@@ -60,6 +60,12 @@
 		64C0AA9B226198F6007A0696 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9A226198F6007A0696 /* Wrapper.swift */; };
 		64C0AA9E2261AFB1007A0696 /* HSLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9D2261AFB1007A0696 /* HSLogController.swift */; };
 		64C0AAA02261AFE0007A0696 /* HSLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AA9F2261AFE0007A0696 /* HSLogView.swift */; };
+		64C0AAE622633EEC007A0696 /* HSSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAE522633EEC007A0696 /* HSSettingController.swift */; };
+		64C0AAE822633EFC007A0696 /* HSSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAE722633EFC007A0696 /* HSSettingView.swift */; };
+		64C0AAEA22637342007A0696 /* HSImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAE922637342007A0696 /* HSImageHeaderView.swift */; };
+		64C0AAEC226373A7007A0696 /* HSStretchyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAEB226373A7007A0696 /* HSStretchyHeaderLayout.swift */; };
+		64C0AAEE22637707007A0696 /* HSTitleHeadervView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAED22637707007A0696 /* HSTitleHeadervView.swift */; };
+		64C0AAF0226AD42E007A0696 /* HSSettingMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAEF226AD42E007A0696 /* HSSettingMenuCell.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -144,6 +150,12 @@
 		64C0AA9A226198F6007A0696 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		64C0AA9D2261AFB1007A0696 /* HSLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogController.swift; sourceTree = "<group>"; };
 		64C0AA9F2261AFE0007A0696 /* HSLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLogView.swift; sourceTree = "<group>"; };
+		64C0AAE522633EEC007A0696 /* HSSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSettingController.swift; sourceTree = "<group>"; };
+		64C0AAE722633EFC007A0696 /* HSSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSettingView.swift; sourceTree = "<group>"; };
+		64C0AAE922637342007A0696 /* HSImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSImageHeaderView.swift; sourceTree = "<group>"; };
+		64C0AAEB226373A7007A0696 /* HSStretchyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSStretchyHeaderLayout.swift; sourceTree = "<group>"; };
+		64C0AAED22637707007A0696 /* HSTitleHeadervView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTitleHeadervView.swift; sourceTree = "<group>"; };
+		64C0AAEF226AD42E007A0696 /* HSSettingMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSettingMenuCell.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +284,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64C0AAE422633ED9007A0696 /* Setting */,
 				64C0AA9C2261AF98007A0696 /* Log */,
 				64061736225B57A4000325C2 /* UserProfile */,
 				64061739225B8394000325C2 /* TableViewCell */,
@@ -463,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				6410A92822587647005A6E03 /* HSTopMenuCell.swift */,
+				64C0AAEF226AD42E007A0696 /* HSSettingMenuCell.swift */,
 			);
 			name = CollectionViewCell;
 			sourceTree = "<group>";
@@ -508,6 +522,26 @@
 				64C0AA9F2261AFE0007A0696 /* HSLogView.swift */,
 			);
 			name = Log;
+			sourceTree = "<group>";
+		};
+		64C0AAE422633ED9007A0696 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				64C0AAE522633EEC007A0696 /* HSSettingController.swift */,
+				64C0AAE722633EFC007A0696 /* HSSettingView.swift */,
+				64C0AAEB226373A7007A0696 /* HSStretchyHeaderLayout.swift */,
+				64C0AAF1226ADB0F007A0696 /* Header */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		64C0AAF1226ADB0F007A0696 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				64C0AAE922637342007A0696 /* HSImageHeaderView.swift */,
+				64C0AAED22637707007A0696 /* HSTitleHeadervView.swift */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -735,9 +769,11 @@
 				6406173F225B93BA000325C2 /* HSLogCellAmount.swift in Sources */,
 				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
+				64C0AAF0226AD42E007A0696 /* HSSettingMenuCell.swift in Sources */,
 				64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */,
 				64073BDE22489CDB00088E61 /* HSDropDownNotification.swift in Sources */,
 				64061735225B5663000325C2 /* HSProfileController.swift in Sources */,
+				64C0AAEE22637707007A0696 /* HSTitleHeadervView.swift in Sources */,
 				6406173D225B89B0000325C2 /* HSTitleCell.swift in Sources */,
 				64073BC522478D1400088E61 /* HSRegisterViewController.swift in Sources */,
 				64C0AA9522619542007A0696 /* HSLogCellNoAmount.swift in Sources */,
@@ -754,6 +790,7 @@
 				64073BE3224A087E00088E61 /* HSUserDatabase.swift in Sources */,
 				ACA17BEC2024218600399AD6 /* TabController.swift in Sources */,
 				ACA6AA15202930AB006B65E4 /* AdminSettingController.swift in Sources */,
+				64C0AAE822633EFC007A0696 /* HSSettingView.swift in Sources */,
 				64073BA92243EE9D00088E61 /* HSLoginViewController.swift in Sources */,
 				64073BBE2243FBA200088E61 /* Macros.swift in Sources */,
 				64C0AA9E2261AFB1007A0696 /* HSLogController.swift in Sources */,
@@ -766,14 +803,17 @@
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
 				ACA1EC6D1FF0C0F900FA130D /* UIColor_Exension.swift in Sources */,
 				6406173B225B83B9000325C2 /* HSProfileCell.swift in Sources */,
+				64C0AAEC226373A7007A0696 /* HSStretchyHeaderLayout.swift in Sources */,
 				64061743225F6443000325C2 /* HSGroup.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
 				64061741225F6310000325C2 /* HSGroupDetails.swift in Sources */,
+				64C0AAE622633EEC007A0696 /* HSSettingController.swift in Sources */,
 				64073BC222448FC400088E61 /* UIView+extension.swift in Sources */,
 				64073BB42243F93100088E61 /* HSButtonView.swift in Sources */,
 				64073BD02247B91F00088E61 /* UIAlertController+Extension.swift in Sources */,
 				64073BCE2247B8B200088E61 /* ColorPickerViewController.swift in Sources */,
 				64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */,
+				64C0AAEA22637342007A0696 /* HSImageHeaderView.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
 				64073BEE224F900500088E61 /* HSLog.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
