@@ -20,6 +20,7 @@ class HSProfileView:HSBaseView{
   
   //Closure
   var settingIconTapped:(()->())?
+  var profileImageWasTapped:((UIImage?)->())?
   
   var user:HSMemeber?{
     didSet{
@@ -138,6 +139,7 @@ extension HSProfileView:UITableViewDataSource,UITableViewDelegate{
     if indexPath.row == 0, let cell = tableView.dequeueReusableCell(withIdentifier: CELL1_ID, for: indexPath) as? CELL1{
       cell.selectionStyle = .none
       cell.user = self.user
+      cell.delegate = self
       return cell
     }
     
@@ -252,6 +254,13 @@ extension HSProfileView : HSButtonViewDelegate{
     if view == settingIcon{
        self.settingIconTapped?()
     }
+  }
+}
+
+//MARK:Profile Cell Delegate
+extension HSProfileView:HSProfileCellDelegate{
+  func profileImageWasPressed(image: UIImage?) {
+    self.profileImageWasTapped?(image)
   }
 }
 

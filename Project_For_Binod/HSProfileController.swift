@@ -37,6 +37,7 @@ class HSProfileController:HSViewController{
     let mainView = HSProfileView()
     self.mainView = mainView
     mainView.settingIconTapped = self.settingIconPressed
+    mainView.profileImageWasTapped = self.profileImageWasPressed
     self.view.addSubview(mainView)
   }
   
@@ -68,5 +69,12 @@ extension HSProfileController{
   private func settingIconPressed(){
     let settingVC = HSSettingController()
     self.navigationController?.pushViewController(settingVC, animated: true)
+  }
+  
+  private func profileImageWasPressed(image:UIImage?){
+    guard let image = image else {return}
+    let vc = HSImageDetailController()
+    vc.image = image
+    self.present(vc, animated: true, completion: nil)
   }
 }
