@@ -59,7 +59,7 @@ class HSSettingView:HSBaseView{
   
   //Menu Items
   private let sectionTitle:[String] = ["Users","Others","Admin"]
-  private let userMenu:[String] = ["Change Picture","Change Password","Request For Loan"]
+  private let userMenu:[String] = ["Change Picture","Change Password"]
   private let otherMenu:[String] = ["Terms & Conditon","Privacy Policy","Logout"]
   private let adminMenu:[String] = ["Add Amount","Add Monthly Fee","Loan a Member","Loan Returned","Add Expense","Add Extra","Delete User","Make Admin","Remove Admin"]
 
