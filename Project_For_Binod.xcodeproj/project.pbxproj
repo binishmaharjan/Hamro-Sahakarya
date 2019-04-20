@@ -66,6 +66,9 @@
 		64C0AAEC226373A7007A0696 /* HSStretchyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAEB226373A7007A0696 /* HSStretchyHeaderLayout.swift */; };
 		64C0AAEE22637707007A0696 /* HSTitleHeadervView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAED22637707007A0696 /* HSTitleHeadervView.swift */; };
 		64C0AAF0226AD42E007A0696 /* HSSettingMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAEF226AD42E007A0696 /* HSSettingMenuCell.swift */; };
+		64C0AAF4226B224B007A0696 /* HSDraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAF3226B224B007A0696 /* HSDraggableView.swift */; };
+		64C0AAF6226B2314007A0696 /* HSImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAF5226B2314007A0696 /* HSImageDetailView.swift */; };
+		64C0AAF8226B241A007A0696 /* HSImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AAF7226B241A007A0696 /* HSImageDetailController.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA17BEC2024218600399AD6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BEB2024218600399AD6 /* TabController.swift */; };
 		ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA17BED20242A7200399AD6 /* HomeController.swift */; };
@@ -156,6 +159,9 @@
 		64C0AAEB226373A7007A0696 /* HSStretchyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSStretchyHeaderLayout.swift; sourceTree = "<group>"; };
 		64C0AAED22637707007A0696 /* HSTitleHeadervView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTitleHeadervView.swift; sourceTree = "<group>"; };
 		64C0AAEF226AD42E007A0696 /* HSSettingMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSSettingMenuCell.swift; sourceTree = "<group>"; };
+		64C0AAF3226B224B007A0696 /* HSDraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSDraggableView.swift; sourceTree = "<group>"; };
+		64C0AAF5226B2314007A0696 /* HSImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSImageDetailView.swift; sourceTree = "<group>"; };
+		64C0AAF7226B241A007A0696 /* HSImageDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSImageDetailController.swift; sourceTree = "<group>"; };
 		ACA17BEB2024218600399AD6 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		ACA17BED20242A7200399AD6 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +290,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64C0AAF2226B221A007A0696 /* ImageDetailView */,
 				64C0AAE422633ED9007A0696 /* Setting */,
 				64C0AA9C2261AF98007A0696 /* Log */,
 				64061736225B57A4000325C2 /* UserProfile */,
@@ -544,6 +551,16 @@
 			name = Header;
 			sourceTree = "<group>";
 		};
+		64C0AAF2226B221A007A0696 /* ImageDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				64C0AAF3226B224B007A0696 /* HSDraggableView.swift */,
+				64C0AAF5226B2314007A0696 /* HSImageDetailView.swift */,
+				64C0AAF7226B241A007A0696 /* HSImageDetailController.swift */,
+			);
+			name = ImageDetailView;
+			sourceTree = "<group>";
+		};
 		ACA1EC491FF0B77000FA130D = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +818,7 @@
 				64073BA32243ECD600088E61 /* HSFont.swift in Sources */,
 				6410A926225835BB005A6E03 /* HSTopMenu.swift in Sources */,
 				64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */,
+				64C0AAF4226B224B007A0696 /* HSDraggableView.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
 				64073BE6224A093A00088E61 /* HSStorage.swift in Sources */,
 				64073BB92243FA2F00088E61 /* HSTextButton.swift in Sources */,
@@ -809,6 +827,7 @@
 				6406173B225B83B9000325C2 /* HSProfileCell.swift in Sources */,
 				64C0AAEC226373A7007A0696 /* HSStretchyHeaderLayout.swift in Sources */,
 				64061743225F6443000325C2 /* HSGroup.swift in Sources */,
+				64C0AAF6226B2314007A0696 /* HSImageDetailView.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
 				64061741225F6310000325C2 /* HSGroupDetails.swift in Sources */,
 				64C0AAE622633EEC007A0696 /* HSSettingController.swift in Sources */,
@@ -841,6 +860,7 @@
 				64073BDC224896A600088E61 /* HSRegisterUser.swift in Sources */,
 				6410A92222582DF1005A6E03 /* HSNavigationController.swift in Sources */,
 				6410A91922563CD1005A6E03 /* HSActivityIndicator.swift in Sources */,
+				64C0AAF8226B241A007A0696 /* HSImageDetailController.swift in Sources */,
 				ACA6AA0B2024E5F9006B65E4 /* UIImage_Extension.swift in Sources */,
 				64073BAE2243F07B00088E61 /* HSViewController.swift in Sources */,
 			);

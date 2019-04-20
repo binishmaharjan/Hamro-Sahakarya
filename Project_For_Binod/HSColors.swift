@@ -15,4 +15,5 @@ class HSColors{
   static let black:UIColor = UIColor(red: 36/255, green: 29/255, blue: 29/255, alpha: 1.0) /* #241d1d */
   static let white:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0) /* #ffffff */
   static let grey:UIColor = UIColor(red: 173/255, green: 178/255, blue: 182/255, alpha: 1.0) /* #adb2b6 */
+  static let clear:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0) /* #000000 */
 }

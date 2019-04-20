@@ -10,6 +10,10 @@ import UIKit
 import TinyConstraints
 import Kingfisher
 
+protocol HSProfileCellDelegate:NSObjectProtocol{
+  func profileImageWasPressed(image:UIImage?)
+}
+
 
 class HSProfileCell:UITableViewCell{
   //MARK:Elements
@@ -17,6 +21,8 @@ class HSProfileCell:UITableViewCell{
   private weak var profileImage:UIImageView?
   private weak var usernameLabel:UILabel?
   private weak var emailLabel:UILabel?
+  
+  var delegate:HSProfileCellDelegate?
   
   var user:HSMemeber?{
     didSet{
@@ -50,6 +56,8 @@ class HSProfileCell:UITableViewCell{
     profileImage.contentMode = .scaleAspectFit
     profileImage.clipsToBounds = true
     profileImage.layer.cornerRadius = Constants.IMAGE_SIZE / 2
+    profileImage.isUserInteractionEnabled = true
+    profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profieImageWasPressed)))
     
     //Username
     let usernameLabel = UILabel()
@@ -106,6 +114,17 @@ class HSProfileCell:UITableViewCell{
     guard let iconUrl = user.iconUrl,iconUrl.count > 0 else {return}
     let url = URL(string: iconUrl)
     profileImage.kf.setImage(with: url)
+  }
+}
+
+
+//MARK:Image Was Pressed
+extension HSProfileCell{
+  @objc private func profieImageWasPressed(){
+    guard let imageView = self.profileImage,
+      let image = imageView.image else {return}
+    
+      delegate?.profileImageWasPressed(image: image)
   }
 }
 
