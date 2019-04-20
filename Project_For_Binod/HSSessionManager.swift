@@ -41,4 +41,13 @@ extension HSSessionManager:HSUserDatabase{
   private func thowUserInfoDidDownloadedNotification(){
     HSNotificationManager.postCurrentUserInfoDownloaded()
   }
+  
+  
+  func logout(){
+    do{
+      try Auth.auth().signOut()
+    }catch{
+      Dlog(error.localizedDescription)
+    }
+  }
 }

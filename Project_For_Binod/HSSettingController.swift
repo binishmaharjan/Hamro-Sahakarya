@@ -78,7 +78,7 @@ extension HSSettingController:HSSettingDelegate{
   }
   
   func logoutPressed() {
-    Dlog("logout Pressed")
+    HSSessionManager.shared.logout()
   }
   
   func addAmountPressed() {
