@@ -49,7 +49,7 @@ class HSSettingController:HSViewController{
 //MARK:Button Delegate
 extension HSSettingController:HSButtonViewDelegate{
   func buttonViewTapped(view: HSButtonView) {
-    if view == mainView?.backIcon{
+    if view == mainView?.backIcon {
       self.navigationController?.popViewController(animated: true)
     }
   }
@@ -62,7 +62,8 @@ extension HSSettingController:HSSettingDelegate{
   }
   
   func changePasswordPressed() {
-    Dlog("Change Password Pressed")
+    let changePasswordViewController = ChangePasswordViewController()
+    self.navigationController?.pushViewController(changePasswordViewController, animated: true)
   }
   
   func requestForLoanPressed() {

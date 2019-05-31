@@ -90,6 +90,7 @@ class DatabaseReference{
   static let MY_ACCOUNT_REF = "my_account"
   static let LOAN_TAKEN = "loan_taken"
   static let BALANCE = "balance"
+  static let KEYWORD = "keyword"
   
   static let LOGS_REF = "logs"
   static let LOG_ID = "log_id"
