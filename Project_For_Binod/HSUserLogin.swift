@@ -12,6 +12,7 @@ import FirebaseAuth
 
 protocol HSUserLogin{
   func loginWithEmail(email:String,password:String,completion:((Error?)->())?)
+  func changeFirebasePassword(newPassword: String, completion: ((Error?) -> Void)?)
 }
 
 
@@ -24,5 +25,15 @@ extension HSUserLogin{
       }
       completion?(nil)
     }
+  }
+  
+  func changeFirebasePassword(newPassword: String, completion: ((Error?) -> Void)?){
+    Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
+      if let error = error{
+        completion?(error)
+        return
+      }
+      completion?(nil)
+    })
   }
 }

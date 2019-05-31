@@ -107,4 +107,21 @@ extension HSUserDatabase{
     }
     
   }
+  
+  //Update keyword
+  func updateKeyword(keyword: String, completion: ((Error?) -> Void)?) {
+    guard let user = HSSessionManager.shared.user else { return }
+    let updateKeyword = [DatabaseReference.KEYWORD : keyword]
+    let keywordReference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+    
+    DispatchQueue.global(qos: .default).async {
+      keywordReference.updateData(updateKeyword, completion: { (error) in
+        if let error = error {
+          completion?(error)
+          return
+        }
+        completion?(nil)
+      })
+    }
+  }
 }
