@@ -12,7 +12,7 @@ import Gallery
 
 class HSSettingController:HSViewController{
   //MARK:Elements
-  private weak var mainView:HSSettingView?
+  private weak var settingView:HSSettingView?
   
   //MARK:Init
   override func didInit() {
@@ -35,13 +35,13 @@ class HSSettingController:HSViewController{
   //MARK:Setup
   private func setup(){
     let mainView = HSSettingView()
-    self.mainView = mainView
+    self.settingView = mainView
     mainView.delegate = self
     self.view.addSubview(mainView)
   }
   
   private func setupConstraints(){
-    guard let mainView = self.mainView else {return}
+    guard let mainView = self.settingView else {return}
     mainView.edgesToSuperview(usingSafeArea:true)
   }
 }
@@ -49,7 +49,7 @@ class HSSettingController:HSViewController{
 //MARK:Button Delegate
 extension HSSettingController:HSButtonViewDelegate{
   func buttonViewTapped(view: HSButtonView) {
-    if view == mainView?.backIcon {
+    if view == settingView?.backIcon {
       self.navigationController?.popViewController(animated: true)
     }
   }
