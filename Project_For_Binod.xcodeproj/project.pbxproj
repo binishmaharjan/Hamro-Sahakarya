@@ -24,6 +24,8 @@
 		645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939BB235ABB2000A99902 /* ErrorPresentation.swift */; };
 		645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939BD235ABBE400A99902 /* Optional+Extension.swift */; };
 		645939C2235AC39D00A99902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645939C1235AC39D00A99902 /* Assets.xcassets */; };
+		645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939C3235AC51F00A99902 /* LaunchRootView.swift */; };
+		645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645939C5235AC52F00A99902 /* LaunchRootView.xib */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -54,6 +56,8 @@
 		645939BB235ABB2000A99902 /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		645939BD235ABBE400A99902 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		645939C1235AC39D00A99902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		645939C3235AC51F00A99902 /* LaunchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRootView.swift; sourceTree = "<group>"; };
+		645939C5235AC52F00A99902 /* LaunchRootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchRootView.xib; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */,
+				645939C3235AC51F00A99902 /* LaunchRootView.swift */,
+				645939C5235AC52F00A99902 /* LaunchRootView.xib */,
 			);
 			name = LaunchIViewController;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
+				645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */,
 				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
+				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
