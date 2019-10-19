@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+#if DEBUG
+let IS_DEBUG = true
+#else
+let IS_DEBUG = false
+#endif
