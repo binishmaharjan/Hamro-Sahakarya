@@ -15,7 +15,7 @@ enum MainView {
   case signedIn(userProfile: UserProfile)
 }
 
-extension MainView {
+extension MainView: Equatable {
 
   static func ==(lhs: MainView, rhs: MainView) -> Bool {
     switch (lhs, rhs) {
