@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       window = UIWindow(frame: UIScreen.main.bounds)
       window?.makeKeyAndVisible()
-      window?.rootViewController = HSTabBarController()
+      window?.rootViewController = UIViewController()
 
       
       
@@ -134,11 +134,11 @@ extension AppDelegate{
   }
   
   private func setupSessionUser(){
-    guard let uid = HSSessionManager.shared.uid
-      else {
-        Dlog("NO USER LOGGED IN")
-        return
-    }
-      HSSessionManager.shared.userLoggedIn(uid: uid)
+//    guard let uid = HSSessionManager.shared.uid
+//      else {
+//        Dlog("NO USER LOGGED IN")
+//        return
+//    }
+//      HSSessionManager.shared.userLoggedIn(uid: uid)
   }
 }
