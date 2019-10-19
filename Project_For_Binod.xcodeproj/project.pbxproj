@@ -16,6 +16,8 @@
 		645939A4235AACFB00A99902 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939A3235AACFB00A99902 /* MainView.swift */; };
 		645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939A5235AAD4C00A99902 /* MainViewModel.swift */; };
 		645939AB235AAE5900A99902 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939AA235AAE5900A99902 /* UserProfile.swift */; };
+		645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939AE235AB01000A99902 /* NotSignedInResponder.swift */; };
+		645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645939B0235AB01C00A99902 /* SignedInResponder.swift */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -38,6 +40,8 @@
 		645939A3235AACFB00A99902 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		645939A5235AAD4C00A99902 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		645939AA235AAE5900A99902 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		645939AE235AB01000A99902 /* NotSignedInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSignedInResponder.swift; sourceTree = "<group>"; };
+		645939B0235AB01C00A99902 /* SignedInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInResponder.swift; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			children = (
 				645939A3235AACFB00A99902 /* MainView.swift */,
 				645939A5235AAD4C00A99902 /* MainViewModel.swift */,
+				645939AE235AB01000A99902 /* NotSignedInResponder.swift */,
+				645939B0235AB01C00A99902 /* SignedInResponder.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -391,8 +397,10 @@
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
 				645939AB235AAE5900A99902 /* UserProfile.swift in Sources */,
 				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
+				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
+				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
