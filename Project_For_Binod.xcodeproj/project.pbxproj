@@ -56,6 +56,14 @@
 		6410A926225835BB005A6E03 /* HSTopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A925225835BB005A6E03 /* HSTopMenu.swift */; };
 		6410A92922587647005A6E03 /* HSTopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92822587647005A6E03 /* HSTopMenuCell.swift */; };
 		6410A92B2258BC86005A6E03 /* HSHomePagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */; };
+		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
+		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
+		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
+		64B1FCEA22A219F3007202BB /* SingleSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1FCE922A219F3007202BB /* SingleSelectionView.xib */; };
+		64B1FCEC22A21A0B007202BB /* SingleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1FCEB22A21A0B007202BB /* SingleSelectionView.swift */; };
+		64B1FCF422A21B43007202BB /* SelectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1FCF222A21B43007202BB /* SelectionViewCell.swift */; };
+		64B1FCF522A21B43007202BB /* SelectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1FCF322A21B43007202BB /* SelectionViewCell.xib */; };
+		64B1FCF722A21DB5007202BB /* SingleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1FCF622A21DB5007202BB /* SingleSelectionViewController.swift */; };
 		64BBB24A22A1708E00DB7E4D /* ChangePasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BBB24922A1708E00DB7E4D /* ChangePasswordView.xib */; };
 		64BBB24C22A1776100DB7E4D /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBB24B22A1776100DB7E4D /* ChangePasswordView.swift */; };
 		64BBB24E22A177BF00DB7E4D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBB24D22A177BF00DB7E4D /* ChangePasswordViewController.swift */; };
@@ -154,6 +162,14 @@
 		6410A925225835BB005A6E03 /* HSTopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenu.swift; sourceTree = "<group>"; };
 		6410A92822587647005A6E03 /* HSTopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTopMenuCell.swift; sourceTree = "<group>"; };
 		6410A92A2258BC86005A6E03 /* HSHomePagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSHomePagerController.swift; sourceTree = "<group>"; };
+		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		64B1FCE922A219F3007202BB /* SingleSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleSelectionView.xib; sourceTree = "<group>"; };
+		64B1FCEB22A21A0B007202BB /* SingleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionView.swift; sourceTree = "<group>"; };
+		64B1FCF222A21B43007202BB /* SelectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewCell.swift; sourceTree = "<group>"; };
+		64B1FCF322A21B43007202BB /* SelectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionViewCell.xib; sourceTree = "<group>"; };
+		64B1FCF622A21DB5007202BB /* SingleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionViewController.swift; sourceTree = "<group>"; };
 		64BBB24922A1708E00DB7E4D /* ChangePasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordView.xib; sourceTree = "<group>"; };
 		64BBB24B22A1776100DB7E4D /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		64BBB24D22A177BF00DB7E4D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +248,7 @@
 		64061739225B8394000325C2 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				64B1FCED22A21ABD007202BB /* SelectionViewCell */,
 				6406173A225B83B9000325C2 /* HSProfileCell.swift */,
 				6406173C225B89B0000325C2 /* HSTitleCell.swift */,
 				6406173E225B93BA000325C2 /* HSLogCellAmount.swift */,
@@ -300,6 +317,7 @@
 		64073BA62243EE6B00088E61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64B1FCE722A21964007202BB /* SingleSelectionView */,
 				64BBB24822A1704800DB7E4D /* ChangePassword */,
 				64C0AAF2226B221A007A0696 /* ImageDetailView */,
 				64C0AAE422633ED9007A0696 /* Setting */,
@@ -501,6 +519,67 @@
 			name = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		64A0C6AC235A9790007BEFF1 /* Version 3 */ = {
+			isa = PBXGroup;
+			children = (
+				64A0C6B0235A9831007BEFF1 /* HSiOS */,
+				64A0C6B1235A9845007BEFF1 /* HSUIKit */,
+				64A0C6B2235A985D007BEFF1 /* HSKit */,
+			);
+			name = "Version 3";
+			sourceTree = "<group>";
+		};
+		64A0C6B0235A9831007BEFF1 /* HSiOS */ = {
+			isa = PBXGroup;
+			children = (
+				64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */,
+				64A0C6B5235A9903007BEFF1 /* MainViewController.swift */,
+				64A0C6B7235A9919007BEFF1 /* LaunchIViewController */,
+			);
+			name = HSiOS;
+			sourceTree = "<group>";
+		};
+		64A0C6B1235A9845007BEFF1 /* HSUIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HSUIKit;
+			sourceTree = "<group>";
+		};
+		64A0C6B2235A985D007BEFF1 /* HSKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HSKit;
+			sourceTree = "<group>";
+		};
+		64A0C6B7235A9919007BEFF1 /* LaunchIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */,
+			);
+			name = LaunchIViewController;
+			sourceTree = "<group>";
+		};
+		64B1FCE722A21964007202BB /* SingleSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				64B1FCE922A219F3007202BB /* SingleSelectionView.xib */,
+				64B1FCEB22A21A0B007202BB /* SingleSelectionView.swift */,
+				64B1FCF622A21DB5007202BB /* SingleSelectionViewController.swift */,
+			);
+			name = SingleSelectionView;
+			sourceTree = "<group>";
+		};
+		64B1FCED22A21ABD007202BB /* SelectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				64B1FCF222A21B43007202BB /* SelectionViewCell.swift */,
+				64B1FCF322A21B43007202BB /* SelectionViewCell.xib */,
+			);
+			name = SelectionViewCell;
+			sourceTree = "<group>";
+		};
 		64BBB24822A1704800DB7E4D /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,12 +684,13 @@
 		ACA1EC541FF0B77100FA130D /* Project_For_Binod */ = {
 			isa = PBXGroup;
 			children = (
+				64A0C6AC235A9790007BEFF1 /* Version 3 */,
 				64073BD922488F0200088E61 /* GoogleService-Info.plist */,
 				64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */,
-				64073B9E2243E8E400088E61 /* Version2 */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
 				ACA1EC641FF0B77100FA130D /* Info.plist */,
+				64073B9E2243E8E400088E61 /* Version2 */,
 				64073B9D2243E8A700088E61 /* Version1 */,
 			);
 			path = Project_For_Binod;
@@ -693,7 +773,7 @@
 					ACA1EC511FF0B77100FA130D = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 2QZXZME53M;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -725,8 +805,10 @@
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				ACA1EC601FF0B77100FA130D /* Assets.xcassets in Resources */,
+				64B1FCEA22A219F3007202BB /* SingleSelectionView.xib in Resources */,
 				64BBB24A22A1708E00DB7E4D /* ChangePasswordView.xib in Resources */,
 				ACA1EC5B1FF0B77100FA130D /* Main.storyboard in Resources */,
+				64B1FCF522A21B43007202BB /* SelectionViewCell.xib in Resources */,
 				64073BD62247E7F600088E61 /* Main.storyboard in Resources */,
 				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
 			);
@@ -740,35 +822,35 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Gallery/Gallery.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -776,7 +858,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BBAFEAABCB0809D312CE1000 /* [CP] Check Pods Manifest.lock */ = {
@@ -816,6 +898,7 @@
 				64073BA12243E90C00088E61 /* HSColors.swift in Sources */,
 				ACA6AA0D2025BB0B006B65E4 /* NSMutableData_Extension.swift in Sources */,
 				64C0AAF0226AD42E007A0696 /* HSSettingMenuCell.swift in Sources */,
+				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
 				64073BF2224F932A00088E61 /* HSGroupLogManager.swift in Sources */,
 				64073BDE22489CDB00088E61 /* HSDropDownNotification.swift in Sources */,
 				64061735225B5663000325C2 /* HSProfileController.swift in Sources */,
@@ -845,6 +928,7 @@
 				64073BC02244877700088E61 /* HSNotificationManager.swift in Sources */,
 				64C0AAF4226B224B007A0696 /* HSDraggableView.swift in Sources */,
 				ACA6AA09202499C9006B65E4 /* ResetController.swift in Sources */,
+				64B1FCF422A21B43007202BB /* SelectionViewCell.swift in Sources */,
 				64073BE6224A093A00088E61 /* HSStorage.swift in Sources */,
 				64073BB92243FA2F00088E61 /* HSTextButton.swift in Sources */,
 				ACA6AA1720295959006B65E4 /* LogsController.swift in Sources */,
@@ -855,6 +939,7 @@
 				64BBB25022A1781A00DB7E4D /* HasXib.swift in Sources */,
 				64C0AAF6226B2314007A0696 /* HSImageDetailView.swift in Sources */,
 				ACA6AA112025E8E6006B65E4 /* MembersCell.swift in Sources */,
+				64B1FCEC22A21A0B007202BB /* SingleSelectionView.swift in Sources */,
 				64061741225F6310000325C2 /* HSGroupDetails.swift in Sources */,
 				64C0AAE622633EEC007A0696 /* HSSettingController.swift in Sources */,
 				64BBB25222A17F7F00DB7E4D /* HSView.swift in Sources */,
@@ -866,15 +951,18 @@
 				64073BD42247BA6F00088E61 /* UIVIew_Extension.swift in Sources */,
 				64C0AAEA22637342007A0696 /* HSImageHeaderView.swift in Sources */,
 				ACA1EC701FF1F94200FA130D /* UIButton_Designable.swift in Sources */,
+				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
 				64073BEE224F900500088E61 /* HSLog.swift in Sources */,
 				ACA17BEE20242A7200399AD6 /* HomeController.swift in Sources */,
 				640617332259C3E9000325C2 /* HSSessionManager.swift in Sources */,
 				ACA1EC761FF205B500FA130D /* LoginController.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
 				64073BF0224F911800088E61 /* HSLogType.swift in Sources */,
+				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
 				ACA1EC741FF203C600FA130D /* UITextField_Designable.swift in Sources */,
 				64073BD22247B99500088E61 /* GradientSlider.swift in Sources */,
 				64073BF5225371B800088E61 /* HSTabBarController.swift in Sources */,
+				64B1FCF722A21DB5007202BB /* SingleSelectionViewController.swift in Sources */,
 				64073BEC224F0BC700088E61 /* HSDate.swift in Sources */,
 				ACA6AA192029860E006B65E4 /* LogCell.swift in Sources */,
 				64BBB24E22A177BF00DB7E4D /* ChangePasswordViewController.swift in Sources */,
@@ -1038,7 +1126,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod-dev";
 				PRODUCT_NAME = HamroSahakarya_dev;
@@ -1046,7 +1134,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1059,14 +1147,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = HamroSahakarya;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

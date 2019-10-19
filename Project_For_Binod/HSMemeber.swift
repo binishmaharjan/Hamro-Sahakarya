@@ -10,7 +10,7 @@ import UIKit
 import CodableFirebase
 
 
-struct HSMemeber:Codable{
+struct HSMemeber:Codable, Equatable{
   let uid:String
   let username:String?
   let email:String?

@@ -16,6 +16,7 @@ protocol HSUserDatabase{
                                 keyword:String,status:String,colorHex:String,completion:((Error?)->())?)
   func downloadUserData(uid:String,completion:((HSMemeber?,Error?)->())?)
   func updateProfileURL(url:String,completion:((Error?)->())?)
+  func updateKeyword(keyword: String, completion: ((Error?) -> Void)?)
 }
 
 extension HSUserDatabase{
@@ -124,4 +125,48 @@ extension HSUserDatabase{
       })
     }
   }
+  
+  //Download All user
+  func fetchAllUser(completion: (([HSMemeber]?, Error?) -> Void)?) {
+    let memberReference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF)
+    
+    DispatchQueue.global(qos: .default).async {
+      memberReference.getDocuments(completion: { (snapshot, error) in
+        if let error = error {
+          completion?(nil, error)
+          return
+        }
+        
+        guard let snapshot = snapshot else {
+          completion?(nil, NO_SNAPSHOT_ERROR)
+          return
+        }
+        
+        var users:[HSMemeber] = [HSMemeber]()
+        
+        snapshot.documents.forEach({ (document) in
+          let data = document.data()
+          do {
+            let user = try FirebaseDecoder().decode(HSMemeber.self, from: data)
+            users.append(user)
+          } catch {
+            completion?(nil, error)
+          }
+        })
+        
+        completion?(users,nil)
+        
+      })
+    }
+  }
 }
+
+//napshot.documents.forEach({ (document) in
+//  let data = document.data()
+//  do{
+//    let log = try FirestoreDecoder().decode(HSLog.self, from: data)
+//    logs.append(log)
+//  }catch{
+//    completion?(nil,nil,nil,error)
+//  }
+//})

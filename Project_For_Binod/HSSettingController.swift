@@ -112,6 +112,9 @@ extension HSSettingController:HSSettingDelegate{
   
   func makeAdminPressed() {
     Dlog("make admin Pressed")
+    let singleSelectionViewController = SingleSelectionViewController()
+    singleSelectionViewController.singleSelectionType = .makeAdmin
+    self.navigationController?.pushViewController(singleSelectionViewController, animated: true)
   }
   
   func removeAdminPressed() {

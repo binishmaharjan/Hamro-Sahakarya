@@ -141,7 +141,6 @@ class HSSettingView:HSBaseView{
 //MARK:CollectionView Delegate & Datasource
 extension HSSettingView:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate{
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    print(HSSessionManager.shared.user?.username)
     if let user = HSSessionManager.shared.user,
       user.status == HSUserType.member.rawValue {
       return 2

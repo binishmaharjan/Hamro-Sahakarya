@@ -10,9 +10,9 @@ import Foundation
 import FirebaseAuth
 
 
-class HSSessionManager{
+class HSSessionManager {
   //MARK:Singleton
-  private init(){}
+  private init() {}
   static let shared = HSSessionManager()
   
   //User
@@ -21,11 +21,20 @@ class HSSessionManager{
   var uid:String?{
     return Auth.auth().currentUser?.uid
   }
+  
+  func isMe(user: HSMemeber) -> Bool {
+    guard let currentUser = self.user else { return false }
+    if currentUser.uid == user.uid {
+       return true
+    } else {
+      return false
+    }
+  }
 }
 
 //MARK:User Logged In
-extension HSSessionManager:HSUserDatabase{
-  func userLoggedIn(uid:String,completion:(()->())?=nil){
+extension HSSessionManager:HSUserDatabase {
+  func userLoggedIn(uid:String,completion:(()->())?=nil) {
     self.downloadUserData(uid: uid) { (user, error) in
       if let error = error{
         Dlog(error.localizedDescription)
@@ -38,12 +47,12 @@ extension HSSessionManager:HSUserDatabase{
     }
   }
   
-  private func thowUserInfoDidDownloadedNotification(){
+  private func thowUserInfoDidDownloadedNotification() {
     HSNotificationManager.postCurrentUserInfoDownloaded()
   }
   
   
-  func logout(){
+  func logout() {
     do{
       try Auth.auth().signOut()
     }catch{

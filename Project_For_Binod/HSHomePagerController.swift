@@ -59,7 +59,7 @@ class HSHomePagerController:UIPageViewController{
 //MARK:Datasource and Delegate
 extension HSHomePagerController:UIPageViewControllerDataSource, UIPageViewControllerDelegate{
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    if let viewControllerIndex = self.pages.index(of:viewController),
+    if let viewControllerIndex = self.pages.firstIndex(of:viewController),
       viewControllerIndex != 0{
       return pages[0]
     }
@@ -67,7 +67,7 @@ extension HSHomePagerController:UIPageViewControllerDataSource, UIPageViewContro
   }
   
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    if let viewControllerIndex = self.pages.index(of:viewController),
+    if let viewControllerIndex = self.pages.firstIndex(of:viewController),
       viewControllerIndex != 1{
       return pages[1]
     }

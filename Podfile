@@ -11,9 +11,12 @@ target 'Project_For_Binod' do
     pod 'Firebase/Core'
     pod 'Firebase/Storage'
   
-    pod "TinyConstraints"
     pod 'CodableFirebase', '0.2.1'
-    pod 'Gallery'
-    pod 'Kingfisher'
+    pod 'Gallery', '2.2.2'
+
+    
+    pod 'RxSwift', '5.0.0'
+    pod 'RxCocoa', '5.0.0'
+    pod 'Nuke', '7.5.2'
 
 end
