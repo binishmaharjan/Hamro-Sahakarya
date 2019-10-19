@@ -41,6 +41,7 @@ class MainViewController: NiblessViewController {
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     observeVieModal()
   }
   
