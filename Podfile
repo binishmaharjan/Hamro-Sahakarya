@@ -19,5 +19,6 @@ target 'Project_For_Binod' do
     pod 'RxSwift', '5.0.0'
     pod 'RxCocoa', '5.0.0'
     pod 'Nuke', '7.5.2' , :inhibit_warnings => true
+    pod 'PromiseKit'
 
 end
