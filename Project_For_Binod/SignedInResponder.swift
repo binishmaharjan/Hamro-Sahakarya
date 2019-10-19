@@ -1,5 +1,5 @@
 //
-//  LaunchViewController.swift
+//  SignedInResponder.swift
 //  Project_For_Binod
 //
 //  Created by Maharjan Binish on 2019/10/19.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-class LaunchViewController: NiblessViewController {
+protocol SignedInResponder {
   
+  func signedIn(to userProfile: UserProfile)
 }

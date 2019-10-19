@@ -1,5 +1,5 @@
 //
-//  LaunchViewController.swift
+//  NotSignedInResponder.swift
 //  Project_For_Binod
 //
 //  Created by Maharjan Binish on 2019/10/19.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-class LaunchViewController: NiblessViewController {
+protocol NotSignedInResponder {
+  
+  func notSignedIn()
   
 }

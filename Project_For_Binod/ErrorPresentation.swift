@@ -1,5 +1,5 @@
 //
-//  LaunchViewController.swift
+//  ErrorPresentation.swift
 //  Project_For_Binod
 //
 //  Created by Maharjan Binish on 2019/10/19.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-class LaunchViewController: NiblessViewController {
-  
+enum ErrorPresentation {
+  case presenting
+  case dismissed
 }
