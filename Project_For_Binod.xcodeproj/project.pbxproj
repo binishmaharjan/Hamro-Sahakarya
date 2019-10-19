@@ -31,6 +31,8 @@
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
 		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
+		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
+		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
@@ -64,6 +66,8 @@
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		645939A1235AACD400A99902 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				64A210F5235AC79E00AF0502 /* LaunchView */,
 				645939A2235AACE000A99902 /* MainView */,
 			);
 			name = UILayer;
@@ -192,6 +197,7 @@
 			children = (
 				6492C16E235AA4CE009BE621 /* Macros.swift */,
 				645939BD235ABBE400A99902 /* Optional+Extension.swift */,
+				64A210F8235ACC9700AF0502 /* HasXib.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -245,6 +251,14 @@
 				645939C5235AC52F00A99902 /* LaunchRootView.xib */,
 			);
 			name = LaunchIViewController;
+			sourceTree = "<group>";
+		};
+		64A210F5235AC79E00AF0502 /* LaunchView */ = {
+			isa = PBXGroup;
+			children = (
+				64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */,
+			);
+			name = LaunchView;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -441,6 +455,7 @@
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
+				64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */,
 				645939C9235AC5D500A99902 /* UserSessionRepository.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
@@ -454,6 +469,7 @@
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
+				64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */,
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
