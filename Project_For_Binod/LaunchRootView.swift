@@ -19,6 +19,11 @@ class LaunchRootView: UIView {
     rootView.viewModel = viewModel
     return rootView
   }
+
+  override func didMoveToWindow() {
+    super.didMoveToWindow()
+    loadUserSession()
+  }
   
   private func loadUserSession() {
     viewModel.loadUserSession()
