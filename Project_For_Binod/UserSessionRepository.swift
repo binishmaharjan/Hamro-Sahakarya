@@ -12,7 +12,7 @@ import PromiseKit
 protocol UserSessionRepository {
   
   func readUserSession() -> Promise<UserProfile?>
-  func signUp(newAccount: UserProfile) -> Promise<UserProfile>
+  func signUp(newAccount: NewAccount) -> Promise<UserProfile>
   func signIn(email: String, password: String) -> Promise<UserProfile>
-  func signOut(userSession: UserProfile) -> Promise<UserProfile>
+  func signOut(userProfile: UserProfile) -> Promise<UserProfile>
 }
