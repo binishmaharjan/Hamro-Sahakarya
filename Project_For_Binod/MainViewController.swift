@@ -41,6 +41,7 @@ class MainViewController: NiblessViewController {
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     observeVieModal()
   }
   
@@ -54,7 +55,7 @@ class MainViewController: NiblessViewController {
     observable.subscribe(onNext: { [weak self] view in
       guard let self = self else { return }
       self.present(view)
-    }).dispose()
+    }).disposed(by: disposeBag)
   }
 }
 
@@ -89,6 +90,7 @@ extension MainViewController {
   
   func presentOnboardingScreen() {
     let onboardingViewConroller = makeOnboardingViewController()
+    onboardingViewConroller.modalPresentationStyle = .fullScreen
     present(onboardingViewConroller, animated: true) { [weak self] in
       guard let self = self else { return }
       

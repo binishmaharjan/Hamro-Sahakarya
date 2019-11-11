@@ -14,22 +14,23 @@ var user : NSDictionary?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    //Flag for error View
-    var isNotificationViewShowing : Bool = false
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      //Firebase Server
-      setupFirebaseServer(application,launchOptions)
-      
-      window = UIWindow(frame: UIScreen.main.bounds)
-      window?.makeKeyAndVisible()
-      window?.rootViewController = UIViewController()
-
-        return true
-    }
+  
+  var window: UIWindow?
+  let injectionContainer = AppDependencyContainer()
+  
+  
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Firebase Server
+    setupFirebaseServer(application,launchOptions)
+    
+    let mainViewControlelr = injectionContainer.makeMainViewController()
+    
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.makeKeyAndVisible()
+    window?.rootViewController = mainViewControlelr
+    
+    return true
+  }
   
 }
 
