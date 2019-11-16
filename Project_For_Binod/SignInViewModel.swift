@@ -7,7 +7,63 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class SignInViewModel {
   
+  // MARK: Properties
+  private let userSessionRepository: UserSessionRepository
+  private let signedInResponder: SignedInResponder
+  
+  var emailInput = BehaviorSubject<String>(value: "")
+  var passwordInput = BehaviorSubject<String>(value: "")
+  
+  var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
+  var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
+  
+  private let errorMessageSubject = PublishSubject<ErrorMessage>()
+  var errorMessage: Observable<ErrorMessage> {
+    return errorMessageSubject.asObserver()
+  }
+  
+  
+  // MARK: Init
+  init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
+    self.userSessionRepository = userSessionRepository
+    self.signedInResponder = signedInResponder
+  }
+  
+  // MARK: Methods
+  func signIn() {
+    indicateSigingIn()
+    let (email, password) = getEmailAndPassword()
+    userSessionRepository.signIn(email: email, password: password)
+      .done(signedInResponder.signedIn(to:))
+      .catch(indicateErrorSigningIn)
+  }
+  
+  private func getEmailAndPassword() -> (String, String) {
+    do {
+      return try (emailInput.value(), passwordInput.value())
+    } catch {
+      fatalError("Error Reading Text Field Values")
+    }
+  }
+  
+  private func indicateSigingIn() {
+    signInButtonEnabled.onNext(false)
+    activityIndicatorAnimating.onNext(true)
+    
+  }
+  
+  private func indicateErrorSigningIn(_ error: Error) {
+    let errorMessage = ErrorMessage(title: "Sign In Failed.", message: error.localizedDescription)
+    errorMessageSubject.onNext(errorMessage)
+    
+    signInButtonEnabled.onNext(true)
+    activityIndicatorAnimating.onNext(false)
+  }
+  
 }
+
