@@ -57,6 +57,10 @@
 		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
 		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
+		64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D52237D922E00A9DFB4 /* Colors.swift */; };
+		64F44D55237EF22C00A9DFB4 /* ProgressHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */; };
+		64F44D57237EF24500A9DFB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */; };
+		64F44D59237EF48900A9DFB4 /* ProgressHUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
@@ -116,6 +120,10 @@
 		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
+		64F44D52237D922E00A9DFB4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressHUD.xib; sourceTree = "<group>"; };
+		64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDManager.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 		6459399A235AAAF600A99902 /* Reuseable */ = {
 			isa = PBXGroup;
 			children = (
+				64F44D5A237EF93700A9DFB4 /* ProgressHUD */,
 				6459399B235AAB0800A99902 /* UiKit */,
 				645939B2235AB73800A99902 /* UIViewControllerContaintment.swift */,
 				645939B4235AB7A200A99902 /* UIViewController+ErrorPresentation.swift */,
@@ -390,6 +399,7 @@
 				64A210F8235ACC9700AF0502 /* HasXib.swift */,
 				6402F4142377FBCE0044835F /* Date+Extension.swift */,
 				646604C72379A92300122718 /* UIView+Extension.swift */,
+				64F44D52237D922E00A9DFB4 /* Colors.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -451,6 +461,16 @@
 				64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */,
 			);
 			name = LaunchView;
+			sourceTree = "<group>";
+		};
+		64F44D5A237EF93700A9DFB4 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */,
+				64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */,
+				64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */,
+			);
+			name = ProgressHUD;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -556,6 +576,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64F44D55237EF22C00A9DFB4 /* ProgressHUD.xib in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
@@ -643,14 +664,17 @@
 			files = (
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
+				64F44D57237EF24500A9DFB4 /* ProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
+				64F44D59237EF48900A9DFB4 /* ProgressHUDManager.swift in Sources */,
 				646604B623798E3F00122718 /* SignInRootView.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				646604B423798C9E00122718 /* GoToSignUpNavigator.swift in Sources */,
 				646604C42379A30500122718 /* SignInViewModel.swift in Sources */,
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
+				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
 				6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */,

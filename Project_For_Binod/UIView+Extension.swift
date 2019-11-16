@@ -23,8 +23,7 @@ extension UIView {
   }
   
   @discardableResult
-  // TODO: Define Colors Class
-  func borderColor(color borderColor: UIColor = UIColor.orange) -> UIView {
+  func borderColor(color borderColor: UIColor = Colors.orange) -> UIView {
     self.layer.borderColor = borderColor.cgColor
     return self
   }

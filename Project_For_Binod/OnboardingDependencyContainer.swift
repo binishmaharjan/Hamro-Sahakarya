@@ -52,7 +52,7 @@ extension OnboardingDependencyContainer: SignInViewModelFactory {
   }
   
   func makeSignInViewModel() -> SignInViewModel {
-    return SignInViewModel()
+    return SignInViewModel(userSessionRepository: _sharedUserSessionRepository, signedInResponder: _sharedMainViewModel)
   }
   
 }
