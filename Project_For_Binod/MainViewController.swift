@@ -118,7 +118,7 @@ extension MainViewController {
     
     addFullScreen(childViewController: signedInViewControllerToPresent)
     
-    if onboardingViewController?.presentedViewController != nil {
+    if onboardingViewController?.presentingViewController != nil {
       onboardingViewController = nil
       dismiss(animated: true)
     }
