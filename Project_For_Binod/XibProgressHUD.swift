@@ -9,26 +9,27 @@
 import UIKit
 import RxSwift
 
-class ProgressHUD: UIView {
+protocol ProgressHUD {
+  func startAnimation()
+  func stopAnimation()
+}
+
+typealias XibProgressHUDType = UIView & ProgressHUD
+
+class XibProgressHUD: XibProgressHUDType {
   
   // MARK: IBOutlet
   @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet private weak var statusText: UILabel!
   
-  // MARK: Properties
-  var status: String = "Indicator" {
-    didSet {
-      statusText.text = status
-    }
-  }
-  
+  // MARK: Properties  
   var isAnimating: Bool {
     return activityIndicator.isAnimating
   }
   
   // MARK: Instance
-  static func makeInstance() -> ProgressHUD {
-    let progressHud = ProgressHUD.loadXib()
+  static func makeInstance() -> XibProgressHUD {
+    let progressHud = XibProgressHUD.loadXib()
     return progressHud
   }
   
@@ -48,4 +49,4 @@ class ProgressHUD: UIView {
   }
 }
 
-extension ProgressHUD: HasXib { }
+extension XibProgressHUD: HasXib { }

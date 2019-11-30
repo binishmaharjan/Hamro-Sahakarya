@@ -15,6 +15,9 @@ class OnboardingDependencyContainer {
   // From Parent Container
   private let _sharedUserSessionRepository: UserSessionRepository
   private let _sharedMainViewModel: MainViewModel
+  var sharedUserSessionRepository: UserSessionRepository {
+    return _sharedUserSessionRepository
+  }
   
   // Long Lived Dependency
   private let _sharedOnboardingViewModel: OnboardingViewModel

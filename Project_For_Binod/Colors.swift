@@ -8,11 +8,17 @@
 
 import UIKit
 
-struct Colors {
+extension UIColor {
   
-  static let orange = UIColor(named: "orange")!
-  static let blue = UIColor(named: "blue")!
-  static let black = UIColor(named: "black")!
-  static let grey = UIColor(named: "grey")!
-  static let white = UIColor.white
+  // MARK: Predefined Colors
+  static let mainOrange = UIColor(named: "cEF5D0B")!
+  static let mainBlue = UIColor(named: "c5983AC")!
+  static let mainBlack = UIColor(named: "c241D1D")!
+  static let textGrey = UIColor(named: "cADB2B6")!
+  
+  // MARK: Predefined Transparent Colors
+  static let red_50 = UIColor(named: "cFF3A2F@50")!
+  static let green_50 = UIColor(named: "c00F900@50")!
+  static let mainBlack_50 = UIColor(named: "c241D1D@50")!
+  static let mainBlack_30 = UIColor(named: "c241D1D@30")
 }

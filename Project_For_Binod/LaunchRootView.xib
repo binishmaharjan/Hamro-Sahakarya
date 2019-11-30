@@ -14,17 +14,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="aan-v2-FMP">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="aan-v2-FMP">
+                    <rect key="frame" x="132" y="373" width="150" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Lue-Za-XY6"/>
+                        <constraint firstAttribute="height" constant="150" id="y7I-PS-Aac"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="aan-v2-FMP" secondAttribute="bottom" id="6vk-6Y-d5p"/>
-                <constraint firstItem="aan-v2-FMP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UWj-7t-J7R"/>
-                <constraint firstItem="aan-v2-FMP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="btq-F6-DOh"/>
-                <constraint firstItem="aan-v2-FMP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sXh-fo-jis"/>
+                <constraint firstItem="aan-v2-FMP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VA1-nj-Qws"/>
+                <constraint firstItem="aan-v2-FMP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bMi-OZ-cwm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
