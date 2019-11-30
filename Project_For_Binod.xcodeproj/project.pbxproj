@@ -21,6 +21,8 @@
 		6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F4142377FBCE0044835F /* Date+Extension.swift */; };
 		64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */; };
 		64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD922488F0200088E61 /* GoogleService-Info.plist */; };
+		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
+		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
 		64593999235AAABE00A99902 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593998235AAABD00A99902 /* OnboardingViewController.swift */; };
 		6459399E235AAB5500A99902 /* NIblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6459399D235AAB5500A99902 /* NIblessViewController.swift */; };
@@ -58,9 +60,11 @@
 		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
 		64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D52237D922E00A9DFB4 /* Colors.swift */; };
-		64F44D55237EF22C00A9DFB4 /* ProgressHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */; };
-		64F44D57237EF24500A9DFB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */; };
-		64F44D59237EF48900A9DFB4 /* ProgressHUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */; };
+		64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F44D54237EF22C00A9DFB4 /* XibProgressHUD.xib */; };
+		64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D56237EF24500A9DFB4 /* XibProgressHUD.swift */; };
+		64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D5D237FB01400A9DFB4 /* SimpleDropDownNotification.swift */; };
+		64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */; };
+		64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D62237FB2B900A9DFB4 /* BaseView.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
@@ -84,6 +88,8 @@
 		6402F4142377FBCE0044835F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		64073BD922488F0200088E61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
+		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		64593998235AAABD00A99902 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		6459399D235AAB5500A99902 /* NIblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIblessViewController.swift; sourceTree = "<group>"; };
@@ -121,9 +127,11 @@
 		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
 		64F44D52237D922E00A9DFB4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressHUD.xib; sourceTree = "<group>"; };
-		64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
-		64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDManager.swift; sourceTree = "<group>"; };
+		64F44D54237EF22C00A9DFB4 /* XibProgressHUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibProgressHUD.xib; sourceTree = "<group>"; };
+		64F44D56237EF24500A9DFB4 /* XibProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibProgressHUD.swift; sourceTree = "<group>"; };
+		64F44D5D237FB01400A9DFB4 /* SimpleDropDownNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDropDownNotification.swift; sourceTree = "<group>"; };
+		64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownType.swift; sourceTree = "<group>"; };
+		64F44D62237FB2B900A9DFB4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				6402F4122377CDBD0044835F /* NewAccount.swift */,
+				6457F1012388FDC400EFE898 /* DropDownModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,10 +257,12 @@
 		6459399A235AAAF600A99902 /* Reuseable */ = {
 			isa = PBXGroup;
 			children = (
+				64F44D5C237FAFF800A9DFB4 /* DropDownNotification */,
 				64F44D5A237EF93700A9DFB4 /* ProgressHUD */,
 				6459399B235AAB0800A99902 /* UiKit */,
 				645939B2235AB73800A99902 /* UIViewControllerContaintment.swift */,
 				645939B4235AB7A200A99902 /* UIViewController+ErrorPresentation.swift */,
+				6457F0FF2388F3C200EFE898 /* GUIManager.swift */,
 			);
 			name = Reuseable;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 		6459399B235AAB0800A99902 /* UiKit */ = {
 			isa = PBXGroup;
 			children = (
+				64F44D61237FB2AD00A9DFB4 /* BaseView */,
 				6459399C235AAB1600A99902 /* NiblessComponenet */,
 			);
 			name = UiKit;
@@ -466,11 +478,27 @@
 		64F44D5A237EF93700A9DFB4 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				64F44D54237EF22C00A9DFB4 /* ProgressHUD.xib */,
-				64F44D56237EF24500A9DFB4 /* ProgressHUD.swift */,
-				64F44D58237EF48900A9DFB4 /* ProgressHUDManager.swift */,
+				64F44D54237EF22C00A9DFB4 /* XibProgressHUD.xib */,
+				64F44D56237EF24500A9DFB4 /* XibProgressHUD.swift */,
 			);
 			name = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		64F44D5C237FAFF800A9DFB4 /* DropDownNotification */ = {
+			isa = PBXGroup;
+			children = (
+				64F44D5D237FB01400A9DFB4 /* SimpleDropDownNotification.swift */,
+				64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */,
+			);
+			name = DropDownNotification;
+			sourceTree = "<group>";
+		};
+		64F44D61237FB2AD00A9DFB4 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				64F44D62237FB2B900A9DFB4 /* BaseView.swift */,
+			);
+			name = BaseView;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -576,7 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64F44D55237EF22C00A9DFB4 /* ProgressHUD.xib in Resources */,
+				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
@@ -604,6 +632,7 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -621,6 +650,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -664,11 +694,10 @@
 			files = (
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
-				64F44D57237EF24500A9DFB4 /* ProgressHUD.swift in Sources */,
+				64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
-				64F44D59237EF48900A9DFB4 /* ProgressHUDManager.swift in Sources */,
 				646604B623798E3F00122718 /* SignInRootView.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				646604B423798C9E00122718 /* GoToSignUpNavigator.swift in Sources */,
@@ -680,6 +709,7 @@
 				6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */,
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
 				64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */,
+				6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */,
 				646604B223798B8E00122718 /* OnboardingView.swift in Sources */,
 				645939C9235AC5D500A99902 /* UserSessionRepository.swift in Sources */,
 				646604B023798ADD00122718 /* NavigationAction.swift in Sources */,
@@ -688,6 +718,9 @@
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
+				6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */,
+				64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */,
+				64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */,
 				646604C62379A31A00122718 /* SignUpViewModel.swift in Sources */,
 				6402F4072376A3290044835F /* FirebaseUserSessionRepository.swift in Sources */,
 				64593999235AAABE00A99902 /* OnboardingViewController.swift in Sources */,
@@ -709,6 +742,7 @@
 				64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */,
 				646604C023799FC600122718 /* OnboardingDependencyContainer.swift in Sources */,
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,
+				64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */,
 				6402F40D2376A9BC0044835F /* ServerDataManager.swift in Sources */,
 				6402F405237695260044835F /* UserProfilePropertyListCoder.swift in Sources */,
 			);
