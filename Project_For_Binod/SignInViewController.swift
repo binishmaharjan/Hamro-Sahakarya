@@ -54,7 +54,9 @@ class SignInViewController: NiblessViewController {
     viewModel.errorMessage
       .asDriver{ _ in fatalError("Unexpected error From error messages observable") }
       .drive(onNext: { [weak self] errorMessage in
-      self?.present(errorMessage: errorMessage)
+//      self?.present(errorMessage: errorMessage)
+//        showDropDownNotification(type: .error, message: errorMessage.message)
+        Dlog("Error Message: \(errorMessage.message)")
       })
       .disposed(by: disposeBag)
   }

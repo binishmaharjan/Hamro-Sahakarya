@@ -9,8 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
-class SignInRootView: UIView {
+class SignInRootView: BaseView {
   
   // MARK: IBOutlets
   @IBOutlet private weak var emailFieldView: UIView!
@@ -46,9 +47,9 @@ class SignInRootView: UIView {
   
   // MARK: Methods
   private func setupView() {
-    emailFieldView.borderColor().borderWidth().cornerRadius()
-    passwordFieldView.borderColor().borderWidth().cornerRadius()
-    signInButton.cornerRadius()
+    emailFieldView.apply(types: [.borderColor(.mainOrange), .borderWidth(1),.cornerRadius(2)])
+    passwordFieldView.apply(types: [.borderColor(.mainOrange), .borderWidth(1),.cornerRadius(2)])
+    signInButton.apply(types: [.cornerRadius(2)])
   }
 }
 
@@ -72,16 +73,35 @@ extension SignInRootView {
         self?.viewModel.signIn()
       })
       .disposed(by: disposeBag)
-    
+
     viewModel.activityIndicatorAnimating
       .asDriver(onErrorJustReturn: false)
-      .drive(ProgressHUDManager.rx.isAnimating(view: self))
+      .drive(GUIManager.rx.isIndicatorAnimating())
+      .disposed(by: disposeBag)
+    
+    viewModel.dropDown
+      .asDriver(onErrorJustReturn: DropDownModel.defaultDropDown)
+      .drive(GUIManager.rx.shouldShowDropDown())
       .disposed(by: disposeBag)
     
     viewModel.signInButtonEnabled
       .asDriver(onErrorJustReturn: true)
       .drive(signInButton.rx.isEnabled)
       .disposed(by: disposeBag)
+    
+    self.rx.tapGesture{ gesture, _ in
+      gesture.numberOfTouchesRequired = 2
+      gesture.numberOfTapsRequired = 2
+    }
+    .bind(to: viewModel.doubleTapGesture)
+    .disposed(by: disposeBag)
+    
+    viewModel.tapAction.bind { (action) in
+      switch action{
+      case .showRegister:
+        print("Show Register View")
+      }
+    }.disposed(by: disposeBag)
   }
 }
 
@@ -101,4 +121,3 @@ extension SignInRootView {
   }
 }
 
-extension SignInRootView: HasXib { }

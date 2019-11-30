@@ -9,6 +9,11 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxGesture
+
+enum SignUpViewAction {
+  case showRegister
+}
 
 class SignInViewModel {
   
@@ -22,11 +27,28 @@ class SignInViewModel {
   var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
   var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
   
+  /// publish subject for user actions
+  private let onTapActionSubject = PublishSubject<SignUpViewAction>()
+  var tapAction: Observable<SignUpViewAction> {
+    return onTapActionSubject.asObservable()
+  }
+  /// user double tapped in the screen
+  var doubleTapGesture: Binder<UITapGestureRecognizer> {
+    return Binder(onTapActionSubject) { observer, _  in
+      observer.onNext(SignUpViewAction.showRegister)
+    }
+  }
+  
+  // GUIs
+  private let dropDownSubject = PublishSubject<DropDownModel>()
+  var dropDown: Observable<DropDownModel> {
+    return dropDownSubject.asObserver()
+  }
+  
   private let errorMessageSubject = PublishSubject<ErrorMessage>()
   var errorMessage: Observable<ErrorMessage> {
     return errorMessageSubject.asObserver()
   }
-  
   
   // MARK: Init
   init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
@@ -63,6 +85,9 @@ class SignInViewModel {
     
     signInButtonEnabled.onNext(true)
     activityIndicatorAnimating.onNext(false)
+    
+    // Drop Down
+    dropDownSubject.onNext(DropDownModel(dropDownType: .error, message: errorMessage.message))
   }
   
 }
