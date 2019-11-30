@@ -6,7 +6,7 @@
 //  Copyright © 2019 JEC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 #if DEBUG
 let IS_DEBUG = true
@@ -28,7 +28,7 @@ func Dlog(_ obj: Any? = nil, file:String = #file, function:String = #function, l
   #endif
 }
 
-// MARK: Log For Debug
+// MARK: Log For Release
 /// Prints to console on debug realease configuration
 func Alog(_ obj: Any? = nil, file: String = #file, function: String = #function, line: Int = #line){
   var filename: NSString = file as NSString
@@ -40,6 +40,9 @@ func Alog(_ obj: Any? = nil, file: String = #file, function: String = #function,
   }
 }
 
+// MARK: Global Variables
+let safeAreaTopInsets = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0.0
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 // MARK: FireStore Database References
 class DatabaseReference{
