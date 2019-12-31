@@ -38,6 +38,10 @@ class SignInRootView: BaseView {
   override func awakeFromNib() {
     super.awakeFromNib()
     setupView()
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+    tapGesture.numberOfTapsRequired = 2
+    tapGesture.numberOfTouchesRequired = 2
+    self.addGestureRecognizer(tapGesture)
   }
   
   override func didMoveToWindow() {
@@ -89,12 +93,6 @@ extension SignInRootView {
       .drive(signInButton.rx.isEnabled)
       .disposed(by: disposeBag)
     
-    self.rx.tapGesture{ gesture, _ in
-      gesture.numberOfTouchesRequired = 2
-      gesture.numberOfTapsRequired = 2
-    }
-    .bind(to: viewModel.doubleTapGesture)
-    .disposed(by: disposeBag)
     
     viewModel.tapAction.bind { (action) in
       switch action{

@@ -33,7 +33,7 @@ class SignInViewModel {
     return onTapActionSubject.asObservable()
   }
   /// user double tapped in the screen
-  var doubleTapGesture: Binder<UITapGestureRecognizer> {
+  var doubleTapGesture: Binder<Void> {
     return Binder(onTapActionSubject) { observer, _  in
       observer.onNext(SignUpViewAction.showRegister)
     }
