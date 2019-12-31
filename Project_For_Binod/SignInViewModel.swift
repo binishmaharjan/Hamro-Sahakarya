@@ -13,6 +13,7 @@ import RxGesture
 
 enum SignUpViewAction {
   case showRegister
+  case signInTapped
 }
 
 class SignInViewModel {
@@ -20,10 +21,10 @@ class SignInViewModel {
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
   private let signedInResponder: SignedInResponder
+  private let signUpNavigator: GoToSignUpNavigator
   
   var emailInput = BehaviorSubject<String>(value: "")
   var passwordInput = BehaviorSubject<String>(value: "")
-  
   var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
   var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
   
@@ -36,6 +37,12 @@ class SignInViewModel {
   var doubleTapGesture: Binder<Void> {
     return Binder(onTapActionSubject) { observer, _  in
       observer.onNext(SignUpViewAction.showRegister)
+    }
+  }
+  /// User Pressed Sign in Button
+  var signInButtonTapped: Binder<Void> {
+    return Binder(onTapActionSubject) { observer, _ in
+      observer.onNext(SignUpViewAction.signInTapped)
     }
   }
   
@@ -51,9 +58,10 @@ class SignInViewModel {
   }
   
   // MARK: Init
-  init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
+  init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder, signUpNavigator: GoToSignUpNavigator) {
     self.userSessionRepository = userSessionRepository
     self.signedInResponder = signedInResponder
+    self.signUpNavigator = signUpNavigator
   }
   
   // MARK: Methods
@@ -87,7 +95,6 @@ class SignInViewModel {
   private func indicateSigingIn() {
     signInButtonEnabled.onNext(false)
     activityIndicatorAnimating.onNext(true)
-    
   }
   
   private func indicateErrorSigningIn(_ error: Error) {
