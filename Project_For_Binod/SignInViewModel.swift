@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 
-enum SignUpViewAction {
+enum SignInEvent {
   case showRegister
   case signInTapped
 }
@@ -29,20 +29,20 @@ class SignInViewModel {
   var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
   
   /// publish subject for user actions
-  private let onTapActionSubject = PublishSubject<SignUpViewAction>()
-  var tapAction: Observable<SignUpViewAction> {
-    return onTapActionSubject.asObservable()
+  private let eventSubject = PublishSubject<SignInEvent>()
+  var event: Observable<SignInEvent> {
+    return eventSubject.asObservable()
   }
   /// user double tapped in the screen
   var doubleTapGesture: Binder<Void> {
-    return Binder(onTapActionSubject) { observer, _  in
-      observer.onNext(SignUpViewAction.showRegister)
+    return Binder(eventSubject) { observer, _  in
+      observer.onNext(SignInEvent.showRegister)
     }
   }
   /// User Pressed Sign in Button
   var signInButtonTapped: Binder<Void> {
-    return Binder(onTapActionSubject) { observer, _ in
-      observer.onNext(SignUpViewAction.signInTapped)
+    return Binder(eventSubject) { observer, _ in
+      observer.onNext(SignInEvent.signInTapped)
     }
   }
   
