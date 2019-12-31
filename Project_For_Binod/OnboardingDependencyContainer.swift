@@ -55,7 +55,9 @@ extension OnboardingDependencyContainer: SignInViewModelFactory {
   }
   
   func makeSignInViewModel() -> SignInViewModel {
-    return SignInViewModel(userSessionRepository: _sharedUserSessionRepository, signedInResponder: _sharedMainViewModel)
+    return SignInViewModel(userSessionRepository: _sharedUserSessionRepository,
+                           signedInResponder: _sharedMainViewModel,
+                           signUpNavigator: _sharedOnboardingViewModel)
   }
   
 }
@@ -63,11 +65,12 @@ extension OnboardingDependencyContainer: SignInViewModelFactory {
 // MARK: SignUpViewController
 extension OnboardingDependencyContainer: SignUpViewModelFactory {
   func makeSignUpViewController() -> SignUpViewController {
-    return SignUpViewController()
+    return SignUpViewController(viewModelFactory: self)
   }
   
   func makeSignUpViewModel() -> SignUpViewModel {
-    return SignUpViewModel()
+    return SignUpViewModel(userSessionRepository: _sharedUserSessionRepository,
+                           signedInResponder: _sharedMainViewModel)
   }
   
 }
