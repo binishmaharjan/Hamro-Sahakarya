@@ -83,14 +83,15 @@ extension SignInViewController {
   }
 
   @objc func handleContentUnderKeyboard(notification: Notification) {
-    if let userInfo = notification.userInfo,
-      let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-      let convertedKeybaordEndFrame = view.convert(keyboardEndFrame.cgRectValue, from: view.window)
-      if notification.name == UIResponder.keyboardWillHideNotification {
-        signInRootView.moveContentForDismissKeyboard()
-      } else {
-       signInRootView.moveContent(forKeyboardFrame: convertedKeybaordEndFrame)
-      }
+    guard let userInfo = notification.userInfo,
+      let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else  { return }
+    
+    switch notification.name {
+    case UIResponder.keyboardWillHideNotification:
+      signInRootView.moveContentForDismissKeyboard()
+    default:
+      let convertedKeyboardEndFrame = view.convert(keyboardEndFrame.cgRectValue, to: view.window)
+      signInRootView.moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
     }
   }
   

@@ -28,24 +28,6 @@ extension UIView {
       }
     }
   }
-  
-  @discardableResult
-  func cornerRadius(value radius: CGFloat = 2) -> UIView {
-    self.layer.cornerRadius = radius
-    return self
-  }
-  
-  @discardableResult
-  func borderWidth(value width: CGFloat = 1) -> UIView {
-    self.layer.borderWidth = width
-    return self
-  }
-  
-  @discardableResult
-  func borderColor(color borderColor: UIColor = .mainOrange) -> UIView {
-    self.layer.borderColor = borderColor.cgColor
-    return self
-  }
 }
 
 
@@ -119,16 +101,6 @@ extension UIView {
         v = v!.superview
       }
       return y
-    }
-  }
-  
-  var cornerRadius:CGFloat{
-    get{
-      return self.layer.cornerRadius
-    }
-    set(value){
-      self.layer.masksToBounds = (value != 0)
-      self.layer.cornerRadius = value
     }
   }
   

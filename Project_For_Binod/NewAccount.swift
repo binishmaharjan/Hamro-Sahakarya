@@ -12,10 +12,15 @@ struct NewAccount: Codable {
   
   let username: String
   let email: String
-  let status: String
+  let status: Status
   let colorHex: String
   let dateCreated: String
   let keyword: String
   let initialAmount: Int
-  
+
+}
+
+enum Status: String, Codable {
+  case member
+  case admin
 }

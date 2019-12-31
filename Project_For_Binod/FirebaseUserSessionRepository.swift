@@ -39,7 +39,7 @@ class FirebaseUserSessionRepository: UserSessionRepository {
       let userProifile = UserProfile(uid: uid,
                                      username: newAccount.username,
                                      email: newAccount.email,
-                                     status: newAccount.status,
+                                     status: newAccount.status.rawValue,
                                      colorHex: newAccount.colorHex,
                                      iconUrl: "",
                                      dateCreated: Date().toString,

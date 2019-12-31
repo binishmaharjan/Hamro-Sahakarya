@@ -36,7 +36,7 @@ class XibProgressHUD: XibProgressHUDType {
   //MARK: Life Cycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.cornerRadius(value: 10)
+    self.apply(types: [.cornerRadius(10)])
   }
   
   // MARK: Methods

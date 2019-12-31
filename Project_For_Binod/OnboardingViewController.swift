@@ -34,10 +34,12 @@ class OnboardingViewController: NiblessNavigationController {
   
   private func navigationSetup() {
     setNavigationBarHidden(true, animated: false)
+    delegate = self
   }
 
   private func subscribe(to observable: Observable<OnboardingNavigationAction>) {
-    observable.distinctUntilChanged().subscribe(onNext: { [weak self] action in
+    observable.distinctUntilChanged()
+      .subscribe(onNext: { [weak self] action in
       guard let self = self else { return }
       self.respond(to: action)
     }).disposed(by: disposeBag)

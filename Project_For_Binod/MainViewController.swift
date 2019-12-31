@@ -12,7 +12,7 @@ import RxSwift
 class MainViewController: NiblessViewController {
   
   // MARK: Properties
-  let disposeBag = DisposeBag()
+  private let disposeBag = DisposeBag()
   
   // Main View Modal
   let viewModel: MainViewModel
