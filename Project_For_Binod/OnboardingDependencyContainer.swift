@@ -51,7 +51,7 @@ extension OnboardingDependencyContainer {
 // MARK: SignInViewController
 extension OnboardingDependencyContainer: SignInViewModelFactory {
   func makeSignInViewController() -> SignInViewController {
-    return SignInViewController(viewModelFactory: self)
+    return SignInViewController.makeInstance(viewModelFactory: self)
   }
   
   func makeSignInViewModel() -> SignInViewModel {
