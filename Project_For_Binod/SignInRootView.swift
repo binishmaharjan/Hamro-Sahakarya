@@ -14,14 +14,10 @@ import RxGesture
 class SignInRootView: BaseView {
   
   // MARK: IBOutlets
-  @IBOutlet private weak var emailFieldView: UIView!
   @IBOutlet private weak var emailTextField: UITextField!
-  
-  @IBOutlet private weak var passwordFieldView: UIView!
   @IBOutlet private weak var passwordTextField: UITextField!
-  
   @IBOutlet private weak var signInButton: UIButton!
-  @IBOutlet weak var scrollViewBottomContraints: NSLayoutConstraint!
+  @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
   
   // MARK: Properties
   private var viewModel: SignInViewModel!
@@ -37,7 +33,6 @@ class SignInRootView: BaseView {
   // MARK: LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    setupView()
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
     tapGesture.numberOfTapsRequired = 2
     tapGesture.numberOfTouchesRequired = 2
@@ -49,11 +44,8 @@ class SignInRootView: BaseView {
     bindViews()
   }
   
-  // MARK: Methods
-  private func setupView() {
-    emailFieldView.apply(types: [.borderColor(.mainOrange), .borderWidth(1),.cornerRadius(2)])
-    passwordFieldView.apply(types: [.borderColor(.mainOrange), .borderWidth(1),.cornerRadius(2)])
-    signInButton.apply(types: [.cornerRadius(2)])
+  @objc func doubleTapped() {
+    viewModel.doubleTapGesture.onNext(())
   }
 }
 
@@ -71,12 +63,6 @@ extension SignInRootView {
       .drive(viewModel
         .passwordInput)
       .disposed(by: disposeBag)
-    
-    signInButton.rx.tap.asDriver()
-      .drive(onNext:{ [weak self] _ in
-        self?.viewModel.signIn()
-      })
-      .disposed(by: disposeBag)
 
     viewModel.activityIndicatorAnimating
       .asDriver(onErrorJustReturn: false)
@@ -93,11 +79,16 @@ extension SignInRootView {
       .drive(signInButton.rx.isEnabled)
       .disposed(by: disposeBag)
     
+    signInButton.rx.tap
+      .bind(to: viewModel.signInButtonTapped)
+      .disposed(by: disposeBag)
     
     viewModel.tapAction.bind { (action) in
       switch action{
       case .showRegister:
-        print("Show Register View")
+        self.viewModel.showSignUpView()
+      case .signInTapped:
+        self.viewModel.signIn()
       }
     }.disposed(by: disposeBag)
   }
