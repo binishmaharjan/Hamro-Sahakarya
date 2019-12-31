@@ -57,12 +57,23 @@ class SignInViewModel {
   }
   
   // MARK: Methods
+  
+  /// Sign in with current email and password
+  ///
+  /// Returns: Void
   func signIn() {
     indicateSigingIn()
     let (email, password) = getEmailAndPassword()
     userSessionRepository.signIn(email: email, password: password)
       .done(signedInResponder.signedIn(to:))
       .catch(indicateErrorSigningIn)
+  }
+  
+  /// Navigate To Sign Up View
+  ///
+  /// Returns: Void
+  func showSignUpView() {
+    signUpNavigator.navigateToSignUp()
   }
   
   private func getEmailAndPassword() -> (String, String) {
