@@ -48,8 +48,6 @@
 		646604B023798ADD00122718 /* NavigationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604AF23798ADD00122718 /* NavigationAction.swift */; };
 		646604B223798B8E00122718 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604B123798B8E00122718 /* OnboardingView.swift */; };
 		646604B423798C9E00122718 /* GoToSignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604B323798C9E00122718 /* GoToSignUpNavigator.swift */; };
-		646604B623798E3F00122718 /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604B523798E3F00122718 /* SignInRootView.swift */; };
-		646604B823798E6100122718 /* SignInRootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 646604B723798E6100122718 /* SignInRootView.xib */; };
 		646604BC237995DB00122718 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604BB237995DB00122718 /* SignInViewController.swift */; };
 		646604BE237995ED00122718 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604BD237995ED00122718 /* SignUpViewController.swift */; };
 		646604C023799FC600122718 /* OnboardingDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604BF23799FC600122718 /* OnboardingDependencyContainer.swift */; };
@@ -62,6 +60,8 @@
 		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
 		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
+		64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */; };
+		64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */; };
 		64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D52237D922E00A9DFB4 /* Colors.swift */; };
 		64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F44D54237EF22C00A9DFB4 /* XibProgressHUD.xib */; };
 		64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D56237EF24500A9DFB4 /* XibProgressHUD.swift */; };
@@ -118,8 +118,6 @@
 		646604AF23798ADD00122718 /* NavigationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAction.swift; sourceTree = "<group>"; };
 		646604B123798B8E00122718 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		646604B323798C9E00122718 /* GoToSignUpNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSignUpNavigator.swift; sourceTree = "<group>"; };
-		646604B523798E3F00122718 /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
-		646604B723798E6100122718 /* SignInRootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInRootView.xib; sourceTree = "<group>"; };
 		646604BB237995DB00122718 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		646604BD237995ED00122718 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		646604BF23799FC600122718 /* OnboardingDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDependencyContainer.swift; sourceTree = "<group>"; };
@@ -132,6 +130,8 @@
 		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
+		64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
 		64F44D52237D922E00A9DFB4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		64F44D54237EF22C00A9DFB4 /* XibProgressHUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibProgressHUD.xib; sourceTree = "<group>"; };
 		64F44D56237EF24500A9DFB4 /* XibProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibProgressHUD.swift; sourceTree = "<group>"; };
@@ -378,9 +378,8 @@
 		646604B92379954C00122718 /* SignInView */ = {
 			isa = PBXGroup;
 			children = (
-				646604B523798E3F00122718 /* SignInRootView.swift */,
-				646604B723798E6100122718 /* SignInRootView.xib */,
 				646604BB237995DB00122718 /* SignInViewController.swift */,
+				64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */,
 			);
 			name = SignInView;
 			sourceTree = "<group>";
@@ -421,6 +420,7 @@
 				646604C72379A92300122718 /* UIView+Extension.swift */,
 				64F44D52237D922E00A9DFB4 /* Colors.swift */,
 				642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */,
+				64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -616,9 +616,9 @@
 				640C4BD32392285D002F08A1 /* SignUpRootView.xib in Resources */,
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
+				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
-				646604B823798E6100122718 /* SignInRootView.xib in Resources */,
 				645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */,
 				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
 			);
@@ -708,7 +708,6 @@
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
-				646604B623798E3F00122718 /* SignInRootView.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */,
 				646604B423798C9E00122718 /* GoToSignUpNavigator.swift in Sources */,
@@ -748,6 +747,7 @@
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
+				64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */,
 				646604AD2379897700122718 /* OnboardingViewModel.swift in Sources */,
 				646604BE237995ED00122718 /* SignUpViewController.swift in Sources */,
 				646604BC237995DB00122718 /* SignInViewController.swift in Sources */,
