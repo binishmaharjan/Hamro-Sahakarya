@@ -13,29 +13,24 @@ protocol SignInViewModelFactory {
   func makeSignInViewModel() -> SignInViewModel
 }
 
-class SignInViewController: NiblessViewController {
+class SignInViewController: UIViewController {
+
+  // MARK: IBOutlet
+  @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
+  @IBOutlet private weak var emailTextField: UITextField!
+  @IBOutlet private weak var passwordTextField: UITextField!
+  @IBOutlet weak var signInButton: UIButton!
   
   // MARK: Properties
-  private let viewModel: SignInViewModel
+  private var viewModel: SignInViewModel!
   private let disposeBag = DisposeBag()
   
-  private var signInRootView: SignInRootView {
-    return view as! SignInRootView
-  }
-  
-  // MARK: Init
-  init(viewModelFactory: SignInViewModelFactory) {
-    self.viewModel = viewModelFactory.makeSignInViewModel()
-    super.init()
-  }
-  
-  // MARK: LifeCycle
-  override func loadView() {
-    view = SignInRootView.makeInstance(viewModel: viewModel)
-  }
-  
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
+    bind()
+    bindActionEvents()
     observeErrorMessages()
   }
   
@@ -53,20 +48,92 @@ class SignInViewController: NiblessViewController {
   func observeErrorMessages() {
     viewModel.errorMessage
       .asDriver{ _ in fatalError("Unexpected error From error messages observable") }
-      .drive(onNext: { [weak self] errorMessage in
-//      self?.present(errorMessage: errorMessage)
-//        showDropDownNotification(type: .error, message: errorMessage.message)
+      .drive(onNext: { errorMessage in
+        //      self?.present(errorMessage: errorMessage)
         Dlog("Error Message: \(errorMessage.message)")
       })
       .disposed(by: disposeBag)
   }
+  
+  private func setup() {
+    // Double Finger Tap Gesture
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleFingerDoubleTapped))
+    tapGesture.numberOfTouchesRequired = 2
+    tapGesture.numberOfTapsRequired = 2
+    view.addGestureRecognizer(tapGesture)
+  }
+  
+  @objc private func doubleFingerDoubleTapped() {
+    viewModel.doubleTapGesture.onNext(())
+  }
+  
+  // MARK: IBActions
+  @IBAction private func signInButtonPressed(_ sender: Any) {
+    viewModel.signInButtonTapped.onNext(())
+  }
+}
 
+// MARK: Storyboard Instantiable
+extension SignInViewController: StoryboardInstantiable {
+  
+  static func makeInstance(viewModelFactory: SignInViewModelFactory) -> SignInViewController {
+    let viewcontroller = loadFromStoryboard()
+    viewcontroller.viewModel = viewModelFactory.makeSignInViewModel()
+    return viewcontroller
+  }
+}
+
+// MARK: Binding With ViewModel
+extension SignInViewController {
+  
+  private func bind() {
+    emailTextField.rx.text.asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.emailInput)
+      .disposed(by: disposeBag)
+    
+    passwordTextField.rx.text.asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel
+        .passwordInput)
+      .disposed(by: disposeBag)
+
+    viewModel.activityIndicatorAnimating
+      .asDriver(onErrorJustReturn: false)
+      .drive(GUIManager.rx.isIndicatorAnimating())
+      .disposed(by: disposeBag)
+    
+    viewModel.dropDown
+      .asDriver(onErrorJustReturn: DropDownModel.defaultDropDown)
+      .drive(GUIManager.rx.shouldShowDropDown())
+      .disposed(by: disposeBag)
+    
+    viewModel.signInButtonEnabled
+      .asDriver(onErrorJustReturn: true)
+      .drive(signInButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+  }
+  
+  private func bindActionEvents() {
+    viewModel.event.bind { [weak self] (action) in
+      guard let self = self else  { return }
+      
+      switch action {
+      case .showRegister:
+        self.viewModel.showSignUpView()
+      case .signInTapped:
+        self.viewModel.signIn()
+      }
+      
+    }
+    .disposed(by: disposeBag)
+  }
 }
 
 // MARK: Keyboard Notifications
 extension SignInViewController {
   
-  func addKeyboardObservers() {
+  private func addKeyboardObservers() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.addObserver(self,
                                    selector: #selector(handleContentUnderKeyboard(notification:)),
@@ -76,23 +143,31 @@ extension SignInViewController {
                                    name: UIResponder.keyboardWillChangeFrameNotification,
                                    object: nil)
   }
-
-  func removeObservers() {
+  
+  private func removeObservers() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.removeObserver(self)
   }
-
-  @objc func handleContentUnderKeyboard(notification: Notification) {
+  
+  @objc private func handleContentUnderKeyboard(notification: Notification) {
     guard let userInfo = notification.userInfo,
       let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else  { return }
     
     switch notification.name {
     case UIResponder.keyboardWillHideNotification:
-      signInRootView.moveContentForDismissKeyboard()
+      moveContentForDismissKeyboard()
     default:
       let convertedKeyboardEndFrame = view.convert(keyboardEndFrame.cgRectValue, to: view.window)
-      signInRootView.moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
+      moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
     }
+  }
+  
+  private func moveContentForDismissKeyboard() {
+    scrollViewBottomContraints.constant = 0
+  }
+  
+  private func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
+    scrollViewBottomContraints.constant = -keyboardFrame.height
   }
   
 }
