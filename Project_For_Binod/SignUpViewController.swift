@@ -13,29 +13,27 @@ protocol SignUpViewModelFactory {
   func makeSignUpViewModel() -> SignUpViewModel
 }
 
-class SignUpViewController: NiblessViewController {
+class SignUpViewController: UIViewController {
+  
+  // MARK: IBOutlets
+  @IBOutlet private weak var emailTextField: UITextField!
+  @IBOutlet private weak var fullNameTextField: UITextField!
+  @IBOutlet private weak var passwordTextField: UITextField!
+  @IBOutlet private weak var statusLabel: UILabel!
+  @IBOutlet private weak var colorView: UIView!
+  @IBOutlet private weak var initialAmountTextField: UITextField!
+  @IBOutlet private weak var signUpButton: UIButton!
+  @IBOutlet private weak var scrollViewBottomConstraints: NSLayoutConstraint!
   
   // MARK: Properties
-  private let viewModel: SignUpViewModel
+  private var viewModel: SignUpViewModel!
   private let disposeBag = DisposeBag()
-  private var signUpRootView: SignUpRootView {
-    return self.view as! SignUpRootView
-  }
-  
-  // MARK: Init
-  init(viewModelFactory: SignUpViewModelFactory) {
-    viewModel = viewModelFactory.makeSignUpViewModel()
-    super.init()
-  }
-  
+
   // MARK: LifeCycle
-  override func loadView() {
-    view = SignUpRootView.makeInstane(viewModel: viewModel)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    bindAction()
+    bind()
+    bindEventActions()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -48,26 +46,70 @@ class SignUpViewController: NiblessViewController {
     removeObservers()
   }
   
-  private func bindAction() {
-    viewModel.event
-      .subscribe(onNext: { [weak self] event in
-        guard let self = self else { return }
-        
-        switch event {
-        case .signUpButtonTapped:
-          print("Sign Up Button Tapped")
-        case .backButtonPressed:
-          print("Back Button Tapped")
-          self.navigationController?.popViewController(animated: true)
-        }
-      }).disposed(by: disposeBag)
+  // MARK: IBActions
+  @IBAction private func signUpButtonPressed(_ sender: Any) {
+    viewModel.signUpButtonTapped.onNext(())
+  }
+  
+  @IBAction func backButtonPressed(_ sender: Any) {
+    viewModel.backButtonTapped.onNext(())
+  }
+  
+}
+
+// MARK: Binding with viewModel
+extension SignUpViewController {
+  private func bind() {
+    emailTextField.rx.text.asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.emailInput)
+      .disposed(by: disposeBag)
+    
+    passwordTextField.rx.text.asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.passwordInput)
+      .disposed(by: disposeBag)
+    
+    fullNameTextField.rx.text.asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.fullNameInput)
+      .disposed(by: disposeBag)
+    
+    viewModel.statusInput.asObservable()
+      .map { $0.rawValue}
+      .bind(to: statusLabel.rx.text)
+      .disposed(by: disposeBag)
+  }
+  
+  private func bindEventActions() {
+    viewModel.event.bind { [weak self] (action) in
+      guard let self = self else { return }
+      
+      switch action {
+      case .signUpButtonTapped:
+        print("Sign Up Button Tapped")
+      case .backButtonPressed:
+        print("Back Button Tapped")
+        self.navigationController?.popViewController(animated: true)
+      }
+    }.disposed(by: disposeBag)
+  }
+}
+
+// MARK: Storyboard Instantiable
+extension SignUpViewController: StoryboardInstantiable {
+  
+  static func makeInstance(viewModelFactory: SignUpViewModelFactory) -> SignUpViewController {
+    let viewController = loadFromStoryboard()
+    viewController.viewModel = viewModelFactory.makeSignUpViewModel()
+    return viewController
   }
 }
 
 // MARK: Keyboard Notification
 extension SignUpViewController {
   
-  func addKeyboardObservers() {
+  private func addKeyboardObservers() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.addObserver(self,
                                    selector: #selector(handleContentUnderKeyboard(notification:)),
@@ -78,23 +120,31 @@ extension SignUpViewController {
                                    object: nil)
   }
 
-  func removeObservers() {
+  private func removeObservers() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.removeObserver(self)
   }
 
-  @objc func handleContentUnderKeyboard(notification: Notification) {
-
+  @objc private func handleContentUnderKeyboard(notification: Notification) {
+    
     guard let userInfo = notification.userInfo,
       let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else  { return }
     
     switch notification.name {
     case UIResponder.keyboardWillHideNotification:
-      signUpRootView.moveContentForDismissKeyboard()
+      moveContentForDismissKeyboard()
     default:
       let convertedKeyboardEndFrame = view.convert(keyboardEndFrame.cgRectValue, to: view.window)
-      signUpRootView.moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
+      moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
     }
+  }
+  
+  private func moveContentForDismissKeyboard() {
+    scrollViewBottomConstraints.constant = 0
+  }
+  
+  private func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
+    scrollViewBottomConstraints.constant = -keyboardFrame.height
   }
   
 }
