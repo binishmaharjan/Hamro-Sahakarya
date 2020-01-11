@@ -57,6 +57,10 @@ class SignUpViewController: UIViewController {
     // Status Label
     let statusLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(statusLabelTapped))
     statusLabel.addGestureRecognizer(statusLabelTapGesture)
+    
+    // Dimiss Keyboard
+    let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(signUpViewTapped))
+    view.addGestureRecognizer(viewTapGesture)
   }
   
   @objc private func colorViewTapped() {
@@ -65,6 +69,10 @@ class SignUpViewController: UIViewController {
   
   @objc private func statusLabelTapped() {
     viewModel.statusLabelTapped.onNext(())
+  }
+  
+  @objc private func signUpViewTapped() {
+    view.endEditing(true)
   }
   
   /// Show action sheet for the member status selection
