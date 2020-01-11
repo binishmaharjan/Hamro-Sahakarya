@@ -12,7 +12,9 @@ import RxCocoa
 
 enum SignUpEvent {
   case signUpButtonTapped
-  case backButtonPressed
+  case backButtonTapped
+  case colorViewTapped
+  case statusLabelTapped
 }
 
 struct SignUpViewModel {
