@@ -72,7 +72,7 @@ class SignInViewModel {
     indicateSigingIn()
     let (email, password) = getEmailAndPassword()
     userSessionRepository.signIn(email: email, password: password)
-      .done(signedInResponder.signedIn(to:))
+      .done(indicateSignInSuccessful(userProfile:))
       .catch(indicateErrorSigningIn)
   }
   
@@ -91,9 +91,18 @@ class SignInViewModel {
     }
   }
   
+}
+
+// MARK: SignIn Indication
+extension SignInViewModel {
   private func indicateSigingIn() {
     signInButtonEnabled.onNext(false)
     activityIndicatorAnimating.onNext(true)
+  }
+  
+  private func indicateSignInSuccessful(userProfile: UserProfile) {
+    activityIndicatorAnimating.onNext(false)
+    signedInResponder.signedIn(to: userProfile)
   }
   
   private func indicateErrorSigningIn(_ error: Error) {
