@@ -103,7 +103,6 @@ class SignInViewModel {
     signInButtonEnabled.onNext(true)
     activityIndicatorAnimating.onNext(false)
     
-    // Drop Down
     dropDownSubject.onNext(DropDownModel(dropDownType: .error, message: errorMessage.message))
   }
   
