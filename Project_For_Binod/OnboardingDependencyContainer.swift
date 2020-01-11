@@ -63,14 +63,28 @@ extension OnboardingDependencyContainer: SignInViewModelFactory {
 }
 
 // MARK: SignUpViewController
-extension OnboardingDependencyContainer: SignUpViewModelFactory {
+extension OnboardingDependencyContainer: SignUpViewModelFactory, ColorPickerViewControllerFactory {
+  
   func makeSignUpViewController() -> SignUpViewController {
-    return SignUpViewController.makeInstance(viewModelFactory: self)
+    return SignUpViewController.makeInstance(viewModelFactory: self, colorPickerFactory: self)
   }
   
   func makeSignUpViewModel() -> SignUpViewModel {
     return SignUpViewModel(userSessionRepository: _sharedUserSessionRepository,
                            signedInResponder: _sharedMainViewModel)
+  }
+  
+  func makeColorPickerViewController() -> ColorPickerViewController {
+    let viewModel = makeColorPaletteViewModel()
+    let colorPickerViewController = ColorPickerViewController.makeInstance(viewModel: viewModel)
+    colorPickerViewController.modalPresentationStyle = .overFullScreen
+    colorPickerViewController.modalTransitionStyle = .crossDissolve
+    
+    return colorPickerViewController
+  }
+  
+  func makeColorPaletteViewModel() -> ColorPaletteViewModelProtocol {
+    return ColorPaletteViewModel()
   }
   
 }
