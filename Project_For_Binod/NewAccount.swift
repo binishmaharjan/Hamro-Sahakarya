@@ -20,7 +20,7 @@ struct NewAccount: Codable {
 
 }
 
-enum Status: String, Codable {
-  case member
-  case admin
+enum Status: String, Codable, CaseIterable {
+  case member = "Member"
+  case admin = "Admin"
 }
