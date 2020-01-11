@@ -12,7 +12,9 @@ import RxCocoa
 
 enum SignUpEvent {
   case signUpButtonTapped
-  case backButtonPressed
+  case backButtonTapped
+  case colorViewTapped
+  case statusLabelTapped
 }
 
 struct SignUpViewModel {
@@ -31,9 +33,7 @@ struct SignUpViewModel {
   let activityIndicatorAnimating = BehaviorRelay<Bool>(value: false)
   
   private let eventSubject = PublishSubject<SignUpEvent>()
-  var event: Observable<SignUpEvent> {
-    return eventSubject.asObservable()
-  }
+  var event: Observable<SignUpEvent> { return eventSubject.asObservable() }
   
   /// Sign Up BUtton Was Pressed``
   var signUpButtonTapped: Binder<Void> {
@@ -42,10 +42,21 @@ struct SignUpViewModel {
     }
   }
   
-  /// Back Button Was Pressed
   var backButtonTapped: Binder<Void> {
     return Binder(eventSubject) { observer, _ in
-      observer.onNext(.backButtonPressed)
+      observer.onNext(.backButtonTapped)
+    }
+  }
+  
+  var colorViewTapped: Binder<Void> {
+    return Binder(eventSubject) { observer, _ in
+      observer.onNext(.colorViewTapped)
+    }
+  }
+  
+  var statusLabelTapped: Binder<Void> {
+    return Binder(eventSubject) { observer, _ in
+      observer.onNext(.statusLabelTapped)
     }
   }
   
@@ -65,7 +76,7 @@ struct SignUpViewModel {
   func signUp() {
     indicateSigningUp()
     userSessionRepository.signUp(newAccount: getNewAccount())
-      .done(signedInResponder.signedIn(to:))
+      .done(indicateSignUpSuccessful(userProfile:))
       .catch(indicateErrorSigningUp)
   }
   
@@ -85,10 +96,18 @@ struct SignUpViewModel {
                                   initialAmount: initialAmount)
       return newAccount
   }
-  
+}
+
+// MARK: SignUp Indication
+extension SignUpViewModel {
   private func indicateSigningUp() {
     signUpButtonEnabled.accept(false)
     activityIndicatorAnimating.accept(true)
+  }
+  
+  private func indicateSignUpSuccessful(userProfile: UserProfile) {
+    activityIndicatorAnimating.accept(false)
+    signedInResponder.signedIn(to: userProfile)
   }
   
   private func indicateErrorSigningUp(_ error: Error) {
