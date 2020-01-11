@@ -28,10 +28,12 @@ class SignUpViewController: UIViewController {
   // MARK: Properties
   private var viewModel: SignUpViewModel!
   private let disposeBag = DisposeBag()
-
+  private var colorPickerFactory: ColorPickerViewControllerFactory!
+  
   // MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
     bind()
     bindEventActions()
   }
@@ -44,6 +46,49 @@ class SignUpViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     removeObservers()
+  }
+  
+  // Methods
+  private func setup() {
+    // Color View
+    let colorViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(colorViewTapped))
+    colorView.addGestureRecognizer(colorViewTapGesture)
+    
+    // Status Label
+    let statusLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(statusLabelTapped))
+    statusLabel.addGestureRecognizer(statusLabelTapGesture)
+  }
+  
+  @objc private func colorViewTapped() {
+    viewModel.colorViewTapped.onNext(())
+  }
+  
+  @objc private func statusLabelTapped() {
+    viewModel.statusLabelTapped.onNext(())
+  }
+  
+  /// Show action sheet for the member status selection
+  private func showStatusSelectionAlert() {
+    let alertController = UIAlertController(title: "Select Member Status", message: "Choose from below", preferredStyle: .actionSheet)
+    let statusActions = Status.allCases.map { [weak self] status -> UIAlertAction in
+      
+      let action = UIAlertAction(title: status.rawValue, style: .default) { (_) in
+        self?.viewModel.statusInput.accept(status)
+      }
+      
+      return action
+    }
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    
+    statusActions.forEach { alertController.addAction($0) }
+    alertController.addAction(cancelAction)
+    
+    present(alertController, animated: true)
+  }
+  
+  private func colorSelectedOnPicker(hex: String) {
+    viewModel.colorInput.accept(hex)
   }
   
   // MARK: IBActions
@@ -75,9 +120,29 @@ extension SignUpViewController {
       .drive(viewModel.fullNameInput)
       .disposed(by: disposeBag)
     
+    initialAmountTextField.rx.text.asDriver()
+      .map { Int($0 ?? "0") ?? 0 }
+      .drive(viewModel.initialAmountInput)
+      .disposed(by: disposeBag)
+    
     viewModel.statusInput.asObservable()
       .map { $0.rawValue}
       .bind(to: statusLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.colorInput.asObservable()
+      .map { UIColor(hex: $0) }
+      .bind(to: colorView.rx.backgroundColor)
+      .disposed(by: disposeBag)
+    
+    viewModel.dropDown
+    .asDriver(onErrorJustReturn: DropDownModel.defaultDropDown)
+    .drive(GUIManager.rx.shouldShowDropDown())
+    .disposed(by: disposeBag)
+    
+    viewModel.activityIndicatorAnimating
+      .asDriver(onErrorJustReturn: false)
+      .drive(GUIManager.rx.isIndicatorAnimating())
       .disposed(by: disposeBag)
   }
   
@@ -87,21 +152,31 @@ extension SignUpViewController {
       
       switch action {
       case .signUpButtonTapped:
-        print("Sign Up Button Tapped")
-      case .backButtonPressed:
-        print("Back Button Tapped")
+        self.viewModel.signUp()
+      case .backButtonTapped:
         self.navigationController?.popViewController(animated: true)
+      case .colorViewTapped:
+        let colorPickerViewController = self.colorPickerFactory.makeColorPickerViewController()
+        colorPickerViewController.colorSelected = self.colorSelectedOnPicker(hex:)
+        
+        self.present(colorPickerViewController, animated: true)
+      case .statusLabelTapped:
+        self.showStatusSelectionAlert()
       }
     }.disposed(by: disposeBag)
   }
+  
 }
 
 // MARK: Storyboard Instantiable
 extension SignUpViewController: StoryboardInstantiable {
   
-  static func makeInstance(viewModelFactory: SignUpViewModelFactory) -> SignUpViewController {
+  static func makeInstance(viewModelFactory: SignUpViewModelFactory,
+                           colorPickerFactory: ColorPickerViewControllerFactory) -> SignUpViewController {
     let viewController = loadFromStoryboard()
     viewController.viewModel = viewModelFactory.makeSignUpViewModel()
+    viewController.colorPickerFactory = colorPickerFactory
+    
     return viewController
   }
 }
@@ -119,12 +194,12 @@ extension SignUpViewController {
                                    name: UIResponder.keyboardWillChangeFrameNotification,
                                    object: nil)
   }
-
+  
   private func removeObservers() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.removeObserver(self)
   }
-
+  
   @objc private func handleContentUnderKeyboard(notification: Notification) {
     
     guard let userInfo = notification.userInfo,
