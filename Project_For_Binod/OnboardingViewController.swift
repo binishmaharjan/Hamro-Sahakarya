@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class OnboardingViewController: NiblessNavigationController {
+final class OnboardingViewController: NiblessNavigationController {
   
   // MARK: Properties
   private let viewModel: OnboardingViewModel

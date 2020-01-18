@@ -16,7 +16,7 @@ protocol ProgressHUD {
 
 typealias XibProgressHUDType = UIView & ProgressHUD
 
-class XibProgressHUD: XibProgressHUDType {
+final class XibProgressHUD: XibProgressHUDType {
   
   // MARK: IBOutlet
   @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!

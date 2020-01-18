@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class SignedInViewController: NiblessViewController {
+final class SignedInViewController: NiblessViewController {
   
   // MARK: Properties
   private let viewModel: SignedInViewModel

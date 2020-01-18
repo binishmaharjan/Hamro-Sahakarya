@@ -11,7 +11,7 @@ import FirebaseFirestore
 import PromiseKit
 import CodableFirebase
 
-class FireStoreDataManager: ServerDataManager {
+final class FireStoreDataManager: ServerDataManager {
   
   func saveUser(userProfile: UserProfile) -> Promise<UserProfile> {
     

@@ -14,7 +14,7 @@ protocol DropDownNotification {
 
 typealias DropDownNotificationType = DropDownNotification & BaseView
 
-class SimpleDropDownNotification: DropDownNotificationType {
+final class SimpleDropDownNotification: DropDownNotificationType {
   
   private let bottomThreshold: CGFloat = 60.0
   private let aboveThreshold: CGFloat = safeAreaTopInsets + 7.0

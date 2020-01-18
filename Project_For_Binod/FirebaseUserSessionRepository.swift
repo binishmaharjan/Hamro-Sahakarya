@@ -9,7 +9,7 @@
 import Foundation
 import PromiseKit
 
-class FirebaseUserSessionRepository: UserSessionRepository {
+final class FirebaseUserSessionRepository: UserSessionRepository {
   
   // MARK: Properties
   private let dataStore: UserDataStore

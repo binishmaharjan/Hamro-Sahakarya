@@ -14,7 +14,7 @@ protocol ColorPickerViewControllerFactory {
   func makeColorPickerViewController() -> ColorPickerViewController
 }
 
-class ColorPickerViewController: UIViewController {
+final class ColorPickerViewController: UIViewController {
   
   @IBOutlet private weak var colorPalette: ColorPalette!
   @IBOutlet private weak var colorPreviewView: UIView!

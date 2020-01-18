@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LaunchRootView: UIView {
+final class LaunchRootView: UIView {
   
   // MARK: Properties
   private var viewModel: LaunchViewModel!

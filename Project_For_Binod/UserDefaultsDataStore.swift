@@ -9,7 +9,7 @@
 import Foundation
 import PromiseKit
 
-class UserDefaultsDataStore: UserDataStore {
+final class UserDefaultsDataStore: UserDataStore {
 
   private let userProfileCoder: UserProfileCoding
   private let userProfileKey = "UserProfileKey"

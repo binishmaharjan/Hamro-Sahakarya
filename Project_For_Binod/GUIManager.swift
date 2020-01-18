@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class GUIManager: NSObject {
+final class GUIManager: NSObject {
   
   // MARK: Properties
   private let mainView = appDelegate.window

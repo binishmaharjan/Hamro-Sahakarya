@@ -13,7 +13,7 @@ import CodableFirebase
 import PromiseKit
 
 
-class FirebaseAuthRemoteApi: AuthRemoteApi {
+final class FirebaseAuthRemoteApi: AuthRemoteApi {
   
   func signIn(email: String, password: String) -> Promise<String> {
     

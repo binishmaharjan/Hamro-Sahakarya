@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
   
   init() {
     super.init(nibName: nil, bundle: nil)

@@ -13,7 +13,7 @@ protocol SignInViewModelFactory {
   func makeSignInViewModel() -> SignInViewModel
 }
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
 
   // MARK: IBOutlet
   @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!

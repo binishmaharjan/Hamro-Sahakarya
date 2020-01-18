@@ -13,7 +13,7 @@ protocol SignUpViewModelFactory {
   func makeSignUpViewModel() -> SignUpViewModel
 }
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
   
   // MARK: IBOutlets
   @IBOutlet private weak var emailTextField: UITextField!

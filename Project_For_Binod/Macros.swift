@@ -45,7 +45,7 @@ let safeAreaTopInsets = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0.
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 // MARK: FireStore Database References
-class DatabaseReference{
+final class DatabaseReference{
   static let HAMRO_SAHAKARYA_REF = "hamro_sahakarya"
   static let DETAIL_REF = "detail"
   static let TOTAL_BALANCE = "total_balance"
@@ -77,7 +77,7 @@ class DatabaseReference{
 }
 
 // MARK: Firebase Storage Reference
-class StorageReference{
+final class StorageReference{
   static let USER_PROFILE = "user_profile"
   static let PROFILE_IMAGE = "profile_image.jpg"
 }

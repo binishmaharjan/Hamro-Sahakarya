@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LaunchViewController: NiblessViewController {
+final class LaunchViewController: NiblessViewController {
   
   // MARK: Properties
   private let viewModel: LaunchViewModel

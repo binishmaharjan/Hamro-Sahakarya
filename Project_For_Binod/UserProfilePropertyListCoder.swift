@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserProfilePropertyListCoder: UserProfileCoding {
+final class UserProfilePropertyListCoder: UserProfileCoding {
   func encode(userProfile: UserProfile) -> Data {
     return try! PropertyListEncoder().encode(userProfile)
   }

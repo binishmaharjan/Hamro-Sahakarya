@@ -10,11 +10,10 @@ import UIKit
 
 protocol ColorPaletteProtocol {
   var onColorDidChange: ((_ color: UIColor) -> ())? { get }
-  var elementSize: CGFloat { get }
 }
 
 /// Color Picker For Choosing a Color
-class ColorPalette: UIView, ColorPaletteProtocol {
+final class ColorPalette: UIView, ColorPaletteProtocol {
   
   var onColorDidChange: ((_ color: UIColor) -> ())?
   var elementSize: CGFloat = 1 {

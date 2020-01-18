@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogViewController: UIViewController {
+final class LogViewController: UIViewController {
   
   init() {
     super.init(nibName: nil, bundle: nil)

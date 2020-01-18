@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
   
   init() {
     super.init(nibName: nil, bundle: nil)

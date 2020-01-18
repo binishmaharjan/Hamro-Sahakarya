@@ -22,7 +22,7 @@ protocol ColorPaletteViewModelProtocol {
   var cancelButtonTapped: Binder<Void> { get }
 }
 
-class ColorPaletteViewModel: ColorPaletteViewModelProtocol {
+final class ColorPaletteViewModel: ColorPaletteViewModelProtocol {
   var selectedColorInput = BehaviorRelay<UIColor>(value: .mainOrange)
   
   private let eventSubject = PublishSubject<ColorPaletteEvent>()
