@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MainViewController: NiblessViewController {
+final class MainViewController: NiblessViewController {
   
   // MARK: Properties
   private let disposeBag = DisposeBag()
@@ -18,15 +18,15 @@ class MainViewController: NiblessViewController {
   let viewModel: MainViewModel
   
   // Child View Controllers
-  let launchViewController: LaunchViewController
-  var signedInViewController: SignedInViewController?
-  var onboardingViewController: OnboardingViewController?
+  private let launchViewController: LaunchViewController
+  private var signedInViewController: SignedInViewController?
+  private var onboardingViewController: OnboardingViewController?
   
   //Child Factories
   typealias OnboardingFactory = () -> OnboardingViewController
   typealias SignedInFactory =  (UserProfile) -> SignedInViewController
-  let makeOnboardingViewController: OnboardingFactory
-  let makeSignedInViewController: SignedInFactory
+  private let makeOnboardingViewController: OnboardingFactory
+  private let makeSignedInViewController: SignedInFactory
   
   // MARK: Init
   init(viewModel: MainViewModel,

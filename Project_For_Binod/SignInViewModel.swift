@@ -15,7 +15,7 @@ enum SignInEvent {
   case signInTapped
 }
 
-class SignInViewModel {
+final class SignInViewModel {
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository

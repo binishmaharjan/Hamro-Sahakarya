@@ -16,9 +16,9 @@ protocol ColorPickerViewControllerFactory {
 
 class ColorPickerViewController: UIViewController {
   
-  @IBOutlet weak var colorPalette: ColorPalette!
-  @IBOutlet weak var colorPreviewView: UIView!
-  @IBOutlet weak var colorPreviewLabel: UILabel!
+  @IBOutlet private weak var colorPalette: ColorPalette!
+  @IBOutlet private weak var colorPreviewView: UIView!
+  @IBOutlet private weak var colorPreviewLabel: UILabel!
   
   // MARK: Properties
   private var viewModel: ColorPaletteViewModelProtocol!

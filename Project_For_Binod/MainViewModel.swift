@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MainViewModel {
+final class MainViewModel {
   
   private let viewSubject = BehaviorSubject<MainView>(value: .launching)
   var view: Observable<MainView> { return  viewSubject.asObservable() }

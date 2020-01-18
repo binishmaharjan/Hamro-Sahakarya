@@ -19,7 +19,7 @@ class SignInViewController: UIViewController {
   @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
   @IBOutlet private weak var emailTextField: UITextField!
   @IBOutlet private weak var passwordTextField: UITextField!
-  @IBOutlet weak var signInButton: UIButton!
+  @IBOutlet private weak var signInButton: UIButton!
   
   // MARK: Properties
   private var viewModel: SignInViewModel!

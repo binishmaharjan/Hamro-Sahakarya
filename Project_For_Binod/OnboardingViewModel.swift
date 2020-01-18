@@ -11,7 +11,7 @@ import RxSwift
 
 typealias OnboardingNavigationAction = NavigationAction<OnboardingView>
 
-class OnboardingViewModel {
+final class OnboardingViewModel {
   
   private let _view = BehaviorSubject<OnboardingNavigationAction>(value: .present(view: .signIn))
   var view: Observable<OnboardingNavigationAction> { return _view.asObservable() }

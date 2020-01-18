@@ -72,6 +72,14 @@
 		64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15823C2002C0027E44C /* UIColor+Extension.swift */; };
 		64FBE15C23C2073E0027E44C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15B23C2073E0027E44C /* ColorPickerViewController.swift */; };
 		64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FBE15D23C2078E0027E44C /* ColorPickerViewController.storyboard */; };
+		64FBE1AA23D2CD360027E44C /* SignedInDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1A923D2CD350027E44C /* SignedInDependencyContainer.swift */; };
+		64FBE1AD23D2D0070027E44C /* SignedInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1AC23D2D0070027E44C /* SignedInViewModel.swift */; };
+		64FBE1AF23D2DA450027E44C /* SignedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1AE23D2DA450027E44C /* SignedInView.swift */; };
+		64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1B023D2E4F70027E44C /* ReactiveProperty.swift */; };
+		64FBE1B723D2E9F30027E44C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1B623D2E9F30027E44C /* TabBarController.swift */; };
+		64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */; };
+		64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */; };
+		64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */; };
 		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
@@ -146,6 +154,14 @@
 		64FBE15823C2002C0027E44C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		64FBE15B23C2073E0027E44C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		64FBE15D23C2078E0027E44C /* ColorPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPickerViewController.storyboard; sourceTree = "<group>"; };
+		64FBE1A923D2CD350027E44C /* SignedInDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDependencyContainer.swift; sourceTree = "<group>"; };
+		64FBE1AC23D2D0070027E44C /* SignedInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewModel.swift; sourceTree = "<group>"; };
+		64FBE1AE23D2DA450027E44C /* SignedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInView.swift; sourceTree = "<group>"; };
+		64FBE1B023D2E4F70027E44C /* ReactiveProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveProperty.swift; sourceTree = "<group>"; };
+		64FBE1B623D2E9F30027E44C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamroSahakarya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA1EC551FF0B77100FA130D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA1EC621FF0B77100FA130D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -252,11 +268,11 @@
 		64593994235AAA6600A99902 /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
-				64FBE15A23C207200027E44C /* ColorPicker */,
 				646604BF23799FC600122718 /* OnboardingDependencyContainer.swift */,
 				64593998235AAABD00A99902 /* OnboardingViewController.swift */,
 				646604B92379954C00122718 /* SignInView */,
 				646604BA237995B600122718 /* SignUpView */,
+				64FBE15A23C207200027E44C /* ColorPicker */,
 			);
 			name = OnboardingView;
 			sourceTree = "<group>";
@@ -264,7 +280,9 @@
 		64593995235AAA7A00A99902 /* SignedInView */ = {
 			isa = PBXGroup;
 			children = (
+				64FBE18223CDE05F0027E44C /* TabBar */,
 				64593996235AAAA600A99902 /* SignedInViewController.swift */,
+				64FBE1A923D2CD350027E44C /* SignedInDependencyContainer.swift */,
 			);
 			name = SignedInView;
 			sourceTree = "<group>";
@@ -305,8 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				646604AE23798ABA00122718 /* Reuseable */,
-				646604AB2379895700122718 /* OnboardingView */,
-				64A210F5235AC79E00AF0502 /* LaunchView */,
 				645939A2235AACE000A99902 /* MainView */,
 			);
 			name = UILayer;
@@ -315,6 +331,9 @@
 		645939A2235AACE000A99902 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				64A210F5235AC79E00AF0502 /* LaunchView */,
+				646604AB2379895700122718 /* OnboardingView */,
+				64FBE1AB23D2CFE80027E44C /* SignedInView */,
 				645939A3235AACFB00A99902 /* MainView.swift */,
 				645939A5235AAD4C00A99902 /* MainViewModel.swift */,
 				645939AE235AB01000A99902 /* NotSignedInResponder.swift */,
@@ -381,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				646604AF23798ADD00122718 /* NavigationAction.swift */,
+				64FBE1B023D2E4F70027E44C /* ReactiveProperty.swift */,
 			);
 			name = Reuseable;
 			sourceTree = "<group>";
@@ -536,6 +556,50 @@
 				64FBE15D23C2078E0027E44C /* ColorPickerViewController.storyboard */,
 			);
 			name = ColorPicker;
+			sourceTree = "<group>";
+		};
+		64FBE18223CDE05F0027E44C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BA23D2EE7A0027E44C /* ProfileView */,
+				64FBE1B923D2EE730027E44C /* LogView */,
+				64FBE1B823D2EE650027E44C /* HomeView */,
+				64FBE1B623D2E9F30027E44C /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		64FBE1AB23D2CFE80027E44C /* SignedInView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1AC23D2D0070027E44C /* SignedInViewModel.swift */,
+				64FBE1AE23D2DA450027E44C /* SignedInView.swift */,
+			);
+			path = SignedInView;
+			sourceTree = "<group>";
+		};
+		64FBE1B823D2EE650027E44C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		64FBE1B923D2EE730027E44C /* LogView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */,
+			);
+			path = LogView;
+			sourceTree = "<group>";
+		};
+		64FBE1BA23D2EE7A0027E44C /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */,
+			);
+			name = ProfileView;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {
@@ -730,10 +794,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
+				64FBE1AA23D2CD360027E44C /* SignedInDependencyContainer.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
 				64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
+				64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */,
@@ -743,10 +809,12 @@
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
+				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
 				6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */,
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
 				64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */,
+				64FBE1AD23D2D0070027E44C /* SignedInViewModel.swift in Sources */,
 				6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */,
 				64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */,
 				646604B223798B8E00122718 /* OnboardingView.swift in Sources */,
@@ -754,16 +822,20 @@
 				646604B023798ADD00122718 /* NavigationAction.swift in Sources */,
 				64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */,
 				6402F4132377CDBD0044835F /* NewAccount.swift in Sources */,
+				64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */,
+				64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
+				64FBE1AF23D2DA450027E44C /* SignedInView.swift in Sources */,
 				6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */,
 				64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */,
 				64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */,
 				646604C62379A31A00122718 /* SignUpViewModel.swift in Sources */,
 				6402F4072376A3290044835F /* FirebaseUserSessionRepository.swift in Sources */,
 				64593999235AAABE00A99902 /* OnboardingViewController.swift in Sources */,
+				64FBE1B723D2E9F30027E44C /* TabBarController.swift in Sources */,
 				6459399E235AAB5500A99902 /* NIblessViewController.swift in Sources */,
 				6402F40A2376A5010044835F /* FirebaseAuthRemoteApi.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
