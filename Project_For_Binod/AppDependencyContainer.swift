@@ -105,6 +105,7 @@ extension AppDependencyContainer {
 extension AppDependencyContainer {
   
   func makeSignedInViewController(profile: UserProfile) -> SignedInViewController {
-    return SignedInViewController()
+    let dependencyContainer = SignedInDepedencyConatiner(appDependencyContainer: self)
+    return dependencyContainer.makeSignedInViewController()
   }
 }
