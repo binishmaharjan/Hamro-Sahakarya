@@ -264,6 +264,7 @@
 		64593995235AAA7A00A99902 /* SignedInView */ = {
 			isa = PBXGroup;
 			children = (
+				64FBE18223CDE05F0027E44C /* TabBar */,
 				64593996235AAAA600A99902 /* SignedInViewController.swift */,
 			);
 			name = SignedInView;
@@ -536,6 +537,13 @@
 				64FBE15D23C2078E0027E44C /* ColorPickerViewController.storyboard */,
 			);
 			name = ColorPicker;
+			sourceTree = "<group>";
+		};
+		64FBE18223CDE05F0027E44C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		ACA1EC491FF0B77000FA130D = {

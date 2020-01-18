@@ -8,20 +8,12 @@
 
 import Foundation
 
-class AppDependencyContainer {
+final class AppDependencyContainer {
   
   // MARK: Properties
-  
   // Long Lived Dependency
-  private let _sharedUserSessionRepository: UserSessionRepository
-  var sharedUserSessionRepository: UserSessionRepository {
-    return _sharedUserSessionRepository
-  }
-  
-  private let _sharedMainViewModel: MainViewModel
-  var sharedMainViewModel: MainViewModel {
-    return _sharedMainViewModel
-  }
+  let sharedUserSessionRepository: UserSessionRepository
+  let sharedMainViewModel: MainViewModel
   
   // MARK: Init
   init() {
@@ -59,8 +51,8 @@ class AppDependencyContainer {
     }
     
     // Initialization
-    self._sharedUserSessionRepository = makeUserSessionRepository()
-    self._sharedMainViewModel = makeMainViewModel()
+    self.sharedUserSessionRepository = makeUserSessionRepository()
+    self.sharedMainViewModel = makeMainViewModel()
     
   }
 }
@@ -79,7 +71,7 @@ extension AppDependencyContainer {
       return self.makeSignedInViewController(profile: userProfile)
     }
     
-    return MainViewController(viewModel: _sharedMainViewModel,
+    return MainViewController(viewModel: sharedMainViewModel,
                               launchViewController: launchViewController,
                               onboardingViewControllerFactory: onboardingViewControllerFactory,
                               signedInViewControllerFactory: signedInViewControllerFactory)
@@ -94,9 +86,9 @@ extension AppDependencyContainer: LaunchViewModelFactory {
   }
   
   func makeLaunchViewModel() -> LaunchViewModel {
-    return LaunchViewModel(userSessionRepository: _sharedUserSessionRepository,
-                           notSignedInReposonder: _sharedMainViewModel,
-                           signedInResponder: _sharedMainViewModel)
+    return LaunchViewModel(userSessionRepository: sharedUserSessionRepository,
+                           notSignedInReposonder: sharedMainViewModel,
+                           signedInResponder: sharedMainViewModel)
   }
 }
 

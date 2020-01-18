@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import PromiseKit
 
-class LaunchViewModel {
+final class LaunchViewModel {
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository

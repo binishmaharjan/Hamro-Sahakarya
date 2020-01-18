@@ -8,19 +8,16 @@
 
 import Foundation
 
-class OnboardingDependencyContainer {
+final class OnboardingDependencyContainer {
   
   // MARK: Properties
   
   // From Parent Container
-  private let _sharedUserSessionRepository: UserSessionRepository
-  private let _sharedMainViewModel: MainViewModel
-  var sharedUserSessionRepository: UserSessionRepository {
-    return _sharedUserSessionRepository
-  }
+  private let sharedUserSessionRepository: UserSessionRepository
+  private let sharedMainViewModel: MainViewModel
   
   // Long Lived Dependency
-  private let _sharedOnboardingViewModel: OnboardingViewModel
+  private let sharedOnboardingViewModel: OnboardingViewModel
   
   // MARK: Init
   init(appDependencyContainer: AppDependencyContainer) {
@@ -28,9 +25,9 @@ class OnboardingDependencyContainer {
       return OnboardingViewModel()
     }
     
-    self._sharedMainViewModel = appDependencyContainer.sharedMainViewModel
-    self._sharedUserSessionRepository = appDependencyContainer.sharedUserSessionRepository
-    self._sharedOnboardingViewModel = makeOnboardingViewModel()
+    self.sharedMainViewModel = appDependencyContainer.sharedMainViewModel
+    self.sharedUserSessionRepository = appDependencyContainer.sharedUserSessionRepository
+    self.sharedOnboardingViewModel = makeOnboardingViewModel()
   }
   
 }
@@ -41,7 +38,7 @@ extension OnboardingDependencyContainer {
     let signInViewController = makeSignInViewController()
     let signUpViewController = makeSignUpViewController()
     
-    return OnboardingViewController(viewModel: _sharedOnboardingViewModel,
+    return OnboardingViewController(viewModel: sharedOnboardingViewModel,
                                     signInViewController: signInViewController,
                                     signUpViewController: signUpViewController)
   }
@@ -55,9 +52,9 @@ extension OnboardingDependencyContainer: SignInViewModelFactory {
   }
   
   func makeSignInViewModel() -> SignInViewModel {
-    return SignInViewModel(userSessionRepository: _sharedUserSessionRepository,
-                           signedInResponder: _sharedMainViewModel,
-                           signUpNavigator: _sharedOnboardingViewModel)
+    return SignInViewModel(userSessionRepository: sharedUserSessionRepository,
+                           signedInResponder: sharedMainViewModel,
+                           signUpNavigator: sharedOnboardingViewModel)
   }
   
 }
@@ -70,8 +67,8 @@ extension OnboardingDependencyContainer: SignUpViewModelFactory, ColorPickerView
   }
   
   func makeSignUpViewModel() -> SignUpViewModel {
-    return SignUpViewModel(userSessionRepository: _sharedUserSessionRepository,
-                           signedInResponder: _sharedMainViewModel)
+    return SignUpViewModel(userSessionRepository: sharedUserSessionRepository,
+                           signedInResponder: sharedMainViewModel)
   }
   
   func makeColorPickerViewController() -> ColorPickerViewController {
