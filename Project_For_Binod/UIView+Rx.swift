@@ -9,9 +9,13 @@
 import UIKit
 import RxSwift
 
-extension Reactive where Base: UIViewController {
+extension Reactive where Base: UIView {
   
   var onLayoutSubViewsTrigger: Observable<Void> {
-    return sentMessage(#selector(base.layou))
+    return sentMessage(#selector(base.layoutSubviews)).map { _ in }.share(replay: 1, scope: .forever)
+  }
+  
+  var onLayoutSubviewsInvoked: Observable<Void> {
+    return methodInvoked(#selector(base.layoutSubviews)).map { _ in }.share(replay: 1, scope: .forever)
   }
 }
