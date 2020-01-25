@@ -56,9 +56,14 @@ extension SignedInDepedencyConatiner {
     return viewController
   }
   
-  func makeLogViewController() -> LogViewController {
-    let viewController = LogViewController()
-    return viewController
+  func makeLogViewController() -> UINavigationController {
+    let viewController = LogViewController.makeInstance(viewModel: makeLogViewModel())
+    let navigationViewController = NiblessNavigationController(rootViewController: viewController)
+    return navigationViewController
+  }
+  
+  func makeLogViewModel() -> LogViewModel {
+    return LogViewModel(userSessionRepository: sharedUserSessionRepository)
   }
   
   func makeProfileViewController() -> ProfileViewController {
