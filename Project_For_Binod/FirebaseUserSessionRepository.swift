@@ -15,12 +15,14 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   private let dataStore: UserDataStore
   private let remoteApi: AuthRemoteApi
   private let serverDataManager: ServerDataManager
+  private let logApi: LogRemoteApi
   
   // MARK: Init
-  init(dataStore: UserDataStore, remoteApi: AuthRemoteApi, serverDataManager: ServerDataManager) {
+  init(dataStore: UserDataStore, remoteApi: AuthRemoteApi, serverDataManager: ServerDataManager, logApi: LogRemoteApi) {
     self.dataStore = dataStore
     self.remoteApi = remoteApi
     self.serverDataManager = serverDataManager
+    self.logApi = logApi
   }
   
   // MARK: User
@@ -84,5 +86,13 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return dataStore.delete(userProfile: userProfile)
   }
   
+  // MARK: Logs
+  
+  /// Get all the group logs
+  ///
+  /// - Return Promise<UserProfile> : logs wrapped in promise
+  func getLogs() -> Promise<[GroupLog]> {
+    return logApi.getLogs()
+  }
   
 }
