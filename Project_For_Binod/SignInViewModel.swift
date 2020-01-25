@@ -13,6 +13,7 @@ import RxCocoa
 enum SignInEvent {
   case showRegister
   case signInTapped
+  case none
 }
 
 final class SignInViewModel {
@@ -28,19 +29,22 @@ final class SignInViewModel {
   var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
   
   /// publish subject for user actions
-  private let eventSubject = PublishSubject<SignInEvent>()
-  var event: Observable<SignInEvent> {
-    return eventSubject.asObservable()
-  }
+//  private let eventSubject = PublishSubject<SignInEvent>()
+//  var event: Observable<SignInEvent> {
+//    return eventSubject.asObservable()
+//  }
+  @PropertyPublishSubject(value: SignInEvent.none)
+  var event: Observable<SignInEvent>
+  
   /// user double tapped in the screen
   var doubleTapGesture: Binder<Void> {
-    return Binder(eventSubject) { observer, _  in
+    return Binder(_event) { observer, _  in
       observer.onNext(SignInEvent.showRegister)
     }
   }
   /// User Pressed Sign in Button
   var signInButtonTapped: Binder<Void> {
-    return Binder(eventSubject) { observer, _ in
+    return Binder(_event) { observer, _ in
       observer.onNext(SignInEvent.signInTapped)
     }
   }

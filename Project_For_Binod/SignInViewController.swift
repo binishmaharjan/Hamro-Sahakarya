@@ -123,6 +123,8 @@ extension SignInViewController {
         self.viewModel.showSignUpView()
       case .signInTapped:
         self.viewModel.signIn()
+      case .none:
+        break
       }
       
     }
