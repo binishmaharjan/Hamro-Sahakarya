@@ -10,21 +10,21 @@ import Foundation
 import CodableFirebase
 
 struct UserProfile: Equatable, Codable {
-  let uid:String
-  let username:String?
-  let email:String?
-  let status:String?
-  let colorHex:String?
-  let iconUrl:String?
-  let dateCreated:String?
-  let keyword:String?
+  let uid: String
+  let username: String?
+  let email: String?
+  let status: Status?
+  let colorHex: String?
+  let iconUrl: String?
+  let dateCreated: String?
+  let keyword: String?
   
   //Account
-  let loanTaken:Int?
-  let balance:Int?
-  let dateUpdated:String?
+  let loanTaken: Int?
+  let balance: Int?
+  let dateUpdated: String?
   
-  private enum CodingKeys:String,CodingKey{
+  private enum CodingKeys:String, CodingKey {
      case uid
      case username
      case email
