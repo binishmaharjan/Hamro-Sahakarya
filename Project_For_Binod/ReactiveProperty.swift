@@ -11,12 +11,16 @@ import RxSwift
 import RxCocoa
 
 @propertyWrapper
-class ReadOnlyReactiveProperty<Element> {
+class InternallyMutableProperty<Element> {
   private let relay: BehaviorRelay<Element>
   
-  var wrappedValue: Element { relay.value }
+  var wrappedValue: Element {
+    relay.value
+  }
   
-  var projectedValue: Observable<Element> { relay.asObservable() }
+  var projectedValue: Observable<Element> {
+    relay.asObservable()
+  }
   
   init(wrappedValue: Element) {
     self.relay = BehaviorRelay(value: wrappedValue)
@@ -31,12 +35,60 @@ class ReadOnlyReactiveProperty<Element> {
 class ReactiveProperty<Element> {
   private let relay: BehaviorRelay<Element>
   
-  var wrappedValue: Element { didSet { relay.accept(wrappedValue) } }
+  var wrappedValue: Element {
+    didSet {
+      relay.accept(wrappedValue)
+    }
+  }
   
-  var projectValue: Observable<Element> { relay.asObservable() }
+  var projectValue: Observable<Element> {
+    relay.asObservable()
+  }
   
   init(wrappedValue: Element) {
     self.relay = BehaviorRelay(value: wrappedValue)
     self.wrappedValue = wrappedValue
+  }
+}
+
+/*
+Property Wrapper
+Publish Subject Wrapped as  Observable
+*/
+@propertyWrapper
+class PropertyPublishSubject<Element> {
+  let publishSubject =  PublishSubject<Element>()
+  
+  var wrappedValue: Observable<Element> {
+    return publishSubject.asObservable()
+  }
+  
+  init(value: Element) {
+    self.publishSubject.onNext(value)
+  }
+  
+  func onNext(_ value: Element) {
+    publishSubject.onNext(value)
+  }
+}
+
+/*
+ Property Wrapper
+ Behaviour Relay Wrapped as  Driver
+ */
+@propertyWrapper
+class PropertyBehaviourRelay<Element> {
+  let behaviourRelay: BehaviorRelay<Element>
+  
+  var wrappedValue: Driver<Element> {
+    return behaviourRelay.asDriver()
+  }
+  
+  init(value: Element) {
+    self.behaviourRelay = BehaviorRelay(value: value)
+  }
+  
+  func accept(_ value: Element) {
+    behaviourRelay.accept(value)
   }
 }
