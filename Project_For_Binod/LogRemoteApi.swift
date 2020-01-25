@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import PromiseKit
+
+protocol LogRemoteApi {
+  func getLogs() -> Promise<[GroupLog]>
+}
