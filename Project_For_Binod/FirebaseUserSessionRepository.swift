@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 final class FirebaseUserSessionRepository: UserSessionRepository {
-  
+
   // MARK: Properties
   private let dataStore: UserDataStore
   private let remoteApi: AuthRemoteApi
@@ -23,14 +23,19 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     self.serverDataManager = serverDataManager
   }
   
-  // MARK: Methods
+  // MARK: User
   /// Read user session from the local data store
+  ///
+  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
   func readUserSession() -> Promise<UserProfile?> {
     return dataStore.readUserProfile()
   }
   
   
   /// Signup the user and save the user data to the local data store
+  ///
+  /// - Parameter newAccount: User info for the new account
+  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
   func signUp(newAccount: NewAccount) -> Promise<UserProfile> {
 
     let signUpTheUser = remoteApi.signUp(newAccount: newAccount)
@@ -39,7 +44,7 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       let userProifile = UserProfile(uid: uid,
                                      username: newAccount.username,
                                      email: newAccount.email,
-                                     status: newAccount.status.rawValue,
+                                     status: newAccount.status,
                                      colorHex: newAccount.colorHex,
                                      iconUrl: "",
                                      dateCreated: Date().toString,
@@ -58,6 +63,10 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   }
   
   /// Signin the uset and save the user data to the local data store
+  ///
+  /// - Parameter email: Email Id of user
+  /// - Parameter password: Password
+  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
   func signIn(email: String, password: String) -> Promise<UserProfile> {
     
     let signInTheUser = remoteApi.signIn(email: email, password: password)
