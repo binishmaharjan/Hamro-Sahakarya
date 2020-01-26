@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="311" height="103"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-5S-PCz">
-                        <rect key="frame" x="15" y="5" width="281" height="93"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-5S-PCz">
+                        <rect key="frame" x="15" y="5" width="281" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/03/16 14:13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-gE-UsA">
                                 <rect key="frame" x="0.0" y="0.0" width="107.5" height="12"/>
@@ -27,13 +27,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A New Transaction Has Been Made." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-Oc-UBP">
-                                <rect key="frame" x="0.0" y="16.5" width="259" height="18"/>
+                                <rect key="frame" x="0.0" y="15" width="259" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uzumaki Naruto has been given the loan of ¥10000. This transaction was made by admin Hatake Kakashi." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-t4-rOD">
-                                <rect key="frame" x="0.0" y="39" width="280.5" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uzumaki Naruto has been given the loan of ¥10000. This transaction was made by admin Hatake Kakashi." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-t4-rOD">
+                                <rect key="frame" x="0.0" y="36" width="281" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                     <constraint firstItem="G0A-5S-PCz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="8yU-te-nWn"/>
                     <constraint firstItem="G0A-5S-PCz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="EYe-vj-t9S"/>
                     <constraint firstAttribute="trailing" secondItem="G0A-5S-PCz" secondAttribute="trailing" constant="15" id="IG4-lG-Ocu"/>
-                    <constraint firstAttribute="bottom" secondItem="G0A-5S-PCz" secondAttribute="bottom" constant="5" id="r67-XW-0fH"/>
+                    <constraint firstAttribute="bottom" secondItem="G0A-5S-PCz" secondAttribute="bottom" constant="8" id="r67-XW-0fH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

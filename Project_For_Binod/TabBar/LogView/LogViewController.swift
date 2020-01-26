@@ -14,6 +14,7 @@ final class LogViewController: UIViewController {
   
   // Properties
   @IBOutlet private weak var tableView: UITableView!
+  @IBOutlet private weak var noLogView: UIView!
   
   private var viewModel: LogViewModel!
   private let disposeBag = DisposeBag()
@@ -36,6 +37,7 @@ final class LogViewController: UIViewController {
   // MARK: Methods
   private func setup() {
     title = nil
+    navigationItem.title = "Logs"
     tabBarItem.image = UIImage(named: "icon_log")?.withRenderingMode(.alwaysOriginal)
     tabBarItem.selectedImage = UIImage(named: "icon_log_h")?.withRenderingMode(.alwaysOriginal)
     tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
@@ -44,13 +46,6 @@ final class LogViewController: UIViewController {
 
 // MARK: Bind
 extension LogViewController {
-  private func bind() {
-//    viewModel.activityIndicatorAnimating
-//      .asDriver(onErrorJustReturn: false)
-//      .drive(GUIManager.rx.isIndicatorAnimating())
-//      .disposed(by: disposeBag)
-
-  }
   
   private func bindState() {
     viewModel.state
@@ -84,11 +79,13 @@ extension LogViewController: StoryboardInstantiable {
 // MARK: Table View DataSource
 extension LogViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    noLogView.isHidden = viewModel.count == 0 ? false : true
     return viewModel.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueCell(of: LogViewCell.self, for: indexPath)
+    cell.bind(viewModel: viewModel.logViewModelForRow(at: indexPath))
     return cell
   }
 }
@@ -98,6 +95,14 @@ extension LogViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableView.automaticDimension
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return .leastNonzeroMagnitude
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return .leastNonzeroMagnitude
   }
 
 }

@@ -14,7 +14,7 @@ protocol LogViewModelProtocol {
   var logs: [GroupLog] { get }
   var count: Int { get }
   
-  func logForRow(at indexPath: IndexPath) -> GroupLog
+  func logViewModelForRow(at indexPath: IndexPath) -> LogCellViewModel
   func loadLogs(isFirstLoad: Bool)
 }
 
@@ -30,7 +30,7 @@ final class LogViewModel: LogViewModelProtocol {
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
   
-  var logs: [GroupLog] = []
+  internal var logs: [GroupLog] = []
   var count: Int { return logs.count }
   var isFirstLoad = true
   
@@ -43,8 +43,8 @@ final class LogViewModel: LogViewModelProtocol {
   }
   
   // MARK: Methods
-  func logForRow(at indexPath: IndexPath) -> GroupLog {
-    return logs[indexPath.row]
+  func logViewModelForRow(at indexPath: IndexPath) -> LogCellViewModel {
+    return .init(groupLog: logs[indexPath.row])
   }
   
   func loadLogs(isFirstLoad: Bool = false) {
@@ -55,24 +55,30 @@ final class LogViewModel: LogViewModelProtocol {
       .catch(indicateLoadFailed)
       
   }
+}
+
+// MARK: Indication
+extension LogViewModel {
   
-  private func indicateLoading() {
-    _state.accept(.loading)
-  }
-  
-  private func indicateLoadSuccessful(logs: [GroupLog]) {
-    
-    switch isFirstLoad{
-    case true:
-      isFirstLoad = false
-      self.logs = logs
-    case false:
-      break
-    }
-    _state.accept(.completed)
-  }
-  
-  private func indicateLoadFailed(error: Error) {
-    _state.accept(.error)
-  }
+   private func indicateLoading() {
+     _state.accept(.loading)
+   }
+   
+   private func indicateLoadSuccessful(logs: [GroupLog]) {
+     
+     switch isFirstLoad{
+     case true:
+       isFirstLoad = false
+       self.logs = logs
+      
+     case false:
+       break
+     }
+    print(logs)
+     _state.accept(.completed)
+   }
+   
+   private func indicateLoadFailed(error: Error) {
+     _state.accept(.error)
+   }
 }
