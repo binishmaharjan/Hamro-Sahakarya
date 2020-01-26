@@ -10,12 +10,19 @@ import UIKit
 
 final class LogViewCell: UITableViewCell {
 
+  // MARK: IBOutlet
   @IBOutlet private weak var dateLabel: UILabel!
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  // MARK: Properties
+  private var viewModel: LogCellViewModelProtocol!
+  
+  // MARK: Methods
+  func bind(viewModel: LogCellViewModelProtocol) {
+    self.viewModel = viewModel
+    dateLabel.text = viewModel.dateCreated
+    titleLabel.text = viewModel.title
+    descriptionLabel.text = viewModel.description
+  }
 }
