@@ -25,4 +25,3 @@ App for the Hamro Sahakarya.
 - ViewModel Layer: contains the state of the view and has methods to handle user interaction. It calls methods on the model layer to read and write data, and it notifiesthe view when the model‘s data changes. 
 
 - View Layer: styles and displays on-screen elements. It doesn‘t contain business or validation logic. Instead, it binds its visual elements to properties on the view model. It also receives user inputs and interaction, and it calls methods on the view model in response.
-
