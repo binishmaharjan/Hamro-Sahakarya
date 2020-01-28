@@ -11,8 +11,8 @@ import Foundation
 final class SignedInDepedencyConatiner {
   
   // MARK: Properties
-  private let sharedUserSessionRepository: UserSessionRepository
-  private let sharedMainViewModel: MainViewModel
+  let sharedUserSessionRepository: UserSessionRepository
+  let sharedMainViewModel: MainViewModel
   
   let sharedSignedInViewModel: SignedInViewModel
   
