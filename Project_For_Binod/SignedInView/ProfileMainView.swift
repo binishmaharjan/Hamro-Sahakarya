@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum ProfileMainView {
+  case profileView
+  case changePicture
+  case changePassword
+  case members
+  case termsOfAgreement
+  case licence
+  case logout
+}
