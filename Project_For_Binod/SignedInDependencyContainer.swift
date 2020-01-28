@@ -66,8 +66,8 @@ extension SignedInDepedencyConatiner {
     return LogViewModel(userSessionRepository: sharedUserSessionRepository)
   }
   
-  func makeProfileViewController() -> ProfileViewController {
-    let viewController = ProfileViewController()
-    return viewController
+  func makeProfileViewController() -> NiblessNavigationController {
+    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self)
+    return dependencyContainer.makeProfileMainViewController()
   }
 }
