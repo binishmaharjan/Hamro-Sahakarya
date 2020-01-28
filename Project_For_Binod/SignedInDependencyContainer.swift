@@ -11,8 +11,8 @@ import Foundation
 final class SignedInDepedencyConatiner {
   
   // MARK: Properties
-  private let sharedUserSessionRepository: UserSessionRepository
-  private let sharedMainViewModel: MainViewModel
+  let sharedUserSessionRepository: UserSessionRepository
+  let sharedMainViewModel: MainViewModel
   
   let sharedSignedInViewModel: SignedInViewModel
   
@@ -66,8 +66,8 @@ extension SignedInDepedencyConatiner {
     return LogViewModel(userSessionRepository: sharedUserSessionRepository)
   }
   
-  func makeProfileViewController() -> ProfileViewController {
-    let viewController = ProfileViewController()
-    return viewController
+  func makeProfileViewController() -> NiblessNavigationController {
+    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self)
+    return dependencyContainer.makeProfileMainViewController()
   }
 }
