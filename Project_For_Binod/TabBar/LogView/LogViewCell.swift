@@ -16,10 +16,10 @@ final class LogViewCell: UITableViewCell {
   @IBOutlet private weak var descriptionLabel: UILabel!
   
   // MARK: Properties
-  private var viewModel: LogCellViewModelProtocol!
+  private var viewModel: LogCellViewModel!
   
   // MARK: Methods
-  func bind(viewModel: LogCellViewModelProtocol) {
+  func bind(viewModel: LogCellViewModel) {
     self.viewModel = viewModel
     dateLabel.text = viewModel.dateCreated
     titleLabel.text = viewModel.title

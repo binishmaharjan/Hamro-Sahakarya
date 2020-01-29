@@ -10,23 +10,19 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol LogViewModelProtocol {
+protocol LogViewModel {
   var logs: [GroupLog] { get }
   var count: Int { get }
   
-  func logViewModelForRow(at indexPath: IndexPath) -> LogCellViewModel
+  var state: Driver<State> { get }
+  
+  func logViewModelForRow(at indexPath: IndexPath) -> DefaultLogCellViewModel
   func loadLogs(isFirstLoad: Bool)
 }
 
-final class LogViewModel: LogViewModelProtocol {
-  
-  enum State {
-    case idle
-    case completed
-    case error
-    case loading
-  }
-  
+// TODO: Make this struct
+final class DefaultLogViewModel: LogViewModel {
+    
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
   
@@ -43,7 +39,7 @@ final class LogViewModel: LogViewModelProtocol {
   }
   
   // MARK: Methods
-  func logViewModelForRow(at indexPath: IndexPath) -> LogCellViewModel {
+  func logViewModelForRow(at indexPath: IndexPath) -> DefaultLogCellViewModel {
     return .init(groupLog: logs[indexPath.row])
   }
   
@@ -58,7 +54,7 @@ final class LogViewModel: LogViewModelProtocol {
 }
 
 // MARK: Indication
-extension LogViewModel {
+extension DefaultLogViewModel {
   
    private func indicateLoading() {
      _state.accept(.loading)

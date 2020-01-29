@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol LogCellViewModelProtocol {
+protocol LogCellViewModel {
   var groupLog: GroupLog { get }
   var title: String { get }
   var description: String { get }
   var dateCreated: String { get }
 }
 
-final class LogCellViewModel: LogCellViewModelProtocol {
+struct DefaultLogCellViewModel: LogCellViewModel {
   internal let groupLog: GroupLog
   
   var logId: String {
