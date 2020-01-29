@@ -33,7 +33,12 @@ extension ProfileMainDependencyContainer {
   
   func makeProfileMainViewController() -> ProfileMainViewController {
     let viewModel = profileMainViewModel
-    return ProfileMainViewController(viewModel: viewModel)
+    let profileViewController = makeProfileViewController()
+    return ProfileMainViewController(viewModel: viewModel, profileViewController: profileViewController)
+  }
+  
+  func makeProfileViewController() -> ProfileViewController {
+    return ProfileViewController()
   }
 }
 
