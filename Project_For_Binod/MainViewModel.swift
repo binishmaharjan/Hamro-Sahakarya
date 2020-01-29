@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 
+// TODO: Make this struct
 final class MainViewModel {
   
   private let viewSubject = BehaviorSubject<MainView>(value: .launching)
