@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import PromiseKit
 
-final class LaunchViewModel {
+struct LaunchViewModel {
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
@@ -52,8 +52,8 @@ final class LaunchViewModel {
   func goToNextScreenAfterErrorPresentation() {
     _ = errorPresentation.filter { $0 == .dismissed }
       .take(1)
-      .subscribe(onNext: { [weak self] _ in
-      self?.goToNextScreen(userProfile: nil)
+      .subscribe(onNext: { _ in
+      self.goToNextScreen(userProfile: nil)
     })
   }
   

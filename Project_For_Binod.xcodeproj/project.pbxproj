@@ -10,6 +10,7 @@
 		6400FF7123E074FD0079A623 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF7023E074FD0079A623 /* ProfileMainViewController.swift */; };
 		6400FF7423E075820079A623 /* ProfileMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF7323E075820079A623 /* ProfileMainViewModel.swift */; };
 		6400FF7623E075AF0079A623 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF7523E075AF0079A623 /* ProfileMainView.swift */; };
+		6400FF7823E1B6C30079A623 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF7723E1B6C30079A623 /* State.swift */; };
 		6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F123767C280044835F /* AuthRemoteApi.swift */; };
 		6402F3F7237682960044835F /* HSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F6237682960044835F /* HSError.swift */; };
 		6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F923768DA40044835F /* UserDataStore.swift */; };
@@ -71,7 +72,7 @@
 		64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D5D237FB01400A9DFB4 /* SimpleDropDownNotification.swift */; };
 		64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */; };
 		64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D62237FB2B900A9DFB4 /* BaseView.swift */; };
-		64F7B5E923DDBD7700A47C81 /* LogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7B5E823DDBD7700A47C81 /* LogCellViewModel.swift */; };
+		64F7B5E923DDBD7700A47C81 /* DefaultLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7B5E823DDBD7700A47C81 /* DefaultLogCellViewModel.swift */; };
 		64FBE15123C08F630027E44C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15023C08F630027E44C /* ColorPalette.swift */; };
 		64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15623C0CDCB0027E44C /* ColorPaletteViewModel.swift */; };
 		64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15823C2002C0027E44C /* UIColor+Extension.swift */; };
@@ -85,7 +86,7 @@
 		64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */; };
 		64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */; };
 		64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */; };
-		64FBE1C423D464280027E44C /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1C323D464270027E44C /* LogViewModel.swift */; };
+		64FBE1C423D464280027E44C /* DefaultLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1C323D464270027E44C /* DefaultLogViewModel.swift */; };
 		64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FBE1C523D4652A0027E44C /* LogViewController.storyboard */; };
 		64FBE1C823D48D7B0027E44C /* GroupLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1C723D48D7B0027E44C /* GroupLog.swift */; };
 		64FBE1CA23D491AB0027E44C /* LogRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1C923D491AB0027E44C /* LogRemoteApi.swift */; };
@@ -108,6 +109,7 @@
 		6400FF7023E074FD0079A623 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		6400FF7323E075820079A623 /* ProfileMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewModel.swift; sourceTree = "<group>"; };
 		6400FF7523E075AF0079A623 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		6400FF7723E1B6C30079A623 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		6402F3F123767C280044835F /* AuthRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteApi.swift; sourceTree = "<group>"; };
 		6402F3F6237682960044835F /* HSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSError.swift; sourceTree = "<group>"; };
 		6402F3F923768DA40044835F /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 		64F44D5D237FB01400A9DFB4 /* SimpleDropDownNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDropDownNotification.swift; sourceTree = "<group>"; };
 		64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownType.swift; sourceTree = "<group>"; };
 		64F44D62237FB2B900A9DFB4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		64F7B5E823DDBD7700A47C81 /* LogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCellViewModel.swift; sourceTree = "<group>"; };
+		64F7B5E823DDBD7700A47C81 /* DefaultLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogCellViewModel.swift; sourceTree = "<group>"; };
 		64FBE15023C08F630027E44C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		64FBE15623C0CDCB0027E44C /* ColorPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteViewModel.swift; sourceTree = "<group>"; };
 		64FBE15823C2002C0027E44C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -183,7 +185,7 @@
 		64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		64FBE1C323D464270027E44C /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
+		64FBE1C323D464270027E44C /* DefaultLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogViewModel.swift; sourceTree = "<group>"; };
 		64FBE1C523D4652A0027E44C /* LogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogViewController.storyboard; sourceTree = "<group>"; };
 		64FBE1C723D48D7B0027E44C /* GroupLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLog.swift; sourceTree = "<group>"; };
 		64FBE1C923D491AB0027E44C /* LogRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRemoteApi.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				645939A5235AAD4C00A99902 /* MainViewModel.swift */,
 				645939AE235AB01000A99902 /* NotSignedInResponder.swift */,
 				645939B0235AB01C00A99902 /* SignedInResponder.swift */,
+				6400FF7723E1B6C30079A623 /* State.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -659,8 +662,8 @@
 		64FBE1C223D4640D0027E44C /* LogView */ = {
 			isa = PBXGroup;
 			children = (
-				64FBE1C323D464270027E44C /* LogViewModel.swift */,
-				64F7B5E823DDBD7700A47C81 /* LogCellViewModel.swift */,
+				64FBE1C323D464270027E44C /* DefaultLogViewModel.swift */,
+				64F7B5E823DDBD7700A47C81 /* DefaultLogCellViewModel.swift */,
 			);
 			path = LogView;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
 				64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
+				6400FF7823E1B6C30079A623 /* State.swift in Sources */,
 				64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				64FBE1D123D4A6D00027E44C /* LogViewCell.swift in Sources */,
@@ -947,7 +951,7 @@
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
-				64F7B5E923DDBD7700A47C81 /* LogCellViewModel.swift in Sources */,
+				64F7B5E923DDBD7700A47C81 /* DefaultLogCellViewModel.swift in Sources */,
 				64FBE1AF23D2DA450027E44C /* SignedInView.swift in Sources */,
 				6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */,
 				64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */,
@@ -975,7 +979,7 @@
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
 				64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */,
 				646604AD2379897700122718 /* OnboardingViewModel.swift in Sources */,
-				64FBE1C423D464280027E44C /* LogViewModel.swift in Sources */,
+				64FBE1C423D464280027E44C /* DefaultLogViewModel.swift in Sources */,
 				646604BE237995ED00122718 /* SignUpViewController.swift in Sources */,
 				646604BC237995DB00122718 /* SignInViewController.swift in Sources */,
 				64FBE1CA23D491AB0027E44C /* LogRemoteApi.swift in Sources */,

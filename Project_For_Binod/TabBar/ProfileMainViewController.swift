@@ -16,9 +16,13 @@ final class ProfileMainViewController: NiblessNavigationController {
   private let viewModel: ProfileMainViewModel
   private let disposeBag = DisposeBag()
   
+  // Child View Controller
+  private let profileViewController: ProfileViewController
+  
   // MARK: Init
-  init(viewModel: ProfileMainViewModel) {
+  init(viewModel: ProfileMainViewModel, profileViewController: ProfileViewController) {
     self.viewModel = viewModel
+    self.profileViewController = profileViewController
     super.init()
     
     setup()
@@ -36,7 +40,6 @@ final class ProfileMainViewController: NiblessNavigationController {
     tabBarItem.image = UIImage(named: "icon_profile")?.withRenderingMode(.alwaysOriginal)
     tabBarItem.selectedImage = UIImage(named: "icon_profile_h")?.withRenderingMode(.alwaysOriginal)
     tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-    setNavigationBarHidden(false, animated: false)
     delegate = self
   }
   
@@ -81,8 +84,8 @@ extension ProfileMainViewController {
   }
   
   private func presentProfileView() {
-    let viewController = ProfileViewController()
-    addFullScreen(childViewController: viewController)
+    pushViewController(profileViewController, animated: false)
+//    addFullScreen(childViewController: profileViewController)
   }
 }
 
