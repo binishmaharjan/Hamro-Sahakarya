@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SignedInViewModel {
+struct SignedInViewModel {
   
   private let viewSubject = BehaviorRelay<SignedInView>(value: .tabbar)
   var view: Observable<SignedInView> {

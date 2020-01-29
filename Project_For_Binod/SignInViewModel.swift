@@ -16,7 +16,7 @@ enum SignInEvent {
   case none
 }
 
-final class SignInViewModel {
+struct SignInViewModel {
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository

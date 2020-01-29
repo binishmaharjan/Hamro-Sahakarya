@@ -17,7 +17,7 @@ enum SignUpEvent {
   case statusLabelTapped
 }
 
-final class SignUpViewModel {
+struct SignUpViewModel {
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository

@@ -18,7 +18,7 @@ protocol ProfileMainViewModel {
   func uiPresented(profileView: ProfileMainView)
 }
 
-final class DefaultProfileMainViewModel: ProfileMainViewModel {
+struct DefaultProfileMainViewModel: ProfileMainViewModel {
   
   private let _view = BehaviorSubject<ProfileMainNavigationAction>(value: .present(view: .profileView))
   var view: Observable<ProfileMainNavigationAction> { return _view.asObservable() }
