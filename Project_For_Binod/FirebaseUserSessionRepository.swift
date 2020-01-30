@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import FirebaseAuth
 
 final class FirebaseUserSessionRepository: UserSessionRepository {
 
@@ -83,6 +84,10 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   }
   
   func signOut(userProfile: UserProfile) -> Promise<UserProfile> {
+    // Firebase Signout
+    try? Auth.auth().signOut()
+    
+    // Data Deletion
     return dataStore.delete(userProfile: userProfile)
   }
   
