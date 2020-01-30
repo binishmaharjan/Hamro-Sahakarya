@@ -71,7 +71,7 @@ extension SignedInDepedencyConatiner {
   }
   
   func makeProfileViewController() -> ProfileMainViewController {
-    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self)
+    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self, userProfile: userProfile)
     return dependencyContainer.makeProfileMainViewController()
   }
 }
