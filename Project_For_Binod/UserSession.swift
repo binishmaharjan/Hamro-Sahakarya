@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+final class UserSession {
+  
+  let profile: UserProfile
+  
+  init(profile: UserProfile) {
+    self.profile = profile
+  }
+}
+
+extension UserSession: Equatable {
+  static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
+    return lhs.profile == rhs.profile
+  }
+}
