@@ -8,17 +8,46 @@
 
 import UIKit
 
-class ProfileTopCell: UITableViewCell {
+final class ProfileTopCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+  // MARK: IBOutlet
+  @IBOutlet private weak var userImageView: UIImageView!
+  @IBOutlet private weak var userNameLabel: UILabel!
+  @IBOutlet private weak var statusLabel: UILabel!
+  
+  
+  func bind(viewModel: ProfileTopCellViewModel) {
+    userImageView.loadImage(with: viewModel.imageUrl)
+    userNameLabel.text = viewModel.fullname
+    statusLabel.text = viewModel.status.rawValue
+  }
     
+}
+
+protocol ProfileTopCellViewModel {
+  var imageUrl: URL? { get }
+  var fullname: String { get }
+  var status: Status { get }
+}
+
+struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
+  private let userProfile: UserProfile
+  
+  var imageUrl: URL? {
+    let imageString = userProfile.iconUrl ?? ""
+    return URL(string: imageString)
+  }
+  
+  var fullname: String {
+    return userProfile.username ?? ""
+  }
+  
+  var status: Status {
+    return userProfile.status ?? .member
+  }
+  
+  init(userProfile: UserProfile) {
+    self.userProfile = userProfile
+  }
+  
 }
