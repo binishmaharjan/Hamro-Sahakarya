@@ -42,7 +42,15 @@ extension ProfileMainDependencyContainer {
   }
   
   func makeProfileViewController() -> ProfileViewController {
-    return ProfileViewController()
+    let viewModel =  makeProfileViewModel()
+    let viewController = ProfileViewController.makeInstance(viewModel: viewModel)
+    return viewController
+  }
+  
+  func makeProfileViewModel() -> ProfileViewModel {
+    return DefaultProfileViewModel(userProfile: userProfile,
+                                   notSignedInResponder: sharedMainViewModel,
+                                   userSessionRepository: sharedUserSessionRepository)
   }
 }
 
