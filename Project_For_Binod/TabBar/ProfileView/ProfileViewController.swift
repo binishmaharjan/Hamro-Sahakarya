@@ -80,5 +80,76 @@ extension ProfileViewController: UITableViewDelegate {
   
 }
 
+enum ProfileRow {
+  case top(ProfileTopCellViewModel)
+  case changePicture
+  case changePassword
+  case members
+}
+
+struct ProfileSection {
+  let rows: [ProfileRow]
+}
+
+protocol ProfileViewModel {
+  var userProfile: UserProfile { get }
+  var notSignedInResponder: NotSignedInResponder { get }
+  var numberOfSection: Int { get }
+  
+  func signOut()
+  func numberOfRows(in section: Int) -> Int
+  func row(for indexPath: IndexPath) -> ProfileRow
+}
+
+struct DefaultProfileViewModel: ProfileViewModel {
+
+  // MARK: Properties
+  let userProfile: UserProfile
+  let notSignedInResponder: NotSignedInResponder
+  let userSessionRepository: UserSessionRepository
+  
+  // Data Source
+  var profileSections: [ProfileSection] {
+    let section = [
+      ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userProfile: userProfile))]),
+      ProfileSection(rows: [.changePicture, .changePassword, .members])
+    ]
+    return section
+  }
+  
+  var numberOfSection: Int {
+    return profileSections.count
+  }
+  
+  // MARK: Init
+  init(userProfile: UserProfile,
+       notSignedInResponder: NotSignedInResponder,
+       userSessionRepository: UserSessionRepository) {
+    self.userProfile = userProfile
+    self.notSignedInResponder = notSignedInResponder
+    self.userSessionRepository = userSessionRepository
+  }
+  
+  // MARK: Methods
+  func signOut() {
+    userSessionRepository.signOut(userProfile: userProfile)
+      .done(indicateSignoutSuccessful)
+      .catch(indicateError)
+  }
+  
+  func numberOfRows(in section: Int) -> Int {
+    return profileSections[section].rows.count
+  }
+  
+  func row(for indexPath: IndexPath) -> ProfileRow {
+    return profileSections[indexPath.section].rows[indexPath.row]
+  }
+  
+  private func indicateSignoutSuccessful(userProfile: UserProfile) {
+    
+  }
+  
+  private func indicateError(error: Error) {
+    
   }
 }
