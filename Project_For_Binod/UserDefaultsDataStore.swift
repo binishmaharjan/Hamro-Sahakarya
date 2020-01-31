@@ -18,8 +18,8 @@ final class UserDefaultsDataStore: UserDataStore {
     self.userProfileCoder = userProfileCoder
   }
   
-  func readUserProfile() -> Promise<UserProfile?> {
-    return Promise<UserProfile?> { [weak self] seal in
+  func readUserProfile() -> Promise<UserSession?> {
+    return Promise<UserSession?> { [weak self] seal in
         
         guard let self = self else {
           seal.fulfill(nil)
@@ -31,28 +31,28 @@ final class UserDefaultsDataStore: UserDataStore {
           return
         }
       
-      let userProfile = userProfileCoder.decode(data: data)
-      seal.fulfill(userProfile)
+      let userSession = userProfileCoder.decode(data: data)
+      seal.fulfill(userSession)
       
     }
   }
   
-  func save(userProfile: UserProfile) -> Promise<UserProfile> {
+  func save(userSession: UserSession) -> Promise<UserSession> {
     
-    return Promise<UserProfile> { seal in
+    return Promise<UserSession> { seal in
       
-      let encodedData = userProfileCoder.encode(userProfile: userProfile)
+      let encodedData = userProfileCoder.encode(userSession: userSession)
       UserDefaults.standard.set(encodedData, forKey: userProfileKey)
-      seal.fulfill(userProfile)
+      seal.fulfill(userSession)
     }
 
   }
 
-  func delete(userProfile: UserProfile) -> Promise<UserProfile> {
+  func delete(userSession: UserSession) -> Promise<UserSession> {
 
-    return Promise<UserProfile> { seal in
+    return Promise<UserSession> { seal in
       UserDefaults.standard.set(Data(), forKey: userProfileKey)
-      seal.fulfill(userProfile)
+      seal.fulfill(userSession)
     }
   }
 }

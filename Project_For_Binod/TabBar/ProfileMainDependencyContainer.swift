@@ -16,10 +16,10 @@ final class ProfileMainDependencyContainer {
   private let profileMainViewModel: ProfileMainViewModel
   
   // Context
-  let userProfile: UserProfile
+  let userSession: UserSession
   
   // MARK: Init
-  init(dependencyContainer: SignedInDepedencyConatiner, userProfile: UserProfile) {
+  init(dependencyContainer: SignedInDepedencyConatiner, userSession: UserSession) {
     func makeProfileMainViewModel() -> ProfileMainViewModel {
       return DefaultProfileMainViewModel()
     }
@@ -28,7 +28,7 @@ final class ProfileMainDependencyContainer {
     self.sharedUserSessionRepository = dependencyContainer.sharedUserSessionRepository
     
     self.profileMainViewModel = makeProfileMainViewModel()
-    self.userProfile = userProfile
+    self.userSession = userSession
   }
 }
 
@@ -48,7 +48,7 @@ extension ProfileMainDependencyContainer {
   }
   
   func makeProfileViewModel() -> ProfileViewModel {
-    return DefaultProfileViewModel(userProfile: userProfile,
+    return DefaultProfileViewModel(userSession: userSession,
                                    notSignedInResponder: sharedMainViewModel,
                                    userSessionRepository: sharedUserSessionRepository)
   }

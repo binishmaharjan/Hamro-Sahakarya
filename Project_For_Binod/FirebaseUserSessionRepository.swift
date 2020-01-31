@@ -29,8 +29,8 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   // MARK: User
   /// Read user session from the local data store
   ///
-  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
-  func readUserSession() -> Promise<UserProfile?> {
+  /// - Return Promise<UserSession> : UserInfo wrapped in promise
+  func readUserSession() -> Promise<UserSession?> {
     return dataStore.readUserProfile()
   }
   
@@ -38,11 +38,11 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   /// Signup the user and save the user data to the local data store
   ///
   /// - Parameter newAccount: User info for the new account
-  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
-  func signUp(newAccount: NewAccount) -> Promise<UserProfile> {
+  /// - Return Promise<UserSession> : UserInfo wrapped in promise
+  func signUp(newAccount: NewAccount) -> Promise<UserSession> {
 
     let signUpTheUser = remoteApi.signUp(newAccount: newAccount)
-    let saveDataToServer = signUpTheUser.then { (uid) -> Promise<UserProfile> in
+    let saveDataToServer = signUpTheUser.then { (uid) -> Promise<UserSession> in
       
       let userProifile = UserProfile(uid: uid,
                                      username: newAccount.username,
@@ -56,10 +56,12 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
                                      balance: newAccount.initialAmount,
                                      dateUpdated: Date().toString)
       
-      return self.serverDataManager.saveUser(userProfile: userProifile)
+      let userSession = UserSession(profile: userProifile)
+      
+      return self.serverDataManager.saveUser(userSession: userSession)
     }
     
-    let saveUserToDataStore = saveDataToServer.then(dataStore.save(userProfile:))
+    let saveUserToDataStore = saveDataToServer.then(dataStore.save(userSession:))
     
     return saveUserToDataStore
     
@@ -69,33 +71,33 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   ///
   /// - Parameter email: Email Id of user
   /// - Parameter password: Password
-  /// - Return Promise<UserProfile> : UserInfo wrapped in promise
-  func signIn(email: String, password: String) -> Promise<UserProfile> {
+  /// - Return Promise<UserSession> : UserInfo wrapped in promise
+  func signIn(email: String, password: String) -> Promise<UserSession> {
     
     let signInTheUser = remoteApi.signIn(email: email, password: password)
     let readUserFromServer = signInTheUser.then(serverDataManager.readUser(uid:))
     
-    let saveUserToDataStore = readUserFromServer.then{ [weak self] (userProfile) -> Promise<UserProfile> in
-      return (self?.dataStore.save(userProfile: userProfile!))!
+    let saveUserToDataStore = readUserFromServer.then { [weak self] (userSession) -> Promise<UserSession> in
+      return (self?.dataStore.save(userSession: userSession!))!
     }
     
     return saveUserToDataStore
     
   }
   
-  func signOut(userProfile: UserProfile) -> Promise<UserProfile> {
+  func signOut(userSession: UserSession) -> Promise<UserSession> {
     // Firebase Signout
     try? Auth.auth().signOut()
     
     // Data Deletion
-    return dataStore.delete(userProfile: userProfile)
+    return dataStore.delete(userSession: userSession)
   }
   
   // MARK: Logs
   
   /// Get all the group logs
   ///
-  /// - Return Promise<UserProfile> : logs wrapped in promise
+  /// - Return Promise<[Group Log]> : logs wrapped in promise
   func getLogs() -> Promise<[GroupLog]> {
     return logApi.getLogs()
   }

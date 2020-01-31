@@ -12,7 +12,7 @@ enum MainView {
   
   case launching
   case onboarding
-  case signedIn(userProfile: UserProfile)
+  case signedIn(userSession: UserSession)
 }
 
 extension MainView: Equatable {

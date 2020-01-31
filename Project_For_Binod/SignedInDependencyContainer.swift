@@ -17,9 +17,9 @@ final class SignedInDepedencyConatiner {
   let sharedSignedInViewModel: SignedInViewModel
   
   // Context
-  let userProfile: UserProfile
+  let userSession: UserSession
   
-  init(appDependencyContainer: AppDependencyContainer, userProfile: UserProfile) {
+  init(appDependencyContainer: AppDependencyContainer, userSession: UserSession) {
     func makeSignedInViewModel() -> SignedInViewModel {
       return SignedInViewModel()
     }
@@ -28,7 +28,7 @@ final class SignedInDepedencyConatiner {
     self.sharedMainViewModel = appDependencyContainer.sharedMainViewModel
     
     self.sharedSignedInViewModel = makeSignedInViewModel()
-    self.userProfile = userProfile
+    self.userSession = userSession
   }
 }
 
@@ -71,7 +71,7 @@ extension SignedInDepedencyConatiner {
   }
   
   func makeProfileViewController() -> ProfileMainViewController {
-    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self, userProfile: userProfile)
+    let dependencyContainer = ProfileMainDependencyContainer(dependencyContainer: self, userSession: userSession)
     return dependencyContainer.makeProfileMainViewController()
   }
 }

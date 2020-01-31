@@ -31,23 +31,23 @@ protocol ProfileTopCellViewModel {
 }
 
 struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
-  private let userProfile: UserProfile
+  private let userSession: UserSession
   
   var imageUrl: URL? {
-    let imageString = userProfile.iconUrl ?? ""
+    let imageString = userSession.profile.iconUrl ?? ""
     return URL(string: imageString)
   }
   
   var fullname: String {
-    return userProfile.username ?? ""
+    return userSession.profile.username ?? ""
   }
   
   var status: Status {
-    return userProfile.status ?? .member
+    return userSession.profile.status ?? .member
   }
   
-  init(userProfile: UserProfile) {
-    self.userProfile = userProfile
+  init(userSession: UserSession) {
+    self.userSession = userSession
   }
   
 }

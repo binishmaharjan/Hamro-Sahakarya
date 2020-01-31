@@ -92,7 +92,7 @@ struct ProfileSection {
 }
 
 protocol ProfileViewModel {
-  var userProfile: UserProfile { get }
+  var userSession: UserSession { get }
   var notSignedInResponder: NotSignedInResponder { get }
   var numberOfSection: Int { get }
   
@@ -104,14 +104,14 @@ protocol ProfileViewModel {
 struct DefaultProfileViewModel: ProfileViewModel {
 
   // MARK: Properties
-  let userProfile: UserProfile
+  let userSession: UserSession
   let notSignedInResponder: NotSignedInResponder
   let userSessionRepository: UserSessionRepository
   
   // Data Source
   var profileSections: [ProfileSection] {
     let section = [
-      ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userProfile: userProfile))]),
+      ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userSession: userSession))]),
       ProfileSection(rows: [.changePicture, .changePassword, .members])
     ]
     return section
@@ -122,17 +122,17 @@ struct DefaultProfileViewModel: ProfileViewModel {
   }
   
   // MARK: Init
-  init(userProfile: UserProfile,
+  init(userSession: UserSession,
        notSignedInResponder: NotSignedInResponder,
        userSessionRepository: UserSessionRepository) {
-    self.userProfile = userProfile
+    self.userSession = userSession
     self.notSignedInResponder = notSignedInResponder
     self.userSessionRepository = userSessionRepository
   }
   
   // MARK: Methods
   func signOut() {
-    userSessionRepository.signOut(userProfile: userProfile)
+    userSessionRepository.signOut(userSession: userSession)
       .done(indicateSignoutSuccessful)
       .catch(indicateError)
   }
@@ -145,7 +145,7 @@ struct DefaultProfileViewModel: ProfileViewModel {
     return profileSections[indexPath.section].rows[indexPath.row]
   }
   
-  private func indicateSignoutSuccessful(userProfile: UserProfile) {
+  private func indicateSignoutSuccessful(userSession: UserSession) {
     
   }
   

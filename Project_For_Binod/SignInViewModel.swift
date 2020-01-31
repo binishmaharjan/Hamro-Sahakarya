@@ -76,7 +76,7 @@ struct SignInViewModel {
     indicateSigingIn()
     let (email, password) = getEmailAndPassword()
     userSessionRepository.signIn(email: email, password: password)
-      .done(indicateSignInSuccessful(userProfile:))
+      .done(indicateSignInSuccessful(userSession:))
       .catch(indicateErrorSigningIn)
   }
   
@@ -104,9 +104,9 @@ extension SignInViewModel {
     activityIndicatorAnimating.onNext(true)
   }
   
-  private func indicateSignInSuccessful(userProfile: UserProfile) {
+  private func indicateSignInSuccessful(userSession: UserSession) {
     activityIndicatorAnimating.onNext(false)
-    signedInResponder.signedIn(to: userProfile)
+    signedInResponder.signedIn(to: userSession)
   }
   
   private func indicateErrorSigningIn(_ error: Error) {

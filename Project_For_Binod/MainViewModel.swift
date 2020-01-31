@@ -21,8 +21,8 @@ final class MainViewModel {
 // MARK: Set Main Child View To SignedIn View
 extension MainViewModel: SignedInResponder {
   
-  func signedIn(to userProfile: UserProfile) {
-    viewSubject.onNext(.signedIn(userProfile: userProfile))
+  func signedIn(to userSession: UserSession) {
+    viewSubject.onNext(.signedIn(userSession: userSession))
   }
 }
 

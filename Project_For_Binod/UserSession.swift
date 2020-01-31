@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class UserSession {
+final class UserSession: Codable {
   
-  let profile: UserProfile
+  var profile: UserProfile
   
   init(profile: UserProfile) {
     self.profile = profile

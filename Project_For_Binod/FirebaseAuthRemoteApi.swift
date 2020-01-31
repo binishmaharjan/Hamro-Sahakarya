@@ -21,17 +21,24 @@ final class FirebaseAuthRemoteApi: AuthRemoteApi {
 
       DispatchQueue.global(qos: .default).async {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+          
           if let error = error {
-            DispatchQueue.main.async { seal.reject(error) }
+            DispatchQueue.main.async {
+              seal.reject(error)
+            }
             return
           }
 
           guard let userData = result?.user else {
-            DispatchQueue.main.async { seal.reject(HSError.emptyDataError) }
+            DispatchQueue.main.async {
+              seal.reject(HSError.emptyDataError)
+            }
             return
           }
           
-          DispatchQueue.main.async { seal.fulfill(userData.uid) }
+          DispatchQueue.main.async {
+            seal.fulfill(userData.uid)
+          }
           
           
           // Login Successful > Get User Data From The Database

@@ -73,8 +73,8 @@ extension AppDependencyContainer {
       return self.makeOnboardingViewController()
     }
     
-    let signedInViewControllerFactory = { (userProfile: UserProfile) in
-      return self.makeSignedInViewController(profile: userProfile)
+    let signedInViewControllerFactory = { (userSession: UserSession) in
+      return self.makeSignedInViewController(userSession: userSession)
     }
     
     return MainViewController(viewModel: sharedMainViewModel,
@@ -110,8 +110,8 @@ extension AppDependencyContainer {
 // MARK: SignedIn View Controller
 extension AppDependencyContainer {
   
-  func makeSignedInViewController(profile: UserProfile) -> SignedInViewController {
-    let dependencyContainer = SignedInDepedencyConatiner(appDependencyContainer: self, userProfile: profile)
+  func makeSignedInViewController(userSession: UserSession) -> SignedInViewController {
+    let dependencyContainer = SignedInDepedencyConatiner(appDependencyContainer: self, userSession: userSession)
     return dependencyContainer.makeSignedInViewController()
   }
 }
