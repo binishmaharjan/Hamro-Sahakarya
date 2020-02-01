@@ -56,8 +56,11 @@ extension LogViewController {
         case .completed:
           self?.tableView.reloadData()
           GUIManager.shared.stopAnimation()
-        case .error:
+        case .error(let error):
           GUIManager.shared.stopAnimation()
+          
+          let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+          GUIManager.shared.showDropDownNotification(data: dropDownModel)
         case .loading:
           GUIManager.shared.startAnimation()
         }

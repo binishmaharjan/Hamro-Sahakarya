@@ -86,11 +86,8 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   }
   
   func signOut(userSession: UserSession) -> Promise<UserSession> {
-    // Firebase Signout
-    try? Auth.auth().signOut()
-    
-    // Data Deletion
-    return dataStore.delete(userSession: userSession)
+    return remoteApi.signOut(userSession: userSession)
+      .then(dataStore.delete(userSession:))
   }
   
   // MARK: Logs

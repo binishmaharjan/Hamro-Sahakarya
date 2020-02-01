@@ -7,12 +7,71 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+enum ProfileRow {
+  case top(ProfileTopCellViewModel)
+  
+  // User
+  case changePicture
+  case changePassword
+  case members
+  
+  // Admin
+  case makeAdmin
+  case removeAdmin
+  case extra
+  case expenses
+  case monthlyFee
+  
+  // Others
+  case termsOfAgreement
+  case license
+  case logout
+  
+  var title: String {
+    switch self {
+      
+    case .top(_):
+      return ""
+    case .changePicture:
+      return "Change Picture"
+    case .changePassword:
+      return "Change Password"
+    case .members:
+      return "Members"
+    case .termsOfAgreement:
+      return "Terms of Agreement"
+    case .license:
+      return "Licence"
+    case .logout:
+      return "Logout"
+    case .makeAdmin:
+      return "Make Admin"
+    case .removeAdmin:
+      return "Remove Admin"
+    case .extra:
+      return "Add Extra"
+    case .expenses:
+      return "Add Expenses"
+    case .monthlyFee:
+      return "Monthly Fee"
+    }
+  }
+}
+
+struct ProfileSection {
+  let rows: [ProfileRow]
+}
+
 
 protocol ProfileViewModel {
   var userSession: UserSession { get }
   var notSignedInResponder: NotSignedInResponder { get }
   var numberOfSection: Int { get }
   var lastSection: Int { get }
+  var state: Driver<State> { get }
   
   func signOut()
   func numberOfRows(in section: Int) -> Int
@@ -54,6 +113,9 @@ struct DefaultProfileViewModel: ProfileViewModel {
     return numberOfSection - 1
   }
   
+  @PropertyBehaviourRelay<State>(value: .idle)
+  var state: Driver<State>
+  
   // MARK: Init
   init(userSession: UserSession,
        notSignedInResponder: NotSignedInResponder,
@@ -79,10 +141,10 @@ struct DefaultProfileViewModel: ProfileViewModel {
   }
   
   private func indicateSignoutSuccessful(userSession: UserSession) {
-    
+    notSignedInResponder.notSignedIn()
   }
   
   private func indicateError(error: Error) {
-    
+    _state.accept(.error(error))
   }
 }

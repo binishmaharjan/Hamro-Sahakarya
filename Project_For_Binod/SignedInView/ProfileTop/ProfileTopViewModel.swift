@@ -11,7 +11,7 @@ import Foundation
 protocol ProfileTopCellViewModel {
   var imageUrl: URL? { get }
   var fullname: String { get }
-  var status: Status { get }
+  var status: String { get }
 }
 
 struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
@@ -26,8 +26,11 @@ struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
     return userSession.profile.username ?? ""
   }
   
-  var status: Status {
-    return userSession.profile.status ?? .member
+  var status: String {
+    guard let s = userSession.profile.status else {
+      return "Status: -"
+    }
+    return "Status: \(s.rawValue)"
   }
   
   init(userSession: UserSession) {

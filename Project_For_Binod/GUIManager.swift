@@ -22,9 +22,17 @@ final class GUIManager: NSObject {
   
   // MARK: - Activity Indicator
   /// Start the activity indicator in window
+  ///
+  /// - Parameter None
+  /// - Return: Void
   func startAnimation() {
-    guard let mainView = mainView else { fatalError("No uiwindow") }
-    guard !progressHUD.isAnimating else { return }
+    guard let mainView = mainView else {
+      fatalError("No uiwindow")
+    }
+    
+    guard !progressHUD.isAnimating else {
+      return
+    }
     
     overlay.frame = mainView.frame
     overlay.backgroundColor = .mainBlack_30
@@ -36,6 +44,9 @@ final class GUIManager: NSObject {
   }
   
   /// Stop the activity indicator if its is running
+  ///
+  /// - Parameter None
+  /// - Return: Void
   func stopAnimation() {
     guard progressHUD.isAnimating else { return }
     
@@ -47,14 +58,40 @@ final class GUIManager: NSObject {
   
   // MARK: - Drop Down Animtaion
   /// Start the drop down animations in specified view
+  ///
+  /// - Parameter dropDownModel: Data to populate the Drop Down Notifiacation
+  /// - Return: Void
   func showDropDownNotification(data dropDownModel: DropDownModel) {
-    guard let mainView = mainView else { fatalError("No uiwindow") }
+    guard let mainView = mainView else {
+      fatalError("No uiwindow")
+    }
     
     let dropDown = SimpleDropDownNotification()
     dropDown.text = dropDownModel.message
     dropDown.type = dropDownModel.dropDownType
     mainView.addSubview(dropDown)
     dropDown.startDropDown()
+  }
+  
+  //MARK: - Alert Dialog
+  /// Show Alert Dialog
+  ///
+  /// - Parameter message: Display message for alert
+  /// - Parameter completionHandler: Action when ok action button is pressed
+  func showDialog(message: String, completionHandler: (() -> Void)? = nil) {
+     guard let mainView = mainView else {
+      fatalError("No uiwindow")
+    }
+    
+    let alertDiaog = AlertDialog.makeInstance(message: message, handler: completionHandler)
+    alertDiaog.alpha = 0
+    mainView.addSubview(alertDiaog)
+    alertDiaog.frame = mainView.frame
+    
+    UIView.animate(withDuration: 0.3) {
+      alertDiaog.alpha = 1
+    }
+    
   }
   
 }

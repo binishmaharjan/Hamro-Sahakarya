@@ -22,11 +22,27 @@ final class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    bindState()
+    
     tableView.registerXib(of: ProfileTopCell.self)
     
     tableView.delegate = self
     tableView.dataSource = self
   }
+  
+  private func bindState() {
+    viewModel.state.drive(onNext: { state in
+      switch state {
+      case .error(let error):
+        let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+        
+      default:
+        break
+      }
+    }).disposed(by: disposeBag)
+  }
+  
 }
 
 // MARK: Storyboard Instantiable
@@ -88,62 +104,25 @@ extension ProfileViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    
+    let row = viewModel.row(for: indexPath)
+    
+    switch row {
+    case .logout:
+      logOutCellPressed()
+    default:
+      break
+    }
   }
   
 }
 
-enum ProfileRow {
-  case top(ProfileTopCellViewModel)
+// MARK: Cell Pressed Actions
+extension ProfileViewController {
   
-  // User
-  case changePicture
-  case changePassword
-  case members
-  
-  // Admin
-  case makeAdmin
-  case removeAdmin
-  case extra
-  case expenses
-  case monthlyFee
-  
-  // Others
-  case termsOfAgreement
-  case license
-  case logout
-  
-  var title: String {
-    switch self {
-      
-    case .top(_):
-      return ""
-    case .changePicture:
-      return "Change Picture"
-    case .changePassword:
-      return "Change Password"
-    case .members:
-      return "Members"
-    case .termsOfAgreement:
-      return "Terms of Agreement"
-    case .license:
-      return "Licence"
-    case .logout:
-      return "Logout"
-    case .makeAdmin:
-      return "Make Admin"
-    case .removeAdmin:
-      return "Remove Admin"
-    case .extra:
-      return "Add Extra"
-    case .expenses:
-      return "Add Expenses"
-    case .monthlyFee:
-      return "Monthly Fee"
+  private func logOutCellPressed() {
+    GUIManager.shared.showDialog(message: "Are you sure?") { [weak self] in
+      self?.viewModel.signOut()
     }
   }
 }
-
-struct ProfileSection {
-  let rows: [ProfileRow]
-}
-
