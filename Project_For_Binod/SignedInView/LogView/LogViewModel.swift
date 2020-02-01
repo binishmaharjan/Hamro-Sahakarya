@@ -75,6 +75,6 @@ extension DefaultLogViewModel {
    }
    
    private func indicateLoadFailed(error: Error) {
-     _state.accept(.error)
+     _state.accept(.error(error))
    }
 }

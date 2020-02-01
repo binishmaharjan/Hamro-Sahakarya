@@ -11,6 +11,6 @@ import Foundation
 enum State {
   case idle
   case completed
-  case error
+  case error(Error)
   case loading
 }
