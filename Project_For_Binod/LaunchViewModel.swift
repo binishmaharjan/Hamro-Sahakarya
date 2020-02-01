@@ -36,7 +36,7 @@ struct LaunchViewModel {
   // TODO: Change To Proper Error Message
   func loadUserSession() {
     userSessionRepository.readUserSession()
-      .done(goToNextScreen(userProfile:))
+      .done(goToNextScreen(userSession:))
       .catch{ error in
         let errorMessage = ErrorMessage(title: "Sign In Error",
                                         message: "Sorry, we couldn't determine if you are already signed in. Please sign in or sign up.")
@@ -53,16 +53,16 @@ struct LaunchViewModel {
     _ = errorPresentation.filter { $0 == .dismissed }
       .take(1)
       .subscribe(onNext: { _ in
-      self.goToNextScreen(userProfile: nil)
+      self.goToNextScreen(userSession: nil)
     })
   }
   
-  func goToNextScreen(userProfile: UserProfile?) {
-    switch userProfile {
+  func goToNextScreen(userSession: UserSession?) {
+    switch userSession {
     case .none:
       notSignedInReposonder.notSignedIn()
-    case let .some(userProfile):
-      signedInResponder.signedIn(to: userProfile)
+    case let .some(userSession):
+      signedInResponder.signedIn(to: userSession)
     }
   }
 }

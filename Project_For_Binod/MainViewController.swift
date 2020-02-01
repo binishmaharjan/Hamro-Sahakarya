@@ -24,7 +24,7 @@ final class MainViewController: NiblessViewController {
   
   //Child Factories
   typealias OnboardingFactory = () -> OnboardingViewController
-  typealias SignedInFactory =  (UserProfile) -> SignedInViewController
+  typealias SignedInFactory =  (UserSession) -> SignedInViewController
   private let makeOnboardingViewController: OnboardingFactory
   private let makeSignedInViewController: SignedInFactory
   
@@ -79,8 +79,8 @@ extension MainViewController {
          presentOnboardingScreen()
       }
       
-    case let .signedIn(userProfile):
-     presentSignedInScreen(userProfile: userProfile)
+    case let .signedIn(userSession):
+     presentSignedInScreen(userSession: userSession)
     }
   }
   
@@ -105,14 +105,14 @@ extension MainViewController {
   }
 
   
-  func presentSignedInScreen(userProfile: UserProfile) {
+  func presentSignedInScreen(userSession: UserSession) {
     remove(childViewController: launchViewController)
     
     let signedInViewControllerToPresent: SignedInViewController
     if let viewController = self.signedInViewController {
       signedInViewControllerToPresent = viewController
     } else {
-      signedInViewControllerToPresent = makeSignedInViewController(userProfile)
+      signedInViewControllerToPresent = makeSignedInViewController(userSession)
       signedInViewController = signedInViewControllerToPresent
     }
     

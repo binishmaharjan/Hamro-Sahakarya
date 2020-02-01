@@ -76,7 +76,7 @@ struct SignUpViewModel {
   func signUp() {
     indicateSigningUp()
     userSessionRepository.signUp(newAccount: getNewAccount())
-      .done(indicateSignUpSuccessful(userProfile:))
+      .done(indicateSignUpSuccessful(userSession:))
       .catch(indicateErrorSigningUp)
   }
   
@@ -105,9 +105,9 @@ extension SignUpViewModel {
     activityIndicatorAnimating.accept(true)
   }
   
-  private func indicateSignUpSuccessful(userProfile: UserProfile) {
+  private func indicateSignUpSuccessful(userSession: UserSession) {
     activityIndicatorAnimating.accept(false)
-    signedInResponder.signedIn(to: userProfile)
+    signedInResponder.signedIn(to: userSession)
   }
   
   private func indicateErrorSigningUp(_ error: Error) {

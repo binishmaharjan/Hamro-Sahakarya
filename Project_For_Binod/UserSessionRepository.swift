@@ -11,9 +11,9 @@ import PromiseKit
 
 protocol UserSessionRepository {
   
-  func readUserSession() -> Promise<UserProfile?>
-  func signUp(newAccount: NewAccount) -> Promise<UserProfile>
-  func signIn(email: String, password: String) -> Promise<UserProfile>
-  func signOut(userProfile: UserProfile) -> Promise<UserProfile>
+  func readUserSession() -> Promise<UserSession?>
+  func signUp(newAccount: NewAccount) -> Promise<UserSession>
+  func signIn(email: String, password: String) -> Promise<UserSession>
+  func signOut(userSession: UserSession) -> Promise<UserSession>
   func getLogs() -> Promise<[GroupLog]>
 }

@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol UserDataStore {
-  func readUserProfile() -> Promise<UserProfile?>
-  func save(userProfile: UserProfile) -> Promise<UserProfile>
-  func delete(userProfile: UserProfile) -> Promise<UserProfile>
+  func readUserProfile() -> Promise<UserSession?>
+  func save(userSession: UserSession) -> Promise<UserSession>
+  func delete(userSession: UserSession) -> Promise<UserSession>
 }

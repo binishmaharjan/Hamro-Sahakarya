@@ -10,5 +10,5 @@ import Foundation
 
 protocol SignedInResponder {
   
-  func signedIn(to userProfile: UserProfile)
+  func signedIn(to userSession: UserSession)
 }

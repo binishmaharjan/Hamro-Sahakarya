@@ -10,6 +10,6 @@ import Foundation
 
 protocol UserProfileCoding {
   
-  func encode(userProfile: UserProfile) -> Data
-  func decode(data: Data) -> UserProfile
+  func encode(userSession: UserSession) -> Data
+  func decode(data: Data) -> UserSession
 }
