@@ -22,11 +22,27 @@ final class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    bindState()
+    
     tableView.registerXib(of: ProfileTopCell.self)
     
     tableView.delegate = self
     tableView.dataSource = self
   }
+  
+  private func bindState() {
+    viewModel.state.drive(onNext: { state in
+      switch state {
+      case .error(let error):
+        let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+        
+      default:
+        break
+      }
+    }).disposed(by: disposeBag)
+  }
+  
 }
 
 // MARK: Storyboard Instantiable

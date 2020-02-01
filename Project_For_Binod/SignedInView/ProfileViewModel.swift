@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
 enum ProfileRow {
   case top(ProfileTopCellViewModel)
   
@@ -68,6 +71,7 @@ protocol ProfileViewModel {
   var notSignedInResponder: NotSignedInResponder { get }
   var numberOfSection: Int { get }
   var lastSection: Int { get }
+  var state: Driver<State> { get }
   
   func signOut()
   func numberOfRows(in section: Int) -> Int
@@ -109,6 +113,9 @@ struct DefaultProfileViewModel: ProfileViewModel {
     return numberOfSection - 1
   }
   
+  @PropertyBehaviourRelay<State>(value: .idle)
+  var state: Driver<State>
+  
   // MARK: Init
   init(userSession: UserSession,
        notSignedInResponder: NotSignedInResponder,
@@ -134,10 +141,10 @@ struct DefaultProfileViewModel: ProfileViewModel {
   }
   
   private func indicateSignoutSuccessful(userSession: UserSession) {
-    
+    notSignedInResponder.notSignedIn()
   }
   
   private func indicateError(error: Error) {
-    
+    _state.accept(.error(error))
   }
 }
