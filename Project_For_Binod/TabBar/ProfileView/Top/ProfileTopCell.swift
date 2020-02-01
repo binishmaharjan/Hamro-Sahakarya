@@ -19,7 +19,7 @@ final class ProfileTopCell: UITableViewCell {
   func bind(viewModel: ProfileTopCellViewModel) {
     userImageView.loadImage(with: viewModel.imageUrl)
     userNameLabel.text = viewModel.fullname
-    statusLabel.text = viewModel.status.rawValue
+    statusLabel.text = viewModel.status
   }
     
 }
