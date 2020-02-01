@@ -23,31 +23,3 @@ final class ProfileTopCell: UITableViewCell {
   }
     
 }
-
-protocol ProfileTopCellViewModel {
-  var imageUrl: URL? { get }
-  var fullname: String { get }
-  var status: Status { get }
-}
-
-struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
-  private let userSession: UserSession
-  
-  var imageUrl: URL? {
-    let imageString = userSession.profile.iconUrl ?? ""
-    return URL(string: imageString)
-  }
-  
-  var fullname: String {
-    return userSession.profile.username ?? ""
-  }
-  
-  var status: Status {
-    return userSession.profile.status ?? .member
-  }
-  
-  init(userSession: UserSession) {
-    self.userSession = userSession
-  }
-  
-}

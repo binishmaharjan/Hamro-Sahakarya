@@ -18,6 +18,8 @@
 		6400FF8723E31AF00079A623 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF8623E31AEF0079A623 /* UserSession.swift */; };
 		6400FF8F23E475140079A623 /* ProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF8E23E475140079A623 /* ProfileFooterView.swift */; };
 		6400FF9123E4753D0079A623 /* ProfileFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6400FF9023E4753D0079A623 /* ProfileFooterView.xib */; };
+		6400FF9323E533190079A623 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF9223E533190079A623 /* ProfileViewModel.swift */; };
+		6400FF9623E533640079A623 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FF9523E533640079A623 /* ProfileTopViewModel.swift */; };
 		6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F123767C280044835F /* AuthRemoteApi.swift */; };
 		6402F3F7237682960044835F /* HSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F6237682960044835F /* HSError.swift */; };
 		6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F3F923768DA40044835F /* UserDataStore.swift */; };
@@ -124,6 +126,8 @@
 		6400FF8623E31AEF0079A623 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		6400FF8E23E475140079A623 /* ProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooterView.swift; sourceTree = "<group>"; };
 		6400FF9023E4753D0079A623 /* ProfileFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFooterView.xib; sourceTree = "<group>"; };
+		6400FF9223E533190079A623 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		6400FF9523E533640079A623 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
 		6402F3F123767C280044835F /* AuthRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteApi.swift; sourceTree = "<group>"; };
 		6402F3F6237682960044835F /* HSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSError.swift; sourceTree = "<group>"; };
 		6402F3F923768DA40044835F /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
@@ -239,8 +243,10 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				6400FF9423E5334E0079A623 /* ProfileTop */,
 				6400FF7323E075820079A623 /* ProfileMainViewModel.swift */,
 				6400FF7523E075AF0079A623 /* ProfileMainView.swift */,
+				6400FF9223E533190079A623 /* ProfileViewModel.swift */,
 			);
 			name = ProfileView;
 			sourceTree = "<group>";
@@ -280,6 +286,14 @@
 				6400FF9023E4753D0079A623 /* ProfileFooterView.xib */,
 			);
 			name = Footer;
+			sourceTree = "<group>";
+		};
+		6400FF9423E5334E0079A623 /* ProfileTop */ = {
+			isa = PBXGroup;
+			children = (
+				6400FF9523E533640079A623 /* ProfileTopViewModel.swift */,
+			);
+			path = ProfileTop;
 			sourceTree = "<group>";
 		};
 		6402F3F023767BC40044835F /* Remote */ = {
@@ -966,6 +980,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6400FF9623E533640079A623 /* ProfileTopViewModel.swift in Sources */,
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
 				64FBE1AA23D2CD360027E44C /* SignedInDependencyContainer.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
@@ -994,6 +1009,7 @@
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
 				64FBE1C823D48D7B0027E44C /* GroupLog.swift in Sources */,
 				64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */,
+				6400FF9323E533190079A623 /* ProfileViewModel.swift in Sources */,
 				64FBE1AD23D2D0070027E44C /* SignedInViewModel.swift in Sources */,
 				6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */,
 				64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */,
