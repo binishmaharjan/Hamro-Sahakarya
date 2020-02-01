@@ -44,7 +44,7 @@ extension ProfileMainDependencyContainer {
   func makeProfileViewController() -> ProfileViewController {
     let viewModel =  makeProfileViewModel()
     let viewController = ProfileViewController.makeInstance(viewModel: viewModel)
-    viewController.title = "Profile"
+    viewController.navigationItem.title = "Profile"
     return viewController
   }
   
