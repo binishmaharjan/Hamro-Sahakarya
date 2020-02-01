@@ -15,7 +15,7 @@ final class ProfileTopCell: UITableViewCell {
   @IBOutlet private weak var userNameLabel: UILabel!
   @IBOutlet private weak var statusLabel: UILabel!
   
-  
+  // MARK: Methods
   func bind(viewModel: ProfileTopCellViewModel) {
     userImageView.loadImage(with: viewModel.imageUrl)
     userNameLabel.text = viewModel.fullname
