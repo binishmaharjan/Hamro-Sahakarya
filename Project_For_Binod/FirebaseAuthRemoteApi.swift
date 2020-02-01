@@ -12,7 +12,6 @@ import FirebaseFirestore
 import CodableFirebase
 import PromiseKit
 
-
 final class FirebaseAuthRemoteApi: AuthRemoteApi {
   
   func signIn(email: String, password: String) -> Promise<String> {
@@ -82,6 +81,21 @@ final class FirebaseAuthRemoteApi: AuthRemoteApi {
           
           
           DispatchQueue.main.async { seal.fulfill(userData.uid) }
+        }
+      }
+      
+    }
+  }
+  
+  func signOut(userSession: UserSession) -> Promise<UserSession> {
+    return Promise<UserSession> { seal in
+      
+      DispatchQueue.global(qos: .default).async {
+        do {
+          try Auth.auth().signOut()
+          seal.fulfill(userSession)
+        } catch {
+          seal.reject(error)
         }
       }
       
