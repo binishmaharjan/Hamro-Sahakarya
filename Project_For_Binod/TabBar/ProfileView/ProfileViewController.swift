@@ -21,7 +21,9 @@ final class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     tableView.registerXib(of: ProfileTopCell.self)
+    
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -50,41 +52,95 @@ extension ProfileViewController: UITableViewDataSource {
     let row = viewModel.row(for: indexPath)
     
     switch row {
-      
     case .top(let viewModel):
       let cell = tableView.dequeueCell(of: ProfileTopCell.self, for: indexPath)
+      cell.selectionStyle = .none
       cell.bind(viewModel: viewModel)
       return cell
-    case .changePicture:
+      
+    default:
       let cell = UITableViewCell()
-      cell.textLabel?.text = "Change Picture"
-      return cell
-    case .changePassword:
-      let cell = UITableViewCell()
-      cell.textLabel?.text = "Change Password"
-      return cell
-    case .members:
-      let cell = UITableViewCell()
-      cell.textLabel?.text = "Members"
+      cell.accessoryType = .disclosureIndicator
+      cell.textLabel?.text = row.title
       return cell
     }
   }
+  
 }
 
 // MARK: TableView Delegate
 extension ProfileViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return section == 0 ? 0 : 10
+    return section == 0 ? .leastNonzeroMagnitude : 10
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return section == viewModel.lastSection ? 100 : .leastNonzeroMagnitude
+  }
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    guard section == viewModel.lastSection else { return nil }
+    
+    let footerView = ProfileFooterView.makeInstance()
+    return footerView
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }
 
 enum ProfileRow {
   case top(ProfileTopCellViewModel)
+  
+  // User
   case changePicture
   case changePassword
   case members
+  
+  // Admin
+  case makeAdmin
+  case removeAdmin
+  case extra
+  case expenses
+  case monthlyFee
+  
+  // Others
+  case termsOfAgreement
+  case license
+  case logout
+  
+  var title: String {
+    switch self {
+      
+    case .top(_):
+      return ""
+    case .changePicture:
+      return "Change Picture"
+    case .changePassword:
+      return "Change Password"
+    case .members:
+      return "Members"
+    case .termsOfAgreement:
+      return "Terms of Agreement"
+    case .license:
+      return "Licence"
+    case .logout:
+      return "Logout"
+    case .makeAdmin:
+      return "Make Admin"
+    case .removeAdmin:
+      return "Remove Admin"
+    case .extra:
+      return "Add Extra"
+    case .expenses:
+      return "Add Expenses"
+    case .monthlyFee:
+      return "Monthly Fee"
+    }
+  }
 }
 
 struct ProfileSection {
@@ -95,6 +151,7 @@ protocol ProfileViewModel {
   var userSession: UserSession { get }
   var notSignedInResponder: NotSignedInResponder { get }
   var numberOfSection: Int { get }
+  var lastSection: Int { get }
   
   func signOut()
   func numberOfRows(in section: Int) -> Int
@@ -110,15 +167,30 @@ struct DefaultProfileViewModel: ProfileViewModel {
   
   // Data Source
   var profileSections: [ProfileSection] {
-    let section = [
-      ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userSession: userSession))]),
-      ProfileSection(rows: [.changePicture, .changePassword, .members])
-    ]
+    // Making Section
+    let topSection =  ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userSession: userSession))])
+    let userSection = ProfileSection(rows: [.changePicture, .changePassword, .members])
+    let adminSection = ProfileSection(rows: [.makeAdmin, .removeAdmin, .monthlyFee, .extra, .expenses])
+    let otherSection = ProfileSection(rows: [.termsOfAgreement, .license, .logout])
+    
+    var section: [ProfileSection] = []
+  
+    section.append(topSection)
+    section.append(userSection)
+    if userSession.isAdmin {
+      section.append(adminSection)
+    }
+    section.append(otherSection)
+    
     return section
   }
   
   var numberOfSection: Int {
     return profileSections.count
+  }
+  
+  var lastSection: Int {
+    return numberOfSection - 1
   }
   
   // MARK: Init
