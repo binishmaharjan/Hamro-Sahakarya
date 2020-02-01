@@ -92,58 +92,7 @@ extension ProfileViewController: UITableViewDelegate {
   
 }
 
-enum ProfileRow {
-  case top(ProfileTopCellViewModel)
   
-  // User
-  case changePicture
-  case changePassword
-  case members
-  
-  // Admin
-  case makeAdmin
-  case removeAdmin
-  case extra
-  case expenses
-  case monthlyFee
-  
-  // Others
-  case termsOfAgreement
-  case license
-  case logout
-  
-  var title: String {
-    switch self {
-      
-    case .top(_):
-      return ""
-    case .changePicture:
-      return "Change Picture"
-    case .changePassword:
-      return "Change Password"
-    case .members:
-      return "Members"
-    case .termsOfAgreement:
-      return "Terms of Agreement"
-    case .license:
-      return "Licence"
-    case .logout:
-      return "Logout"
-    case .makeAdmin:
-      return "Make Admin"
-    case .removeAdmin:
-      return "Remove Admin"
-    case .extra:
-      return "Add Extra"
-    case .expenses:
-      return "Add Expenses"
-    case .monthlyFee:
-      return "Monthly Fee"
     }
   }
 }
-
-struct ProfileSection {
-  let rows: [ProfileRow]
-}
-
