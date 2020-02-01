@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Class Wrapper for User Profile
 final class UserSession: Codable {
   
+  // User Profile
   var profile: UserProfile
   
   init(profile: UserProfile) {
@@ -17,8 +19,15 @@ final class UserSession: Codable {
   }
 }
 
+
 extension UserSession: Equatable {
   static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
     return lhs.profile == rhs.profile
+  }
+}
+
+extension UserSession {
+  var isAdmin: Bool {
+    return profile.status == .admin
   }
 }
