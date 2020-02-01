@@ -88,11 +88,25 @@ extension ProfileViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    
+    let row = viewModel.row(for: indexPath)
+    
+    switch row {
+    case .logout:
+      logOutCellPressed()
+    default:
+      break
+    }
   }
   
 }
 
+// MARK: Cell Pressed Actions
+extension ProfileViewController {
   
+  private func logOutCellPressed() {
+    GUIManager.shared.showDialog(message: "Are you sure?") { [weak self] in
+      self?.viewModel.signOut()
     }
   }
 }
