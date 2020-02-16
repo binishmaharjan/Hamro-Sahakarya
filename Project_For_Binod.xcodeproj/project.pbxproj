@@ -37,6 +37,14 @@
 		64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */; };
 		64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD922488F0200088E61 /* GoogleService-Info.plist */; };
 		642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */; };
+		6430DAE623E9A9000045E435 /* ChangePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */; };
+		6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */; };
+		6430DAEA23EAEDC40045E435 /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */; };
+		6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAEC23EAF4F90045E435 /* PhotoCell.swift */; };
+		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
+		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
+		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
+		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -84,6 +92,8 @@
 		64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */; };
 		64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F44D62237FB2B900A9DFB4 /* BaseView.swift */; };
 		64F7B5E923DDBD7700A47C81 /* LogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7B5E823DDBD7700A47C81 /* LogCellViewModel.swift */; };
+		64F8450F23F7A6A100257F05 /* StorageRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F8450E23F7A6A100257F05 /* StorageRemoteApi.swift */; };
+		64F8451123F7A74100257F05 /* FIrebaseStorageRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F8451023F7A74100257F05 /* FIrebaseStorageRemoteApi.swift */; };
 		64FBE15123C08F630027E44C /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15023C08F630027E44C /* ColorPalette.swift */; };
 		64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15623C0CDCB0027E44C /* ColorPaletteViewModel.swift */; };
 		64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE15823C2002C0027E44C /* UIColor+Extension.swift */; };
@@ -147,6 +157,14 @@
 		64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		64073BD922488F0200088E61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView + IBDesignable.swift"; sourceTree = "<group>"; };
+		6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewController.swift; sourceTree = "<group>"; };
+		6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePictureViewController.storyboard; sourceTree = "<group>"; };
+		6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
+		6430DAEC23EAF4F90045E435 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
+		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
+		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +212,8 @@
 		64F44D5F237FB02C00A9DFB4 /* DropDownType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownType.swift; sourceTree = "<group>"; };
 		64F44D62237FB2B900A9DFB4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		64F7B5E823DDBD7700A47C81 /* LogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCellViewModel.swift; sourceTree = "<group>"; };
+		64F8450E23F7A6A100257F05 /* StorageRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRemoteApi.swift; sourceTree = "<group>"; };
+		64F8451023F7A74100257F05 /* FIrebaseStorageRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseStorageRemoteApi.swift; sourceTree = "<group>"; };
 		64FBE15023C08F630027E44C /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		64FBE15623C0CDCB0027E44C /* ColorPaletteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteViewModel.swift; sourceTree = "<group>"; };
 		64FBE15823C2002C0027E44C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -247,6 +267,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64568AD723F96E9700BCA18D /* ChangePicture */,
 				6400FF9423E5334E0079A623 /* ProfileTop */,
 				6400FF7323E075820079A623 /* ProfileMainViewModel.swift */,
 				6400FF7523E075AF0079A623 /* ProfileMainView.swift */,
@@ -258,6 +279,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				6430DAE423E9A8D80045E435 /* ChangePicture */,
 				6400FF7F23E1C9A80079A623 /* Cells */,
 				64FBE1BB23D2EE9A0027E44C /* ProfileViewController.swift */,
 				6400FF7923E1BC6D0079A623 /* ProfileViewController.storyboard */,
@@ -315,6 +337,7 @@
 				6402F4082376A4F00044835F /* Implementation */,
 				6402F3F123767C280044835F /* AuthRemoteApi.swift */,
 				64FBE1C923D491AB0027E44C /* LogRemoteApi.swift */,
+				64F8450E23F7A6A100257F05 /* StorageRemoteApi.swift */,
 			);
 			name = Remote;
 			sourceTree = "<group>";
@@ -367,6 +390,7 @@
 			children = (
 				6402F4092376A5010044835F /* FirebaseAuthRemoteApi.swift */,
 				64FBE1CB23D492030027E44C /* FirebaseLogRemoteApi.swift */,
+				64F8451023F7A74100257F05 /* FIrebaseStorageRemoteApi.swift */,
 			);
 			name = Implementation;
 			sourceTree = "<group>";
@@ -386,6 +410,43 @@
 				6402F40F2377B8370044835F /* FireStoreDataManager.swift */,
 			);
 			name = Implementation;
+			sourceTree = "<group>";
+		};
+		6430DAE423E9A8D80045E435 /* ChangePicture */ = {
+			isa = PBXGroup;
+			children = (
+				644F75C623EE7A9300AF42AB /* PreviewImage */,
+				6430DAEB23EAF4A80045E435 /* Cell */,
+				6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */,
+				6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */,
+			);
+			path = ChangePicture;
+			sourceTree = "<group>";
+		};
+		6430DAEB23EAF4A80045E435 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6430DAEC23EAF4F90045E435 /* PhotoCell.swift */,
+				6430DAED23EAF4F90045E435 /* PhotoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
+			isa = PBXGroup;
+			children = (
+				644F75C723EE7BF000AF42AB /* PreviewImageView.swift */,
+				644F75C923EE7CF800AF42AB /* PreviewImageView.xib */,
+			);
+			path = PreviewImage;
+			sourceTree = "<group>";
+		};
+		64568AD723F96E9700BCA18D /* ChangePicture */ = {
+			isa = PBXGroup;
+			children = (
+				64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */,
+			);
+			path = ChangePicture;
 			sourceTree = "<group>";
 		};
 		64593994235AAA6600A99902 /* OnboardingView */ = {
@@ -794,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				64FBE1DD23D5DE1A0027E44C /* UIView+Rx.swift */,
+				6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */,
 			);
 			name = Rx;
 			sourceTree = "<group>";
@@ -905,8 +967,10 @@
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */,
 				6400FF7A23E1BC6D0079A623 /* ProfileViewController.storyboard in Resources */,
+				6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */,
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
+				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
@@ -915,6 +979,7 @@
 				645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */,
 				64FBE1D223D4A6D00027E44C /* LogViewCell.xib in Resources */,
 				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
+				6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */,
 				6400FF9123E4753D0079A623 /* ProfileFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1011,15 +1076,19 @@
 				64FBE1DE23D5DE1A0027E44C /* UIView+Rx.swift in Sources */,
 				645939BE235ABBE400A99902 /* Optional+Extension.swift in Sources */,
 				642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */,
+				64F8450F23F7A6A100257F05 /* StorageRemoteApi.swift in Sources */,
 				646604B423798C9E00122718 /* GoToSignUpNavigator.swift in Sources */,
 				646604C42379A30500122718 /* SignInViewModel.swift in Sources */,
+				64F8451123F7A74100257F05 /* FIrebaseStorageRemoteApi.swift in Sources */,
 				64FBE15123C08F630027E44C /* ColorPalette.swift in Sources */,
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				6400FF7123E074FD0079A623 /* ProfileMainViewController.swift in Sources */,
 				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
+				64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
 				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
+				644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */,
 				6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */,
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
 				64FBE1C823D48D7B0027E44C /* GroupLog.swift in Sources */,
@@ -1035,6 +1104,7 @@
 				646604B023798ADD00122718 /* NavigationAction.swift in Sources */,
 				64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */,
 				6402F4132377CDBD0044835F /* NewAccount.swift in Sources */,
+				6430DAEA23EAEDC40045E435 /* PHPhotoLibrary+Rx.swift in Sources */,
 				64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */,
 				64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
@@ -1054,6 +1124,7 @@
 				64FBE1CC23D492030027E44C /* FirebaseLogRemoteApi.swift in Sources */,
 				6459399E235AAB5500A99902 /* NIblessViewController.swift in Sources */,
 				64FBE1D623D5D6510027E44C /* NSObject+Extension.swift in Sources */,
+				6430DAE623E9A9000045E435 /* ChangePictureViewController.swift in Sources */,
 				64FBE1D423D5D6110027E44C /* UITableView+Extension.swift in Sources */,
 				6402F40A2376A5010044835F /* FirebaseAuthRemoteApi.swift in Sources */,
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
@@ -1077,6 +1148,7 @@
 				64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */,
 				6400FF7423E075820079A623 /* ProfileMainViewModel.swift in Sources */,
 				64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */,
+				6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */,
 				6400FF8F23E475140079A623 /* ProfileFooterView.swift in Sources */,
 				646604C023799FC600122718 /* OnboardingDependencyContainer.swift in Sources */,
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,

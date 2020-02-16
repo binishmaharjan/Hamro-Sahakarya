@@ -17,13 +17,15 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   private let remoteApi: AuthRemoteApi
   private let serverDataManager: ServerDataManager
   private let logApi: LogRemoteApi
+  private let storageApi: StorageRemoteApi
   
   // MARK: Init
-  init(dataStore: UserDataStore, remoteApi: AuthRemoteApi, serverDataManager: ServerDataManager, logApi: LogRemoteApi) {
+  init(dataStore: UserDataStore, remoteApi: AuthRemoteApi, serverDataManager: ServerDataManager, logApi: LogRemoteApi, storageApi: StorageRemoteApi) {
     self.dataStore = dataStore
     self.remoteApi = remoteApi
     self.serverDataManager = serverDataManager
     self.logApi = logApi
+    self.storageApi = storageApi
   }
   
   // MARK: User
@@ -34,7 +36,6 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return dataStore.readUserProfile()
   }
   
-  
   /// Signup the user and save the user data to the local data store
   ///
   /// - Parameter newAccount: User info for the new account
@@ -44,17 +45,7 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     let signUpTheUser = remoteApi.signUp(newAccount: newAccount)
     let saveDataToServer = signUpTheUser.then { (uid) -> Promise<UserSession> in
       
-      let userProifile = UserProfile(uid: uid,
-                                     username: newAccount.username,
-                                     email: newAccount.email,
-                                     status: newAccount.status,
-                                     colorHex: newAccount.colorHex,
-                                     iconUrl: "",
-                                     dateCreated: Date().toString,
-                                     keyword: newAccount.keyword,
-                                     loanTaken: 0,
-                                     balance: newAccount.initialAmount,
-                                     dateUpdated: Date().toString)
+      let userProifile = newAccount.createUserProfile(with: uid)
       
       let userSession = UserSession(profile: userProifile)
       
@@ -73,16 +64,9 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
   /// - Parameter password: Password
   /// - Return Promise<UserSession> : UserInfo wrapped in promise
   func signIn(email: String, password: String) -> Promise<UserSession> {
-    
-    let signInTheUser = remoteApi.signIn(email: email, password: password)
-    let readUserFromServer = signInTheUser.then(serverDataManager.readUser(uid:))
-    
-    let saveUserToDataStore = readUserFromServer.then { [weak self] (userSession) -> Promise<UserSession> in
-      return (self?.dataStore.save(userSession: userSession!))!
-    }
-    
-    return saveUserToDataStore
-    
+    return remoteApi.signIn(email: email, password: password)
+      .then(serverDataManager.readUser(uid:))
+      .then(dataStore.save(userSession:))
   }
   
   func signOut(userSession: UserSession) -> Promise<UserSession> {
@@ -99,4 +83,19 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return logApi.getLogs()
   }
   
+  
+  // MARK: Storage
+  
+  /// Change the profile picture
+  ///
+  /// - Parameter userSession: User Profile Information
+  /// - Parameter image: New Image
+  /// - Return Promise<URL> : Url of saved image wrapped in promise
+  func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession> {
+    return storageApi.saveImage(userSession: userSession, image: image)
+      .map { (userSession, $0) }
+      .then(serverDataManager.updateProfileUrl(userSession: url:))
+      .then(serverDataManager.readUser(uid:))
+      .then(dataStore.save(userSession:))
+  }
 }

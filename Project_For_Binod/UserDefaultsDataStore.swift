@@ -37,9 +37,14 @@ final class UserDefaultsDataStore: UserDataStore {
     }
   }
   
-  func save(userSession: UserSession) -> Promise<UserSession> {
+  func save(userSession: UserSession?) -> Promise<UserSession> {
     
     return Promise<UserSession> { seal in
+      
+      guard let userSession = userSession else {
+        seal.reject(HSError.emptyDataError)
+        return
+      }
       
       let encodedData = userProfileCoder.encode(userSession: userSession)
       UserDefaults.standard.set(encodedData, forKey: userProfileKey)

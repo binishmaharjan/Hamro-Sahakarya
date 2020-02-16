@@ -22,6 +22,9 @@ enum HSError: Error {
   case noSnapshotError
   case emptyDataError
   
+  case noImageError
+  case imageSaveError
+  
 }
 
 

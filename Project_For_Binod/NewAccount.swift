@@ -20,6 +20,25 @@ struct NewAccount: Codable {
 
 }
 
+extension NewAccount {
+  
+  func createUserProfile(with uid: String) -> UserProfile {
+    let userProifile = UserProfile(uid: uid,
+                                   username: username,
+                                   email: email,
+                                   status: status,
+                                   colorHex: colorHex,
+                                   iconUrl: "",
+                                   dateCreated: Date().toString,
+                                   keyword: keyword,
+                                   loanTaken: 0,
+                                   balance: initialAmount,
+                                   dateUpdated: Date().toString)
+    
+    return userProifile
+  }
+}
+
 enum Status: String, Codable, CaseIterable {
   case member = "Member"
   case admin = "Admin"

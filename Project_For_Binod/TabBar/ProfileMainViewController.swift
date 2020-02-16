@@ -16,14 +16,17 @@ final class ProfileMainViewController: NiblessNavigationController {
   private let viewModel: ProfileMainViewModel
   private let disposeBag = DisposeBag()
   
-  // Child View Controller
-  private let profileViewController: ProfileViewController
+  // Child View Controller Factory
+  private let profileViewControllerFactory: ProfileViewControllerFactory
   
   // MARK: Init
-  init(viewModel: ProfileMainViewModel, profileViewController: ProfileViewController) {
+  init(viewModel: ProfileMainViewModel,
+       profileViewController: ProfileViewController,
+       profileViewControllerFactory: ProfileViewControllerFactory) {
+    
     self.viewModel = viewModel
-    self.profileViewController = profileViewController
-    super.init()
+    self.profileViewControllerFactory = profileViewControllerFactory
+    super.init(rootViewController: profileViewController)
     
     setup()
   }
@@ -67,9 +70,9 @@ extension ProfileMainViewController {
     switch profileMainView {
       
     case .profileView:
-      presentProfileView()
-    case .changePicture:
       break
+    case .changePicture:
+      showChangeProfileView()
     case .changePassword:
       break
     case .members:
@@ -83,16 +86,19 @@ extension ProfileMainViewController {
     }
   }
   
-  private func presentProfileView() {
-    pushViewController(profileViewController, animated: false)
-//    addFullScreen(childViewController: profileViewController)
+  private func showChangeProfileView() {
+    let viewController = profileViewControllerFactory.makeChangePictureViewController()
+    pushViewController(viewController, animated: true)
   }
 }
 
 // MARK: UINavigation Controller Delegate
 extension ProfileMainViewController: UINavigationControllerDelegate {
   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-    guard let shownView = profileMainView(assoiatedWith: viewController) else { return }
+    guard let shownView = profileMainView(assoiatedWith: viewController) else {
+      return
+    }
+    
     viewModel.uiPresented(profileView: shownView)
   }
   
@@ -100,6 +106,8 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
     switch viewController {
     case is ProfileViewController:
         return .profileView
+    case is ChangePictureViewController:
+      return .changePicture
     default:
       fatalError("Unknown View")
     }
