@@ -19,6 +19,7 @@ final class ProfileViewController: UIViewController {
   private var viewModel: ProfileViewModel!
   private let disposeBag = DisposeBag()
   
+  // MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -30,6 +31,14 @@ final class ProfileViewController: UIViewController {
     tableView.dataSource = self
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+  }
+}
+
+// MARK: Bindable
+extension ProfileViewController {
   private func bindState() {
     viewModel.state.drive(onNext: { state in
       switch state {
@@ -42,7 +51,6 @@ final class ProfileViewController: UIViewController {
       }
     }).disposed(by: disposeBag)
   }
-  
 }
 
 // MARK: Storyboard Instantiable
@@ -110,6 +118,8 @@ extension ProfileViewController: UITableViewDelegate {
     switch row {
     case .logout:
       logOutCellPressed()
+    case .changePicture:
+      changeProfilePicturePressed()
     default:
       break
     }
@@ -121,8 +131,12 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController {
   
   private func logOutCellPressed() {
-    GUIManager.shared.showDialog(message: "Are you sure?") { [weak self] in
+    GUIManager.shared.showDialog(title: "Confirmation", message: "Are you sure?") { [weak self] in
       self?.viewModel.signOut()
     }
+  }
+  
+  private func changeProfilePicturePressed() {
+    viewModel.showChangePicture()
   }
 }

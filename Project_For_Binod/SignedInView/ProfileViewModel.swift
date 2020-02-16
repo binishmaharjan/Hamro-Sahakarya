@@ -74,9 +74,12 @@ protocol ProfileViewModel {
   var state: Driver<State> { get }
   
   func signOut()
+  func showChangePicture()
   func numberOfRows(in section: Int) -> Int
   func row(for indexPath: IndexPath) -> ProfileRow
 }
+
+typealias ProfileViewResponder = ProfileMainViewModel
 
 struct DefaultProfileViewModel: ProfileViewModel {
 
@@ -84,6 +87,7 @@ struct DefaultProfileViewModel: ProfileViewModel {
   let userSession: UserSession
   let notSignedInResponder: NotSignedInResponder
   let userSessionRepository: UserSessionRepository
+  let profileViewResponder: ProfileViewResponder
   
   // Data Source
   var profileSections: [ProfileSection] {
@@ -119,10 +123,12 @@ struct DefaultProfileViewModel: ProfileViewModel {
   // MARK: Init
   init(userSession: UserSession,
        notSignedInResponder: NotSignedInResponder,
-       userSessionRepository: UserSessionRepository) {
+       userSessionRepository: UserSessionRepository,
+       profileViewResponder: ProfileViewResponder) {
     self.userSession = userSession
     self.notSignedInResponder = notSignedInResponder
     self.userSessionRepository = userSessionRepository
+    self.profileViewResponder = profileViewResponder
   }
   
   // MARK: Methods
@@ -146,5 +152,11 @@ struct DefaultProfileViewModel: ProfileViewModel {
   
   private func indicateError(error: Error) {
     _state.accept(.error(error))
+  }
+}
+
+extension DefaultProfileViewModel {
+  func showChangePicture() {
+    profileViewResponder.navigate(to: .changePicture)
   }
 }

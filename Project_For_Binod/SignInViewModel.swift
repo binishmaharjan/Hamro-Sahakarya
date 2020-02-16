@@ -28,11 +28,6 @@ struct SignInViewModel {
   var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
   var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
   
-  /// publish subject for user actions
-//  private let eventSubject = PublishSubject<SignInEvent>()
-//  var event: Observable<SignInEvent> {
-//    return eventSubject.asObservable()
-//  }
   @PropertyPublishSubject(value: SignInEvent.none)
   var event: Observable<SignInEvent>
   
