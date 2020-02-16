@@ -59,10 +59,11 @@ final class AlertDialog: UIView {
 
 // MARK: Storyboard Instantiable
 extension AlertDialog: HasXib {
-  static func makeInstance(message: String, handler: CompletionHandler? = nil ) -> AlertDialog {
+  static func makeInstance(title: String, message: String, handler: CompletionHandler? = nil ) -> AlertDialog {
     let alert = AlertDialog.loadXib()
     alert.completionHandler = handler
     alert.alertMessageLabel.text = message
+    alert.dailogTitle.text = title
     
     return alert
   }
