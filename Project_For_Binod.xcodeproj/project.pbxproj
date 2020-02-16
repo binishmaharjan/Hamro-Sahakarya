@@ -44,6 +44,7 @@
 		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
+		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -163,6 +164,7 @@
 		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
+		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64568AD723F96E9700BCA18D /* ChangePicture */,
 				6400FF9423E5334E0079A623 /* ProfileTop */,
 				6400FF7323E075820079A623 /* ProfileMainViewModel.swift */,
 				6400FF7523E075AF0079A623 /* ProfileMainView.swift */,
@@ -436,6 +439,14 @@
 				644F75C923EE7CF800AF42AB /* PreviewImageView.xib */,
 			);
 			path = PreviewImage;
+			sourceTree = "<group>";
+		};
+		64568AD723F96E9700BCA18D /* ChangePicture */ = {
+			isa = PBXGroup;
+			children = (
+				64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */,
+			);
+			path = ChangePicture;
 			sourceTree = "<group>";
 		};
 		64593994235AAA6600A99902 /* OnboardingView */ = {
@@ -1073,6 +1084,7 @@
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				6400FF7123E074FD0079A623 /* ProfileMainViewController.swift in Sources */,
 				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
+				64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
 				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
