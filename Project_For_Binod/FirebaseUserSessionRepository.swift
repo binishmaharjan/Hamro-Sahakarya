@@ -44,17 +44,7 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     let signUpTheUser = remoteApi.signUp(newAccount: newAccount)
     let saveDataToServer = signUpTheUser.then { (uid) -> Promise<UserSession> in
       
-      let userProifile = UserProfile(uid: uid,
-                                     username: newAccount.username,
-                                     email: newAccount.email,
-                                     status: newAccount.status,
-                                     colorHex: newAccount.colorHex,
-                                     iconUrl: "",
-                                     dateCreated: Date().toString,
-                                     keyword: newAccount.keyword,
-                                     loanTaken: 0,
-                                     balance: newAccount.initialAmount,
-                                     dateUpdated: Date().toString)
+      let userProifile = newAccount.createUserProfile(with: uid)
       
       let userSession = UserSession(profile: userProifile)
       
