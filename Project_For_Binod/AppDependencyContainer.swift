@@ -24,10 +24,12 @@ final class AppDependencyContainer {
       let serverDataManager = makeServerDataManager()
       let remoteApi = makeRemoteApi()
       let logApi = makeLogRemoteApi()
+      let storageApi = makeStorageApi()
       return FirebaseUserSessionRepository(dataStore: dataStore,
                                            remoteApi: remoteApi,
                                            serverDataManager: serverDataManager,
-                                           logApi: logApi)
+                                           logApi: logApi,
+                                           storageApi: storageApi)
     }
     
     func makeUserDataStore() -> UserDataStore {
@@ -49,6 +51,10 @@ final class AppDependencyContainer {
     
     func makeServerDataManager() -> ServerDataManager {
       return FireStoreDataManager()
+    }
+    
+    func makeStorageApi() -> StorageRemoteApi {
+      return FirebaseStorageRemoteApi()
     }
     
     // Main View Model Dependency
