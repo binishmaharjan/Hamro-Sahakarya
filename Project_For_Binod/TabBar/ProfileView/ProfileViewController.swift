@@ -131,7 +131,7 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController {
   
   private func logOutCellPressed() {
-    GUIManager.shared.showDialog(title: "Confirmation", message: "Are you sure?") { [weak self] in
+    GUIManager.shared.showDialog(factory: .logoutConfirmation) { [weak self] in
       self?.viewModel.signOut()
     }
   }

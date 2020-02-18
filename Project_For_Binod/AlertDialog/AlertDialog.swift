@@ -10,6 +10,11 @@ import UIKit
 
 final class AlertDialog: UIView {
   
+  enum AlertType {
+    case notice
+    case selection
+  }
+  
   // MARK: IBOutlets
   @IBOutlet private weak var dailogTitle: UILabel!
   @IBOutlet private weak var alertMessageLabel: UILabel!
@@ -20,7 +25,16 @@ final class AlertDialog: UIView {
   typealias CompletionHandler = () -> Void
   private var completionHandler: CompletionHandler?
   
-  // MARK: IBOutlets
+  private func setupForAlertButton(for factory: AlertFactory) {
+    dailogTitle.text = factory.title
+    alertMessageLabel.text = factory.message
+    
+    if case .notice = factory.type {
+      cancelButton.isHidden = true
+    }
+  }
+  
+  // MARK: IBAction
   @IBAction func okButtonPressed(_ sender: Any) {
     guard superview != nil else {
       return
@@ -59,12 +73,46 @@ final class AlertDialog: UIView {
 
 // MARK: Storyboard Instantiable
 extension AlertDialog: HasXib {
-  static func makeInstance(title: String, message: String, handler: CompletionHandler? = nil ) -> AlertDialog {
+  static func makeInstance(factory: AlertFactory, handler: CompletionHandler? = nil ) -> AlertDialog {
     let alert = AlertDialog.loadXib()
     alert.completionHandler = handler
-    alert.alertMessageLabel.text = message
-    alert.dailogTitle.text = title
+    alert.setupForAlertButton(for: factory)
     
     return alert
+  }
+}
+
+
+enum AlertFactory {
+  case noPhotoPermission
+  case logoutConfirmation
+  
+  var title: String {
+    switch self {
+      
+    case .noPhotoPermission:
+      return "No Permission"
+    case .logoutConfirmation:
+      return "Confirmation"
+    }
+  }
+  
+  var message: String {
+    switch self {
+      case .noPhotoPermission:
+        return "You can grant access from the Settings app"
+      case .logoutConfirmation:
+        return "Are you sure."
+    }
+  }
+  
+  var type: AlertDialog.AlertType {
+    switch self {
+      
+    case .noPhotoPermission:
+      return .notice
+    case .logoutConfirmation:
+      return .selection
+    }
   }
 }

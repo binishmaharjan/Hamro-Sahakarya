@@ -78,12 +78,12 @@ final class GUIManager: NSObject {
   ///
   /// - Parameter message: Display message for alert
   /// - Parameter completionHandler: Action when ok action button is pressed
-  func showDialog(title: String, message: String, completionHandler: (() -> Void)? = nil) {
+  func showDialog(factory: AlertFactory, completionHandler: (() -> Void)? = nil) {
      guard let mainView = mainView else {
       fatalError("No uiwindow")
     }
     
-    let alertDiaog = AlertDialog.makeInstance(title: title, message: message, handler: completionHandler)
+    let alertDiaog = AlertDialog.makeInstance(factory: factory, handler: completionHandler)
     alertDiaog.alpha = 0
     mainView.addSubview(alertDiaog)
     alertDiaog.frame = mainView.frame
