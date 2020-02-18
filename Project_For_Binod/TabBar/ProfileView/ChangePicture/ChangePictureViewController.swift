@@ -109,9 +109,7 @@ final class ChangePictureViewController: UIViewController {
   }
   
   private func noPermissionErrorDisplay() {
-    let title = "No Permission"
-    let message = "You can grant access from the Settings app"
-    GUIManager.shared.showDialog(title: title, message: message, type: .notice) { [weak self] in
+    GUIManager.shared.showDialog(factory: .noPhotoPermission) { [weak self] in
       self?.dismiss(animated: true)
       self?.navigationController?.popViewController(animated: true)
     }

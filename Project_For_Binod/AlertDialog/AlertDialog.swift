@@ -25,8 +25,11 @@ final class AlertDialog: UIView {
   typealias CompletionHandler = () -> Void
   private var completionHandler: CompletionHandler?
   
-  private func setupForAlertButton(for type: AlertType) {
-    if case .notice = type {
+  private func setupForAlertButton(for factory: AlertFactory) {
+    dailogTitle.text = factory.title
+    alertMessageLabel.text = factory.message
+    
+    if case .notice = factory.type {
       cancelButton.isHidden = true
     }
   }
@@ -70,13 +73,46 @@ final class AlertDialog: UIView {
 
 // MARK: Storyboard Instantiable
 extension AlertDialog: HasXib {
-  static func makeInstance(title: String, message: String, type: AlertDialog.AlertType, handler: CompletionHandler? = nil ) -> AlertDialog {
+  static func makeInstance(factory: AlertFactory, handler: CompletionHandler? = nil ) -> AlertDialog {
     let alert = AlertDialog.loadXib()
     alert.completionHandler = handler
-    alert.alertMessageLabel.text = message
-    alert.dailogTitle.text = title
-    alert.setupForAlertButton(for: type)
+    alert.setupForAlertButton(for: factory)
     
     return alert
+  }
+}
+
+
+enum AlertFactory {
+  case noPhotoPermission
+  case logoutConfirmation
+  
+  var title: String {
+    switch self {
+      
+    case .noPhotoPermission:
+      return "No Permission"
+    case .logoutConfirmation:
+      return "Confirmation"
+    }
+  }
+  
+  var message: String {
+    switch self {
+      case .noPhotoPermission:
+        return "You can grant access from the Settings app"
+      case .logoutConfirmation:
+        return "Are you sure."
+    }
+  }
+  
+  var type: AlertDialog.AlertType {
+    switch self {
+      
+    case .noPhotoPermission:
+      return .notice
+    case .logoutConfirmation:
+      return .selection
+    }
   }
 }
