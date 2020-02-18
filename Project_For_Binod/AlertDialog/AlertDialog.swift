@@ -10,6 +10,11 @@ import UIKit
 
 final class AlertDialog: UIView {
   
+  enum AlertType {
+    case notice
+    case selection
+  }
+  
   // MARK: IBOutlets
   @IBOutlet private weak var dailogTitle: UILabel!
   @IBOutlet private weak var alertMessageLabel: UILabel!
@@ -20,7 +25,13 @@ final class AlertDialog: UIView {
   typealias CompletionHandler = () -> Void
   private var completionHandler: CompletionHandler?
   
-  // MARK: IBOutlets
+  private func setupForAlertButton(for type: AlertType) {
+    if case .notice = type {
+      cancelButton.isHidden = true
+    }
+  }
+  
+  // MARK: IBAction
   @IBAction func okButtonPressed(_ sender: Any) {
     guard superview != nil else {
       return
@@ -59,11 +70,12 @@ final class AlertDialog: UIView {
 
 // MARK: Storyboard Instantiable
 extension AlertDialog: HasXib {
-  static func makeInstance(title: String, message: String, handler: CompletionHandler? = nil ) -> AlertDialog {
+  static func makeInstance(title: String, message: String, type: AlertDialog.AlertType, handler: CompletionHandler? = nil ) -> AlertDialog {
     let alert = AlertDialog.loadXib()
     alert.completionHandler = handler
     alert.alertMessageLabel.text = message
     alert.dailogTitle.text = title
+    alert.setupForAlertButton(for: type)
     
     return alert
   }
