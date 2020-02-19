@@ -13,8 +13,13 @@ final class UserProfilePropertyListCoder: UserProfileCoding {
     return try! PropertyListEncoder().encode(userSession)
   }
   
-  func decode(data: Data) -> UserSession {
-    return try! PropertyListDecoder().decode(UserSession.self, from: data)
+  func decode(data: Data) throws -> UserSession {
+    do {
+      return try PropertyListDecoder().decode(UserSession.self, from: data)
+    } catch {
+      throw HSError.dataDecodingError
+    }
+    
   }
 }
 

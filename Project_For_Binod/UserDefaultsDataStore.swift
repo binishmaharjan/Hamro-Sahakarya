@@ -31,8 +31,12 @@ final class UserDefaultsDataStore: UserDataStore {
           return
         }
       
-      let userSession = userProfileCoder.decode(data: data)
-      seal.fulfill(userSession)
+      do {
+        let userSession = try userProfileCoder.decode(data: data)
+        seal.fulfill(userSession)
+      } catch {
+        seal.reject(error)
+      }
       
     }
   }
@@ -56,7 +60,7 @@ final class UserDefaultsDataStore: UserDataStore {
   func delete(userSession: UserSession) -> Promise<UserSession> {
 
     return Promise<UserSession> { seal in
-      UserDefaults.standard.set(Data(), forKey: userProfileKey)
+      UserDefaults.standard.removeObject(forKey: userProfileKey)
       seal.fulfill(userSession)
     }
   }

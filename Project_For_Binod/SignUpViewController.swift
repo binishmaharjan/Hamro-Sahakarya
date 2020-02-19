@@ -13,7 +13,7 @@ protocol SignUpViewModelFactory {
   func makeSignUpViewModel() -> SignUpViewModel
 }
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: KeyboardObservingViewController {
   
   // MARK: IBOutlets
   @IBOutlet private weak var emailTextField: UITextField!
@@ -23,7 +23,7 @@ final class SignUpViewController: UIViewController {
   @IBOutlet private weak var colorView: UIView!
   @IBOutlet private weak var initialAmountTextField: UITextField!
   @IBOutlet private weak var signUpButton: UIButton!
-  @IBOutlet private weak var scrollViewBottomConstraints: NSLayoutConstraint!
+
   
   // MARK: Properties
   private var viewModel: SignUpViewModel!
@@ -37,17 +37,7 @@ final class SignUpViewController: UIViewController {
     bind()
     bindEventActions()
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    addKeyboardObservers()
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    removeObservers()
-  }
-  
+
   // Methods
   private func setup() {
     // Color View
@@ -187,47 +177,4 @@ extension SignUpViewController: StoryboardInstantiable {
     
     return viewController
   }
-}
-
-// MARK: Keyboard Notification
-extension SignUpViewController {
-  
-  private func addKeyboardObservers() {
-    let notificationCenter = NotificationCenter.default
-    notificationCenter.addObserver(self,
-                                   selector: #selector(handleContentUnderKeyboard(notification:)),
-                                   name: UIResponder.keyboardWillHideNotification, object: nil)
-    notificationCenter.addObserver(self,
-                                   selector: #selector(handleContentUnderKeyboard(notification:)),
-                                   name: UIResponder.keyboardWillChangeFrameNotification,
-                                   object: nil)
-  }
-  
-  private func removeObservers() {
-    let notificationCenter = NotificationCenter.default
-    notificationCenter.removeObserver(self)
-  }
-  
-  @objc private func handleContentUnderKeyboard(notification: Notification) {
-    
-    guard let userInfo = notification.userInfo,
-      let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else  { return }
-    
-    switch notification.name {
-    case UIResponder.keyboardWillHideNotification:
-      moveContentForDismissKeyboard()
-    default:
-      let convertedKeyboardEndFrame = view.convert(keyboardEndFrame.cgRectValue, to: view.window)
-      moveContent(forKeyboardFrame: convertedKeyboardEndFrame)
-    }
-  }
-  
-  private func moveContentForDismissKeyboard() {
-    scrollViewBottomConstraints.constant = 0
-  }
-  
-  private func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
-    scrollViewBottomConstraints.constant = -keyboardFrame.height
-  }
-  
 }
