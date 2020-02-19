@@ -45,6 +45,7 @@
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
+		64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -165,6 +166,7 @@
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
+		64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservingViewController.swift; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			children = (
 				64F44D61237FB2AD00A9DFB4 /* BaseView */,
 				6459399C235AAB1600A99902 /* NiblessComponenet */,
+				64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */,
 			);
 			name = UiKit;
 			sourceTree = "<group>";
@@ -1155,6 +1158,7 @@
 				64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */,
 				6402F40D2376A9BC0044835F /* ServerDataManager.swift in Sources */,
 				6402F405237695260044835F /* UserProfilePropertyListCoder.swift in Sources */,
+				64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
