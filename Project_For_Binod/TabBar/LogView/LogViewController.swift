@@ -22,7 +22,7 @@ final class LogViewController: UIViewController {
   // MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    bindState()
+    bindApiState()
     
     tableView.registerXib(of: LogViewCell.self)
     tableView.delegate = self
@@ -47,7 +47,7 @@ final class LogViewController: UIViewController {
 // MARK: Bind
 extension LogViewController {
   
-  private func bindState() {
+  private func bindApiState() {
     viewModel.state
       .drive(onNext: { [weak self] (state) in
         switch state {
@@ -64,7 +64,8 @@ extension LogViewController {
         case .loading:
           GUIManager.shared.startAnimation()
         }
-      }).disposed(by: disposeBag)
+      }
+    ).disposed(by: disposeBag)
   }
 }
 

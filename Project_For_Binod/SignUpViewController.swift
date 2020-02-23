@@ -36,6 +36,7 @@ final class SignUpViewController: KeyboardObservingViewController {
     setup()
     bind()
     bindEventActions()
+    bindApiState()
   }
 
   // Methods
@@ -103,6 +104,7 @@ final class SignUpViewController: KeyboardObservingViewController {
 // MARK: Binding with viewModel
 extension SignUpViewController {
   private func bind() {
+    // Input
     emailTextField.rx.text.asDriver()
       .map { $0 ?? "" }
       .drive(viewModel.emailInput)
@@ -123,6 +125,7 @@ extension SignUpViewController {
       .drive(viewModel.initialAmountInput)
       .disposed(by: disposeBag)
     
+    // Output
     viewModel.statusInput.asObservable()
       .map { $0.rawValue}
       .bind(to: statusLabel.rx.text)
@@ -131,16 +134,6 @@ extension SignUpViewController {
     viewModel.colorInput.asObservable()
       .map { UIColor(hex: $0) }
       .bind(to: colorView.rx.backgroundColor)
-      .disposed(by: disposeBag)
-    
-    viewModel.dropDown
-    .asDriver(onErrorJustReturn: DropDownModel.defaultDropDown)
-    .drive(GUIManager.rx.shouldShowDropDown())
-    .disposed(by: disposeBag)
-    
-    viewModel.activityIndicatorAnimating
-      .asDriver(onErrorJustReturn: false)
-      .drive(GUIManager.rx.isIndicatorAnimating())
       .disposed(by: disposeBag)
   }
   
@@ -162,6 +155,30 @@ extension SignUpViewController {
         self.showStatusSelectionAlert()
       }
     }.disposed(by: disposeBag)
+  }
+  
+  private func bindApiState() {
+    viewModel.apiState.drive(onNext: { state in
+      switch state {
+        
+      case .idle:
+        break
+        
+      case .completed:
+        GUIManager.shared.stopAnimation()
+        
+      case .error(let error):
+        GUIManager.shared.stopAnimation()
+        
+        let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+        
+      case .loading:
+        GUIManager.shared.startAnimation()
+      }
+      
+    }
+    ).disposed(by: disposeBag)
   }
   
 }

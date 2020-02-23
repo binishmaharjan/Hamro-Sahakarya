@@ -30,6 +30,7 @@ final class SignInViewController: KeyboardObservingViewController {
     setup()
     bind()
     bindActionEvents()
+    bindApiState()
     observeErrorMessages()
   }
   
@@ -88,16 +89,6 @@ extension SignInViewController {
       .disposed(by: disposeBag)
 
     // Output
-    viewModel.activityIndicatorAnimating
-      .asDriver(onErrorJustReturn: false)
-      .drive(GUIManager.rx.isIndicatorAnimating())
-      .disposed(by: disposeBag)
-    
-    viewModel.dropDown
-      .asDriver(onErrorJustReturn: DropDownModel.defaultDropDown)
-      .drive(GUIManager.rx.shouldShowDropDown())
-      .disposed(by: disposeBag)
-    
     viewModel.signInButtonEnabled
       .asDriver(onErrorJustReturn: true)
       .drive(signInButton.rx.isEnabled)
@@ -116,8 +107,32 @@ extension SignInViewController {
       case .none:
         break
       }
-      
+
     }
     .disposed(by: disposeBag)
+  }
+  
+  private func bindApiState() {
+    viewModel.apiState.drive(onNext: { state in
+      switch state {
+        
+      case .idle:
+        break
+        
+      case .completed:
+        GUIManager.shared.stopAnimation()
+        
+      case .error(let error):
+        GUIManager.shared.stopAnimation()
+        
+        let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+        
+      case .loading:
+        GUIManager.shared.startAnimation()
+      }
+      
+    }
+    ).disposed(by: disposeBag)
   }
 }

@@ -26,7 +26,9 @@ struct SignInViewModel {
   var emailInput = BehaviorSubject<String>(value: "")
   var passwordInput = BehaviorSubject<String>(value: "")
   var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
-  var activityIndicatorAnimating = BehaviorSubject<Bool>(value: false)
+  
+  @PropertyBehaviourRelay<State>(value: .idle)
+  var apiState: Driver<State>
   
   @PropertyPublishSubject(value: SignInEvent.none)
   var event: Observable<SignInEvent>
@@ -42,12 +44,6 @@ struct SignInViewModel {
     return Binder(_event) { observer, _ in
       observer.onNext(SignInEvent.signInTapped)
     }
-  }
-  
-  // GUIs
-  private let dropDownSubject = PublishSubject<DropDownModel>()
-  var dropDown: Observable<DropDownModel> {
-    return dropDownSubject.asObserver()
   }
   
   private let errorMessageSubject = PublishSubject<ErrorMessage>()
@@ -96,11 +92,11 @@ struct SignInViewModel {
 extension SignInViewModel {
   private func indicateSigingIn() {
     signInButtonEnabled.onNext(false)
-    activityIndicatorAnimating.onNext(true)
+    _apiState.accept(.loading)
   }
   
   private func indicateSignInSuccessful(userSession: UserSession) {
-    activityIndicatorAnimating.onNext(false)
+    _apiState.accept(.completed)
     signedInResponder.signedIn(to: userSession)
   }
   
@@ -109,9 +105,7 @@ extension SignInViewModel {
     errorMessageSubject.onNext(errorMessage)
     
     signInButtonEnabled.onNext(true)
-    activityIndicatorAnimating.onNext(false)
-    
-    dropDownSubject.onNext(DropDownModel(dropDownType: .error, message: errorMessage.message))
+    _apiState.accept(.error(error))
   }
   
 }

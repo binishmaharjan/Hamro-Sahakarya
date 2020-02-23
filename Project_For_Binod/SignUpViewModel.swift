@@ -30,7 +30,10 @@ struct SignUpViewModel {
   let statusInput = BehaviorRelay<Status>(value: .member)
   let colorInput = BehaviorRelay<String>(value: "")
   let signUpButtonEnabled = BehaviorRelay<Bool>(value: true)
-  let activityIndicatorAnimating = BehaviorRelay<Bool>(value: false)
+
+  
+  @PropertyBehaviourRelay<State>(value: .idle)
+  var apiState: Driver<State>
   
   private let eventSubject = PublishSubject<SignUpEvent>()
   var event: Observable<SignUpEvent> { return eventSubject.asObservable() }
@@ -59,12 +62,7 @@ struct SignUpViewModel {
       observer.onNext(.statusLabelTapped)
     }
   }
-  
-  // GUIs
-  private let dropDownSubject = PublishSubject<DropDownModel>()
-  var dropDown: Observable<DropDownModel> {
-    return dropDownSubject.asObserver()
-  }
+
   
   // MARK: Init
   init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
@@ -101,21 +99,17 @@ struct SignUpViewModel {
 // MARK: SignUp Indication
 extension SignUpViewModel {
   private func indicateSigningUp() {
-    signUpButtonEnabled.accept(false)
-    activityIndicatorAnimating.accept(true)
+    _apiState.accept(.loading)
   }
   
   private func indicateSignUpSuccessful(userSession: UserSession) {
-    activityIndicatorAnimating.accept(false)
+//    activityIndicatorAnimating.accept(false)
+    _apiState.accept(.completed)
     signedInResponder.signedIn(to: userSession)
   }
   
   private func indicateErrorSigningUp(_ error: Error) {
-    let errorMessage = ErrorMessage(title: "Sign Up Failed.", message: error.localizedDescription)
-    let dropDown = DropDownModel(dropDownType: .error, message: errorMessage.message)
-    
-    dropDownSubject.onNext(dropDown)
     signUpButtonEnabled.accept(true)
-    activityIndicatorAnimating.accept(false)
+    _apiState.accept(.error(error))
   }
 }

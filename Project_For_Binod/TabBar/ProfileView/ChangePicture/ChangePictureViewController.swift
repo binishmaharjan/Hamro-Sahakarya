@@ -36,7 +36,7 @@ final class ChangePictureViewController: UIViewController {
     super.viewDidAppear(animated)
     bindPhotoLibraryAuthorization()
     bindPhotoSelection()
-    bindState()
+    bindApiState()
   }
   
   private func setupBarButton() {
@@ -82,7 +82,7 @@ final class ChangePictureViewController: UIViewController {
       .disposed(by: disposeBag)
   }
   
-  private func bindState() {
+  private func bindApiState() {
       viewModel.state
         .drive(onNext: { [weak self] (state) in
           
