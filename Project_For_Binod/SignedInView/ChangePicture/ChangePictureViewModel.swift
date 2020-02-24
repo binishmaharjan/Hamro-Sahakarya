@@ -16,7 +16,7 @@ protocol ChangePictureStateProtocol {
 }
 
 extension ChangePictureStateProtocol {
-  var isSaveValid: Bool {
+  var isSaveButtonEnabled: Bool {
     return !selectedImage.isEmpty
   }
 }
@@ -26,7 +26,7 @@ protocol ChangePictureViewModel {
   var cellSize: CGSize { get }
   var selectedImage: BehaviorRelay<UIImage?> { get }
   var state: Driver<State> { get }
-  var isSaveValid: Observable<Bool> { get }
+  var isSaveButtonEnabled: Observable<Bool> { get }
   
   func photoViewModel(forRowAt indexPath: IndexPath) -> PhotoCellViewModel
   func originalImage(at indexPath: IndexPath) -> UIImage?
@@ -56,7 +56,7 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
    var state: Driver<State>
   
   let selectedImage: BehaviorRelay<UIImage?> = BehaviorRelay<UIImage?>(value: nil)
-  let isSaveValid: Observable<Bool>
+  let isSaveButtonEnabled: Observable<Bool>
   
   var count: Int {
     return photos.count
@@ -76,7 +76,7 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
     self.userSessionRepository = userSessionRepository
     
     let state = selectedImage.asObservable().map { UIState(selectedImage: $0) }
-    isSaveValid = state.map { $0.isSaveValid }
+    isSaveButtonEnabled = state.map { $0.isSaveButtonEnabled }
   }
   
   func photoViewModel(forRowAt indexPath: IndexPath) -> PhotoCellViewModel {
