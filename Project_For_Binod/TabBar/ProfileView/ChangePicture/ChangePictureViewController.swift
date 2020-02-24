@@ -42,6 +42,11 @@ final class ChangePictureViewController: UIViewController {
   private func setupBarButton() {
     let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
     navigationItem.rightBarButtonItem = saveButton
+    
+    viewModel.isSaveValid
+      .asDriver(onErrorJustReturn: true)
+      .drive(saveButton.rx.isEnabled)
+      .disposed(by: disposeBag)
   }
   
   @objc private func saveButtonPressed() {
