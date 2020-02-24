@@ -11,11 +11,22 @@ import Photos
 import RxSwift
 import RxCocoa
 
+protocol ChangePictureStateProtocol {
+  var selectedImage: UIImage? { get }
+}
+
+extension ChangePictureStateProtocol {
+  var isSaveValid: Bool {
+    return !selectedImage.isEmpty
+  }
+}
+
 protocol ChangePictureViewModel {
   var count: Int { get }
   var cellSize: CGSize { get }
   var selectedImage: BehaviorRelay<UIImage?> { get }
   var state: Driver<State> { get }
+  var isSaveValid: Observable<Bool> { get }
   
   func photoViewModel(forRowAt indexPath: IndexPath) -> PhotoCellViewModel
   func originalImage(at indexPath: IndexPath) -> UIImage?
@@ -29,7 +40,10 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
   enum ImageType {
     case thumbnail
     case original
+  }
   
+  struct UIState: ChangePictureStateProtocol {
+    var selectedImage: UIImage?
   }
 
   private var imageManager: PHCachingImageManager = PHCachingImageManager()
@@ -41,7 +55,8 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
   @PropertyBehaviourRelay<State>(value: .idle)
    var state: Driver<State>
   
-  var selectedImage: BehaviorRelay<UIImage?> = BehaviorRelay<UIImage?>(value: nil)
+  let selectedImage: BehaviorRelay<UIImage?> = BehaviorRelay<UIImage?>(value: nil)
+  let isSaveValid: Observable<Bool>
   
   var count: Int {
     return photos.count
@@ -59,6 +74,9 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
   init(userSession: UserSession, userSessionRepository: UserSessionRepository) {
     self.userSession = userSession
     self.userSessionRepository = userSessionRepository
+    
+    let state = selectedImage.asObservable().map { UIState(selectedImage: $0) }
+    isSaveValid = state.map { $0.isSaveValid }
   }
   
   func photoViewModel(forRowAt indexPath: IndexPath) -> PhotoCellViewModel {

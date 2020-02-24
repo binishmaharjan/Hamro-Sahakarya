@@ -46,6 +46,7 @@
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
 		64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */; };
+		64568ADF2403860700BCA18D /* MainOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADE2403860700BCA18D /* MainOrangeButton.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -167,6 +168,7 @@
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
 		64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservingViewController.swift; sourceTree = "<group>"; };
+		64568ADE2403860700BCA18D /* MainOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrangeButton.swift; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				645939B2235AB73800A99902 /* UIViewControllerContaintment.swift */,
 				645939B4235AB7A200A99902 /* UIViewController+ErrorPresentation.swift */,
 				6457F0FF2388F3C200EFE898 /* GUIManager.swift */,
+				64568ADE2403860700BCA18D /* MainOrangeButton.swift */,
 			);
 			name = Reuseable;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				6400FF8523E1D1800079A623 /* UIImageView+Extension.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
+				64568ADF2403860700BCA18D /* MainOrangeButton.swift in Sources */,
 				64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */,
 				646604AD2379897700122718 /* OnboardingViewModel.swift in Sources */,
 				64FBE1C423D464280027E44C /* LogViewModel.swift in Sources */,

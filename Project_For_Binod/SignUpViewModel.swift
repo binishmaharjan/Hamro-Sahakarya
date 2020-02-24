@@ -17,7 +17,43 @@ enum SignUpEvent {
   case statusLabelTapped
 }
 
+protocol SignUpStateProtocol {
+  var emailText: String { get }
+  var fullnameText: String { get }
+  var passwordText: String { get }
+  var colorText: String { get }
+}
+
+extension SignUpStateProtocol {
+  private var isEmailValid: Bool {
+    return emailText.contains("@") && emailText.contains(".")
+  }
+  
+  var isFullNameValid: Bool {
+    return fullnameText.contains(" ")
+  }
+  
+  var isPasswordValid: Bool {
+    return passwordText.count > 5
+  }
+  
+  var isColorValid: Bool {
+    return !colorText.isEmpty
+  }
+  
+  var isSignUpValid: Bool {
+    return isEmailValid && isFullNameValid && isPasswordValid && isColorValid
+  }
+}
+
 struct SignUpViewModel {
+  
+  struct UIState: SignUpStateProtocol {
+    var emailText: String
+    var fullnameText: String
+    var passwordText: String
+    var colorText: String
+  }
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
@@ -29,8 +65,7 @@ struct SignUpViewModel {
   let initialAmountInput = BehaviorRelay<Int>(value: 0)
   let statusInput = BehaviorRelay<Status>(value: .member)
   let colorInput = BehaviorRelay<String>(value: "")
-  let signUpButtonEnabled = BehaviorRelay<Bool>(value: true)
-
+  let isSignUpValid: Observable<Bool>
   
   @PropertyBehaviourRelay<State>(value: .idle)
   var apiState: Driver<State>
@@ -68,6 +103,12 @@ struct SignUpViewModel {
   init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
     self.userSessionRepository = userSessionRepository
     self.signedInResponder = signedInResponder
+    
+    let state = Observable.combineLatest(emailInput, fullNameInput, passwordInput, colorInput) {
+      UIState(emailText: $0, fullnameText: $1, passwordText: $2, colorText: $3)
+    }
+    
+    isSignUpValid = state.map { $0.isSignUpValid }
   }
   
   
@@ -103,13 +144,11 @@ extension SignUpViewModel {
   }
   
   private func indicateSignUpSuccessful(userSession: UserSession) {
-//    activityIndicatorAnimating.accept(false)
     _apiState.accept(.completed)
     signedInResponder.signedIn(to: userSession)
   }
   
   private func indicateErrorSigningUp(_ error: Error) {
-    signUpButtonEnabled.accept(true)
     _apiState.accept(.error(error))
   }
 }
