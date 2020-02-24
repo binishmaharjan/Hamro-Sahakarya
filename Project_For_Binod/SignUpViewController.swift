@@ -135,6 +135,11 @@ extension SignUpViewController {
       .map { UIColor(hex: $0) }
       .bind(to: colorView.rx.backgroundColor)
       .disposed(by: disposeBag)
+    
+    viewModel.isSignUpValid
+      .asDriver(onErrorJustReturn: true)
+      .drive(signUpButton.rx.isEnabled)
+      .disposed(by: disposeBag)
   }
   
   private func bindEventActions() {
