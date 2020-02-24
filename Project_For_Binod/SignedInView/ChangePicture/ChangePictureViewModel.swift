@@ -55,8 +55,8 @@ struct DefaultChangePictureViewModel: ChangePictureViewModel {
   @PropertyBehaviourRelay<State>(value: .idle)
    var state: Driver<State>
   
-  var selectedImage: BehaviorRelay<UIImage?> = BehaviorRelay<UIImage?>(value: nil)
-  var isSaveValid: Observable<Bool>
+  let selectedImage: BehaviorRelay<UIImage?> = BehaviorRelay<UIImage?>(value: nil)
+  let isSaveValid: Observable<Bool>
   
   var count: Int {
     return photos.count

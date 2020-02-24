@@ -48,8 +48,8 @@ struct SignInViewModel {
   private let signedInResponder: SignedInResponder
   private let signUpNavigator: GoToSignUpNavigator
   
-  var emailInput = BehaviorSubject<String>(value: "")
-  var passwordInput = BehaviorSubject<String>(value: "")
+  let emailInput = BehaviorSubject<String>(value: "")
+  let passwordInput = BehaviorSubject<String>(value: "")
 
   let isSignInEnabled: Observable<Bool>
   

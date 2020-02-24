@@ -65,7 +65,7 @@ struct SignUpViewModel {
   let initialAmountInput = BehaviorRelay<Int>(value: 0)
   let statusInput = BehaviorRelay<Status>(value: .member)
   let colorInput = BehaviorRelay<String>(value: "")
-  var isSignUpValid: Observable<Bool>
+  let isSignUpValid: Observable<Bool>
   
   @PropertyBehaviourRelay<State>(value: .idle)
   var apiState: Driver<State>
