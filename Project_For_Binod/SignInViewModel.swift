@@ -16,7 +16,32 @@ enum SignInEvent {
   case none
 }
 
+protocol SignInStateProtocol {
+  var emailText: String { get }
+  var passwordText: String { get }
+}
+
+extension SignInStateProtocol {
+  
+  var isEmailValid: Bool {
+    return emailText.contains("@") && emailText.contains(".")
+  }
+  
+  var isPasswordValid: Bool {
+    return passwordText.count > 5
+  }
+  
+  var isSignInEnabled: Bool {
+    return isEmailValid && isPasswordValid
+  }
+}
+
 struct SignInViewModel {
+  
+  struct UIState: SignInStateProtocol {
+    var emailText: String
+    var passwordText: String
+  }
   
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
@@ -25,7 +50,8 @@ struct SignInViewModel {
   
   var emailInput = BehaviorSubject<String>(value: "")
   var passwordInput = BehaviorSubject<String>(value: "")
-  var signInButtonEnabled = BehaviorSubject<Bool>(value: true)
+
+  let isSignInEnabled: Observable<Bool>
   
   @PropertyBehaviourRelay<State>(value: .idle)
   var apiState: Driver<State>
@@ -56,6 +82,10 @@ struct SignInViewModel {
     self.userSessionRepository = userSessionRepository
     self.signedInResponder = signedInResponder
     self.signUpNavigator = signUpNavigator
+    
+    
+    let state = Observable.combineLatest(emailInput, passwordInput) { UIState(emailText: $0, passwordText: $1) }
+    isSignInEnabled = state.map { $0.isSignInEnabled }
   }
   
   // MARK: Methods
@@ -91,7 +121,6 @@ struct SignInViewModel {
 // MARK: SignIn Indication
 extension SignInViewModel {
   private func indicateSigingIn() {
-    signInButtonEnabled.onNext(false)
     _apiState.accept(.loading)
   }
   
@@ -104,7 +133,6 @@ extension SignInViewModel {
     let errorMessage = ErrorMessage(title: "Sign In Failed.", message: error.localizedDescription)
     errorMessageSubject.onNext(errorMessage)
     
-    signInButtonEnabled.onNext(true)
     _apiState.accept(.error(error))
   }
   

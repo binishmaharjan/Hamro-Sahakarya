@@ -89,7 +89,7 @@ extension SignInViewController {
       .disposed(by: disposeBag)
 
     // Output
-    viewModel.signInButtonEnabled
+    viewModel.isSignInEnabled
       .asDriver(onErrorJustReturn: true)
       .drive(signInButton.rx.isEnabled)
       .disposed(by: disposeBag)
