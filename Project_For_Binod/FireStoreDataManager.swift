@@ -128,4 +128,43 @@ final class FireStoreDataManager: ServerDataManager {
     }
   }
   
+  func getAllMembers() -> Promise<[UserProfile]> {
+    return Promise<[UserProfile]> { seal in
+      let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF)
+      
+      DispatchQueue.global().async {
+        reference.getDocuments { (snapshots, error) in
+          
+          if let error = error {
+            DispatchQueue.main.async { seal.reject(error) }
+            return
+          }
+          
+          guard let snapshots = snapshots else {
+            DispatchQueue.main.async { seal.reject(HSError.noSnapshotError) }
+            return
+          }
+          
+          var userProfiles = [UserProfile]()
+          
+          snapshots.documents.forEach { (snapshot) in
+            
+             let data  = snapshot.data()
+            
+            do {
+              let userProfile = try FirestoreDecoder().decode(UserProfile.self, from: data)
+              userProfiles.append(userProfile)
+            } catch {
+              DispatchQueue.main.async { seal.reject(error) }
+            }
+            
+          }
+          
+           DispatchQueue.main.async { seal.fulfill(userProfiles) }
+        }
+      }
+      
+    }
+  }
+  
 }

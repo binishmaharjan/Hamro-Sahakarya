@@ -14,5 +14,6 @@ protocol ServerDataManager {
   func saveUser(userSession: UserSession) -> Promise<UserSession>
   func readUser(uid: String) -> Promise<UserSession?>
   func updateProfileUrl(userSession: UserSession, url: URL) -> Promise<String>
+  func getAllMembers() -> Promise<[UserProfile]>
   
 }
