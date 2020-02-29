@@ -75,6 +75,7 @@ protocol ProfileViewModel {
   
   func signOut()
   func showChangePicture()
+  func showMembers()
   func numberOfRows(in section: Int) -> Int
   func row(for indexPath: IndexPath) -> ProfileRow
 }
@@ -158,5 +159,9 @@ struct DefaultProfileViewModel: ProfileViewModel {
 extension DefaultProfileViewModel {
   func showChangePicture() {
     profileViewResponder.navigate(to: .changePicture)
+  }
+  
+  func showMembers() {
+    profileViewResponder.navigate(to: .members)
   }
 }

@@ -120,6 +120,8 @@ extension ProfileViewController: UITableViewDelegate {
       logOutCellPressed()
     case .changePicture:
       changeProfilePicturePressed()
+    case .members:
+      membersPressed()
     default:
       break
     }
@@ -138,5 +140,9 @@ extension ProfileViewController {
   
   private func changeProfilePicturePressed() {
     viewModel.showChangePicture()
+  }
+  
+  private func membersPressed() {
+    viewModel.showMembers()
   }
 }
