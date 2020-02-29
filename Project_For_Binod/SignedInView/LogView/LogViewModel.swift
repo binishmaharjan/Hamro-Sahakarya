@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 protocol LogViewModel {
-  var logs: [GroupLog] { get }
   var count: Int { get }
   
   var state: Driver<State> { get }
@@ -26,7 +25,7 @@ final class DefaultLogViewModel: LogViewModel {
   // MARK: Properties
   private let userSessionRepository: UserSessionRepository
   
-  internal var logs: [GroupLog] = []
+  private var logs: [GroupLog] = []
   var count: Int { return logs.count }
   var isFirstLoad = true
   
