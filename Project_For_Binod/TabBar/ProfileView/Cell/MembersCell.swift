@@ -22,13 +22,37 @@ final class MembersCell: UITableViewCell {
     memberImageView.clipsToBounds = true
   }
   
-  func bind(userProfile: UserProfile) {
-    memberNameLabel.text = userProfile.username
-    memberStatusLabel.text = userProfile.status.rawValue
-    memberImageView.loadImage(with: URL(string: userProfile.iconUrl!))
+  func bind(viewModel: MemberCellViewModel) {
+    memberNameLabel.text = viewModel.fullname
+    memberStatusLabel.text = viewModel.status
+    memberImageView.loadImage(with: viewModel.imageUrl)
   }
 }
 
-protocol MembersCellViewModel {
-  
+// MARK: ViewModel
+protocol MemberCellViewModel {
+  var imageUrl: URL? { get }
+  var fullname: String { get }
+  var status: String { get }
+}
+
+struct DefaultMemberCellViewModel: MemberCellViewModel {
+  private let profile: UserProfile
+   
+   var imageUrl: URL? {
+     let imageString = profile.iconUrl ?? ""
+     return URL(string: imageString)
+   }
+   
+   var fullname: String {
+     return profile.username
+   }
+   
+   var status: String {
+     return "Status: \(profile.status .rawValue)"
+   }
+   
+   init(profile: UserProfile) {
+     self.profile = profile
+   }
 }
