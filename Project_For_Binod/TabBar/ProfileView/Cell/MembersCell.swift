@@ -18,10 +18,11 @@ final class MembersCell: UITableViewCell {
   // MARK: LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    memberImageView.layer.cornerRadius = 25
+    memberImageView.layer.cornerRadius = memberImageView.width / 2
     memberImageView.clipsToBounds = true
   }
   
+  // MARK: Methods
   func bind(viewModel: MemberCellViewModel) {
     memberNameLabel.text = viewModel.fullname
     memberStatusLabel.text = viewModel.status
