@@ -18,5 +18,6 @@ protocol UserSessionRepository {
   
   func getLogs() -> Promise<[GroupLog]>
   
-  func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession> 
+  func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession>
+  func getAllMembers() -> Promise<[UserProfile]>
 }

@@ -59,6 +59,11 @@ extension ProfileMainDependencyContainer {
 }
 
 // MARK: Change Profile
+protocol ProfileViewControllerFactory {
+  func makeChangePictureViewController() -> ChangePictureViewController
+  func makeMembersViewController() -> MembersViewController
+}
+
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
   
   func makeChangePictureViewController() -> ChangePictureViewController {
@@ -72,7 +77,15 @@ extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
   }
 }
 
-
-protocol ProfileViewControllerFactory {
-  func makeChangePictureViewController() -> ChangePictureViewController
+// MARK: Members
+extension ProfileMainDependencyContainer {
+  func makeMembersViewController() -> MembersViewController {
+    let viewModel = makeMembersViewModel()
+    let membersViewController = MembersViewController.makeInstance(viewModel: viewModel)
+    return membersViewController
+  }
+  
+  func makeMembersViewModel() -> MembersViewModel {
+    return DefaultMembersViewModel(userSessionRepository: sharedUserSessionRepository)
+  }
 }

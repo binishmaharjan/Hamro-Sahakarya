@@ -23,14 +23,11 @@ struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
   }
   
   var fullname: String {
-    return userSession.profile.username ?? ""
+    return userSession.profile.username
   }
   
   var status: String {
-    guard let s = userSession.profile.status else {
-      return "Status: -"
-    }
-    return "Status: \(s.rawValue)"
+    return "Status: \(userSession.profile.status .rawValue)"
   }
   
   init(userSession: UserSession) {

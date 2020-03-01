@@ -98,4 +98,12 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       .then(serverDataManager.readUser(uid:))
       .then(dataStore.save(userSession:))
   }
+  
+  
+  /// Get All Members
+  ///
+  /// - Return Promise<[UserProfile]>: All member list wrapped in promise
+  func getAllMembers() -> Promise<[UserProfile]> {
+    return serverDataManager.getAllMembers()
+  }
 }
