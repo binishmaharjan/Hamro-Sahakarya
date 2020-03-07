@@ -62,6 +62,7 @@ extension ProfileMainDependencyContainer {
 protocol ProfileViewControllerFactory {
   func makeChangePictureViewController() -> ChangePictureViewController
   func makeMembersViewController() -> MembersViewController
+  func makeChangePasswordViewController() -> ChangePasswordViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -87,5 +88,18 @@ extension ProfileMainDependencyContainer {
   
   func makeMembersViewModel() -> MembersViewModel {
     return DefaultMembersViewModel(userSessionRepository: sharedUserSessionRepository)
+  }
+}
+
+// MARK: Change Password
+extension ProfileMainDependencyContainer {
+  func makeChangePasswordViewController() -> ChangePasswordViewController {
+    let viewModel = makeChangePasswordViewModel()
+    let changeViewController = ChangePasswordViewController.makeInstance(viewModel: viewModel)
+    return changeViewController
+  }
+  
+  func makeChangePasswordViewModel() -> ChangePasswordViewModel {
+    return DefaultChangePasswordViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession, notSignedInResponder: sharedMainViewModel)
   }
 }

@@ -74,8 +74,7 @@ protocol ProfileViewModel {
   var state: Driver<State> { get }
   
   func signOut()
-  func showChangePicture()
-  func showMembers()
+  func navigate(to view: ProfileMainView)
   func numberOfRows(in section: Int) -> Int
   func row(for indexPath: IndexPath) -> ProfileRow
 }
@@ -157,11 +156,8 @@ struct DefaultProfileViewModel: ProfileViewModel {
 }
 
 extension DefaultProfileViewModel {
-  func showChangePicture() {
-    profileViewResponder.navigate(to: .changePicture)
+  func navigate(to view: ProfileMainView) {
+    profileViewResponder.navigate(to: view)
   }
   
-  func showMembers() {
-    profileViewResponder.navigate(to: .members)
-  }
 }

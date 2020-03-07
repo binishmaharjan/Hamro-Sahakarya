@@ -52,6 +52,9 @@
 		64568AE82409EBEE00BCA18D /* MembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AE72409EBEE00BCA18D /* MembersViewModel.swift */; };
 		64568AEB2409ECE500BCA18D /* MembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AE92409ECE500BCA18D /* MembersCell.swift */; };
 		64568AEC2409ECE500BCA18D /* MembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64568AEA2409ECE500BCA18D /* MembersCell.xib */; };
+		64568B0F240B704800BCA18D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568B0E240B704800BCA18D /* ChangePasswordViewController.swift */; };
+		64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64568B10240B707C00BCA18D /* ChangePasswordViewController.storyboard */; };
+		64568B542413724100BCA18D /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568B532413724100BCA18D /* ChangePasswordViewModel.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -179,6 +182,9 @@
 		64568AE72409EBEE00BCA18D /* MembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewModel.swift; sourceTree = "<group>"; };
 		64568AE92409ECE500BCA18D /* MembersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersCell.swift; sourceTree = "<group>"; };
 		64568AEA2409ECE500BCA18D /* MembersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MembersCell.xib; sourceTree = "<group>"; };
+		64568B0E240B704800BCA18D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		64568B10240B707C00BCA18D /* ChangePasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordViewController.storyboard; sourceTree = "<group>"; };
+		64568B532413724100BCA18D /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64568B522413721800BCA18D /* ChangePassword */,
 				64568AE62409EBDC00BCA18D /* Members */,
 				64568AD723F96E9700BCA18D /* ChangePicture */,
 				6400FF9423E5334E0079A623 /* ProfileTop */,
@@ -294,6 +301,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64568B0D240B6A4200BCA18D /* ChangePassword */,
 				64568AE02409E8B000BCA18D /* Members */,
 				6430DAE423E9A8D80045E435 /* ChangePicture */,
 				6400FF7F23E1C9A80079A623 /* Cells */,
@@ -490,6 +498,23 @@
 				64568AE72409EBEE00BCA18D /* MembersViewModel.swift */,
 			);
 			name = Members;
+			sourceTree = "<group>";
+		};
+		64568B0D240B6A4200BCA18D /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				64568B0E240B704800BCA18D /* ChangePasswordViewController.swift */,
+				64568B10240B707C00BCA18D /* ChangePasswordViewController.storyboard */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		64568B522413721800BCA18D /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				64568B532413724100BCA18D /* ChangePasswordViewModel.swift */,
+			);
+			name = ChangePassword;
 			sourceTree = "<group>";
 		};
 		64593994235AAA6600A99902 /* OnboardingView */ = {
@@ -1020,6 +1045,7 @@
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
+				64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
 				645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */,
 				64568AE42409E90900BCA18D /* MembersViewController.storyboard in Resources */,
@@ -1162,6 +1188,7 @@
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
 				64F7B5E923DDBD7700A47C81 /* LogCellViewModel.swift in Sources */,
 				64FBE1AF23D2DA450027E44C /* SignedInView.swift in Sources */,
+				64568B542413724100BCA18D /* ChangePasswordViewModel.swift in Sources */,
 				6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */,
 				64F44D60237FB02C00A9DFB4 /* DropDownType.swift in Sources */,
 				64F44D63237FB2B900A9DFB4 /* BaseView.swift in Sources */,
@@ -1200,6 +1227,7 @@
 				6400FF7423E075820079A623 /* ProfileMainViewModel.swift in Sources */,
 				64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */,
 				6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */,
+				64568B0F240B704800BCA18D /* ChangePasswordViewController.swift in Sources */,
 				6400FF8F23E475140079A623 /* ProfileFooterView.swift in Sources */,
 				646604C023799FC600122718 /* OnboardingDependencyContainer.swift in Sources */,
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,

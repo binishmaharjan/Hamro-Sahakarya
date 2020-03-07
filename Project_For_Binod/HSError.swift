@@ -25,6 +25,39 @@ enum HSError: Error {
   case noImageError
   case imageSaveError
   
+  case passwordDoesntMatch
+}
+
+extension HSError: LocalizedError {
+  public var errorDescription: String? {
+    switch self {
+    case .passwordDoesntMatch:
+      return "Error: Password Doesnot Match"
+    case .loginError:
+      return "Error: Couldnot Signin"
+    case .signUpError:
+      return "Error: Couldnot SignUp"
+    case .networkFailedError:
+      return "Error: No Network Avaiable"
+    case .dataDecodingError:
+      return "Error: Data Cannot Be Decoded"
+    case .dataEncodingError:
+      return "Error: Data Cannot Be Encoded"
+    case .saveDataError:
+      return "Error: Couldnot Save Data"
+    case .readDataError:
+      return "Error: Couldnot Read Data"
+    case .noSnapshotError:
+      return "Error: No Snaphot"
+    case .emptyDataError:
+      return "Error: Empty Data"
+    case .noImageError:
+      return "Error: No Image"
+    case .imageSaveError:
+      return "Error: Couldnot Save Image"
+    }
+  }
+  
 }
 
 
