@@ -114,17 +114,7 @@ extension ProfileViewController: UITableViewDelegate {
     tableView.deselectRow(at: indexPath, animated: true)
     
     let row = viewModel.row(for: indexPath)
-    
-    switch row {
-    case .logout:
-      logOutCellPressed()
-    case .changePicture:
-      changeProfilePicturePressed()
-    case .members:
-      membersPressed()
-    default:
-      break
-    }
+    cellPressed(for: row)
   }
   
 }
@@ -132,17 +122,36 @@ extension ProfileViewController: UITableViewDelegate {
 // MARK: Cell Pressed Actions
 extension ProfileViewController {
   
-  private func logOutCellPressed() {
-    GUIManager.shared.showDialog(factory: .logoutConfirmation) { [weak self] in
-      self?.viewModel.signOut()
+  private func cellPressed(for row:ProfileRow) {
+    switch row {
+      
+    case .top(_):
+      break
+    case .changePicture:
+      viewModel.navigate(to: .changePicture)
+    case .changePassword:
+      viewModel.navigate(to: .changePassword)
+    case .members:
+      viewModel.navigate(to: .members)
+    case .makeAdmin:
+      break
+    case .removeAdmin:
+      break
+    case .extra:
+      break
+    case .expenses:
+      break
+    case .monthlyFee:
+      break
+    case .termsOfAgreement:
+      break
+    case .license:
+      break
+    case .logout:
+      GUIManager.shared.showDialog(factory: .logoutConfirmation) { [weak self] in
+        self?.viewModel.signOut()
+      }
     }
-  }
-  
-  private func changeProfilePicturePressed() {
-    viewModel.showChangePicture()
-  }
-  
-  private func membersPressed() {
-    viewModel.showMembers()
+    
   }
 }
