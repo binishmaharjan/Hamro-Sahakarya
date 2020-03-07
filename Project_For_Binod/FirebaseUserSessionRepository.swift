@@ -69,9 +69,24 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       .then(dataStore.save(userSession:))
   }
   
+  /// Signout User
+  ///
+  /// - Parameter userSession: Current User Session
+  /// - Return Promise<UserSession> : UserInfo wrapped in promise
   func signOut(userSession: UserSession) -> Promise<UserSession> {
     return remoteApi.signOut(userSession: userSession)
       .then(dataStore.delete(userSession:))
+  }
+  
+  /// Change User Password
+  ///
+  /// - Parameter userSession: Current User Session
+  /// - Parameter newPassowrd: NewPassword
+  /// - Return Promise<Void> : Void wrapped in promise
+  func changePassword(userSession: UserSession, newPassword: String) -> Promise<String> {
+    return remoteApi.changePassword(newPassword: newPassword)
+      .map { (userSession, $0) }
+      .then(serverDataManager.updatePassword(userSession: newPassowrd:))
   }
   
   // MARK: Logs
@@ -98,7 +113,6 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       .then(serverDataManager.readUser(uid:))
       .then(dataStore.save(userSession:))
   }
-  
   
   /// Get All Members
   ///

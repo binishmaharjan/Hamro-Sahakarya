@@ -128,6 +128,27 @@ final class FireStoreDataManager: ServerDataManager {
     }
   }
   
+  func updatePassword(userSession: UserSession, newPassowrd: String) -> Promise<String> {
+    return Promise<String> { seal in
+      let uid = userSession.profile.uid
+      
+      let updateData = [DatabaseReference.KEYWORD : newPassowrd]
+      let passwordReference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(uid)
+      
+      DispatchQueue.global().async {
+        passwordReference.updateData(updateData) { (error) in
+          
+          if let error = error {
+            DispatchQueue.main.async { seal.reject(error) }
+            return
+          }
+          
+          DispatchQueue.main.async { seal.fulfill(newPassowrd) }
+        }
+      }
+    }
+  }
+  
   func getAllMembers() -> Promise<[UserProfile]> {
     return Promise<[UserProfile]> { seal in
       let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF)

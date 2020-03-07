@@ -102,4 +102,23 @@ final class FirebaseAuthRemoteApi: AuthRemoteApi {
     }
   }
   
+  func changePassword(newPassword: String) -> Promise<String> {
+    return Promise<String> { seal in
+      let currentUser = Auth.auth().currentUser
+      let completion: (Error?) -> Void = { error in
+        
+        if let error = error  {
+          DispatchQueue.main.async { seal.reject(error) }
+          return
+        }
+        
+        DispatchQueue.main.async {  seal.fulfill(newPassword) }
+      }
+      
+      DispatchQueue.global().async {
+        currentUser?.updatePassword(to: newPassword, completion: completion)
+      }
+    }
+  }
+  
 }
