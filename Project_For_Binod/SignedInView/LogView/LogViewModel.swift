@@ -69,7 +69,7 @@ extension DefaultLogViewModel {
      case false:
        break
      }
-    print(logs)
+    
      _state.accept(.completed)
    }
    

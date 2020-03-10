@@ -62,7 +62,7 @@ struct DefaultLogCellViewModel: LogCellViewModel {
   var description: String {
     switch logType {
     case .joined:
-      return "\(logTarget) has joined the group.Initial amount of ¥\(amount) was given. New member was added by admin \(logCreator)"
+      return "\(logTarget) has joined the group.Initial amount of ¥\(amount) was given."
     case .left:
        return "\(logTarget) has left the group.Amount of ¥\(amount) was returned. New member was removed by admin \(logCreator)"
     case .loanGiven:
