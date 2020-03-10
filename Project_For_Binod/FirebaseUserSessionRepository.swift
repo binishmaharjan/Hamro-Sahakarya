@@ -54,7 +54,9 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     
     let saveUserToDataStore = saveDataToServer.then(dataStore.save(userSession:))
     
-    return saveUserToDataStore
+    let addLog = saveUserToDataStore.then(logApi.addJoinedLog(userSession:))
+    
+    return addLog
     
   }
   

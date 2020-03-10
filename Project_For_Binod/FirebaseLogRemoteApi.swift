@@ -61,4 +61,57 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
       
     }
   }
+  
+  
+  func addJoinedLog(userSession: UserSession) -> Promise<UserSession> {
+    return Promise<UserSession> { seal in
+      let logCreator = userSession.profile.username
+      let logTarget = userSession.profile.username
+      let amount = userSession.profile.balance ?? 0
+      let log = generateLog(logType: .joined, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
+      
+      let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
+      
+      
+      DispatchQueue.global().async {
+        do {
+          let data = try FirestoreEncoder().encode(log) as [String:Any]
+          
+          let completion: (Error?) -> Void = { error in
+            guard let error = error else { return }
+            DispatchQueue.main.async { seal.reject(error)}
+          }
+          
+          logRef.setData(data, completion: completion)
+          
+          DispatchQueue.main.async { seal.fulfill(userSession) }
+          
+        } catch {
+         DispatchQueue.main.async { seal.reject(error) }
+        }
+      }
+      
+    }
+  }
+  
+}
+
+extension FireBaseLogRemoteApi {
+
+  private func generateRandomID(length: Int) -> String {
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    return String((0...length-1).map{ _ in letters.randomElement()! })
+  }
+  
+  private func generateLog(logType: GroupLogType, logCreator: String, logTarget: String, amount: Int, reason: String) -> GroupLog {
+    let logID = generateRandomID(length: 20)
+    let log = GroupLog(logId: logID,
+                       dateCreated: Date().toString,
+                       logType: logType,
+                       logCreator: logCreator,
+                       logTarget: logTarget, amount: amount,
+                       reason: reason)
+    
+    return log
+  }
 }
