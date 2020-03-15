@@ -63,6 +63,7 @@ protocol ProfileViewControllerFactory {
   func makeChangePictureViewController() -> ChangePictureViewController
   func makeMembersViewController() -> MembersViewController
   func makeChangePasswordViewController() -> ChangePasswordViewController
+  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController 
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -101,5 +102,19 @@ extension ProfileMainDependencyContainer {
   
   func makeChangePasswordViewModel() -> ChangePasswordViewModel {
     return DefaultChangePasswordViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession, notSignedInResponder: sharedMainViewModel)
+  }
+}
+
+// MARK: Change Member Status
+extension ProfileMainDependencyContainer {
+  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController {
+    let viewModel = makeChangeMemberStatusViewModel()
+    let changeMemberStatusViewController = ChangeMemberStatusViewController.makeInstance(viewModel: viewModel)
+    return changeMemberStatusViewController
+  }
+  
+  func makeChangeMemberStatusViewModel() -> ChangeMemberStatusViewModel {
+    return DefaultChangeMemberStatusViewModel(userSessionRepository: sharedUserSessionRepository,
+                                              userSession: userSession)
   }
 }

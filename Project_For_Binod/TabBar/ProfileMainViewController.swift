@@ -102,6 +102,11 @@ extension ProfileMainViewController {
     let viewController = profileViewControllerFactory.makeChangePasswordViewController()
     pushViewController(viewController, animated: true)
   }
+  
+  private func showChangeMemberStatusView() {
+    let viewController = profileViewControllerFactory.makeChangeMemberStatusViewController()
+    pushViewController(viewController, animated: true)
+  }
 }
 
 // MARK: UINavigation Controller Delegate
@@ -124,6 +129,8 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
       return .members
     case is ChangePasswordViewController:
       return .changePassword
+    case is ChangeMemberStatusViewController:
+      return .changeMemberStatus
     default:
       fatalError("Unknown View")
     }
