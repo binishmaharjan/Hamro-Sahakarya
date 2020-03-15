@@ -133,15 +133,17 @@ extension ProfileViewController {
       viewModel.navigate(to: .changePassword)
     case .members:
       viewModel.navigate(to: .members)
-    case .makeAdmin:
-      break
-    case .removeAdmin:
-      break
+    case .changeStatus:
+      viewModel.navigate(to: .changeMemberStatus)
     case .extra:
       break
     case .expenses:
       break
     case .monthlyFee:
+      break
+    case .loanMember:
+      break
+    case .loanReturned:
       break
     case .termsOfAgreement:
       break

@@ -77,6 +77,8 @@ extension ProfileMainViewController {
       showChangePasswordView()
     case .members:
       showMembersView()
+    case .changeMemberStatus:
+      showChangeMemberStatusView()
     case .termsOfAgreement:
       break
     case .licence:
