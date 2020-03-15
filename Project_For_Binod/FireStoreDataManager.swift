@@ -149,6 +149,27 @@ final class FireStoreDataManager: ServerDataManager {
     }
   }
   
+  func changeStatus(for user: UserProfile) -> Promise<Void> {
+    return Promise<Void> { seal in
+      let newStatus: Status = user.status == .admin ? .member : .admin
+      let updateData = [DatabaseReference.STATUS: newStatus.rawValue]
+      let statusReferene = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+      
+      let completion: (Error?) -> Void = { error in
+        if let error = error {
+          DispatchQueue.main.async { seal.reject(error) }
+          return
+        }
+        
+        DispatchQueue.main.async { seal.fulfill(()) }
+      }
+      
+      DispatchQueue.global().async {
+        statusReferene.updateData(updateData, completion: completion)
+      }
+    }
+  }
+  
   func getAllMembers() -> Promise<[UserProfile]> {
     return Promise<[UserProfile]> { seal in
       let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF)

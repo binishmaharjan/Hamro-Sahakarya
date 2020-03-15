@@ -100,9 +100,23 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return logApi.getLogs()
   }
   
+  /// Change Member Status
+  ///
+  /// - Parameter user: The specific user whose status is to be changed
+  /// - Return Promise<Void> : returns  a empty promise
+  func changeStatus(for user: UserProfile) -> Promise<Void> {
+    return serverDataManager.changeStatus(for: user)
+  }
+  
+  /// Get All Members
+  ///
+  /// - Return Promise<[UserProfile]>: All member list wrapped in promise
+  func getAllMembers() -> Promise<[UserProfile]> {
+    return serverDataManager.getAllMembers()
+  }
   
   // MARK: Storage
-  
+
   /// Change the profile picture
   ///
   /// - Parameter userSession: User Profile Information
@@ -115,11 +129,6 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       .then(serverDataManager.readUser(uid:))
       .then(dataStore.save(userSession:))
   }
-  
-  /// Get All Members
-  ///
-  /// - Return Promise<[UserProfile]>: All member list wrapped in promise
-  func getAllMembers() -> Promise<[UserProfile]> {
-    return serverDataManager.getAllMembers()
-  }
 }
+
+
