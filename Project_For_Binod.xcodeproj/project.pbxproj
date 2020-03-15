@@ -85,6 +85,9 @@
 		646604C42379A30500122718 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C32379A30500122718 /* SignInViewModel.swift */; };
 		646604C62379A31A00122718 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C52379A31A00122718 /* SignUpViewModel.swift */; };
 		646604C82379A92300122718 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C72379A92300122718 /* UIView+Extension.swift */; };
+		6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */; };
+		6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */; };
+		64780824241E038900588769 /* ChangeMemberStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -215,6 +218,9 @@
 		646604C32379A30500122718 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		646604C52379A31A00122718 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		646604C72379A92300122718 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewController.swift; sourceTree = "<group>"; };
+		6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeMemberStatusViewController.storyboard; sourceTree = "<group>"; };
+		64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewModel.swift; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64780822241E033C00588769 /* ChangeMemberStatus */,
 				64568B522413721800BCA18D /* ChangePassword */,
 				64568AE62409EBDC00BCA18D /* Members */,
 				64568AD723F96E9700BCA18D /* ChangePicture */,
@@ -301,6 +308,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				6478081A241C7F9E00588769 /* ChangeMemberStatus */,
 				64568B0D240B6A4200BCA18D /* ChangePassword */,
 				64568AE02409E8B000BCA18D /* Members */,
 				6430DAE423E9A8D80045E435 /* ChangePicture */,
@@ -698,6 +706,23 @@
 			name = SignUpView;
 			sourceTree = "<group>";
 		};
+		6478081A241C7F9E00588769 /* ChangeMemberStatus */ = {
+			isa = PBXGroup;
+			children = (
+				6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */,
+				6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */,
+			);
+			path = ChangeMemberStatus;
+			sourceTree = "<group>";
+		};
+		64780822241E033C00588769 /* ChangeMemberStatus */ = {
+			isa = PBXGroup;
+			children = (
+				64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */,
+			);
+			path = ChangeMemberStatus;
+			sourceTree = "<group>";
+		};
 		6492C16D235AA48C009BE621 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,6 +1065,7 @@
 				6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */,
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
+				6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
@@ -1215,9 +1241,11 @@
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				6400FF8523E1D1800079A623 /* UIImageView+Extension.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
+				6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */,
 				64568ADF2403860700BCA18D /* MainOrangeButton.swift in Sources */,
 				64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */,
 				646604AD2379897700122718 /* OnboardingViewModel.swift in Sources */,
+				64780824241E038900588769 /* ChangeMemberStatusViewModel.swift in Sources */,
 				64FBE1C423D464280027E44C /* LogViewModel.swift in Sources */,
 				646604BE237995ED00122718 /* SignUpViewController.swift in Sources */,
 				64568AEB2409ECE500BCA18D /* MembersCell.swift in Sources */,
