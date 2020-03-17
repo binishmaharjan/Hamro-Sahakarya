@@ -77,6 +77,8 @@ extension ProfileMainViewController {
       showChangePasswordView()
     case .members:
       showMembersView()
+    case .changeMemberStatus:
+      showChangeMemberStatusView()
     case .termsOfAgreement:
       break
     case .licence:
@@ -98,6 +100,11 @@ extension ProfileMainViewController {
   
   private func showChangePasswordView() {
     let viewController = profileViewControllerFactory.makeChangePasswordViewController()
+    pushViewController(viewController, animated: true)
+  }
+  
+  private func showChangeMemberStatusView() {
+    let viewController = profileViewControllerFactory.makeChangeMemberStatusViewController()
     pushViewController(viewController, animated: true)
   }
 }
@@ -122,6 +129,8 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
       return .members
     case is ChangePasswordViewController:
       return .changePassword
+    case is ChangeMemberStatusViewController:
+      return .changeMemberStatus
     default:
       fatalError("Unknown View")
     }

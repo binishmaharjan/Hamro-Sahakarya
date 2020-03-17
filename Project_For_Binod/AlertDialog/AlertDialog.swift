@@ -86,6 +86,7 @@ extension AlertDialog: HasXib {
 enum AlertFactory {
   case noPhotoPermission
   case logoutConfirmation
+  case changeAdminStatus(Bool)
   
   var title: String {
     switch self {
@@ -94,6 +95,8 @@ enum AlertFactory {
       return "No Permission"
     case .logoutConfirmation:
       return "Confirmation"
+    case .changeAdminStatus:
+      return "Change Member Status"
     }
   }
   
@@ -103,6 +106,8 @@ enum AlertFactory {
         return "You can grant access from the Settings app"
       case .logoutConfirmation:
         return "Are you sure."
+    case .changeAdminStatus(let isUpgrade):
+      return isUpgrade ? "Upgrade Status?" : "Degrade Status"
     }
   }
   
@@ -111,7 +116,7 @@ enum AlertFactory {
       
     case .noPhotoPermission:
       return .notice
-    case .logoutConfirmation:
+    case .logoutConfirmation, .changeAdminStatus(_):
       return .selection
     }
   }
