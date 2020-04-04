@@ -24,6 +24,7 @@ protocol AddMonthlyFeeViewModel {
   var numberOfSection: Int { get }
   var apiState: Driver<State> { get }
   var monthAmountInput: BehaviorRelay<Int> { get }
+    var isAddButtonEnabled: Observable<Bool> { get }
   
   func numberOfRows(for section: Int) -> Int
   func addMonthlyFee()
@@ -55,6 +56,8 @@ final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
   
   private let dispatchGroup: DispatchGroup = DispatchGroup()
   private var addMonthlyFeeErrorHasError: Bool = false
+    
+    var isAddButtonEnabled: Observable<Bool>
   
   private var allMembers: [UserProfile] = []
   private var selectedMember: [UserProfile] = []
@@ -78,6 +81,9 @@ final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
   init(userSessionRepository: UserSessionRepository, userSession: UserSession) {
     self.userSessionRepository = userSessionRepository
     self.userSession = userSession
+    
+    let state = monthAmountInput.asObservable().map { UIState(monthlyFeeAmount: $0) }
+    isAddButtonEnabled = state.map { $0.isAddButtonEnabled }
   }
   
   // MARK: Binding Values

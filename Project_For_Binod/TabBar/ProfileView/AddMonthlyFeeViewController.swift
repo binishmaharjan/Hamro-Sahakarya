@@ -18,6 +18,8 @@ final class AddMonthlyFeeViewController: UIViewController {
   
   private var viewModel: AddMonthlyFeeViewModel!
   private let disposeBag = DisposeBag()
+    
+    private var addButton: UIBarButtonItem!
   
   // MARK: LifeCycle
   override func viewDidLoad() {
@@ -43,9 +45,8 @@ final class AddMonthlyFeeViewController: UIViewController {
   }
   
   private func setupBarButton() {
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+     addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
      navigationItem.rightBarButtonItem = addButton
-
    }
    
    @objc private func addButtonPressed() {
@@ -77,10 +78,18 @@ extension AddMonthlyFeeViewController {
   }
   
   private func bind() {
+    // Input
     monthlyAmountTextField.rx.text.asDriver()
       .map { Int($0 ?? "0") ?? 0 }
       .drive(viewModel.monthAmountInput)
       .disposed(by: disposeBag)
+    
+    // Output
+    viewModel
+        .isAddButtonEnabled
+        .asDriver(onErrorJustReturn: true)
+        .drive(addButton.rx.isEnabled)
+        .disposed(by: disposeBag)
   }
 }
 
