@@ -17,6 +17,7 @@ protocol UserSessionRepository {
   func signOut(userSession: UserSession) -> Promise<UserSession>
   
   func getLogs() -> Promise<[GroupLog]>
+  func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void>
   
   func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession>
   func changePassword(userSession: UserSession, newPassword: String) -> Promise<String>

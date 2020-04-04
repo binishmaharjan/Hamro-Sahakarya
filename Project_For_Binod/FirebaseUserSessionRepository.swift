@@ -100,6 +100,12 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return logApi.getLogs()
   }
   
+  func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void> {
+    return serverDataManager.addMonthlyFee(for: user, amount: amount)
+      .map { (admin, user, amount) }
+      .then(logApi.addMonthlyFeeLog(admin: userProfile: amount: ))
+  }
+  
   /// Change Member Status
   ///
   /// - Parameter user: The specific user whose status is to be changed
