@@ -88,7 +88,6 @@ final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
     }
   }
   
-  
   // MARK: Selection
   func isSelected(member: UserProfile) -> Bool {
     return selectedMember.contains(member)
@@ -105,7 +104,6 @@ final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
   func deselectAllMember() {
     selectedMember.removeAll()
   }
-  
 }
 
 // MARK: Apis
