@@ -27,6 +27,9 @@ enum HSError: Error {
   
   case passwordDoesntMatch
   case cannotChangeOwnStatus
+  
+  case noAuthError
+  case unknown
 }
 
 extension HSError: LocalizedError {
@@ -58,6 +61,10 @@ extension HSError: LocalizedError {
       return "Error: Couldnot Save Image"
     case .cannotChangeOwnStatus:
        return "Error: You Cannot Change Your Own Status"
+    case .noAuthError:
+      return "Error: Authorization Error"
+    default:
+      return "Error: Unknown"
     }
   }
   

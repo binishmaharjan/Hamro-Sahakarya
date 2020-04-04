@@ -10,6 +10,7 @@ import Foundation
 import PromiseKit
 import FirebaseFirestore
 import CodableFirebase
+import FirebaseAuth
 
 final class FireBaseLogRemoteApi: LogRemoteApi {
   
@@ -91,6 +92,36 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
         }
       }
       
+    }
+  }
+  
+  func addMonthlyFeeLog(admin: UserProfile, userProfile: UserProfile, amount: Int) -> Promise<Void> {
+    return Promise<Void> { seal in
+      
+      let logCreator = admin.username
+      let logTarget = userProfile.username
+      let amount = amount
+      let log = generateLog(logType: .monthlyFee, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
+      
+      let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
+      
+      DispatchQueue.global().async {
+        do {
+          let data = try FirestoreEncoder().encode(log) as [String:Any]
+          
+          let completion: (Error?) -> Void = { error in
+            guard let error = error else { return }
+            DispatchQueue.main.async { seal.reject(error)}
+          }
+          
+          logRef.setData(data, completion: completion)
+          
+          DispatchQueue.main.async { seal.fulfill(()) }
+          
+        } catch {
+         DispatchQueue.main.async { seal.reject(error) }
+        }
+      }
     }
   }
   

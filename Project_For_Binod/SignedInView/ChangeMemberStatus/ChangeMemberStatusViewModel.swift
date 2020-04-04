@@ -12,7 +12,7 @@ import RxCocoa
 
 protocol ChangeMemberStatusViewModel {
   var numberOfSection: Int { get }
-    var apiState: Driver<State> { get }
+  var apiState: Driver<State> { get }
   
   func numberOfRows(for section: Int) -> Int
   func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel
