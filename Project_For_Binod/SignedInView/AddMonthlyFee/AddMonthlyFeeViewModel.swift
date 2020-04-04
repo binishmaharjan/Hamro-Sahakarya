@@ -10,6 +10,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol AddMonthlyFeeStateProtocol {
+    var monthlyFeeAmount: Int { get }
+}
+
+extension AddMonthlyFeeStateProtocol {
+    var isAddButtonEnabled: Bool {
+        return monthlyFeeAmount > 0
+    }
+}
+
 protocol AddMonthlyFeeViewModel {
   var numberOfSection: Int { get }
   var apiState: Driver<State> { get }
@@ -31,6 +41,11 @@ enum AddMonthlyFeeRow {
 }
 
 final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
+    
+    struct UIState: AddMonthlyFeeStateProtocol {
+        var monthlyFeeAmount: Int
+    }
+    
    struct Section {
      let rows: [AddMonthlyFeeRow]
    }
