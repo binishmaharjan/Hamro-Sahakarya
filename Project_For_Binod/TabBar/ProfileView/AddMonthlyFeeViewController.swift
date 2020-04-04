@@ -35,6 +35,8 @@ final class AddMonthlyFeeViewController: UIViewController {
   
   // MARK: Methods
   private func setup() {
+    title = "Add Monthly Fee"
+    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.registerXib(of: MembersCell.self)
