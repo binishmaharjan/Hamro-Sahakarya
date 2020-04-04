@@ -44,6 +44,8 @@
 		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
+		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
+		64517C1324380F52009F13B6 /* AddMonthlyFeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517C1224380F52009F13B6 /* AddMonthlyFeeViewModel.swift */; };
 		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
 		64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */; };
 		64568ADF2403860700BCA18D /* MainOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADE2403860700BCA18D /* MainOrangeButton.swift */; };
@@ -88,6 +90,9 @@
 		6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */; };
 		6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */; };
 		64780824241E038900588769 /* ChangeMemberStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */; };
+		6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */; };
+		6478082924205C0500588769 /* AddMonthlyFeeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */; };
+		6478082B2421FC6000588769 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082A2421FC5F00588769 /* Steps.swift */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -177,6 +182,8 @@
 		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
+		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
+		64517C1224380F52009F13B6 /* AddMonthlyFeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthlyFeeViewModel.swift; sourceTree = "<group>"; };
 		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
 		64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservingViewController.swift; sourceTree = "<group>"; };
 		64568ADE2403860700BCA18D /* MainOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrangeButton.swift; sourceTree = "<group>"; };
@@ -221,6 +228,9 @@
 		6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewController.swift; sourceTree = "<group>"; };
 		6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeMemberStatusViewController.storyboard; sourceTree = "<group>"; };
 		64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewModel.swift; sourceTree = "<group>"; };
+		6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthlyFeeViewController.swift; sourceTree = "<group>"; };
+		6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMonthlyFeeViewController.storyboard; sourceTree = "<group>"; };
+		6478082A2421FC5F00588769 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +303,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64517C1124380F24009F13B6 /* AddMonthlyFee */,
 				64780822241E033C00588769 /* ChangeMemberStatus */,
 				64568B522413721800BCA18D /* ChangePassword */,
 				64568AE62409EBDC00BCA18D /* Members */,
@@ -308,6 +319,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				6478082524205ADC00588769 /* MonthlyFee */,
 				6478081A241C7F9E00588769 /* ChangeMemberStatus */,
 				64568B0D240B6A4200BCA18D /* ChangePassword */,
 				64568AE02409E8B000BCA18D /* Members */,
@@ -471,6 +483,14 @@
 				644F75C923EE7CF800AF42AB /* PreviewImageView.xib */,
 			);
 			path = PreviewImage;
+			sourceTree = "<group>";
+		};
+		64517C1124380F24009F13B6 /* AddMonthlyFee */ = {
+			isa = PBXGroup;
+			children = (
+				64517C1224380F52009F13B6 /* AddMonthlyFeeViewModel.swift */,
+			);
+			path = AddMonthlyFee;
 			sourceTree = "<group>";
 		};
 		64568AD723F96E9700BCA18D /* ChangePicture */ = {
@@ -723,6 +743,15 @@
 			path = ChangeMemberStatus;
 			sourceTree = "<group>";
 		};
+		6478082524205ADC00588769 /* MonthlyFee */ = {
+			isa = PBXGroup;
+			children = (
+				6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */,
+				6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */,
+			);
+			name = MonthlyFee;
+			sourceTree = "<group>";
+		};
 		6492C16D235AA48C009BE621 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,6 +971,7 @@
 				64FBE1D523D5D6510027E44C /* NSObject+Extension.swift */,
 				645939BD235ABBE400A99902 /* Optional+Extension.swift */,
 				6402F4142377FBCE0044835F /* Date+Extension.swift */,
+				6478082A2421FC5F00588769 /* Steps.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -951,6 +981,7 @@
 			children = (
 				64FBE1DD23D5DE1A0027E44C /* UIView+Rx.swift */,
 				6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */,
+				64517BE2243081F6009F13B6 /* Observables+Additions.swift */,
 			);
 			name = Rx;
 			sourceTree = "<group>";
@@ -1080,6 +1111,7 @@
 				6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */,
 				64568AEC2409ECE500BCA18D /* MembersCell.xib in Resources */,
 				6400FF9123E4753D0079A623 /* ProfileFooterView.xib in Resources */,
+				6478082924205C0500588769 /* AddMonthlyFeeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,8 +1215,10 @@
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				6400FF7123E074FD0079A623 /* ProfileMainViewController.swift in Sources */,
 				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
+				6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */,
 				64568AE22409E8D000BCA18D /* MembersViewController.swift in Sources */,
 				64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */,
+				6478082B2421FC6000588769 /* Steps.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
 				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
@@ -1198,6 +1232,7 @@
 				64FBE1AD23D2D0070027E44C /* SignedInViewModel.swift in Sources */,
 				6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */,
 				64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */,
+				64517C1324380F52009F13B6 /* AddMonthlyFeeViewModel.swift in Sources */,
 				646604B223798B8E00122718 /* OnboardingView.swift in Sources */,
 				6400FF8223E1C9CC0079A623 /* ProfileTopCell.swift in Sources */,
 				645939C9235AC5D500A99902 /* UserSessionRepository.swift in Sources */,
@@ -1232,6 +1267,7 @@
 				ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */,
 				6402F4102377B8370044835F /* FireStoreDataManager.swift in Sources */,
 				645939B3235AB73800A99902 /* UIViewControllerContaintment.swift in Sources */,
+				64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */,
 				645939AB235AAE5900A99902 /* UserProfile.swift in Sources */,
 				6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */,
 				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
