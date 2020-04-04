@@ -85,6 +85,8 @@ extension ProfileMainViewController {
       break
     case .logout:
       break
+    case .addMonthlyFee:
+      showAddMonthlyFeeView()
     }
   }
   
@@ -105,6 +107,11 @@ extension ProfileMainViewController {
   
   private func showChangeMemberStatusView() {
     let viewController = profileViewControllerFactory.makeChangeMemberStatusViewController()
+    pushViewController(viewController, animated: true)
+  }
+  
+  private func showAddMonthlyFeeView() {
+    let viewController = profileViewControllerFactory.makeAddMonthlyFeeViewController()
     pushViewController(viewController, animated: true)
   }
 }
@@ -131,6 +138,8 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
       return .changePassword
     case is ChangeMemberStatusViewController:
       return .changeMemberStatus
+    case is AddMonthlyFeeViewController:
+      return .addMonthlyFee
     default:
       fatalError("Unknown View")
     }

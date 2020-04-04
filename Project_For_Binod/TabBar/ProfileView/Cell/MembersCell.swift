@@ -28,6 +28,12 @@ final class MembersCell: UITableViewCell {
     memberStatusLabel.text = viewModel.status
     memberImageView.loadImage(with: viewModel.imageUrl)
   }
+  
+  func makeAllCell() {
+    memberNameLabel.text = "All"
+    memberStatusLabel.text = "Status: -"
+    memberImageView.image = UIImage(named: "hamro_sahakarya")
+  }
 }
 
 // MARK: ViewModel

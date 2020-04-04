@@ -63,7 +63,8 @@ protocol ProfileViewControllerFactory {
   func makeChangePictureViewController() -> ChangePictureViewController
   func makeMembersViewController() -> MembersViewController
   func makeChangePasswordViewController() -> ChangePasswordViewController
-  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController 
+  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
+  func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -116,5 +117,18 @@ extension ProfileMainDependencyContainer {
   func makeChangeMemberStatusViewModel() -> ChangeMemberStatusViewModel {
     return DefaultChangeMemberStatusViewModel(userSessionRepository: sharedUserSessionRepository,
                                               userSession: userSession)
+  }
+}
+
+extension ProfileMainDependencyContainer {
+  func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController {
+    let viewModel = makeAddMonthlyFeeViewModel()
+    let addMonthlyFeeViewController = AddMonthlyFeeViewController.makeInstance(viewModel: viewModel)
+    return addMonthlyFeeViewController
+  }
+  
+  func makeAddMonthlyFeeViewModel() -> AddMonthlyFeeViewModel {
+    return DefaultAddMonthlyFeeViewModel(userSessionRepository: sharedUserSessionRepository,
+                                         userSession: userSession)
   }
 }

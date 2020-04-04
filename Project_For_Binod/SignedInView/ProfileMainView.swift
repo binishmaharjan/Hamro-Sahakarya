@@ -14,6 +14,7 @@ enum ProfileMainView {
   case changePassword
   case members
   case changeMemberStatus
+  case addMonthlyFee
   case termsOfAgreement
   case licence
   case logout
