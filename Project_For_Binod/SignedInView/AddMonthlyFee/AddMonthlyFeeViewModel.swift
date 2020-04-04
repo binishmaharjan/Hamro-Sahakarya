@@ -23,6 +23,7 @@ extension AddMonthlyFeeStateProtocol {
 protocol AddMonthlyFeeViewModel {
   var numberOfSection: Int { get }
   var apiState: Driver<State> { get }
+    var addMonthlyFeeSuccessful: Driver<Bool> { get }
   var monthAmountInput: BehaviorRelay<Int> { get }
     var isAddButtonEnabled: Observable<Bool> { get }
   
@@ -39,6 +40,11 @@ protocol AddMonthlyFeeViewModel {
 enum AddMonthlyFeeRow {
   case all
   case member(UserProfile, MemberCellViewModel)
+}
+
+enum AddMonthlyFeeLastApiCompletion {
+    case getMembers
+    case addMonthlyFee
 }
 
 final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
@@ -72,6 +78,8 @@ final class DefaultAddMonthlyFeeViewModel: AddMonthlyFeeViewModel {
   
   @PropertyBehaviourRelay<State>(value: .idle)
   var apiState: Driver<State>
+    @PropertyBehaviourRelay<Bool>(value: false)
+    var addMonthlyFeeSuccessful: Driver<Bool>
   let monthAmountInput = BehaviorRelay<Int>(value: 0)
   
   var numberOfSection: Int {
@@ -163,10 +171,12 @@ extension DefaultAddMonthlyFeeViewModel {
   }
   
   private func indicateLoading() {
+    _addMonthlyFeeSuccessful.accept(false)
     _apiState.accept(.loading)
   }
   
   private func indicateAddMonthlyFeeSuccess() {
+     _addMonthlyFeeSuccessful.accept(true)
     dispatchGroup.leave()
   }
   

@@ -57,24 +57,34 @@ final class AddMonthlyFeeViewController: UIViewController {
 // MARK: Bindable
 extension AddMonthlyFeeViewController {
   private func bindApiState() {
-    
-    viewModel.apiState.driveNext { [weak self] (state) in
-      switch state {
-      case .completed:
-        self?.tableView.reloadData()
-        GUIManager.shared.stopAnimation()
-       
-      case .error(let error):
-        let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
-        GUIManager.shared.showDropDownNotification(data: dropDownModel)
-       
-      case .loading:
-        GUIManager.shared.startAnimation()
-       
-      default:
-        break
-      }
-    }.disposed(by: disposeBag)
+
+    viewModel.apiState
+        .withLatestFrom(viewModel.addMonthlyFeeSuccessful) { return ($0, $1) }
+        .driveNext { [weak self] (state, isAddMonthlyFeeSuccessful) in
+            
+            switch state {
+            case .completed:
+                if isAddMonthlyFeeSuccessful {
+                    let dropDownModel = DropDownModel(dropDownType: .success, message: "Monthly Fee Was Added Successfully")
+                    GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                } else {
+                    self?.tableView.reloadData()
+                }
+              
+              GUIManager.shared.stopAnimation()
+             
+            case .error(let error):
+              let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+              GUIManager.shared.showDropDownNotification(data: dropDownModel)
+             
+            case .loading:
+              GUIManager.shared.startAnimation()
+             
+            default:
+              break
+            }
+    }
+    .disposed(by: disposeBag)
   }
   
   private func bind() {
