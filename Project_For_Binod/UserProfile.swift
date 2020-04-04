@@ -20,9 +20,9 @@ struct UserProfile: Equatable, Codable {
   let keyword: String
   
   //Account
-  let loanTaken: Int?
-  let balance: Int?
-  let dateUpdated: String?
+  let loanTaken: Int
+  let balance: Int
+  let dateUpdated: String
   
   private enum CodingKeys:String, CodingKey {
      case uid
