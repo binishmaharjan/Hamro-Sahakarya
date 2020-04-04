@@ -34,7 +34,7 @@ final class ChangePasswordViewController: KeyboardObservingViewController {
   @IBAction func changePasswordButtonPressed(_ sender: Any) {
     viewModel.changePassword()
   }
-  
+
 }
 
 // MARK: Bindable
