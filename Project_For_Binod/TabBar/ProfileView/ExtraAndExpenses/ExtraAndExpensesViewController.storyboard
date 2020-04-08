@@ -36,10 +36,10 @@
                                                 <color key="textColor" name="grey"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QF6-VO-Qgl" userLabel="Email Field View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QF6-VO-Qgl" userLabel="Type Field View">
                                                 <rect key="frame" x="0.0" y="19.5" width="315" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3P8-7i-vcL">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3P8-7i-vcL">
                                                         <rect key="frame" x="8" y="0.0" width="299" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -76,7 +76,7 @@
                                                 <color key="textColor" name="grey"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZE-F0-IxL" userLabel="Email Field View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZE-F0-IxL" userLabel="Amount Field View">
                                                 <rect key="frame" x="0.0" y="19.5" width="315" height="30"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7e-9j-ZzJ">
@@ -116,7 +116,7 @@
                                                 <color key="textColor" name="grey"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9Z-HQ-OOA" userLabel="Email Field View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9Z-HQ-OOA" userLabel="Reason Field View">
                                                 <rect key="frame" x="0.0" y="19.5" width="315" height="200"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-7R-zJB">
@@ -165,6 +165,9 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="confirmButtonPressed:" destination="RXj-HX-qBI" eventType="touchUpInside" id="8k8-jk-Vhw"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-F2-tiM">
                                         <rect key="frame" x="0.0" y="428.5" width="315" height="238.5"/>
@@ -182,6 +185,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J1v-fH-21r"/>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="D7e-9j-ZzJ" id="fT0-GX-QIr"/>
+                        <outlet property="confirmButton" destination="xgx-oy-Nch" id="par-w0-vT3"/>
+                        <outlet property="reasonTextView" destination="PhN-7R-zJB" id="Plc-hW-mXa"/>
+                        <outlet property="typeTextField" destination="3P8-7i-vcL" id="HiV-Xa-87P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-Gd-U3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
