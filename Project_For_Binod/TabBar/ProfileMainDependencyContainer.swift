@@ -65,6 +65,7 @@ protocol ProfileViewControllerFactory {
   func makeChangePasswordViewController() -> ChangePasswordViewController
   func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
   func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
+  func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -120,6 +121,7 @@ extension ProfileMainDependencyContainer {
   }
 }
 
+// MARK: AddMonthlyFeeViewController
 extension ProfileMainDependencyContainer {
   func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController {
     let viewModel = makeAddMonthlyFeeViewModel()
@@ -131,4 +133,17 @@ extension ProfileMainDependencyContainer {
     return DefaultAddMonthlyFeeViewModel(userSessionRepository: sharedUserSessionRepository,
                                          userSession: userSession)
   }
+}
+
+// MARK: Extra And Expenses ViewController
+extension ProfileMainDependencyContainer {
+    func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController {
+        let viewMdel = makeExtraAndExpensesViewModel()
+        let extraAndExpensesViewController = ExtraAndExpensesViewController.makeInstance(viewModel: viewMdel)
+        return extraAndExpensesViewController
+    }
+    
+    func makeExtraAndExpensesViewModel() -> ExtraAndExpensesViewModel {
+        return ExtraAndExpensesViewModel()
+    }
 }
