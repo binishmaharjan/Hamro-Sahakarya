@@ -88,6 +88,8 @@
 		646604C42379A30500122718 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C32379A30500122718 /* SignInViewModel.swift */; };
 		646604C62379A31A00122718 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C52379A31A00122718 /* SignUpViewModel.swift */; };
 		646604C82379A92300122718 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646604C72379A92300122718 /* UIView+Extension.swift */; };
+		6470ADE8243D67F500DC5189 /* ExtraAndExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470ADE7243D67F500DC5189 /* ExtraAndExpensesViewController.swift */; };
+		6470ADEA243D683000DC5189 /* ExtraAndExpensesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6470ADE9243D683000DC5189 /* ExtraAndExpensesViewController.storyboard */; };
 		6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */; };
 		6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */; };
 		64780824241E038900588769 /* ChangeMemberStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */; };
@@ -227,6 +229,8 @@
 		646604C32379A30500122718 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		646604C52379A31A00122718 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		646604C72379A92300122718 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6470ADE7243D67F500DC5189 /* ExtraAndExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraAndExpensesViewController.swift; sourceTree = "<group>"; };
+		6470ADE9243D683000DC5189 /* ExtraAndExpensesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExtraAndExpensesViewController.storyboard; sourceTree = "<group>"; };
 		6478081B241C7FC900588769 /* ChangeMemberStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewController.swift; sourceTree = "<group>"; };
 		6478081D241C801000588769 /* ChangeMemberStatusViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeMemberStatusViewController.storyboard; sourceTree = "<group>"; };
 		64780823241E038900588769 /* ChangeMemberStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberStatusViewModel.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				6470ADE6243D672200DC5189 /* ExtraAndExpenses */,
 				6478082524205ADC00588769 /* MonthlyFee */,
 				6478081A241C7F9E00588769 /* ChangeMemberStatus */,
 				64568B0D240B6A4200BCA18D /* ChangePassword */,
@@ -728,6 +733,15 @@
 			name = SignUpView;
 			sourceTree = "<group>";
 		};
+		6470ADE6243D672200DC5189 /* ExtraAndExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				6470ADE7243D67F500DC5189 /* ExtraAndExpensesViewController.swift */,
+				6470ADE9243D683000DC5189 /* ExtraAndExpensesViewController.storyboard */,
+			);
+			path = ExtraAndExpenses;
+			sourceTree = "<group>";
+		};
 		6478081A241C7F9E00588769 /* ChangeMemberStatus */ = {
 			isa = PBXGroup;
 			children = (
@@ -1093,6 +1107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6400FF8323E1C9CC0079A623 /* ProfileTopCell.xib in Resources */,
+				6470ADEA243D683000DC5189 /* ExtraAndExpensesViewController.storyboard in Resources */,
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */,
 				6400FF7A23E1BC6D0079A623 /* ProfileViewController.storyboard in Resources */,
@@ -1232,6 +1247,7 @@
 				64FBE1C823D48D7B0027E44C /* GroupLog.swift in Sources */,
 				64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */,
 				6400FF9323E533190079A623 /* ProfileViewModel.swift in Sources */,
+				6470ADE8243D67F500DC5189 /* ExtraAndExpensesViewController.swift in Sources */,
 				64FBE1AD23D2D0070027E44C /* SignedInViewModel.swift in Sources */,
 				6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */,
 				64FBE15923C2002C0027E44C /* UIColor+Extension.swift in Sources */,
