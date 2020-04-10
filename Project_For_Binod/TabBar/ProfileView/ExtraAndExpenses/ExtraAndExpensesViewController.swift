@@ -13,7 +13,7 @@ import RxCocoa
 final class ExtraAndExpensesViewController: UIViewController {
     
     // MARK: IBOutlet
-    @IBOutlet private weak var typeTextField: UITextField!
+    @IBOutlet private weak var typeTextField: UILabel!
     @IBOutlet private weak var amountTextField: UITextField!
     @IBOutlet private weak var reasonTextView: UITextView!
     @IBOutlet private weak var confirmButton: UIButton!
@@ -26,6 +26,36 @@ final class ExtraAndExpensesViewController: UIViewController {
         super.viewDidLoad()
         bindApiState()
         bindUIState()
+        
+        setup()
+    }
+    
+    private func setup() {
+        let typeSelectionTapGesture = UITapGestureRecognizer(target: self, action: #selector(typeSelectionTapped))
+        typeTextField.addGestureRecognizer(typeSelectionTapGesture)
+    }
+    
+    @objc private func typeSelectionTapped() {
+        showTypeSelectionSheet()
+    }
+    
+    private func showTypeSelectionSheet() {
+        let actionSheet = UIAlertController(title: "Type Selection", message: "Extra Or Expenses", preferredStyle: .actionSheet)
+        let actions = ExtraOrExpenses.allCases.map { [weak self] type -> UIAlertAction in
+            
+            let action = UIAlertAction(title: type.rawValue, style: .default) { (_) in
+                   self?.viewModel.selectedTypeInput.accept(type)
+                 }
+                 
+                 return action
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        actions.forEach { actionSheet.addAction($0) }
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true)
     }
     
     // MARK: IBActions
@@ -84,6 +114,12 @@ extension ExtraAndExpensesViewController {
         viewModel.isConfirmButtonEnabled
             .asDriver(onErrorJustReturn: false)
             .drive(confirmButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectedTypeInput
+            .asDriver(onErrorJustReturn: .extra)
+            .map { $0.rawValue }
+            .drive(typeTextField.rx.text)
             .disposed(by: disposeBag)
     }
 }

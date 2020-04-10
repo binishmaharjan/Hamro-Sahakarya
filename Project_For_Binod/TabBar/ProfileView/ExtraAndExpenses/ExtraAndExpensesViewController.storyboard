@@ -39,19 +39,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QF6-VO-Qgl" userLabel="Type Field View">
                                                 <rect key="frame" x="0.0" y="19.5" width="315" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3P8-7i-vcL">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu1-Vv-hBP">
                                                         <rect key="frame" x="8" y="0.0" width="299" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="3P8-7i-vcL" firstAttribute="top" secondItem="QF6-VO-Qgl" secondAttribute="top" id="2PB-KR-OX8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="3P8-7i-vcL" secondAttribute="trailing" constant="8" id="Bhn-5M-kHh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qu1-Vv-hBP" secondAttribute="trailing" constant="8" id="GSf-wR-OEW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Qu1-Vv-hBP" secondAttribute="bottom" id="WC2-ho-dTa"/>
                                                     <constraint firstAttribute="height" constant="30" id="box-84-dei"/>
-                                                    <constraint firstAttribute="bottom" secondItem="3P8-7i-vcL" secondAttribute="bottom" id="jpJ-tu-VeY"/>
-                                                    <constraint firstItem="3P8-7i-vcL" firstAttribute="leading" secondItem="QF6-VO-Qgl" secondAttribute="leading" constant="8" id="knn-5G-RSe"/>
+                                                    <constraint firstItem="Qu1-Vv-hBP" firstAttribute="top" secondItem="QF6-VO-Qgl" secondAttribute="top" id="qgu-Bb-Hyx"/>
+                                                    <constraint firstItem="Qu1-Vv-hBP" firstAttribute="leading" secondItem="QF6-VO-Qgl" secondAttribute="leading" constant="8" id="ub9-k2-UZb"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -81,7 +82,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7e-9j-ZzJ">
                                                         <rect key="frame" x="8" y="0.0" width="299" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
@@ -122,7 +123,7 @@
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write reason" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-7R-zJB">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="200"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" name="c241D1D"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
@@ -188,7 +189,7 @@
                         <outlet property="amountTextField" destination="D7e-9j-ZzJ" id="fT0-GX-QIr"/>
                         <outlet property="confirmButton" destination="xgx-oy-Nch" id="par-w0-vT3"/>
                         <outlet property="reasonTextView" destination="PhN-7R-zJB" id="Plc-hW-mXa"/>
-                        <outlet property="typeTextField" destination="3P8-7i-vcL" id="HiV-Xa-87P"/>
+                        <outlet property="typeTextField" destination="Qu1-Vv-hBP" id="tXe-G1-E6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-Gd-U3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,6 +198,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="c241D1D">
+            <color red="0.14117647058823529" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="cEF5D0B">
             <color red="0.93725490196078431" green="0.36470588235294116" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

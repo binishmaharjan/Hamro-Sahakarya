@@ -10,9 +10,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum ExtraOrExpenses {
-    case extra
-    case expenses
+enum ExtraOrExpenses: String, CaseIterable {
+    case extra = "Extra"
+    case expenses = "Expenses"
 }
 
 protocol ExtraAndExpensesStateProtocol {
