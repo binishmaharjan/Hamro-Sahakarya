@@ -11,13 +11,13 @@ import RxSwift
 import RxCocoa
 
 enum ExtraOrExpenses {
-    case Extra
-    case Expenses
+    case extra
+    case expenses
 }
 
-struct ExtraAndExpensesStateProtocol {
-    var amount: Int
-    var reason: String
+protocol ExtraAndExpensesStateProtocol {
+    var amount: Int { get }
+    var reason: String { get }
 }
 
 extension ExtraAndExpensesStateProtocol {
