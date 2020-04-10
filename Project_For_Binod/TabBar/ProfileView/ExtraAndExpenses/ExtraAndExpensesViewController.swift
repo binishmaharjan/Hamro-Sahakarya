@@ -62,7 +62,7 @@ final class ExtraAndExpensesViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction private func confirmButtonPressed(_ sender: Any) {
-        
+        viewModel.updateExtraOrExpenses()
     }
 }
 
@@ -84,6 +84,9 @@ extension ExtraAndExpensesViewController {
             switch state {
             case .completed:
                 GUIManager.shared.stopAnimation()
+                
+                let dropDownModel = DropDownModel(dropDownType: .success, message: "SuccessFul!!!")
+                GUIManager.shared.showDropDownNotification(data: dropDownModel)
                 
             case .error(let error):
                 let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)

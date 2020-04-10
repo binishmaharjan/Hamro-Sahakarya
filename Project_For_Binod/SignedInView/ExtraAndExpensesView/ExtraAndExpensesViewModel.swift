@@ -34,7 +34,7 @@ protocol ExtranAndExpensesViewModelProtocol {
     
     var apiState: Driver<State> { get }
     
-    func addExtraOrExpenses()
+    func updateExtraOrExpenses()
 }
 
 struct ExtraAndExpensesViewModel: ExtranAndExpensesViewModelProtocol {
@@ -65,7 +65,28 @@ struct ExtraAndExpensesViewModel: ExtranAndExpensesViewModelProtocol {
     }
     
     
-    func addExtraOrExpenses() {
+    func updateExtraOrExpenses() {
+        indicateLoading()
         
+        userSessionRepository
+            .updateExtraAndExpenses(admin: userSession.profile, type: selectedTypeInput.value, amount: amountInput.value, reason: reasonInput.value)
+            .done{ self.indicateSuccess() }
+            .catch(indicateError(error:))
+    }
+}
+
+// MARK: Indication
+extension ExtraAndExpensesViewModel {
+    
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateSuccess() {
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateError(error: Error) {
+        _apiState.accept(.error(error))
     }
 }
