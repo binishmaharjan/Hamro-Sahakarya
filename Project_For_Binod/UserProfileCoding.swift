@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UserProfileCoding {
-  
-  func encode(userSession: UserSession) -> Data
-  func decode(data: Data) throws -> UserSession
+    
+    func encode(userSession: UserSession) -> Data
+    func decode(data: Data) throws -> UserSession
 }

@@ -12,19 +12,19 @@ import RxSwift
 typealias OnboardingNavigationAction = NavigationAction<OnboardingView>
 
 struct OnboardingViewModel {
-  
-  private let _view = BehaviorSubject<OnboardingNavigationAction>(value: .present(view: .signIn))
-  var view: Observable<OnboardingNavigationAction> { return _view.asObservable() }
-  
+    
+    private let _view = BehaviorSubject<OnboardingNavigationAction>(value: .present(view: .signIn))
+    var view: Observable<OnboardingNavigationAction> { return _view.asObservable() }
+    
 }
 
 extension OnboardingViewModel: GoToSignUpNavigator {
-  func navigateToSignUp() {
-    _view.onNext(.present(view: .signUp))
-  }
-  
-  func uiPresented(onboardingView: OnboardingView) {
-    _view.onNext(.presented(view: onboardingView))
-  }
-
+    func navigateToSignUp() {
+        _view.onNext(.present(view: .signUp))
+    }
+    
+    func uiPresented(onboardingView: OnboardingView) {
+        _view.onNext(.presented(view: onboardingView))
+    }
+    
 }

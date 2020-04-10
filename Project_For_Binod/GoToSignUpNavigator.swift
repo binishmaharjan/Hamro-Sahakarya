@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GoToSignUpNavigator {
-  func navigateToSignUp()
+    func navigateToSignUp()
 }

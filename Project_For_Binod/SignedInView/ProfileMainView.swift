@@ -9,14 +9,14 @@
 import Foundation
 
 enum ProfileMainView {
-  case profileView
-  case changePicture
-  case changePassword
-  case members
-  case changeMemberStatus
-  case addMonthlyFee
-  case extraAndExpenses
-  case termsOfAgreement
-  case licence
-  case logout
+    case profileView
+    case changePicture
+    case changePassword
+    case members
+    case changeMemberStatus
+    case addMonthlyFee
+    case extraAndExpenses
+    case termsOfAgreement
+    case licence
+    case logout
 }

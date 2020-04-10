@@ -10,8 +10,8 @@ import Foundation
 
 /// Data Model for the Drop Down Notitication
 struct DropDownModel {
-  let dropDownType: DropDownType
-  let message: String
-  
-  static let defaultDropDown = DropDownModel(dropDownType: .normal, message: "Default Drop Down")
+    let dropDownType: DropDownType
+    let message: String
+    
+    static let defaultDropDown = DropDownModel(dropDownType: .normal, message: "Default Drop Down")
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 enum ErrorPresentation {
-  case presenting
-  case dismissed
+    case presenting
+    case dismissed
 }

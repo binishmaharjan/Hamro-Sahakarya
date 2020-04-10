@@ -10,18 +10,18 @@ import Foundation
 import PromiseKit
 
 protocol UserSessionRepository {
-  
-  func readUserSession() -> Promise<UserSession?>
-  func signUp(newAccount: NewAccount) -> Promise<UserSession>
-  func signIn(email: String, password: String) -> Promise<UserSession>
-  func signOut(userSession: UserSession) -> Promise<UserSession>
-  
-  func getLogs() -> Promise<[GroupLog]>
-  func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void>
+    
+    func readUserSession() -> Promise<UserSession?>
+    func signUp(newAccount: NewAccount) -> Promise<UserSession>
+    func signIn(email: String, password: String) -> Promise<UserSession>
+    func signOut(userSession: UserSession) -> Promise<UserSession>
+    
+    func getLogs() -> Promise<[GroupLog]>
+    func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void>
     func updateExtraAndExpenses(admin: UserProfile, type: ExtraOrExpenses, amount: Int, reason: String) -> Promise<Void> 
-  
-  func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession>
-  func changePassword(userSession: UserSession, newPassword: String) -> Promise<String>
-  func changeStatus(for user: UserProfile) -> Promise<Void>
-  func getAllMembers() -> Promise<[UserProfile]>
+    
+    func changeProfilePicture(userSession: UserSession, image: UIImage) -> Promise<UserSession>
+    func changePassword(userSession: UserSession, newPassword: String) -> Promise<String>
+    func changeStatus(for user: UserProfile) -> Promise<Void>
+    func getAllMembers() -> Promise<[UserProfile]>
 }

@@ -11,26 +11,26 @@ import RxSwift
 
 // TODO: Make this struct
 final class MainViewModel {
-  
-  private let viewSubject = BehaviorSubject<MainView>(value: .launching)
-  var view: Observable<MainView> { return  viewSubject.asObservable() }
-  
-  init() { }
+    
+    private let viewSubject = BehaviorSubject<MainView>(value: .launching)
+    var view: Observable<MainView> { return  viewSubject.asObservable() }
+    
+    init() { }
 }
 
 // MARK: Set Main Child View To SignedIn View
 extension MainViewModel: SignedInResponder {
-  
-  func signedIn(to userSession: UserSession) {
-    viewSubject.onNext(.signedIn(userSession: userSession))
-  }
+    
+    func signedIn(to userSession: UserSession) {
+        viewSubject.onNext(.signedIn(userSession: userSession))
+    }
 }
 
 // MARK: Set Main Child View To Onboarding View
 extension MainViewModel: NotSignedInResponder {
-  
-  func notSignedIn() {
-    viewSubject.onNext(.onboarding)
-  }
+    
+    func notSignedIn() {
+        viewSubject.onNext(.onboarding)
+    }
 }
 

@@ -10,5 +10,5 @@ import Foundation
 
 
 enum SignedInView {
-  case tabbar
+    case tabbar
 }

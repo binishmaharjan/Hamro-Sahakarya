@@ -9,17 +9,17 @@
 import Foundation
 
 final class UserProfilePropertyListCoder: UserProfileCoding {
-  func encode(userSession: UserSession) -> Data {
-    return try! PropertyListEncoder().encode(userSession)
-  }
-  
-  func decode(data: Data) throws -> UserSession {
-    do {
-      return try PropertyListDecoder().decode(UserSession.self, from: data)
-    } catch {
-      throw HSError.dataDecodingError
+    func encode(userSession: UserSession) -> Data {
+        return try! PropertyListEncoder().encode(userSession)
     }
     
-  }
+    func decode(data: Data) throws -> UserSession {
+        do {
+            return try PropertyListDecoder().decode(UserSession.self, from: data)
+        } catch {
+            throw HSError.dataDecodingError
+        }
+        
+    }
 }
 
