@@ -38,3 +38,9 @@ struct UserProfile: Equatable, Codable {
      case keyword
    }
 }
+
+
+struct GroupDetail: Equatable, Codable {
+    let extra: Int
+    let expenses: Int
+}

@@ -135,10 +135,8 @@ extension ProfileViewController {
       viewModel.navigate(to: .members)
     case .changeStatus:
       viewModel.navigate(to: .changeMemberStatus)
-    case .extra:
-      break
-    case .expenses:
-      break
+    case .extraAndExpenses:
+        viewModel.navigate(to: .extraAndExpenses)
     case .monthlyFee:
       viewModel.navigate(to: .addMonthlyFee)
     case .loanMember:

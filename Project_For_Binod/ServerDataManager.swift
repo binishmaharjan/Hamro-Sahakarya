@@ -18,4 +18,6 @@ protocol ServerDataManager {
   func getAllMembers() -> Promise<[UserProfile]>
   func changeStatus(for user: UserProfile) -> Promise<Void>
   func addMonthlyFee(for user: UserProfile, amount: Int) -> Promise<Void>
+    func updateExtraAndExpenses(groupDetail: GroupDetail, extra: Int, expenses: Int) -> Promise<Void>
+    func getExtraAndExpenses() -> Promise<GroupDetail>
 }

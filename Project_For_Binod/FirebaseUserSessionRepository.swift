@@ -100,12 +100,6 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     return logApi.getLogs()
   }
   
-  func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void> {
-    return serverDataManager.addMonthlyFee(for: user, amount: amount)
-      .map { (admin, user, amount) }
-      .then(logApi.addMonthlyFeeLog(admin: userProfile: amount: ))
-  }
-  
   /// Change Member Status
   ///
   /// - Parameter user: The specific user whose status is to be changed
@@ -135,6 +129,45 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
       .then(serverDataManager.readUser(uid:))
       .then(dataStore.save(userSession:))
   }
+    
+    // MARK: Update
+    
+    /// Update Extra Or Expenses
+    ///
+    /// - Parameter admin: Admin who made the transaction
+    /// - Parameter type: Extra or Expenses
+    /// - Parameter amount: Amount to be added
+    /// - Parameter reason: Reason that was added
+    /// - Return Promise<Void> : Indication of Completion
+    func updateExtraAndExpenses(admin: UserProfile, type: ExtraOrExpenses, amount: Int, reason: String) -> Promise<Void> {
+        let extra: Int, expenses: Int
+        if case ExtraOrExpenses.extra = type {
+            extra = amount
+            expenses = 0
+        } else {
+            extra = 0
+            expenses = amount
+        }
+        
+        return serverDataManager.getExtraAndExpenses()
+            . map { ($0, extra, expenses) }
+            .then(serverDataManager.updateExtraAndExpenses(groupDetail: extra: expenses: ))
+            .map { (type, admin, amount, reason) }
+            .then(logApi.addExtraOrExpensesLog(type: admin: amount: reason: ))
+    }
+    
+    /// Add Monthyl Fee For A Single User
+    ///
+    /// - Parameter admin: Admin who made the transaction
+    /// - Parameter user: Target User
+    /// - Parameter amount: Amount to be added
+    /// - Return Promise<Void> : Indication of Completion
+    func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void> {
+      return serverDataManager.addMonthlyFee(for: user, amount: amount)
+        .map { (admin, user, amount) }
+        .then(logApi.addMonthlyFeeLog(admin: userProfile: amount: ))
+    }
+    
 }
 
 

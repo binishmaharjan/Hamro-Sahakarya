@@ -231,5 +231,66 @@ final class FireStoreDataManager: ServerDataManager {
       
     }
   }
+    
+    func updateExtraAndExpenses(groupDetail: GroupDetail, extra: Int, expenses: Int) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.HAMRO_SAHAKARYA_REF).document(DatabaseReference.DETAIL_REF)
+            let newExtra = groupDetail.extra + extra
+            let newExpenses = groupDetail.expenses + expenses
+            
+            let updatedData = [
+                DatabaseReference.EXTRA: newExtra,
+                DatabaseReference.EXPENSES: newExpenses
+            ]
+            
+            DispatchQueue.main.async {
+              
+              let completion: (Error?) -> Void = { error in
+                     if let error = error {
+                       DispatchQueue.main.async { seal.reject(error) }
+                       return
+                     }
+                     
+                     DispatchQueue.main.async { seal.fulfill(()) }
+                   }
+              
+              reference.updateData(updatedData, completion: completion)
+            }
+        }
+    }
+    
+    func getExtraAndExpenses() -> Promise<GroupDetail> {
+        return Promise<GroupDetail> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.HAMRO_SAHAKARYA_REF).document(DatabaseReference.DETAIL_REF)
+            
+            DispatchQueue.global().async {
+                reference.getDocument { (snapshot, error) in
+                    
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    guard let snapshot = snapshot else {
+                        DispatchQueue.main.async { seal.reject(HSError.noSnapshotError) }
+                        return
+                    }
+                    
+                    guard let data  = snapshot.data() else {
+                        DispatchQueue.main.async { seal.reject(HSError.emptyDataError) }
+                        return
+                    }
+                    
+                    do {
+                        let groupDetail = try FirestoreDecoder().decode(GroupDetail.self, from: data)
+                        DispatchQueue.main.async { seal.fulfill(groupDetail) }
+                    } catch {
+                        DispatchQueue.main.async { seal.reject(error) }
+                    }
+                    
+                }
+            }
+        }
+    }
   
 }

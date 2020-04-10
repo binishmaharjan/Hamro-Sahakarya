@@ -20,8 +20,7 @@ enum ProfileRow {
   
   // Admin
   case changeStatus
-  case extra
-  case expenses
+  case extraAndExpenses
   case monthlyFee
   case loanMember
   case loanReturned
@@ -50,10 +49,8 @@ enum ProfileRow {
       return "Logout"
     case .changeStatus:
       return "Change Status"
-    case .extra:
-      return "Add Extra"
-    case .expenses:
-      return "Add Expenses"
+    case .extraAndExpenses:
+        return "Extra Income And Expenses"
     case .monthlyFee:
       return "Monthly Fee"
     case .loanMember:
@@ -97,7 +94,7 @@ struct DefaultProfileViewModel: ProfileViewModel {
     // Making Section
     let topSection =  ProfileSection(rows: [.top(DefaultProfileTopCellViewModel(userSession: userSession))])
     let userSection = ProfileSection(rows: [.changePicture, .changePassword, .members])
-    let adminSection = ProfileSection(rows: [.changeStatus, .monthlyFee, .extra, .expenses, .loanMember, .loanReturned])
+    let adminSection = ProfileSection(rows: [.changeStatus, .monthlyFee, .extraAndExpenses, .loanMember, .loanReturned])
     let otherSection = ProfileSection(rows: [.termsOfAgreement, .license, .logout])
     
     var section: [ProfileSection] = []

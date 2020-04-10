@@ -72,9 +72,9 @@ struct DefaultLogCellViewModel: LogCellViewModel {
     case .monthlyFee:
       return "\(logTarget) was given the monthly fee of amount ¥\(amount). Transaction was made by admin \(logCreator)"
     case .extra:
-      return "\(amount) of was received as \(reason). Transaction was made by admin \(logCreator)"
+        return "¥\(amount) of was received as Extra. Transaction was made by admin \(logCreator).\n\n- Reason:\n\(reason)"
     case .expenses:
-       return "\(amount) of was spend on \(reason). Transaction was made by admin \(logCreator)"
+       return "¥\(amount) of was spend as Expenses. Transaction was made by admin \(logCreator).\n\n- Reason:\n\(reason)"
     case .madeAdmin:
        return "\(logTarget) has been made admin. \(logTarget) was made admin by \(logCreator)"
     case .removedAdmin:
