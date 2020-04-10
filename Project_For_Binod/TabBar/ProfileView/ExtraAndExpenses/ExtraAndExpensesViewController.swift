@@ -80,13 +80,16 @@ extension ExtraAndExpensesViewController: StoryboardInstantiable {
 extension ExtraAndExpensesViewController {
     
     private func bindApiState() {
-        viewModel.apiState.driveNext { (state) in
+        viewModel.apiState.driveNext { [weak self] (state) in
             switch state {
             case .completed:
                 GUIManager.shared.stopAnimation()
                 
                 let dropDownModel = DropDownModel(dropDownType: .success, message: "SuccessFul!!!")
                 GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                
+                self?.amountTextField.text = "0"
+                self?.reasonTextView.text = ""
                 
             case .error(let error):
                 let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
