@@ -124,6 +124,44 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
       }
     }
   }
+    
+    func addExtraOrExpensesLog(type: ExtraOrExpenses, admin: UserProfile, amount: Int, reason: String) -> Promise<Void> {
+        return Promise<Void> { seal in
+            
+            let logCreator = admin.username
+            let logTarget = ""
+            let amount = amount
+            let reason = reason
+            
+            let logType: GroupLogType
+            if case .extra = type {
+                logType = GroupLogType.extra
+            } else {
+                logType = GroupLogType.expenses
+            }
+            
+            let log  = generateLog(logType: logType, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: reason)
+            let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
+            
+            DispatchQueue.global().async {
+              do {
+                let data = try FirestoreEncoder().encode(log) as [String:Any]
+                
+                let completion: (Error?) -> Void = { error in
+                  guard let error = error else { return }
+                  DispatchQueue.main.async { seal.reject(error)}
+                }
+                
+                logRef.setData(data, completion: completion)
+                
+                DispatchQueue.main.async { seal.fulfill(()) }
+                
+              } catch {
+               DispatchQueue.main.async { seal.reject(error) }
+              }
+            }
+        }
+    }
   
 }
 
