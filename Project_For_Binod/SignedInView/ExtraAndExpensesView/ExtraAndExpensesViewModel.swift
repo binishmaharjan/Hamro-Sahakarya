@@ -29,7 +29,7 @@ extension ExtraAndExpensesStateProtocol {
 protocol ExtranAndExpensesViewModelProtocol {
     var selectedTypeInput: BehaviorRelay<ExtraOrExpenses> { get }
     var amountInput: BehaviorRelay<Int> { get }
-    var resonInput: BehaviorRelay<String> { get }
+    var reasonInput: BehaviorRelay<String> { get }
     var isConfirmButtonEnabled: Observable<Bool> { get }
     
     var apiState: Driver<State> { get }
@@ -37,6 +37,35 @@ protocol ExtranAndExpensesViewModelProtocol {
     func addExtraOrExpenses()
 }
 
-struct ExtraAndExpensesViewModel {
+struct ExtraAndExpensesViewModel: ExtranAndExpensesViewModelProtocol {
     
+    struct UIState: ExtraAndExpensesStateProtocol {
+        
+        var amount: Int
+        var reason: String
+    }
+    
+    private var userSessionRepository: UserSessionRepository
+    private var userSession: UserSession
+    
+    var selectedTypeInput: BehaviorRelay<ExtraOrExpenses> = BehaviorRelay(value: .extra)
+    var amountInput: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    var reasonInput: BehaviorRelay<String> = BehaviorRelay(value: "")
+    var isConfirmButtonEnabled: Observable<Bool>
+    
+    @PropertyBehaviourRelay<State>(value: .idle)
+    var apiState: Driver<State>
+    
+    init(userSessionRepository: UserSessionRepository, userSession: UserSession) {
+        self.userSessionRepository = userSessionRepository
+        self.userSession = userSession
+        
+        let state = Observable.combineLatest(amountInput,reasonInput).map { UIState(amount: $0, reason: $1) }
+        isConfirmButtonEnabled = state.map { $0.isConfirmButtonEnabled }
+    }
+    
+    
+    func addExtraOrExpenses() {
+        
+    }
 }

@@ -144,6 +144,6 @@ extension ProfileMainDependencyContainer {
     }
     
     func makeExtraAndExpensesViewModel() -> ExtraAndExpensesViewModel {
-        return ExtraAndExpensesViewModel()
+        return ExtraAndExpensesViewModel(userSessionRepository: sharedUserSessionRepository, userSession:  userSession)
     }
 }
