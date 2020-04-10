@@ -10,24 +10,24 @@ import Foundation
 
 /// Class Wrapper for User Profile
 final class UserSession: Codable {
-  
-  // User Profile
-  var profile: UserProfile
-  
-  init(profile: UserProfile) {
-    self.profile = profile
-  }
+    
+    // User Profile
+    var profile: UserProfile
+    
+    init(profile: UserProfile) {
+        self.profile = profile
+    }
 }
 
 
 extension UserSession: Equatable {
-  static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
-    return lhs.profile == rhs.profile
-  }
+    static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
+        return lhs.profile == rhs.profile
+    }
 }
 
 extension UserSession {
-  var isAdmin: Bool {
-    return profile.status == .admin
-  }
+    var isAdmin: Bool {
+        return profile.status == .admin
+    }
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 protocol NotSignedInResponder {
-  
-  func notSignedIn()
-  
+    
+    func notSignedIn()
 }

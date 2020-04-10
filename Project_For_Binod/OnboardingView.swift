@@ -9,16 +9,16 @@
 import Foundation
 
 enum OnboardingView {
-  
-  case signIn
-  case signUp
-  
-  var hidesNavigationBar: Bool {
-    switch self {
-    case .signIn:
-      return false
-    case .signUp:
-      return false
+    
+    case signIn
+    case signUp
+    
+    var hidesNavigationBar: Bool {
+        switch self {
+        case .signIn:
+            return false
+        case .signUp:
+            return false
+        }
     }
-  }
 }

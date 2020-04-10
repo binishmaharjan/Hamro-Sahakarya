@@ -9,8 +9,8 @@
 import Foundation
 
 enum State {
-  case idle
-  case completed
-  case error(Error)
-  case loading
+    case idle
+    case completed
+    case error(Error)
+    case loading
 }
