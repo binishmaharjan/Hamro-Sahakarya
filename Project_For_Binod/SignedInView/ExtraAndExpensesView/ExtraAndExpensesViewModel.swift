@@ -10,6 +10,33 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum ExtraOrExpenses {
+    case Extra
+    case Expenses
+}
+
+struct ExtraAndExpensesStateProtocol {
+    var amount: Int
+    var reason: String
+}
+
+extension ExtraAndExpensesStateProtocol {
+    var isConfirmButtonEnabled: Bool {
+        return amount > 0 && reason.isNotEmpty()
+    }
+}
+
+protocol ExtranAndExpensesViewModelProtocol {
+    var selectedTypeInput: BehaviorRelay<ExtraOrExpenses> { get }
+    var amountInput: BehaviorRelay<Int> { get }
+    var resonInput: BehaviorRelay<String> { get }
+    var isConfirmButtonEnabled: Observable<Bool> { get }
+    
+    var apiState: Driver<State> { get }
+    
+    func addExtraOrExpenses()
+}
+
 struct ExtraAndExpensesViewModel {
     
 }
