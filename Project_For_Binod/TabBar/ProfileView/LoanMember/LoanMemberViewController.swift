@@ -16,8 +16,22 @@ final class LoanMemberViewController: UIViewController {
     @IBOutlet weak var loanAmountTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Properties
+    private var viewModel: LoanMemberViewModelProtocol!
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+
+// MARK: Storyboard Instantiable
+extension LoanMemberViewController: StoryboardInstantiable {
+    
+    static func  makeInstance(viewModel: LoanMemberViewModelProtocol) -> LoanMemberViewController {
+        let viewController = LoanMemberViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        return viewController
     }
 }
