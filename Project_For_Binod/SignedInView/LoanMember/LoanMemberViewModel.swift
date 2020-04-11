@@ -10,6 +10,19 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol LoanMemberStateProtocol {
+    var selectedMember: UserProfile? { get }
+    var loanAmount: Int { get }
+}
+
+extension LoanMemberStateProtocol {
+    
+    var isLoanMemberButtonEnabled: Bool {
+        guard selectedMember.exists else { return false }
+        return loanAmount > 0
+    }
+}
+
 protocol LoanMemberViewModelProtocol {
     var loanAmount: BehaviorRelay<Int> { get }
     var selectedMember: BehaviorRelay<UserProfile> { get }
