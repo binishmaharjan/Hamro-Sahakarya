@@ -83,10 +83,10 @@ extension LoanMemberViewController {
                         GUIManager.shared.showDropDownNotification(data: dropDownModel)
                         
                         self?.loanAmountTextField.text = ""
-                    } else {
-                        self?.tableView.reloadData()
                     }
-                    
+                        
+                    self?.tableView.reloadData()
+                                    
                     GUIManager.shared.stopAnimation()
                     
                 case .error(let error):

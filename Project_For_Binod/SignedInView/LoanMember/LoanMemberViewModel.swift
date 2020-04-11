@@ -36,6 +36,8 @@ protocol LoanMemberViewModelProtocol {
     
     func numberOfRows() -> Int
     func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel
+    func userProfileForRow(at indexPath: IndexPath) -> UserProfile
+    func isUserSelected(userProfile: UserProfile) -> Bool
 }
 
 struct LoanMemberViewModel: LoanMemberViewModelProtocol {
@@ -114,6 +116,7 @@ extension LoanMemberViewModel {
     }
     
     private func indicateLoading() {
+        _loanMemberSuccessful.accept(false)
         _apiState.accept(.loading)
     }
     
@@ -123,6 +126,8 @@ extension LoanMemberViewModel {
     }
     
     private func indicateLoanMemberSuccessful() {
+        _loanMemberSuccessful.accept(true)
+        selectedMember.accept(nil)
         _apiState.accept(.completed)
     }
     
