@@ -72,8 +72,18 @@ struct LoanMemberViewModel: LoanMemberViewModelProtocol {
     }
     
     func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
-        let member = allMembers.value[indexPath.row]
+        let member = userProfileForRow(at: indexPath)
         return DefaultMemberCellViewModel(profile: member)
+    }
+    
+    func userProfileForRow(at indexPath: IndexPath) -> UserProfile {
+        return allMembers.value[indexPath.row]
+    }
+    
+    func isUserSelected(userProfile: UserProfile) -> Bool {
+        guard let selectedMember = selectedMember.value else { return false }
+        
+        return userProfile == selectedMember
     }
 }
 
