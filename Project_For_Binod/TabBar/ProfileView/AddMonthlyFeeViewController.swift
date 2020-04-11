@@ -67,6 +67,8 @@ extension AddMonthlyFeeViewController {
                     if isAddMonthlyFeeSuccessful {
                         let dropDownModel = DropDownModel(dropDownType: .success, message: "Monthly Fee Was Added Successfully")
                         GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                        
+                        self?.monthlyAmountTextField.text = ""
                     } else {
                         self?.tableView.reloadData()
                     }

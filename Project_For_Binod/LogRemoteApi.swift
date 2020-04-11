@@ -14,4 +14,5 @@ protocol LogRemoteApi {
     func addJoinedLog(userSession: UserSession) -> Promise<UserSession>
     func addMonthlyFeeLog(admin: UserProfile, userProfile: UserProfile, amount: Int) -> Promise<Void>
     func addExtraOrExpensesLog(type: ExtraOrExpenses, admin: UserProfile, amount: Int, reason: String) -> Promise<Void>
+    func addLoanMemberLog(admin: UserProfile, member: UserProfile, amount: Int) -> Promise<Void>
 }

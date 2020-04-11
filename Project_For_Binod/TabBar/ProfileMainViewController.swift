@@ -81,6 +81,8 @@ extension ProfileMainViewController {
       showChangeMemberStatusView()
     case .extraAndExpenses:
         showExtraAndExpenseView()
+    case .loanMember:
+        showLoanMemberView()
     case .termsOfAgreement:
       break
     case .licence:
@@ -121,6 +123,11 @@ extension ProfileMainViewController {
         let viewController = profileViewControllerFactory.makeExtranAndExpensesViewController()
         pushViewController(viewController, animated: true)
     }
+    
+    private func showLoanMemberView() {
+        let viewController = profileViewControllerFactory.makeLoanMemberViewController()
+        pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: UINavigation Controller Delegate
@@ -149,6 +156,8 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
       return .addMonthlyFee
     case is ExtraAndExpensesViewController:
         return .extraAndExpenses
+    case is LoanMemberViewController:
+        return .loanMember
     default:
       fatalError("Unknown View")
     }
