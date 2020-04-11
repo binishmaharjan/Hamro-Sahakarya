@@ -66,6 +66,7 @@ protocol ProfileViewControllerFactory {
   func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
   func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
   func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
+    func makeLoanMemberViewController() -> LoanMemberViewController 
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -83,6 +84,7 @@ extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
 
 // MARK: Members
 extension ProfileMainDependencyContainer {
+    
   func makeMembersViewController() -> MembersViewController {
     let viewModel = makeMembersViewModel()
     let membersViewController = MembersViewController.makeInstance(viewModel: viewModel)
@@ -96,6 +98,7 @@ extension ProfileMainDependencyContainer {
 
 // MARK: Change Password
 extension ProfileMainDependencyContainer {
+    
   func makeChangePasswordViewController() -> ChangePasswordViewController {
     let viewModel = makeChangePasswordViewModel()
     let changeViewController = ChangePasswordViewController.makeInstance(viewModel: viewModel)
@@ -109,6 +112,7 @@ extension ProfileMainDependencyContainer {
 
 // MARK: Change Member Status
 extension ProfileMainDependencyContainer {
+    
   func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController {
     let viewModel = makeChangeMemberStatusViewModel()
     let changeMemberStatusViewController = ChangeMemberStatusViewController.makeInstance(viewModel: viewModel)
@@ -123,6 +127,7 @@ extension ProfileMainDependencyContainer {
 
 // MARK: AddMonthlyFeeViewController
 extension ProfileMainDependencyContainer {
+    
   func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController {
     let viewModel = makeAddMonthlyFeeViewModel()
     let addMonthlyFeeViewController = AddMonthlyFeeViewController.makeInstance(viewModel: viewModel)
@@ -137,6 +142,7 @@ extension ProfileMainDependencyContainer {
 
 // MARK: Extra And Expenses ViewController
 extension ProfileMainDependencyContainer {
+    
     func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController {
         let viewMdel = makeExtraAndExpensesViewModel()
         let extraAndExpensesViewController = ExtraAndExpensesViewController.makeInstance(viewModel: viewMdel)

@@ -140,7 +140,7 @@ extension ProfileViewController {
     case .monthlyFee:
       viewModel.navigate(to: .addMonthlyFee)
     case .loanMember:
-      break
+        viewModel.navigate(to: .loanMember)
     case .loanReturned:
       break
     case .termsOfAgreement:

@@ -14,6 +14,6 @@ protocol LoanMemberViewModelProtocol {
     
 }
 
-struct LoanMemberViewModel {
+struct LoanMemberViewModel: LoanMemberViewModelProtocol {
     
 }
