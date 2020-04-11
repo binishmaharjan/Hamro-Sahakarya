@@ -68,6 +68,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JCg-i4-bAO"/>
                     </view>
+                    <connections>
+                        <outlet property="loanAmountTextField" destination="9eg-yn-rxx" id="c6w-Ly-MCl"/>
+                        <outlet property="tableView" destination="aDU-j5-huF" id="yje-El-Rnv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKz-OT-Og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

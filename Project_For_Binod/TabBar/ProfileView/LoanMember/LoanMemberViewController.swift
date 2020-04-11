@@ -12,6 +12,11 @@ import RxCocoa
 
 final class LoanMemberViewController: UIViewController {
     
+    // MARK: IBOutlets
+    @IBOutlet weak var loanAmountTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
