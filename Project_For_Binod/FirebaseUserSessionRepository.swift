@@ -168,6 +168,19 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             .then(logApi.addMonthlyFeeLog(admin: userProfile: amount: ))
     }
     
+    /// Give Loan to a member
+    ///
+    /// - Parameter admin: Admin who made the transaction
+    /// - Parameter member: Target User
+    /// - Parameter amount: Amount to be added
+    /// - Return Promise<Void> : Indication of Completion
+    func loanMember(admin: UserProfile, member: UserProfile, amount: Int) -> Promise<Void>  {
+        return serverDataManager
+            .loanMember(user: member, amount: amount)
+            .map { (admin, member, amount) }
+            .then( logApi.addLoanMemberLog(admin: member: amount:))
+    }
+    
 }
 
 

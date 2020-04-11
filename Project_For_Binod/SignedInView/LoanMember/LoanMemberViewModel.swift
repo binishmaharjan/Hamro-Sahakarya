@@ -68,19 +68,55 @@ struct LoanMemberViewModel: LoanMemberViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-       fatalError()
+        return allMembers.value.count
     }
     
     func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
-        fatalError()
+        let member = allMembers.value[indexPath.row]
+        return DefaultMemberCellViewModel(profile: member)
     }
+}
+
+// MARK: Api
+extension LoanMemberViewModel {
     
     func getAllMembers() {
+        indicateLoading()
         
+        userSessionRepository
+            .getAllMembers()
+            .done(indicateGetMemberSuccessful(members:))
+            .catch(indicateError(error:))
     }
     
     func loanMember() {
+        indicateLoading()
         
+        guard let selectedMember = selectedMember.value else {
+            indicateError(error: HSError.unknown)
+            return
+        }
+        
+        userSessionRepository
+            .loanMember(admin: userSession.profile, member: selectedMember, amount: loanAmount.value)
+            .done { self.indicateLoanMemberSuccessful() }
+            .catch(indicateError(error:))
     }
     
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateGetMemberSuccessful(members: [UserProfile]) {
+        allMembers.accept(members)
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateLoanMemberSuccessful() {
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateError(error: Error) {
+        _apiState.accept(.error(error))
+    }
 }

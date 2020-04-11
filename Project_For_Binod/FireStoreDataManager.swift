@@ -293,4 +293,27 @@ final class FireStoreDataManager: ServerDataManager {
         }
     }
     
+    func loanMember(user: UserProfile, amount: Int) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+            let newAmount = user.loanTaken + amount
+            let updatedData = [DatabaseReference.LOAN_TAKEN: newAmount]
+            
+            DispatchQueue.main.async {
+                
+                let completion: (Error?) -> Void = { error in
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    DispatchQueue.main.async { seal.fulfill(()) }
+                }
+                
+                reference.updateData(updatedData, completion: completion)
+            }
+            
+        }
+    }
+    
 }
