@@ -105,6 +105,8 @@
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
 		64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */; };
 		64BE330C244008D500FB8E8E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330B244008D500FB8E8E /* String+Extension.swift */; };
+		64BE330F2441501F00FB8E8E /* LoanMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */; };
+		64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */; };
 		64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */; };
 		64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */; };
 		64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6D46423BC168B00D5C17F /* SignUpViewController.storyboard */; };
@@ -248,6 +250,8 @@
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
 		64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainDependencyContainer.swift; sourceTree = "<group>"; };
 		64BE330B244008D500FB8E8E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanMemberViewController.swift; sourceTree = "<group>"; };
+		64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanMemberViewController.storyboard; sourceTree = "<group>"; };
 		64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
 		64E6D46423BC168B00D5C17F /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64BE330D24414FFA00FB8E8E /* LoanMember */,
 				6470ADE6243D672200DC5189 /* ExtraAndExpenses */,
 				6478082524205ADC00588769 /* MonthlyFee */,
 				6478081A241C7F9E00588769 /* ChangeMemberStatus */,
@@ -851,6 +856,15 @@
 			name = LaunchView;
 			sourceTree = "<group>";
 		};
+		64BE330D24414FFA00FB8E8E /* LoanMember */ = {
+			isa = PBXGroup;
+			children = (
+				64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */,
+				64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */,
+			);
+			path = LoanMember;
+			sourceTree = "<group>";
+		};
 		64F44D5A237EF93700A9DFB4 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,6 +1149,7 @@
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */,
+				64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
 				645939C6235AC52F00A99902 /* LaunchRootView.xib in Resources */,
 				64568AE42409E90900BCA18D /* MembersViewController.storyboard in Resources */,
@@ -1246,6 +1261,7 @@
 				64FBE15123C08F630027E44C /* ColorPalette.swift in Sources */,
 				645939BC235ABB2000A99902 /* ErrorPresentation.swift in Sources */,
 				6400FF7123E074FD0079A623 /* ProfileMainViewController.swift in Sources */,
+				64BE330F2441501F00FB8E8E /* LoanMemberViewController.swift in Sources */,
 				64F44D53237D922E00A9DFB4 /* Colors.swift in Sources */,
 				6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */,
 				64568AE22409E8D000BCA18D /* MembersViewController.swift in Sources */,
