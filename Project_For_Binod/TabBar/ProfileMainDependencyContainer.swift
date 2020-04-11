@@ -164,6 +164,6 @@ extension ProfileMainDependencyContainer {
     }
     
     func makeLoanMemberViewModel() -> LoanMemberViewModelProtocol {
-        return LoanMemberViewModel()
+        return LoanMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }

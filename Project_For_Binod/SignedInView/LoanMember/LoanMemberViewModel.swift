@@ -25,7 +25,7 @@ extension LoanMemberStateProtocol {
 
 protocol LoanMemberViewModelProtocol {
     var loanAmount: BehaviorRelay<Int> { get }
-    var selectedMember: BehaviorRelay<UserProfile> { get }
+    var selectedMember: BehaviorRelay<UserProfile?> { get }
     var isLoanMemberButtonEnabled: Observable<Bool> { get }
     
     var apiState: Driver<State> { get }
@@ -39,5 +39,48 @@ protocol LoanMemberViewModelProtocol {
 }
 
 struct LoanMemberViewModel: LoanMemberViewModelProtocol {
+    
+    struct UIState: LoanMemberStateProtocol {
+        
+        var selectedMember: UserProfile?
+        var loanAmount: Int
+    }
+    
+    private var allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
+    private var userSessionRepository: UserSessionRepository
+    private var userSession: UserSession
+    
+    var loanAmount: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    var selectedMember: BehaviorRelay<UserProfile?> = BehaviorRelay(value: nil)
+    var isLoanMemberButtonEnabled: Observable<Bool>
+    
+    @PropertyBehaviourRelay<State>(value: .idle)
+    var apiState: Driver<State>
+    @PropertyBehaviourRelay<Bool>(value: false)
+    var loanMemberSuccessful: Driver<Bool>
+    
+    init(userSessionRepository: UserSessionRepository, userSession: UserSession) {
+        self.userSessionRepository = userSessionRepository
+        self.userSession = userSession
+        
+        let state = Observable.combineLatest(selectedMember,loanAmount).map { UIState(selectedMember: $0, loanAmount: $1) }
+        isLoanMemberButtonEnabled = state.map { $0.isLoanMemberButtonEnabled }
+    }
+    
+    func numberOfRows() -> Int {
+       fatalError()
+    }
+    
+    func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
+        fatalError()
+    }
+    
+    func getAllMembers() {
+        
+    }
+    
+    func loanMember() {
+        
+    }
     
 }
