@@ -147,3 +147,17 @@ extension ProfileMainDependencyContainer {
         return ExtraAndExpensesViewModel(userSessionRepository: sharedUserSessionRepository, userSession:  userSession)
     }
 }
+
+// MARK: Loan Member ViewController
+extension ProfileMainDependencyContainer {
+    
+    func makeLoanMemberViewController() -> LoanMemberViewController {
+        let viewModel = makeLoanMemberViewModel()
+        let loanMemberViewController = LoanMemberViewController.makeInstance(viewModel: viewModel)
+        return loanMemberViewController
+    }
+    
+    func makeLoanMemberViewModel() -> LoanMemberViewModelProtocol {
+        return LoanMemberViewModel()
+    }
+}
