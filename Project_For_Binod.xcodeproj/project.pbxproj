@@ -42,6 +42,8 @@
 		6430DAEA23EAEDC40045E435 /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */; };
 		6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAEC23EAF4F90045E435 /* PhotoCell.swift */; };
 		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
+		644EB0A72449E89900CB0A56 /* LoanReturnedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */; };
+		644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -188,6 +190,8 @@
 		6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
 		6430DAEC23EAF4F90045E435 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewController.swift; sourceTree = "<group>"; };
+		644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanReturnedViewController.storyboard; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0A52449E85900CB0A56 /* LoanReturned */,
 				64BE330D24414FFA00FB8E8E /* LoanMember */,
 				6470ADE6243D672200DC5189 /* ExtraAndExpenses */,
 				6478082524205ADC00588769 /* MonthlyFee */,
@@ -494,6 +499,15 @@
 				6430DAED23EAF4F90045E435 /* PhotoCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		644EB0A52449E85900CB0A56 /* LoanReturned */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */,
+				644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */,
+			);
+			path = LoanReturned;
 			sourceTree = "<group>";
 		};
 		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
@@ -1155,6 +1169,7 @@
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
+				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
@@ -1361,6 +1376,7 @@
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,
 				64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */,
 				6402F40D2376A9BC0044835F /* ServerDataManager.swift in Sources */,
+				644EB0A72449E89900CB0A56 /* LoanReturnedViewController.swift in Sources */,
 				6402F405237695260044835F /* UserProfilePropertyListCoder.swift in Sources */,
 				64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */,
 			);
