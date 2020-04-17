@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+final class LoanReturnedViewController: UIViewController {
+    
+    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
