@@ -44,6 +44,7 @@
 		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
 		644EB0A72449E89900CB0A56 /* LoanReturnedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */; };
 		644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */; };
+		644EB0AC2449EBC900CB0A56 /* LoanReturnedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -192,6 +193,7 @@
 		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewController.swift; sourceTree = "<group>"; };
 		644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanReturnedViewController.storyboard; sourceTree = "<group>"; };
+		644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewModel.swift; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0AA2449EB9500CB0A56 /* LoanReturned */,
 				64BE331224415F0100FB8E8E /* LoanMember */,
 				6470ADEB243D6FE400DC5189 /* ExtraAndExpensesView */,
 				64517C1124380F24009F13B6 /* AddMonthlyFee */,
@@ -506,6 +509,14 @@
 			children = (
 				644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */,
 				644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */,
+			);
+			path = LoanReturned;
+			sourceTree = "<group>";
+		};
+		644EB0AA2449EB9500CB0A56 /* LoanReturned */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */,
 			);
 			path = LoanReturned;
 			sourceTree = "<group>";
@@ -1373,6 +1384,7 @@
 				64568B0F240B704800BCA18D /* ChangePasswordViewController.swift in Sources */,
 				6400FF8F23E475140079A623 /* ProfileFooterView.swift in Sources */,
 				646604C023799FC600122718 /* OnboardingDependencyContainer.swift in Sources */,
+				644EB0AC2449EBC900CB0A56 /* LoanReturnedViewModel.swift in Sources */,
 				645939B1235AB01C00A99902 /* SignedInResponder.swift in Sources */,
 				64F44D5E237FB01400A9DFB4 /* SimpleDropDownNotification.swift in Sources */,
 				6402F40D2376A9BC0044835F /* ServerDataManager.swift in Sources */,
