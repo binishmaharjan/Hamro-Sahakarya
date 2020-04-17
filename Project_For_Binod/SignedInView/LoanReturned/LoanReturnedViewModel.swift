@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol LoanReturnedViewModelProtocol {
+    
+}
+
 struct LoanReturnedViewModel {
     
 }
