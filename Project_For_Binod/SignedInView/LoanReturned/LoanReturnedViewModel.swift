@@ -12,6 +12,6 @@ protocol LoanReturnedViewModelProtocol {
     
 }
 
-struct LoanReturnedViewModel {
+struct LoanReturnedViewModel: LoanReturnedViewModelProtocol {
     
 }
