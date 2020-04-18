@@ -30,7 +30,7 @@ protocol LoanReturnedViewModelProtocol {
       var apiState: Driver<State> { get }
       var returnedAmountSuccessful: Driver<Bool> { get }
       
-      func getAllMembers()
+      func getAllMembersWithLoan()
       func returnAmount()
       
       func numberOfRows() -> Int
@@ -95,9 +95,27 @@ extension LoanReturnedViewModel {
         
     }
     
-    func getAllMembers() {
+    func getAllMembersWithLoan() {
         
     }
     
-  
+    private func indicateLoading() {
+        _returnedAmountSuccessful.accept(false)
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateReturnSuccessful(members: [UserProfile]) {
+        allMembers.accept(members)
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateLoanMemberSuccessful() {
+        _returnedAmountSuccessful.accept(true)
+        selectedMember.accept(nil)
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateError(error: Error) {
+        _apiState.accept(.error(error))
+    }
 }
