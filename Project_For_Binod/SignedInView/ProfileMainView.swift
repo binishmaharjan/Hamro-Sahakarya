@@ -18,6 +18,7 @@ enum ProfileMainView {
     case addMonthlyFee
     case extraAndExpenses
     case loanMember
+    case loanReturned
     
     case termsOfAgreement
     case licence

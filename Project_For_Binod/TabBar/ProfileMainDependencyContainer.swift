@@ -66,7 +66,8 @@ protocol ProfileViewControllerFactory {
   func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
   func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
   func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
-    func makeLoanMemberViewController() -> LoanMemberViewController 
+    func makeLoanMemberViewController() -> LoanMemberViewController
+    func makeLoanReturnedViewController() -> LoanReturnedViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -165,5 +166,19 @@ extension ProfileMainDependencyContainer {
     
     func makeLoanMemberViewModel() -> LoanMemberViewModelProtocol {
         return LoanMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
+    }
+}
+
+// MARK: Loan Returned View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeLoanReturnedViewController() -> LoanReturnedViewController {
+        let viewModel = makeLoanRetunedViewModel()
+        let loanReturnedViewController = LoanReturnedViewController.makeInstance(viewModel: viewModel)
+        return loanReturnedViewController
+    }
+    
+    func makeLoanRetunedViewModel() -> LoanReturnedViewModelProtocol {
+        return LoanReturnedViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
