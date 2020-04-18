@@ -80,6 +80,9 @@ extension LoanReturnedViewController {
                         GUIManager.shared.showDropDownNotification(data: dropDownModel)
                         
                         self?.amountTextField.text = ""
+                        
+                        // Refetching the members
+                        self?.viewModel.getAllMembersWithLoan()
                     }
                         
                     self?.tableView.reloadData()
