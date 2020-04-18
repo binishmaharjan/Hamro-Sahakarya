@@ -21,4 +21,30 @@ class MemberWithLoanCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+// MARK: ViewModel
+protocol MemberWithLoanViewModelProtocol {
+  var imageUrl: URL? { get }
+  var fullname: String { get }
+  var loanAmount: String { get }
+}
+
+struct MemberWithLoanViewModel: MemberWithLoanViewModelProtocol {
+  private let profile: UserProfile
+   
+   var imageUrl: URL? {
+     let imageString = profile.iconUrl ?? ""
+     return URL(string: imageString)
+   }
+   
+   var fullname: String {
+     return profile.username
+   }
+   
+   var loanAmount: String {
+     return "Loan Taken: \(profile.loanTaken)"
+   }
+   
+   init(profile: UserProfile) {
+     self.profile = profile
+   }
 }
