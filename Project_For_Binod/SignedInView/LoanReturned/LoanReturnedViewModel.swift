@@ -69,24 +69,27 @@ struct LoanReturnedViewModel: LoanReturnedViewModelProtocol {
         self.isReturnAmountButtonEnabled = state.map { $0.isReturnAmountButtonEnabled }
     }
     
-
     
     func numberOfRows() -> Int {
-        fatalError()
+        allMembers.value.count
     }
     
     func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
-        fatalError()
+        return DefaultMemberCellViewModel(profile: userProfileForRow(at: indexPath))
     }
     
     func userProfileForRow(at indexPath: IndexPath) -> UserProfile {
-        fatalError()
+        return allMembers.value[indexPath.row]
     }
     
     func isUserSelected(userProfile: UserProfile) -> Bool {
-        fatalError()
+        guard let selectedMember = selectedMember.value else { return false }
+        
+        return userProfile == selectedMember
     }
+}
 
+extension LoanReturnedViewModel {
     
     func returnAmount() {
         
