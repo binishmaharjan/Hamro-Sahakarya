@@ -196,7 +196,7 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     /// - Return Promise<Void> : Indication of Completion
     func loanReturned(admin: UserProfile, member: UserProfile, amount: Int) ->Promise<Void> {
         return serverDataManager
-            .loanMember(user: member, amount: amount)
+            .loanReturned(user: member, amount: amount)
             .map { (admin,member,amount) }
             .then(logApi.addLoanReturnedLog(admin: member: amount: ))
     }
