@@ -82,7 +82,9 @@ extension LoanReturnedViewController {
                         self?.amountTextField.text = ""
                         
                         // Refetching the members
-                        self?.viewModel.getAllMembersWithLoan()
+                        DispatchQueue.main.async {
+                            self?.viewModel.getAllMembersWithLoan()
+                        }
                     }
                         
                     self?.tableView.reloadData()
