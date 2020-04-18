@@ -41,7 +41,7 @@ final class LoanReturnedViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerXib(of: MembersCell.self)
+        tableView.registerXib(of: MemberWithLoanCell.self)
     }
     
     private func setupBarButton() {
@@ -124,7 +124,7 @@ extension LoanReturnedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(of: MembersCell.self, for: indexPath)
+        let cell = tableView.dequeueCell(of: MemberWithLoanCell.self, for: indexPath)
         cell.tintColor = UIColor.mainOrange
         
         let cellViewModel = viewModel.viewModelForRow(at: indexPath)
@@ -164,13 +164,13 @@ extension LoanReturnedViewController: UITableViewDelegate {
         viewModel.selectedMember.accept(userProfile)
         
         let visibleIndexPath = tableView.indexPathsForVisibleRows ?? []
-        let visibleCell = tableView.visibleCells as! [MembersCell]
+        let visibleCell = tableView.visibleCells as! [MemberWithLoanCell]
         zip(visibleIndexPath, visibleCell).forEach { (indexPath, cell) in
             reloadCell(cell, indexPath: indexPath)
         }
     }
     
-    private func reloadCell(_ cell: MembersCell, indexPath: IndexPath) {
+    private func reloadCell(_ cell: MemberWithLoanCell, indexPath: IndexPath) {
         cell.bind(viewModel: viewModel.viewModelForRow(at: indexPath))
         cell.accessoryType = isUserSelected(indexPath: indexPath) ? .checkmark : .none
     }

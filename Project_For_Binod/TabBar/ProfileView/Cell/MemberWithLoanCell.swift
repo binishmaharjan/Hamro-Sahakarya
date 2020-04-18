@@ -33,7 +33,7 @@ protocol MemberWithLoanViewModelProtocol {
   var loanAmount: String { get }
 }
 
-struct MemberWithLoanViewModel: MemberWithLoanViewModelProtocol {
+struct MemberWithLoanCellViewModel: MemberWithLoanViewModelProtocol {
   private let profile: UserProfile
    
    var imageUrl: URL? {

@@ -34,7 +34,7 @@ protocol LoanReturnedViewModelProtocol {
       func returnAmount()
       
       func numberOfRows() -> Int
-      func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel
+      func viewModelForRow(at indexPath: IndexPath) -> MemberWithLoanViewModelProtocol
       func userProfileForRow(at indexPath: IndexPath) -> UserProfile
       func isUserSelected(userProfile: UserProfile) -> Bool
 }
@@ -74,8 +74,8 @@ struct LoanReturnedViewModel: LoanReturnedViewModelProtocol {
         allMembers.value.count
     }
     
-    func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
-        return DefaultMemberCellViewModel(profile: userProfileForRow(at: indexPath))
+    func viewModelForRow(at indexPath: IndexPath) -> MemberWithLoanViewModelProtocol {
+        return MemberWithLoanCellViewModel(profile: userProfileForRow(at: indexPath))
     }
     
     func userProfileForRow(at indexPath: IndexPath) -> UserProfile {
