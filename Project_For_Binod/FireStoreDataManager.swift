@@ -209,6 +209,45 @@ final class FireStoreDataManager: ServerDataManager {
         }
     }
     
+    func getAllMemberWithLoan() -> Promise<[UserProfile]> {
+        return Promise<[UserProfile]> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF)
+            
+            DispatchQueue.global().async {
+                reference.whereField(DatabaseReference.LOAN_TAKEN, isGreaterThan: 0).getDocuments { (snapshots, error) in
+                    
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    guard let snapshots = snapshots else {
+                        DispatchQueue.main.async { seal.reject(HSError.noSnapshotError) }
+                        return
+                    }
+                    
+                    var userProfiles = [UserProfile]()
+                    
+                    snapshots.documents.forEach { (snapshot) in
+                        
+                        let data  = snapshot.data()
+                        
+                        do {
+                            let userProfile = try FirestoreDecoder().decode(UserProfile.self, from: data)
+                            userProfiles.append(userProfile)
+                        } catch {
+                            DispatchQueue.main.async { seal.reject(error) }
+                        }
+                        
+                    }
+                    
+                    DispatchQueue.main.async { seal.fulfill(userProfiles) }
+                    
+                }
+            }
+        }
+    }
+    
     func addMonthlyFee(for user: UserProfile, amount: Int) -> Promise<Void> {
         return Promise<Void> { seal in
             let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
@@ -299,7 +338,7 @@ final class FireStoreDataManager: ServerDataManager {
             let newAmount = user.loanTaken + amount
             let updatedData = [DatabaseReference.LOAN_TAKEN: newAmount]
             
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 
                 let completion: (Error?) -> Void = { error in
                     if let error = error {
@@ -313,6 +352,27 @@ final class FireStoreDataManager: ServerDataManager {
                 reference.updateData(updatedData, completion: completion)
             }
             
+        }
+    }
+    
+    func loanReturned(user: UserProfile, amount: Int) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+            let newAmount = user.loanTaken - amount
+            let updatedData = [DatabaseReference.LOAN_TAKEN: newAmount]
+            
+            DispatchQueue.global().async {
+                let completion: (Error?) -> Void = { error in
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    DispatchQueue.main.async { seal.fulfill(()) }
+                }
+                
+                reference.updateData(updatedData, completion: completion)
+            }
         }
     }
     

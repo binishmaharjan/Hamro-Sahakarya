@@ -115,6 +115,13 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         return serverDataManager.getAllMembers()
     }
     
+    /// Get all members who have taken loan
+    ///
+    /// - Return Promise<[UserProfile]>: All member who have taken loan wrapped in promise
+    func getAllMembersWithLoan() -> Promise<[UserProfile]> {
+        return serverDataManager.getAllMemberWithLoan()
+    }
+    
     // MARK: Storage
     
     /// Change the profile picture
@@ -179,6 +186,19 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             .loanMember(user: member, amount: amount)
             .map { (admin, member, amount) }
             .then( logApi.addLoanMemberLog(admin: member: amount:))
+    }
+    
+    /// Member returned a loan
+    ///
+    /// - Parameter admin: Admin who made the transaction
+    /// - Parameter member: Target User
+    /// - Parameter amount: Amount to be added
+    /// - Return Promise<Void> : Indication of Completion
+    func loanReturned(admin: UserProfile, member: UserProfile, amount: Int) ->Promise<Void> {
+        return serverDataManager
+            .loanMember(user: member, amount: amount)
+            .map { (admin,member,amount) }
+            .then(logApi.addLoanReturnedLog(admin: member: amount: ))
     }
     
 }

@@ -92,11 +92,26 @@ struct LoanReturnedViewModel: LoanReturnedViewModelProtocol {
 extension LoanReturnedViewModel {
     
     func returnAmount() {
+        indicateLoading()
         
+        guard let selectedMember = selectedMember.value else {
+            _apiState.accept(.error(HSError.unknown))
+            return
+        }
+        
+        userSessionRepository
+            .loanReturned(admin: userSession.profile, member: selectedMember, amount: returnedAmount.value)
+            .done{ self.indicateReturnedAmountSuccessful() }
+            .catch(indicateError(error:))
     }
     
     func getAllMembersWithLoan() {
+        indicateLoading()
         
+        userSessionRepository
+            .getAllMembersWithLoan()
+            .done(indicateGetLoanMemberSuccessful)
+            .catch(indicateError(error:))
     }
     
     private func indicateLoading() {
@@ -104,12 +119,12 @@ extension LoanReturnedViewModel {
         _apiState.accept(.loading)
     }
     
-    private func indicateReturnSuccessful(members: [UserProfile]) {
+    private func indicateGetLoanMemberSuccessful(members: [UserProfile]) {
         allMembers.accept(members)
         _apiState.accept(.completed)
     }
     
-    private func indicateLoanMemberSuccessful() {
+    private func indicateReturnedAmountSuccessful() {
         _returnedAmountSuccessful.accept(true)
         selectedMember.accept(nil)
         _apiState.accept(.completed)
