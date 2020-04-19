@@ -115,3 +115,11 @@ extension ChangeMemberStatusViewController: UITableViewDataSource {
     return cell
   }
 }
+
+// MARK: Get Associated View
+extension ChangeMemberStatusViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .changeMemberStatus
+    }
+    
+}

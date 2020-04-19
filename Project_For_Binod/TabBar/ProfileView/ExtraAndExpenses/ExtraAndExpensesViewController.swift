@@ -131,3 +131,11 @@ extension ExtraAndExpensesViewController {
             .disposed(by: disposeBag)
     }
 }
+
+// MARK: Get Associated View
+extension ExtraAndExpensesViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .extraAndExpenses
+    }
+    
+}

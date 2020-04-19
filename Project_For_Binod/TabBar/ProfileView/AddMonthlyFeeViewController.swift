@@ -195,3 +195,11 @@ extension AddMonthlyFeeViewController: UITableViewDelegate {
     }
     
 }
+
+// MARK: Get Associated View
+extension AddMonthlyFeeViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .addMonthlyFee
+    }
+    
+}
