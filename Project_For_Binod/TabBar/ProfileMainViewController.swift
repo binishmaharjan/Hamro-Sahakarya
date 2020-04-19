@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView
+}
+
 final class ProfileMainViewController: NiblessNavigationController {
   
   // MARK: Properties
@@ -148,27 +152,11 @@ extension ProfileMainViewController: UINavigationControllerDelegate {
   }
   
   private func profileMainView(assoiatedWith viewController: UIViewController) -> ProfileMainView? {
-    switch viewController {
-    case is ProfileViewController:
-        return .profileView
-    case is ChangePictureViewController:
-      return .changePicture
-    case is MembersViewController:
-      return .members
-    case is ChangePasswordViewController:
-      return .changePassword
-    case is ChangeMemberStatusViewController:
-      return .changeMemberStatus
-    case is AddMonthlyFeeViewController:
-      return .addMonthlyFee
-    case is ExtraAndExpensesViewController:
-        return .extraAndExpenses
-    case is LoanMemberViewController:
-        return .loanMember
-    case is LoanReturnedViewController:
-        return .loanReturned
-    default:
-      fatalError("Unknown View")
+    
+    guard let viewController = viewController as? ViewControllerWithAssociatedView else {
+        fatalError("ViewController doesnot have associated view")
     }
+    
+    return viewController.getAssociateView()
   }
 }

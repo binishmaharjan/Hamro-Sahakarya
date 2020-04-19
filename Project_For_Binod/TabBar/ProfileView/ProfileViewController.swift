@@ -155,3 +155,10 @@ extension ProfileViewController {
     
   }
 }
+
+// MARK: Get Associate View
+extension ProfileViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .profileView
+    }
+}

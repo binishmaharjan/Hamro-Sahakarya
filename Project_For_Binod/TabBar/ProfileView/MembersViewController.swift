@@ -93,3 +93,11 @@ extension MembersViewController: UITableViewDataSource {
     return cell
   }
 }
+
+// MARK: Get Associated View
+extension MembersViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .members
+    }
+    
+}

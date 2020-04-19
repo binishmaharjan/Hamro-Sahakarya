@@ -180,3 +180,11 @@ extension LoanReturnedViewController: UITableViewDelegate {
         cell.accessoryType = isUserSelected(indexPath: indexPath) ? .checkmark : .none
     }
 }
+
+// MARK: Get Associated View
+extension LoanReturnedViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .loanReturned
+    }
+    
+}

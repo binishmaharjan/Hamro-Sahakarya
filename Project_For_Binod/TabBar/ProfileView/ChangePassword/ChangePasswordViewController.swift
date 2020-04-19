@@ -92,3 +92,11 @@ extension ChangePasswordViewController: StoryboardInstantiable {
     return viewController
   }
 }
+
+// MARK: Get Associated View
+extension ChangePasswordViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .changePassword
+    }
+    
+}

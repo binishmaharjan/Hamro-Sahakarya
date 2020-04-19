@@ -196,3 +196,11 @@ extension ChangePictureViewController: UICollectionViewDelegateFlowLayout {
     return 2.5
   }
 }
+
+// MARK: Get Associated View
+extension ChangePictureViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .changePicture
+    }
+    
+}
