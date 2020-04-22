@@ -20,9 +20,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpD-de-3Ga">
                                 <rect key="frame" x="0.0" y="24" width="414" height="414"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjS-43-RTP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="ZjS-43-RTP" firstAttribute="top" secondItem="dpD-de-3Ga" secondAttribute="top" id="9tp-9O-dDe"/>
                                     <constraint firstAttribute="width" secondItem="dpD-de-3Ga" secondAttribute="height" multiplier="1:1" id="Acr-om-zoT"/>
+                                    <constraint firstItem="ZjS-43-RTP" firstAttribute="leading" secondItem="dpD-de-3Ga" secondAttribute="leading" id="JXZ-GF-ZYr"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZjS-43-RTP" secondAttribute="trailing" id="aOu-VN-pWl"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZjS-43-RTP" secondAttribute="bottom" id="gec-IZ-0Wo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ve-l3-3o2" userLabel="Seperator">
@@ -70,6 +79,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="g0x-x0-adj" id="fxb-4d-Bnn"/>
+                        <outlet property="previewImageView" destination="ZjS-43-RTP" id="1pC-jx-v1g"/>
                         <outlet property="previewImageViewArea" destination="dpD-de-3Ga" id="xWv-pd-nHf"/>
                     </connections>
                 </viewController>
