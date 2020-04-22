@@ -16,7 +16,8 @@ final class ChangePictureViewController: UIViewController {
   // MARK: IBOutlet
   @IBOutlet private weak var collectionView: UICollectionView!
   @IBOutlet private weak var previewImageViewArea: UIView!
-  let previewImageView = PreviewImageView.loadXib()
+    @IBOutlet private weak var previewImageView: UIImageView!
+    //  let previewImageView = PreviewImageView.loadXib()
   
   private let disposeBag = DisposeBag()
   private var viewModel: ChangePictureViewModel!
@@ -81,10 +82,16 @@ final class ChangePictureViewController: UIViewController {
   }
   
   private func bindPhotoSelection() {
+//    viewModel.selectedImage
+//      .asObservable()
+//      .bind(onNext: createPreview(with:))
+//      .disposed(by: disposeBag)
+    
+    // Output
     viewModel.selectedImage
-      .asObservable()
-      .bind(onNext: createPreview(with:))
-      .disposed(by: disposeBag)
+        .asDriver(onErrorJustReturn: nil)
+        .drive(previewImageView.rx.image)
+        .disposed(by: disposeBag)
   }
   
   private func bindApiState() {
