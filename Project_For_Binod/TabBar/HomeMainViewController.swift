@@ -9,6 +9,10 @@
 import UIKit
 import RxSwift
 
+protocol AssociatedHomeView {
+    func getAssociateView() -> HomeView
+}
+
 final class HomeMainViewController: NiblessNavigationController {
     
     // MARK: Properties
@@ -54,5 +58,25 @@ final class HomeMainViewController: NiblessNavigationController {
         case .presented:
             break
         }
+    }
+}
+
+// MARK: UINavigation Controller Delegate
+extension HomeMainViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let shownView = homeView(assoiatedWith: viewController) else {
+            return
+        }
+        
+        viewModel.uiPresented(homeView: shownView)
+    }
+    
+    private func homeView(assoiatedWith viewController: UIViewController) -> HomeView? {
+        
+        guard let viewController = viewController as? AssociatedHomeView else {
+            fatalError("ViewController doesnot have associated view")
+        }
+        
+        return viewController.getAssociateView()
     }
 }
