@@ -55,9 +55,9 @@ extension SignedInDepedencyConatiner {
                             profileViewController:  profileViewController)
   }
   
-  func makeHomeViewController() -> HomeViewController {
-    let viewController = HomeViewController()
-    return viewController
+  func makeHomeViewController() -> UINavigationController {
+    let dependencyContainer = HomeDependencyContainer(dependecyContainer: self, userSession: userSession)
+    return dependencyContainer.makeHomeMainViewController()
   }
   
   func makeLogViewController() -> UINavigationController {
