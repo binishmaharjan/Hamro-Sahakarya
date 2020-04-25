@@ -17,7 +17,7 @@ extension UIColor {
     static let mainBlue = UIColor(named: "c5983AC")!
     static let mainBlack = UIColor(named: "c241D1D")!
     static let textGray = UIColor(named: "cADB2B6")!
-    static let backgroundGray = UIColor(named: "cECEDEF")!
+    static let backgroundGray = UIColor(named: "cFAFBFD")!
     
     // MARK: Predefined Transparent Colors
     static let red_50 = UIColor(named: "cFF3A2F@50")!
