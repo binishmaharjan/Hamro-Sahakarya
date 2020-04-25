@@ -48,8 +48,10 @@
 		644EB0B7244AC05D00CB0A56 /* MemberWithLoanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */; };
 		644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */; };
 		644EB0DC24540D3000CB0A56 /* HomeDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */; };
-		644EB0DE24540E0C00CB0A56 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */; };
 		644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */; };
+		644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */; };
+		644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */; };
+		644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E62454220F00CB0A56 /* HomeViewModel.swift */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -202,8 +204,10 @@
 		644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberWithLoanCell.swift; sourceTree = "<group>"; };
 		644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberWithLoanCell.xib; sourceTree = "<group>"; };
 		644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyContainer.swift; sourceTree = "<group>"; };
-		644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewModel.swift; sourceTree = "<group>"; };
+		644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
+		644EB0E62454220F00CB0A56 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -535,6 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */,
+				644EB0E62454220F00CB0A56 /* HomeViewModel.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -989,9 +994,10 @@
 		64FBE1B823D2EE650027E44C /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
 				644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */,
-				644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */,
+				644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */,
+				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
+				644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -1209,6 +1215,7 @@
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */,
+				644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */,
 				64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */,
 				64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
@@ -1311,8 +1318,8 @@
 				64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				64FBE1D123D4A6D00027E44C /* LogViewCell.swift in Sources */,
+				644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */,
 				64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */,
-				644EB0DE24540E0C00CB0A56 /* HomeMainViewController.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
 				64FBE1DE23D5DE1A0027E44C /* UIView+Rx.swift in Sources */,
 				64BE331424415F1800FB8E8E /* LoanMemberViewModel.swift in Sources */,
@@ -1352,6 +1359,7 @@
 				6400FF9B23E545050079A623 /* AlertDialog.swift in Sources */,
 				6470ADED243D700100DC5189 /* ExtraAndExpensesViewModel.swift in Sources */,
 				646604B023798ADD00122718 /* NavigationAction.swift in Sources */,
+				644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */,
 				64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */,
 				64517C152438162D009F13B6 /* Array+Extension.swift in Sources */,
 				6402F4132377CDBD0044835F /* NewAccount.swift in Sources */,
