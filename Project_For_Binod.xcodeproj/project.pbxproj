@@ -544,6 +544,15 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
+		644EB0E82454259900CB0A56 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
+				644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
 		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,7 +984,7 @@
 			children = (
 				64FBE1BA23D2EE7A0027E44C /* ProfileMainView */,
 				64FBE1B923D2EE730027E44C /* LogView */,
-				64FBE1B823D2EE650027E44C /* HomeView */,
+				64FBE1B823D2EE650027E44C /* HomeTab */,
 				64FBE1B623D2E9F30027E44C /* TabBarController.swift */,
 			);
 			path = TabBar;
@@ -991,15 +1000,14 @@
 			path = SignedInView;
 			sourceTree = "<group>";
 		};
-		64FBE1B823D2EE650027E44C /* HomeView */ = {
+		64FBE1B823D2EE650027E44C /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */,
+				644EB0E82454259900CB0A56 /* HomeView */,
 				644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */,
-				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
-				644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */,
+				644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */,
 			);
-			name = HomeView;
+			name = HomeTab;
 			sourceTree = "<group>";
 		};
 		64FBE1B923D2EE730027E44C /* LogView */ = {
