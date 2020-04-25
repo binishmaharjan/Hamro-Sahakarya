@@ -29,3 +29,11 @@ extension HomeViewController: StoryboardInstantiable {
         return viewController
     }
 }
+
+// MARK: Storyboard Instantiable
+extension HomeViewController: AssociatedHomeView {
+    func getAssociateView() -> HomeView {
+        return .home
+    }
+    
+}
