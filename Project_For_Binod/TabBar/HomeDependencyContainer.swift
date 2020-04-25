@@ -36,4 +36,23 @@ protocol HomeViewControllerFactory {
     
     func makeHomeViewController() -> HomeViewController
 }
+
+// MARK: Home View Controller
+extension HomeDependencyContainer: HomeViewControllerFactory {
+    
+    func makeHomeMainViewController() -> NiblessNavigationController {
+        let viewModel = homeMainViewModel
+        return HomeMainViewController(viewModel: viewModel, homeViewControllerFactory: self)
+    }
+    
+    func makeHomeViewController() -> HomeViewController {
+        let viewModel = makeHomeViewModel()
+        let homeViewController = HomeViewController.makeInstance(viewModel: viewModel)
+        homeViewController.navigationItem.title = "Home"
+        return homeViewController
+    }
+    
+    func makeHomeViewModel() -> HomeViewModelProtocol {
+        return HomeViewModel(homeViewResponder: homeMainViewModel, userSessionRepository: sharedUserSessionRepository)
+    }
 }
