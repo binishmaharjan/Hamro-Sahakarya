@@ -1,5 +1,5 @@
 //
-//  HomeDependencyContainer.swift
+//  HomeMainViewModel.swift
 //  Project_For_Binod
 //
 //  Created by Maharjan Binish on 2020/04/25.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class HomeDependencyContainer {
+struct HomeMainViewModel {
     
 }

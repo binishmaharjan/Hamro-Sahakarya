@@ -48,6 +48,8 @@
 		644EB0B7244AC05D00CB0A56 /* MemberWithLoanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */; };
 		644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */; };
 		644EB0DC24540D3000CB0A56 /* HomeDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */; };
+		644EB0DE24540E0C00CB0A56 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */; };
+		644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -200,6 +202,8 @@
 		644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberWithLoanCell.swift; sourceTree = "<group>"; };
 		644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberWithLoanCell.xib; sourceTree = "<group>"; };
 		644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyContainer.swift; sourceTree = "<group>"; };
+		644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
+		644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewModel.swift; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -525,6 +529,14 @@
 				644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */,
 			);
 			path = LoanReturned;
+			sourceTree = "<group>";
+		};
+		644EB0DF24540E4D00CB0A56 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
@@ -979,6 +991,7 @@
 			children = (
 				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
 				644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */,
+				644EB0DD24540E0C00CB0A56 /* HomeMainViewController.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -1006,6 +1019,7 @@
 		64FBE1C123D463FE0027E44C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0DF24540E4D00CB0A56 /* HomeView */,
 				6400FF7223E0756C0079A623 /* ProfileView */,
 				64FBE1C223D4640D0027E44C /* LogView */,
 			);
@@ -1298,6 +1312,7 @@
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				64FBE1D123D4A6D00027E44C /* LogViewCell.swift in Sources */,
 				64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */,
+				644EB0DE24540E0C00CB0A56 /* HomeMainViewController.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
 				64FBE1DE23D5DE1A0027E44C /* UIView+Rx.swift in Sources */,
 				64BE331424415F1800FB8E8E /* LoanMemberViewModel.swift in Sources */,
@@ -1344,6 +1359,7 @@
 				64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */,
 				64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
+				644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */,
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
