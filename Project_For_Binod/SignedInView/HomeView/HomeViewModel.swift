@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+protocol HomeViewModelProtocol {
+    
+}
+
+struct HomeViewModel: HomeViewModelProtocol {
+    
+    private let homeViewResponder: HomeViewResponder
+    private let userSessionRepository: UserSessionRepository
+    
+    init(homeViewResponder: HomeViewResponder, userSessionRepository: UserSessionRepository) {
+        self.homeViewResponder = homeViewResponder
+        self.userSessionRepository = userSessionRepository
+    }
+}
