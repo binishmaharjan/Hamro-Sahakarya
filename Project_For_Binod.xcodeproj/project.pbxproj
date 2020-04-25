@@ -47,6 +47,11 @@
 		644EB0AC2449EBC900CB0A56 /* LoanReturnedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */; };
 		644EB0B7244AC05D00CB0A56 /* MemberWithLoanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */; };
 		644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */; };
+		644EB0DC24540D3000CB0A56 /* HomeDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */; };
+		644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */; };
+		644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */; };
+		644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */; };
+		644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E62454220F00CB0A56 /* HomeViewModel.swift */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -198,6 +203,11 @@
 		644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewModel.swift; sourceTree = "<group>"; };
 		644EB0B5244AC05D00CB0A56 /* MemberWithLoanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberWithLoanCell.swift; sourceTree = "<group>"; };
 		644EB0B6244AC05D00CB0A56 /* MemberWithLoanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberWithLoanCell.xib; sourceTree = "<group>"; };
+		644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDependencyContainer.swift; sourceTree = "<group>"; };
+		644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewModel.swift; sourceTree = "<group>"; };
+		644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
+		644EB0E62454220F00CB0A56 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -523,6 +533,24 @@
 				644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */,
 			);
 			path = LoanReturned;
+			sourceTree = "<group>";
+		};
+		644EB0DF24540E4D00CB0A56 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */,
+				644EB0E62454220F00CB0A56 /* HomeViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		644EB0E82454259900CB0A56 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
+				644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */,
+			);
+			name = HomeView;
 			sourceTree = "<group>";
 		};
 		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
@@ -956,7 +984,7 @@
 			children = (
 				64FBE1BA23D2EE7A0027E44C /* ProfileMainView */,
 				64FBE1B923D2EE730027E44C /* LogView */,
-				64FBE1B823D2EE650027E44C /* HomeView */,
+				64FBE1B823D2EE650027E44C /* HomeTab */,
 				64FBE1B623D2E9F30027E44C /* TabBarController.swift */,
 			);
 			path = TabBar;
@@ -972,12 +1000,14 @@
 			path = SignedInView;
 			sourceTree = "<group>";
 		};
-		64FBE1B823D2EE650027E44C /* HomeView */ = {
+		64FBE1B823D2EE650027E44C /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				64FBE1BF23D2EEE90027E44C /* HomeViewController.swift */,
+				644EB0E82454259900CB0A56 /* HomeView */,
+				644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */,
+				644EB0DB24540D2F00CB0A56 /* HomeDependencyContainer.swift */,
 			);
-			name = HomeView;
+			name = HomeTab;
 			sourceTree = "<group>";
 		};
 		64FBE1B923D2EE730027E44C /* LogView */ = {
@@ -1003,6 +1033,7 @@
 		64FBE1C123D463FE0027E44C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0DF24540E4D00CB0A56 /* HomeView */,
 				6400FF7223E0756C0079A623 /* ProfileView */,
 				64FBE1C223D4640D0027E44C /* LogView */,
 			);
@@ -1192,6 +1223,7 @@
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */,
+				644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */,
 				64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */,
 				64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */,
 				645939C2235AC39D00A99902 /* Assets.xcassets in Resources */,
@@ -1294,6 +1326,7 @@
 				64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				64FBE1D123D4A6D00027E44C /* LogViewCell.swift in Sources */,
+				644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */,
 				64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
 				64FBE1DE23D5DE1A0027E44C /* UIView+Rx.swift in Sources */,
@@ -1334,6 +1367,7 @@
 				6400FF9B23E545050079A623 /* AlertDialog.swift in Sources */,
 				6470ADED243D700100DC5189 /* ExtraAndExpensesViewModel.swift in Sources */,
 				646604B023798ADD00122718 /* NavigationAction.swift in Sources */,
+				644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */,
 				64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */,
 				64517C152438162D009F13B6 /* Array+Extension.swift in Sources */,
 				6402F4132377CDBD0044835F /* NewAccount.swift in Sources */,
@@ -1341,6 +1375,7 @@
 				64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */,
 				64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
+				644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */,
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
@@ -1373,6 +1408,7 @@
 				6402F4002376948E0044835F /* UserProfileCoding.swift in Sources */,
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
+				644EB0DC24540D3000CB0A56 /* HomeDependencyContainer.swift in Sources */,
 				6400FF8523E1D1800079A623 /* UIImageView+Extension.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
 				6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */,
