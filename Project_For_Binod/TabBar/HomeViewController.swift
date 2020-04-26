@@ -11,9 +11,17 @@ import RxSwift
 
 final class HomeViewController: UIViewController {
     
+    // MARK: IBOutlets
+    @IBOutlet private weak var myBalanceLabel: UILabel!
+    @IBOutlet private weak var loanTakenLabel: UILabel!
+    @IBOutlet private weak var dateJoinedLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
+    
+    // MARK: Properties
     private var viewModel: HomeViewModelProtocol!
     private let disposeBag = DisposeBag()
 
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

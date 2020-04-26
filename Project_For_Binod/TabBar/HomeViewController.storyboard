@@ -295,6 +295,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Duc-TX-1fw"/>
                     </view>
+                    <connections>
+                        <outlet property="dateJoinedLabel" destination="1mk-bX-1uX" id="7yc-ef-mPc"/>
+                        <outlet property="loanTakenLabel" destination="IVm-GX-9FS" id="xjh-6h-S0j"/>
+                        <outlet property="myBalanceLabel" destination="WCC-nA-ffF" id="OBh-A2-EqP"/>
+                        <outlet property="statusLabel" destination="f7g-sp-BWO" id="WgD-cA-mQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pK9-QT-PIF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
