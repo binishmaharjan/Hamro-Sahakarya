@@ -88,7 +88,7 @@ extension RemoveMemberViewModel {
         
         userSessionRepository
             .getAllMembers()
-            .done(indicateGetMemberSuccessful(members:))
+            .done(indicateGetMemberSuccessful)
             .catch(indicateError(error:))
     }
     

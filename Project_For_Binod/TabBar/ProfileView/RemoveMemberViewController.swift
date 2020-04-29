@@ -68,6 +68,11 @@ extension RemoveMemberViewController {
                     if removeMemberSuccessful {
                         let dropDownModel = DropDownModel(dropDownType: .success, message: "Successful!!!")
                         GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                        
+                        // Refetching the members
+                        DispatchQueue.main.async {
+                            self?.viewModel.fetchAllMembers()
+                        }
                     }
                     
                     self?.tableView.reloadData()
