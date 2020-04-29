@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mXU-YA-5mv">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -13,11 +13,26 @@
             <objects>
                 <viewController storyboardIdentifier="RemoveMemberViewController" id="mXU-YA-5mv" customClass="RemoveMemberViewController" customModule="HamroSahakarya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdc-Z6-a0s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fnC-7x-2gs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9P0-oi-Psw" firstAttribute="trailing" secondItem="fnC-7x-2gs" secondAttribute="trailing" id="IeG-lR-A3m"/>
+                            <constraint firstItem="9P0-oi-Psw" firstAttribute="bottom" secondItem="fnC-7x-2gs" secondAttribute="bottom" id="RR3-GY-FNA"/>
+                            <constraint firstItem="fnC-7x-2gs" firstAttribute="top" secondItem="9P0-oi-Psw" secondAttribute="top" id="j82-Or-cF6"/>
+                            <constraint firstItem="fnC-7x-2gs" firstAttribute="leading" secondItem="9P0-oi-Psw" secondAttribute="leading" id="nnp-Lr-VH8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9P0-oi-Psw"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="fnC-7x-2gs" id="Mc1-oD-3rh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Do-ul-EIj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

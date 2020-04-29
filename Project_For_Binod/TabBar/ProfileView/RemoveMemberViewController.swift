@@ -10,6 +10,10 @@ import UIKit
 
 final class RemoveMemberViewController: UIViewController {
     
+    // MARK: IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: Properties
     private var viewModel: RemoveMemberViewModelProtocol!
     
 }
