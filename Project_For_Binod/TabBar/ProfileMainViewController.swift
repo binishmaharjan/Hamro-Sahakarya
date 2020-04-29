@@ -89,6 +89,8 @@ extension ProfileMainViewController {
             showLoanMemberView()
         case .loanReturned:
             showLoanReturnedView()
+        case .removeMember:
+            showRemoveMemberView()
         case .termsOfAgreement:
             break
         case .licence:
@@ -137,6 +139,11 @@ extension ProfileMainViewController {
     
     private func showLoanReturnedView() {
         let viewController = profileViewControllerFactory.makeLoanReturnedViewController()
+        pushViewController(viewController, animated: true)
+    }
+    
+    private func showRemoveMemberView() {
+        let viewController = profileViewControllerFactory.makeRemoveMemberViewController()
         pushViewController(viewController, animated: true)
     }
 }

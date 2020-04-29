@@ -7,7 +7,10 @@
 //
 
 import Foundation
+protocol RemoveMemberViewModelProtocol {
+    
+}
 
-struct RemoveMemberViewModel {
+struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     
 }

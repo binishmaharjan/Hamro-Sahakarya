@@ -68,6 +68,7 @@ protocol ProfileViewControllerFactory {
   func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
     func makeLoanMemberViewController() -> LoanMemberViewController
     func makeLoanReturnedViewController() -> LoanReturnedViewController
+    func makeRemoveMemberViewController() -> RemoveMemberViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
