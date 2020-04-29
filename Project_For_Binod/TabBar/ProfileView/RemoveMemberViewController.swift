@@ -77,6 +77,8 @@ extension RemoveMemberViewController {
                     let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
                     GUIManager.shared.showDropDownNotification(data: dropDownModel)
                     
+                    GUIManager.shared.stopAnimation()
+                    
                 case .loading:
                     GUIManager.shared.startAnimation()
                     
