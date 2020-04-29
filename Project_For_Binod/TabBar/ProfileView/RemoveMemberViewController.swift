@@ -11,3 +11,10 @@ import UIKit
 final class RemoveMemberViewController: UIViewController {
     
 }
+
+extension RemoveMemberViewController: ViewControllerWithAssociatedView {
+    
+    func getAssociateView() -> ProfileMainView {
+        return .removeMember
+    }
+}
