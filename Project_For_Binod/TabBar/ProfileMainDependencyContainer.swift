@@ -188,7 +188,9 @@ extension ProfileMainDependencyContainer {
 extension ProfileMainDependencyContainer {
     
     func makeRemoveMemberViewController() -> RemoveMemberViewController {
-        return RemoveMemberViewController()
+        let viewModel = makeRemoveMemberViewModel()
+        let removeMemberViewController = RemoveMemberViewController.makeInstance(viewModel: viewModel)
+        return removeMemberViewController
     }
     
     func makeRemoveMemberViewModel() -> RemoveMemberViewModelProtocol {
