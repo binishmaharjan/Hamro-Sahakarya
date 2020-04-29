@@ -16,6 +16,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var loanTakenLabel: UILabel!
     @IBOutlet private weak var dateJoinedLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var emailLabel: UILabel!
     
     // MARK: Properties
     private var viewModel: HomeViewModelProtocol!
@@ -24,7 +26,46 @@ final class HomeViewController: UIViewController {
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
+    }
+}
 
+// MARK: Bindable
+extension HomeViewController {
+    
+    private func bind() {
+        // Output
+        viewModel.myBalance
+            .asDriver(onErrorJustReturn: "¥0")
+            .drive(myBalanceLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.loanTaken
+            .asDriver(onErrorJustReturn: "¥0")
+            .drive(loanTakenLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.dateJoined
+            .asDriver(onErrorJustReturn: "")
+            .drive(dateJoinedLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.status
+            .asDriver(onErrorJustReturn: .member)
+            .map { $0.rawValue }
+            .drive(statusLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.username
+            .asDriver(onErrorJustReturn: "")
+            .drive(usernameLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.email
+            .asDriver(onErrorJustReturn: "")
+            .drive(emailLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 
