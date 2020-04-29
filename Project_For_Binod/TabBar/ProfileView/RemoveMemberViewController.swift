@@ -1,92 +1,82 @@
 //
-//  LoanMemberViewController.swift
+//  RemoveMemberViewController.swift
 //  Project_For_Binod
 //
-//  Created by Maharjan Binish on 2020/04/11.
+//  Created by Maharjan Binish on 2020/04/29.
 //  Copyright © 2020 JEC. All rights reserved.
 //
 
 import UIKit
 import RxSwift
-import RxCocoa
 
-final class LoanMemberViewController: UIViewController {
+final class RemoveMemberViewController: UIViewController {
     
-    // MARK: IBOutlets
-    @IBOutlet weak var loanAmountTextField: UITextField!
+    // MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    private var viewModel: LoanMemberViewModelProtocol!
-    private var disposeBag =  DisposeBag()
-    private var addButton: UIBarButtonItem!
+    private var viewModel: RemoveMemberViewModelProtocol!
+    private let disposeBag = DisposeBag()
+    private var removeButton: UIBarButtonItem!
     
-    // MARK: Lifecycle
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupBarButton()
         setup()
-        
+        setupBarButton()
         bindApiState()
         bindUIState()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        viewModel.getAllMembers()
+        viewModel.fetchAllMembers()
     }
     
+    // MARK: Methods
     private func setup() {
-        title = "Loan Member"
+        title = "Remove Member"
         
-        tableView.registerXib(of: MembersCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.registerXib(of: MembersCell.self)
     }
     
     private func setupBarButton() {
-        addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
-        navigationItem.rightBarButtonItem = addButton
+        removeButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeButtonPressed))
+        navigationItem.rightBarButtonItem = removeButton
     }
     
-    @objc private func addButtonPressed() {
-        viewModel.loanMember()
-    }
-}
-
-
-// MARK: Storyboard Instantiable
-extension LoanMemberViewController: StoryboardInstantiable {
-    
-    static func  makeInstance(viewModel: LoanMemberViewModelProtocol) -> LoanMemberViewController {
-        let viewController = LoanMemberViewController.loadFromStoryboard()
-        viewController.viewModel = viewModel
-        return viewController
+    @objc private func removeButtonPressed() {
+        GUIManager.shared.showDialog(factory: .removeMember) { [weak self] in
+            self?.viewModel.removeMember()
+        }
     }
 }
 
 // MARK: Bindable
-extension LoanMemberViewController {
+extension RemoveMemberViewController {
     
     private func bindApiState() {
-        
         viewModel.apiState
-            .withLatestFrom(viewModel.loanMemberSuccessful) { return ($0, $1) }
-            .driveNext { [weak self] (state, loanMemberSuccessful) in
+            .withLatestFrom(viewModel.removeMemberSuccessful) { return ($0, $1) }
+            .driveNext { [weak self] (state, removeMemberSuccessful) in
                 
                 switch state {
                 case .completed:
-                    if loanMemberSuccessful {
+                    if removeMemberSuccessful {
                         let dropDownModel = DropDownModel(dropDownType: .success, message: "Successful!!!")
                         GUIManager.shared.showDropDownNotification(data: dropDownModel)
                         
-                        self?.loanAmountTextField.text = ""
+                        // Refetching the members
+                        DispatchQueue.main.async {
+                            self?.viewModel.fetchAllMembers()
+                        }
                     }
-                        
+                    
                     self?.tableView.reloadData()
-                                    
+                    
                     GUIManager.shared.stopAnimation()
                     
                 case .error(let error):
@@ -106,24 +96,26 @@ extension LoanMemberViewController {
     }
     
     private func bindUIState() {
-        // Input
-        loanAmountTextField.rx.text
-            .asDriver()
-            .map { Int($0 ?? "0") ?? 0 }
-            .drive(viewModel.loanAmount)
-            .disposed(by: disposeBag)
-        
         // Output
-        viewModel
-            .isLoanMemberButtonEnabled
+        viewModel.isRemoveMemberButtonEnabled
             .asDriver(onErrorJustReturn: false)
-            .drive(addButton.rx.isEnabled)
+            .drive(removeButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
 
-// MARK: UITableView Data Soure
-extension LoanMemberViewController: UITableViewDataSource {
+// MARK: Storyboard Instantiable
+extension RemoveMemberViewController: StoryboardInstantiable {
+    
+    static func makeInstance(viewModel: RemoveMemberViewModelProtocol) -> RemoveMemberViewController {
+        let viewController = RemoveMemberViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+// MARK: UITableView DataSource
+extension RemoveMemberViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
@@ -144,13 +136,11 @@ extension LoanMemberViewController: UITableViewDataSource {
     private func isUserSelected(indexPath: IndexPath) -> Bool {
         let member = viewModel.userProfileForRow(at: indexPath)
         return viewModel.isUserSelected(userProfile: member)
-        
     }
-    
 }
 
 // MARK: UITableView Delegate
-extension LoanMemberViewController: UITableViewDelegate {
+extension RemoveMemberViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -165,28 +155,28 @@ extension LoanMemberViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let userProfile = viewModel.userProfileForRow(at: indexPath)
-        viewModel.selectedMember.accept(userProfile)
-        
-        let visibleIndexPath = tableView.indexPathsForVisibleRows ?? []
-        let visibleCell = tableView.visibleCells as! [MembersCell]
-        zip(visibleIndexPath, visibleCell).forEach { (indexPath, cell) in
-            reloadCell(cell, indexPath: indexPath)
-        }
-    }
-    
-    private func reloadCell(_ cell: MembersCell, indexPath: IndexPath) {
-        cell.bind(viewModel: viewModel.viewModelForRow(at: indexPath))
-        cell.accessoryType = isUserSelected(indexPath: indexPath) ? .checkmark : .none
-    }
+           tableView.deselectRow(at: indexPath, animated: true)
+           
+           let userProfile = viewModel.userProfileForRow(at: indexPath)
+           viewModel.selectedMember.accept(userProfile)
+           
+           let visibleIndexPath = tableView.indexPathsForVisibleRows ?? []
+           let visibleCell = tableView.visibleCells as! [MembersCell]
+           zip(visibleIndexPath, visibleCell).forEach { (indexPath, cell) in
+               reloadCell(cell, indexPath: indexPath)
+           }
+       }
+       
+       private func reloadCell(_ cell: MembersCell, indexPath: IndexPath) {
+           cell.bind(viewModel: viewModel.viewModelForRow(at: indexPath))
+           cell.accessoryType = isUserSelected(indexPath: indexPath) ? .checkmark : .none
+       }
 }
 
-// MARK: Get Associated View
-extension LoanMemberViewController: ViewControllerWithAssociatedView {
-    func getAssociateView() -> ProfileMainView {
-        return .loanMember
-    }
+// MARK: Associated View
+extension RemoveMemberViewController: ViewControllerWithAssociatedView {
     
+    func getAssociateView() -> ProfileMainView {
+        return .removeMember
+    }
 }

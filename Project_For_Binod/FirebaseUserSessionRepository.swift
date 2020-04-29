@@ -122,6 +122,15 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         return serverDataManager.getAllMemberWithLoan()
     }
     
+    /// Get all members who have taken loan
+    ///
+    ///- Return Promise<Void> : Void wrapped in promise
+    func removeMember(admin: UserProfile, member: UserProfile) -> Promise<Void> {
+        return serverDataManager.removeMember(user: member)
+            .map { (admin, member) }
+            .then(logApi.addRemoveMemberLog(admin: member:))
+    }
+    
     // MARK: Storage
     
     /// Change the profile picture

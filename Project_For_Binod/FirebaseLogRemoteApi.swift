@@ -223,6 +223,35 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
         }
     }
     
+    func addRemoveMemberLog(admin: UserProfile, member: UserProfile) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let logCreator = admin.username
+            let logTarget = member.username
+            let amount = member.balance
+            
+            let log = generateLog(logType: .removed, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
+            let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
+            
+            DispatchQueue.global().async {
+                do {
+                    let data = try FirestoreEncoder().encode(log) as [String: Any]
+                    
+                    let completion: (Error?) -> Void = { error in
+                        guard let error = error else { return }
+                        DispatchQueue.main.async { seal.reject(error) }
+                    }
+                    
+                    logRef.setData(data, completion: completion)
+                    
+                    DispatchQueue.main.async { seal.fulfill(())}
+                    
+                } catch {
+                    DispatchQueue.main.async { seal.reject(error) }
+                }
+            }
+        }
+    }
+    
 }
 
 extension FireBaseLogRemoteApi {

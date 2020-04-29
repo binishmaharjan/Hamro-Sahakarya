@@ -68,6 +68,7 @@ protocol ProfileViewControllerFactory {
   func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
     func makeLoanMemberViewController() -> LoanMemberViewController
     func makeLoanReturnedViewController() -> LoanReturnedViewController
+    func makeRemoveMemberViewController() -> RemoveMemberViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -180,5 +181,19 @@ extension ProfileMainDependencyContainer {
     
     func makeLoanRetunedViewModel() -> LoanReturnedViewModelProtocol {
         return LoanReturnedViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
+    }
+}
+
+// MARK: Remove Member View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeRemoveMemberViewController() -> RemoveMemberViewController {
+        let viewModel = makeRemoveMemberViewModel()
+        let removeMemberViewController = RemoveMemberViewController.makeInstance(viewModel: viewModel)
+        return removeMemberViewController
+    }
+    
+    func makeRemoveMemberViewModel() -> RemoveMemberViewModelProtocol {
+        return RemoveMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
