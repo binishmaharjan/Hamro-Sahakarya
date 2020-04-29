@@ -53,6 +53,6 @@ extension HomeDependencyContainer: HomeViewControllerFactory {
     }
     
     func makeHomeViewModel() -> HomeViewModelProtocol {
-        return HomeViewModel(homeViewResponder: homeMainViewModel, userSessionRepository: sharedUserSessionRepository)
+        return HomeViewModel(homeViewResponder: homeMainViewModel, userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
