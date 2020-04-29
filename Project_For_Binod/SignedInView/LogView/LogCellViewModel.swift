@@ -52,7 +52,7 @@ struct DefaultLogCellViewModel: LogCellViewModel {
     
     var title: String {
         switch logType {
-        case .joined, .left, .madeAdmin, .removedAdmin:
+        case .joined, .left, .madeAdmin, .removedAdmin, .removed:
             return "Organization Information Has Been Changed."
         case .loanGiven, .loanReturned, .monthlyFee, .extra, .expenses:
             return "A New Transaction Has Been Made."
@@ -63,6 +63,8 @@ struct DefaultLogCellViewModel: LogCellViewModel {
         switch logType {
         case .joined:
             return "\(logTarget) has joined the group.Initial amount of ¥\(amount) was given."
+        case .removed:
+            return "\(logTarget) has left the group.Amount of ¥\(amount) was returned to \(logTarget)."
         case .left:
             return "\(logTarget) has left the group.Amount of ¥\(amount) was returned. New member was removed by admin \(logCreator)"
         case .loanGiven:
