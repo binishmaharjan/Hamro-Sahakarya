@@ -14,7 +14,7 @@ protocol RemoveMemberViewModelProtocol {
     var selectedMember: BehaviorRelay<UserProfile?> { get }
     var apiState: Driver<State> { get }
     
-    func getAllMembers()
+    func fetchAllMembers()
     func removeMember()
     
     func numberOfRows() -> Int
@@ -27,6 +27,7 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     
     private let userSessionRepository: UserSessionRepository
     private let userSession: UserSession
+    private var allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
     
     var selectedMember: BehaviorRelay<UserProfile?> = BehaviorRelay(value: nil)
     
@@ -56,12 +57,34 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     
 }
 
+// MARK: Api
+extension RemoveMemberViewModel {
     
-    func getAllMembers() {
-        fatalError()
+    func fetchAllMembers() {
+        userSessionRepository
+            .getAllMembers()
+            .done(indicateGetMemberSuccessful(members:))
+            .catch(indiateError(error:))
     }
     
     func removeMember() {
         
+    }
+    
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateGetMemberSuccessful(members: [UserProfile]) {
+        allMembers.accept(members.filter { $0 == userSession.profile })
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateGetRemoveMemberSuccessful() {
+        
+    }
+    
+    private func indiateError(error: Error) {
+        _apiState.accept(.error(error))
     }
 }
