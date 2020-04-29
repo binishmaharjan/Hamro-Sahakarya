@@ -25,6 +25,10 @@ final class RemoveMemberViewController: UIViewController {
     // MARK: Methods
     private func setup() {
         title = "Remove Member"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerXib(of: MembersCell.self)
     }
 }
 
@@ -36,6 +40,25 @@ extension RemoveMemberViewController: StoryboardInstantiable {
         viewController.viewModel = viewModel
         return viewController
     }
+}
+
+// MARK: UITableView DataSource
+extension RemoveMemberViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueCell(of: MembersCell.self, for: indexPath)
+        return cell
+    }
+    
+}
+
+// MARK: UITableView Delegate
+extension RemoveMemberViewController: UITableViewDelegate {
+    
 }
 
 // MARK: Associated View
