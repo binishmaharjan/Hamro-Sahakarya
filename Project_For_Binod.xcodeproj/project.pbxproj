@@ -982,8 +982,8 @@
 		64FBE18223CDE05F0027E44C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				64FBE1BA23D2EE7A0027E44C /* ProfileMainView */,
-				64FBE1B923D2EE730027E44C /* LogView */,
+				64FBE1BA23D2EE7A0027E44C /* ProfileTab */,
+				64FBE1B923D2EE730027E44C /* LogTab */,
 				64FBE1B823D2EE650027E44C /* HomeTab */,
 				64FBE1B623D2E9F30027E44C /* TabBarController.swift */,
 			);
@@ -1010,24 +1010,24 @@
 			name = HomeTab;
 			sourceTree = "<group>";
 		};
-		64FBE1B923D2EE730027E44C /* LogView */ = {
+		64FBE1B923D2EE730027E44C /* LogTab */ = {
 			isa = PBXGroup;
 			children = (
 				64FBE1CE23D4A6AF0027E44C /* LogViewCell */,
 				64FBE1BD23D2EEBF0027E44C /* LogViewController.swift */,
 				64FBE1C523D4652A0027E44C /* LogViewController.storyboard */,
 			);
-			path = LogView;
+			path = LogTab;
 			sourceTree = "<group>";
 		};
-		64FBE1BA23D2EE7A0027E44C /* ProfileMainView */ = {
+		64FBE1BA23D2EE7A0027E44C /* ProfileTab */ = {
 			isa = PBXGroup;
 			children = (
 				6400FF7B23E1BC970079A623 /* ProfileView */,
 				64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */,
 				6400FF7023E074FD0079A623 /* ProfileMainViewController.swift */,
 			);
-			name = ProfileMainView;
+			name = ProfileTab;
 			sourceTree = "<group>";
 		};
 		64FBE1C123D463FE0027E44C /* TabBar */ = {
