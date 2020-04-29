@@ -61,6 +61,8 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
 extension RemoveMemberViewModel {
     
     func fetchAllMembers() {
+        indicateLoading()
+        
         userSessionRepository
             .getAllMembers()
             .done(indicateGetMemberSuccessful(members:))
@@ -76,7 +78,8 @@ extension RemoveMemberViewModel {
     }
     
     private func indicateGetMemberSuccessful(members: [UserProfile]) {
-        allMembers.accept(members.filter { $0 == userSession.profile })
+        let allMembersExcludingSelf = members.filter { !($0.email == userSession.profile.email) }
+        allMembers.accept(allMembersExcludingSelf)
         _apiState.accept(.completed)
     }
     
