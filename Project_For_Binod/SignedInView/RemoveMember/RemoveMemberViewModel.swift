@@ -13,6 +13,7 @@ import RxCocoa
 protocol RemoveMemberViewModelProtocol {
     var selectedMember: BehaviorRelay<UserProfile?> { get }
     var apiState: Driver<State> { get }
+    var removeMemberSuccessful: Driver<Bool> { get }
     
     func fetchAllMembers()
     func removeMember()
@@ -31,8 +32,10 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     
     var selectedMember: BehaviorRelay<UserProfile?> = BehaviorRelay(value: nil)
     
-     @PropertyBehaviourRelay<State>(value: .idle)
+    @PropertyBehaviourRelay<State>(value: .idle)
     var apiState: Driver<State>
+    @PropertyBehaviourRelay<Bool>(value: false)
+    var removeMemberSuccessful: Driver<Bool>
     
     init(userSessionRepository: UserSessionRepository, userSession: UserSession) {
         self.userSessionRepository = userSessionRepository
@@ -66,14 +69,25 @@ extension RemoveMemberViewModel {
         userSessionRepository
             .getAllMembers()
             .done(indicateGetMemberSuccessful(members:))
-            .catch(indiateError(error:))
+            .catch(indicateError(error:))
     }
     
     func removeMember() {
+        indicateLoading()
         
+        guard let selectedMember = self.selectedMember.value else {
+            indicateError(error: HSError.unknown)
+            return
+        }
+        
+        userSessionRepository
+            .removeMember(admin: userSession.profile, member: selectedMember)
+            .done(indicateGetRemoveMemberSuccessful)
+            .catch(indicateError(error:))
     }
     
     private func indicateLoading() {
+        _removeMemberSuccessful.accept(false)
         _apiState.accept(.loading)
     }
     
@@ -84,10 +98,12 @@ extension RemoveMemberViewModel {
     }
     
     private func indicateGetRemoveMemberSuccessful() {
-        
+        _removeMemberSuccessful.accept(true)
+        selectedMember.accept(nil)
+        _apiState.accept(.completed)
     }
     
-    private func indiateError(error: Error) {
+    private func indicateError(error: Error) {
         _apiState.accept(.error(error))
     }
 }

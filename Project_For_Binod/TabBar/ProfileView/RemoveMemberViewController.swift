@@ -17,11 +17,13 @@ final class RemoveMemberViewController: UIViewController {
     // MARK: Properties
     private var viewModel: RemoveMemberViewModelProtocol!
     private let disposeBag = DisposeBag()
+    private var removeButton: UIBarButtonItem!
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupBarButton()
         bindApiState()
     }
     
@@ -39,6 +41,17 @@ final class RemoveMemberViewController: UIViewController {
         tableView.dataSource = self
         tableView.registerXib(of: MembersCell.self)
     }
+    
+    private func setupBarButton() {
+        removeButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeButtonPressed))
+        navigationItem.rightBarButtonItem = removeButton
+    }
+    
+    @objc private func removeButtonPressed() {
+        GUIManager.shared.showDialog(factory: .removeMember) { [weak self] in
+            self?.viewModel.removeMember()
+        }
+    }
 }
 
 // MARK: Bindable
@@ -46,25 +59,32 @@ extension RemoveMemberViewController {
     
     private func bindApiState() {
         viewModel.apiState
-                   .driveNext { [weak self] (state) in
-                       
-                       switch state {
-                       case .completed:
-                           self?.tableView.reloadData()
-                           GUIManager.shared.stopAnimation()
-                           
-                       case .error(let error):
-                           let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
-                           GUIManager.shared.showDropDownNotification(data: dropDownModel)
-                           
-                       case .loading:
-                           GUIManager.shared.startAnimation()
-                           
-                       default:
-                           break
-                       }
-               }
-               .disposed(by: disposeBag)
+            .withLatestFrom(viewModel.removeMemberSuccessful) { return ($0, $1) }
+            .driveNext { [weak self] (state, removeMemberSuccessful) in
+                
+                switch state {
+                case .completed:
+                    if removeMemberSuccessful {
+                        let dropDownModel = DropDownModel(dropDownType: .success, message: "Successful!!!")
+                        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                    }
+                    
+                    self?.tableView.reloadData()
+                    
+                    GUIManager.shared.stopAnimation()
+                    
+                case .error(let error):
+                    let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+                    GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                    
+                case .loading:
+                    GUIManager.shared.startAnimation()
+                    
+                default:
+                    break
+                }
+        }
+        .disposed(by: disposeBag)
     }
 }
 
@@ -100,7 +120,6 @@ extension RemoveMemberViewController: UITableViewDataSource {
     private func isUserSelected(indexPath: IndexPath) -> Bool {
         let member = viewModel.userProfileForRow(at: indexPath)
         return viewModel.isUserSelected(userProfile: member)
-        
     }
 }
 
