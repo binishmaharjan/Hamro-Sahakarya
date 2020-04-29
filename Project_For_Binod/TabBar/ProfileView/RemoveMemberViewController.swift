@@ -25,6 +25,7 @@ final class RemoveMemberViewController: UIViewController {
         setup()
         setupBarButton()
         bindApiState()
+        bindUIState()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +88,14 @@ extension RemoveMemberViewController {
                 }
         }
         .disposed(by: disposeBag)
+    }
+    
+    private func bindUIState() {
+        // Output
+        viewModel.isRemoveMemberButtonEnabled
+            .asDriver(onErrorJustReturn: false)
+            .drive(removeButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
 }
 

@@ -10,10 +10,22 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol RemoveMemberUIStateProtocol {
+    var selectedMember: UserProfile? { get }
+}
+
+extension RemoveMemberUIStateProtocol {
+     
+    var isRemoveMemberButtonEnabled: Bool {
+        return selectedMember != nil
+    }
+}
+
 protocol RemoveMemberViewModelProtocol {
     var selectedMember: BehaviorRelay<UserProfile?> { get }
     var apiState: Driver<State> { get }
     var removeMemberSuccessful: Driver<Bool> { get }
+    var isRemoveMemberButtonEnabled: Observable<Bool> { get }
     
     func fetchAllMembers()
     func removeMember()
@@ -26,11 +38,16 @@ protocol RemoveMemberViewModelProtocol {
 
 struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     
+    struct UIState: RemoveMemberUIStateProtocol {
+        var selectedMember: UserProfile?
+    }
+    
     private let userSessionRepository: UserSessionRepository
     private let userSession: UserSession
     private var allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
     
     var selectedMember: BehaviorRelay<UserProfile?> = BehaviorRelay(value: nil)
+    var isRemoveMemberButtonEnabled: Observable<Bool>
     
     @PropertyBehaviourRelay<State>(value: .idle)
     var apiState: Driver<State>
@@ -40,6 +57,9 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     init(userSessionRepository: UserSessionRepository, userSession: UserSession) {
         self.userSessionRepository = userSessionRepository
         self.userSession = userSession
+        
+        let state = selectedMember.asObservable().map { UIState(selectedMember: $0) }
+        isRemoveMemberButtonEnabled = state.map { $0.isRemoveMemberButtonEnabled }
     }
     
     func numberOfRows() -> Int {
