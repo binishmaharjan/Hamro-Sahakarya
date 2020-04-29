@@ -194,6 +194,6 @@ extension ProfileMainDependencyContainer {
     }
     
     func makeRemoveMemberViewModel() -> RemoveMemberViewModelProtocol {
-        return RemoveMemberViewModel()
+        return RemoveMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
