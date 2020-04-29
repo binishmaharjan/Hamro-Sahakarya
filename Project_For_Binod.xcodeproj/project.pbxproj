@@ -52,6 +52,9 @@
 		644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */; };
 		644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */; };
 		644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0E62454220F00CB0A56 /* HomeViewModel.swift */; };
+		644EB0EB24591C6E00CB0A56 /* RemoveMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0EA24591C6E00CB0A56 /* RemoveMemberViewController.swift */; };
+		644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0EC24591CB300CB0A56 /* RemoveMemberViewController.storyboard */; };
+		644EB0F024591CF700CB0A56 /* RemoveMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0EF24591CF700CB0A56 /* RemoveMemberViewModel.swift */; };
 		644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F75C723EE7BF000AF42AB /* PreviewImageView.swift */; };
 		644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644F75C923EE7CF800AF42AB /* PreviewImageView.xib */; };
 		64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64517BE2243081F6009F13B6 /* Observables+Additions.swift */; };
@@ -208,6 +211,9 @@
 		644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		644EB0E424541F8F00CB0A56 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		644EB0E62454220F00CB0A56 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		644EB0EA24591C6E00CB0A56 /* RemoveMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveMemberViewController.swift; sourceTree = "<group>"; };
+		644EB0EC24591CB300CB0A56 /* RemoveMemberViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoveMemberViewController.storyboard; sourceTree = "<group>"; };
+		644EB0EF24591CF700CB0A56 /* RemoveMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveMemberViewModel.swift; sourceTree = "<group>"; };
 		644F75C723EE7BF000AF42AB /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		644F75C923EE7CF800AF42AB /* PreviewImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewImageView.xib; sourceTree = "<group>"; };
 		64517BE2243081F6009F13B6 /* Observables+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observables+Additions.swift"; sourceTree = "<group>"; };
@@ -339,6 +345,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0EE24591CE700CB0A56 /* RemoveMember */,
 				644EB0AA2449EB9500CB0A56 /* LoanReturned */,
 				64BE331224415F0100FB8E8E /* LoanMember */,
 				6470ADEB243D6FE400DC5189 /* ExtraAndExpensesView */,
@@ -358,6 +365,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				644EB0E924591C2E00CB0A56 /* RemoveMember */,
 				644EB0A52449E85900CB0A56 /* LoanReturned */,
 				64BE330D24414FFA00FB8E8E /* LoanMember */,
 				6470ADE6243D672200DC5189 /* ExtraAndExpenses */,
@@ -551,6 +559,23 @@
 				644EB0E224541C1800CB0A56 /* HomeViewController.storyboard */,
 			);
 			name = HomeView;
+			sourceTree = "<group>";
+		};
+		644EB0E924591C2E00CB0A56 /* RemoveMember */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0EA24591C6E00CB0A56 /* RemoveMemberViewController.swift */,
+				644EB0EC24591CB300CB0A56 /* RemoveMemberViewController.storyboard */,
+			);
+			name = RemoveMember;
+			sourceTree = "<group>";
+		};
+		644EB0EE24591CE700CB0A56 /* RemoveMember */ = {
+			isa = PBXGroup;
+			children = (
+				644EB0EF24591CF700CB0A56 /* RemoveMemberViewModel.swift */,
+			);
+			path = RemoveMember;
 			sourceTree = "<group>";
 		};
 		644F75C623EE7A9300AF42AB /* PreviewImage */ = {
@@ -1216,6 +1241,7 @@
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */,
+				644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
@@ -1350,6 +1376,7 @@
 				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
 				645939B5235AB7A200A99902 /* UIViewController+ErrorPresentation.swift in Sources */,
 				644F75C823EE7BF000AF42AB /* PreviewImageView.swift in Sources */,
+				644EB0EB24591C6E00CB0A56 /* RemoveMemberViewController.swift in Sources */,
 				6402F3F223767C280044835F /* AuthRemoteApi.swift in Sources */,
 				64568AE82409EBEE00BCA18D /* MembersViewModel.swift in Sources */,
 				64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */,
@@ -1409,6 +1436,7 @@
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
 				645939A0235AAB6900A99902 /* NiblessNavigationViewController.swift in Sources */,
 				644EB0DC24540D3000CB0A56 /* HomeDependencyContainer.swift in Sources */,
+				644EB0F024591CF700CB0A56 /* RemoveMemberViewModel.swift in Sources */,
 				6400FF8523E1D1800079A623 /* UIImageView+Extension.swift in Sources */,
 				645939A6235AAD4C00A99902 /* MainViewModel.swift in Sources */,
 				6478081C241C7FC900588769 /* ChangeMemberStatusViewController.swift in Sources */,
