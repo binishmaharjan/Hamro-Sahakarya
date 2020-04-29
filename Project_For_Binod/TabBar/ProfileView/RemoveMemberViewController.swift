@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class RemoveMemberViewController: UIViewController {
     
@@ -15,11 +16,19 @@ final class RemoveMemberViewController: UIViewController {
     
     // MARK: Properties
     private var viewModel: RemoveMemberViewModelProtocol!
+    private let disposeBag = DisposeBag()
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindApiState()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.fetchAllMembers()
     }
     
     // MARK: Methods
@@ -29,6 +38,33 @@ final class RemoveMemberViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerXib(of: MembersCell.self)
+    }
+}
+
+// MARK: Bindable
+extension RemoveMemberViewController {
+    
+    private func bindApiState() {
+        viewModel.apiState
+                   .driveNext { [weak self] (state) in
+                       
+                       switch state {
+                       case .completed:
+                           self?.tableView.reloadData()
+                           GUIManager.shared.stopAnimation()
+                           
+                       case .error(let error):
+                           let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+                           GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                           
+                       case .loading:
+                           GUIManager.shared.startAnimation()
+                           
+                       default:
+                           break
+                       }
+               }
+               .disposed(by: disposeBag)
     }
 }
 
