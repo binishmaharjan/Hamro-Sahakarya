@@ -16,6 +16,16 @@ final class RemoveMemberViewController: UIViewController {
     // MARK: Properties
     private var viewModel: RemoveMemberViewModelProtocol!
     
+    // MARK: LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
+    // MARK: Methods
+    private func setup() {
+        title = "Remove Member"
+    }
 }
 
 // MARK: Storyboard Instantiable
