@@ -182,3 +182,15 @@ extension ProfileMainDependencyContainer {
         return LoanReturnedViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
+
+// MARK: Remove Member View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeRemoveMemberViewController() -> RemoveMemberViewController {
+        return RemoveMemberViewController()
+    }
+    
+    func makeRemoveMemberViewModel() -> RemoveMemberViewModelProtocol {
+        return RemoveMemberViewModel()
+    }
+}
