@@ -18,7 +18,7 @@ enum GroupLogType: String, Codable {
     case monthlyFee = "monthly_fee"
     case extra = "extra"
     case expenses = "expenses"
-    
+    case removed = "removed"
     
     //Non Amount
     case madeAdmin = "made_admin"

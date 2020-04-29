@@ -15,6 +15,7 @@ protocol UserSessionRepository {
     func signUp(newAccount: NewAccount) -> Promise<UserSession>
     func signIn(email: String, password: String) -> Promise<UserSession>
     func signOut(userSession: UserSession) -> Promise<UserSession>
+    func removeMember(admin: UserProfile, member: UserProfile) -> Promise<Void>
     
     func getLogs() -> Promise<[GroupLog]>
     func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void>

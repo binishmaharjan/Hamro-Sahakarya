@@ -376,4 +376,23 @@ final class FireStoreDataManager: ServerDataManager {
         }
     }
     
+    func removeMember(user: UserProfile) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let reference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(user.uid)
+            
+            DispatchQueue.global().async {
+                let completion: (Error?) -> Void = { error in
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    DispatchQueue.main.async { seal.fulfill(()) }
+                }
+                
+                reference.delete(completion: completion)
+            }
+        }
+    }
+    
 }
