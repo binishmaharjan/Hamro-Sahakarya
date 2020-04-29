@@ -87,8 +87,13 @@ extension RemoveMemberViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(of: MembersCell.self, for: indexPath)
+        cell.tintColor = UIColor.mainOrange
+        
         let cellViewModel = viewModel.viewModelForRow(at: indexPath)
+        
+        cell.accessoryType = isUserSelected(indexPath: indexPath) ? .checkmark : .none
         cell.bind(viewModel: cellViewModel)
+        
         return cell
     }
     
