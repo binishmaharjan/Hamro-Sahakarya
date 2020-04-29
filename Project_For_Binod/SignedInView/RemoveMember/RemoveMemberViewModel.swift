@@ -39,21 +39,23 @@ struct RemoveMemberViewModel: RemoveMemberViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-        fatalError()
+        return allMembers.value.count
     }
     
     func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
-        fatalError()
+        return DefaultMemberCellViewModel(profile: userProfileForRow(at: indexPath))
     }
     
     func userProfileForRow(at indexPath: IndexPath) -> UserProfile {
-        fatalError()
+        return allMembers.value[indexPath.row]
     }
     
     func isUserSelected(userProfile: UserProfile) -> Bool {
-        fatalError()
+        return userProfile == selectedMember.value
     }
     
+}
+
     
     func getAllMembers() {
         fatalError()
