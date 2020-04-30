@@ -18,6 +18,7 @@ protocol UserSessionRepository {
     func removeMember(admin: UserProfile, member: UserProfile) -> Promise<Void>
     
     func getLogs() -> Promise<[GroupLog]>
+    func fetchMoreLogsFromLastSnapShot() -> Promise<[GroupLog]>
     func addMonthlyFeeLog(admin: UserProfile, user: UserProfile, amount: Int) -> Promise<Void>
     func updateExtraAndExpenses(admin: UserProfile, type: ExtraOrExpenses, amount: Int, reason: String) -> Promise<Void>
     func loanMember(admin: UserProfile, member: UserProfile, amount: Int) -> Promise<Void>
