@@ -23,7 +23,7 @@ struct DefaultLogCellViewModel: LogCellViewModel {
     }
     
     var dateCreated: String {
-        return groupLog.dateCreated
+        return groupLog.dateCreated.toDateAndTime.toGegorianMonthDateYearString
     }
     
     var logType: GroupLogType {
