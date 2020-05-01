@@ -12,11 +12,12 @@ import RxCocoa
 
 protocol LogViewModel {
     var count: Int { get }
-    
     var state: Driver<State> { get }
+    var lastCount: Int { get }
     
     func logViewModelForRow(at indexPath: IndexPath) -> DefaultLogCellViewModel
     func loadLogs(isFirstLoad: Bool)
+    func fetchMoreLogs()
 }
 
 // TODO: Make this struct
@@ -24,10 +25,11 @@ final class DefaultLogViewModel: LogViewModel {
     
     // MARK: Properties
     private let userSessionRepository: UserSessionRepository
-    
+    private var isLastPage: Bool = false
     private var logs: [GroupLog] = []
+    
     var count: Int { return logs.count }
-    var isFirstLoad = true
+    let lastCount: Int = 0
     
     @PropertyBehaviourRelay(value: State.idle)
     var state: Driver<State>
@@ -50,6 +52,26 @@ final class DefaultLogViewModel: LogViewModel {
             .catch(indicateLoadFailed)
         
     }
+    
+    func fetchMoreLogs() {
+        guard !isLastPage else {
+            Dlog("There are no more logs.")
+            return
+        }
+        
+        if case .loading = _state.value {
+            Dlog("Logs are loading.")
+            return
+        }
+        
+        indicateLoading()
+        
+        userSessionRepository
+            .fetchMoreLogsFromLastSnapShot()
+            .done(indicateFetchMoreLogSuccesful)
+            .catch(indicateLoadFailed)
+
+    }
 }
 
 // MARK: Indication
@@ -60,15 +82,20 @@ extension DefaultLogViewModel {
     }
     
     private func indicateLoadSuccessful(logs: [GroupLog]) {
+        isLastPage = false
         
-        switch isFirstLoad{
-        case true:
-            isFirstLoad = false
-            self.logs = logs
-            
-        case false:
-            break
+        self.logs = logs
+
+        
+        _state.accept(.completed)
+    }
+    
+    func indicateFetchMoreLogSuccesful(logs: [GroupLog]) {
+        if logs.count == 0 {
+            isLastPage = true
         }
+        
+        self.logs.append(contentsOf: logs)
         
         _state.accept(.completed)
     }

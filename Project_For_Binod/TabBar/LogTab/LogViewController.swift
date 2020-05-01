@@ -108,5 +108,12 @@ extension LogViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return .leastNonzeroMagnitude
   }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let startFetchingMoreLogIndex = viewModel.count - viewModel.lastCount - 1
+        if indexPath.row == startFetchingMoreLogIndex {
+            viewModel.fetchMoreLogs()
+        }
+    }
 
 }

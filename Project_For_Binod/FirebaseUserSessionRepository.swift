@@ -100,6 +100,13 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         return logApi.getLogs()
     }
     
+    /// Fetch all the group logs from the last snapshot
+    ///
+    /// - Return Promise<[Group Log]> : logs wrapped in promise
+    func fetchMoreLogsFromLastSnapShot() -> Promise<[GroupLog]> {
+        return logApi.fetchLogsFromLastSnapshot()
+    }
+    
     /// Change Member Status
     ///
     /// - Parameter user: The specific user whose status is to be changed

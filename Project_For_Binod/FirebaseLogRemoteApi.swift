@@ -63,6 +63,59 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
         }
     }
     
+    func fetchLogsFromLastSnapshot() -> Promise<[GroupLog]> {
+        
+        return Promise<[GroupLog]> { [weak self] seal in
+            
+            guard let lastSnapshot = self?.lastSnapshot else {
+                seal.reject(HSError.noSnapshotError)
+                return
+            }
+            
+            let reference = Firestore.firestore()
+                .collection(DatabaseReference.LOGS_REF)
+                .order(by: DatabaseReference.DATE_CREATED, descending: true)
+                .limit(to: 20)
+                .start(afterDocument: lastSnapshot)
+            
+            DispatchQueue.global(qos: .default).async {
+                reference.getDocuments { (snapshots, error) in
+                    
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    guard let snapshots = snapshots else {
+                        DispatchQueue.main.async { seal.reject(HSError.noSnapshotError) }
+                        return
+                    }
+                    
+                    if let lastSnapshot = snapshots.documents.last {
+                        self?.lastSnapshot = lastSnapshot
+                    }
+                    
+                    var logs: [GroupLog] = [GroupLog]()
+                    snapshots.documents.forEach { (snapshot) in
+                        
+                        let data  = snapshot.data()
+                        
+                        do {
+                            let log = try FirestoreDecoder().decode(GroupLog.self, from: data)
+                            logs.append(log)
+                        } catch {
+                            DispatchQueue.main.async { seal.reject(error) }
+                        }
+                        
+                    }
+                    
+                    DispatchQueue.main.async { seal.fulfill(logs) }
+                    
+                }
+            }
+        }
+    }
+    
     
     func addJoinedLog(userSession: UserSession) -> Promise<UserSession> {
         return Promise<UserSession> { seal in

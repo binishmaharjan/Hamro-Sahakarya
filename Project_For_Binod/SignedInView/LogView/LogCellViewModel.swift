@@ -9,21 +9,20 @@
 import Foundation
 
 protocol LogCellViewModel {
-    var groupLog: GroupLog { get }
     var title: String { get }
     var description: String { get }
     var dateCreated: String { get }
 }
 
 struct DefaultLogCellViewModel: LogCellViewModel {
-    internal let groupLog: GroupLog
+    private let groupLog: GroupLog
     
     var logId: String {
         return groupLog.logId
     }
     
     var dateCreated: String {
-        return groupLog.dateCreated
+        return groupLog.dateCreated.toDateAndTime.toGegorianMonthDateYearString
     }
     
     var logType: GroupLogType {

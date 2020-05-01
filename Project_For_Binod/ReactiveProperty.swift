@@ -84,6 +84,10 @@ class PropertyBehaviourRelay<Element> {
         return behaviourRelay.asDriver()
     }
     
+    var value: Element {
+        return behaviourRelay.value
+    }
+    
     init(value: Element) {
         self.behaviourRelay = BehaviorRelay(value: value)
     }
