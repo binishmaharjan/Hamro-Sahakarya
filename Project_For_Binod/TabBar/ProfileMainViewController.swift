@@ -92,7 +92,7 @@ extension ProfileMainViewController {
         case .removeMember:
             showRemoveMemberView()
         case .termsAndCondition:
-            break
+            showTermsAndConditionView()
         case .licence:
             break
         case .logout:
@@ -144,6 +144,11 @@ extension ProfileMainViewController {
     
     private func showRemoveMemberView() {
         let viewController = profileViewControllerFactory.makeRemoveMemberViewController()
+        pushViewController(viewController, animated: true)
+    }
+    
+    private func showTermsAndConditionView() {
+        let viewController = profileViewControllerFactory.makeTermsAndConditionViewController()
         pushViewController(viewController, animated: true)
     }
 }

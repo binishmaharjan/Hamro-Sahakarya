@@ -43,7 +43,7 @@ enum ProfileRow {
         case .members:
             return "Members"
         case .termsAndCondition:
-            return "Terms of Agreement"
+            return "Terms And Condition"
         case .license:
             return "Licence"
         case .logout:
