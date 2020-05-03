@@ -71,6 +71,10 @@
 		64568B0F240B704800BCA18D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568B0E240B704800BCA18D /* ChangePasswordViewController.swift */; };
 		64568B11240B707C00BCA18D /* ChangePasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64568B10240B707C00BCA18D /* ChangePasswordViewController.storyboard */; };
 		64568B542413724100BCA18D /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568B532413724100BCA18D /* ChangePasswordViewModel.swift */; };
+		64575D25245E637700EF7C69 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575D24245E637700EF7C69 /* TermsAndConditionViewController.swift */; };
+		64575D27245E63A300EF7C69 /* TermsAndConditionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64575D26245E63A300EF7C69 /* TermsAndConditionViewController.storyboard */; };
+		64575D2A245E641300EF7C69 /* TermsAndConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575D29245E641300EF7C69 /* TermsAndConditionViewModel.swift */; };
+		64575D2C245E6E9D00EF7C69 /* terms_and_conditions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
 		64593997235AAAA600A99902 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64593996235AAAA600A99902 /* SignedInViewController.swift */; };
@@ -230,6 +234,10 @@
 		64568B0E240B704800BCA18D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		64568B10240B707C00BCA18D /* ChangePasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordViewController.storyboard; sourceTree = "<group>"; };
 		64568B532413724100BCA18D /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		64575D24245E637700EF7C69 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
+		64575D26245E63A300EF7C69 /* TermsAndConditionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsAndConditionViewController.storyboard; sourceTree = "<group>"; };
+		64575D29245E641300EF7C69 /* TermsAndConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewModel.swift; sourceTree = "<group>"; };
+		64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = terms_and_conditions.pdf; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		64593996235AAAA600A99902 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +353,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64575D28245E63EA00EF7C69 /* TermsAndConditons */,
 				644EB0EE24591CE700CB0A56 /* RemoveMember */,
 				644EB0AA2449EB9500CB0A56 /* LoanReturned */,
 				64BE331224415F0100FB8E8E /* LoanMember */,
@@ -365,6 +374,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64575D23245E634200EF7C69 /* TermsAndCondition */,
 				644EB0E924591C2E00CB0A56 /* RemoveMember */,
 				644EB0A52449E85900CB0A56 /* LoanReturned */,
 				64BE330D24414FFA00FB8E8E /* LoanMember */,
@@ -649,6 +659,31 @@
 			name = ChangePassword;
 			sourceTree = "<group>";
 		};
+		64575D23245E634200EF7C69 /* TermsAndCondition */ = {
+			isa = PBXGroup;
+			children = (
+				64575D24245E637700EF7C69 /* TermsAndConditionViewController.swift */,
+				64575D26245E63A300EF7C69 /* TermsAndConditionViewController.storyboard */,
+			);
+			path = TermsAndCondition;
+			sourceTree = "<group>";
+		};
+		64575D28245E63EA00EF7C69 /* TermsAndConditons */ = {
+			isa = PBXGroup;
+			children = (
+				64575D29245E641300EF7C69 /* TermsAndConditionViewModel.swift */,
+			);
+			path = TermsAndConditons;
+			sourceTree = "<group>";
+		};
+		64575D2D245E6F7A00EF7C69 /* TermsAndCondition */ = {
+			isa = PBXGroup;
+			children = (
+				64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */,
+			);
+			name = TermsAndCondition;
+			sourceTree = "<group>";
+		};
 		64593994235AAA6600A99902 /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,6 +922,7 @@
 		64A0C6AC235A9790007BEFF1 /* Version 3 */ = {
 			isa = PBXGroup;
 			children = (
+				64575D2D245E6F7A00EF7C69 /* TermsAndCondition */,
 				645939C1235AC39D00A99902 /* Assets.xcassets */,
 				6492C16D235AA48C009BE621 /* Extension */,
 				64A0C6B0235A9831007BEFF1 /* HSiOS */,
@@ -1247,6 +1283,7 @@
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
+				64575D2C245E6E9D00EF7C69 /* terms_and_conditions.pdf in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */,
 				644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */,
@@ -1257,6 +1294,7 @@
 				64568AE42409E90900BCA18D /* MembersViewController.storyboard in Resources */,
 				64FBE1D223D4A6D00027E44C /* LogViewCell.xib in Resources */,
 				64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */,
+				64575D27245E63A300EF7C69 /* TermsAndConditionViewController.storyboard in Resources */,
 				6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */,
 				64568AEC2409ECE500BCA18D /* MembersCell.xib in Resources */,
 				6400FF9123E4753D0079A623 /* ProfileFooterView.xib in Resources */,
@@ -1348,6 +1386,7 @@
 				6400FF8723E31AF00079A623 /* UserSession.swift in Sources */,
 				64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
+				64575D25245E637700EF7C69 /* TermsAndConditionViewController.swift in Sources */,
 				6400FF7823E1B6C30079A623 /* State.swift in Sources */,
 				64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
@@ -1452,6 +1491,7 @@
 				64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */,
 				6400FF7423E075820079A623 /* ProfileMainViewModel.swift in Sources */,
 				64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */,
+				64575D2A245E641300EF7C69 /* TermsAndConditionViewModel.swift in Sources */,
 				6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */,
 				64568B0F240B704800BCA18D /* ChangePasswordViewController.swift in Sources */,
 				6400FF8F23E475140079A623 /* ProfileFooterView.swift in Sources */,

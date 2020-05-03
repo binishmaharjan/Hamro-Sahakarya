@@ -69,6 +69,7 @@ protocol ProfileViewControllerFactory {
     func makeLoanMemberViewController() -> LoanMemberViewController
     func makeLoanReturnedViewController() -> LoanReturnedViewController
     func makeRemoveMemberViewController() -> RemoveMemberViewController
+    func makeTermsAndConditionViewController() -> TermsAndConditionViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -195,5 +196,19 @@ extension ProfileMainDependencyContainer {
     
     func makeRemoveMemberViewModel() -> RemoveMemberViewModelProtocol {
         return RemoveMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
+    }
+}
+
+// MARK: Terms And Condition View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeTermsAndConditionViewController() -> TermsAndConditionViewController {
+        let viewModel = makeTermsAndConditionViewModel()
+        let viewController = TermsAndConditionViewController.makeInstance(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeTermsAndConditionViewModel() -> TermsAndConditionViewModelProtocol {
+        return TermsAndConditionViewModel()
     }
 }
