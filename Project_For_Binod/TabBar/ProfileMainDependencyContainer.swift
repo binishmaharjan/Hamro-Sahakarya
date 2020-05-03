@@ -197,3 +197,17 @@ extension ProfileMainDependencyContainer {
         return RemoveMemberViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }
+
+// MARK: Terms And Condition View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeTermsAndConditionViewController() -> TermsAndConditionViewController {
+        let viewModel = makeTermsAndConditionViewModel()
+        let viewController = TermsAndConditionViewController.makeInstance(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeTermsAndConditionViewModel() -> TermsAndConditionViewModelProtocol {
+        return TermsAndConditionViewModel()
+    }
+}
