@@ -91,7 +91,7 @@ extension ProfileMainViewController {
             showLoanReturnedView()
         case .removeMember:
             showRemoveMemberView()
-        case .termsOfAgreement:
+        case .termsAndCondition:
             break
         case .licence:
             break

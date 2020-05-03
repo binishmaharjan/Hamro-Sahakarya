@@ -21,7 +21,7 @@ enum ProfileMainView {
     case loanReturned
     case removeMember
     
-    case termsOfAgreement
+    case termsAndCondition
     case licence
     case logout
 }
