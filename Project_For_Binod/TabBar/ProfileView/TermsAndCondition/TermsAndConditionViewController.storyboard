@@ -15,9 +15,24 @@
                     <view key="view" contentMode="scaleToFill" id="SaL-tp-dHw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-cX-lXr" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ifn-cX-lXr" firstAttribute="leading" secondItem="y6T-3c-vaD" secondAttribute="leading" id="2Hr-zn-ysf"/>
+                            <constraint firstItem="y6T-3c-vaD" firstAttribute="bottom" secondItem="ifn-cX-lXr" secondAttribute="bottom" id="E3F-Jh-1qa"/>
+                            <constraint firstItem="y6T-3c-vaD" firstAttribute="trailing" secondItem="ifn-cX-lXr" secondAttribute="trailing" id="I90-3h-eEy"/>
+                            <constraint firstItem="ifn-cX-lXr" firstAttribute="top" secondItem="y6T-3c-vaD" secondAttribute="top" id="wjd-UQ-5dE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="y6T-3c-vaD"/>
                     </view>
+                    <connections>
+                        <outlet property="pdfView" destination="ifn-cX-lXr" id="M7B-eB-1Cl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vo-xH-CPg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

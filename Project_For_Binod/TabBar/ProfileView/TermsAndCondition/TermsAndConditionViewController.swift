@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import PDFKit
 
 final class TermsAndConditionViewController: UIViewController {
+    
+    // MARK: IBOutlets
+    @IBOutlet private weak var pdfView: PDFView!
     
     // MARK: Properties
     private var viewModel: TermsAndConditionViewModelProtocol!
