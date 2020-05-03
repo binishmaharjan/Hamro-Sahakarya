@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct TermsAndConditionViewModel {
+protocol TermsAndConditionViewModelProtocol {
+    
+}
+
+struct TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     
 }

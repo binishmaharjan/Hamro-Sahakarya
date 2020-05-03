@@ -10,4 +10,16 @@ import UIKit
 
 final class TermsAndConditionViewController: UIViewController {
     
+    // MARK: Properties
+    private var viewModel: TermsAndConditionViewModelProtocol!
+}
+
+// MARK: Storyboard Instantiable
+extension TermsAndConditionViewController: StoryboardInstantiable {
+    
+    static func makeInstance(viewModel: TermsAndConditionViewModelProtocol) -> TermsAndConditionViewController {
+        let viewController = TermsAndConditionViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        return viewController
+    }
 }
