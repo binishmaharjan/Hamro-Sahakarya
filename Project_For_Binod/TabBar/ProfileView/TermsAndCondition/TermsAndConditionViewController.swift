@@ -16,6 +16,21 @@ final class TermsAndConditionViewController: UIViewController {
     
     // MARK: Properties
     private var viewModel: TermsAndConditionViewModelProtocol!
+    
+    // MARK: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setup()
+    }
+    
+    private func setup() {
+        title = "Terms And Conditions"
+        
+        pdfView.displayMode = .singlePageContinuous
+        pdfView.autoScales = true
+        pdfView.document = viewModel.pdfDocument
+    }
 }
 
 // MARK: Storyboard Instantiable
