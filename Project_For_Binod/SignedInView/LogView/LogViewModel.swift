@@ -14,9 +14,10 @@ protocol LogViewModel {
     var count: Int { get }
     var state: Driver<State> { get }
     var lastCount: Int { get }
+    var isRefreshing: Driver<Bool> { get }
     
     func logViewModelForRow(at indexPath: IndexPath) -> DefaultLogCellViewModel
-    func loadLogs(isFirstLoad: Bool)
+    func fetchLogs(isRefresh: Bool)
     func fetchMoreLogs()
 }
 
@@ -34,6 +35,9 @@ final class DefaultLogViewModel: LogViewModel {
     @PropertyBehaviourRelay(value: State.idle)
     var state: Driver<State>
     
+    @PropertyBehaviourRelay(value: false)
+    var isRefreshing: Driver<Bool>
+    
     // MARK: Init
     init(userSessionRepository: UserSessionRepository) {
         self.userSessionRepository = userSessionRepository
@@ -44,7 +48,8 @@ final class DefaultLogViewModel: LogViewModel {
         return .init(groupLog: logs[indexPath.row])
     }
     
-    func loadLogs(isFirstLoad: Bool = false) {
+    func fetchLogs(isRefresh: Bool = false) {
+        if isRefresh { _isRefreshing.accept(true) }
         indicateLoading()
         
         userSessionRepository.getLogs()
@@ -86,8 +91,8 @@ extension DefaultLogViewModel {
         
         self.logs = logs
 
-        
         _state.accept(.completed)
+        _isRefreshing.accept(false)
     }
     
     func indicateFetchMoreLogSuccesful(logs: [GroupLog]) {
@@ -102,5 +107,6 @@ extension DefaultLogViewModel {
     
     private func indicateLoadFailed(error: Error) {
         _state.accept(.error(error))
+        _isRefreshing.accept(false)
     }
 }
