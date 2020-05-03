@@ -23,3 +23,11 @@ extension TermsAndConditionViewController: StoryboardInstantiable {
         return viewController
     }
 }
+
+// MARK: Associated View
+extension TermsAndConditionViewController: ViewControllerWithAssociatedView {
+    func getAssociateView() -> ProfileMainView {
+        return .termsAndCondition
+    }
+
+}
