@@ -308,6 +308,9 @@
                                             <constraint firstAttribute="width" constant="23" id="nrr-kD-SIY"/>
                                         </constraints>
                                         <state key="normal" image="icon_detail_unselected"/>
+                                        <connections>
+                                            <action selector="monthlyDetailButtonPressed:" destination="sSy-ev-HhZ" eventType="touchUpInside" id="FDt-CE-hTX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -333,6 +336,9 @@
                                             <constraint firstAttribute="height" constant="23" id="clw-ds-MdJ"/>
                                         </constraints>
                                         <state key="normal" image="icon_account_selected"/>
+                                        <connections>
+                                            <action selector="accountDetailButtonPressed:" destination="sSy-ev-HhZ" eventType="touchUpInside" id="jQC-Ty-qfg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="cEF5D0B"/>
@@ -412,6 +418,9 @@
                                             <constraint firstAttribute="height" constant="25" id="thI-Je-W0S"/>
                                         </constraints>
                                         <state key="normal" image="icon_graph_unselected"/>
+                                        <connections>
+                                            <action selector="memberGraphButtonPressed:" destination="sSy-ev-HhZ" eventType="touchUpInside" id="kHA-WK-34K"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -457,7 +466,13 @@
                     <connections>
                         <outlet property="dateJoinedLabel" destination="1mk-bX-1uX" id="7yc-ef-mPc"/>
                         <outlet property="emailLabel" destination="HSJ-89-tVc" id="8Q1-aq-svf"/>
+                        <outlet property="graphDetailButton" destination="1ZP-0T-odS" id="Mjj-d4-GKP"/>
+                        <outlet property="graphDetailButtonArea" destination="2xi-Tf-1IJ" id="mqJ-eU-7c2"/>
                         <outlet property="loanTakenLabel" destination="IVm-GX-9FS" id="xjh-6h-S0j"/>
+                        <outlet property="memberGraphButton" destination="ULU-Kx-Ped" id="DFe-dL-yvy"/>
+                        <outlet property="memberGraphButtonArea" destination="Qpa-H7-6BS" id="6Ll-vB-bzi"/>
+                        <outlet property="monthDetailButton" destination="1Ia-iv-E0s" id="W8u-Ge-YNi"/>
+                        <outlet property="monthDetailButtonArea" destination="VjR-yU-k5n" id="Gi0-nO-GYx"/>
                         <outlet property="myBalanceLabel" destination="WCC-nA-ffF" id="OBh-A2-EqP"/>
                         <outlet property="statusLabel" destination="f7g-sp-BWO" id="WgD-cA-mQN"/>
                         <outlet property="usernameLabel" destination="BC5-aJ-jcj" id="BoF-xa-Nrm"/>

@@ -19,6 +19,14 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
     
+    @IBOutlet private weak var memberGraphButtonArea: UIView!
+    @IBOutlet private weak var memberGraphButton: UIButton!
+    @IBOutlet private weak var graphDetailButtonArea: UIView!
+    @IBOutlet private weak var graphDetailButton: UIButton!
+    @IBOutlet private weak var monthDetailButtonArea: UIView!
+    @IBOutlet private weak var monthDetailButton: UIButton!
+    
+    
     // MARK: Properties
     private var viewModel: HomeViewModelProtocol!
     private let disposeBag = DisposeBag()
@@ -28,6 +36,16 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         bind()
+    }
+    
+    // MARK: IBActions
+    @IBAction func memberGraphButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func accountDetailButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func monthlyDetailButtonPressed(_ sender: Any) {
     }
 }
 
