@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+extension Int {
+    var currency: String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.locale = Locale(identifier: "ja_JP")
+        return currencyFormatter.string(for: self) ?? "¥0"
+    }
+}
