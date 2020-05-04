@@ -47,7 +47,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtv-NB-fOG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_dollar" translatesAutoresizingMaskIntoConstraints="NO" id="e7S-EO-ByD">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_balance" translatesAutoresizingMaskIntoConstraints="NO" id="e7S-EO-ByD">
                                                                                 <rect key="frame" x="6" y="6" width="20" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="20" id="BIR-z0-ctI"/>
@@ -101,7 +101,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiK-d4-g3T">
                                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_cut" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-OK-aJY">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_loan_taken" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-OK-aJY">
                                                                                 <rect key="frame" x="6" y="6" width="20" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="hbm-r4-EqX"/>
@@ -160,7 +160,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-m5-hxH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Hb3-AD-I4Z">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_member_since" translatesAutoresizingMaskIntoConstraints="NO" id="Hb3-AD-I4Z">
                                                                                 <rect key="frame" x="6" y="6" width="20" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="GEp-sL-nh5"/>
@@ -181,7 +181,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joined Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfs-GV-er3">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member Since" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfs-GV-er3">
                                                                         <rect key="frame" x="40" y="0.0" width="123.5" height="12"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                                         <color key="textColor" name="cADB2B6"/>
@@ -213,7 +213,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbM-2a-j7A">
                                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_card" translatesAutoresizingMaskIntoConstraints="NO" id="1SB-Xk-QuJ">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_status" translatesAutoresizingMaskIntoConstraints="NO" id="1SB-Xk-QuJ">
                                                                                 <rect key="frame" x="6" y="6" width="20" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="nvo-Tm-dpl"/>
@@ -286,8 +286,8 @@
                                     <constraint firstItem="BC5-aJ-jcj" firstAttribute="leading" secondItem="hFA-GG-AnD" secondAttribute="leading" constant="16" id="yYp-cB-lMj"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lx-lI-ceh">
-                                <rect key="frame" x="16" y="165" width="122" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lx-lI-ceh">
+                                <rect key="frame" x="16" y="165" width="120" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" name="c241D1D"/>
                                 <nil key="highlightedColor"/>
@@ -298,16 +298,16 @@
                                 <color key="textColor" name="cADB2B6"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-yU-k5n">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-yU-k5n" userLabel="Monthly Log Button">
                                 <rect key="frame" x="324.5" y="165" width="34.5" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-iv-E0s">
-                                        <rect key="frame" x="7" y="7" width="21" height="21"/>
+                                        <rect key="frame" x="6" y="6" width="23" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="PT9-8l-nDC"/>
-                                            <constraint firstAttribute="width" constant="21" id="nrr-kD-SIY"/>
+                                            <constraint firstAttribute="height" constant="23" id="PT9-8l-nDC"/>
+                                            <constraint firstAttribute="width" constant="23" id="nrr-kD-SIY"/>
                                         </constraints>
-                                        <state key="normal" image="iconfinder_contact_unselected"/>
+                                        <state key="normal" image="icon_detail_unselected"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -323,16 +323,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xi-Tf-1IJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xi-Tf-1IJ" userLabel="Group Detail Button">
                                 <rect key="frame" x="274" y="165" width="34.5" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZP-0T-odS">
-                                        <rect key="frame" x="7" y="7" width="21" height="21"/>
+                                        <rect key="frame" x="6" y="6" width="23" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="c7b-rv-dgk"/>
-                                            <constraint firstAttribute="height" constant="21" id="clw-ds-MdJ"/>
+                                            <constraint firstAttribute="width" constant="23" id="c7b-rv-dgk"/>
+                                            <constraint firstAttribute="height" constant="23" id="clw-ds-MdJ"/>
                                         </constraints>
-                                        <state key="normal" image="iconfinder_checklist_selected"/>
+                                        <state key="normal" image="icon_account_selected"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="cEF5D0B"/>
@@ -346,24 +346,111 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-e8-vWp" userLabel="Detail Content View">
+                                <rect key="frame" x="16" y="207.5" width="343" height="459.5"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIz-Kw-AQE">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="459.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrt-4o-xJE" userLabel="Content">
+                                                <rect key="frame" x="0.0" y="0.0" width="1029" height="459.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AIj-Gh-eY7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1029" height="459.5"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-tp-zfM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="459.5"/>
+                                                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rv-db-jpq">
+                                                                <rect key="frame" x="343" y="0.0" width="343" height="459.5"/>
+                                                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLx-oZ-2ve">
+                                                                <rect key="frame" x="686" y="0.0" width="343" height="459.5"/>
+                                                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="AIj-Gh-eY7" secondAttribute="trailing" id="9eO-MI-pb6"/>
+                                                    <constraint firstItem="AIj-Gh-eY7" firstAttribute="top" secondItem="yrt-4o-xJE" secondAttribute="top" id="U4d-ZI-npu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AIj-Gh-eY7" secondAttribute="bottom" id="b16-nd-u36"/>
+                                                    <constraint firstItem="AIj-Gh-eY7" firstAttribute="leading" secondItem="yrt-4o-xJE" secondAttribute="leading" id="gGd-7u-rHs"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="yrt-4o-xJE" firstAttribute="top" secondItem="eIz-Kw-AQE" secondAttribute="top" id="Asr-Xj-nAG"/>
+                                            <constraint firstItem="yrt-4o-xJE" firstAttribute="height" secondItem="eIz-Kw-AQE" secondAttribute="height" id="LCZ-wZ-0SH"/>
+                                            <constraint firstAttribute="bottom" secondItem="yrt-4o-xJE" secondAttribute="bottom" id="aWK-Qt-huI"/>
+                                            <constraint firstItem="yrt-4o-xJE" firstAttribute="leading" secondItem="eIz-Kw-AQE" secondAttribute="leading" id="aYN-No-nHC"/>
+                                            <constraint firstItem="yrt-4o-xJE" firstAttribute="width" secondItem="eIz-Kw-AQE" secondAttribute="width" multiplier="3" id="hUf-4q-cb2"/>
+                                            <constraint firstAttribute="trailing" secondItem="yrt-4o-xJE" secondAttribute="trailing" id="lFu-LW-SNC"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="BP8-VZ-6j0"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="PHI-eT-l07"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="eIz-Kw-AQE" firstAttribute="top" secondItem="60Z-e8-vWp" secondAttribute="top" id="G1T-YY-MnB"/>
+                                    <constraint firstAttribute="bottom" secondItem="eIz-Kw-AQE" secondAttribute="bottom" id="Xse-CN-MHh"/>
+                                    <constraint firstItem="eIz-Kw-AQE" firstAttribute="leading" secondItem="60Z-e8-vWp" secondAttribute="leading" id="cYd-Xd-hwn"/>
+                                    <constraint firstAttribute="trailing" secondItem="eIz-Kw-AQE" secondAttribute="trailing" id="gcm-Ou-rDv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpa-H7-6BS" userLabel="Member Graph Button">
+                                <rect key="frame" x="223.5" y="165" width="34.5" height="34.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULU-Kx-Ped">
+                                        <rect key="frame" x="5" y="5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Sby-ot-AuA"/>
+                                            <constraint firstAttribute="height" constant="25" id="thI-Je-W0S"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_graph_unselected"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.5" id="3Ne-1x-79U"/>
+                                    <constraint firstAttribute="width" constant="34.5" id="Hgf-fP-tO4"/>
+                                    <constraint firstItem="ULU-Kx-Ped" firstAttribute="centerY" secondItem="Qpa-H7-6BS" secondAttribute="centerY" id="NgP-Fk-oe4"/>
+                                    <constraint firstItem="ULU-Kx-Ped" firstAttribute="centerX" secondItem="Qpa-H7-6BS" secondAttribute="centerX" id="zRP-ll-j4D"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="cFAFBFD"/>
                         <constraints>
                             <constraint firstItem="2xi-Tf-1IJ" firstAttribute="bottom" secondItem="VjR-yU-k5n" secondAttribute="bottom" id="1Ow-WR-t1h"/>
+                            <constraint firstItem="60Z-e8-vWp" firstAttribute="top" secondItem="xHM-ga-R5m" secondAttribute="bottom" constant="8" id="3Vq-t4-PD6"/>
                             <constraint firstItem="xHM-ga-R5m" firstAttribute="top" secondItem="1Lx-lI-ceh" secondAttribute="bottom" constant="2" id="4xK-vO-wwf"/>
                             <constraint firstItem="1Lx-lI-ceh" firstAttribute="leading" secondItem="Duc-TX-1fw" secondAttribute="leading" constant="16" id="D63-z4-ddL"/>
+                            <constraint firstItem="Duc-TX-1fw" firstAttribute="bottom" secondItem="60Z-e8-vWp" secondAttribute="bottom" id="Ewa-Ef-F90"/>
+                            <constraint firstItem="Duc-TX-1fw" firstAttribute="trailing" secondItem="60Z-e8-vWp" secondAttribute="trailing" constant="16" id="FFu-6B-qU3"/>
                             <constraint firstItem="hFA-GG-AnD" firstAttribute="trailing" secondItem="Duc-TX-1fw" secondAttribute="trailing" id="Fop-V6-x3j"/>
                             <constraint firstItem="hFA-GG-AnD" firstAttribute="leading" secondItem="Duc-TX-1fw" secondAttribute="leading" id="GJV-dd-vB3"/>
                             <constraint firstItem="VjR-yU-k5n" firstAttribute="top" secondItem="1Lx-lI-ceh" secondAttribute="top" id="GSr-wh-MRd"/>
                             <constraint firstItem="2xi-Tf-1IJ" firstAttribute="width" secondItem="VjR-yU-k5n" secondAttribute="width" id="PV7-9B-glc"/>
                             <constraint firstItem="1Lx-lI-ceh" firstAttribute="top" secondItem="hFA-GG-AnD" secondAttribute="bottom" constant="16" id="RuW-kq-I8U"/>
+                            <constraint firstItem="2xi-Tf-1IJ" firstAttribute="leading" secondItem="Qpa-H7-6BS" secondAttribute="trailing" constant="16" id="SyC-ad-aMT"/>
                             <constraint firstItem="Duc-TX-1fw" firstAttribute="trailing" secondItem="VjR-yU-k5n" secondAttribute="trailing" constant="16" id="TqJ-jX-hGY"/>
+                            <constraint firstItem="Qpa-H7-6BS" firstAttribute="bottom" secondItem="2xi-Tf-1IJ" secondAttribute="bottom" id="cYa-wv-8jr"/>
                             <constraint firstItem="VjR-yU-k5n" firstAttribute="leading" secondItem="2xi-Tf-1IJ" secondAttribute="trailing" constant="16" id="fZo-5w-YSH"/>
                             <constraint firstItem="VjR-yU-k5n" firstAttribute="bottom" secondItem="xHM-ga-R5m" secondAttribute="bottom" id="iN1-Hh-tKJ"/>
                             <constraint firstItem="hFA-GG-AnD" firstAttribute="top" secondItem="Duc-TX-1fw" secondAttribute="top" id="lMa-UC-wws"/>
                             <constraint firstItem="2xi-Tf-1IJ" firstAttribute="height" secondItem="VjR-yU-k5n" secondAttribute="height" id="nxt-Ze-VT7"/>
                             <constraint firstItem="2xi-Tf-1IJ" firstAttribute="top" secondItem="VjR-yU-k5n" secondAttribute="top" id="tKg-5c-vpj"/>
                             <constraint firstItem="xHM-ga-R5m" firstAttribute="leading" secondItem="Duc-TX-1fw" secondAttribute="leading" constant="16" id="ucM-Re-Eb2"/>
+                            <constraint firstItem="60Z-e8-vWp" firstAttribute="leading" secondItem="Duc-TX-1fw" secondAttribute="leading" constant="16" id="vXz-s3-zUl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Duc-TX-1fw"/>
                     </view>
@@ -382,12 +469,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconfinder_calendar" width="207" height="189"/>
-        <image name="iconfinder_card" width="239" height="154"/>
-        <image name="iconfinder_checklist_selected" width="203" height="166"/>
-        <image name="iconfinder_contact_unselected" width="181" height="216"/>
-        <image name="iconfinder_cut" width="216" height="215"/>
-        <image name="iconfinder_dollar" width="193" height="192"/>
+        <image name="icon_account_selected" width="64" height="64"/>
+        <image name="icon_balance" width="64" height="64"/>
+        <image name="icon_detail_unselected" width="64" height="64"/>
+        <image name="icon_graph_unselected" width="64" height="64"/>
+        <image name="icon_loan_taken" width="64" height="64"/>
+        <image name="icon_member_since" width="64" height="64"/>
+        <image name="icon_status" width="64" height="64"/>
         <namedColor name="c241D1D">
             <color red="0.14117647058823529" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
