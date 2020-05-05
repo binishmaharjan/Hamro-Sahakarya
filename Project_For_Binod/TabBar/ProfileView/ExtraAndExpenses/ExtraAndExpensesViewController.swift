@@ -31,7 +31,7 @@ final class ExtraAndExpensesViewController: UIViewController {
     }
     
     private func setup() {
-        title = "Extra Or Expenses"
+        title = "Extra Income Or Expenses"
         
         let typeSelectionTapGesture = UITapGestureRecognizer(target: self, action: #selector(typeSelectionTapped))
         typeTextField.addGestureRecognizer(typeSelectionTapGesture)
