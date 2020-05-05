@@ -18,16 +18,16 @@ struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
     private let userSession: UserSession
     
     var imageUrl: URL? {
-        let imageString = userSession.profile.iconUrl ?? ""
+        let imageString = userSession.profile.value.iconUrl ?? ""
         return URL(string: imageString)
     }
     
     var fullname: String {
-        return userSession.profile.username
+        return userSession.profile.value.username
     }
     
     var status: String {
-        return "Status: \(userSession.profile.status .rawValue)"
+        return "Status: \(userSession.profile.value.status.rawValue)"
     }
     
     init(userSession: UserSession) {

@@ -152,7 +152,7 @@ extension DefaultAddMonthlyFeeViewModel {
         targetUser.forEach { (userProfile) in
             dispatchGroup.enter()
             
-            userSessionRepository.addMonthlyFeeLog(admin: userSession.profile, user: userProfile, amount: monthAmountInput.value)
+            userSessionRepository.addMonthlyFeeLog(admin: userSession.profile.value, user: userProfile, amount: monthAmountInput.value)
                 .done { [weak self] in self?.indicateAddMonthlyFeeSuccess() }
                 .catch(indicateError(error: ))
         }

@@ -110,7 +110,7 @@ extension LoanMemberViewModel {
         }
         
         userSessionRepository
-            .loanMember(admin: userSession.profile, member: selectedMember, amount: loanAmount.value)
+            .loanMember(admin: userSession.profile.value, member: selectedMember, amount: loanAmount.value)
             .done { self.indicateLoanMemberSuccessful() }
             .catch(indicateError(error:))
     }

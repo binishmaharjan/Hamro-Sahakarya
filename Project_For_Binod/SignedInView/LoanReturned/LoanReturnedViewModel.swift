@@ -100,7 +100,7 @@ extension LoanReturnedViewModel {
         }
         
         userSessionRepository
-            .loanReturned(admin: userSession.profile, member: selectedMember, amount: returnedAmount.value)
+            .loanReturned(admin: userSession.profile.value, member: selectedMember, amount: returnedAmount.value)
             .done{ self.indicateReturnedAmountSuccessful() }
             .catch(indicateError(error:))
     }
