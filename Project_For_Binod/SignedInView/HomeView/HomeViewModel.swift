@@ -17,6 +17,7 @@ protocol HomeViewModelProtocol {
     var status: Observable<Status> { get }
     var username: Observable<String> { get }
     var email: Observable<String> { get }
+    var homeContentView: BehaviorRelay<HomeContentView> { get }
 }
 
 struct HomeViewModel: HomeViewModelProtocol {
@@ -24,6 +25,7 @@ struct HomeViewModel: HomeViewModelProtocol {
     private let homeViewResponder: HomeViewResponder
     private let userSessionRepository: UserSessionRepository
     private var userSession: BehaviorRelay<UserProfile>
+    private let numberFormatter: NumberFormatter = NumberFormatter()
     
     let loanTaken: Observable<String>
     let dateJoined: Observable<String>
@@ -32,14 +34,16 @@ struct HomeViewModel: HomeViewModelProtocol {
     let username: Observable<String>
     let email: Observable<String>
     
+    var homeContentView: BehaviorRelay<HomeContentView> = BehaviorRelay(value: .accountDetail)
+    
     init(homeViewResponder: HomeViewResponder, userSessionRepository: UserSessionRepository, userSession: UserSession) {
         self.homeViewResponder = homeViewResponder
         self.userSessionRepository = userSessionRepository
         
         self.userSession = BehaviorRelay(value: userSession.profile)
-        self.loanTaken = self.userSession.map { "¥\($0.loanTaken)" }
-        self.myBalance = self.userSession.map { "¥\($0.balance)" }
-        self.dateJoined = self.userSession.map { $0.dateCreated.split(separator: " ").first }.map { String( $0 ?? "") }
+        self.loanTaken = self.userSession.map { $0.loanTaken.currency }
+        self.myBalance = self.userSession.map { $0.balance.currency }
+        self.dateJoined = self.userSession.map { $0.dateCreated.toDateAndTime.toGegorianMonthDateYearString }
         self.status = self.userSession.map { $0.status }
         self.username = self.userSession.map { $0.username }
         self.email = self.userSession.map { $0.email }
