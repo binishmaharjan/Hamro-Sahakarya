@@ -18,6 +18,7 @@ protocol HomeViewModelProtocol {
     var username: Observable<String> { get }
     var email: Observable<String> { get }
     var homeContentView: BehaviorRelay<HomeContentView> { get }
+    var apiState: Driver<State> { get }
 }
 
 struct HomeViewModel: HomeViewModelProtocol {
@@ -35,6 +36,9 @@ struct HomeViewModel: HomeViewModelProtocol {
     let email: Observable<String>
     
     var homeContentView: BehaviorRelay<HomeContentView> = BehaviorRelay(value: .accountDetail)
+    
+    @PropertyBehaviourRelay<State>(value: .idle)
+    var apiState: Driver<State>
     
     init(homeViewResponder: HomeViewResponder, userSessionRepository: UserSessionRepository, userSession: UserSession) {
         self.homeViewResponder = homeViewResponder
