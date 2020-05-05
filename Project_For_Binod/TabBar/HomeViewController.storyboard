@@ -286,8 +286,8 @@
                                     <constraint firstItem="BC5-aJ-jcj" firstAttribute="leading" secondItem="hFA-GG-AnD" secondAttribute="leading" constant="16" id="yYp-cB-lMj"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lx-lI-ceh">
-                                <rect key="frame" x="16" y="165" width="120" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Content Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lx-lI-ceh">
+                                <rect key="frame" x="16" y="165" width="159" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" name="c241D1D"/>
                                 <nil key="highlightedColor"/>
@@ -464,10 +464,13 @@
                         <viewLayoutGuide key="safeArea" id="Duc-TX-1fw"/>
                     </view>
                     <connections>
+                        <outlet property="accountDetailButton" destination="1ZP-0T-odS" id="Mjj-d4-GKP"/>
+                        <outlet property="accountDetailButtonArea" destination="2xi-Tf-1IJ" id="mqJ-eU-7c2"/>
+                        <outlet property="currentHomeContentViewSubTitleLabel" destination="xHM-ga-R5m" id="kaR-ga-XFO"/>
+                        <outlet property="currentHomeContentViewTitleLabel" destination="1Lx-lI-ceh" id="vGT-Ug-18E"/>
                         <outlet property="dateJoinedLabel" destination="1mk-bX-1uX" id="7yc-ef-mPc"/>
                         <outlet property="emailLabel" destination="HSJ-89-tVc" id="8Q1-aq-svf"/>
-                        <outlet property="graphDetailButton" destination="1ZP-0T-odS" id="Mjj-d4-GKP"/>
-                        <outlet property="graphDetailButtonArea" destination="2xi-Tf-1IJ" id="mqJ-eU-7c2"/>
+                        <outlet property="homeContentScrollView" destination="eIz-Kw-AQE" id="pzY-qa-7wd"/>
                         <outlet property="loanTakenLabel" destination="IVm-GX-9FS" id="xjh-6h-S0j"/>
                         <outlet property="memberGraphButton" destination="ULU-Kx-Ped" id="DFe-dL-yvy"/>
                         <outlet property="memberGraphButtonArea" destination="Qpa-H7-6BS" id="6Ll-vB-bzi"/>

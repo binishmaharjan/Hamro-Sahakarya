@@ -17,6 +17,7 @@ protocol HomeViewModelProtocol {
     var status: Observable<Status> { get }
     var username: Observable<String> { get }
     var email: Observable<String> { get }
+    var homeContentView: BehaviorRelay<HomeContentView> { get }
 }
 
 struct HomeViewModel: HomeViewModelProtocol {
@@ -32,6 +33,8 @@ struct HomeViewModel: HomeViewModelProtocol {
     let myBalance: Observable<String>
     let username: Observable<String>
     let email: Observable<String>
+    
+    var homeContentView: BehaviorRelay<HomeContentView> = BehaviorRelay(value: .accountDetail)
     
     init(homeViewResponder: HomeViewResponder, userSessionRepository: UserSessionRepository, userSession: UserSession) {
         self.homeViewResponder = homeViewResponder

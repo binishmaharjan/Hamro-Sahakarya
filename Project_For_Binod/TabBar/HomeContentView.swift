@@ -6,12 +6,12 @@
 //  Copyright © 2020 JEC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-enum HomeContentView {
+enum HomeContentView: Int {
     
-    case accountDetail
     case memberGraph
+    case accountDetail
     case monthlyDetail
     
     var title: String {
@@ -22,6 +22,17 @@ enum HomeContentView {
             return "Member Graph"
         case .monthlyDetail:
             return "Monthly Detail"
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .accountDetail:
+            return 1
+        case .memberGraph:
+            return 0
+        case .monthlyDetail:
+            return 2
         }
     }
 }
