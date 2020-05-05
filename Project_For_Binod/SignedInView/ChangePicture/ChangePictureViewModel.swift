@@ -143,6 +143,8 @@ extension DefaultChangePictureViewModel {
     
     private func indicateChangeProfileSuccess(userSession: UserSession) {
         _state.accept(.completed)
+        // Renewing user information
+        self.userSession.profile.accept(userSession.profile.value)
     }
     
     private func indicateError(error: Error) {
