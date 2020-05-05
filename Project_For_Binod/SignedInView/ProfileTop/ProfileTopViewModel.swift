@@ -7,27 +7,34 @@
 //
 
 import Foundation
+import RxCocoa
 
 protocol ProfileTopCellViewModel {
-    var imageUrl: URL? { get }
-    var fullname: String { get }
-    var status: String { get }
+    var imageUrl: Driver<URL?> { get }
+    var fullname: Driver<String> { get }
+    var status: Driver<String> { get }
 }
 
 struct DefaultProfileTopCellViewModel: ProfileTopCellViewModel {
     private let userSession: UserSession
     
-    var imageUrl: URL? {
-        let imageString = userSession.profile.value.iconUrl ?? ""
-        return URL(string: imageString)
+    var imageUrl: Driver<URL?> {
+        return userSession.profile
+            .map { $0.iconUrl }
+            .map { URL(string: $0 ?? "") }
+            .asDriver()
     }
     
-    var fullname: String {
-        return userSession.profile.value.username
+    var fullname: Driver<String> {
+        return userSession.profile
+            .map { $0.username }
+            .asDriver()
     }
     
-    var status: String {
-        return "Status: \(userSession.profile.value.status.rawValue)"
+    var status: Driver<String> {
+        return userSession.profile
+            .map { $0.status.rawValue }
+            .asDriver()
     }
     
     init(userSession: UserSession) {
