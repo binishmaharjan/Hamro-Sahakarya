@@ -45,14 +45,12 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         let signUpTheUser = remoteApi.signUp(newAccount: newAccount)
         let saveDataToServer = signUpTheUser.then { (uid) -> Promise<UserSession> in
             
-            let userProifile = newAccount.createUserProfile(with: uid)
+            let userProfile = newAccount.createUserProfile(with: uid)
             
-            let userSession = UserSession(profile: userProifile)
-            
-            return self.serverDataManager.saveUser(userSession: userSession)
+            return self.serverDataManager.saveUser(userProfile: userProfile)
         }
         
-        let saveUserToDataStore = saveDataToServer.then(dataStore.save(userSession:))
+        let saveUserToDataStore = saveDataToServer.map { $0.profile.value }.then(dataStore.save(userProfile:))
         
         let addLog = saveUserToDataStore.then(logApi.addJoinedLog(userSession:))
         
@@ -68,7 +66,8 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     func signIn(email: String, password: String) -> Promise<UserSession> {
         return remoteApi.signIn(email: email, password: password)
             .then(serverDataManager.readUser(uid:))
-            .then(dataStore.save(userSession:))
+            .map { $0?.profile.value }
+            .then(dataStore.save(userProfile:))
     }
     
     /// Signout User
@@ -77,7 +76,8 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
     /// - Return Promise<UserSession> : UserInfo wrapped in promise
     func signOut(userSession: UserSession) -> Promise<UserSession> {
         return remoteApi.signOut(userSession: userSession)
-            .then(dataStore.delete(userSession:))
+            .map { $0.profile.value }
+            .then(dataStore.delete(userProfile:))
     }
     
     /// Change User Password
@@ -150,7 +150,8 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             .map { (userSession, $0) }
             .then(serverDataManager.updateProfileUrl(userSession: url:))
             .then(serverDataManager.readUser(uid:))
-            .then(dataStore.save(userSession:))
+            .map { $0?.profile.value }
+            .then(dataStore.save(userProfile:))
     }
     
     // MARK: Update
