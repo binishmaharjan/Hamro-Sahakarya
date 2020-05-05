@@ -69,7 +69,7 @@ struct ExtraAndExpensesViewModel: ExtranAndExpensesViewModelProtocol {
         indicateLoading()
         
         userSessionRepository
-            .updateExtraAndExpenses(admin: userSession.profile, type: selectedTypeInput.value, amount: amountInput.value, reason: reasonInput.value)
+            .updateExtraAndExpenses(admin: userSession.profile.value, type: selectedTypeInput.value, amount: amountInput.value, reason: reasonInput.value)
             .done{ self.indicateSuccess() }
             .catch(indicateError(error:))
     }

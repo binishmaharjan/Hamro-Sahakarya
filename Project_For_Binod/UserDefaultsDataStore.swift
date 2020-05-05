@@ -32,7 +32,8 @@ final class UserDefaultsDataStore: UserDataStore {
             }
             
             do {
-                let userSession = try userProfileCoder.decode(data: data)
+                let userProfile = try userProfileCoder.decode(data: data)
+                let userSession = UserSession(profile: userProfile)
                 seal.fulfill(userSession)
             } catch {
                 seal.reject(error)
@@ -41,26 +42,30 @@ final class UserDefaultsDataStore: UserDataStore {
         }
     }
     
-    func save(userSession: UserSession?) -> Promise<UserSession> {
+    func save(userProfile: UserProfile?) -> Promise<UserSession> {
         
         return Promise<UserSession> { seal in
             
-            guard let userSession = userSession else {
+            guard let userProfile = userProfile else {
                 seal.reject(HSError.emptyDataError)
                 return
             }
             
-            let encodedData = userProfileCoder.encode(userSession: userSession)
+            let encodedData = userProfileCoder.encode(userProfile: userProfile)
             UserDefaults.standard.set(encodedData, forKey: userProfileKey)
+            
+            let userSession = UserSession(profile: userProfile)
             seal.fulfill(userSession)
         }
         
     }
     
-    func delete(userSession: UserSession) -> Promise<UserSession> {
+    func delete(userProfile: UserProfile) -> Promise<UserSession> {
         
         return Promise<UserSession> { seal in
             UserDefaults.standard.removeObject(forKey: userProfileKey)
+            
+            let userSession = UserSession(profile: userProfile)
             seal.fulfill(userSession)
         }
     }

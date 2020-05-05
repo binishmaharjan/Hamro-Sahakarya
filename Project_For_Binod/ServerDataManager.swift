@@ -11,7 +11,7 @@ import PromiseKit
 
 protocol ServerDataManager {
     
-    func saveUser(userSession: UserSession) -> Promise<UserSession>
+    func saveUser(userProfile: UserProfile) -> Promise<UserSession>
     func readUser(uid: String) -> Promise<UserSession?>
     func updateProfileUrl(userSession: UserSession, url: URL) -> Promise<String>
     func updatePassword(userSession: UserSession, newPassowrd: String) -> Promise<String>

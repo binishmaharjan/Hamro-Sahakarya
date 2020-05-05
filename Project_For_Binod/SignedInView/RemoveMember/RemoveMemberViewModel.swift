@@ -101,7 +101,7 @@ extension RemoveMemberViewModel {
         }
         
         userSessionRepository
-            .removeMember(admin: userSession.profile, member: selectedMember)
+            .removeMember(admin: userSession.profile.value, member: selectedMember)
             .done(indicateGetRemoveMemberSuccessful)
             .catch(indicateError(error:))
     }
@@ -112,7 +112,7 @@ extension RemoveMemberViewModel {
     }
     
     private func indicateGetMemberSuccessful(members: [UserProfile]) {
-        let allMembersExcludingSelf = members.filter { !($0.email == userSession.profile.email) }
+        let allMembersExcludingSelf = members.filter { !($0.email == userSession.profile.value.email) }
         allMembers.accept(allMembersExcludingSelf)
         _apiState.accept(.completed)
     }

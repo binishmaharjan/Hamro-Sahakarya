@@ -93,11 +93,10 @@ final class DefaultChangeMemberStatusViewModel: ChangeMemberStatusViewModel {
     }
     
     private func canChangeStatusForMember(at indexPath: IndexPath) -> Bool {
-        let myUid = userSession.profile.uid
+        let myUid = userSession.profile.value.uid
         let selectedUserUid = userProfileForRow(at: indexPath).uid
         
         return myUid != selectedUserUid
-        
     }
     
     private func userProfileForRow(at indexPath: IndexPath) -> UserProfile {

@@ -13,25 +13,15 @@ import CodableFirebase
 
 final class FireStoreDataManager: ServerDataManager {
     
-    func saveUser(userSession: UserSession) -> Promise<UserSession> {
+    func saveUser(userProfile: UserProfile) -> Promise<UserSession> {
         
         return Promise<UserSession> { seal in
             do {
-                let userSessionData = try FirestoreEncoder().encode(userSession) as [String: Any]
-                // Extracting user profile from the session
-                let userData = userSessionData["profile"] as? [String: Any]
-                
-                guard let userProfileData = userData else {
-                    DispatchQueue.main.async {
-                        seal.reject(HSError.dataEncodingError)
-                    }
-                    return
-                }
-                
+                let userProfileData = try FirestoreEncoder().encode(userProfile) as [String: Any]
                 DispatchQueue.global(qos: .default).async {
                     let documentRefernce = Firestore.firestore()
                         .collection(DatabaseReference.MEMBERS_REF)
-                        .document(userSession.profile.uid)
+                        .document(userProfile.uid)
                     
                     documentRefernce.setData(userProfileData) { (error) in
                         if let error = error {
@@ -42,6 +32,7 @@ final class FireStoreDataManager: ServerDataManager {
                         }
                         
                         DispatchQueue.main.async {
+                            let userSession = UserSession(profile: userProfile)
                             seal.fulfill(userSession)
                         }
                     }
@@ -108,7 +99,7 @@ final class FireStoreDataManager: ServerDataManager {
     
     func updateProfileUrl(userSession: UserSession, url: URL) -> Promise<String> {
         return Promise<String> { seal in
-            let uid = userSession.profile.uid
+            let uid = userSession.profile.value.uid
             let urlString = url.absoluteString
             
             let updateData = [DatabaseReference.ICON_URL : urlString]
@@ -130,7 +121,7 @@ final class FireStoreDataManager: ServerDataManager {
     
     func updatePassword(userSession: UserSession, newPassowrd: String) -> Promise<String> {
         return Promise<String> { seal in
-            let uid = userSession.profile.uid
+            let uid = userSession.profile.value.uid
             
             let updateData = [DatabaseReference.KEYWORD : newPassowrd]
             let passwordReference = Firestore.firestore().collection(DatabaseReference.MEMBERS_REF).document(uid)

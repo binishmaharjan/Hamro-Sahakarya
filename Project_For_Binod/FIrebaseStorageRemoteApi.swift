@@ -20,7 +20,7 @@ final class FirebaseStorageRemoteApi: StorageRemoteApi {
         
         let metaData = getMetaData(forContentType: .jpeg)
         
-        let uid = userSession.profile.uid
+        let uid = userSession.profile.value.uid
         
         return putData(image: image, metaData: metaData, uid: uid)
             .then(downloadUrl(uid:))

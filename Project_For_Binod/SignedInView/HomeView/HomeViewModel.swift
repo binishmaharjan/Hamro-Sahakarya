@@ -40,7 +40,7 @@ struct HomeViewModel: HomeViewModelProtocol {
         self.homeViewResponder = homeViewResponder
         self.userSessionRepository = userSessionRepository
         
-        self.userSession = BehaviorRelay(value: userSession.profile)
+        self.userSession = userSession.profile
         self.loanTaken = self.userSession.map { $0.loanTaken.currency }
         self.myBalance = self.userSession.map { $0.balance.currency }
         self.dateJoined = self.userSession.map { $0.dateCreated.toDateAndTime.toGegorianMonthDateYearString }
