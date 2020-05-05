@@ -119,9 +119,9 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
     
     func addJoinedLog(userSession: UserSession) -> Promise<UserSession> {
         return Promise<UserSession> { seal in
-            let logCreator = userSession.profile.username
-            let logTarget = userSession.profile.username
-            let amount = userSession.profile.balance
+            let logCreator = userSession.profile.value.username
+            let logTarget = userSession.profile.value.username
+            let amount = userSession.profile.value.balance
             let log = generateLog(logType: .joined, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
             
             let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
