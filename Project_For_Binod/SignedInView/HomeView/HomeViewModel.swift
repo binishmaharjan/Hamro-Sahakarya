@@ -19,14 +19,21 @@ protocol HomeViewModelProtocol {
     var email: Observable<String> { get }
     var homeContentView: BehaviorRelay<HomeContentView> { get }
     var apiState: Driver<State> { get }
+    
+    func fetchData()
 }
 
 struct HomeViewModel: HomeViewModelProtocol {
 
     private let homeViewResponder: HomeViewResponder
     private let userSessionRepository: UserSessionRepository
-    private var userSession: BehaviorRelay<UserProfile>
+    private let userSession: BehaviorRelay<UserProfile>
     private let numberFormatter: NumberFormatter = NumberFormatter()
+    private let dispatchGroup: DispatchGroup = DispatchGroup()
+    private let allMembers: PublishSubject<[UserProfile]> = PublishSubject()
+    private let groupDetail: PublishSubject<GroupDetail> = PublishSubject()
+    
+    private let fetchDataFailed: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     let loanTaken: Observable<String>
     let dateJoined: Observable<String>
@@ -51,5 +58,61 @@ struct HomeViewModel: HomeViewModelProtocol {
         self.status = self.userSession.map { $0.status }
         self.username = self.userSession.map { $0.username }
         self.email = self.userSession.map { $0.email }
+    }
+}
+
+// MARK: Api
+extension HomeViewModel {
+    
+    func fetchData() {
+        indicateLoading()
+        
+        dispatchGroup.enter()
+        fetchAllMembers()
+        
+        dispatchGroup.enter()
+        fetchExtraIncomeAndExpenses()
+        
+        dispatchGroup.notify(queue: .main) {
+            if self.fetchDataFailed.value {
+                self.fetchDataFailed.accept(false)
+                self._apiState.accept(.error(HSError.unknown))
+            } else {
+                self._apiState.accept(.completed)
+            }
+        }
+    }
+    
+    private func fetchAllMembers() {
+        userSessionRepository
+            .getAllMembers()
+            .done(indicateFetchAllMembersSuccessful(members:))
+            .catch(indicateError(error:))
+    }
+    
+    private func fetchExtraIncomeAndExpenses() {
+        userSessionRepository.fetchExtraAndExpenses()
+            .done(indicateFetchExtraIncomeAndExpensesSuccessful(detail:))
+            .catch(indicateError(error:))
+    }
+    
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateFetchAllMembersSuccessful(members: [UserProfile]) {
+        allMembers.onNext(members)
+        dispatchGroup.leave()
+    }
+    
+    private func indicateFetchExtraIncomeAndExpensesSuccessful(detail: GroupDetail) {
+        groupDetail.onNext(detail)
+        dispatchGroup.leave()
+    }
+    
+    private func indicateError(error: Error) {
+        fetchDataFailed.accept(true)
+        dispatchGroup.leave()
+        _apiState.accept(.error(error))
     }
 }

@@ -44,6 +44,9 @@ final class HomeViewController: UIViewController {
         setup()
         bind()
         bindHomeContentView()
+        bindApiState()
+        
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +61,10 @@ final class HomeViewController: UIViewController {
     // MARK: Methods
     private func setup() {
         homeContentScrollView.delegate = self
+    }
+    
+    private func fetchData() {
+        viewModel.fetchData()
     }
     
     // MARK: IBActions
