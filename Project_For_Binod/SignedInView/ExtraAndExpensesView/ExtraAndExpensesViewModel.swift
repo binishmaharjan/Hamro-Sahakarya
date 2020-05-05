@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 enum ExtraOrExpenses: String, CaseIterable {
-    case extra = "Extra"
+    case extra = "Extra Income"
     case expenses = "Expenses"
 }
 

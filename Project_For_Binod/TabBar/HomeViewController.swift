@@ -44,6 +44,9 @@ final class HomeViewController: UIViewController {
         setup()
         bind()
         bindHomeContentView()
+        bindApiState()
+        
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +61,10 @@ final class HomeViewController: UIViewController {
     // MARK: Methods
     private func setup() {
         homeContentScrollView.delegate = self
+    }
+    
+    private func fetchData() {
+        viewModel.fetchData()
     }
     
     // MARK: IBActions
@@ -76,6 +83,27 @@ final class HomeViewController: UIViewController {
 
 // MARK: Bindable
 extension HomeViewController {
+    
+    private func bindApiState() {
+        viewModel.apiState
+            .drive(onNext: { (state) in
+          
+          switch state {
+            
+          case .completed:
+            GUIManager.shared.stopAnimation()
+          case .error(let error):
+            
+            let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+            GUIManager.shared.showDropDownNotification(data: dropDownModel)
+            
+          case .loading:
+            GUIManager.shared.startAnimation()
+          default:
+            break
+          }
+        }).disposed(by: disposeBag)
+    }
     
     private func bind() {
         // Output

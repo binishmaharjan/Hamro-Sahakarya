@@ -22,6 +22,6 @@ protocol ServerDataManager {
     func loanMember(user: UserProfile, amount: Int) -> Promise<Void>
     func loanReturned(user: UserProfile, amount: Int) -> Promise<Void>
     func updateExtraAndExpenses(groupDetail: GroupDetail, extra: Int, expenses: Int) -> Promise<Void>
-    func getExtraAndExpenses() -> Promise<GroupDetail>
+    func fetchExtraAndExpenses() -> Promise<GroupDetail>
     func removeMember(user: UserProfile) -> Promise<Void>
 }

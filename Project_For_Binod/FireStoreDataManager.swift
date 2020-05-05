@@ -289,7 +289,7 @@ final class FireStoreDataManager: ServerDataManager {
         }
     }
     
-    func getExtraAndExpenses() -> Promise<GroupDetail> {
+    func fetchExtraAndExpenses() -> Promise<GroupDetail> {
         return Promise<GroupDetail> { seal in
             let reference = Firestore.firestore().collection(DatabaseReference.HAMRO_SAHAKARYA_REF).document(DatabaseReference.DETAIL_REF)
             
