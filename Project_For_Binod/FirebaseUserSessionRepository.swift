@@ -173,11 +173,19 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             expenses = amount
         }
         
-        return serverDataManager.getExtraAndExpenses()
+        return serverDataManager.fetchExtraAndExpenses()
             . map { ($0, extra, expenses) }
             .then(serverDataManager.updateExtraAndExpenses(groupDetail: extra: expenses: ))
             .map { (type, admin, amount, reason) }
             .then(logApi.addExtraOrExpensesLog(type: admin: amount: reason: ))
+    }
+    
+    /// Fetch Extra And Expenses
+    ///
+    /// - Return Promise<GroupDetail> : Extra And Expenses Wrapped In Promise
+    func fetchExtraAndExpenses() -> Promise<GroupDetail> {
+        return serverDataManager
+            .fetchExtraAndExpenses()
     }
     
     /// Add Monthyl Fee For A Single User
