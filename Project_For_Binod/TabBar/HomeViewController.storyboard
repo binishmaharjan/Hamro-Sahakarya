@@ -466,6 +466,7 @@
                     <connections>
                         <outlet property="accountDetailButton" destination="1ZP-0T-odS" id="Mjj-d4-GKP"/>
                         <outlet property="accountDetailButtonArea" destination="2xi-Tf-1IJ" id="mqJ-eU-7c2"/>
+                        <outlet property="accountDetailViewArea" destination="2Rv-db-jpq" id="Tan-0i-Nnk"/>
                         <outlet property="currentHomeContentViewSubTitleLabel" destination="xHM-ga-R5m" id="kaR-ga-XFO"/>
                         <outlet property="currentHomeContentViewTitleLabel" destination="1Lx-lI-ceh" id="vGT-Ug-18E"/>
                         <outlet property="dateJoinedLabel" destination="1mk-bX-1uX" id="7yc-ef-mPc"/>
@@ -474,8 +475,10 @@
                         <outlet property="loanTakenLabel" destination="IVm-GX-9FS" id="xjh-6h-S0j"/>
                         <outlet property="memberGraphButton" destination="ULU-Kx-Ped" id="DFe-dL-yvy"/>
                         <outlet property="memberGraphButtonArea" destination="Qpa-H7-6BS" id="6Ll-vB-bzi"/>
+                        <outlet property="memberGraphViewArea" destination="Hf1-tp-zfM" id="gr4-FD-rUB"/>
                         <outlet property="monthDetailButton" destination="1Ia-iv-E0s" id="W8u-Ge-YNi"/>
                         <outlet property="monthDetailButtonArea" destination="VjR-yU-k5n" id="Gi0-nO-GYx"/>
+                        <outlet property="monthlyDetailViewArea" destination="FLx-oZ-2ve" id="jBv-0f-p6Q"/>
                         <outlet property="myBalanceLabel" destination="WCC-nA-ffF" id="OBh-A2-EqP"/>
                         <outlet property="statusLabel" destination="f7g-sp-BWO" id="WgD-cA-mQN"/>
                         <outlet property="usernameLabel" destination="BC5-aJ-jcj" id="BoF-xa-Nrm"/>
