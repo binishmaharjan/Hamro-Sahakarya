@@ -64,6 +64,9 @@
 		6454ECB72461727300E98A40 /* AccountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6454ECB62461727300E98A40 /* AccountDetailView.xib */; };
 		6454ECB92461728800E98A40 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454ECB82461728800E98A40 /* AccountDetailView.swift */; };
 		6454ECBC24626DD600E98A40 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454ECBB24626DD600E98A40 /* AccountDetailViewModel.swift */; };
+		6454ECBF24665F7700E98A40 /* MemberGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454ECBE24665F7700E98A40 /* MemberGraphView.swift */; };
+		6454ECC124665F9000E98A40 /* MemberGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6454ECC024665F9000E98A40 /* MemberGraphView.xib */; };
+		6454ECC424665FE900E98A40 /* MemberGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454ECC324665FE900E98A40 /* MemberGraphViewModel.swift */; };
 		64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */; };
 		64568ADB23FD728B00BCA18D /* KeyboardObservingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */; };
 		64568ADF2403860700BCA18D /* MainOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64568ADE2403860700BCA18D /* MainOrangeButton.swift */; };
@@ -232,6 +235,9 @@
 		6454ECB62461727300E98A40 /* AccountDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDetailView.xib; sourceTree = "<group>"; };
 		6454ECB82461728800E98A40 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		6454ECBB24626DD600E98A40 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewModel.swift; sourceTree = "<group>"; };
+		6454ECBE24665F7700E98A40 /* MemberGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGraphView.swift; sourceTree = "<group>"; };
+		6454ECC024665F9000E98A40 /* MemberGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberGraphView.xib; sourceTree = "<group>"; };
+		6454ECC324665FE900E98A40 /* MemberGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGraphViewModel.swift; sourceTree = "<group>"; };
 		64568AD823F96EB800BCA18D /* ChangePictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewModel.swift; sourceTree = "<group>"; };
 		64568ADA23FD728B00BCA18D /* KeyboardObservingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservingViewController.swift; sourceTree = "<group>"; };
 		64568ADE2403860700BCA18D /* MainOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrangeButton.swift; sourceTree = "<group>"; };
@@ -566,6 +572,7 @@
 		644EB0DF24540E4D00CB0A56 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				6454ECC224665FCE00E98A40 /* MemberGraph */,
 				6454ECBA24626DC000E98A40 /* AccountDetailView */,
 				644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */,
 				644EB0E62454220F00CB0A56 /* HomeViewModel.swift */,
@@ -620,6 +627,7 @@
 		6454ECB2245FBDBD00E98A40 /* HomeContentView */ = {
 			isa = PBXGroup;
 			children = (
+				6454ECBD24665F4000E98A40 /* MemberGraph */,
 				6454ECB52461389A00E98A40 /* AccountDetail */,
 				6454ECB3245FBDD200E98A40 /* HomeContentView.swift */,
 			);
@@ -641,6 +649,23 @@
 				6454ECBB24626DD600E98A40 /* AccountDetailViewModel.swift */,
 			);
 			path = AccountDetailView;
+			sourceTree = "<group>";
+		};
+		6454ECBD24665F4000E98A40 /* MemberGraph */ = {
+			isa = PBXGroup;
+			children = (
+				6454ECBE24665F7700E98A40 /* MemberGraphView.swift */,
+				6454ECC024665F9000E98A40 /* MemberGraphView.xib */,
+			);
+			name = MemberGraph;
+			sourceTree = "<group>";
+		};
+		6454ECC224665FCE00E98A40 /* MemberGraph */ = {
+			isa = PBXGroup;
+			children = (
+				6454ECC324665FE900E98A40 /* MemberGraphViewModel.swift */,
+			);
+			path = MemberGraph;
 			sourceTree = "<group>";
 		};
 		64568AD723F96E9700BCA18D /* ChangePicture */ = {
@@ -1323,6 +1348,7 @@
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
+				6454ECC124665F9000E98A40 /* MemberGraphView.xib in Resources */,
 				64575D2C245E6E9D00EF7C69 /* terms_and_conditions.pdf in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */,
@@ -1451,6 +1477,7 @@
 				6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */,
 				64568AE22409E8D000BCA18D /* MembersViewController.swift in Sources */,
 				64568AD923F96EB800BCA18D /* ChangePictureViewModel.swift in Sources */,
+				6454ECBF24665F7700E98A40 /* MemberGraphView.swift in Sources */,
 				6478082B2421FC6000588769 /* Steps.swift in Sources */,
 				646604C82379A92300122718 /* UIView+Extension.swift in Sources */,
 				64FBE1BE23D2EEBF0027E44C /* LogViewController.swift in Sources */,
@@ -1510,6 +1537,7 @@
 				645939B3235AB73800A99902 /* UIViewControllerContaintment.swift in Sources */,
 				64517BE3243081F6009F13B6 /* Observables+Additions.swift in Sources */,
 				645939AB235AAE5900A99902 /* UserProfile.swift in Sources */,
+				6454ECC424665FE900E98A40 /* MemberGraphViewModel.swift in Sources */,
 				6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */,
 				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
 				64FBE15C23C2073E0027E44C /* ColorPickerViewController.swift in Sources */,
