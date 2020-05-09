@@ -19,6 +19,8 @@ protocol HomeViewModelProtocol {
     var email: Observable<String> { get }
     var homeContentView: BehaviorRelay<HomeContentView> { get }
     var apiState: Driver<State> { get }
+    var allMembers: BehaviorRelay<[UserProfile]> { get }
+    var groupDetail: BehaviorRelay<GroupDetail> { get }
     
     func fetchData()
 }
@@ -30,11 +32,11 @@ struct HomeViewModel: HomeViewModelProtocol {
     private let userSession: BehaviorRelay<UserProfile>
     private let numberFormatter: NumberFormatter = NumberFormatter()
     private let dispatchGroup: DispatchGroup = DispatchGroup()
-    private let allMembers: PublishSubject<[UserProfile]> = PublishSubject()
-    private let groupDetail: PublishSubject<GroupDetail> = PublishSubject()
     
     private let fetchDataFailed: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
+    let allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
+    let groupDetail: BehaviorRelay<GroupDetail> = BehaviorRelay(value: GroupDetail(extra: 0, expenses: 0))
     let loanTaken: Observable<String>
     let dateJoined: Observable<String>
     let status: Observable<Status>
@@ -101,12 +103,12 @@ extension HomeViewModel {
     }
     
     private func indicateFetchAllMembersSuccessful(members: [UserProfile]) {
-        allMembers.onNext(members)
+        allMembers.accept(members)
         dispatchGroup.leave()
     }
     
     private func indicateFetchExtraIncomeAndExpensesSuccessful(detail: GroupDetail) {
-        groupDetail.onNext(detail)
+        groupDetail.accept(detail)
         dispatchGroup.leave()
     }
     

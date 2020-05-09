@@ -30,23 +30,33 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var monthDetailButtonArea: UIView!
     @IBOutlet private weak var monthDetailButton: UIButton!
     
+    @IBOutlet private weak var memberGraphViewArea: UIView!
+    @IBOutlet private weak var accountDetailViewArea: UIView!
+    @IBOutlet private weak var monthlyDetailViewArea: UIView!
+    
     
     // MARK: Properties
     private var viewModel: HomeViewModelProtocol!
+    private var homeContentViewFactory: HomeContentViewFactory!
     private let disposeBag: DisposeBag = DisposeBag()
     private let homeContentViewSize: CGFloat = (UIScreen.main.bounds.width - 32)
     private var isFirstLoad: Bool = true
+    
+    private var accountDetailView: AccountDetailView!
 
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        
         bind()
         bindHomeContentView()
         bindApiState()
         
         fetchData()
+        
+        setupHomeContentView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,9 +68,29 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     // MARK: Methods
     private func setup() {
         homeContentScrollView.delegate = self
+    }
+    
+    private func setupHomeContentView() {
+        // Account Detail View
+        accountDetailView = homeContentViewFactory.makeAccountDetailView(allMembers: viewModel.allMembers.asObservable(),
+                                                                         groupDetail: viewModel.groupDetail.asObservable())
+        accountDetailView.translatesAutoresizingMaskIntoConstraints = false
+        accountDetailViewArea.addSubview(accountDetailView)
+        NSLayoutConstraint.activate([
+            accountDetailView.trailingAnchor.constraint(equalTo: accountDetailViewArea.trailingAnchor),
+            accountDetailView.leadingAnchor.constraint(equalTo: accountDetailViewArea.leadingAnchor),
+            accountDetailView.topAnchor.constraint(equalTo: accountDetailViewArea.topAnchor),
+            accountDetailView.bottomAnchor.constraint(equalTo: accountDetailViewArea.bottomAnchor),
+        ])
+        accountDetailView.bind()
     }
     
     private func fetchData() {
@@ -172,9 +202,10 @@ extension HomeViewController {
 // MARK: Storyboard Instantiable
 extension HomeViewController: StoryboardInstantiable {
     
-    static func makeInstance(viewModel: HomeViewModelProtocol) -> HomeViewController {
+    static func makeInstance(viewModel: HomeViewModelProtocol, homeContentViewFactory: HomeContentViewFactory) -> HomeViewController {
         let viewController = loadFromStoryboard()
         viewController.viewModel = viewModel
+        viewController.homeContentViewFactory = homeContentViewFactory
         return viewController
     }
 }
