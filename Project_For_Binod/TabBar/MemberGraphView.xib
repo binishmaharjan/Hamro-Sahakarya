@@ -13,9 +13,68 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MemberGraphView" customModule="HamroSahakarya" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkr-Pv-Ttc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7C2-Uv-hgv">
+                            <rect key="frame" x="8" y="-8" width="414" height="308"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-hc-370" customClass="PieChartView" customModule="Charts">
+                                    <rect key="frame" x="87" y="16" width="240" height="240"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="240" id="8Po-DI-bps"/>
+                                        <constraint firstAttribute="height" constant="240" id="Y0f-19-TR5"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H5d-bL-tMC">
+                                    <rect key="frame" x="0.0" y="264" width="414" height="44"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-X5-rpr">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="ocH-Dg-W2x"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="H5d-bL-tMC" secondAttribute="trailing" id="6jB-YO-foQ"/>
+                                <constraint firstItem="H5d-bL-tMC" firstAttribute="leading" secondItem="7C2-Uv-hgv" secondAttribute="leading" id="8Ok-84-yGJ"/>
+                                <constraint firstAttribute="bottom" secondItem="H5d-bL-tMC" secondAttribute="bottom" id="FKg-hZ-RnE"/>
+                                <constraint firstItem="YNm-hc-370" firstAttribute="centerX" secondItem="7C2-Uv-hgv" secondAttribute="centerX" id="apr-FW-27k"/>
+                                <constraint firstItem="H5d-bL-tMC" firstAttribute="top" secondItem="YNm-hc-370" secondAttribute="bottom" constant="8" id="iLI-c5-q5N"/>
+                                <constraint firstItem="YNm-hc-370" firstAttribute="top" secondItem="7C2-Uv-hgv" secondAttribute="top" constant="16" id="vNK-1d-nQs"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7C2-Uv-hgv" firstAttribute="top" secondItem="wkr-Pv-Ttc" secondAttribute="top" constant="-8" id="Bct-US-Pdw"/>
+                        <constraint firstAttribute="bottom" secondItem="7C2-Uv-hgv" secondAttribute="bottom" constant="8" id="Ddt-VJ-FCF"/>
+                        <constraint firstItem="7C2-Uv-hgv" firstAttribute="width" secondItem="wkr-Pv-Ttc" secondAttribute="width" id="glk-U4-HDL"/>
+                        <constraint firstItem="7C2-Uv-hgv" firstAttribute="leading" secondItem="wkr-Pv-Ttc" secondAttribute="leading" constant="8" id="mTF-qB-1CE"/>
+                        <constraint firstAttribute="trailing" secondItem="7C2-Uv-hgv" secondAttribute="trailing" constant="-8" id="zKn-fq-uuY"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="10y-N8-Nkw"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="WgZ-dv-lcW"/>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wkr-Pv-Ttc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IMR-YU-Mh7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wkr-Pv-Ttc" secondAttribute="bottom" id="Kbq-nq-STS"/>
+                <constraint firstItem="wkr-Pv-Ttc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gGr-FV-oYY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wkr-Pv-Ttc" secondAttribute="trailing" id="qNE-IZ-amW"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="132" y="153"/>
+            <connections>
+                <outlet property="pieChartView" destination="YNm-hc-370" id="gTK-nD-MLb"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
         </view>
     </objects>
 </document>
