@@ -181,6 +181,12 @@ extension HomeViewController {
             .asDriver(onErrorJustReturn: "")
             .drive(emailLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel.membersCount
+            .asDriver(onErrorJustReturn: 0)
+            .map { "\($0) Members" }
+            .drive(currentHomeContentViewSubTitleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     private func bindHomeContentView() {

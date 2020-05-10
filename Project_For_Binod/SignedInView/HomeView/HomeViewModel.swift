@@ -17,6 +17,7 @@ protocol HomeViewModelProtocol {
     var status: Observable<Status> { get }
     var username: Observable<String> { get }
     var email: Observable<String> { get }
+    var membersCount: Observable<Int> { get }
     var homeContentView: BehaviorRelay<HomeContentView> { get }
     var apiState: Driver<State> { get }
     var allMembers: BehaviorRelay<[UserProfile]> { get }
@@ -43,6 +44,7 @@ struct HomeViewModel: HomeViewModelProtocol {
     let myBalance: Observable<String>
     let username: Observable<String>
     let email: Observable<String>
+    let membersCount: Observable<Int>
     
     var homeContentView: BehaviorRelay<HomeContentView> = BehaviorRelay(value: .accountDetail)
     
@@ -60,6 +62,7 @@ struct HomeViewModel: HomeViewModelProtocol {
         self.status = self.userSession.map { $0.status }
         self.username = self.userSession.map { $0.username }
         self.email = self.userSession.map { $0.email }
+        self.membersCount = allMembers.map { $0.count }
     }
 }
 
