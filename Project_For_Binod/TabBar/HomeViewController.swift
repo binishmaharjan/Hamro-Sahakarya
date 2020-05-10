@@ -43,6 +43,7 @@ final class HomeViewController: UIViewController {
     private var isFirstLoad: Bool = true
     
     private var accountDetailView: AccountDetailView!
+    private var memberGraphView: MemberGraphView!
 
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -91,6 +92,19 @@ final class HomeViewController: UIViewController {
             accountDetailView.bottomAnchor.constraint(equalTo: accountDetailViewArea.bottomAnchor),
         ])
         accountDetailView.bind()
+        
+        // Member Graph View
+        memberGraphView = homeContentViewFactory.makeMemberGraphView(allMembers: viewModel.allMembers.asObservable())
+        memberGraphView.translatesAutoresizingMaskIntoConstraints = false
+        memberGraphViewArea.addSubview(memberGraphView)
+        NSLayoutConstraint.activate([
+            memberGraphView.trailingAnchor.constraint(equalTo: memberGraphViewArea.trailingAnchor),
+            memberGraphView.leadingAnchor.constraint(equalTo: memberGraphViewArea.leadingAnchor),
+            memberGraphView.topAnchor.constraint(equalTo: memberGraphViewArea.topAnchor),
+            memberGraphView.bottomAnchor.constraint(equalTo: memberGraphViewArea.bottomAnchor),
+        ])
+        memberGraphView.bind()
+        
     }
     
     private func fetchData() {
