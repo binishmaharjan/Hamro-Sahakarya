@@ -66,10 +66,7 @@ extension MemberGraphView {
     
     private func setupMemberGraphLegend(allMembers: [UserProfile]) {
         removeAllViewsExpectLegendTitle()
-        var a = allMembers
-        a.append(contentsOf: allMembers)
-        a.append(contentsOf: allMembers)
-        recreateLegendViews(allMembers: a)
+        recreateLegendViews(allMembers: allMembers)
     }
     
     private func removeAllViewsExpectLegendTitle() {
