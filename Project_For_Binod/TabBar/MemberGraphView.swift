@@ -83,7 +83,7 @@ extension MemberGraphView {
     }
     
     private func createLegend(for member: UserProfile) -> MemberGraphLegendView {
-        let legendView = MemberGraphLegendView.makeInstance(userProfile: member)
+        let legendView = MemberGraphLegendView.makeInstance(userProfile: member, isSelf: viewModel.checkIsSelf(for: member))
         return legendView
     }
     

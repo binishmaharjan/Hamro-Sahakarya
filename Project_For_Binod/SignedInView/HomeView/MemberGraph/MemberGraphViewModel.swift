@@ -15,6 +15,8 @@ protocol MemberGraphViewModelProtocol {
     var allMembers: Observable<[UserProfile]> { get }
     var pieChartData: Observable<PieChartData>{ get }
     var pieChartUserHighlightX: Observable<Double> { get }
+    
+    func checkIsSelf(for userProfile: UserProfile) -> Bool
 }
 
 struct MemberGraphViewModel: MemberGraphViewModelProtocol {
@@ -69,5 +71,9 @@ struct MemberGraphViewModel: MemberGraphViewModelProtocol {
             let userIndex = allMembers.firstIndex(of: userProfile)
             return Double(userIndex ?? 0)
         }
+    }
+    
+    func checkIsSelf(for userProfile: UserProfile) -> Bool {
+        return userSession.profile.value == userProfile
     }
 }

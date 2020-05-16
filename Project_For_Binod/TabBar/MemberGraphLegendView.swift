@@ -14,11 +14,18 @@ final class MemberGraphLegendView: UIView {
     @IBOutlet private weak var memberNameLabel: UILabel!
     @IBOutlet private weak var balanceLabel: UILabel!
     @IBOutlet private weak var loanLabel: UILabel!
+    @IBOutlet private weak var legendHighligherView: UIView!
     
     private var userProfile: UserProfile!
+    private var isSelf: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    private func setup() {
+        populateView()
+        highLightIfUserIsSelf()
     }
     
     private func populateView() {
@@ -27,14 +34,25 @@ final class MemberGraphLegendView: UIView {
         balanceLabel.text = userProfile.balance.currency
         loanLabel.text = userProfile.loanTaken.currency
     }
+    
+    private func highLightIfUserIsSelf() {
+        guard isSelf else { return }
+        
+        memberColorView.backgroundColor = .white
+        memberNameLabel.textColor = .white
+        balanceLabel.textColor = .white
+        loanLabel.textColor = .white
+        legendHighligherView.backgroundColor = UIColor(hex: userProfile.colorHex)
+    }
 }
 
 // MARK: Xib Instantiable
 extension MemberGraphLegendView: HasXib {
-    static func makeInstance(userProfile: UserProfile) -> MemberGraphLegendView {
+    static func makeInstance(userProfile: UserProfile, isSelf: Bool) -> MemberGraphLegendView {
         let legendView = MemberGraphLegendView.loadXib()
         legendView.userProfile = userProfile
-        legendView.populateView()
+        legendView.isSelf = isSelf
+        legendView.setup()
         return legendView
     }
 }
