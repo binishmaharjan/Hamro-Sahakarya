@@ -13,13 +13,13 @@ import RxCocoa
 
 final class MemberGraphView: UIView {
     
-    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet private weak var pieChartView: PieChartView!
+    @IBOutlet private weak var memberGraphLegendStackView: UIStackView!
+    
     
     private var viewModel: MemberGraphViewModelProtocol!
     private let disposeBag = DisposeBag()
-    private func fetchAllMembersFromFirebase() {
-        print("awakeFromNib() setup() disposeBag viewModel")
-    }
+    private let legendTitleTag = 1
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +53,45 @@ extension MemberGraphView {
             .driveNext { (x) in
                 self.pieChartView.highlightValue(x: x, dataSetIndex: 0)
         }.disposed(by: disposeBag)
+        
+        viewModel.allMembers
+            .asDriver()
+            .driveNext(setupMemberGraphLegend(allMembers:))
+            .disposed(by: disposeBag)
+    }
+}
+
+//MARK: Member Graph Legend View
+extension MemberGraphView {
+    
+    private func setupMemberGraphLegend(allMembers: [UserProfile]) {
+        removeAllViewsExpectLegendTitle()
+        var a = allMembers
+        a.append(contentsOf: allMembers)
+        a.append(contentsOf: allMembers)
+        recreateLegendViews(allMembers: a)
+    }
+    
+    private func removeAllViewsExpectLegendTitle() {
+        let legendViewsExcludingTitle = memberGraphLegendStackView.subviews.filter { $0.tag != legendTitleTag }
+        legendViewsExcludingTitle.forEach { $0.removeFromSuperview() }
+    }
+    
+    private func recreateLegendViews(allMembers: [UserProfile]) {
+        allMembers.forEach { (member) in
+            let legendView = createLegend(for: member)
+            memberGraphLegendStackView.addArrangedSubview(legendView)
+            setupLegendViewConstraints(for: legendView)
+        }
+    }
+    
+    private func createLegend(for member: UserProfile) -> MemberGraphLegendView {
+        let legendView = MemberGraphLegendView.makeInstance(userProfile: member)
+        return legendView
+    }
+    
+    private func setupLegendViewConstraints(for legendView: MemberGraphLegendView) {
+        legendView.width = memberGraphLegendStackView.width
     }
 }
 

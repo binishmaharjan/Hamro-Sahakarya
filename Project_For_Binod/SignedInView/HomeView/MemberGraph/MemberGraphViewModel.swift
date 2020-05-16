@@ -12,19 +12,20 @@ import Charts
 import RxCocoa
 
 protocol MemberGraphViewModelProtocol {
+    var allMembers: Observable<[UserProfile]> { get }
     var pieChartData: Observable<PieChartData>{ get }
     var pieChartUserHighlightX: Observable<Double> { get }
 }
 
 struct MemberGraphViewModel: MemberGraphViewModelProtocol {
     
-    private let allMembers: Observable<[UserProfile]>
     private let pieChartLabelSet: Observable<[String]>
     private let pieChartColorSet: Observable<[NSUIColor]>
     private let pieChartValueSet: Observable<[Double]>
     
     private let userSession: UserSession
     
+    let allMembers: Observable<[UserProfile]>
     let pieChartData: Observable<PieChartData>
     let pieChartUserHighlightX: Observable<Double>
     
