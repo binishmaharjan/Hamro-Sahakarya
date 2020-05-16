@@ -42,6 +42,8 @@
 		6430DAEA23EAEDC40045E435 /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */; };
 		6430DAEE23EAF4F90045E435 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAEC23EAF4F90045E435 /* PhotoCell.swift */; };
 		6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAED23EAF4F90045E435 /* PhotoCell.xib */; };
+		644D2FAE246F8A8200203230 /* MemberGraphLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644D2FAD246F8A8200203230 /* MemberGraphLegendView.swift */; };
+		644D2FB0246F8AC300203230 /* MemberGraphLegendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644D2FAF246F8AC300203230 /* MemberGraphLegendView.xib */; };
 		644EB0A72449E89900CB0A56 /* LoanReturnedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */; };
 		644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */; };
 		644EB0AC2449EBC900CB0A56 /* LoanReturnedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */; };
@@ -213,6 +215,8 @@
 		6430DAE923EAEDC30045E435 /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
 		6430DAEC23EAF4F90045E435 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		6430DAED23EAF4F90045E435 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		644D2FAD246F8A8200203230 /* MemberGraphLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGraphLegendView.swift; sourceTree = "<group>"; };
+		644D2FAF246F8AC300203230 /* MemberGraphLegendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberGraphLegendView.xib; sourceTree = "<group>"; };
 		644EB0A62449E89900CB0A56 /* LoanReturnedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewController.swift; sourceTree = "<group>"; };
 		644EB0A82449E8E200CB0A56 /* LoanReturnedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanReturnedViewController.storyboard; sourceTree = "<group>"; };
 		644EB0AB2449EBC900CB0A56 /* LoanReturnedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanReturnedViewModel.swift; sourceTree = "<group>"; };
@@ -552,6 +556,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		644D2FAC246F8A3500203230 /* MemberGraphLegendView */ = {
+			isa = PBXGroup;
+			children = (
+				644D2FAD246F8A8200203230 /* MemberGraphLegendView.swift */,
+				644D2FAF246F8AC300203230 /* MemberGraphLegendView.xib */,
+			);
+			name = MemberGraphLegendView;
+			sourceTree = "<group>";
+		};
 		644EB0A52449E85900CB0A56 /* LoanReturned */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +667,7 @@
 		6454ECBD24665F4000E98A40 /* MemberGraph */ = {
 			isa = PBXGroup;
 			children = (
+				644D2FAC246F8A3500203230 /* MemberGraphLegendView */,
 				6454ECBE24665F7700E98A40 /* MemberGraphView.swift */,
 				6454ECC024665F9000E98A40 /* MemberGraphView.xib */,
 			);
@@ -1346,6 +1360,7 @@
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
+				644D2FB0246F8AC300203230 /* MemberGraphLegendView.xib in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6454ECC124665F9000E98A40 /* MemberGraphView.xib in Resources */,
@@ -1452,6 +1467,7 @@
 				64575D2F245EB75200EF7C69 /* Int+Extension.swift in Sources */,
 				64FBE1AA23D2CD360027E44C /* SignedInDependencyContainer.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
+				644D2FAE246F8A8200203230 /* MemberGraphLegendView.swift in Sources */,
 				6400FF8723E31AF00079A623 /* UserSession.swift in Sources */,
 				64F44D57237EF24500A9DFB4 /* XibProgressHUD.swift in Sources */,
 				6402F3FD237690D60044835F /* UserDefaultsDataStore.swift in Sources */,
