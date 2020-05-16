@@ -6,4 +6,35 @@
 //  Copyright © 2020 JEC. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class MemberGraphLegendView: UIView {
+    
+    @IBOutlet private weak var memberColorView: UIView!
+    @IBOutlet private weak var memberNameLabel: UILabel!
+    @IBOutlet private weak var balanceLabel: UILabel!
+    @IBOutlet private weak var loanLabel: UILabel!
+    
+    private var userProfile: UserProfile!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    private func populateView() {
+        memberColorView.backgroundColor = UIColor(hex: userProfile.colorHex)
+        memberNameLabel.text = userProfile.username
+        balanceLabel.text = userProfile.balance.currency
+        loanLabel.text = userProfile.loanTaken.currency
+    }
+}
+
+// MARK: Xib Instantiable
+extension MemberGraphLegendView: HasXib {
+    static func makeInstance(userProfile: UserProfile) -> MemberGraphLegendView {
+        let legendView = MemberGraphLegendView.loadXib()
+        legendView.userProfile = userProfile
+        legendView.populateView()
+        return legendView
+    }
+}
