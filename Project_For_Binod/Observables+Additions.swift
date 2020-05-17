@@ -120,14 +120,14 @@ public extension Observable {
     return asDriver(onErrorDriveWith: Driver.empty())
   }
 }
-public extension Observable {
-  func map<T>(to value: T) -> Observable<T> {
-    return map { _ in value }
-  }
-  func mapDriver<R>(_ transform: @escaping (Element) -> R) -> Driver<R> {
-    return map(transform).asDriver()
-  }
-}
+//public extension Observable {
+//  func map<T>(to value: T) -> Observable<T> {
+//    return map { _ in value }
+//  }
+//  func mapDriver<R>(_ transform: @escaping (Element) -> R) -> Driver<R> {
+//    return map(transform).asDriver()
+//  }
+//}
 // デバッグログ出力切り替え
 public extension ObservableType {
   /// testmode = On のとき、ログを出す。それ以外はそのまま次の処理へ流す

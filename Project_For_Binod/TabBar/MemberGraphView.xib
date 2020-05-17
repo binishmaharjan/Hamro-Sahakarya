@@ -24,8 +24,9 @@
                                     <rect key="frame" x="87" y="16" width="240" height="240"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="240" id="8Po-DI-bps"/>
-                                        <constraint firstAttribute="height" constant="240" id="Y0f-19-TR5"/>
+                                        <constraint firstAttribute="width" secondItem="YNm-hc-370" secondAttribute="height" multiplier="1:1" id="1l8-lc-eGG"/>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="8Po-DI-bps"/>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="Y0f-19-TR5"/>
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H5d-bL-tMC">
@@ -129,8 +130,10 @@
                                 <constraint firstAttribute="trailing" secondItem="H5d-bL-tMC" secondAttribute="trailing" constant="10" id="6jB-YO-foQ"/>
                                 <constraint firstItem="H5d-bL-tMC" firstAttribute="leading" secondItem="7C2-Uv-hgv" secondAttribute="leading" id="8Ok-84-yGJ"/>
                                 <constraint firstAttribute="bottom" secondItem="H5d-bL-tMC" secondAttribute="bottom" id="FKg-hZ-RnE"/>
+                                <constraint firstAttribute="trailing" secondItem="YNm-hc-370" secondAttribute="trailing" constant="87" id="QKF-j9-flz"/>
                                 <constraint firstItem="YNm-hc-370" firstAttribute="centerX" secondItem="7C2-Uv-hgv" secondAttribute="centerX" id="apr-FW-27k"/>
                                 <constraint firstItem="H5d-bL-tMC" firstAttribute="top" secondItem="YNm-hc-370" secondAttribute="bottom" constant="8" id="iLI-c5-q5N"/>
+                                <constraint firstItem="YNm-hc-370" firstAttribute="leading" secondItem="7C2-Uv-hgv" secondAttribute="leading" constant="87" id="qiE-eP-y7g"/>
                                 <constraint firstItem="YNm-hc-370" firstAttribute="top" secondItem="7C2-Uv-hgv" secondAttribute="top" constant="16" id="vNK-1d-nQs"/>
                             </constraints>
                         </view>

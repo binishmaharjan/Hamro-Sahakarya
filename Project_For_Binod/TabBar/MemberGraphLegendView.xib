@@ -36,21 +36,21 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Uzumaki Naruto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-wg-rXl">
-                    <rect key="frame" x="34" y="13" width="157" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Uzumaki Naruto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-wg-rXl">
+                    <rect key="frame" x="30" y="14" width="169" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥2000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOK-cD-sRk">
-                    <rect key="frame" x="199" y="13" width="97.5" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥2000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zOK-cD-sRk">
+                    <rect key="frame" x="203" y="14" width="97.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJs-Gz-o9q">
-                    <rect key="frame" x="304.5" y="13" width="103.5" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HJs-Gz-o9q">
+                    <rect key="frame" x="304.5" y="14" width="103.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,19 +59,19 @@
             <constraints>
                 <constraint firstItem="DP3-uE-lhu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="0ec-Ds-9Tq"/>
                 <constraint firstItem="DP3-uE-lhu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="8Oy-ha-KT7"/>
-                <constraint firstItem="HJs-Gz-o9q" firstAttribute="leading" secondItem="zOK-cD-sRk" secondAttribute="trailing" constant="8" id="GW4-IX-UQY"/>
+                <constraint firstItem="HJs-Gz-o9q" firstAttribute="leading" secondItem="zOK-cD-sRk" secondAttribute="trailing" constant="4" id="GW4-IX-UQY"/>
                 <constraint firstItem="zOK-cD-sRk" firstAttribute="width" secondItem="HJs-Gz-o9q" secondAttribute="width" multiplier="0.939759" id="L0D-Ci-zis"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DP3-uE-lhu" secondAttribute="bottom" constant="12" id="MNr-zx-dcW"/>
                 <constraint firstItem="FhS-Vp-5fq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V7Z-V6-Xhk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FhS-Vp-5fq" secondAttribute="bottom" constant="8" id="bJm-ek-Wyj"/>
                 <constraint firstItem="l5x-wg-rXl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="c8u-Ic-1Yi"/>
-                <constraint firstItem="zOK-cD-sRk" firstAttribute="leading" secondItem="l5x-wg-rXl" secondAttribute="trailing" constant="8" id="da3-KN-ou0"/>
+                <constraint firstItem="zOK-cD-sRk" firstAttribute="leading" secondItem="l5x-wg-rXl" secondAttribute="trailing" constant="4" id="da3-KN-ou0"/>
                 <constraint firstAttribute="trailing" secondItem="FhS-Vp-5fq" secondAttribute="trailing" id="eet-VK-e04"/>
                 <constraint firstItem="HJs-Gz-o9q" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="jQ1-Bw-OLw"/>
                 <constraint firstAttribute="trailing" secondItem="HJs-Gz-o9q" secondAttribute="trailing" constant="6" id="mCA-jB-RXj"/>
                 <constraint firstItem="zOK-cD-sRk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qI0-o9-jo9"/>
                 <constraint firstItem="HJs-Gz-o9q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qVS-bO-jIu"/>
-                <constraint firstItem="l5x-wg-rXl" firstAttribute="leading" secondItem="DP3-uE-lhu" secondAttribute="trailing" constant="8" id="vi2-dL-CUa"/>
+                <constraint firstItem="l5x-wg-rXl" firstAttribute="leading" secondItem="DP3-uE-lhu" secondAttribute="trailing" constant="4" id="vi2-dL-CUa"/>
                 <constraint firstItem="FhS-Vp-5fq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="zUl-pT-B6o"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
