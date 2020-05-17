@@ -147,6 +147,8 @@ extension ProfileViewController {
         viewModel.navigate(to: .removeMember)
     case .termsAndCondition:
         viewModel.navigate(to: .termsAndCondition)
+    case .addOrDeductAmount:
+        viewModel.navigate(to: .addOrDeductAmount)
     case .license:
       break
     case .logout:

@@ -20,6 +20,7 @@ enum ProfileMainView {
     case loanMember
     case loanReturned
     case removeMember
+    case addOrDeductAmount
     
     case termsAndCondition
     case licence
