@@ -556,13 +556,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		644D2FAC246F8A3500203230 /* MemberGraphLegendView */ = {
+		644D2FAC246F8A3500203230 /* LegendView */ = {
 			isa = PBXGroup;
 			children = (
 				644D2FAD246F8A8200203230 /* MemberGraphLegendView.swift */,
 				644D2FAF246F8AC300203230 /* MemberGraphLegendView.xib */,
 			);
-			name = MemberGraphLegendView;
+			name = LegendView;
 			sourceTree = "<group>";
 		};
 		644EB0A52449E85900CB0A56 /* LoanReturned */ = {
@@ -667,7 +667,7 @@
 		6454ECBD24665F4000E98A40 /* MemberGraph */ = {
 			isa = PBXGroup;
 			children = (
-				644D2FAC246F8A3500203230 /* MemberGraphLegendView */,
+				644D2FAC246F8A3500203230 /* LegendView */,
 				6454ECBE24665F7700E98A40 /* MemberGraphView.swift */,
 				6454ECC024665F9000E98A40 /* MemberGraphView.xib */,
 			);

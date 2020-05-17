@@ -84,6 +84,7 @@ extension HomeViewModel {
                 self._apiState.accept(.error(HSError.unknown))
             } else {
                 self._apiState.accept(.completed)
+                self.udpateUserSession()
             }
         }
     }
@@ -99,6 +100,15 @@ extension HomeViewModel {
         userSessionRepository.fetchExtraAndExpenses()
             .done(indicateFetchExtraIncomeAndExpensesSuccessful(detail:))
             .catch(indicateError(error:))
+    }
+
+    private func udpateUserSession() {
+        let selfUser = allMembers.value.filter { $0.email == userSession.value.email }.first
+        
+        guard let unwrappedSelfUser =  selfUser else { return }
+        _ = userSessionRepository.saveUserSession(userProfile: unwrappedSelfUser).done { (newValue) in
+            self.userSession.accept(newValue.profile.value)
+        }
     }
     
     private func indicateLoading() {
