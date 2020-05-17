@@ -36,6 +36,13 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         return dataStore.readUserProfile()
     }
     
+    /// Save user session from the local data store
+    ///
+    /// - Return Promise<UserSession> : UserInfo wrapped in promise
+    func saveUserSession(userProfile: UserProfile) -> Promise<UserSession> {
+        return dataStore.save(userProfile: userProfile)
+    }
+    
     /// Signup the user and save the user data to the local data store
     ///
     /// - Parameter newAccount: User info for the new account

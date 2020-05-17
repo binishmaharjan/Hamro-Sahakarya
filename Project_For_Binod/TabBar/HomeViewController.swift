@@ -34,30 +34,24 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var accountDetailViewArea: UIView!
     @IBOutlet private weak var monthlyDetailViewArea: UIView!
     
-    
     // MARK: Properties
-    private var viewModel: HomeViewModelProtocol!
-    private var homeContentViewFactory: HomeContentViewFactory!
     private let disposeBag: DisposeBag = DisposeBag()
     private let homeContentViewSize: CGFloat = (UIScreen.main.bounds.width - 32)
-    private var isFirstLoad: Bool = true
     
+    private var viewModel: HomeViewModelProtocol!
+    private var homeContentViewFactory: HomeContentViewFactory!
     private var accountDetailView: AccountDetailView!
     private var memberGraphView: MemberGraphView!
+    private var refreshButton: UIBarButtonItem!
+    private var isFirstLoad: Bool = true
 
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        
         bind()
-        bindHomeContentView()
-        bindApiState()
-        
         fetchData()
-        
-        setupHomeContentView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,45 +63,12 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     // MARK: Methods
-    private func setup() {
-        homeContentScrollView.delegate = self
-    }
-    
-    private func setupHomeContentView() {
-        // Account Detail View
-        accountDetailView = homeContentViewFactory.makeAccountDetailView(allMembers: viewModel.allMembers.asObservable(),
-                                                                         groupDetail: viewModel.groupDetail.asObservable())
-        accountDetailView.translatesAutoresizingMaskIntoConstraints = false
-        accountDetailViewArea.addSubview(accountDetailView)
-        NSLayoutConstraint.activate([
-            accountDetailView.trailingAnchor.constraint(equalTo: accountDetailViewArea.trailingAnchor),
-            accountDetailView.leadingAnchor.constraint(equalTo: accountDetailViewArea.leadingAnchor),
-            accountDetailView.topAnchor.constraint(equalTo: accountDetailViewArea.topAnchor),
-            accountDetailView.bottomAnchor.constraint(equalTo: accountDetailViewArea.bottomAnchor),
-        ])
-        accountDetailView.bind()
-        
-        // Member Graph View
-        memberGraphView = homeContentViewFactory.makeMemberGraphView(allMembers: viewModel.allMembers.asObservable())
-        memberGraphView.translatesAutoresizingMaskIntoConstraints = false
-        memberGraphViewArea.addSubview(memberGraphView)
-        NSLayoutConstraint.activate([
-            memberGraphView.trailingAnchor.constraint(equalTo: memberGraphViewArea.trailingAnchor),
-            memberGraphView.leadingAnchor.constraint(equalTo: memberGraphViewArea.leadingAnchor),
-            memberGraphView.topAnchor.constraint(equalTo: memberGraphViewArea.topAnchor),
-            memberGraphView.bottomAnchor.constraint(equalTo: memberGraphViewArea.bottomAnchor),
-        ])
-        memberGraphView.bind()
-        
-    }
-    
     private func fetchData() {
+        viewModel.fetchData()
+    }
+    
+    @objc private func refreshButtonPressed() {
         viewModel.fetchData()
     }
     
@@ -125,8 +86,60 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: Setup
+extension HomeViewController {
+    
+    private func setup() {
+        setupHomeContentView()
+        setupRefreshButton()
+    }
+    
+    private func setupRefreshButton() {
+        refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonPressed))
+               navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    private func setupHomeContentView() {
+        homeContentScrollView.delegate = self
+        setupAccountDetailView()
+        setupMemberGraphView()
+    }
+    
+    private func setupAccountDetailView() {
+        accountDetailView = homeContentViewFactory.makeAccountDetailView(allMembers: viewModel.allMembers.asObservable(),
+                                                                         groupDetail: viewModel.groupDetail.asObservable())
+        accountDetailView.translatesAutoresizingMaskIntoConstraints = false
+        accountDetailViewArea.addSubview(accountDetailView)
+        NSLayoutConstraint.activate([
+            accountDetailView.trailingAnchor.constraint(equalTo: accountDetailViewArea.trailingAnchor),
+            accountDetailView.leadingAnchor.constraint(equalTo: accountDetailViewArea.leadingAnchor),
+            accountDetailView.topAnchor.constraint(equalTo: accountDetailViewArea.topAnchor),
+            accountDetailView.bottomAnchor.constraint(equalTo: accountDetailViewArea.bottomAnchor),
+        ])
+        accountDetailView.bind()
+    }
+    
+    private func setupMemberGraphView() {
+        memberGraphView = homeContentViewFactory.makeMemberGraphView(allMembers: viewModel.allMembers.asObservable())
+        memberGraphView.translatesAutoresizingMaskIntoConstraints = false
+        memberGraphViewArea.addSubview(memberGraphView)
+        NSLayoutConstraint.activate([
+            memberGraphView.trailingAnchor.constraint(equalTo: memberGraphViewArea.trailingAnchor),
+            memberGraphView.leadingAnchor.constraint(equalTo: memberGraphViewArea.leadingAnchor),
+            memberGraphView.topAnchor.constraint(equalTo: memberGraphViewArea.topAnchor),
+            memberGraphView.bottomAnchor.constraint(equalTo: memberGraphViewArea.bottomAnchor),
+        ])
+        memberGraphView.bind()
+    }
+}
+
 // MARK: Bindable
 extension HomeViewController {
+    private func bind() {
+        bindApiState()
+        bindUIs()
+        bindHomeContentView()
+    }
     
     private func bindApiState() {
         viewModel.apiState
@@ -149,7 +162,7 @@ extension HomeViewController {
         }).disposed(by: disposeBag)
     }
     
-    private func bind() {
+    private func bindUIs() {
         // Output
         viewModel.myBalance
             .asDriver(onErrorJustReturn: "¥0")
@@ -232,10 +245,10 @@ extension HomeViewController: StoryboardInstantiable {
 
 // MARK: Storyboard Instantiable
 extension HomeViewController: AssociatedHomeView {
+    
     func getAssociateView() -> HomeView {
         return .home
     }
-    
 }
 
 // MARK: Scroll View Delegate
