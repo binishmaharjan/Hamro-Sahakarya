@@ -96,7 +96,13 @@ struct AddOrDeductAmountViewModel: AddOrDeductAmountViewModelProtocol {
 extension AddOrDeductAmountViewModel {
     
     func addorDeduct() {
-        guard let selectedUser = selectedUser.value else { return }
+        indicateLoading()
+        
+        guard let selectedUser = selectedUser.value else {
+            _apiState.accept(.error(HSError.unknown))
+            return
+        }
+        
         userSessionRepository
             .addOrDeductAmount(admin: userSession.profile.value, member: selectedUser, type: selectedTypeInput.value, amount: amountInput.value)
             .done{ self.indicateAddOrDeductSuccessful() }
