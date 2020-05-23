@@ -220,7 +220,7 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
         return Promise<Void> { seal in
             
             let logCreator = admin.username
-            let logTarget = ""
+            let logTarget = member.username
             let amount = amount
             let reason = ""
             
