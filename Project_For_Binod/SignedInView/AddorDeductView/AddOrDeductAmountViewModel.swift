@@ -33,7 +33,13 @@ protocol AddOrDeductAmountViewModelProtocol {
     
     var isConfirmButtonEnabled: Observable<Bool> { get }
     var apiState: Driver<State> { get }
+    
     func addorDeduct()
+    func fetchAllMembers()
+    func numberOfRows() -> Int
+    func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel
+    func userProfileForRow(at indexPath: IndexPath) -> UserProfile
+    func isUserSelected(userProfile: UserProfile) -> Bool
 }
 
 struct AddOrDeductAmountViewModel: AddOrDeductAmountViewModelProtocol {
@@ -64,6 +70,25 @@ struct AddOrDeductAmountViewModel: AddOrDeductAmountViewModelProtocol {
         let state = Observable.combineLatest(selectedUser, amountInput) { UIState(selectedUser: $0, amount: $1) }
         isConfirmButtonEnabled = state.map { $0.isConfirmButtonEnabled }
     }
+    
+    func numberOfRows() -> Int {
+        return allMembers.value.count
+    }
+    
+    func viewModelForRow(at indexPath: IndexPath) -> MemberCellViewModel {
+        let member = userProfileForRow(at: indexPath)
+        return DefaultMemberCellViewModel(profile: member)
+    }
+    
+    func userProfileForRow(at indexPath: IndexPath) -> UserProfile {
+        return allMembers.value[indexPath.row]
+    }
+    
+    func isUserSelected(userProfile: UserProfile) -> Bool {
+        guard let selectedMember = selectedUser.value else { return false }
+        
+        return userProfile == selectedMember
+    }
 }
 
 // MARK: Api
@@ -77,7 +102,7 @@ extension AddOrDeductAmountViewModel {
             .catch(indicateError(error:))
     }
     
-    func fetchAllMember() {
+    func fetchAllMembers() {
         indicateLoading()
         
         userSessionRepository
