@@ -10,6 +10,8 @@ import UIKit
 
 final class AddOrDeductAmountViewController: UIViewController {
     
+    //MARK: IBOutlets
+    @IBOutlet weak var tableView: UITableView!
     //MARK: Properties
     private var viewModel: AddOrDeductAmountViewModelProtocol!
     
