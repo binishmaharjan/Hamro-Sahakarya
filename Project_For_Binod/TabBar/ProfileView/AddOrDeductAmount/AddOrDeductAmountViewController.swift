@@ -13,7 +13,9 @@ import RxCocoa
 final class AddOrDeductAmountViewController: UIViewController {
     
     //MARK: IBOutlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var addOrDeductLabel: UILabel!
     
     //MARK: Properties
     private var viewModel: AddOrDeductAmountViewModelProtocol!
@@ -26,6 +28,8 @@ final class AddOrDeductAmountViewController: UIViewController {
         
         setupBarButton()
         setup()
+        
+        bindApiState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +91,61 @@ extension AddOrDeductAmountViewController: UITableViewDataSource {
         
     }
     
+}
+
+// MARK: Bindable
+extension AddOrDeductAmountViewController {
+    private func bindApiState() {
+        
+        viewModel.apiState
+            .withLatestFrom(viewModel.addOrDeductSuccessful) { return ($0, $1) }
+            .driveNext { [weak self] (state, addOrDeductSuccessful) in
+                
+                switch state {
+                case .completed:
+                    if addOrDeductSuccessful {
+                        let dropDownModel = DropDownModel(dropDownType: .success, message: "Successful!!!")
+                        GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                        
+                        self?.amountTextField.text = ""
+                        self?.viewModel.selectedUser.accept(nil)
+                    }
+                        
+                    self?.tableView.reloadData()
+                                    
+                    GUIManager.shared.stopAnimation()
+                    
+                case .error(let error):
+                    let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
+                    GUIManager.shared.showDropDownNotification(data: dropDownModel)
+                    
+                    GUIManager.shared.stopAnimation()
+                    
+                case .loading:
+                    GUIManager.shared.startAnimation()
+                    
+                default:
+                    break
+                }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func bindUIState() {
+        // Input
+        amountTextField.rx.text
+            .asDriver()
+            .map { Int($0 ?? "0") ?? 0 }
+            .drive(viewModel.amountInput)
+            .disposed(by: disposeBag)
+        
+        // Output
+        viewModel
+            .isConfirmButtonEnabled
+            .asDriver(onErrorJustReturn: false)
+            .drive(addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: UITableView Delegate

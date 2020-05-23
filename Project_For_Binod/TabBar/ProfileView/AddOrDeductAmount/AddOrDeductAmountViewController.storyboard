@@ -109,6 +109,8 @@
                         <viewLayoutGuide key="safeArea" id="buf-qK-NjA"/>
                     </view>
                     <connections>
+                        <outlet property="addOrDeductLabel" destination="mF0-Md-ejv" id="8qz-jM-NiP"/>
+                        <outlet property="amountTextField" destination="0Dc-L8-b31" id="UPs-ux-UJ3"/>
                         <outlet property="tableView" destination="WoE-f1-GKi" id="ybC-RH-YJ0"/>
                     </connections>
                 </viewController>

@@ -33,6 +33,7 @@ protocol AddOrDeductAmountViewModelProtocol {
     
     var isConfirmButtonEnabled: Observable<Bool> { get }
     var apiState: Driver<State> { get }
+    var addOrDeductSuccessful: Driver<Bool> { get }
     
     func addorDeduct()
     func fetchAllMembers()
