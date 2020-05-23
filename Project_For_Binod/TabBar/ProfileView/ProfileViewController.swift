@@ -149,8 +149,6 @@ extension ProfileViewController {
         viewModel.navigate(to: .termsAndCondition)
     case .addOrDeductAmount:
         viewModel.navigate(to: .addOrDeductAmount)
-    case .license:
-      break
     case .logout:
       GUIManager.shared.showDialog(factory: .logoutConfirmation) { [weak self] in
         self?.viewModel.signOut()
