@@ -7,17 +7,48 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class AddOrDeductAmountViewController: UIViewController {
     
     //MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    
     //MARK: Properties
     private var viewModel: AddOrDeductAmountViewModelProtocol!
+    private var disposeBag =  DisposeBag()
+    private var addButton: UIBarButtonItem!
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBarButton()
+        setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchAllMembers()
+    }
+    
+    private func setup() {
+        title = "Add Or Deduct Amount"
+        
+        tableView.registerXib(of: MembersCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    private func setupBarButton() {
+        addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+        navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc private func addButtonPressed() {
+        viewModel.addorDeduct()
     }
 }
 
