@@ -135,6 +135,9 @@
 		64BE330F2441501F00FB8E8E /* LoanMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */; };
 		64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */; };
 		64BE331424415F1800FB8E8E /* LoanMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE331324415F1800FB8E8E /* LoanMemberViewModel.swift */; };
+		64D304F02471240300F3168D /* AddOrDeductAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D304EF2471240300F3168D /* AddOrDeductAmountViewController.swift */; };
+		64D304F22471258600F3168D /* AddOrDeductAmountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D304F12471258600F3168D /* AddOrDeductAmountViewController.storyboard */; };
+		64D304F5247125F700F3168D /* AddOrDeductAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D304F4247125F700F3168D /* AddOrDeductAmountViewModel.swift */; };
 		64E6D46123BBAEFE00D5C17F /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */; };
 		64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */; };
 		64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6D46423BC168B00D5C17F /* SignUpViewController.storyboard */; };
@@ -308,6 +311,9 @@
 		64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanMemberViewController.swift; sourceTree = "<group>"; };
 		64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoanMemberViewController.storyboard; sourceTree = "<group>"; };
 		64BE331324415F1800FB8E8E /* LoanMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanMemberViewModel.swift; sourceTree = "<group>"; };
+		64D304EF2471240300F3168D /* AddOrDeductAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrDeductAmountViewController.swift; sourceTree = "<group>"; };
+		64D304F12471258600F3168D /* AddOrDeductAmountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOrDeductAmountViewController.storyboard; sourceTree = "<group>"; };
+		64D304F4247125F700F3168D /* AddOrDeductAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrDeductAmountViewModel.swift; sourceTree = "<group>"; };
 		64E6D46023BBAEFE00D5C17F /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		64E6D46223BBB13B00D5C17F /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
 		64E6D46423BC168B00D5C17F /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
@@ -373,6 +379,7 @@
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64D304F3247125C600F3168D /* AddorDeductView */,
 				64575D28245E63EA00EF7C69 /* TermsAndConditons */,
 				644EB0EE24591CE700CB0A56 /* RemoveMember */,
 				644EB0AA2449EB9500CB0A56 /* LoanReturned */,
@@ -394,6 +401,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64D304EE247123C400F3168D /* AddOrDeductAmount */,
 				64575D23245E634200EF7C69 /* TermsAndCondition */,
 				644EB0E924591C2E00CB0A56 /* RemoveMember */,
 				644EB0A52449E85900CB0A56 /* LoanReturned */,
@@ -1073,6 +1081,23 @@
 			path = LoanMember;
 			sourceTree = "<group>";
 		};
+		64D304EE247123C400F3168D /* AddOrDeductAmount */ = {
+			isa = PBXGroup;
+			children = (
+				64D304EF2471240300F3168D /* AddOrDeductAmountViewController.swift */,
+				64D304F12471258600F3168D /* AddOrDeductAmountViewController.storyboard */,
+			);
+			path = AddOrDeductAmount;
+			sourceTree = "<group>";
+		};
+		64D304F3247125C600F3168D /* AddorDeductView */ = {
+			isa = PBXGroup;
+			children = (
+				64D304F4247125F700F3168D /* AddOrDeductAmountViewModel.swift */,
+			);
+			path = AddorDeductView;
+			sourceTree = "<group>";
+		};
 		64F44D5A237EF93700A9DFB4 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1359,6 +1384,7 @@
 				644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
+				64D304F22471258600F3168D /* AddOrDeductAmountViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				644D2FB0246F8AC300203230 /* MemberGraphLegendView.xib in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
@@ -1476,6 +1502,7 @@
 				64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */,
 				645939B8235AB7CF00A99902 /* ErrorMessage.swift in Sources */,
 				64FBE1D123D4A6D00027E44C /* LogViewCell.swift in Sources */,
+				64D304F02471240300F3168D /* AddOrDeductAmountViewController.swift in Sources */,
 				644EB0E72454220F00CB0A56 /* HomeViewModel.swift in Sources */,
 				64FBE1BC23D2EE9A0027E44C /* ProfileViewController.swift in Sources */,
 				6402F3F7237682960044835F /* HSError.swift in Sources */,
@@ -1522,6 +1549,7 @@
 				644EB0E524541F8F00CB0A56 /* HomeMainViewController.swift in Sources */,
 				64FBE15723C0CDCB0027E44C /* ColorPaletteViewModel.swift in Sources */,
 				64517C152438162D009F13B6 /* Array+Extension.swift in Sources */,
+				64D304F5247125F700F3168D /* AddOrDeductAmountViewModel.swift in Sources */,
 				6402F4132377CDBD0044835F /* NewAccount.swift in Sources */,
 				6430DAEA23EAEDC40045E435 /* PHPhotoLibrary+Rx.swift in Sources */,
 				64FBE1C023D2EEE90027E44C /* HomeViewController.swift in Sources */,

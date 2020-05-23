@@ -89,6 +89,8 @@ extension ProfileMainViewController {
             showLoanMemberView()
         case .loanReturned:
             showLoanReturnedView()
+        case .addOrDeductAmount:
+            showAddOrDeductAmount()
         case .removeMember:
             showRemoveMemberView()
         case .termsAndCondition:
@@ -149,6 +151,11 @@ extension ProfileMainViewController {
     
     private func showTermsAndConditionView() {
         let viewController = profileViewControllerFactory.makeTermsAndConditionViewController()
+        pushViewController(viewController, animated: true)
+    }
+    
+    private func showAddOrDeductAmount() {
+        let viewController = profileViewControllerFactory.makeAddOrDeductAmountViewController()
         pushViewController(viewController, animated: true)
     }
 }

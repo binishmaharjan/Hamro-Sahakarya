@@ -70,6 +70,7 @@ protocol ProfileViewControllerFactory {
     func makeLoanReturnedViewController() -> LoanReturnedViewController
     func makeRemoveMemberViewController() -> RemoveMemberViewController
     func makeTermsAndConditionViewController() -> TermsAndConditionViewController
+    func makeAddOrDeductAmountViewController() -> AddOrDeductAmountViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
@@ -210,5 +211,19 @@ extension ProfileMainDependencyContainer {
     
     func makeTermsAndConditionViewModel() -> TermsAndConditionViewModelProtocol {
         return TermsAndConditionViewModel()
+    }
+}
+
+// MARK: Add or Deduct View Controller
+extension ProfileMainDependencyContainer {
+    
+    func makeAddOrDeductAmountViewController() -> AddOrDeductAmountViewController {
+        let viewModel = makeAddOrDeductAmountViewModel()
+        let viewController = AddOrDeductAmountViewController.makeInstance(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeAddOrDeductAmountViewModel() -> AddOrDeductAmountViewModelProtocol {
+        return AddOrDeductAmountViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }

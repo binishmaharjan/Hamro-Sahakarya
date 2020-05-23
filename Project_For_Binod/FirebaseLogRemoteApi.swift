@@ -216,6 +216,44 @@ final class FireBaseLogRemoteApi: LogRemoteApi {
         }
     }
     
+    func addAmountOrDeductAmountLog(type: AddOrDeduct ,admin: UserProfile, member: UserProfile, amount: Int) -> Promise<Void> {
+        return Promise<Void> { seal in
+            
+            let logCreator = admin.username
+            let logTarget = member.username
+            let amount = amount
+            let reason = ""
+            
+            let logType: GroupLogType
+            if case .add = type {
+                logType = GroupLogType.addAmount
+            } else {
+                logType = GroupLogType.deductAmount
+            }
+            
+            let log  = generateLog(logType: logType, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: reason)
+            let logRef = Firestore.firestore().collection(DatabaseReference.LOGS_REF).document(log.logId)
+            
+            DispatchQueue.global().async {
+                do {
+                    let data = try FirestoreEncoder().encode(log) as [String:Any]
+                    
+                    let completion: (Error?) -> Void = { error in
+                        guard let error = error else { return }
+                        DispatchQueue.main.async { seal.reject(error)}
+                    }
+                    
+                    logRef.setData(data, completion: completion)
+                    
+                    DispatchQueue.main.async { seal.fulfill(()) }
+                    
+                } catch {
+                    DispatchQueue.main.async { seal.reject(error) }
+                }
+            }
+        }
+    }
+    
     func addLoanMemberLog(admin: UserProfile, member: UserProfile, amount: Int) -> Promise<Void> {
         return Promise<Void> { seal in
             let logCreator = admin.username
