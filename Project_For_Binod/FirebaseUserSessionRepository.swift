@@ -187,6 +187,26 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             .then(logApi.addExtraOrExpensesLog(type: admin: amount: reason: ))
     }
     
+    /// Add or Deduct Amount From User
+    ///
+    /// - Parameter admin: Admin who made the transaction
+    /// - Parameter type: Add Or Deduct
+    /// - Parameter amount: Amount to be Added or Deducted
+    /// - Return Promise<Void> : Indication of Completion
+    func addOrDeductAmount(admin: UserProfile, member: UserProfile, type: AddOrDeduct, amount: Int) -> Promise<Void> {
+        var newAmount = member.balance
+        if case .add = type {
+            newAmount = member.balance + amount
+        } else {
+            newAmount = member.balance - amount
+        }
+        
+        return serverDataManager
+            .updateAmount(for: member, amount: newAmount)
+            .map { (type, admin, member, amount) }
+            .then(logApi.addAmountOrDeductAmountLog(type:admin: member: amount:))
+    }
+    
     /// Fetch Extra And Expenses
     ///
     /// - Return Promise<GroupDetail> : Extra And Expenses Wrapped In Promise
