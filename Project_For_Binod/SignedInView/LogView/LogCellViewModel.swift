@@ -53,7 +53,7 @@ struct DefaultLogCellViewModel: LogCellViewModel {
         switch logType {
         case .joined, .left, .madeAdmin, .removedAdmin, .removed:
             return "Organization Information Has Been Changed."
-        case .loanGiven, .loanReturned, .monthlyFee, .extra, .expenses:
+        case .loanGiven, .loanReturned, .monthlyFee, .extra, .expenses, .addAmount, .deductAmount:
             return "A New Transaction Has Been Made."
         }
     }
@@ -80,6 +80,10 @@ struct DefaultLogCellViewModel: LogCellViewModel {
             return "\(logTarget) has been made admin. \(logTarget) was made admin by \(logCreator)"
         case .removedAdmin:
             return "\(logTarget) has been removed from admin. \(logTarget) was removed from admin by \(logCreator)"
+        case .addAmount:
+            return "An amount of \(amount) has been added to \(logTarget).Transaction was made by admin \(logCreator)."
+        case .deductAmount:
+            return "An amount of \(amount) has been deducted to \(logTarget).Transaction was made by admin \(logCreator)."
         }
     }
 }
