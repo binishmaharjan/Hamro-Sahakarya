@@ -26,10 +26,10 @@ final class AddOrDeductAmountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBarButton()
         setup()
         
         bindApiState()
+        bindUIState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,11 +39,25 @@ final class AddOrDeductAmountViewController: UIViewController {
     }
     
     private func setup() {
+        setupNavigation()
+        setupTableView()
+        setupAddOrDeductActionSheet()
+        setupBarButton()
+    }
+    
+    private func setupNavigation() {
         title = "Add Or Deduct Amount"
-        
+    }
+    
+    private func setupTableView() {
         tableView.registerXib(of: MembersCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func setupAddOrDeductActionSheet() {
+        let typeSelectionTapGesture = UITapGestureRecognizer(target: self, action: #selector(typeSelectionTapped))
+        addOrDeductLabel.addGestureRecognizer(typeSelectionTapGesture)
     }
     
     private func setupBarButton() {
@@ -53,6 +67,29 @@ final class AddOrDeductAmountViewController: UIViewController {
     
     @objc private func addButtonPressed() {
         viewModel.addorDeduct()
+    }
+    
+    @objc private func typeSelectionTapped() {
+        showTypeSelectionSheet()
+    }
+    
+    private func showTypeSelectionSheet() {
+        let actionSheet = UIAlertController(title: "Type Selection", message: "Add Or Deduct", preferredStyle: .actionSheet)
+        let actions = AddOrDeduct.allCases.map { [weak self] type -> UIAlertAction in
+            
+            let action = UIAlertAction(title: type.rawValue, style: .default) { (_) in
+                self?.viewModel.selectedTypeInput.accept(type)
+            }
+            
+            return action
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        actions.forEach { actionSheet.addAction($0) }
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true)
     }
 }
 
@@ -144,6 +181,12 @@ extension AddOrDeductAmountViewController {
             .isConfirmButtonEnabled
             .asDriver(onErrorJustReturn: false)
             .drive(addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectedTypeInput
+            .asDriver(onErrorJustReturn: .add)
+            .map { $0.rawValue }
+            .drive(addOrDeductLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }
