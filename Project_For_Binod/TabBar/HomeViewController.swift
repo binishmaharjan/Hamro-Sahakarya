@@ -104,6 +104,7 @@ extension HomeViewController {
         homeContentScrollView.delegate = self
         setupAccountDetailView()
         setupMemberGraphView()
+        setupNoticeView()
     }
     
     private func setupAccountDetailView() {
@@ -136,7 +137,7 @@ extension HomeViewController {
     private func setupNoticeView() {
         noticeView = homeContentViewFactory.makeNoticeView(notice: viewModel.noticeRelay.asObservable())
         noticeView.translatesAutoresizingMaskIntoConstraints = false
-        noticeViewArea.addSubview(memberGraphView)
+        noticeViewArea.addSubview(noticeView)
         NSLayoutConstraint.activate([
            noticeView.trailingAnchor.constraint(equalTo: noticeViewArea.trailingAnchor),
            noticeView.leadingAnchor.constraint(equalTo: noticeViewArea.leadingAnchor),
