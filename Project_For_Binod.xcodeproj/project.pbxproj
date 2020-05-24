@@ -36,6 +36,10 @@
 		6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6402F4142377FBCE0044835F /* Date+Extension.swift */; };
 		64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */; };
 		64073BDA22488F0300088E61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64073BD922488F0200088E61 /* GoogleService-Info.plist */; };
+		64286967247A53600097E52A /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64286966247A53600097E52A /* NoticeView.swift */; };
+		64286969247A53C70097E52A /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64286968247A53C70097E52A /* NoticeView.xib */; };
+		6428696C247A541C0097E52A /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6428696B247A541C0097E52A /* NoticeViewModel.swift */; };
+		6428696E247A57510097E52A /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6428696D247A57510097E52A /* Notice.swift */; };
 		642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */; };
 		6430DAE623E9A9000045E435 /* ChangePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */; };
 		6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */; };
@@ -212,6 +216,10 @@
 		6402F4142377FBCE0044835F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		64073BD922488F0200088E61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64286966247A53600097E52A /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		64286968247A53C70097E52A /* NoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
+		6428696B247A541C0097E52A /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		6428696D247A57510097E52A /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView + IBDesignable.swift"; sourceTree = "<group>"; };
 		6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewController.swift; sourceTree = "<group>"; };
 		6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePictureViewController.storyboard; sourceTree = "<group>"; };
@@ -479,6 +487,7 @@
 			children = (
 				6402F4122377CDBD0044835F /* NewAccount.swift */,
 				6457F1012388FDC400EFE898 /* DropDownModel.swift */,
+				6428696D247A57510097E52A /* Notice.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -544,6 +553,23 @@
 			name = Implementation;
 			sourceTree = "<group>";
 		};
+		64286965247A53210097E52A /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				64286966247A53600097E52A /* NoticeView.swift */,
+				64286968247A53C70097E52A /* NoticeView.xib */,
+			);
+			name = Notice;
+			sourceTree = "<group>";
+		};
+		6428696A247A54070097E52A /* NoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				6428696B247A541C0097E52A /* NoticeViewModel.swift */,
+			);
+			path = NoticeView;
+			sourceTree = "<group>";
+		};
 		6430DAE423E9A8D80045E435 /* ChangePicture */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +619,7 @@
 		644EB0DF24540E4D00CB0A56 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				6428696A247A54070097E52A /* NoticeView */,
 				6454ECC224665FCE00E98A40 /* MemberGraph */,
 				6454ECBA24626DC000E98A40 /* AccountDetailView */,
 				644EB0E024540E5D00CB0A56 /* HomeMainViewModel.swift */,
@@ -648,6 +675,7 @@
 		6454ECB2245FBDBD00E98A40 /* HomeContentView */ = {
 			isa = PBXGroup;
 			children = (
+				64286965247A53210097E52A /* Notice */,
 				6454ECBD24665F4000E98A40 /* MemberGraph */,
 				6454ECB52461389A00E98A40 /* AccountDetail */,
 				6454ECB3245FBDD200E98A40 /* HomeContentView.swift */,
@@ -1379,6 +1407,7 @@
 				6400FF7A23E1BC6D0079A623 /* ProfileViewController.storyboard in Resources */,
 				6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */,
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
+				64286969247A53C70097E52A /* NoticeView.xib in Resources */,
 				ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */,
 				6478081E241C801000588769 /* ChangeMemberStatusViewController.storyboard in Resources */,
 				644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */,
@@ -1490,6 +1519,7 @@
 				644EB0B7244AC05D00CB0A56 /* MemberWithLoanCell.swift in Sources */,
 				6400FF9623E533640079A623 /* ProfileTopViewModel.swift in Sources */,
 				64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */,
+				64286967247A53600097E52A /* NoticeView.swift in Sources */,
 				64575D2F245EB75200EF7C69 /* Int+Extension.swift in Sources */,
 				64FBE1AA23D2CD360027E44C /* SignedInDependencyContainer.swift in Sources */,
 				645939C4235AC51F00A99902 /* LaunchRootView.swift in Sources */,
@@ -1556,6 +1586,7 @@
 				64FBE1B123D2E4F70027E44C /* ReactiveProperty.swift in Sources */,
 				6492C16F235AA4CE009BE621 /* Macros.swift in Sources */,
 				644EB0E124540E5D00CB0A56 /* HomeMainViewModel.swift in Sources */,
+				6428696C247A541C0097E52A /* NoticeViewModel.swift in Sources */,
 				6402F3FA23768DA40044835F /* UserDataStore.swift in Sources */,
 				645939A4235AACFB00A99902 /* MainView.swift in Sources */,
 				64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */,
@@ -1586,6 +1617,7 @@
 				6454ECC424665FE900E98A40 /* MemberGraphViewModel.swift in Sources */,
 				6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */,
 				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
+				6428696E247A57510097E52A /* Notice.swift in Sources */,
 				64FBE15C23C2073E0027E44C /* ColorPickerViewController.swift in Sources */,
 				6402F4002376948E0044835F /* UserProfileCoding.swift in Sources */,
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,

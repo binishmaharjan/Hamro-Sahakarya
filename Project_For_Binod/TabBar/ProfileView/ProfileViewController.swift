@@ -46,6 +46,7 @@ extension ProfileViewController {
         let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
         GUIManager.shared.showDropDownNotification(data: dropDownModel)
         
+        GUIManager.shared.stopAnimation()
       default:
         break
       }

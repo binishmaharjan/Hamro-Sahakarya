@@ -41,6 +41,7 @@ protocol HomeContentViewFactory {
     
     func makeAccountDetailView(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>) -> AccountDetailView
     func makeMemberGraphView(allMembers: Observable<[UserProfile]>) -> MemberGraphView
+    func makeNoticeView(notice: Observable<Notice>) -> NoticeView
 }
 
 // MARK: Home View Controller
@@ -84,5 +85,15 @@ extension HomeDependencyContainer: HomeContentViewFactory {
     
     func makeMemberGraphViewModel(allMembers: Observable<[UserProfile]>) -> MemberGraphViewModelProtocol {
         return MemberGraphViewModel(allMembers: allMembers, userSession: userSession)
+    }
+    
+    func makeNoticeView(notice: Observable<Notice>) -> NoticeView {
+        let viewModel = makeNoticeViewModel(notice: notice)
+        let view = NoticeView.makeInstance(viewModel: viewModel)
+        return view
+    }
+    
+    func makeNoticeViewModel(notice: Observable<Notice>) -> NoticeViewModelProtocol {
+        return NoticeViewModel(notice: notice)
     }
 }

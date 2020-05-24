@@ -16,7 +16,6 @@ final class MemberGraphView: UIView {
     @IBOutlet private weak var pieChartView: PieChartView!
     @IBOutlet private weak var memberGraphLegendStackView: UIStackView!
     
-    
     private var viewModel: MemberGraphViewModelProtocol!
     private let disposeBag = DisposeBag()
     private let legendTitleTag = 1

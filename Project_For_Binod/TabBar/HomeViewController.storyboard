@@ -476,10 +476,10 @@
                         <outlet property="memberGraphButton" destination="ULU-Kx-Ped" id="DFe-dL-yvy"/>
                         <outlet property="memberGraphButtonArea" destination="Qpa-H7-6BS" id="6Ll-vB-bzi"/>
                         <outlet property="memberGraphViewArea" destination="Hf1-tp-zfM" id="gr4-FD-rUB"/>
-                        <outlet property="monthDetailButton" destination="1Ia-iv-E0s" id="W8u-Ge-YNi"/>
-                        <outlet property="monthDetailButtonArea" destination="VjR-yU-k5n" id="Gi0-nO-GYx"/>
-                        <outlet property="monthlyDetailViewArea" destination="FLx-oZ-2ve" id="jBv-0f-p6Q"/>
                         <outlet property="myBalanceLabel" destination="WCC-nA-ffF" id="OBh-A2-EqP"/>
+                        <outlet property="noticeButton" destination="1Ia-iv-E0s" id="W8u-Ge-YNi"/>
+                        <outlet property="noticeButtonArea" destination="VjR-yU-k5n" id="Gi0-nO-GYx"/>
+                        <outlet property="noticeViewArea" destination="FLx-oZ-2ve" id="jBv-0f-p6Q"/>
                         <outlet property="statusLabel" destination="f7g-sp-BWO" id="WgD-cA-mQN"/>
                         <outlet property="usernameLabel" destination="BC5-aJ-jcj" id="BoF-xa-Nrm"/>
                     </connections>

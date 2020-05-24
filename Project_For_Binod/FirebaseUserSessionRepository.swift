@@ -253,6 +253,13 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
             .then(logApi.addLoanReturnedLog(admin: member: amount: ))
     }
     
+    /// Fetch Notice From The Server
+    ///
+    /// - Return Promise<Notice> : Notice wrapped in promise
+    func fetchNotice() -> Promise<Notice>  {
+        return serverDataManager.fetchNotice()
+    }
+    
 }
 
 

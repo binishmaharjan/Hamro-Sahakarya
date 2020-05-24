@@ -12,7 +12,7 @@ enum HomeContentView: Int {
     
     case memberGraph
     case accountDetail
-    case monthlyDetail
+    case notice
     
     var title: String {
         switch self {
@@ -20,8 +20,8 @@ enum HomeContentView: Int {
             return "Account Detail"
         case .memberGraph:
             return "Member Graph"
-        case .monthlyDetail:
-            return "Monthly Detail"
+        case .notice:
+            return "Notice"
         }
     }
     
@@ -31,7 +31,7 @@ enum HomeContentView: Int {
             return 1
         case .memberGraph:
             return 0
-        case .monthlyDetail:
+        case .notice:
             return 2
         }
     }

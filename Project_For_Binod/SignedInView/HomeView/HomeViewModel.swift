@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol {
     var apiState: Driver<State> { get }
     var allMembers: BehaviorRelay<[UserProfile]> { get }
     var groupDetail: BehaviorRelay<GroupDetail> { get }
+    var noticeRelay: BehaviorRelay<Notice> { get }
     
     func fetchData()
 }
@@ -38,6 +39,7 @@ struct HomeViewModel: HomeViewModelProtocol {
     
     let allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
     let groupDetail: BehaviorRelay<GroupDetail> = BehaviorRelay(value: GroupDetail(extra: 0, expenses: 0))
+    let noticeRelay: BehaviorRelay<Notice> = BehaviorRelay(value: Notice.blankNotice)
     let loanTaken: Observable<String>
     let dateJoined: Observable<String>
     let status: Observable<Status>
@@ -78,6 +80,9 @@ extension HomeViewModel {
         dispatchGroup.enter()
         fetchExtraIncomeAndExpenses()
         
+        dispatchGroup.enter()
+        fetchNotice()
+        
         dispatchGroup.notify(queue: .main) {
             if self.fetchDataFailed.value {
                 self.fetchDataFailed.accept(false)
@@ -99,6 +104,12 @@ extension HomeViewModel {
     private func fetchExtraIncomeAndExpenses() {
         userSessionRepository.fetchExtraAndExpenses()
             .done(indicateFetchExtraIncomeAndExpensesSuccessful(detail:))
+            .catch(indicateError(error:))
+    }
+    
+    private func fetchNotice() {
+        userSessionRepository.fetchNotice()
+            .done(indicateFetchNoticeSuccessful(notice:))
             .catch(indicateError(error:))
     }
 
@@ -125,9 +136,14 @@ extension HomeViewModel {
         dispatchGroup.leave()
     }
     
+    private func indicateFetchNoticeSuccessful(notice: Notice) {
+        noticeRelay.accept(notice)
+        dispatchGroup.leave()
+    }
+    
     private func indicateError(error: Error) {
         fetchDataFailed.accept(true)
-        dispatchGroup.leave()
         _apiState.accept(.error(error))
+        dispatchGroup.leave()
     }
 }

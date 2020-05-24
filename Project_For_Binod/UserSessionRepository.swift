@@ -32,4 +32,6 @@ protocol UserSessionRepository {
     func changeStatus(for user: UserProfile) -> Promise<Void>
     func getAllMembers() -> Promise<[UserProfile]>
     func getAllMembersWithLoan() -> Promise<[UserProfile]>
+    
+    func fetchNotice() -> Promise<Notice> 
 }
