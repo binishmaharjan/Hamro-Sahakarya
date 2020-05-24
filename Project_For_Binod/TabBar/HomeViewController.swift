@@ -242,8 +242,8 @@ extension HomeViewController {
                 
                 this.noticeButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
                 this.noticeButton.setImage((contentView == HomeContentView.notice) ?
-                UIImage(named: "icon_detail_selected") :
-                UIImage(named: "icon_detail_unselected") , for: .normal)
+                UIImage(named: "icon_notice_selected") :
+                UIImage(named: "icon_notice_unselected") , for: .normal)
                 
         }.disposed(by: disposeBag)
     }
