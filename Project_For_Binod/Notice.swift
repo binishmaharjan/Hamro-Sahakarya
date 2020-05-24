@@ -11,4 +11,6 @@ import Foundation
 struct Notice: Codable {
     let message: String
     let admin: String
+    
+    static var blankNotice = Notice(message: "", admin: "")
 }

@@ -38,6 +38,7 @@ struct HomeViewModel: HomeViewModelProtocol {
     
     let allMembers: BehaviorRelay<[UserProfile]> = BehaviorRelay(value: [])
     let groupDetail: BehaviorRelay<GroupDetail> = BehaviorRelay(value: GroupDetail(extra: 0, expenses: 0))
+    let noticeRelay: BehaviorRelay<Notice> = BehaviorRelay(value: Notice.blankNotice)
     let loanTaken: Observable<String>
     let dateJoined: Observable<String>
     let status: Observable<Status>
@@ -78,6 +79,9 @@ extension HomeViewModel {
         dispatchGroup.enter()
         fetchExtraIncomeAndExpenses()
         
+        dispatchGroup.enter()
+        fetchNotice()
+        
         dispatchGroup.notify(queue: .main) {
             if self.fetchDataFailed.value {
                 self.fetchDataFailed.accept(false)
@@ -101,6 +105,12 @@ extension HomeViewModel {
             .done(indicateFetchExtraIncomeAndExpensesSuccessful(detail:))
             .catch(indicateError(error:))
     }
+    
+    private func fetchNotice() {
+        userSessionRepository.fetchNotice()
+            .done(indicateFetchNoticeSuccessful(notice:))
+            .catch(indicateError(error:))
+    }
 
     private func udpateUserSession() {
         let selfUser = allMembers.value.filter { $0.email == userSession.value.email }.first
@@ -122,6 +132,11 @@ extension HomeViewModel {
     
     private func indicateFetchExtraIncomeAndExpensesSuccessful(detail: GroupDetail) {
         groupDetail.accept(detail)
+        dispatchGroup.leave()
+    }
+    
+    private func indicateFetchNoticeSuccessful(notice: Notice) {
+        noticeRelay.accept(notice)
         dispatchGroup.leave()
     }
     
