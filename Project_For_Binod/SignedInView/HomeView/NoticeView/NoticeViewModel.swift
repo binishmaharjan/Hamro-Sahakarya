@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol NoticeViewModelProtocol {
+    var message: Observable<String> { get }
+    var admin: Observable<String> { get }
+}
+
+struct NoticeViewModel: NoticeViewModelProtocol {
+    var message: Observable<String>
+    var admin: Observable<String>
+    
+    init(message:Observable<String>, admin: Observable<String>) {
+        self.message = message
+        self.admin = admin
+    }
+    
+}
