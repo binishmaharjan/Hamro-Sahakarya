@@ -22,7 +22,21 @@ final class NoticeView: UIView {
     
     
     func bind() {
+        //Output
+        viewModel.message
+            .asDriver()
+            .drive(messageLabel.rx.text)
+            .disposed(by: disposeBag)
         
+        viewModel.admin
+            .asDriver()
+            .drive(adminLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.dateCreated
+            .asDriver()
+            .drive(dateCreatedLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 
