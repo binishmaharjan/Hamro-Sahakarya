@@ -143,7 +143,7 @@ extension HomeViewModel {
     
     private func indicateError(error: Error) {
         fetchDataFailed.accept(true)
-        dispatchGroup.leave()
         _apiState.accept(.error(error))
+        dispatchGroup.leave()
     }
 }

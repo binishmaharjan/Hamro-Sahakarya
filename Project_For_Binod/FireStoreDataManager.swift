@@ -412,7 +412,7 @@ final class FireStoreDataManager: ServerDataManager {
         return Promise<Notice> { seal in
             let reference = Firestore.firestore()
                 .collection(DatabaseReference.NOTICE_REF)
-                .limit(to: 20)
+                .limit(to: 1)
                 .order(by: DatabaseReference.DATE_CREATED,descending: true)
             
             DispatchQueue.global().async {

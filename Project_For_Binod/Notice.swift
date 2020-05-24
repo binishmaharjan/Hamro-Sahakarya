@@ -11,6 +11,13 @@ import Foundation
 struct Notice: Codable {
     let message: String
     let admin: String
+    let dateCreated: String
     
-    static var blankNotice = Notice(message: "", admin: "")
+    private enum CodingKeys: String, CodingKey {
+        case message
+        case admin
+        case dateCreated = "date_created"
+    }
+    
+    static var blankNotice = Notice(message: "", admin: "", dateCreated: "")
 }
