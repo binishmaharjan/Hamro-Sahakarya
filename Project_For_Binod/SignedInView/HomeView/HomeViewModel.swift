@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol {
     var apiState: Driver<State> { get }
     var allMembers: BehaviorRelay<[UserProfile]> { get }
     var groupDetail: BehaviorRelay<GroupDetail> { get }
+    var noticeRelay: BehaviorRelay<Notice> { get }
     
     func fetchData()
 }

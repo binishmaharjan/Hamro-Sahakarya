@@ -18,9 +18,9 @@ struct NoticeViewModel: NoticeViewModelProtocol {
     var message: Observable<String>
     var admin: Observable<String>
     
-    init(message:Observable<String>, admin: Observable<String>) {
-        self.message = message
-        self.admin = admin
+    init(notice: Observable<Notice>) {
+        self.message = notice.map { $0.message }
+        self.admin = notice.map { $0.admin }
     }
     
 }

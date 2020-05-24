@@ -27,12 +27,12 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var memberGraphButton: UIButton!
     @IBOutlet private weak var accountDetailButtonArea: UIView!
     @IBOutlet private weak var accountDetailButton: UIButton!
-    @IBOutlet private weak var monthDetailButtonArea: UIView!
-    @IBOutlet private weak var monthDetailButton: UIButton!
+    @IBOutlet private weak var noticeButtonArea: UIView!
+    @IBOutlet private weak var noticeButton: UIButton!
     
     @IBOutlet private weak var memberGraphViewArea: UIView!
     @IBOutlet private weak var accountDetailViewArea: UIView!
-    @IBOutlet private weak var monthlyDetailViewArea: UIView!
+    @IBOutlet private weak var noticeViewArea: UIView!
     
     // MARK: Properties
     private let disposeBag: DisposeBag = DisposeBag()
@@ -42,6 +42,7 @@ final class HomeViewController: UIViewController {
     private var homeContentViewFactory: HomeContentViewFactory!
     private var accountDetailView: AccountDetailView!
     private var memberGraphView: MemberGraphView!
+    private var noticeView: NoticeView!
     private var refreshButton: UIBarButtonItem!
     private var isFirstLoad: Bool = true
 
@@ -130,6 +131,20 @@ extension HomeViewController {
             memberGraphView.bottomAnchor.constraint(equalTo: memberGraphViewArea.bottomAnchor),
         ])
         memberGraphView.bind()
+    }
+    
+    private func setupNoticeView() {
+        noticeView = homeContentViewFactory.makeNoticeView(notice: viewModel.noticeRelay.asObservable())
+        noticeView.translatesAutoresizingMaskIntoConstraints = false
+        noticeViewArea.addSubview(memberGraphView)
+        NSLayoutConstraint.activate([
+           noticeView.trailingAnchor.constraint(equalTo: noticeViewArea.trailingAnchor),
+           noticeView.leadingAnchor.constraint(equalTo: noticeViewArea.leadingAnchor),
+           noticeView.topAnchor.constraint(equalTo: noticeViewArea.topAnchor),
+           noticeView.bottomAnchor.constraint(equalTo: noticeViewArea.bottomAnchor),
+        ])
+        
+        noticeView.bind()
     }
 }
 
@@ -223,8 +238,8 @@ extension HomeViewController {
                 UIImage(named: "icon_graph_selected") :
                 UIImage(named: "icon_graph_unselected") , for: .normal)
                 
-                this.monthDetailButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
-                this.monthDetailButton.setImage((contentView == HomeContentView.notice) ?
+                this.noticeButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
+                this.noticeButton.setImage((contentView == HomeContentView.notice) ?
                 UIImage(named: "icon_detail_selected") :
                 UIImage(named: "icon_detail_unselected") , for: .normal)
                 
