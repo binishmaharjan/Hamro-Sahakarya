@@ -74,6 +74,8 @@ final class DatabaseReference{
   static let DESCRIPTION = "description"
   static let LOG_TYPE = "log_type"
   static let DATE_CREATED = "date_created"
+    
+    static let NOTICE_REF = "notice"
 }
 
 // MARK: Firebase Storage Reference
