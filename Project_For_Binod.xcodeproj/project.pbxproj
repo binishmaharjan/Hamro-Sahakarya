@@ -39,6 +39,7 @@
 		64286967247A53600097E52A /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64286966247A53600097E52A /* NoticeView.swift */; };
 		64286969247A53C70097E52A /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64286968247A53C70097E52A /* NoticeView.xib */; };
 		6428696C247A541C0097E52A /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6428696B247A541C0097E52A /* NoticeViewModel.swift */; };
+		6428696E247A57510097E52A /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6428696D247A57510097E52A /* Notice.swift */; };
 		642BD4812392408F0098FCFD /* UiView + IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */; };
 		6430DAE623E9A9000045E435 /* ChangePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */; };
 		6430DAE823E9A9360045E435 /* ChangePictureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */; };
@@ -218,6 +219,7 @@
 		64286966247A53600097E52A /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		64286968247A53C70097E52A /* NoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
 		6428696B247A541C0097E52A /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		6428696D247A57510097E52A /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		642BD4802392408F0098FCFD /* UiView + IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView + IBDesignable.swift"; sourceTree = "<group>"; };
 		6430DAE523E9A9000045E435 /* ChangePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePictureViewController.swift; sourceTree = "<group>"; };
 		6430DAE723E9A9360045E435 /* ChangePictureViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePictureViewController.storyboard; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 			children = (
 				6402F4122377CDBD0044835F /* NewAccount.swift */,
 				6457F1012388FDC400EFE898 /* DropDownModel.swift */,
+				6428696D247A57510097E52A /* Notice.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1614,6 +1617,7 @@
 				6454ECC424665FE900E98A40 /* MemberGraphViewModel.swift in Sources */,
 				6402F4152377FBCE0044835F /* Date+Extension.swift in Sources */,
 				64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */,
+				6428696E247A57510097E52A /* Notice.swift in Sources */,
 				64FBE15C23C2073E0027E44C /* ColorPickerViewController.swift in Sources */,
 				6402F4002376948E0044835F /* UserProfileCoding.swift in Sources */,
 				645939AF235AB01000A99902 /* NotSignedInResponder.swift in Sources */,
