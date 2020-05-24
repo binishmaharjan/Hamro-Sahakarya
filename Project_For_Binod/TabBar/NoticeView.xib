@@ -19,7 +19,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyB-li-Tfm" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="659"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="285.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamro_sahakarya" translatesAutoresizingMaskIntoConstraints="NO" id="aIf-FI-aNR">
                                     <rect key="frame" x="112.5" y="16" width="150" height="150"/>
@@ -56,9 +56,9 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="3n5-lf-vPa" secondAttribute="trailing" constant="16" id="Bl4-BE-oVc"/>
+                                <constraint firstAttribute="bottom" secondItem="POW-mm-wA0" secondAttribute="bottom" constant="5" id="Gn5-NQ-vBG"/>
                                 <constraint firstAttribute="trailing" secondItem="aZo-fS-1aq" secondAttribute="trailing" constant="16" id="JHY-zt-p5U"/>
                                 <constraint firstAttribute="trailing" secondItem="U9O-Mu-EWh" secondAttribute="trailing" constant="16" id="LNF-5y-VFg"/>
-                                <constraint firstAttribute="height" constant="659" id="LQc-DL-xFB"/>
                                 <constraint firstItem="aZo-fS-1aq" firstAttribute="top" secondItem="U9O-Mu-EWh" secondAttribute="bottom" constant="8" id="RbQ-9S-Qxn"/>
                                 <constraint firstItem="U9O-Mu-EWh" firstAttribute="top" secondItem="3n5-lf-vPa" secondAttribute="bottom" constant="8" id="VQa-G6-0vp"/>
                                 <constraint firstItem="U9O-Mu-EWh" firstAttribute="leading" secondItem="yyB-li-Tfm" secondAttribute="leading" constant="16" id="XBB-fH-cXI"/>
