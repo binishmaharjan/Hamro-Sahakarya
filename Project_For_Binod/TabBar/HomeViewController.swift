@@ -82,7 +82,7 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction func monthlyDetailButtonPressed(_ sender: Any) {
-        viewModel.homeContentView.accept(.monthlyDetail)
+        viewModel.homeContentView.accept(.notice)
     }
 }
 
@@ -223,8 +223,8 @@ extension HomeViewController {
                 UIImage(named: "icon_graph_selected") :
                 UIImage(named: "icon_graph_unselected") , for: .normal)
                 
-                this.monthDetailButtonArea.backgroundColor = (contentView == HomeContentView.monthlyDetail) ? .mainOrange : .white
-                this.monthDetailButton.setImage((contentView == HomeContentView.monthlyDetail) ?
+                this.monthDetailButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
+                this.monthDetailButton.setImage((contentView == HomeContentView.notice) ?
                 UIImage(named: "icon_detail_selected") :
                 UIImage(named: "icon_detail_unselected") , for: .normal)
                 
