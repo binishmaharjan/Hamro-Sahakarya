@@ -35,10 +35,17 @@ final class ExtraAndExpensesViewController: UIViewController {
         
         let typeSelectionTapGesture = UITapGestureRecognizer(target: self, action: #selector(typeSelectionTapped))
         typeTextField.addGestureRecognizer(typeSelectionTapGesture)
+        
+        let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(viewWasTapped))
+        view.addGestureRecognizer(viewTapGesture)
     }
     
     @objc private func typeSelectionTapped() {
         showTypeSelectionSheet()
+    }
+    
+    @objc private func viewWasTapped() {
+        view.endEditing(true)
     }
     
     private func showTypeSelectionSheet() {

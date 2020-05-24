@@ -59,7 +59,7 @@ enum ProfileRow {
         case .removeMember:
             return "Remove Member"
         case .addOrDeductAmount:
-            return "Add or Reduce Amount"
+            return "Add or Deduct Amount"
         }
     }
 }
