@@ -25,4 +25,5 @@ protocol ServerDataManager {
     func updateAmount(for user: UserProfile, amount: Int) -> Promise<Void>
     func fetchExtraAndExpenses() -> Promise<GroupDetail>
     func removeMember(user: UserProfile) -> Promise<Void>
+    func fetchNotice() -> Promise<Notice>
 }

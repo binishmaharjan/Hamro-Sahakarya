@@ -408,4 +408,43 @@ final class FireStoreDataManager: ServerDataManager {
         }
     }
     
+    func fetchNotice() -> Promise<Notice> {
+        return Promise<Notice> { seal in
+            let reference = Firestore.firestore()
+                .collection(DatabaseReference.NOTICE_REF)
+                .limit(to: 20)
+                .order(by: DatabaseReference.DATE_CREATED,descending: true)
+            
+            DispatchQueue.global().async {
+                
+                let completion: (QuerySnapshot?, Error?) -> Void = { snapshots, error in
+                    if let error = error {
+                        DispatchQueue.main.async { seal.reject(error) }
+                        return
+                    }
+                    
+                    guard let snapshots = snapshots else {
+                        DispatchQueue.main.async { seal.reject(HSError.noSnapshotError) }
+                        return
+                    }
+                    
+                    guard let snapshot = snapshots.documents.first else {
+                        DispatchQueue.main.async { seal.reject(HSError.emptyDataError) }
+                        return
+                    }
+                    
+                    let data = snapshot.data()
+                    
+                    do {
+                        let notice = try FirestoreDecoder().decode(Notice.self, from: data)
+                        DispatchQueue.main.async { seal.fulfill(notice) }
+                    } catch {
+                        DispatchQueue.main.async { seal.reject(error) }
+                    }
+                }
+
+                reference.getDocuments(completion: completion)
+            }
+        }
+    }
 }
