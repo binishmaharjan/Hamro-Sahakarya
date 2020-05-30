@@ -16,12 +16,12 @@ protocol ColorPaletteProtocol {
 final class ColorPalette: UIView, ColorPaletteProtocol {
   
   var onColorDidChange: ((_ color: UIColor) -> ())?
-  var elementSize: CGFloat = 1 {
+    var elementSize: CGFloat = 1 {
     didSet { setNeedsDisplay() }
   }
   
-  private let saturationExponentTop: Float = 2.0
-  private let saturationExponentBottom: Float = 1.3
+    private let saturationExponentTop: Float = 2.0
+    private let saturationExponentBottom: Float = 1.3
   
   private var mainPaletteRect: CGRect = .zero
   
@@ -34,10 +34,6 @@ final class ColorPalette: UIView, ColorPaletteProtocol {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setup()
-  }
-  
-  private func test(color: UIColor) {
-    Dlog(color)
   }
   
   // MARK: LifeCycle
@@ -75,7 +71,6 @@ final class ColorPalette: UIView, ColorPaletteProtocol {
     touchGesture.minimumPressDuration = 0
     touchGesture.allowableMovement = .greatestFiniteMagnitude
     addGestureRecognizer(touchGesture)
-    onColorDidChange = test(color:)
   }
   
   @objc private func touchedColor(gestureRecognizer: UILongPressGestureRecognizer) {
@@ -90,28 +85,25 @@ final class ColorPalette: UIView, ColorPaletteProtocol {
   /// - Parameter point: location of the user touch
   /// - Return: uicolor at the location
   private func getColorAtPoint(point: CGPoint)  -> UIColor {
-    var roundedPoint = CGPoint(x: elementSize * CGFloat(Int(point.x / elementSize)),
-                               y: elementSize * CGFloat(Int(point.y / elementSize)))
-    
-    let hue = roundedPoint.x / bounds.width
-    
-    // Main Palette
-    if mainPaletteRect.contains(point) {
-       // Offset point. because mainPalette.origin.y is not 0
-      roundedPoint.y -= mainPaletteRect.origin.y
-      
-      var saturation = roundedPoint.y < mainPaletteRect.height / 2.0 ? CGFloat(2 * roundedPoint.y) / mainPaletteRect.height
-        : 2.0 * CGFloat(mainPaletteRect.height - roundedPoint.y) / mainPaletteRect.height
-      
-      saturation =  CGFloat(powf(Float(saturation), roundedPoint.y < mainPaletteRect.height / 2.0 ? saturationExponentTop : saturationExponentBottom))
-      let brightness = roundedPoint.y > mainPaletteRect.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(mainPaletteRect.height - roundedPoint.y) / mainPaletteRect.height
-      
-      return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
-      
-    } else {
-      return UIColor(white: hue, alpha: 1.0)
-    }
-  }  
+    let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+    let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+
+    var pixelData: [UInt8] = [0, 0, 0, 0]
+
+    let context = CGContext(data: &pixelData, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+
+    context!.translateBy(x: -point.x, y: -point.y)
+
+    self.layer.render(in: context!)
+
+    let red: CGFloat = CGFloat(pixelData[0]) / CGFloat(255.0)
+    let green: CGFloat = CGFloat(pixelData[1]) / CGFloat(255.0)
+    let blue: CGFloat = CGFloat(pixelData[2]) / CGFloat(255.0)
+    let alpha: CGFloat = CGFloat(pixelData[3]) / CGFloat(255.0)
+
+    let color: UIColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+
+    return color
+  }
   
 }
-
