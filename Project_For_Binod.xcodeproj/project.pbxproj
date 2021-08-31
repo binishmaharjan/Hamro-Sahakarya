@@ -87,7 +87,6 @@
 		64575D25245E637700EF7C69 /* TermsAndConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575D24245E637700EF7C69 /* TermsAndConditionViewController.swift */; };
 		64575D27245E63A300EF7C69 /* TermsAndConditionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64575D26245E63A300EF7C69 /* TermsAndConditionViewController.storyboard */; };
 		64575D2A245E641300EF7C69 /* TermsAndConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575D29245E641300EF7C69 /* TermsAndConditionViewModel.swift */; };
-		64575D2C245E6E9D00EF7C69 /* terms_and_conditions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */; };
 		64575D2F245EB75200EF7C69 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64575D2E245EB75200EF7C69 /* Int+Extension.swift */; };
 		6457F1002388F3C200EFE898 /* GUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F0FF2388F3C200EFE898 /* GUIManager.swift */; };
 		6457F1022388FDC400EFE898 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6457F1012388FDC400EFE898 /* DropDownModel.swift */; };
@@ -128,6 +127,7 @@
 		6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */; };
 		6478082924205C0500588769 /* AddMonthlyFeeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */; };
 		6478082B2421FC6000588769 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082A2421FC5F00588769 /* Steps.swift */; };
+		647ED0F126DE173F006716FB /* terms_and_conditions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 647ED0F026DE173F006716FB /* terms_and_conditions.pdf */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -267,7 +267,6 @@
 		64575D24245E637700EF7C69 /* TermsAndConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewController.swift; sourceTree = "<group>"; };
 		64575D26245E63A300EF7C69 /* TermsAndConditionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsAndConditionViewController.storyboard; sourceTree = "<group>"; };
 		64575D29245E641300EF7C69 /* TermsAndConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionViewModel.swift; sourceTree = "<group>"; };
-		64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = terms_and_conditions.pdf; sourceTree = "<group>"; };
 		64575D2E245EB75200EF7C69 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		6457F0FF2388F3C200EFE898 /* GUIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUIManager.swift; sourceTree = "<group>"; };
 		6457F1012388FDC400EFE898 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
@@ -308,6 +307,7 @@
 		6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthlyFeeViewController.swift; sourceTree = "<group>"; };
 		6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMonthlyFeeViewController.storyboard; sourceTree = "<group>"; };
 		6478082A2421FC5F00588769 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		647ED0F026DE173F006716FB /* terms_and_conditions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = terms_and_conditions.pdf; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -792,7 +792,7 @@
 		64575D2D245E6F7A00EF7C69 /* TermsAndCondition */ = {
 			isa = PBXGroup;
 			children = (
-				64575D2B245E6E9C00EF7C69 /* terms_and_conditions.pdf */,
+				647ED0F026DE173F006716FB /* terms_and_conditions.pdf */,
 			);
 			name = TermsAndCondition;
 			sourceTree = "<group>";
@@ -1413,13 +1413,13 @@
 				644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
+				647ED0F126DE173F006716FB /* terms_and_conditions.pdf in Resources */,
 				64D304F22471258600F3168D /* AddOrDeductAmountViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				644D2FB0246F8AC300203230 /* MemberGraphLegendView.xib in Resources */,
 				64E6D46323BBB13B00D5C17F /* SignInViewController.storyboard in Resources */,
 				64073BD822488DCA00088E61 /* GoogleService-Info-dev.plist in Resources */,
 				6454ECC124665F9000E98A40 /* MemberGraphView.xib in Resources */,
-				64575D2C245E6E9D00EF7C69 /* terms_and_conditions.pdf in Resources */,
 				6400FF9D23E545250079A623 /* AlertDialog.xib in Resources */,
 				644EB0B8244AC05D00CB0A56 /* MemberWithLoanCell.xib in Resources */,
 				644EB0E324541C1800CB0A56 /* HomeViewController.storyboard in Resources */,
