@@ -18,6 +18,7 @@ protocol HomeViewModelProtocol {
     var username: Observable<String> { get }
     var email: Observable<String> { get }
     var membersCount: Observable<Int> { get }
+    var isAdmin: Observable<Bool> { get }
     var homeContentView: BehaviorRelay<HomeContentView> { get }
     var apiState: Driver<State> { get }
     var allMembers: BehaviorRelay<[UserProfile]> { get }
@@ -47,6 +48,7 @@ struct HomeViewModel: HomeViewModelProtocol {
     let username: Observable<String>
     let email: Observable<String>
     let membersCount: Observable<Int>
+    let isAdmin: Observable<Bool>
     
     var homeContentView: BehaviorRelay<HomeContentView> = BehaviorRelay(value: .accountDetail)
     
@@ -65,6 +67,7 @@ struct HomeViewModel: HomeViewModelProtocol {
         self.username = self.userSession.map { $0.username }
         self.email = self.userSession.map { $0.email }
         self.membersCount = allMembers.map { $0.count }
+        self.isAdmin = self.userSession.map { $0.status == .admin }
     }
 }
 

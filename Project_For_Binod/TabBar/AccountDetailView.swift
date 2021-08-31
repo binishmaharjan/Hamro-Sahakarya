@@ -14,10 +14,13 @@ final class AccountDetailView: UIView {
     
     // MARK: IBOutlets
     @IBOutlet private weak var currentBalanceLabel: UILabel!
-    @IBOutlet weak var totalCollectionLabel: UILabel!
-    @IBOutlet weak var loanGivenLabel: UILabel!
-    @IBOutlet weak var extraIncomeLabel: UILabel!
-    @IBOutlet weak var expensesLabel: UILabel!
+    @IBOutlet private weak var totalCollectionLabel: UILabel!
+    @IBOutlet private weak var loanGivenLabel: UILabel!
+    @IBOutlet private weak var extraIncomeLabel: UILabel!
+    @IBOutlet private weak var expensesLabel: UILabel!
+    @IBOutlet private weak var profitLabel: UILabel!
+    @IBOutlet private weak var extraIncomeView: UIView!
+    @IBOutlet private weak var expensesView: UIView!
     
     
     // MARK: Properties
@@ -55,6 +58,25 @@ final class AccountDetailView: UIView {
         viewModel.expenses
             .map { $0.currency }
             .bind(to: expensesLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.profit
+            .map { $0.currency }
+            .bind(to: profitLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.shouldHideExtraInfo
+            .bind(to: expensesView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.shouldHideExtraInfo
+            .bind(to: extraIncomeView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.profitLabelColor
+            .bind(onNext: { [weak self] color in
+                self?.profitLabel.textColor = color
+            })
             .disposed(by: disposeBag)
     }
 }

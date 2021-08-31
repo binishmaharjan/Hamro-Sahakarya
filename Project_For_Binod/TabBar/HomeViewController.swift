@@ -109,7 +109,7 @@ extension HomeViewController {
     
     private func setupAccountDetailView() {
         accountDetailView = homeContentViewFactory.makeAccountDetailView(allMembers: viewModel.allMembers.asObservable(),
-                                                                         groupDetail: viewModel.groupDetail.asObservable())
+                                                                         groupDetail: viewModel.groupDetail.asObservable(), isAdmin: viewModel.isAdmin)
         accountDetailView.translatesAutoresizingMaskIntoConstraints = false
         accountDetailViewArea.addSubview(accountDetailView)
         NSLayoutConstraint.activate([
