@@ -15,6 +15,9 @@ protocol AccountDetailViewModelProtocol {
     var extraIncome: Observable<Int> { get }
     var expenses: Observable<Int> { get }
     var totalLoanGiven: Observable<Int> { get }
+    var profit: Observable<Int> { get }
+    var shouldHideExtraInfo: Observable<Bool> { get }
+    var profitLabelColor: Observable<UIColor> { get }
 }
 
 struct AccountDetailViewModel: AccountDetailViewModelProtocol {
@@ -26,8 +29,11 @@ struct AccountDetailViewModel: AccountDetailViewModelProtocol {
     var extraIncome: Observable<Int>
     var expenses: Observable<Int>
     var totalLoanGiven: Observable<Int>
+    var profit: Observable<Int>
+    var shouldHideExtraInfo: Observable<Bool>
+    var profitLabelColor: Observable<UIColor>
     
-    init(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>) {
+    init(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>, isAdmin: Observable<Bool>) {
         self.allMembers = allMembers
         self.groupDetail = groupDetail
         
@@ -56,6 +62,13 @@ struct AccountDetailViewModel: AccountDetailViewModelProtocol {
         currentBalance = Observable.combineLatest(totalCollection, totalLoanGiven, extraIncome, expenses) {
             return ($0 + $2 - $1 - $3)
         }
-
+        
+        profit = Observable.combineLatest(extraIncome, expenses) {
+            return ($0 - $1)
+        }
+        
+        profitLabelColor = profit.map { ($0 > 0) ? UIColor.systemGreen : UIColor.mainBlack }
+        
+        shouldHideExtraInfo = isAdmin.map { !$0 }
     }
 }

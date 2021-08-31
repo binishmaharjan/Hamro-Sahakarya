@@ -39,7 +39,7 @@ protocol HomeViewControllerFactory {
 
 protocol HomeContentViewFactory {
     
-    func makeAccountDetailView(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>) -> AccountDetailView
+    func makeAccountDetailView(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>, isAdmin: Observable<Bool>) -> AccountDetailView
     func makeMemberGraphView(allMembers: Observable<[UserProfile]>) -> MemberGraphView
     func makeNoticeView(notice: Observable<Notice>) -> NoticeView
 }
@@ -67,14 +67,14 @@ extension HomeDependencyContainer: HomeViewControllerFactory {
 import RxSwift
 extension HomeDependencyContainer: HomeContentViewFactory {
     
-    func makeAccountDetailView(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>) -> AccountDetailView {
-        let viewModel = makeAccountDetailViewModel(allMembers: allMembers, groupDetail: groupDetail)
+    func makeAccountDetailView(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>, isAdmin: Observable<Bool>) -> AccountDetailView {
+        let viewModel = makeAccountDetailViewModel(allMembers: allMembers, groupDetail: groupDetail, isAdmin: isAdmin)
         let view = AccountDetailView.makeInstance(viewModel: viewModel)
         return view
     }
     
-    func makeAccountDetailViewModel(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>) -> AccountDetailViewModelProtocol {
-        return AccountDetailViewModel(allMembers: allMembers, groupDetail: groupDetail)
+    func makeAccountDetailViewModel(allMembers: Observable<[UserProfile]>, groupDetail: Observable<GroupDetail>, isAdmin: Observable<Bool>) -> AccountDetailViewModelProtocol {
+        return AccountDetailViewModel(allMembers: allMembers, groupDetail: groupDetail, isAdmin: isAdmin)
     }
     
     func makeMemberGraphView(allMembers: Observable<[UserProfile]>) -> MemberGraphView {
