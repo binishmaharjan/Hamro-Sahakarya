@@ -210,7 +210,7 @@ extension ProfileMainDependencyContainer {
     }
     
     func makeTermsAndConditionViewModel() -> TermsAndConditionViewModelProtocol {
-        return TermsAndConditionViewModel()
+        return TermsAndConditionViewModel(userSessionRepository: sharedUserSessionRepository)
     }
 }
 

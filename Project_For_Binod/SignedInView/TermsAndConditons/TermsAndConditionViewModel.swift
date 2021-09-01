@@ -8,21 +8,52 @@
 
 import Foundation
 import PDFKit
+import RxSwift
+import RxCocoa
 
 protocol TermsAndConditionViewModelProtocol {
     
-    var pdfDocument: PDFDocument { get }
+    var pdfDocument: Observable<PDFDocument> { get }
+    var apiState: Driver<State> { get }
 }
 
 struct TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     
-    private let fileName = "terms_and_conditions"
-    private let fileType = "pdf"
+    private let userSessionRepository: UserSessionRepository
     
-    let pdfDocument: PDFDocument
+    @PropertyPublishSubject<PDFDocument>()
+    var pdfDocument: Observable<PDFDocument>
+    @PropertyBehaviourRelay<State>(value: .idle)
+    var apiState: Driver<State>
     
-    init() {
-        let path = Bundle.main.path(forResource: fileName, ofType: fileType)!
-        pdfDocument = PDFDocument(url: URL(fileURLWithPath: path))!
+    init(userSessionRepository: UserSessionRepository) {
+        self.userSessionRepository = userSessionRepository
+        
+        downloadTermsAndConditions()
+    }
+}
+
+extension TermsAndConditionViewModel {
+    
+    func downloadTermsAndConditions() {
+        indicateLoading()
+        
+        userSessionRepository
+            .downloadTermsAndCondition()
+            .done(indicateDownloadSuccessful)
+            .catch(indicateError)
+    }
+    
+    private func indicateDownloadSuccessful(pdfData: Data) {
+        _pdfDocument.onNext(PDFDocument(data: pdfData)!)
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateError(error: Error) {
+        _apiState.accept(.error(error))
     }
 }

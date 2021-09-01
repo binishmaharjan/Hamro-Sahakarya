@@ -67,6 +67,10 @@ class PropertyPublishSubject<Element> {
         self.publishSubject.onNext(value)
     }
     
+    init() {
+        
+    }
+    
     func onNext(_ value: Element) {
         publishSubject.onNext(value)
     }

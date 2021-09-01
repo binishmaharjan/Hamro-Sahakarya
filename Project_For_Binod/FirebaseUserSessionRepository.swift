@@ -260,6 +260,12 @@ final class FirebaseUserSessionRepository: UserSessionRepository {
         return serverDataManager.fetchNotice()
     }
     
+    /// Downloads Terms And Condition PDF from Firebase storage
+    ///
+    /// - Return Promise<Notice> : PDF Data wrapped in promise
+    func downloadTermsAndCondition() -> Promise<Data> {
+        return storageApi.downloadTermsAndCondition()
+    }
 }
 
 

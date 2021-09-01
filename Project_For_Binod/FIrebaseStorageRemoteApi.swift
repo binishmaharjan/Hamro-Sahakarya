@@ -26,6 +26,29 @@ final class FirebaseStorageRemoteApi: StorageRemoteApi {
             .then(downloadUrl(uid:))
     }
     
+    /// Download Terms and Conditions pdf from firebase
+    func downloadTermsAndCondition() -> Promise<Data> {
+        return Promise<Data> { seal in
+            
+            let storage = Storage.storage()
+            let pdfReference = storage.reference(withPath: "\(StorageReference.TERMS_AND_CONDITION_REF)/\(StorageReference.TERMS_AND_CONDITION_PDF)")
+            
+            pdfReference.getData(maxSize: 3 * 1024 * 1024) { (data, error) in
+                if let error = error {
+                    DispatchQueue.main.async { seal.reject(error) }
+                    return
+                }
+                
+                guard let data = data else {
+                    DispatchQueue.main.async { seal.reject(HSError.emptyDataError) }
+                    return
+                }
+                
+                DispatchQueue.main.async { seal.fulfill(data) }
+            }
+        }
+    }
+    
     /// Put Data Into FireStore
     private func putData(image: UIImage, metaData: StorageMetadata, uid: String) -> Promise<String> {
         return Promise<String> { [weak self] seal in
