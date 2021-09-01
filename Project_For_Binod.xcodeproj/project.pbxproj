@@ -127,7 +127,6 @@
 		6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */; };
 		6478082924205C0500588769 /* AddMonthlyFeeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */; };
 		6478082B2421FC6000588769 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082A2421FC5F00588769 /* Steps.swift */; };
-		647ED0F126DE173F006716FB /* terms_and_conditions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 647ED0F026DE173F006716FB /* terms_and_conditions.pdf */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -308,7 +307,6 @@
 		6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthlyFeeViewController.swift; sourceTree = "<group>"; };
 		6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMonthlyFeeViewController.storyboard; sourceTree = "<group>"; };
 		6478082A2421FC5F00588769 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		647ED0F026DE173F006716FB /* terms_and_conditions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = terms_and_conditions.pdf; sourceTree = "<group>"; };
 		6492C16E235AA4CE009BE621 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64A0C6B5235A9903007BEFF1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -791,14 +789,6 @@
 			path = TermsAndConditons;
 			sourceTree = "<group>";
 		};
-		64575D2D245E6F7A00EF7C69 /* TermsAndCondition */ = {
-			isa = PBXGroup;
-			children = (
-				647ED0F026DE173F006716FB /* terms_and_conditions.pdf */,
-			);
-			name = TermsAndCondition;
-			sourceTree = "<group>";
-		};
 		64593994235AAA6600A99902 /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1037,7 +1027,6 @@
 		64A0C6AC235A9790007BEFF1 /* Version 3 */ = {
 			isa = PBXGroup;
 			children = (
-				64575D2D245E6F7A00EF7C69 /* TermsAndCondition */,
 				645939C1235AC39D00A99902 /* Assets.xcassets */,
 				6492C16D235AA48C009BE621 /* Extension */,
 				64A0C6B0235A9831007BEFF1 /* HSiOS */,
@@ -1417,7 +1406,6 @@
 				644EB0ED24591CB300CB0A56 /* RemoveMemberViewController.storyboard in Resources */,
 				644F75CA23EE7CF800AF42AB /* PreviewImageView.xib in Resources */,
 				644EB0A92449E8E200CB0A56 /* LoanReturnedViewController.storyboard in Resources */,
-				647ED0F126DE173F006716FB /* terms_and_conditions.pdf in Resources */,
 				64D304F22471258600F3168D /* AddOrDeductAmountViewController.storyboard in Resources */,
 				64FBE1C623D4652A0027E44C /* LogViewController.storyboard in Resources */,
 				644D2FB0246F8AC300203230 /* MemberGraphLegendView.xib in Resources */,
