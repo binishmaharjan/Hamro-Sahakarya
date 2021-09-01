@@ -369,6 +369,7 @@
                 <outlet property="extraIncomeLabel" destination="wHN-9w-xzJ" id="kdT-BB-dm1"/>
                 <outlet property="extraIncomeView" destination="ox7-9D-Nra" id="TCf-da-QAp"/>
                 <outlet property="loanGivenLabel" destination="yP0-bX-Tbw" id="kn6-Kq-qxo"/>
+                <outlet property="profitDisplayLabel" destination="f8k-Og-jes" id="mq5-Le-Yvi"/>
                 <outlet property="profitLabel" destination="UFv-fx-4f4" id="Y7y-zs-ATt"/>
                 <outlet property="totalCollectionLabel" destination="Ohc-uJ-pcm" id="39t-JN-vBH"/>
             </connections>

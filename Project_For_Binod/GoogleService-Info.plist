@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>8020124767-1t1nnuk4i23iepkkq9jmeca85qb05t03.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.8020124767-1t1nnuk4i23iepkkq9jmeca85qb05t03</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDbCorvVFs0gX1mfuE40woChrgp-WoU6N8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>8020124767</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.ac.jec.17cm.Project-For-Binod</string>
+	<key>PROJECT_ID</key>
+	<string>hamrosahakarya-2b214</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hamrosahakarya-2b214.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:8020124767:ios:451ca1dbe5f2e09a</string>
+	<key>DATABASE_URL</key>
+	<string>https://hamrosahakarya-2b214.firebaseio.com</string>
+</dict>
+</plist>

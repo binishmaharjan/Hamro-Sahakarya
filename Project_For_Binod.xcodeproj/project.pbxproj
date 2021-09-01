@@ -134,6 +134,7 @@
 		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
 		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
+		64B2E3D326DF12DC00E4DAAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */; };
 		64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */; };
 		64BE330C244008D500FB8E8E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330B244008D500FB8E8E /* String+Extension.swift */; };
 		64BE330F2441501F00FB8E8E /* LoanMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */; };
@@ -314,6 +315,7 @@
 		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
+		64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainDependencyContainer.swift; sourceTree = "<group>"; };
 		64BE330B244008D500FB8E8E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanMemberViewController.swift; sourceTree = "<group>"; };
@@ -1319,6 +1321,7 @@
 			children = (
 				64A0C6AC235A9790007BEFF1 /* Version 3 */,
 				64073BD922488F0200088E61 /* GoogleService-Info.plist */,
+				64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */,
 				64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
@@ -1405,6 +1408,7 @@
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */,
 				6400FF7A23E1BC6D0079A623 /* ProfileViewController.storyboard in Resources */,
+				64B2E3D326DF12DC00E4DAAA /* GoogleService-Info.plist in Resources */,
 				6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */,
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
 				64286969247A53C70097E52A /* NoticeView.xib in Resources */,
@@ -1455,10 +1459,11 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -1473,10 +1478,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",

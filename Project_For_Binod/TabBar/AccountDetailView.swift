@@ -19,9 +19,9 @@ final class AccountDetailView: UIView {
     @IBOutlet private weak var extraIncomeLabel: UILabel!
     @IBOutlet private weak var expensesLabel: UILabel!
     @IBOutlet private weak var profitLabel: UILabel!
+    @IBOutlet private weak var profitDisplayLabel: UILabel!
     @IBOutlet private weak var extraIncomeView: UIView!
     @IBOutlet private weak var expensesView: UIView!
-    
     
     // MARK: Properties
     private var viewModel: AccountDetailViewModelProtocol!
@@ -77,6 +77,11 @@ final class AccountDetailView: UIView {
             .bind(onNext: { [weak self] color in
                 self?.profitLabel.textColor = color
             })
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .profitDisplayText
+            .bind(to: profitDisplayLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }
