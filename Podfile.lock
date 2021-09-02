@@ -351,7 +351,7 @@ PODS:
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.1.1):
+  - RxRelay (5.1.3):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
 
@@ -421,9 +421,9 @@ SPEC CHECKSUMS:
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
 PODFILE CHECKSUM: b160ff97001b84edc1faae64f09cfdc55bdcdff8
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4
