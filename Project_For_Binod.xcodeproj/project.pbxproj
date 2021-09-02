@@ -1785,10 +1785,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 7.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod-dev";
 				PRODUCT_NAME = HamroSahakarya_dev;
 				PROVISIONING_PROFILE = "";
@@ -1806,10 +1808,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 7.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = HamroSahakarya;
 				PROVISIONING_PROFILE_SPECIFIER = "";
