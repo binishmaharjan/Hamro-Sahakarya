@@ -447,4 +447,34 @@ final class FireStoreDataManager: ServerDataManager {
             }
         }
     }
+    
+    func updateNotice(userProfile: UserProfile, notice: String) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let notice = Notice(message: notice,
+                                admin: userProfile.username,
+                                dateCreated: Date().toString)
+            
+            let reference = Firestore.firestore()
+                .collection(DatabaseReference.NOTICE_REF)
+                .document(notice.dateCreated)
+            
+            
+            DispatchQueue.global().async {
+                do {
+                    let data = try FirestoreEncoder().encode(notice) as [String: Any]
+                    
+                    let completion: (Error?) -> Void = { error in
+                        guard let error = error else { return }
+                        DispatchQueue.main.async { seal.reject(error) }
+                    }
+                    
+                    reference.setData(data, completion: completion)
+                    
+                    DispatchQueue.main.async { seal.fulfill(()) }
+                } catch {
+                    DispatchQueue.main.async { seal.reject(error) }
+                }
+            }
+        }
+    }
 }

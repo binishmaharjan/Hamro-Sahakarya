@@ -34,5 +34,6 @@ protocol UserSessionRepository {
     func getAllMembersWithLoan() -> Promise<[UserProfile]>
     
     func fetchNotice() -> Promise<Notice>
+    func updateNotice(userProfile: UserProfile, notice: String) -> Promise<Void>
     func downloadTermsAndCondition() -> Promise<Data>
 }

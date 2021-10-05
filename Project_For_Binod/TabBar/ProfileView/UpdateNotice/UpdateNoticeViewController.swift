@@ -30,6 +30,7 @@ final class UpdateNoticeViewController: UIViewController {
     }
     
     @IBAction func updateNoticeButtonPressed(_ sender: Any) {
+        viewModel.updateNotice()
     }
 }
 
@@ -55,10 +56,14 @@ extension UpdateNoticeViewController: StoryboardInstantiable {
 extension UpdateNoticeViewController {
     
     private func bindApiState() {
-        viewModel.apiState.driveNext { state in
+        viewModel.apiState.driveNext { [weak self] state in
             switch state {
             case .completed:
+                let dropDownModel = DropDownModel(dropDownType: .success, message: "Update Successful")
+                GUIManager.shared.showDropDownNotification(data: dropDownModel)
                 GUIManager.shared.stopAnimation()
+                
+                self?.navigationController?.popViewController(animated: true)
             case .error(let error):
                 let dropDownModel = DropDownModel(dropDownType: .error, message: error.localizedDescription)
                 GUIManager.shared.showDropDownNotification(data: dropDownModel)

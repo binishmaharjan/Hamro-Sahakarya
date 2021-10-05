@@ -23,6 +23,7 @@ protocol UpdateNoticeViewModelProtocol {
     var apiState: Driver<State> { get }
     var noticeInput: BehaviorRelay<String?> { get }
     var isUpdateNoticeButtonEnabled: Observable<Bool> { get }
+    func updateNotice()
 }
 
 struct UpdateNoticeViewModel: UpdateNoticeViewModelProtocol {
@@ -49,5 +50,33 @@ struct UpdateNoticeViewModel: UpdateNoticeViewModelProtocol {
         let state = noticeInput.asObservable()
             .map { UIState(notice: $0 ?? "") }
         isUpdateNoticeButtonEnabled = state.map { $0 .isUpdateNoticeButtonEnabled }
+    }
+}
+
+// MARK: API
+extension UpdateNoticeViewModel {
+    
+    func updateNotice() {
+        indicateLoading()
+        
+        let userProfile = userSession.profile.value
+        let notice = noticeInput.value ?? ""
+        
+        userSessionRepository
+            .updateNotice(userProfile: userProfile, notice: notice)
+            .done { self.indicateUpdateSuccessful() }
+            .catch(indicateError(error:))
+    }
+    
+    private func indicateLoading() {
+        _apiState.accept(.loading)
+    }
+    
+    private func indicateUpdateSuccessful() {
+        _apiState.accept(.completed)
+    }
+    
+    private func indicateError(error: Error) {
+        _apiState.accept(.error(error))
     }
 }
