@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Update Notice View Controller-->
+        <scene sceneID="mOu-CK-HFI">
+            <objects>
+                <viewController storyboardIdentifier="UpdateNoticeViewController" id="PXb-GL-cMN" customClass="UpdateNoticeViewController" customModule="HamroSahakarya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WuL-EA-zIm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-nf-hAZ">
+                                <rect key="frame" x="16" y="60" width="86.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.36470588240000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write Something Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pZ4-dl-vau">
+                                <rect key="frame" x="16" y="82.5" width="382" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="2dv-Ox-wRE"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="cEF5D0B"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdj-4t-eYx" customClass="MainOrangeButton" customModule="HamroSahakarya" customModuleProvider="target">
+                                <rect key="frame" x="16" y="398.5" width="382" height="40"/>
+                                <color key="backgroundColor" name="cEF5D0B"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="amV-4H-Ok0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="updateNoticeButtonPressed:" destination="PXb-GL-cMN" eventType="touchUpInside" id="rOZ-k2-F8z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ofc-d4-kdl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pZ4-dl-vau" firstAttribute="top" secondItem="gMb-nf-hAZ" secondAttribute="bottom" constant="8" id="Net-oL-dom"/>
+                            <constraint firstItem="gMb-nf-hAZ" firstAttribute="top" secondItem="Ofc-d4-kdl" secondAttribute="top" constant="16" id="WNF-iA-zCc"/>
+                            <constraint firstItem="gMb-nf-hAZ" firstAttribute="leading" secondItem="Ofc-d4-kdl" secondAttribute="leading" constant="16" id="amH-iF-paG"/>
+                            <constraint firstItem="pZ4-dl-vau" firstAttribute="leading" secondItem="Ofc-d4-kdl" secondAttribute="leading" constant="16" id="cXd-i4-lWh"/>
+                            <constraint firstItem="Ofc-d4-kdl" firstAttribute="trailing" secondItem="Mdj-4t-eYx" secondAttribute="trailing" constant="16" id="ceI-TC-Huj"/>
+                            <constraint firstItem="Ofc-d4-kdl" firstAttribute="trailing" secondItem="pZ4-dl-vau" secondAttribute="trailing" constant="16" id="hsz-Z7-aPr"/>
+                            <constraint firstItem="Mdj-4t-eYx" firstAttribute="leading" secondItem="Ofc-d4-kdl" secondAttribute="leading" constant="16" id="jFT-6w-us0"/>
+                            <constraint firstItem="Mdj-4t-eYx" firstAttribute="top" secondItem="pZ4-dl-vau" secondAttribute="bottom" constant="16" id="yaf-Jc-RPr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noticeTextView" destination="pZ4-dl-vau" id="Udh-XB-mFC"/>
+                        <outlet property="updateNoticeButton" destination="Mdj-4t-eYx" id="vqW-BX-3fb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzh-B3-ZJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="132"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="Mdj-4t-eYx">
+            <size key="intrinsicContentSize" width="51" height="29"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="cEF5D0B">
+            <color red="0.93725490196078431" green="0.36470588235294116" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

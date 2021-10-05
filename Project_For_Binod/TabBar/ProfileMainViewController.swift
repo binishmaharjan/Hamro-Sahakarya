@@ -95,7 +95,9 @@ extension ProfileMainViewController {
             showRemoveMemberView()
         case .termsAndCondition:
             showTermsAndConditionView()
-        case .licence:
+        case .updateNotice:
+            showUpdateNoticeView()
+        case .license:
             break
         case .logout:
             break
@@ -156,6 +158,11 @@ extension ProfileMainViewController {
     
     private func showAddOrDeductAmount() {
         let viewController = profileViewControllerFactory.makeAddOrDeductAmountViewController()
+        pushViewController(viewController, animated: true)
+    }
+    
+    private func showUpdateNoticeView() {
+        let viewController = profileViewControllerFactory.makeUpdateNoticeViewController()
         pushViewController(viewController, animated: true)
     }
 }

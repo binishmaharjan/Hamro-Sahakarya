@@ -9,139 +9,140 @@
 import Foundation
 
 final class ProfileMainDependencyContainer {
-  // MARK: Properties
-  private let sharedUserSessionRepository: UserSessionRepository
-  private let sharedMainViewModel: MainViewModel
-  
-  private let profileMainViewModel: ProfileMainViewModel
-  
-  // Context
-  let userSession: UserSession
-  
-  // MARK: Init
-  init(dependencyContainer: SignedInDepedencyConatiner, userSession: UserSession) {
-    func makeProfileMainViewModel() -> ProfileMainViewModel {
-      return DefaultProfileMainViewModel()
+    // MARK: Properties
+    private let sharedUserSessionRepository: UserSessionRepository
+    private let sharedMainViewModel: MainViewModel
+    
+    private let profileMainViewModel: ProfileMainViewModel
+    
+    // Context
+    let userSession: UserSession
+    
+    // MARK: Init
+    init(dependencyContainer: SignedInDepedencyConatiner, userSession: UserSession) {
+        func makeProfileMainViewModel() -> ProfileMainViewModel {
+            return DefaultProfileMainViewModel()
+        }
+        
+        self.sharedMainViewModel = dependencyContainer.sharedMainViewModel
+        self.sharedUserSessionRepository = dependencyContainer.sharedUserSessionRepository
+        
+        self.profileMainViewModel = makeProfileMainViewModel()
+        self.userSession = userSession
     }
-    
-    self.sharedMainViewModel = dependencyContainer.sharedMainViewModel
-    self.sharedUserSessionRepository = dependencyContainer.sharedUserSessionRepository
-    
-    self.profileMainViewModel = makeProfileMainViewModel()
-    self.userSession = userSession
-  }
 }
 
 // MARK: Profile Main View Controller
 extension ProfileMainDependencyContainer {
-  
-  func makeProfileMainViewController() -> ProfileMainViewController {
-    let viewModel = profileMainViewModel
-    let profileViewController = makeProfileViewController()
-    return ProfileMainViewController(viewModel: viewModel,
-                                     profileViewController: profileViewController,
-                                     profileViewControllerFactory: self)
-  }
-  
-  func makeProfileViewController() -> ProfileViewController {
-    let viewModel =  makeProfileViewModel()
-    let viewController = ProfileViewController.makeInstance(viewModel: viewModel)
-    viewController.navigationItem.title = "Profile"
-    return viewController
-  }
-  
-  func makeProfileViewModel() -> ProfileViewModel {
-    return DefaultProfileViewModel(userSession: userSession,
-                                   notSignedInResponder: sharedMainViewModel,
-                                   userSessionRepository: sharedUserSessionRepository,
-                                   profileViewResponder: profileMainViewModel)
-  }
+    
+    func makeProfileMainViewController() -> ProfileMainViewController {
+        let viewModel = profileMainViewModel
+        let profileViewController = makeProfileViewController()
+        return ProfileMainViewController(viewModel: viewModel,
+                                         profileViewController: profileViewController,
+                                         profileViewControllerFactory: self)
+    }
+    
+    func makeProfileViewController() -> ProfileViewController {
+        let viewModel =  makeProfileViewModel()
+        let viewController = ProfileViewController.makeInstance(viewModel: viewModel)
+        viewController.navigationItem.title = "Profile"
+        return viewController
+    }
+    
+    func makeProfileViewModel() -> ProfileViewModel {
+        return DefaultProfileViewModel(userSession: userSession,
+                                       notSignedInResponder: sharedMainViewModel,
+                                       userSessionRepository: sharedUserSessionRepository,
+                                       profileViewResponder: profileMainViewModel)
+    }
 }
 
 // MARK: Change Profile
 protocol ProfileViewControllerFactory {
-  func makeChangePictureViewController() -> ChangePictureViewController
-  func makeMembersViewController() -> MembersViewController
-  func makeChangePasswordViewController() -> ChangePasswordViewController
-  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
-  func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
-  func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
+    func makeChangePictureViewController() -> ChangePictureViewController
+    func makeMembersViewController() -> MembersViewController
+    func makeChangePasswordViewController() -> ChangePasswordViewController
+    func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
+    func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
+    func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
     func makeLoanMemberViewController() -> LoanMemberViewController
     func makeLoanReturnedViewController() -> LoanReturnedViewController
     func makeRemoveMemberViewController() -> RemoveMemberViewController
     func makeTermsAndConditionViewController() -> TermsAndConditionViewController
     func makeAddOrDeductAmountViewController() -> AddOrDeductAmountViewController
+    func makeUpdateNoticeViewController() -> UpdateNoticeViewController
 }
 
 extension ProfileMainDependencyContainer: ProfileViewControllerFactory {
-  
-  func makeChangePictureViewController() -> ChangePictureViewController {
-    let viewModel = makeChangePictureViewModel()
-    let changePictureViewController = ChangePictureViewController.makeInstance(viewModel: viewModel)
-    return changePictureViewController
-  }
-  
-  func makeChangePictureViewModel() -> ChangePictureViewModel {
-    return DefaultChangePictureViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository)
-  }
+    
+    func makeChangePictureViewController() -> ChangePictureViewController {
+        let viewModel = makeChangePictureViewModel()
+        let changePictureViewController = ChangePictureViewController.makeInstance(viewModel: viewModel)
+        return changePictureViewController
+    }
+    
+    func makeChangePictureViewModel() -> ChangePictureViewModel {
+        return DefaultChangePictureViewModel(userSession: userSession, userSessionRepository: sharedUserSessionRepository)
+    }
 }
 
 // MARK: Members
 extension ProfileMainDependencyContainer {
     
-  func makeMembersViewController() -> MembersViewController {
-    let viewModel = makeMembersViewModel()
-    let membersViewController = MembersViewController.makeInstance(viewModel: viewModel)
-    return membersViewController
-  }
-  
-  func makeMembersViewModel() -> MembersViewModel {
-    return DefaultMembersViewModel(userSessionRepository: sharedUserSessionRepository)
-  }
+    func makeMembersViewController() -> MembersViewController {
+        let viewModel = makeMembersViewModel()
+        let membersViewController = MembersViewController.makeInstance(viewModel: viewModel)
+        return membersViewController
+    }
+    
+    func makeMembersViewModel() -> MembersViewModel {
+        return DefaultMembersViewModel(userSessionRepository: sharedUserSessionRepository)
+    }
 }
 
 // MARK: Change Password
 extension ProfileMainDependencyContainer {
     
-  func makeChangePasswordViewController() -> ChangePasswordViewController {
-    let viewModel = makeChangePasswordViewModel()
-    let changeViewController = ChangePasswordViewController.makeInstance(viewModel: viewModel)
-    return changeViewController
-  }
-  
-  func makeChangePasswordViewModel() -> ChangePasswordViewModel {
-    return DefaultChangePasswordViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession, notSignedInResponder: sharedMainViewModel)
-  }
+    func makeChangePasswordViewController() -> ChangePasswordViewController {
+        let viewModel = makeChangePasswordViewModel()
+        let changeViewController = ChangePasswordViewController.makeInstance(viewModel: viewModel)
+        return changeViewController
+    }
+    
+    func makeChangePasswordViewModel() -> ChangePasswordViewModel {
+        return DefaultChangePasswordViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession, notSignedInResponder: sharedMainViewModel)
+    }
 }
 
 // MARK: Change Member Status
 extension ProfileMainDependencyContainer {
     
-  func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController {
-    let viewModel = makeChangeMemberStatusViewModel()
-    let changeMemberStatusViewController = ChangeMemberStatusViewController.makeInstance(viewModel: viewModel)
-    return changeMemberStatusViewController
-  }
-  
-  func makeChangeMemberStatusViewModel() -> ChangeMemberStatusViewModel {
-    return DefaultChangeMemberStatusViewModel(userSessionRepository: sharedUserSessionRepository,
-                                              userSession: userSession)
-  }
+    func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController {
+        let viewModel = makeChangeMemberStatusViewModel()
+        let changeMemberStatusViewController = ChangeMemberStatusViewController.makeInstance(viewModel: viewModel)
+        return changeMemberStatusViewController
+    }
+    
+    func makeChangeMemberStatusViewModel() -> ChangeMemberStatusViewModel {
+        return DefaultChangeMemberStatusViewModel(userSessionRepository: sharedUserSessionRepository,
+                                                  userSession: userSession)
+    }
 }
 
 // MARK: AddMonthlyFeeViewController
 extension ProfileMainDependencyContainer {
     
-  func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController {
-    let viewModel = makeAddMonthlyFeeViewModel()
-    let addMonthlyFeeViewController = AddMonthlyFeeViewController.makeInstance(viewModel: viewModel)
-    return addMonthlyFeeViewController
-  }
-  
-  func makeAddMonthlyFeeViewModel() -> AddMonthlyFeeViewModel {
-    return DefaultAddMonthlyFeeViewModel(userSessionRepository: sharedUserSessionRepository,
-                                         userSession: userSession)
-  }
+    func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController {
+        let viewModel = makeAddMonthlyFeeViewModel()
+        let addMonthlyFeeViewController = AddMonthlyFeeViewController.makeInstance(viewModel: viewModel)
+        return addMonthlyFeeViewController
+    }
+    
+    func makeAddMonthlyFeeViewModel() -> AddMonthlyFeeViewModel {
+        return DefaultAddMonthlyFeeViewModel(userSessionRepository: sharedUserSessionRepository,
+                                             userSession: userSession)
+    }
 }
 
 // MARK: Extra And Expenses ViewController
@@ -225,5 +226,18 @@ extension ProfileMainDependencyContainer {
     
     func makeAddOrDeductAmountViewModel() -> AddOrDeductAmountViewModelProtocol {
         return AddOrDeductAmountViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
+    }
+}
+
+// MARK: Update Notice View Controller
+extension ProfileMainDependencyContainer {
+    func makeUpdateNoticeViewController() -> UpdateNoticeViewController {
+        let viewModel = makeUpdateNoticeViewModel()
+        let viewController = UpdateNoticeViewController.makeInstance(viewModel: viewModel)
+        return viewController
+    }
+    
+    func makeUpdateNoticeViewModel() -> UpdateNoticeViewModelProtocol {
+        return UpdateNoticeViewModel(userSessionRepository: sharedUserSessionRepository, userSession: userSession)
     }
 }

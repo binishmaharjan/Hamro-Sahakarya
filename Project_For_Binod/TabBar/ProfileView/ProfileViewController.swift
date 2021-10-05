@@ -150,12 +150,13 @@ extension ProfileViewController {
         viewModel.navigate(to: .termsAndCondition)
     case .addOrDeductAmount:
         viewModel.navigate(to: .addOrDeductAmount)
+    case .updateNotice:
+        viewModel.navigate(to: .updateNotice)
     case .logout:
       GUIManager.shared.showDialog(factory: .logoutConfirmation) { [weak self] in
         self?.viewModel.signOut()
       }
     }
-    
   }
 }
 

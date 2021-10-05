@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ZjS-43-RTP" firstAttribute="top" secondItem="dpD-de-3Ga" secondAttribute="top" id="9tp-9O-dDe"/>
                                     <constraint firstAttribute="width" secondItem="dpD-de-3Ga" secondAttribute="height" multiplier="1:1" id="Acr-om-zoT"/>
@@ -62,6 +63,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="5qP-SN-WNm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5qP-SN-WNm" firstAttribute="leading" secondItem="dpD-de-3Ga" secondAttribute="leading" id="3tc-VF-TPF"/>
@@ -75,7 +77,6 @@
                             <constraint firstItem="5Ve-l3-3o2" firstAttribute="top" secondItem="dpD-de-3Ga" secondAttribute="bottom" id="nis-vE-1nN"/>
                             <constraint firstItem="5qP-SN-WNm" firstAttribute="top" secondItem="dpD-de-3Ga" secondAttribute="top" constant="20" id="qCd-qI-prN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5qP-SN-WNm"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="g0x-x0-adj" id="fxb-4d-Bnn"/>
@@ -92,5 +93,8 @@
         <namedColor name="c241D1D@30">
             <color red="0.14100000262260437" green="0.11400000005960464" blue="0.11400000005960464" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

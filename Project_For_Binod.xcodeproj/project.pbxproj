@@ -133,6 +133,9 @@
 		64A0C6B9235A9930007BEFF1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */; };
 		64A210F7235AC7B600AF0502 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */; };
 		64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A210F8235ACC9700AF0502 /* HasXib.swift */; };
+		64A5C9E8270B0C4500919AAB /* UpdateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5C9E7270B0C4500919AAB /* UpdateNoticeViewController.swift */; };
+		64A5C9EC270B0C8B00919AAB /* UpdateNoticeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A5C9EB270B0C8B00919AAB /* UpdateNoticeViewController.storyboard */; };
+		64A5C9F0270B567700919AAB /* UpdateNoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5C9EF270B567700919AAB /* UpdateNoticeViewModel.swift */; };
 		64B2E3D326DF12DC00E4DAAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */; };
 		64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */; };
 		64BE330C244008D500FB8E8E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330B244008D500FB8E8E /* String+Extension.swift */; };
@@ -313,6 +316,9 @@
 		64A0C6B8235A9930007BEFF1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		64A210F6235AC7B600AF0502 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		64A210F8235ACC9700AF0502 /* HasXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasXib.swift; sourceTree = "<group>"; };
+		64A5C9E7270B0C4500919AAB /* UpdateNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoticeViewController.swift; sourceTree = "<group>"; };
+		64A5C9EB270B0C8B00919AAB /* UpdateNoticeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateNoticeViewController.storyboard; sourceTree = "<group>"; };
+		64A5C9EF270B567700919AAB /* UpdateNoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoticeViewModel.swift; sourceTree = "<group>"; };
 		64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainDependencyContainer.swift; sourceTree = "<group>"; };
 		64BE330B244008D500FB8E8E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 				64568AE62409EBDC00BCA18D /* Members */,
 				64568AD723F96E9700BCA18D /* ChangePicture */,
 				6400FF9423E5334E0079A623 /* ProfileTop */,
+				64A5C9EE270B564A00919AAB /* UpdateNotice */,
 				6400FF7323E075820079A623 /* ProfileMainViewModel.swift */,
 				6400FF7523E075AF0079A623 /* ProfileMainView.swift */,
 				6400FF9223E533190079A623 /* ProfileViewModel.swift */,
@@ -409,6 +416,7 @@
 		6400FF7B23E1BC970079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				64A5C9E6270B0C2D00919AAB /* UpdateNotice */,
 				64D304EE247123C400F3168D /* AddOrDeductAmount */,
 				64575D23245E634200EF7C69 /* TermsAndCondition */,
 				644EB0E924591C2E00CB0A56 /* RemoveMember */,
@@ -1083,6 +1091,23 @@
 			name = LaunchView;
 			sourceTree = "<group>";
 		};
+		64A5C9E6270B0C2D00919AAB /* UpdateNotice */ = {
+			isa = PBXGroup;
+			children = (
+				64A5C9E7270B0C4500919AAB /* UpdateNoticeViewController.swift */,
+				64A5C9EB270B0C8B00919AAB /* UpdateNoticeViewController.storyboard */,
+			);
+			path = UpdateNotice;
+			sourceTree = "<group>";
+		};
+		64A5C9EE270B564A00919AAB /* UpdateNotice */ = {
+			isa = PBXGroup;
+			children = (
+				64A5C9EF270B567700919AAB /* UpdateNoticeViewModel.swift */,
+			);
+			path = UpdateNotice;
+			sourceTree = "<group>";
+		};
 		64BE330D24414FFA00FB8E8E /* LoanMember */ = {
 			isa = PBXGroup;
 			children = (
@@ -1393,6 +1418,7 @@
 			files = (
 				6400FF8323E1C9CC0079A623 /* ProfileTopCell.xib in Resources */,
 				6454ECB72461727300E98A40 /* AccountDetailView.xib in Resources */,
+				64A5C9EC270B0C8B00919AAB /* UpdateNoticeViewController.storyboard in Resources */,
 				6470ADEA243D683000DC5189 /* ExtraAndExpensesViewController.storyboard in Resources */,
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */,
@@ -1598,6 +1624,7 @@
 				64FBE1B723D2E9F30027E44C /* TabBarController.swift in Sources */,
 				6400FF7623E075AF0079A623 /* ProfileMainView.swift in Sources */,
 				64FBE1CC23D492030027E44C /* FirebaseLogRemoteApi.swift in Sources */,
+				64A5C9F0270B567700919AAB /* UpdateNoticeViewModel.swift in Sources */,
 				6459399E235AAB5500A99902 /* NIblessViewController.swift in Sources */,
 				64FBE1D623D5D6510027E44C /* NSObject+Extension.swift in Sources */,
 				6430DAE623E9A9000045E435 /* ChangePictureViewController.swift in Sources */,
@@ -1630,6 +1657,7 @@
 				646604BE237995ED00122718 /* SignUpViewController.swift in Sources */,
 				64568AEB2409ECE500BCA18D /* MembersCell.swift in Sources */,
 				646604BC237995DB00122718 /* SignInViewController.swift in Sources */,
+				64A5C9E8270B0C4500919AAB /* UpdateNoticeViewController.swift in Sources */,
 				64FBE1CA23D491AB0027E44C /* LogRemoteApi.swift in Sources */,
 				64A210F9235ACC9700AF0502 /* HasXib.swift in Sources */,
 				6400FF7423E075820079A623 /* ProfileMainViewModel.swift in Sources */,

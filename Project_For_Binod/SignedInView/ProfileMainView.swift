@@ -22,7 +22,8 @@ enum ProfileMainView {
     case removeMember
     case addOrDeductAmount
     
+    case updateNotice
     case termsAndCondition
-    case licence
+    case license
     case logout
 }
