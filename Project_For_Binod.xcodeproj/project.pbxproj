@@ -1818,7 +1818,7 @@
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7.22;
+				MARKETING_VERSION = 7.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod-dev";
 				PRODUCT_NAME = HamroSahakarya_dev;
 				PROVISIONING_PROFILE = "";
@@ -1841,7 +1841,7 @@
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7.22;
+				MARKETING_VERSION = 7.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = HamroSahakarya;
 				PROVISIONING_PROFILE_SPECIFIER = "";
