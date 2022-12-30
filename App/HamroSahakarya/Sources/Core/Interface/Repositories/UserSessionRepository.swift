@@ -3,7 +3,6 @@ import PromiseKit
 import UIKit
 
 public protocol UserSessionRepository {
-
     func readUserSession() -> Promise<UserSession?>
     func saveUserSession(userProfile: UserProfile) -> Promise<UserSession>
     func signUp(newAccount: NewAccount) -> Promise<UserSession>
