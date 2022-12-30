@@ -12,12 +12,14 @@ public final class UserSession {
 
 
 extension UserSession: Equatable {
+
     public static func ==(lhs: UserSession, rhs: UserSession) -> Bool {
         return lhs.profile.value == rhs.profile.value
     }
 }
 
 extension UserSession {
+    
     public var isAdmin: Bool {
         return profile.value.status == .admin
     }

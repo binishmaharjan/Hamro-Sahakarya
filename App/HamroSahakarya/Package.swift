@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
 //        .package(url: "https://github.com/kean/Nuke", exact: "11.5.1"),
-//        .package(url: "https://github.com/mxcl/PromiseKit", exact: "6.18.1"),
+        .package(url: "https://github.com/mxcl/PromiseKit", exact: "6.18.1"),
 //        .package(url: "https://github.com/danielgindi/Charts", exact: "4.1.0"),
         .package(url: "https://github.com/ReactiveX/RxSwift", exact: "6.5.0"),
 //        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.3.0"),
@@ -45,15 +45,19 @@ let package = Package(
         // DataSource
         .target(
             name: "DataSource",
-            dependencies: []
+            dependencies: [
+                "Core",
+            ]
         ),
         // Core
         .target(
             name: "Core",
             dependencies: [
                 .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "PromiseKit", package: "PromiseKit")
             ]
         ),
+        // AppUI
         .target(
             name: "AppUI",
             resources: [
