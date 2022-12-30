@@ -10,7 +10,8 @@ let package = Package(
     ],
     products: [
         .library(name: "AppKit",targets: ["AppKit"]),
-        .library(name: "AppFeature", targets: ["AppFeature"])
+        .library(name: "AppFeature", targets: ["AppFeature"]),
+        .library(name: "DataSource", targets: ["DataSource"])
     ],
     dependencies: [
     ],
@@ -31,6 +32,11 @@ let package = Package(
         // AppFeature
         .target(
             name: "AppFeature",
+            dependencies: []
+        ),
+        // DataSource
+        .target(
+            name: "DataSource",
             dependencies: []
         )
     ]
