@@ -9,6 +9,7 @@
 import Foundation
 import PromiseKit
 import FirebaseAuth
+import UIKit
 
 final class FirebaseUserSessionRepository: UserSessionRepository {
     

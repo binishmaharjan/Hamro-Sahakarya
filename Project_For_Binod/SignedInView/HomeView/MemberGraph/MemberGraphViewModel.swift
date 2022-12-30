@@ -6,10 +6,11 @@
 //  Copyright © 2020 JEC. All rights reserved.
 //
 
-import Foundation
-import RxSwift
 import Charts
+import Foundation
 import RxCocoa
+import RxSwift
+import UIKit
 
 protocol MemberGraphViewModelProtocol {
     var allMembers: Observable<[UserProfile]> { get }

@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import UIKit
 
 protocol AddMonthlyFeeStateProtocol {
     var monthlyFeeAmount: Int { get }

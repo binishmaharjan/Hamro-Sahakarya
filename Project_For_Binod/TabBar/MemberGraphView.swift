@@ -26,7 +26,7 @@ final class MemberGraphView: UIView {
     }
     
     private func setup() {
-        pieChartView.chartDescription?.text = ""
+        pieChartView.chartDescription.text = ""
         pieChartView.legend.enabled = false
         pieChartView.drawEntryLabelsEnabled = false
         pieChartView.usePercentValuesEnabled = true
