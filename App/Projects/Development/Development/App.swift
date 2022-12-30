@@ -10,3 +10,5 @@ final class AppDelegate: AppKit.AppDelegate {
     }
 }
 
+final class SceneDelegate: AppKit.SceneDelegate {
+}
