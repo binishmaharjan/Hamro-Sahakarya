@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIColor {
-
+    
     // MARK: Predefined Colors
     public static let mainOrange = UIColor(named: "cEF5D0B")!
     public static let mainOrange_50 = UIColor(named: "cEF5D0B@50")!
@@ -10,7 +10,7 @@ extension UIColor {
     public static let mainBlack = UIColor(named: "c241D1D")!
     public static let textGray = UIColor(named: "cADB2B6")!
     public static let backgroundGray = UIColor(named: "cFAFBFD")!
-
+    
     // MARK: Predefined Transparent Colors
     public static let red_50 = UIColor(named: "cFF3A2F@50")!
     public static let green_50 = UIColor(named: "c00F900@50")!

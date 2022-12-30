@@ -16,7 +16,7 @@ let package = Package(
         .library(name: "Core", targets: ["Core"]),
     ],
     dependencies: [
-//        .package(url: "https://github.com/kean/Nuke", exact: "11.5.1"),
+        .package(url: "https://github.com/kean/Nuke", exact: "11.5.1"),
         .package(url: "https://github.com/mxcl/PromiseKit", exact: "6.18.1"),
 //        .package(url: "https://github.com/danielgindi/Charts", exact: "4.1.0"),
         .package(url: "https://github.com/ReactiveX/RxSwift", exact: "6.5.0"),
@@ -65,6 +65,14 @@ let package = Package(
         // AppUI
         .target(
             name: "AppUI",
+            dependencies: [
+                "Core",
+                .product(name: "Nuke", package: "Nuke"),
+                .product(name: "NukeExtensions", package: "Nuke"),
+            ],
+            exclude: [
+                "README.md",
+            ],
             resources: [
                 .process("Resources"),
             ]
