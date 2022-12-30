@@ -1,8 +1,11 @@
-//
-//  File.swift
-//  
-//
-//  Created by Maharjan Binish on 2022/12/30.
-//
-
 import Foundation
+
+public struct GroupDetail: Equatable, Codable {
+    public let extra: Int
+    public let expenses: Int
+
+    public init(extra: Int, expenses: Int) {
+        self.extra = extra
+        self.expenses = expenses
+    }
+}
