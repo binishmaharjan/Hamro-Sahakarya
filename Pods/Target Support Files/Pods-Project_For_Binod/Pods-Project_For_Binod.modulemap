@@ -1,6 +1,0 @@
-framework module Pods_Project_For_Binod {
-  umbrella header "Pods-Project_For_Binod-umbrella.h"
-
-  export *
-  module * { export * }
-}

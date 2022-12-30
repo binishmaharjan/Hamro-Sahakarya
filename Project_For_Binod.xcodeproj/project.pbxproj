@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -127,6 +127,7 @@
 		6478082724205BBA00588769 /* AddMonthlyFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082624205BBA00588769 /* AddMonthlyFeeViewController.swift */; };
 		6478082924205C0500588769 /* AddMonthlyFeeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6478082824205C0500588769 /* AddMonthlyFeeViewController.storyboard */; };
 		6478082B2421FC6000588769 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478082A2421FC5F00588769 /* Steps.swift */; };
+		648789EA295EB2E700C4B8A2 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 648789E9295EB2E700C4B8A2 /* NukeExtensions */; };
 		6492C16F235AA4CE009BE621 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6492C16E235AA4CE009BE621 /* Macros.swift */; };
 		64A0C6B4235A98EC007BEFF1 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B3235A98EC007BEFF1 /* AppDependencyContainer.swift */; };
 		64A0C6B6235A9903007BEFF1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0C6B5235A9903007BEFF1 /* MainViewController.swift */; };
@@ -136,12 +137,20 @@
 		64A5C9E8270B0C4500919AAB /* UpdateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5C9E7270B0C4500919AAB /* UpdateNoticeViewController.swift */; };
 		64A5C9EC270B0C8B00919AAB /* UpdateNoticeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A5C9EB270B0C8B00919AAB /* UpdateNoticeViewController.storyboard */; };
 		64A5C9F0270B567700919AAB /* UpdateNoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5C9EF270B567700919AAB /* UpdateNoticeViewModel.swift */; };
-		64B2E3D326DF12DC00E4DAAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */; };
 		64BD70A623E0685900974103 /* ProfileMainDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */; };
 		64BE330C244008D500FB8E8E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330B244008D500FB8E8E /* String+Extension.swift */; };
 		64BE330F2441501F00FB8E8E /* LoanMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */; };
 		64BE33112441506700FB8E8E /* LoanMemberViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BE33102441506700FB8E8E /* LoanMemberViewController.storyboard */; };
 		64BE331424415F1800FB8E8E /* LoanMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE331324415F1800FB8E8E /* LoanMemberViewModel.swift */; };
+		64C10091295EA553002979F9 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 64C10090295EA553002979F9 /* CodableFirebase */; };
+		64C10094295EA5E7002979F9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 64C10093295EA5E7002979F9 /* FirebaseAuth */; };
+		64C10096295EA5E7002979F9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 64C10095295EA5E7002979F9 /* FirebaseFirestore */; };
+		64C10098295EA5E7002979F9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 64C10097295EA5E7002979F9 /* FirebaseStorage */; };
+		64C1009B295EA627002979F9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 64C1009A295EA627002979F9 /* RxCocoa */; };
+		64C1009D295EA627002979F9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64C1009C295EA627002979F9 /* RxSwift */; };
+		64C100A0295EA655002979F9 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 64C1009F295EA655002979F9 /* Nuke */; };
+		64C100A3295EA69A002979F9 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 64C100A2295EA69A002979F9 /* Charts */; };
+		64C100A6295EA869002979F9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64C100A5295EA869002979F9 /* PromiseKit */; };
 		64D304F02471240300F3168D /* AddOrDeductAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D304EF2471240300F3168D /* AddOrDeductAmountViewController.swift */; };
 		64D304F22471258600F3168D /* AddOrDeductAmountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D304F12471258600F3168D /* AddOrDeductAmountViewController.storyboard */; };
 		64D304F5247125F700F3168D /* AddOrDeductAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D304F4247125F700F3168D /* AddOrDeductAmountViewModel.swift */; };
@@ -181,15 +190,11 @@
 		64FBE1D623D5D6510027E44C /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1D523D5D6510027E44C /* NSObject+Extension.swift */; };
 		64FBE1D923D5DAED0027E44C /* AdjustWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1D823D5DAED0027E44C /* AdjustWithImageView.swift */; };
 		64FBE1DE23D5DE1A0027E44C /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FBE1DD23D5DE1A0027E44C /* UIView+Rx.swift */; };
-		AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */; };
 		ACA1EC561FF0B77100FA130D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1EC551FF0B77100FA130D /* AppDelegate.swift */; };
 		ACA1EC631FF0B77100FA130D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.release.xcconfig"; sourceTree = "<group>"; };
-		28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_For_Binod.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod.debug.xcconfig"; sourceTree = "<group>"; };
-		2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_For_Binod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400FF7023E074FD0079A623 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		6400FF7323E075820079A623 /* ProfileMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewModel.swift; sourceTree = "<group>"; };
 		6400FF7523E075AF0079A623 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
@@ -319,7 +324,6 @@
 		64A5C9E7270B0C4500919AAB /* UpdateNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoticeViewController.swift; sourceTree = "<group>"; };
 		64A5C9EB270B0C8B00919AAB /* UpdateNoticeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateNoticeViewController.storyboard; sourceTree = "<group>"; };
 		64A5C9EF270B567700919AAB /* UpdateNoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoticeViewModel.swift; sourceTree = "<group>"; };
-		64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64BD70A523E0685900974103 /* ProfileMainDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainDependencyContainer.swift; sourceTree = "<group>"; };
 		64BE330B244008D500FB8E8E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		64BE330E2441501F00FB8E8E /* LoanMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanMemberViewController.swift; sourceTree = "<group>"; };
@@ -375,21 +379,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC86C458E4AD790CD3EFBD31 /* Pods_Project_For_Binod.framework in Frameworks */,
+				64C1009B295EA627002979F9 /* RxCocoa in Frameworks */,
+				64C10091295EA553002979F9 /* CodableFirebase in Frameworks */,
+				64C10096295EA5E7002979F9 /* FirebaseFirestore in Frameworks */,
+				64C10094295EA5E7002979F9 /* FirebaseAuth in Frameworks */,
+				64C100A3295EA69A002979F9 /* Charts in Frameworks */,
+				64C100A6295EA869002979F9 /* PromiseKit in Frameworks */,
+				64C10098295EA5E7002979F9 /* FirebaseStorage in Frameworks */,
+				64C1009D295EA627002979F9 /* RxSwift in Frameworks */,
+				64C100A0295EA655002979F9 /* Nuke in Frameworks */,
+				648789EA295EB2E700C4B8A2 /* NukeExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2CD92483257A4B41C8F6F191 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2D6200AF526461384D3A7D11 /* Pods_Project_For_Binod.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6400FF7223E0756C0079A623 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1021,6 +1026,13 @@
 			name = MonthlyFee;
 			sourceTree = "<group>";
 		};
+		648789E8295EB2E700C4B8A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6492C16D235AA48C009BE621 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1317,8 +1329,7 @@
 			children = (
 				ACA1EC541FF0B77100FA130D /* Project_For_Binod */,
 				ACA1EC531FF0B77100FA130D /* Products */,
-				D1730E5E2478296E0A9D5B07 /* Pods */,
-				2CD92483257A4B41C8F6F191 /* Frameworks */,
+				648789E8295EB2E700C4B8A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1335,22 +1346,12 @@
 			children = (
 				64A0C6AC235A9790007BEFF1 /* Version 3 */,
 				64073BD922488F0200088E61 /* GoogleService-Info.plist */,
-				64B2E3D226DF12DC00E4DAAA /* GoogleService-Info.plist */,
 				64073BD722488DCA00088E61 /* GoogleService-Info-dev.plist */,
 				ACA1EC551FF0B77100FA130D /* AppDelegate.swift */,
 				ACA1EC611FF0B77100FA130D /* LaunchScreen.storyboard */,
 				ACA1EC641FF0B77100FA130D /* Info.plist */,
 			);
 			path = Project_For_Binod;
-			sourceTree = "<group>";
-		};
-		D1730E5E2478296E0A9D5B07 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */,
-				282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1360,17 +1361,27 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACA1EC671FF0B77100FA130D /* Build configuration list for PBXNativeTarget "Project_For_Binod" */;
 			buildPhases = (
-				BBAFEAABCB0809D312CE1000 /* [CP] Check Pods Manifest.lock */,
 				ACA1EC4E1FF0B77100FA130D /* Sources */,
 				ACA1EC4F1FF0B77100FA130D /* Frameworks */,
 				ACA1EC501FF0B77100FA130D /* Resources */,
-				44E3CA49B90688947E5EB005 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Project_For_Binod;
+			packageProductDependencies = (
+				64C10090295EA553002979F9 /* CodableFirebase */,
+				64C10093295EA5E7002979F9 /* FirebaseAuth */,
+				64C10095295EA5E7002979F9 /* FirebaseFirestore */,
+				64C10097295EA5E7002979F9 /* FirebaseStorage */,
+				64C1009A295EA627002979F9 /* RxCocoa */,
+				64C1009C295EA627002979F9 /* RxSwift */,
+				64C1009F295EA655002979F9 /* Nuke */,
+				64C100A2295EA69A002979F9 /* Charts */,
+				64C100A5295EA869002979F9 /* PromiseKit */,
+				648789E9295EB2E700C4B8A2 /* NukeExtensions */,
+			);
 			productName = Project_For_Binod;
 			productReference = ACA1EC521FF0B77100FA130D /* HamroSahakarya_dev.app */;
 			productType = "com.apple.product-type.application";
@@ -1382,7 +1393,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = JEC;
 				TargetAttributes = {
 					ACA1EC511FF0B77100FA130D = {
@@ -1402,6 +1413,14 @@
 				Base,
 			);
 			mainGroup = ACA1EC491FF0B77000FA130D;
+			packageReferences = (
+				64C1008F295EA553002979F9 /* XCRemoteSwiftPackageReference "CodableFirebase" */,
+				64C10092295EA5E7002979F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				64C10099295EA627002979F9 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				64C1009E295EA655002979F9 /* XCRemoteSwiftPackageReference "Nuke" */,
+				64C100A1295EA699002979F9 /* XCRemoteSwiftPackageReference "Charts" */,
+				64C100A4295EA869002979F9 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = ACA1EC531FF0B77100FA130D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1423,7 +1442,6 @@
 				64F44D55237EF22C00A9DFB4 /* XibProgressHUD.xib in Resources */,
 				64E6D46523BC168B00D5C17F /* SignUpViewController.storyboard in Resources */,
 				6400FF7A23E1BC6D0079A623 /* ProfileViewController.storyboard in Resources */,
-				64B2E3D326DF12DC00E4DAAA /* GoogleService-Info.plist in Resources */,
 				6430DAEF23EAF4F90045E435 /* PhotoCell.xib in Resources */,
 				64FBE15E23C2078E0027E44C /* ColorPickerViewController.storyboard in Resources */,
 				64286969247A53C70097E52A /* NoticeView.xib in Resources */,
@@ -1457,79 +1475,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		44E3CA49B90688947E5EB005 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Project_For_Binod/Pods-Project_For_Binod-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBAFEAABCB0809D312CE1000 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Project_For_Binod-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACA1EC4E1FF0B77100FA130D /* Sources */ = {
@@ -1718,6 +1663,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1743,7 +1689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
@@ -1779,6 +1725,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1798,26 +1745,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		ACA1EC681FF0B77100FA130D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28517AFF10DCCCB92A5871C3 /* Pods-Project_For_Binod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod-dev";
 				PRODUCT_NAME = HamroSahakarya_dev;
@@ -1832,15 +1782,17 @@
 		};
 		ACA1EC691FF0B77100FA130D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 282C09F481F798770F27FD5F /* Pods-Project_For_Binod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2QZXZME53M;
 				INFOPLIST_FILE = Project_For_Binod/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.ac.jec.17cm.Project-For-Binod";
 				PRODUCT_NAME = HamroSahakarya;
@@ -1874,6 +1826,110 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		64C1008F295EA553002979F9 /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		64C10092295EA5E7002979F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		64C10099295EA627002979F9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		64C1009E295EA655002979F9 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		64C100A1295EA699002979F9 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		64C100A4295EA869002979F9 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		648789E9295EB2E700C4B8A2 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C1009E295EA655002979F9 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		64C10090295EA553002979F9 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C1008F295EA553002979F9 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		64C10093295EA5E7002979F9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C10092295EA5E7002979F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		64C10095295EA5E7002979F9 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C10092295EA5E7002979F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		64C10097295EA5E7002979F9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C10092295EA5E7002979F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		64C1009A295EA627002979F9 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C10099295EA627002979F9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		64C1009C295EA627002979F9 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C10099295EA627002979F9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		64C1009F295EA655002979F9 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C1009E295EA655002979F9 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		64C100A2295EA69A002979F9 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C100A1295EA699002979F9 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		64C100A5295EA869002979F9 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C100A4295EA869002979F9 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACA1EC4A1FF0B77000FA130D /* Project object */;
 }
