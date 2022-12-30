@@ -1,6 +1,6 @@
 import Foundation
 
-enum HSError: Error {
+public enum HSError: Error {
     case loginError
     case signUpError
     case networkFailedError

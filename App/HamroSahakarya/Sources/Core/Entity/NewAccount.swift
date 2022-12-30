@@ -21,20 +21,20 @@ public struct NewAccount: Codable {
 }
 
 // MARK: UserProfile Creation
-//extension NewAccount {
-//    public func createUserProfile(with uid: String) -> UserProfile {
-//        let userProfile = UserProfile(uid: uid,
-//                                       username: username,
-//                                       email: email,
-//                                       status: status,
-//                                       colorHex: colorHex,
-//                                       iconUrl: "",
-//                                       dateCreated: Date().toString,
-//                                       keyword: keyword,
-//                                       loanTaken: 0,
-//                                       balance: initialAmount,
-//                                       dateUpdated: Date().toString)
-//
-//        return userProfile
-//    }
-//}
+extension NewAccount {
+    public func createUserProfile(with uid: String) -> UserProfile {
+        let userProfile = UserProfile(uid: uid,
+                                       username: username,
+                                       email: email,
+                                       status: status,
+                                       colorHex: colorHex,
+                                       iconUrl: "",
+                                       dateCreated: Date().toString,
+                                       keyword: keyword,
+                                       loanTaken: 0,
+                                       balance: initialAmount,
+                                       dateUpdated: Date().toString)
+
+        return userProfile
+    }
+}
