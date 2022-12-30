@@ -5,9 +5,9 @@ import Foundation
 import PromiseKit
 
 public final class FirestoreDataManager: ServerDataManager {
+    public init() {}
 
     public func saveUser(userProfile: UserProfile) -> Promise<UserSession> {
-
         return Promise<UserSession> { seal in
             do {
                 let userProfileData = try FirestoreEncoder().encode(userProfile) as [String: Any]

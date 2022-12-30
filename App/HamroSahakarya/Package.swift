@@ -51,6 +51,7 @@ let package = Package(
                 .product(name: "CodableFirebase", package: "CodableFirebase"),
                 .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk")
             ]
         ),
         // Core

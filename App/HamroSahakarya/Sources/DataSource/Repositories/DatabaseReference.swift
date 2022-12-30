@@ -15,7 +15,7 @@ final class DatabaseReference {
     static let UID = "uid"
     static let EMAIL = "email"
     static let STATUS = "status"
-    static let COLORHEX = "colorhex"
+    static let COLOR_HEX = "colorhex"
     static let ICON_URL = "icon_url"
     static let MY_ACCOUNT_REF = "my_account"
     static let LOAN_TAKEN = "loan_taken"

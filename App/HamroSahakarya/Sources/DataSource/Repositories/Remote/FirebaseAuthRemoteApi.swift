@@ -5,8 +5,9 @@ import FirebaseFirestore
 import Foundation
 import PromiseKit
 
-final class FirebaseAuthRemoteApi: AuthRemoteApi {
-
+public final class FirebaseAuthRemoteApi: AuthRemoteApi {
+    public init() {}
+    
     public func signIn(email: String, password: String) -> Promise<String> {
         return Promise<String> { seal in
 
