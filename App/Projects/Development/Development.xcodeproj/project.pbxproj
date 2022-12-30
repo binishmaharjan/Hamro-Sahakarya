@@ -13,6 +13,7 @@
 		64CAA6F3295EBBD800444E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CAA6F1295EBBD800444E51 /* Main.storyboard */; };
 		64CAA6F5295EBBDA00444E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64CAA6F4295EBBDA00444E51 /* Assets.xcassets */; };
 		64CAA6F8295EBBDA00444E51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CAA6F6295EBBDA00444E51 /* LaunchScreen.storyboard */; };
+		64CAA701295EC2A700444E51 /* AppKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64CAA700295EC2A700444E51 /* AppKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64CAA701295EC2A700444E51 /* AppKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +44,7 @@
 			children = (
 				64CAA6EA295EBBD800444E51 /* Development */,
 				64CAA6E9295EBBD800444E51 /* Products */,
+				64CAA6FF295EC2A700444E51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +70,13 @@
 			path = Development;
 			sourceTree = "<group>";
 		};
+		64CAA6FF295EC2A700444E51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +93,9 @@
 			dependencies = (
 			);
 			name = Development;
+			packageProductDependencies = (
+				64CAA700295EC2A700444E51 /* AppKit */,
+			);
 			productName = Development;
 			productReference = 64CAA6E8295EBBD800444E51 /* Development.app */;
 			productType = "com.apple.product-type.application";
@@ -366,6 +379,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		64CAA700295EC2A700444E51 /* AppKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 64CAA6E0295EBBD800444E51 /* Project object */;
 }
