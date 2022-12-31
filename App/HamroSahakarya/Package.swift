@@ -40,7 +40,9 @@ let package = Package(
         // AppFeature
         .target(
             name: "AppFeature",
-            dependencies: []
+            dependencies: [
+                "AppUI"
+            ]
         ),
         // DataSource
         .target(

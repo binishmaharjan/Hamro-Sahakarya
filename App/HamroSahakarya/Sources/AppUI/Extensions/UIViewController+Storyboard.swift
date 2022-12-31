@@ -11,9 +11,9 @@ extension StoryboardInstantiable where Self: UIViewController {
     }
 
     public static func loadFromStoryboard() -> Self {
-        let storyboard = UIStoryboard(name: className, bundle: nil)
+        let storyboard = UIStoryboard(name: className, bundle: Bundle.module)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: className) as? Self else {
-            fatalError("Couldnot instantiate ViewController: \(className)")
+            fatalError("Could not instantiate ViewController: \(className)")
         }
 
         return viewController

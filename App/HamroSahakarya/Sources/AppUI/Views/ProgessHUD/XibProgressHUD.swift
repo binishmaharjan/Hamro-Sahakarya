@@ -16,13 +16,13 @@ public protocol ProgressHUD {
 
 public typealias XibProgressHUDType = UIView & ProgressHUD
 
-final class XibProgressHUD: XibProgressHUDType {
+public final class XibProgressHUD: XibProgressHUDType {
     // MARK: IBOutlet
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var statusText: UILabel!
 
     // MARK: Properties
-    var isAnimating: Bool {
+    public var isAnimating: Bool {
         return activityIndicator.isAnimating
     }
 
