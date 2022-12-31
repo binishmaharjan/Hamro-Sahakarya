@@ -155,7 +155,7 @@
             <connections>
                 <outlet property="alertMessageLabel" destination="alw-8d-mPm" id="VKc-Ns-gyH"/>
                 <outlet property="cancelButton" destination="ecU-jp-jgo" id="Fd3-XU-hoI"/>
-                <outlet property="dailogTitle" destination="7GZ-5f-UUB" id="Ovk-CV-X8V"/>
+                <outlet property="dialogTitle" destination="7GZ-5f-UUB" id="5OV-7G-564"/>
                 <outlet property="okButton" destination="lP3-8h-BhW" id="NOG-jZ-Mlu"/>
             </connections>
             <point key="canvasLocation" x="139" y="108"/>

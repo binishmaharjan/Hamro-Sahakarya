@@ -83,13 +83,13 @@ final class GUIManager: NSObject {
       fatalError("No uiwindow")
     }
     
-    let alertDiaog = AlertDialog.makeInstance(factory: factory, handler: completionHandler)
-    alertDiaog.alpha = 0
-    mainView.addSubview(alertDiaog)
-    alertDiaog.frame = mainView.frame
+    let alertDialog = AlertDialog.makeInstance(factory: factory, handler: completionHandler)
+    alertDialog.alpha = 0
+    mainView.addSubview(alertDialog)
+    alertDialog.frame = mainView.frame
     
     UIView.animate(withDuration: 0.3) {
-      alertDiaog.alpha = 1
+      alertDialog.alpha = 1
     }
   }
 }
