@@ -91,9 +91,7 @@ final class GUIManager: NSObject {
     UIView.animate(withDuration: 0.3) {
       alertDiaog.alpha = 1
     }
-    
   }
-  
 }
 
 // MARK: Reactive Extensions - Activity Indicator
