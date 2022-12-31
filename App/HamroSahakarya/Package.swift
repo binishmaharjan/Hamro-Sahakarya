@@ -58,7 +58,7 @@ let package = Package(
         .target(
             name: "Core",
             dependencies: [
-                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxCocoa", package: "RxSwift"), // should not depend on this package
                 .product(name: "PromiseKit", package: "PromiseKit")
             ]
         ),
@@ -69,9 +69,11 @@ let package = Package(
                 "Core",
                 .product(name: "Nuke", package: "Nuke"),
                 .product(name: "NukeExtensions", package: "Nuke"),
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
             ],
             exclude: [
-                "README.md",
+//                "README.md",
             ],
             resources: [
                 .process("Resources"),

@@ -2,9 +2,9 @@ import Foundation
 
 public struct ErrorMessage: Error {
     // MARK: Properties
-    let id: UUID
-    let title: String
-    let message: String
+    public let id: UUID
+    public let title: String
+    public let message: String
 
     public init(title: String, message: String) {
         self.id = UUID()
