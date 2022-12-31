@@ -1,5 +1,6 @@
-import UIKit
 import AppUI
+import Core
+import UIKit
 
 
 public final class MainViewController: UIViewController {
@@ -16,7 +17,7 @@ public final class MainViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        startAnimation()
+        showDropDownNotification(data: .init(dropDownType: .success, message: "Success"))
     }
 
     func startAnimation() {
@@ -31,5 +32,13 @@ public final class MainViewController: UIViewController {
       view.addSubview(progressHUD)
       progressHUD.center = view.center
       progressHUD.startAnimation()
+    }
+
+    func showDropDownNotification(data dropDownModel: DropDownModel) {
+        let dropDown = SimpleDropDownNotification()
+        dropDown.text = dropDownModel.message
+        dropDown.type = dropDownModel.dropDownType
+        view.addSubview(dropDown)
+        dropDown.startDropDown()
     }
 }
