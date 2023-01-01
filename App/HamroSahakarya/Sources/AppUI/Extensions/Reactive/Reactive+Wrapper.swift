@@ -33,7 +33,7 @@ public class ReactiveProperty<Element> {
         }
     }
 
-    var projectValue: Observable<Element> {
+    public var projectValue: Observable<Element> {
         relay.asObservable()
     }
 
@@ -49,7 +49,7 @@ public class ReactiveProperty<Element> {
  */
 @propertyWrapper
 public class PropertyPublishSubject<Element> {
-    let publishSubject =  PublishSubject<Element>()
+    private let publishSubject =  PublishSubject<Element>()
 
     public var wrappedValue: Observable<Element> {
         return publishSubject.asObservable()
@@ -70,7 +70,7 @@ public class PropertyPublishSubject<Element> {
 
 /*
  Property Wrapper
- Behaviour Relay Wrapped as  Driver
+ Behavior Relay Wrapped as  Driver
  */
 @propertyWrapper
 public class PropertyBehaviorRelay<Element> {
@@ -80,7 +80,7 @@ public class PropertyBehaviorRelay<Element> {
         return behaviorRelay.asDriver()
     }
 
-    var value: Element {
+    public var value: Element {
         return behaviorRelay.value
     }
 

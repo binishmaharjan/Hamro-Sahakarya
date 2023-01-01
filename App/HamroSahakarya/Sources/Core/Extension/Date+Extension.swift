@@ -9,7 +9,7 @@ extension Date {
         return formatter.string(from: self)
     }
 
-    public var toGegorianMonthDateYearString: String {
+    public var toGregorianMonthDateYearString: String {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.dateFormat = "MMM dd, yyyy"

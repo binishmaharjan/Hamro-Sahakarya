@@ -14,7 +14,11 @@ let package = Package(
         .library(name: "AppUI", targets: ["AppUI"]),
         .library(name: "DataSource", targets: ["DataSource"]),
         .library(name: "Core", targets: ["Core"]),
-        .library(name: "OnboardingFeature", targets: ["OnboardingFeature"])
+        .library(name: "OnboardingFeature", targets: ["OnboardingFeature"]),
+        .library(name: "SignedInFeature", targets: ["SignedInFeature"]),
+        .library(name: "HomeFeature", targets: ["HomeFeature"]),
+        .library(name: "LogFeature", targets: ["LogFeature"]),
+        .library(name: "ProfileFeature", targets: ["ProfileFeature"])
     ],
     dependencies: [
         .package(url: "https://github.com/kean/Nuke", exact: "11.5.1"),
@@ -82,9 +86,49 @@ let package = Package(
                 .process("Resources"),
             ]
         ),
-        // SignInFeature
+        // OnboardingFeature
         .target(
             name: "OnboardingFeature",
+            dependencies: [
+                "AppUI",
+                "DataSource",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
+            ]
+        ),
+        // SignInFeature
+        .target(
+            name: "SignedInFeature",
+            dependencies: [
+                "AppUI",
+                "DataSource",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
+            ]
+        ),
+        // HomeFeature
+        .target(
+            name: "HomeFeature",
+            dependencies: [
+                "AppUI",
+                "DataSource",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
+            ]
+        ),
+        // LogFeature
+        .target(
+            name: "LogFeature",
+            dependencies: [
+                "AppUI",
+                "DataSource",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
+            ]
+        ),
+        // ProfileFeature
+        .target(
+            name: "ProfileFeature",
             dependencies: [
                 "AppUI",
                 "DataSource",

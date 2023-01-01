@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Log View Controller-->
+        <scene sceneID="812-sg-Zjs">
+            <objects>
+                <viewController storyboardIdentifier="LogViewController" id="HSx-3V-UNy" customClass="LogViewController" customModule="LogFeature" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vIv-3I-h00">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="67o-V0-V6m">
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAN-Ul-0Dz">
+                                <rect key="frame" x="0.0" y="48" width="414" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ubu-8F-mpo">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="7ad-hu-4cb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items To Display " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99G-lm-Nb8">
+                                        <rect key="frame" x="125" y="196" width="164" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.93725490199999995" green="0.36470588240000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ubu-8F-mpo" firstAttribute="top" secondItem="VAN-Ul-0Dz" secondAttribute="top" constant="50" id="M4C-V1-0Ib"/>
+                                    <constraint firstItem="99G-lm-Nb8" firstAttribute="top" secondItem="Ubu-8F-mpo" secondAttribute="bottom" constant="18" id="TMw-Cc-1Xw"/>
+                                    <constraint firstItem="Ubu-8F-mpo" firstAttribute="leading" secondItem="VAN-Ul-0Dz" secondAttribute="leading" id="daD-j8-26f"/>
+                                    <constraint firstAttribute="height" constant="250" id="npo-i6-0I5"/>
+                                    <constraint firstItem="99G-lm-Nb8" firstAttribute="centerX" secondItem="VAN-Ul-0Dz" secondAttribute="centerX" id="szt-tc-7s6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ubu-8F-mpo" secondAttribute="trailing" id="ucv-cf-2sZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3k8-4o-09O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3k8-4o-09O" firstAttribute="bottom" secondItem="67o-V0-V6m" secondAttribute="bottom" id="Khc-kt-kQZ"/>
+                            <constraint firstItem="VAN-Ul-0Dz" firstAttribute="top" secondItem="3k8-4o-09O" secondAttribute="top" id="Vku-WT-DjU"/>
+                            <constraint firstItem="67o-V0-V6m" firstAttribute="leading" secondItem="3k8-4o-09O" secondAttribute="leading" id="hOu-t5-ku5"/>
+                            <constraint firstItem="67o-V0-V6m" firstAttribute="top" secondItem="3k8-4o-09O" secondAttribute="top" id="tgV-EJ-GdP"/>
+                            <constraint firstItem="VAN-Ul-0Dz" firstAttribute="leading" secondItem="3k8-4o-09O" secondAttribute="leading" id="uUB-MQ-ur9"/>
+                            <constraint firstItem="3k8-4o-09O" firstAttribute="trailing" secondItem="67o-V0-V6m" secondAttribute="trailing" id="xbd-Yz-Xpx"/>
+                            <constraint firstItem="3k8-4o-09O" firstAttribute="trailing" secondItem="VAN-Ul-0Dz" secondAttribute="trailing" id="yO3-b9-Zwe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noLogView" destination="VAN-Ul-0Dz" id="JNu-6V-h31"/>
+                        <outlet property="tableView" destination="67o-V0-V6m" id="O7k-9G-xaB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h7u-Mq-afx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.37681159420291" y="45.535714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="no_image" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
