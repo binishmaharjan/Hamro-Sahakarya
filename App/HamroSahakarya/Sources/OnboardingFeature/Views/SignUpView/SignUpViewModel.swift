@@ -90,10 +90,12 @@ public struct SignUpViewModel {
             observer.onNext(.statusLabelTapped)
         }
     }
-    
-    
+
     // MARK: Init
-    public init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
+    public init(
+        userSessionRepository: UserSessionRepository,
+        signedInResponder: SignedInResponder
+    ) {
         self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
         

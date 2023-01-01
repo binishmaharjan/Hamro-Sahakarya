@@ -1,26 +1,21 @@
-//
-//  HomeMainViewController.swift
-//  Project_For_Binod
-//
-//  Created by Maharjan Binish on 2020/04/25.
-//  Copyright © 2020 JEC. All rights reserved.
-//
-
-import UIKit
+import AppUI
 import RxSwift
+import UIKit
 
-protocol AssociatedHomeView {
+public protocol AssociatedHomeView {
     func getAssociateView() -> HomeView
 }
 
-final class HomeMainViewController: NiblessNavigationController {
-    
+public final class HomeMainViewController: NibLessNavigationController {
     // MARK: Properties
     private let viewModel: HomeMainViewModelProtocol
     private let disposeBag = DisposeBag()
     private let homeViewControllerFactory: HomeViewControllerFactory
     
-    init(viewModel: HomeMainViewModelProtocol, homeViewControllerFactory: HomeViewControllerFactory) {
+    public init(
+        viewModel: HomeMainViewModelProtocol,
+        homeViewControllerFactory: HomeViewControllerFactory
+    ) {
         self.viewModel = viewModel
         self.homeViewControllerFactory = homeViewControllerFactory
         super.init(rootViewController: homeViewControllerFactory.makeHomeViewController())
@@ -29,7 +24,7 @@ final class HomeMainViewController: NiblessNavigationController {
     }
     
     // MARK: Lifecycle
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         subscribe(to: viewModel.view)
     }
@@ -52,6 +47,7 @@ final class HomeMainViewController: NiblessNavigationController {
     
     private func respond(to navigationAction: HomeNavigationAction) {
         switch navigationAction {
+            
         case .present:
             break
         case .presented:
@@ -62,18 +58,17 @@ final class HomeMainViewController: NiblessNavigationController {
 
 // MARK: UINavigation Controller Delegate
 extension HomeMainViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        guard let shownView = homeView(assoiatedWith: viewController) else {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let shownView = homeView(associatedWith: viewController) else {
             return
         }
         
         viewModel.uiPresented(homeView: shownView)
     }
     
-    private func homeView(assoiatedWith viewController: UIViewController) -> HomeView? {
-        
+    private func homeView(associatedWith viewController: UIViewController) -> HomeView? {
         guard let viewController = viewController as? AssociatedHomeView else {
-            fatalError("ViewController doesnot have associated view")
+            fatalError("ViewController does not have associated view")
         }
         
         return viewController.getAssociateView()
