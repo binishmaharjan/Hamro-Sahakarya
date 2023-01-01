@@ -1,6 +1,6 @@
 import UIKit
 
-public class KeyboardObservingViewController: UIViewController {
+open class KeyboardObservingViewController: UIViewController {
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!
 
     public override func viewWillAppear(_ animated: Bool) {

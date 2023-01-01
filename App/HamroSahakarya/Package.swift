@@ -14,6 +14,7 @@ let package = Package(
         .library(name: "AppUI", targets: ["AppUI"]),
         .library(name: "DataSource", targets: ["DataSource"]),
         .library(name: "Core", targets: ["Core"]),
+        .library(name: "OnboardingFeature", targets: ["OnboardingFeature"])
     ],
     dependencies: [
         .package(url: "https://github.com/kean/Nuke", exact: "11.5.1"),
@@ -79,6 +80,16 @@ let package = Package(
             ],
             resources: [
                 .process("Resources"),
+            ]
+        ),
+        // SignInFeature
+        .target(
+            name: "OnboardingFeature",
+            dependencies: [
+                "AppUI",
+                "DataSource",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
             ]
         )
     ]
