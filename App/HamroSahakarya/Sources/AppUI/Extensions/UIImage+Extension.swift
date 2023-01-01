@@ -5,7 +5,7 @@ import UIKit
 
 // MARK: - Nuke
 extension ImageLoadingOptions {
-    static let `default` = ImageLoadingOptions(
+    public static let `default` = ImageLoadingOptions(
         placeholder: nil,
         transition: .fadeIn(duration: 0.2),
         failureImage: nil
@@ -16,7 +16,7 @@ extension UIImageView {
     /// 画像を非同期で読み込む
     /// request が nil なら即時 image に failureImage をセットして処理を終える
     /// すでに別の画像を読み込んでいる場合は読み込みがキャンセルされる
-    func loadImage(
+    public func loadImage(
         with request: ImageRequest?,
         options: ImageLoadingOptions = .default,
         _ completion: ((Result<ImageResponse, ImagePipeline.Error>) -> Void)? = nil
@@ -33,7 +33,7 @@ extension UIImageView {
     /// URL 文字列の指す画像を非同期で読み込む
     /// 文字列が nil なら即時 image に failureImage をセットして処理を終える
     /// すでに別の画像を読み込んでいる場合は読み込みがキャンセルされる
-    func loadImage(
+    public func loadImage(
         with url: URL?,
         options: ImageLoadingOptions = .default,
         completion: ((Result<ImageResponse, ImagePipeline.Error>) -> Void)? = nil

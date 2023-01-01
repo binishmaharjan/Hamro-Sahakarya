@@ -1,8 +1,21 @@
-//
-//  File.swift
-//  
-//
-//  Created by Maharjan Binish on 2023/01/01.
-//
-
 import Foundation
+
+public protocol NotSignedInResponder {
+    func notSignedIn()
+}
+
+// TODO: ProfileMainDependencyContainer
+public protocol ProfileViewControllerFactory {
+    func makeChangePictureViewController() -> ChangePictureViewController
+    func makeMembersViewController() -> MembersViewController
+    func makeChangePasswordViewController() -> ChangePasswordViewController
+    func makeChangeMemberStatusViewController() -> ChangeMemberStatusViewController
+    func makeAddMonthlyFeeViewController() -> AddMonthlyFeeViewController
+    func makeExtranAndExpensesViewController() -> ExtraAndExpensesViewController
+    func makeLoanMemberViewController() -> LoanMemberViewController
+    func makeLoanReturnedViewController() -> LoanReturnedViewController
+    func makeRemoveMemberViewController() -> RemoveMemberViewController
+    func makeTermsAndConditionViewController() -> TermsAndConditionViewController
+    func makeAddOrDeductAmountViewController() -> AddOrDeductAmountViewController
+    func makeUpdateNoticeViewController() -> UpdateNoticeViewController
+}

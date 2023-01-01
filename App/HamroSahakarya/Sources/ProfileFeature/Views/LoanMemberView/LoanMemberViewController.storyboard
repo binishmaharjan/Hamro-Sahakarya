@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WeR-nF-Hc4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan Member View Controller-->
+        <scene sceneID="k18-uj-7rF">
+            <objects>
+                <viewController storyboardIdentifier="LoanMemberViewController" id="WeR-nF-Hc4" customClass="LoanMemberViewController" customModule="ProfileFeature" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FXt-io-Ga1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MvR-9S-Yrj">
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5TT-EA-A4C" userLabel="Amount View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Loan Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-yn-rxx">
+                                                <rect key="frame" x="20" y="21.5" width="374" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="xjh-Bj-4C8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xu-2K-EwQ">
+                                                <rect key="frame" x="20" y="2" width="84" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="0.93725490199999995" green="0.36470588240000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="0Xu-2K-EwQ" firstAttribute="top" secondItem="5TT-EA-A4C" secondAttribute="top" constant="2" id="9MJ-UZ-L8h"/>
+                                            <constraint firstItem="9eg-yn-rxx" firstAttribute="leading" secondItem="5TT-EA-A4C" secondAttribute="leading" constant="20" id="I8f-1D-AzY"/>
+                                            <constraint firstAttribute="trailing" secondItem="9eg-yn-rxx" secondAttribute="trailing" constant="20" id="Paa-m2-nvM"/>
+                                            <constraint firstAttribute="height" constant="70" id="YJG-fI-gU1"/>
+                                            <constraint firstItem="9eg-yn-rxx" firstAttribute="top" secondItem="0Xu-2K-EwQ" secondAttribute="bottom" constant="5" id="hRb-rT-kMM"/>
+                                            <constraint firstItem="0Xu-2K-EwQ" firstAttribute="leading" secondItem="5TT-EA-A4C" secondAttribute="leading" constant="20" id="orz-yv-Ig7"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDU-j5-huF">
+                                        <rect key="frame" x="0.0" y="70" width="414" height="744"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JCg-i4-bAO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MvR-9S-Yrj" firstAttribute="top" secondItem="JCg-i4-bAO" secondAttribute="top" id="80s-UH-c2L"/>
+                            <constraint firstItem="JCg-i4-bAO" firstAttribute="trailing" secondItem="MvR-9S-Yrj" secondAttribute="trailing" id="Sbd-PW-ynf"/>
+                            <constraint firstItem="JCg-i4-bAO" firstAttribute="bottom" secondItem="MvR-9S-Yrj" secondAttribute="bottom" id="ivq-2P-ON9"/>
+                            <constraint firstItem="MvR-9S-Yrj" firstAttribute="leading" secondItem="JCg-i4-bAO" secondAttribute="leading" id="izc-rC-5ah"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loanAmountTextField" destination="9eg-yn-rxx" id="c6w-Ly-MCl"/>
+                        <outlet property="tableView" destination="aDU-j5-huF" id="yje-El-Rnv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKz-OT-Og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250" y="46"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

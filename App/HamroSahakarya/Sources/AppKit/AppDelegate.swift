@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 open class AppDelegate: NSObject, UIApplicationDelegate {
-
     public override init() {
         // Initializer
     }
