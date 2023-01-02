@@ -22,7 +22,7 @@ extension UITableView {
 extension UICollectionView {
     public func registerXib<T: UICollectionViewCell>(of cellClass: T.Type, bundle: Bundle) {
         let className = cellClass.className
-        let nib: UINib? = UINib(nibName: className, bundle: Bundle(for: cellClass))
+        let nib: UINib? = UINib(nibName: className, bundle: bundle)
         register(nib, forCellWithReuseIdentifier: className)
     }
 

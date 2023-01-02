@@ -7,7 +7,7 @@ public final class LaunchRootView: UIView {
     
     // MARK: Methods
     static func makeInstance(viewModel: LaunchViewModel) -> LaunchRootView {
-        let rootView = LaunchRootView.loadXib(bundle: .module)
+        let rootView = LaunchRootView.loadXib(bundle: Bundle.module)
         rootView.viewModel = viewModel
         return rootView
     }
