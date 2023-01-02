@@ -34,7 +34,7 @@ public final class LoanReturnedViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerXib(of: MemberWithLoanCell.self)
+        tableView.registerXib(of: MemberWithLoanCell.self, bundle: .module)
     }
     
     private func setupBarButton() {

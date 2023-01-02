@@ -18,7 +18,7 @@ public final class ProfileViewController: UIViewController {
         
         bindState()
         
-        tableView.registerXib(of: ProfileTopCell.self)
+        tableView.registerXib(of: ProfileTopCell.self, bundle: .module)
         
         tableView.delegate = self
         tableView.dataSource = self

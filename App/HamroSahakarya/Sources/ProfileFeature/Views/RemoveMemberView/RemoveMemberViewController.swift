@@ -33,7 +33,7 @@ public final class RemoveMemberViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerXib(of: MembersCell.self)
+        tableView.registerXib(of: MembersCell.self, bundle: .module)
     }
     
     private func setupBarButton() {

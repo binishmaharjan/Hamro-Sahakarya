@@ -34,7 +34,7 @@ public final class LoanMemberViewController: UIViewController {
     private func setup() {
         title = "Loan Member"
         
-        tableView.registerXib(of: MembersCell.self)
+        tableView.registerXib(of: MembersCell.self, bundle: .module)
         tableView.delegate = self
         tableView.dataSource = self
     }

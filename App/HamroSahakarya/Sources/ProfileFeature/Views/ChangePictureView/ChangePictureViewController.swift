@@ -22,7 +22,7 @@ public final class ChangePictureViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerXib(of: PhotoCell.self)
+        collectionView.registerXib(of: PhotoCell.self, bundle: .module)
 
         setupBarButton()
     }

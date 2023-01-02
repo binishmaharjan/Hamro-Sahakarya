@@ -43,7 +43,7 @@ public final class AddOrDeductAmountViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.registerXib(of: MembersCell.self)
+        tableView.registerXib(of: MembersCell.self, bundle: .module)
         tableView.delegate = self
         tableView.dataSource = self
     }

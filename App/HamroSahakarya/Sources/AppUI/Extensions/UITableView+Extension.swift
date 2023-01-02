@@ -2,9 +2,9 @@ import Core
 import UIKit
 
 extension UITableView {
-    public func registerXib<T: UITableViewCell>(of cellClass: T.Type) {
+    public func registerXib<T: UITableViewCell>(of cellClass: T.Type, bundle: Bundle) {
         let className = cellClass.className
-        let nib: UINib? = UINib(nibName: className, bundle: Bundle(for: cellClass))
+        let nib: UINib? = UINib(nibName: className, bundle: bundle)
         register(nib, forCellReuseIdentifier: className)
     }
 
@@ -20,7 +20,7 @@ extension UITableView {
 
 // MARK: Collection View
 extension UICollectionView {
-    public func registerXib<T: UICollectionViewCell>(of cellClass: T.Type) {
+    public func registerXib<T: UICollectionViewCell>(of cellClass: T.Type, bundle: Bundle) {
         let className = cellClass.className
         let nib: UINib? = UINib(nibName: className, bundle: Bundle(for: cellClass))
         register(nib, forCellWithReuseIdentifier: className)

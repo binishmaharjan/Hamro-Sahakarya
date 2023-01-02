@@ -19,7 +19,7 @@ public final class LogViewController: UIViewController {
         bindApiState()
         setupBarButton()
         
-        tableView.registerXib(of: LogViewCell.self)
+        tableView.registerXib(of: LogViewCell.self, bundle: .module)
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.fetchLogs(isRefresh: false)

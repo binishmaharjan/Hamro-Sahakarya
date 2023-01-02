@@ -27,7 +27,7 @@ public final class MembersViewController: UIViewController {
     private func setup() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerXib(of: MembersCell.self)
+        tableView.registerXib(of: MembersCell.self, bundle: .module)
         
         title = "Members"
     }
