@@ -151,7 +151,7 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-oy-Nch" userLabel="Confrim" customClass="MainOrangeButton" customModule="HamroSahakarya" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-oy-Nch" userLabel="Confrim" customClass="MainOrangeButton" customModule="AppUI">
                                         <rect key="frame" x="0.0" y="380.5" width="315" height="40"/>
                                         <color key="backgroundColor" name="cEF5D0B"/>
                                         <constraints>
