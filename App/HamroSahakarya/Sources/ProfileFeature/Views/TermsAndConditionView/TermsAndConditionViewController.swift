@@ -61,7 +61,7 @@ private extension TermsAndConditionViewController {
 // MARK: Storyboard Instantiable
 extension TermsAndConditionViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: TermsAndConditionViewModelProtocol) -> TermsAndConditionViewController {
-        let viewController = TermsAndConditionViewController.loadFromStoryboard()
+        let viewController = TermsAndConditionViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -144,7 +144,7 @@ public final class ChangePictureViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension ChangePictureViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ChangePictureViewModel) -> ChangePictureViewController {
-        let viewController = ChangePictureViewController.loadFromStoryboard()
+        let viewController = ChangePictureViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

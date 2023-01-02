@@ -183,7 +183,7 @@ extension SignUpViewController: StoryboardInstantiable {
         viewModelFactory: SignUpViewModelFactory,
         colorPickerFactory: ColorPickerViewControllerFactory
     ) -> SignUpViewController {
-        let viewController = loadFromStoryboard()
+        let viewController = loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModelFactory.makeSignUpViewModel()
         viewController.colorPickerFactory = colorPickerFactory
 

@@ -250,7 +250,7 @@ extension HomeViewController: StoryboardInstantiable {
         viewModel: HomeViewModelProtocol,
         homeContentViewFactory: HomeContentViewFactory
     ) -> HomeViewController {
-        let viewController = loadFromStoryboard()
+        let viewController = loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         viewController.homeContentViewFactory = homeContentViewFactory
         return viewController

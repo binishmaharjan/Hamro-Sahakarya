@@ -28,7 +28,7 @@ public final class XibProgressHUD: XibProgressHUDType {
 
     // MARK: Instance
     public static func makeInstance() -> XibProgressHUD {
-        let progressHud = XibProgressHUD.loadXib()
+        let progressHud = XibProgressHUD.loadXib(bundle: .module)
         return progressHud
     }
 

@@ -55,7 +55,7 @@ extension PreviewImageView: UIScrollViewDelegate {
 
 extension PreviewImageView: HasXib {
     public static func makeInstance(with image: UIImage?) -> PreviewImageView {
-        let previewImageView = PreviewImageView.loadXib()
+        let previewImageView = PreviewImageView.loadXib(bundle: .module)
         previewImageView.imageView.image = image
         previewImageView.scrollView.delegate = previewImageView
         return previewImageView

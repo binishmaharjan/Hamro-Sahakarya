@@ -103,7 +103,7 @@ extension AddMonthlyFeeViewController {
 // MARK: Storyboard Instantiable
 extension AddMonthlyFeeViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: AddMonthlyFeeViewModel) -> AddMonthlyFeeViewController {
-        let viewController = AddMonthlyFeeViewController.loadFromStoryboard()
+        let viewController = AddMonthlyFeeViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

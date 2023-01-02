@@ -55,7 +55,7 @@ public final class SignInViewController: KeyboardObservingViewController {
 // MARK: Storyboard Instantiable
 extension SignInViewController: StoryboardInstantiable {
     public static func makeInstance(viewModelFactory: SignInViewModelFactory) -> SignInViewController {
-        let viewController = loadFromStoryboard()
+        let viewController = loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModelFactory.makeSignInViewModel()
         return viewController
     }

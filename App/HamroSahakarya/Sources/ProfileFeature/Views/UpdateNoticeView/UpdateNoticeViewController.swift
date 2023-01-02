@@ -37,7 +37,7 @@ extension UpdateNoticeViewController {
 // MARK: Storyboard Instantiable
 extension UpdateNoticeViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: UpdateNoticeViewModelProtocol) -> UpdateNoticeViewController {
-        let viewController = UpdateNoticeViewController.loadFromStoryboard()
+        let viewController = UpdateNoticeViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

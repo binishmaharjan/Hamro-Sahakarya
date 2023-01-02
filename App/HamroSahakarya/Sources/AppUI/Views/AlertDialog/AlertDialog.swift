@@ -73,7 +73,7 @@ public final class AlertDialog: UIView {
 // MARK: Storyboard Instantiable
 extension AlertDialog: HasXib {
     public static func makeInstance(factory: AlertFactory, handler: CompletionHandler? = nil ) -> AlertDialog {
-        let alert = AlertDialog.loadXib()
+        let alert = AlertDialog.loadXib(bundle: .module)
         alert.completionHandler = handler
         alert.setupForAlertButton(for: factory)
 

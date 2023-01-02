@@ -34,7 +34,7 @@ public final class NoticeView: UIView {
 //MARK: Xib Instantiable
 extension NoticeView: HasXib {
     public static func makeInstance(viewModel: NoticeViewModelProtocol) -> NoticeView {
-        let noticeView = NoticeView.loadXib()
+        let noticeView = NoticeView.loadXib(bundle: .module)
         noticeView.viewModel = viewModel
         return noticeView
     }

@@ -34,7 +34,7 @@ public final class ProfileFooterView: UIView {
 // MARK: Instance
 extension ProfileFooterView: HasXib {
     public static func makeInstance() -> ProfileFooterView {
-        let footerView = ProfileFooterView.loadXib()
+        let footerView = ProfileFooterView.loadXib(bundle: .module)
         return footerView
     }
 }

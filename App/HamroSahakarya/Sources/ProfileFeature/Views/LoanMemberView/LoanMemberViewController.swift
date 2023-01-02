@@ -52,7 +52,7 @@ public final class LoanMemberViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension LoanMemberViewController: StoryboardInstantiable {
     public static func  makeInstance(viewModel: LoanMemberViewModelProtocol) -> LoanMemberViewController {
-        let viewController = LoanMemberViewController.loadFromStoryboard()
+        let viewController = LoanMemberViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

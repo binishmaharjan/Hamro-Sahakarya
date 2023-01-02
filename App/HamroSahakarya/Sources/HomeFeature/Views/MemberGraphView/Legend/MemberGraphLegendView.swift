@@ -43,7 +43,7 @@ public final class MemberGraphLegendView: UIView {
 // MARK: Xib Instantiable
 extension MemberGraphLegendView: HasXib {
     public static func makeInstance(userProfile: UserProfile, isSelf: Bool) -> MemberGraphLegendView {
-        let legendView = MemberGraphLegendView.loadXib()
+        let legendView = MemberGraphLegendView.loadXib(bundle: .module)
         legendView.userProfile = userProfile
         legendView.isSelf = isSelf
         legendView.setup()

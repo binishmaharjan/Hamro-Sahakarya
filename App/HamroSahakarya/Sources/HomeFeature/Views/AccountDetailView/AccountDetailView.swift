@@ -82,7 +82,7 @@ public final class AccountDetailView: UIView {
 extension AccountDetailView: HasXib {
     
     public static func makeInstance(viewModel: AccountDetailViewModelProtocol) -> AccountDetailView {
-        let view = AccountDetailView.loadXib()
+        let view = AccountDetailView.loadXib(bundle: .module)
         view.viewModel = viewModel
         return view
     }

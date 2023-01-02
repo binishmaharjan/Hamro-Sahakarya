@@ -59,7 +59,7 @@ extension MembersViewController {
 // MARK: StoryboardInstantiable
 extension MembersViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: MembersViewModel) -> MembersViewController {
-        let viewController = MembersViewController.loadFromStoryboard()
+        let viewController = MembersViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

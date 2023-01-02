@@ -99,7 +99,7 @@ extension RemoveMemberViewController {
 // MARK: Storyboard Instantiable
 extension RemoveMemberViewController: StoryboardInstantiable {
     public  static func makeInstance(viewModel: RemoveMemberViewModelProtocol) -> RemoveMemberViewController {
-        let viewController = RemoveMemberViewController.loadFromStoryboard()
+        let viewController = RemoveMemberViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

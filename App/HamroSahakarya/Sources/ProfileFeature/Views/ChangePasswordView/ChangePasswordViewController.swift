@@ -80,7 +80,7 @@ extension ChangePasswordViewController {
 // MARK: Storyboard Instantiable
 extension ChangePasswordViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ChangePasswordViewModel) -> ChangePasswordViewController {
-        let viewController = ChangePasswordViewController.loadFromStoryboard()
+        let viewController = ChangePasswordViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

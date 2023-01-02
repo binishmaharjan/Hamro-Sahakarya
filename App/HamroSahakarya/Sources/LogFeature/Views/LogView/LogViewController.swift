@@ -78,7 +78,7 @@ extension LogViewController {
 // MARK: Storyboard Instantiable
 extension LogViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: LogViewModel) -> LogViewController {
-        let viewController = LogViewController.loadFromStoryboard()
+        let viewController = LogViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         viewController.setup()
         return viewController

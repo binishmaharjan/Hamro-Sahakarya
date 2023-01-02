@@ -44,7 +44,7 @@ public final class ColorPickerViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension ColorPickerViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ColorPaletteViewModelProtocol) -> ColorPickerViewController {
-        let viewController = loadFromStoryboard()
+        let viewController = loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

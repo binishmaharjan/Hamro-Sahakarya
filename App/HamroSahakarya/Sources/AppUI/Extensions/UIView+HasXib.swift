@@ -7,8 +7,8 @@ extension HasXib where Self: UIView {
         return String(describing: Self.self)
     }
     
-    public static func loadXib() -> Self {
-        let nib = UINib(nibName: xibName, bundle: Bundle.module)
+    public static func loadXib(bundle: Bundle) -> Self {
+        let nib = UINib(nibName: xibName, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil).first as! Self
         return view
     }

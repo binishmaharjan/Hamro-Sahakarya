@@ -69,7 +69,7 @@ public final class ExtraAndExpensesViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension ExtraAndExpensesViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ExtraAndExpensesViewModel) -> ExtraAndExpensesViewController {
-        let viewController = ExtraAndExpensesViewController.loadFromStoryboard()
+        let viewController = ExtraAndExpensesViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

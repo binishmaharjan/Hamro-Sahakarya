@@ -50,7 +50,7 @@ public final class LoanReturnedViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension LoanReturnedViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: LoanReturnedViewModelProtocol) -> LoanReturnedViewController {
-        let viewController = LoanReturnedViewController.loadFromStoryboard()
+        let viewController = LoanReturnedViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

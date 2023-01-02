@@ -50,7 +50,7 @@ extension ProfileViewController {
 // MARK: Storyboard Instantiable
 extension ProfileViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ProfileViewModel) -> ProfileViewController {
-        let viewController = loadFromStoryboard()
+        let viewController = loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

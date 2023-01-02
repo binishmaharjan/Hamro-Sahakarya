@@ -86,7 +86,7 @@ extension MemberGraphView {
 //MARK: Xib Instantiable
 extension MemberGraphView: HasXib {
     public static func makeInstance(viewModel: MemberGraphViewModelProtocol) -> MemberGraphView {
-        let graphView = MemberGraphView.loadXib()
+        let graphView = MemberGraphView.loadXib(bundle: .module)
         graphView.viewModel = viewModel
         return graphView
     }

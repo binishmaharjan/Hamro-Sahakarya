@@ -60,7 +60,7 @@ extension ChangeMemberStatusViewController {
 // MARK: Storyboard Instantiable
 extension ChangeMemberStatusViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: ChangeMemberStatusViewModel) -> ChangeMemberStatusViewController {
-        let viewController = ChangeMemberStatusViewController.loadFromStoryboard()
+        let viewController = ChangeMemberStatusViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }

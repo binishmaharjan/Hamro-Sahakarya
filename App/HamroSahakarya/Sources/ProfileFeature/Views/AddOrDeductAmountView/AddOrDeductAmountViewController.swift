@@ -89,7 +89,7 @@ public final class AddOrDeductAmountViewController: UIViewController {
 // MARK: Storyboard Instantiable
 extension AddOrDeductAmountViewController: StoryboardInstantiable {
     public static func makeInstance(viewModel: AddOrDeductAmountViewModelProtocol) -> AddOrDeductAmountViewController {
-        let viewController = AddOrDeductAmountViewController.loadFromStoryboard()
+        let viewController = AddOrDeductAmountViewController.loadFromStoryboard(bundle: .module)
         viewController.viewModel = viewModel
         return viewController
     }
