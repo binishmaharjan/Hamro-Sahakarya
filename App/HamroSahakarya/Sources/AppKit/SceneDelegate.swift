@@ -36,27 +36,17 @@ open class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     private func setupFirebaseServer(){
-      var firebasePlistName = ""
-
-//      if IS_DEBUG {
-        firebasePlistName = "GoogleService-Info-dev"
-//      } else {
-//        firebasePlistName = "GoogleService-Info"
-//      }
-      if let path = Bundle.main.path(forResource: firebasePlistName, ofType: "plist"), let firebaseOptions = FirebaseOptions(contentsOfFile: path) {
-        FirebaseApp.configure(options: firebaseOptions)
-      }
-
-      //Setup Session user
-      self.setupSessionUser()
+        FirebaseApp.configure()
+        // Setup Session user
+        self.setupSessionUser()
     }
 
     private func setupSessionUser(){
-  //    guard let uid = HSSessionManager.shared.uid
-  //      else {
-  //        Dlog("NO USER LOGGED IN")
-  //        return
-  //    }
-  //      HSSessionManager.shared.userLoggedIn(uid: uid)
+        //    guard let uid = HSSessionManager.shared.uid
+        //      else {
+        //        Dlog("NO USER LOGGED IN")
+        //        return
+        //    }
+        //      HSSessionManager.shared.userLoggedIn(uid: uid)
     }
 }

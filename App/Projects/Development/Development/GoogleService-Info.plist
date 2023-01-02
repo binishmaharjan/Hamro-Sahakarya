@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1023271032091-m4ho4vi892i1u416k6l5pd2vt41ntkeb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1023271032091-m4ho4vi892i1u416k6l5pd2vt41ntkeb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCBmBdSSnDkiJLiT3lj8S2xzwuk8gJ5qQo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1023271032091</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.ac.jec.17cm.Project-For-Binod-dev</string>
+	<key>PROJECT_ID</key>
+	<string>hamrosahakrya-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hamrosahakrya-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1023271032091:ios:2884102a64716844</string>
+	<key>DATABASE_URL</key>
+	<string>https://hamrosahakrya-dev.firebaseio.com</string>
+</dict>
+</plist>
