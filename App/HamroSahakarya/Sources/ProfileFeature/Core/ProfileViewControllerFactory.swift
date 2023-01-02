@@ -1,10 +1,5 @@
 import Foundation
 
-public protocol NotSignedInResponder {
-    func notSignedIn()
-}
-
-// TODO: ProfileMainDependencyContainer
 public protocol ProfileViewControllerFactory {
     func makeChangePictureViewController() -> ChangePictureViewController
     func makeMembersViewController() -> MembersViewController

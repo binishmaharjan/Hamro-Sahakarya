@@ -46,7 +46,12 @@ let package = Package(
         .target(
             name: "AppFeature",
             dependencies: [
-                "AppUI"
+                "AppUI",
+                "DataSource",
+                "OnboardingFeature",
+                "SignedInFeature",
+                .product(name: "RxCocoa", package: "RxSwift"),
+                .product(name: "RxSwift", package: "RxSwift"),
             ]
         ),
         // DataSource

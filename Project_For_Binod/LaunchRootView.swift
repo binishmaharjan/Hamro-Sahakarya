@@ -28,7 +28,6 @@ final class LaunchRootView: UIView {
   private func loadUserSession() {
     viewModel.loadUserSession()
   }
-  
 }
 
 // MARK: Has Associated Xib File
