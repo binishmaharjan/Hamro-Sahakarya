@@ -27,6 +27,7 @@ let package = Package(
         .package(url: "https://github.com/ReactiveX/RxSwift", exact: "6.5.0"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.3.0"),
         .package(url: "https://github.com/alickbass/CodableFirebase", branch: "master"),
+//        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", exact: "6.6.1"),
     ],
     targets: [
         // AppKit
@@ -92,6 +93,9 @@ let package = Package(
             ],
             resources: [
                 .process("Resources"),
+            ],
+            plugins: [
+//                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin"),
             ]
         ),
         // OnboardingFeature

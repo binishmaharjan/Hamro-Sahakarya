@@ -1,3 +1,4 @@
+import AppUI
 import Core
 import UIKit
 
@@ -24,7 +25,7 @@ public final class MembersCell: UITableViewCell {
     public func makeAllCell() {
         memberNameLabel.text = "All"
         memberStatusLabel.text = "Status: -"
-        memberImageView.image = UIImage(named: "hamro_sahakarya")
+        memberImageView.image = Asset.hamroSahakarya.image
     }
 }
 

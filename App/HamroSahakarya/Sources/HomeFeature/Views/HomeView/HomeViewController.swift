@@ -226,19 +226,28 @@ extension HomeViewController {
                 this.homeContentScrollView.contentOffset.x = this.homeContentViewSize * CGFloat(contentView.index)
                 
                 this.accountDetailButtonArea.backgroundColor = (contentView == HomeContentView.accountDetail) ? .mainOrange : .white
-                this.accountDetailButton.setImage((contentView == HomeContentView.accountDetail) ?
-                                                  UIImage(named: "icon_account_selected") :
-                                                    UIImage(named: "icon_account_unselected") , for: .normal)
+                this.accountDetailButton.setImage(
+                    (contentView == HomeContentView.accountDetail)
+                    ? Asset.iconAccountSelected.image
+                    : Asset.iconAccountUnselected.image,
+                    for: .normal
+                )
                 
                 this.memberGraphButtonArea.backgroundColor = (contentView == HomeContentView.memberGraph) ? .mainOrange : .white
-                this.memberGraphButton.setImage((contentView == HomeContentView.memberGraph) ?
-                                                UIImage(named: "icon_graph_selected") :
-                                                    UIImage(named: "icon_graph_unselected") , for: .normal)
+                this.memberGraphButton.setImage(
+                    (contentView == HomeContentView.memberGraph)
+                    ? Asset.iconGraphSelected.image
+                    : Asset.iconGraphUnselected.image,
+                    for: .normal
+                )
                 
                 this.noticeButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
-                this.noticeButton.setImage((contentView == HomeContentView.notice) ?
-                                           UIImage(named: "icon_notice_selected") :
-                                            UIImage(named: "icon_notice_unselected") , for: .normal)
+                this.noticeButton.setImage(
+                    (contentView == HomeContentView.memberGraph)
+                    ? Asset.iconNoticeSelected.image
+                    : Asset.iconNoticeUnselected.image,
+                    for: .normal
+                )
                 
             }.disposed(by: disposeBag)
     }
