@@ -39,6 +39,10 @@ public final class MainViewController: NibLessViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         observeVieModal()
     }
     

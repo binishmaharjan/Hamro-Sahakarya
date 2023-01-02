@@ -12,7 +12,7 @@ open class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-//        setupFirebaseServer()
+        setupFirebaseServer()
 
         let window = UIWindow(windowScene: windowScene)
         let mainController = injectionContainer.makeMainViewController()
