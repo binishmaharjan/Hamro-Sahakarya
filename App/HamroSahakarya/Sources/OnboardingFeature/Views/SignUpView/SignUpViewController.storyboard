@@ -356,7 +356,7 @@
                         <outlet property="fullNameTextField" destination="dCP-lk-ImL" id="DWM-fT-jqd"/>
                         <outlet property="initialAmountTextField" destination="z9X-lw-TTA" id="tVb-QG-ZDL"/>
                         <outlet property="passwordTextField" destination="lsg-Wd-wRC" id="5Jf-bT-7N4"/>
-                        <outlet property="scrollViewBottomContraints" destination="DGb-Ce-BXH" id="o9P-Ma-JfD"/>
+                        <outlet property="scrollViewBottomConstraints" destination="DGb-Ce-BXH" id="Tbj-A0-kbN"/>
                         <outlet property="signUpButton" destination="8Ug-XE-JaP" id="t9Y-vX-IIX"/>
                         <outlet property="statusLabel" destination="PPi-md-6QX" id="spe-aO-o8C"/>
                     </connections>

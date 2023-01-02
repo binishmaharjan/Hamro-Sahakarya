@@ -178,7 +178,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="IFQ-3a-hX9" id="fiC-a7-bxD"/>
                         <outlet property="passwordTextField" destination="p9e-8Q-kOC" id="g82-9h-iGC"/>
-                        <outlet property="scrollViewBottomContraints" destination="JhR-5C-OEO" id="kNd-9d-myw"/>
+                        <outlet property="scrollViewBottomConstraints" destination="JhR-5C-OEO" id="43p-md-7GA"/>
                         <outlet property="signInButton" destination="MFc-v1-Ofj" id="Wkx-WS-tTi"/>
                     </connections>
                 </viewController>
