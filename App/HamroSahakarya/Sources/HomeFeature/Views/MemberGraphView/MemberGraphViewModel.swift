@@ -32,7 +32,7 @@ public struct MemberGraphViewModel: MemberGraphViewModelProtocol {
         self.userSession = userSession
         
         pieChartColorSet = allMembers.map { (allMembers) -> [NSUIColor] in
-            return allMembers.map { UIColor(hex: $0.colorHex) as! NSUIColor }
+            return allMembers.map { UIColor(hex: $0.colorHex)! }
         }
         
         pieChartLabelSet = allMembers.map { (allMembers) -> [String] in

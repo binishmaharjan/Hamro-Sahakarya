@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="bottom" secondItem="qKX-8S-PgQ" secondAttribute="bottom" id="xoH-yg-cbH"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hec-Fs-Z8Q" customClass="ColorPalette" customModule="HamroSahakarya" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hec-Fs-Z8Q" customClass="ColorPalette" customModule="OnboardingFeature">
                                         <rect key="frame" x="16" y="56" width="283" height="283"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
