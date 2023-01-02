@@ -34,4 +34,6 @@ public final class ColorPaletteViewModel: ColorPaletteViewModelProtocol {
             observer.onNext(.cancelButtonTapped)
         }
     }
+
+    public init() {}
 }

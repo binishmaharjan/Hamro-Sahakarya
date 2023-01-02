@@ -6,7 +6,7 @@ import RxSwift
 public struct LaunchViewModel {
     // MARK: Properties
     private let userSessionRepository: UserSessionRepository
-    private let notSignedInReposonder: NotSignedInResponder
+    private let notSignedInResponder: NotSignedInResponder
     private let signedInResponder: SignedInResponder
     
     private var errorMessageSubject: PublishSubject<ErrorMessage> = PublishSubject()
@@ -19,12 +19,12 @@ public struct LaunchViewModel {
     // MARK: Init
     public init(
         userSessionRepository: UserSessionRepository,
-        notSignedInReposonder: NotSignedInResponder,
+        notSignedInResponder: NotSignedInResponder,
         signedInResponder: SignedInResponder
     ) {
         self.userSessionRepository = userSessionRepository
         self.signedInResponder = signedInResponder
-        self.notSignedInReposonder = notSignedInReposonder
+        self.notSignedInResponder = notSignedInResponder
     }
     
     // TODO: Change To Proper Error Message
@@ -54,7 +54,7 @@ public struct LaunchViewModel {
     public func goToNextScreen(userSession: UserSession?) {
         switch userSession {
         case .none:
-            notSignedInReposonder.notSignedIn()
+            notSignedInResponder.notSignedIn()
         case let .some(userSession):
             signedInResponder.signedIn(to: userSession)
         }

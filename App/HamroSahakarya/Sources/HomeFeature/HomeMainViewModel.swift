@@ -23,6 +23,8 @@ public struct HomeMainViewModel: HomeMainViewModelProtocol {
     public var view: Observable<HomeNavigationAction> {
         return _view.asObservable()
     }
+
+    public init() {}
     
     public func navigate(to view: HomeView) {
         _view.onNext(.present(view: view))

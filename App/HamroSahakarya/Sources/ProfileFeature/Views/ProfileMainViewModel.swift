@@ -14,6 +14,8 @@ public protocol ProfileMainViewModel {
 public struct DefaultProfileMainViewModel: ProfileMainViewModel {
     private let _view = BehaviorSubject<ProfileMainNavigationAction>(value: .present(view: .profileView))
     public var view: Observable<ProfileMainNavigationAction> { return _view.asObservable() }
+
+    public init() {}
 }
 
 extension DefaultProfileMainViewModel {

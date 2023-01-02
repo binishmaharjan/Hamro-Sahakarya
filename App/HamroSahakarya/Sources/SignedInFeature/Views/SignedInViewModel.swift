@@ -7,4 +7,6 @@ public struct SignedInViewModel {
     public var view: Observable<SignedInView> {
         return viewSubject.asObservable()
     }
+
+    public init() {}
 }

@@ -4,6 +4,7 @@ import UIKit
 
 open class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public final var window: UIWindow?
+    private let injectionContainer = AppDependencyContainer()
 
     public func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else {
@@ -11,7 +12,8 @@ open class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MainViewController()
+        let mainController = injectionContainer.makeMainViewController()
+        window.rootViewController = mainController
         self.window = window
         window.makeKeyAndVisible()
     }

@@ -143,12 +143,11 @@ public final class ChangePictureViewController: UIViewController {
 
 // MARK: Storyboard Instantiable
 extension ChangePictureViewController: StoryboardInstantiable {
-    static func makeInstance(viewModel: ChangePictureViewModel) -> ChangePictureViewController {
+    public static func makeInstance(viewModel: ChangePictureViewModel) -> ChangePictureViewController {
         let viewController = ChangePictureViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         return viewController
     }
-
 }
 
 // MARK: Collection View Delegate
