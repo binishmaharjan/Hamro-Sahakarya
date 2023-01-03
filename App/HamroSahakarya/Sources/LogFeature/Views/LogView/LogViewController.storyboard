@@ -61,6 +61,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="noLogImageView" destination="Ubu-8F-mpo" id="OSU-Jb-m4X"/>
                         <outlet property="noLogView" destination="VAN-Ul-0Dz" id="JNu-6V-h31"/>
                         <outlet property="tableView" destination="67o-V0-V6m" id="O7k-9G-xaB"/>
                     </connections>

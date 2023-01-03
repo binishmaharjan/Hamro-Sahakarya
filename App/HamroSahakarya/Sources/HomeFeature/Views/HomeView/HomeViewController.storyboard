@@ -470,17 +470,21 @@
                         <outlet property="accountDetailViewArea" destination="2Rv-db-jpq" id="Tan-0i-Nnk"/>
                         <outlet property="currentHomeContentViewSubTitleLabel" destination="xHM-ga-R5m" id="kaR-ga-XFO"/>
                         <outlet property="currentHomeContentViewTitleLabel" destination="1Lx-lI-ceh" id="vGT-Ug-18E"/>
+                        <outlet property="dateJoinedIcon" destination="Hb3-AD-I4Z" id="6nw-cW-Ft1"/>
                         <outlet property="dateJoinedLabel" destination="1mk-bX-1uX" id="7yc-ef-mPc"/>
                         <outlet property="emailLabel" destination="HSJ-89-tVc" id="8Q1-aq-svf"/>
                         <outlet property="homeContentScrollView" destination="eIz-Kw-AQE" id="pzY-qa-7wd"/>
+                        <outlet property="loanTakenIcon" destination="DKe-OK-aJY" id="eiL-PU-Vfa"/>
                         <outlet property="loanTakenLabel" destination="IVm-GX-9FS" id="xjh-6h-S0j"/>
                         <outlet property="memberGraphButton" destination="ULU-Kx-Ped" id="DFe-dL-yvy"/>
                         <outlet property="memberGraphButtonArea" destination="Qpa-H7-6BS" id="6Ll-vB-bzi"/>
                         <outlet property="memberGraphViewArea" destination="Hf1-tp-zfM" id="gr4-FD-rUB"/>
+                        <outlet property="myBalanceIcon" destination="e7S-EO-ByD" id="yqw-xF-MKn"/>
                         <outlet property="myBalanceLabel" destination="WCC-nA-ffF" id="OBh-A2-EqP"/>
                         <outlet property="noticeButton" destination="1Ia-iv-E0s" id="W8u-Ge-YNi"/>
                         <outlet property="noticeButtonArea" destination="VjR-yU-k5n" id="Gi0-nO-GYx"/>
                         <outlet property="noticeViewArea" destination="FLx-oZ-2ve" id="jBv-0f-p6Q"/>
+                        <outlet property="statusIcon" destination="1SB-Xk-QuJ" id="Gdg-zk-OEa"/>
                         <outlet property="statusLabel" destination="f7g-sp-BWO" id="WgD-cA-mQN"/>
                         <outlet property="usernameLabel" destination="BC5-aJ-jcj" id="BoF-xa-Nrm"/>
                     </connections>

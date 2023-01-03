@@ -12,7 +12,8 @@ public final class SignUpViewController: KeyboardObservingViewController {
     @IBOutlet private weak var colorView: UIView!
     @IBOutlet private weak var initialAmountTextField: UITextField!
     @IBOutlet private weak var signUpButton: UIButton!
-
+    @IBOutlet private weak var backButton: UIButton!
+    
     // MARK: Properties
     private var viewModel: SignUpViewModel!
     private let disposeBag = DisposeBag()
@@ -40,6 +41,10 @@ public final class SignUpViewController: KeyboardObservingViewController {
         // Dimiss Keyboard
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(signUpViewTapped))
         view.addGestureRecognizer(viewTapGesture)
+
+        // Back Button
+        backButton.setImage(Asset.iconBack.image, for: .normal)
+        backButton.setImage(Asset.iconBack.image.withTintColor(UIColor.mainBlack_50), for: .highlighted)
     }
 
     @objc private func colorViewTapped() {

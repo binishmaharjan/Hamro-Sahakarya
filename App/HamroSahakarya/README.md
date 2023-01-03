@@ -6,8 +6,7 @@ Main SourceCode of the App.
 - Core Depending on RxSwift Library
 - ViewModel Needing to import AppUI
 
-
 ## TODO = FIX
 - PhotoLibrary Permission
 - Cannot load images
-
+- Fix Console Warning for cannot load image in storyboard because image is in another module

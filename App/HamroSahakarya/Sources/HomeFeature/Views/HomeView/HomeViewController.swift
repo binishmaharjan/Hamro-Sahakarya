@@ -11,6 +11,10 @@ public final class HomeViewController: UIViewController {
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var myBalanceIcon: UIImageView!
+    @IBOutlet private weak var loanTakenIcon: UIImageView!
+    @IBOutlet private weak var dateJoinedIcon: UIImageView!
+    @IBOutlet private weak var statusIcon: UIImageView!
     
     @IBOutlet private weak var currentHomeContentViewTitleLabel: UILabel!
     @IBOutlet private weak var currentHomeContentViewSubTitleLabel: UILabel!
@@ -83,8 +87,16 @@ public final class HomeViewController: UIViewController {
 // MARK: Setup
 extension HomeViewController {
     private func setup() {
+        setupImage()
         setupHomeContentView()
         setupRefreshButton()
+    }
+
+    private func setupImage() {
+        myBalanceIcon.image = Asset.iconBalance.image
+        loanTakenIcon.image = Asset.iconLoanTaken.image
+        dateJoinedIcon.image = Asset.iconMemberSince.image
+        statusIcon.image = Asset.iconMemberSince.image
     }
     
     private func setupRefreshButton() {
@@ -243,7 +255,7 @@ extension HomeViewController {
                 
                 this.noticeButtonArea.backgroundColor = (contentView == HomeContentView.notice) ? .mainOrange : .white
                 this.noticeButton.setImage(
-                    (contentView == HomeContentView.memberGraph)
+                    (contentView == HomeContentView.notice)
                     ? Asset.iconNoticeSelected.image
                     : Asset.iconNoticeUnselected.image,
                     for: .normal

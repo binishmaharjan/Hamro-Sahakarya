@@ -29,6 +29,9 @@
                 <constraint firstItem="aan-v2-FMP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VA1-nj-Qws"/>
                 <constraint firstItem="aan-v2-FMP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bMi-OZ-cwm"/>
             </constraints>
+            <connections>
+                <outlet property="logoImageView" destination="aan-v2-FMP" id="beH-S8-WhR"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
         </view>
     </objects>

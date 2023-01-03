@@ -39,6 +39,8 @@ public final class MainViewController: NibLessViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        setup()
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +59,15 @@ public final class MainViewController: NibLessViewController {
             guard let self = self else { return }
             self.present(view)
         }).disposed(by: disposeBag)
+    }
+}
+
+// MARK: Setup
+extension MainViewController {
+    private func setup() {
+        view.backgroundColor = .white
+        // Calling present with launching because there is some time interval when view is presented
+        present(.launching)
     }
 }
 

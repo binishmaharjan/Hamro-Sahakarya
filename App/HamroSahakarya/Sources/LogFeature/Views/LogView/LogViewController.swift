@@ -8,6 +8,7 @@ public final class LogViewController: UIViewController {
     // MARK: IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var noLogView: UIView!
+    @IBOutlet private weak var noLogImageView: UIImageView!
     
     private var viewModel: LogViewModel!
     private let disposeBag = DisposeBag()
@@ -18,6 +19,7 @@ public final class LogViewController: UIViewController {
         super.viewDidLoad()
         bindApiState()
         setupBarButton()
+        setupNoLogImage()
         
         tableView.registerXib(of: LogViewCell.self, bundle: .module)
         tableView.delegate = self
@@ -37,6 +39,10 @@ public final class LogViewController: UIViewController {
     private func setupBarButton() {
         refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonPressed))
         navigationItem.rightBarButtonItem = refreshButton
+    }
+
+    private func setupNoLogImage() {
+        noLogImageView.image = Asset.noImage.image
     }
     
     @objc private func refreshButtonPressed() {

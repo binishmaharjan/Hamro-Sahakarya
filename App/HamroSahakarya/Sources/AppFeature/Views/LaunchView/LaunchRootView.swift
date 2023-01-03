@@ -2,6 +2,10 @@ import AppUI
 import UIKit
 
 public final class LaunchRootView: UIView {
+    //MARK: IBOutlets
+
+    @IBOutlet private weak var logoImageView: UIImageView!
+
     // MARK: Properties
     private var viewModel: LaunchViewModel!
     
@@ -11,6 +15,11 @@ public final class LaunchRootView: UIView {
         rootView.viewModel = viewModel
         return rootView
     }
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
     
     public override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -19,6 +28,13 @@ public final class LaunchRootView: UIView {
     
     private func loadUserSession() {
         viewModel.loadUserSession()
+    }
+}
+
+// MARK: Setup
+extension LaunchRootView {
+    private func setup() {
+        logoImageView.image = Asset.hamroSahakarya.image
     }
 }
 

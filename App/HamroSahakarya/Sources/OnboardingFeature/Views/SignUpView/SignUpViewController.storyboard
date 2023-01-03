@@ -351,6 +351,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="AxA-47-QJ5" id="kgL-XC-Sna"/>
                         <outlet property="colorView" destination="1bV-K0-JXL" id="cJw-pn-oYG"/>
                         <outlet property="emailTextField" destination="yPY-YO-5V7" id="yna-Ct-ROO"/>
                         <outlet property="fullNameTextField" destination="dCP-lk-ImL" id="DWM-fT-jqd"/>
