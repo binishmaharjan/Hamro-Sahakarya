@@ -10,3 +10,4 @@ Main SourceCode of the App.
 - PhotoLibrary Permission
 - Cannot load images
 - Fix Console Warning for cannot load image in storyboard because image is in another module
+- How to change display name for the app
