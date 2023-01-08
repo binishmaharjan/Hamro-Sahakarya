@@ -1,6 +1,5 @@
 import AppUI
 import Core
-import FirebaseAuth
 import RxCocoa
 import RxSwift
 import UIKit

@@ -103,7 +103,7 @@ let package = Package(
             name: "OnboardingFeature",
             dependencies: [
                 "AppUI",
-                "DataSource",
+                "Core",
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxSwift", package: "RxSwift"),
             ]
@@ -113,7 +113,7 @@ let package = Package(
             name: "SignedInFeature",
             dependencies: [
                 "AppUI",
-                "DataSource",
+                "Core",
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxSwift", package: "RxSwift"),
             ]
@@ -123,7 +123,7 @@ let package = Package(
             name: "HomeFeature",
             dependencies: [
                 "AppUI",
-                "DataSource",
+                "Core",
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "Charts", package: "Charts"),
@@ -134,7 +134,7 @@ let package = Package(
             name: "LogFeature",
             dependencies: [
                 "AppUI",
-                "DataSource",
+                "Core",
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxSwift", package: "RxSwift"),
             ]
@@ -144,7 +144,7 @@ let package = Package(
             name: "ProfileFeature",
             dependencies: [
                 "AppUI",
-                "DataSource",
+                "Core",
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxSwift", package: "RxSwift"),
             ]
