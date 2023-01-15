@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="LogViewCell" customModule="LogFeature">
+            <rect key="frame" x="0.0" y="0.0" width="311" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="311" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/03/16 14:13:20" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-gE-UsA">
+                        <rect key="frame" x="8" y="8" width="50" height="87"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="ikp-YU-iHT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                        <color key="textColor" red="0.93725490199999995" green="0.36470588240000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-5S-PCz">
+                        <rect key="frame" x="68" y="8" width="235" height="87"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="A New Transaction Has Been Made." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-Oc-UBP">
+                                <rect key="frame" x="0.0" y="0.0" width="235" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uzumaki Naruto has been given the loan of ¥10000. This transaction was made by admin Hatake Kakashi." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-t4-rOD">
+                                <rect key="frame" x="0.0" y="21" width="235" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="cADB2B6"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-Le-m44">
+                        <rect key="frame" x="62" y="8" width="2" height="90"/>
+                        <color key="backgroundColor" name="c241D1D"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="2e7-aF-QXL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="RoU-gE-UsA" secondAttribute="bottom" constant="8" id="53t-0H-H1v"/>
+                    <constraint firstItem="RoU-gE-UsA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="CZ2-0D-Whf"/>
+                    <constraint firstItem="RoU-gE-UsA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="I4V-1o-gaM"/>
+                    <constraint firstAttribute="bottom" secondItem="G0A-5S-PCz" secondAttribute="bottom" constant="8" id="IPh-pP-odO"/>
+                    <constraint firstItem="G0A-5S-PCz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KlF-iC-YSL"/>
+                    <constraint firstItem="4rw-Le-m44" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8.0800000000000001" id="R2a-7K-N9D"/>
+                    <constraint firstItem="G0A-5S-PCz" firstAttribute="leading" secondItem="4rw-Le-m44" secondAttribute="trailing" constant="4" id="V01-nO-9ir"/>
+                    <constraint firstAttribute="trailing" secondItem="G0A-5S-PCz" secondAttribute="trailing" constant="8" id="Yhz-Um-DJa"/>
+                    <constraint firstItem="4rw-Le-m44" firstAttribute="leading" secondItem="RoU-gE-UsA" secondAttribute="trailing" constant="4" id="cJ0-Ez-mM1"/>
+                    <constraint firstAttribute="bottom" secondItem="4rw-Le-m44" secondAttribute="bottom" constant="5" id="kwr-Py-XSR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="RoU-gE-UsA" id="RdZ-Vd-RVy"/>
+                <outlet property="descriptionLabel" destination="ydM-t4-rOD" id="A0i-a3-zfT"/>
+                <outlet property="titleLabel" destination="H6s-Oc-UBP" id="Be2-IO-YMn"/>
+            </connections>
+            <point key="canvasLocation" x="131.15942028985509" y="114.17410714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="c241D1D">
+            <color red="0.14117647058823529" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cADB2B6">
+            <color red="0.67843137254901964" green="0.69803921568627447" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

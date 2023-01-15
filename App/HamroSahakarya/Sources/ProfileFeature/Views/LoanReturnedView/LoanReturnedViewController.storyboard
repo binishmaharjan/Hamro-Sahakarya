@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K7q-AT-eHB">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan Returned View Controller-->
+        <scene sceneID="9yx-eg-lrN">
+            <objects>
+                <viewController storyboardIdentifier="LoanReturnedViewController" id="K7q-AT-eHB" customClass="LoanReturnedViewController" customModule="ProfileFeature" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VmN-qt-JVz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-cg-wXW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDh-LW-YID" userLabel="Amount View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Loan Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0yq-Qf-LRm">
+                                                <rect key="frame" x="20" y="21.5" width="335" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="icy-TC-pYa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqZ-96-of9" userLabel="Return Amount:">
+                                                <rect key="frame" x="20" y="2" width="95.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="0.93725490199999995" green="0.36470588240000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="0yq-Qf-LRm" firstAttribute="leading" secondItem="TDh-LW-YID" secondAttribute="leading" constant="20" id="7HN-a2-zsJ"/>
+                                            <constraint firstItem="ZqZ-96-of9" firstAttribute="top" secondItem="TDh-LW-YID" secondAttribute="top" constant="2" id="7WG-qT-XsP"/>
+                                            <constraint firstAttribute="height" constant="70" id="Jgn-j3-5cz"/>
+                                            <constraint firstItem="ZqZ-96-of9" firstAttribute="leading" secondItem="TDh-LW-YID" secondAttribute="leading" constant="20" id="Vvd-EZ-eEf"/>
+                                            <constraint firstItem="0yq-Qf-LRm" firstAttribute="top" secondItem="ZqZ-96-of9" secondAttribute="bottom" constant="5" id="fQF-dk-Cdc"/>
+                                            <constraint firstAttribute="trailing" secondItem="0yq-Qf-LRm" secondAttribute="trailing" constant="20" id="sDS-Xy-mv2"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r8u-cn-TE3">
+                                        <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kTZ-3Q-8f2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wTc-cg-wXW" firstAttribute="top" secondItem="kTZ-3Q-8f2" secondAttribute="top" id="1Va-h1-ZJ4"/>
+                            <constraint firstAttribute="bottom" secondItem="wTc-cg-wXW" secondAttribute="bottom" id="GHG-4L-cXz"/>
+                            <constraint firstItem="wTc-cg-wXW" firstAttribute="leading" secondItem="kTZ-3Q-8f2" secondAttribute="leading" id="Ryg-Wx-Ges"/>
+                            <constraint firstAttribute="trailing" secondItem="wTc-cg-wXW" secondAttribute="trailing" id="adT-bS-wDc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="0yq-Qf-LRm" id="0mG-vI-eFf"/>
+                        <outlet property="tableView" destination="r8u-cn-TE3" id="ec5-L3-UPQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3g-Xi-cRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
