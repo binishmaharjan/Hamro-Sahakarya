@@ -16,6 +16,7 @@ App for the Hamro Sahakarya.
 
 
 ## Architecture
+The architecture is based on the book [Advance iOS App Architecture](https://www.kodeco.com/books/advanced-ios-app-architecture) from [Kodeco.com](https://www.kodeco.com/)
 
 ### MVVM
 [![Image from Gyazo](https://i.gyazo.com/887e0994896060ccb23a3fabefa66319.png)](https://gyazo.com/887e0994896060ccb23a3fabefa66319)
