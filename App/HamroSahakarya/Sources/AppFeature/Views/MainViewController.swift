@@ -82,7 +82,7 @@ extension MainViewController {
             guard onboardingViewController?.presentedViewController == nil else { return }
             
             if presentedViewController.exists {
-                // Dismis profile modal view when signing out
+                // Dismiss profile modal view when signing out
                 dismiss(animated: true) { [weak self] in
                     self?.presentOnboardingScreen()
                 }

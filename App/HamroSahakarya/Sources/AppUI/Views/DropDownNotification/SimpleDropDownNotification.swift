@@ -31,7 +31,6 @@ public final class SimpleDropDownNotification: DropDownNotificationType {
         super.didInit()
 
         frame = CGRect(x: 0, y: 0, width: dropDownWidth, height: dropDownHeight)
-        backgroundColor = .mainBlack
         clipsToBounds = true
         apply(types: [.cornerRadius(5.0)])
 
@@ -43,8 +42,9 @@ public final class SimpleDropDownNotification: DropDownNotificationType {
         label.text = "Drop Down Notification"
         label.width = width
         label.textAlignment = .center
-        label.height = 999
+        label.height = dropDownHeight
         label.center = self.o
+        label.adjustsFontSizeToFitWidth = true
         addSubview(label)
 
         isUserInteractionEnabled = true
@@ -72,7 +72,7 @@ extension SimpleDropDownNotification {
     }
 
     private func dropUpAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: { [weak self] in
                 guard let self = self else { return }
 
