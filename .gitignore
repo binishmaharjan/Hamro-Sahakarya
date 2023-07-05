@@ -1,0 +1,3 @@
+## Bundler
+vendor/*
+!vendor/cache
