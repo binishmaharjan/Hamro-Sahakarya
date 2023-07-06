@@ -1,5 +1,5 @@
 import XCTest
-@testable import AppKit
+@testable import HamroSahakarya
 
 final class AppKitTests: XCTestCase {
     func testExample() throws {
