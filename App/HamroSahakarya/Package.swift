@@ -9,7 +9,7 @@ let package = Package(
         .iOS(.v15),
     ],
     products: [
-        .library(name: "AppKit",targets: ["AppKit"]),
+        .library(name: "HamroSahakarya",targets: ["HamroSahakarya"]),
         .library(name: "AppFeature", targets: ["AppFeature"]),
         .library(name: "AppUI", targets: ["AppUI"]),
         .library(name: "DataSource", targets: ["DataSource"]),
@@ -30,9 +30,9 @@ let package = Package(
 //        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", exact: "6.6.1"),
     ],
     targets: [
-        // AppKit
+        // HamroSahakarya
         .target(
-            name: "AppKit",
+            name: "HamroSahakarya",
             dependencies: [
                 "AppFeature"
             ]
@@ -40,7 +40,7 @@ let package = Package(
         .testTarget(
             name: "AppKitTests",
             dependencies: [
-                "AppKit"
+                "HamroSahakarya"
             ]
         ),
         // AppFeature

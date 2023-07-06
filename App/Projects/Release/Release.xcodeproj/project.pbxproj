@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6447AEC52A56520900E2CF56 /* HamroSahakarya in Frameworks */ = {isa = PBXBuildFile; productRef = 6447AEC42A56520900E2CF56 /* HamroSahakarya */; };
 		64B9110729742AEA005B381B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B9110629742AEA005B381B /* GoogleService-Info.plist */; };
 		64DAADEB29741604003CFFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEA29741604003CFFF2 /* Assets.xcassets */; };
 		64DAADEE29741604003CFFF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEC29741604003CFFF2 /* LaunchScreen.storyboard */; };
 		64DAADF72974166F003CFFF2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DAADF62974166F003CFFF2 /* App.swift */; };
-		64DAADFA297416F8003CFFF2 /* AppKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64DAADF9297416F8003CFFF2 /* AppKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DAADFA297416F8003CFFF2 /* AppKit in Frameworks */,
+				6447AEC52A56520900E2CF56 /* HamroSahakarya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			);
 			name = Release;
 			packageProductDependencies = (
-				64DAADF9297416F8003CFFF2 /* AppKit */,
+				6447AEC42A56520900E2CF56 /* HamroSahakarya */,
 			);
 			productName = Release;
 			productReference = 64DAADDE29741602003CFFF2 /* Release.app */;
@@ -375,9 +375,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		64DAADF9297416F8003CFFF2 /* AppKit */ = {
+		6447AEC42A56520900E2CF56 /* HamroSahakarya */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AppKit;
+			productName = HamroSahakarya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

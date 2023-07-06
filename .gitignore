@@ -1,0 +1,10 @@
+## Bundler
+vendor/*
+!vendor/cache
+
+## Output
+Build
+
+## fastlane
+fastlane/report.xml
+fastlane/test_output
