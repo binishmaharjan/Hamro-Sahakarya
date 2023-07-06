@@ -17,8 +17,8 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      - name: Change Xcode Version to 15.0
-        run: sudo xcode-select --switch /Applications/Xcode_15.0.app
+      - name: Change Xcode Version to 14.2
+        run: sudo xcode-select --switch /Applications/Xcode_14.2.app
 
       - uses: ruby/setup-ruby@v1
 

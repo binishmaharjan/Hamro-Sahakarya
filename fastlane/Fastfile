@@ -7,7 +7,7 @@ platform :ios do
     run_tests(
       workspace: "App/HamroSahakarya.xcworkspace",
       scheme: "Development",
-      devices: ["iPhone 14"],
+      devices: ['iPhone 14 (16.2)'],
       build_for_testing: true,
       derived_data_path: "Build/",
       skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
