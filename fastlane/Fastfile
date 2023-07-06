@@ -3,13 +3,14 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :tests do
+  lane :tests do |options|
     run_tests(
       workspace: "App/HamroSahakarya.xcworkspace",
       scheme: "Development",
       devices: ["iPhone 14"],
       build_for_testing: true,
-      derived_data_path: "Build/"
+      derived_data_path: "Build/",
+      skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
     )
   end
 end
