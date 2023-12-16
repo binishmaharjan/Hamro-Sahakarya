@@ -30,7 +30,15 @@ let package = Package(
         ),
         .testTarget(
             name: "HamroSahakaryaV2Tests",
-            dependencies: ["HamroSahakaryaV2"]
+            dependencies: [
+                "HamroSahakaryaV2"
+            ]
+        ),
+        .testTarget(
+            name: "AppFeatureV2Tests",
+            dependencies: [
+                "AppFeatureV2"
+            ]
         ),
     ]
 )
