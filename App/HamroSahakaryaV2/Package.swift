@@ -5,6 +5,8 @@ import PackageDescription
 
 let package = Package(
     name: "HamroSahakaryaV2",
+    defaultLocalization: "en",
+    platforms: [.iOS(.v17), .macOS(.v13)],
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
     ],

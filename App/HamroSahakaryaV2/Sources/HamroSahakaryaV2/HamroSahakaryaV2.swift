@@ -1,2 +1,13 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import SwiftUI
+
+public protocol App: SwiftUI.App {
+    
+}
+
+extension App {
+    public var body: some Scene {
+        WindowGroup {
+            Text("Hello World SwiftUI")
+        }
+    }
+}
