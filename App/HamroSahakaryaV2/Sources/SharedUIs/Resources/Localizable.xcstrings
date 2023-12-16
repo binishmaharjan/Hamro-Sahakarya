@@ -1,0 +1,15 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Hamro Sahakarya" : {
+      "extractionState" : "manual"
+    },
+    "UserDefaults: Failed to decode." : {
+      "extractionState" : "manual"
+    },
+    "UserDefaults: Failed to encode." : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

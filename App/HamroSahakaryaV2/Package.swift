@@ -13,6 +13,7 @@ let package = Package(
         .library(name: "AuthClient", targets: ["AuthClient"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "SharedModels", targets: ["SharedModels"]),
+        .library(name: "SharedUIs", targets: ["SharedUIs"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -32,6 +33,8 @@ let package = Package(
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
+        .target(
+            name: "AuthClient",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
@@ -45,8 +48,13 @@ let package = Package(
         ),
         .target(
             name: "SharedModels",
-            dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            dependencies: []
+        ),
+        .target(
+            name: "SharedUIs",
+            dependencies: [],
+            resources: [
+                .process("Resources"),
             ]
         ),
         .testTarget(
