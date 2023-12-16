@@ -11,3 +11,6 @@ fastlane/test_output
 
 # Profile
 Profiles/
+
+## DS_Store
+*.DS_Store
