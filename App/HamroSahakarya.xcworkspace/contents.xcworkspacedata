@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:HamroSahakaryaV2">
+   </FileRef>
+   <FileRef
       location = "group:Projects/Release/Release.xcodeproj">
    </FileRef>
    <FileRef
