@@ -9,7 +9,10 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v13)],
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
-        .library(name: "AppFeatureV2", targets: ["AppFeatureV2"])
+        .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
+        .library(name: "AuthClient", targets: ["AuthClient"]),
+        .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
+        .library(name: "SharedModels", targets: ["SharedModels"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -24,6 +27,12 @@ let package = Package(
         ),
         .target(
             name: "AppFeatureV2",
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "SharedModels",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
