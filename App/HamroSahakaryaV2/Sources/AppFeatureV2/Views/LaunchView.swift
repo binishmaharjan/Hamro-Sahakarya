@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import SharedUIs
 
 public struct LaunchView: View {
     public init(store: StoreOf<Launch>) {
@@ -11,7 +12,7 @@ public struct LaunchView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
-                Text("LaunchView")
+                Text(#localized("Hamro Sahakarya"))
             }
             .onAppear {
                 viewStore.send(.onAppear)

@@ -1,4 +1,5 @@
 import Foundation
+import SharedUIs
 
 public enum AppError {
     
@@ -8,8 +9,8 @@ public enum AppError {
         
         public var errorDescription: String {
             switch self {
-            case .decode: return "UserDefaults: Failed to decode."
-            case .encode: return "UserDefaults: Failed to encode."
+            case .decode: return #localized("UserDefaults: Failed to decode.")
+            case .encode: return #localized("UserDefaults: Failed to encode.")
             }
         }
     }

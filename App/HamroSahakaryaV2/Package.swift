@@ -2,11 +2,12 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+import CompilerPluginSupport
 
 let package = Package(
     name: "HamroSahakaryaV2",
     defaultLocalization: "en",
-    platforms: [.iOS(.v17), .macOS(.v13)],
+    platforms: [.iOS(.v17), .macOS(.v12)],
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
@@ -17,6 +18,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
+        .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2"),
     ],
     targets: [
         .target(
@@ -30,6 +32,7 @@ let package = Package(
             name: "AppFeatureV2",
             dependencies: [
                 "UserDefaultsClient",
+                "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -48,13 +51,24 @@ let package = Package(
         ),
         .target(
             name: "SharedModels",
-            dependencies: []
+            dependencies: [
+                "SharedUIs",
+            ]
         ),
         .target(
             name: "SharedUIs",
-            dependencies: [],
+            dependencies: [
+                "SharedMacros",
+            ],
             resources: [
                 .process("Resources"),
+            ]
+        ),
+        .macro(
+            name: "SharedMacros",
+            dependencies: [
+                .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+                .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
             ]
         ),
         .testTarget(
