@@ -49,3 +49,8 @@ public struct Account: Equatable, Identifiable, Codable {
     }
 }
 
+// MARK: No User
+extension Account {
+    /// Represent no user user data
+    static let none: Account? = nil
+}

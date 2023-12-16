@@ -28,6 +28,18 @@ let package = Package(
         .target(
             name: "AppFeatureV2",
             dependencies: [
+                "UserDefaultsClient",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "UserDefaultsClient",
+            dependencies: [
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

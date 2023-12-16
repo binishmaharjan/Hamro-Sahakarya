@@ -9,7 +9,14 @@ public struct LaunchView: View {
     private let store: StoreOf<Launch>
     
     public var body: some View {
-        Text("Launch View")
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            VStack {
+                Text("LaunchView")
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
+        }
     }
 }
 
