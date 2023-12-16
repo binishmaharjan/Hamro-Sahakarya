@@ -10,9 +10,15 @@ let package = Package(
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
+    ],
     targets: [
         .target(
-            name: "HamroSahakaryaV2"
+            name: "HamroSahakaryaV2",
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
         ),
         .testTarget(
             name: "HamroSahakaryaV2Tests",

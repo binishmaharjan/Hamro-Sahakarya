@@ -1,7 +1,7 @@
 import SwiftUI
 
 public protocol App: SwiftUI.App {
-    
+    var appDelegate: AppDelegate { get }
 }
 
 extension App {

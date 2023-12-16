@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6447AEC52A56520900E2CF56 /* HamroSahakarya in Frameworks */ = {isa = PBXBuildFile; productRef = 6447AEC42A56520900E2CF56 /* HamroSahakarya */; };
 		64B9110729742AEA005B381B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B9110629742AEA005B381B /* GoogleService-Info.plist */; };
 		64DAADEB29741604003CFFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEA29741604003CFFF2 /* Assets.xcassets */; };
 		64DAADEE29741604003CFFF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEC29741604003CFFF2 /* LaunchScreen.storyboard */; };
 		64DAADF72974166F003CFFF2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DAADF62974166F003CFFF2 /* App.swift */; };
+		D1D615102B2D83810052DDC9 /* HamroSahakaryaV2 in Frameworks */ = {isa = PBXBuildFile; productRef = D1D6150F2B2D83810052DDC9 /* HamroSahakaryaV2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6447AEC52A56520900E2CF56 /* HamroSahakarya in Frameworks */,
+				D1D615102B2D83810052DDC9 /* HamroSahakaryaV2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			);
 			name = Release;
 			packageProductDependencies = (
-				6447AEC42A56520900E2CF56 /* HamroSahakarya */,
+				D1D6150F2B2D83810052DDC9 /* HamroSahakaryaV2 */,
 			);
 			productName = Release;
 			productReference = 64DAADDE29741602003CFFF2 /* Release.app */;
@@ -294,7 +294,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +332,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,9 +375,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6447AEC42A56520900E2CF56 /* HamroSahakarya */ = {
+		D1D6150F2B2D83810052DDC9 /* HamroSahakaryaV2 */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HamroSahakarya;
+			productName = HamroSahakaryaV2;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

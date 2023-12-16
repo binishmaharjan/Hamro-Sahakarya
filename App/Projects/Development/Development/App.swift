@@ -3,7 +3,7 @@ import SwiftUI
 
 @main
 struct DevelopmentApp: HamroSahakaryaV2.App {
-    
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
 }
 //final class AppDelegate: HamroSahakarya.AppDelegate {
 //    override init() {
