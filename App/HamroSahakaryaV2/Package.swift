@@ -9,6 +9,7 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v13)],
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
+        .library(name: "AppFeatureV2", targets: ["AppFeatureV2"])
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -16,6 +17,13 @@ let package = Package(
     targets: [
         .target(
             name: "HamroSahakaryaV2",
+            dependencies: [
+                "AppFeatureV2",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "AppFeatureV2",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]

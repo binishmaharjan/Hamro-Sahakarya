@@ -1,4 +1,5 @@
 import SwiftUI
+import AppFeatureV2
 
 public protocol App: SwiftUI.App {
     var appDelegate: AppDelegate { get }
@@ -7,7 +8,12 @@ public protocol App: SwiftUI.App {
 extension App {
     public var body: some Scene {
         WindowGroup {
-            Text("Hello World SwiftUI")
+            RootView(
+                store: appDelegate.store.scope(
+                    state: \.rootState,
+                    action: \.rootAction
+                )
+            )
         }
     }
 }
