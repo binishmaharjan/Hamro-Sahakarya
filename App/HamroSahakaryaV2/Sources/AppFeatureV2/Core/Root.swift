@@ -20,6 +20,14 @@ public struct Root {
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
+            case .destination(.presented(.launch(.delegate(.showLoginView)))):
+                print("Show Login")
+                return .none
+
+            case let .destination(.presented(.launch(.delegate(.showMainView(userAccount))))):
+                print("Show Main")
+                return .none
+                
             case .onAppear:
                 return .none
                 

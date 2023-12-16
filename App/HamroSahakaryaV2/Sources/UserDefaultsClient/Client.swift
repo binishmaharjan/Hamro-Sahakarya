@@ -37,7 +37,7 @@ extension UserDefaultsClient: TestDependencyKey {
 
 // MARK: Mock
 extension Account {
-    static var mock: Account = Account(
+    public static var mock: Account = Account(
         id: "62x2j84hM9YCSrtiNwhg2F86NSv2",
         username: "Member One",
         email: "memberone@gmail.com",

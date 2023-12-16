@@ -27,10 +27,15 @@ public struct Launch {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
-                return .none
+                return .send(.fetchUserAccount)
                 
             case .fetchUserAccount:
-                return .none
+                let userAccount = userDefaultsClient.userAccount()
+                if let userAccount {
+                    return .send(.delegate(.showMainView(userAccount)))
+                } else {
+                    return .send(.delegate(.showLoginView))
+                }
                 
             case .delegate:
                 return .none
