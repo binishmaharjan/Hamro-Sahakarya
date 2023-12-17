@@ -1,7 +1,11 @@
 import Foundation
 
+public typealias AccountId = String
+public typealias Email = String
+public typealias Password = String
+
 public struct Account: Equatable, Identifiable, Codable {
-    public let id: String
+    public let id: AccountId
     public let username: String
     public let email: String
     public let status: Status

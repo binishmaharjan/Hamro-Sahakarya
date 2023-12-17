@@ -14,4 +14,8 @@ public enum AppError {
             }
         }
     }
+    
+    public enum ApiError: LocalizedError {
+        case emptyData
+    }
 }
