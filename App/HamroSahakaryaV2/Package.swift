@@ -26,6 +26,7 @@ let package = Package(
             name: "HamroSahakaryaV2",
             dependencies: [
                 "AppFeatureV2",
+                "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

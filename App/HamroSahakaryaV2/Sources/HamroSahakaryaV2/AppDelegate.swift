@@ -1,6 +1,7 @@
 import UIKit
 import ComposableArchitecture
 import AppFeatureV2
+import SharedUIs
 
 public final class AppDelegate: NSObject, UIApplicationDelegate {
     private var _store: StoreOf<AppDelegateReducer>?
@@ -17,6 +18,9 @@ public final class AppDelegate: NSObject, UIApplicationDelegate {
     private(set) lazy var viewStore = ViewStore(store, observe: { $0 })
     
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // Call method to register custom font
+        CustomFontManager.registerFonts()
         
         viewStore.send(.didFinishLaunching)
         
