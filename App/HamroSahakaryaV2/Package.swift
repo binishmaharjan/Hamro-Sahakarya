@@ -15,6 +15,7 @@ let package = Package(
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
+        .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -31,7 +32,15 @@ let package = Package(
         .target(
             name: "AppFeatureV2",
             dependencies: [
+                "OnboardingFeatureV2",
                 "UserDefaultsClient",
+                "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "OnboardingFeatureV2",
+            dependencies: [
                 "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]

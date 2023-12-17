@@ -1,5 +1,6 @@
 import ComposableArchitecture
 import Foundation
+import OnboardingFeatureV2
 
 @Reducer
 public struct Root {
@@ -21,7 +22,7 @@ public struct Root {
         Reduce<State, Action> { state, action in
             switch action {
             case .destination(.presented(.launch(.delegate(.showLoginView)))):
-                print("Show Login")
+                state.destination = .login(.init())
                 return .none
 
             case let .destination(.presented(.launch(.delegate(.showMainView(userAccount))))):
@@ -47,10 +48,12 @@ extension Root {
     public struct Destination {
         public enum State: Equatable {
             case launch(Launch.State)
+            case login(Login.State)
         }
         
         public enum Action: Equatable {
             case launch(Launch.Action)
+            case login(Login.Action)
         }
         
         public init() { }
@@ -58,6 +61,9 @@ extension Root {
         public var body: some ReducerOf<Self> {
             Scope(state: \.launch, action: \.launch) {
                 Launch()
+            }
+            Scope(state: \.login, action: \.login) {
+                Login()
             }
         }
     }

@@ -39,7 +39,6 @@ public struct Launch {
                 
             case .delegate:
                 return .none
-                
             }
         }
     }
