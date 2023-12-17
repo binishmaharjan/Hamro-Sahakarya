@@ -6,3 +6,6 @@ public macro localized(_ key: LocalizedStringResource) -> String = #externalMacr
 @freestanding(expression)
 public macro color(_ key: String) -> Color = #externalMacro(module: "SharedMacros", type: "Color")
 
+@freestanding(expression)
+public macro img(_ key: String) -> Image = #externalMacro(module: "SharedMacros", type: "Image")
+

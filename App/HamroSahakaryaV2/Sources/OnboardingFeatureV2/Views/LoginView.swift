@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import SharedUIs
 
 public struct LoginView: View {
     public init(store: StoreOf<Login>) {
@@ -10,8 +11,20 @@ public struct LoginView: View {
     
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            Text("Login View")
+            VStack(spacing: 24) {
+                Text("Login View")
+            }
+            .background(background)
         }
+    }
+}
+
+// MARK: Views Parts
+extension LoginView {
+    private var background: some View {
+        #img("img_spline")
+            .blur(radius: 60)
+            .offset(x: 200, y: 100)
     }
 }
 

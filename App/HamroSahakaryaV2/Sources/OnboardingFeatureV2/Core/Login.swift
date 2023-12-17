@@ -25,7 +25,7 @@ public struct Login {
             switch action {
             case .loginButtonTapped:
                 return .none
-                
+                    
             case .binding:
                 return .none
             }
