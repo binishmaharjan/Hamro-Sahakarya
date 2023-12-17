@@ -2,7 +2,7 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-public struct Login {
+public struct SignIn {
     public struct State: Equatable {
         public enum Field: Equatable {
             case email
@@ -19,7 +19,7 @@ public struct Login {
     public enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
         
-        case loginButtonTapped
+        case signInButtonTapped
         case forgotPasswordButtonTapped
     }
     
@@ -30,8 +30,8 @@ public struct Login {
         
         Reduce<State, Action> { state, action in
             switch action {
-            case .loginButtonTapped:
-                print("Login Button Tapped")
+            case .signInButtonTapped:
+                print("signIn Button Tapped")
                 return .none
                 
             case .forgotPasswordButtonTapped:
@@ -46,7 +46,7 @@ public struct Login {
 }
 
 // MARK: Destination
-extension Login {
+extension SignIn {
     @Reducer
     public struct Destination {
         public struct State: Equatable {

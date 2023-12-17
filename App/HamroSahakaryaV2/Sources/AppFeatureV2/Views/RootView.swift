@@ -34,9 +34,9 @@ public struct RootView: View {
                                 LaunchView(store: launchStore)
                             }
                             
-                        case .login:
-                            CaseLet(\Root.Destination.State.login, action: Root.Destination.Action.login) { loginStore in
-                                LoginView(store: loginStore)
+                        case .signIn:
+                            CaseLet(\Root.Destination.State.signIn, action: Root.Destination.Action.signIn) { signInStore in
+                                SignInView(store: signInStore)
                             }
                         }
                     }

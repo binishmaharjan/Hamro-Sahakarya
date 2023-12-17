@@ -12,7 +12,7 @@ public struct Launch {
     public enum Action: Equatable {
         public enum Delegate: Equatable {
             case showMainView(Account)
-            case showLoginView
+            case showSignInView
         }
         
         case delegate(Delegate)
@@ -34,7 +34,7 @@ public struct Launch {
                 if let userAccount {
                     return .send(.delegate(.showMainView(userAccount)))
                 } else {
-                    return .send(.delegate(.showLoginView))
+                    return .send(.delegate(.showSignInView))
                 }
                 
             case .delegate:

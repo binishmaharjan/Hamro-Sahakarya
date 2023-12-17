@@ -21,8 +21,8 @@ public struct Root {
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
-            case .destination(.presented(.launch(.delegate(.showLoginView)))):
-                state.destination = .login(.init())
+            case .destination(.presented(.launch(.delegate(.showSignInView)))):
+                state.destination = .signIn(.init())
                 return .none
 
             case let .destination(.presented(.launch(.delegate(.showMainView(userAccount))))):
@@ -48,12 +48,12 @@ extension Root {
     public struct Destination {
         public enum State: Equatable {
             case launch(Launch.State)
-            case login(Login.State)
+            case signIn(SignIn.State)
         }
         
         public enum Action: Equatable {
             case launch(Launch.Action)
-            case login(Login.Action)
+            case signIn(SignIn.Action)
         }
         
         public init() { }
@@ -62,8 +62,8 @@ extension Root {
             Scope(state: \.launch, action: \.launch) {
                 Launch()
             }
-            Scope(state: \.login, action: \.login) {
-                Login()
+            Scope(state: \.signIn, action: \.signIn) {
+                SignIn()
             }
         }
     }

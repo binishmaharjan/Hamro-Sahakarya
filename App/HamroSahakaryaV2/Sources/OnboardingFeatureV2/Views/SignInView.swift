@@ -2,19 +2,19 @@ import SwiftUI
 import ComposableArchitecture
 import SharedUIs
 
-public struct LoginView: View {
-    public init(store: StoreOf<Login>) {
+public struct SignInView: View {
+    public init(store: StoreOf<SignIn>) {
         self.store = store
     }
     
-    @FocusState var focusedField: Login.State.Field?
-    private let store: StoreOf<Login>
+    @FocusState var focusedField: SignIn.State.Field?
+    private let store: StoreOf<SignIn>
     
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             ZStack {
                 VStack(spacing: 24) {
-                    Text(#localized("Login"))
+                    Text(#localized("Sign In"))
                         .font(.customLargeTitle)
                     
                     Text("Don't have an account yet, Please contact the administrator to request an account.")
@@ -41,7 +41,7 @@ public struct LoginView: View {
                             .focused($focusedField, equals: .password)
                     }
                     
-                    loginButton(viewStore)
+                    signInButton(viewStore)
                     
                     separator
                     
@@ -70,7 +70,7 @@ public struct LoginView: View {
 }
 
 // MARK: Views Parts
-extension LoginView {
+extension SignInView {
     private var background: some View {
         #img("img_spline")
             .blur(radius: 60)
@@ -93,13 +93,13 @@ extension LoginView {
         }
     }
     
-    private func loginButton(_ viewStore: ViewStoreOf<Login>) -> some View {
+    private func signInButton(_ viewStore: ViewStoreOf<SignIn>) -> some View {
         Button {
-            viewStore.send(.loginButtonTapped)
+            viewStore.send(.signInButtonTapped)
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
-                Text(#localized("Login"))
+                Text(#localized("Sign In"))
                     .font(.customHeadline)
             }
             .largeButton()
@@ -108,10 +108,10 @@ extension LoginView {
 }
 
 #Preview {
-    LoginView(
+    SignInView(
         store: .init(
             initialState: .init(),
-            reducer: Login.init
+            reducer: SignIn.init
         )
     )
 }

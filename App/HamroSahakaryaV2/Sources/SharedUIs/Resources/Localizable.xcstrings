@@ -13,13 +13,13 @@
     "Hamro Sahakarya" : {
       "extractionState" : "manual"
     },
-    "Login" : {
-      "extractionState" : "manual"
-    },
     "OR" : {
       "extractionState" : "manual"
     },
     "Password" : {
+      "extractionState" : "manual"
+    },
+    "Sign In" : {
       "extractionState" : "manual"
     },
     "UserDefaults: Failed to decode." : {
