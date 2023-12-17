@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "D59F1234-570A-487C-ABE3-7C3661682C47",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "AppFeatureV2Tests",
+        "name" : "AppFeatureV2Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

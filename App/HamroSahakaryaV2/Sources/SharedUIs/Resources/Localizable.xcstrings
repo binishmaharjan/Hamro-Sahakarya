@@ -1,0 +1,33 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Don't have an account yet, Please contact the administrator to request an account." : {
+      "extractionState" : "manual"
+    },
+    "Email" : {
+      "extractionState" : "manual"
+    },
+    "Forgot Password" : {
+      "extractionState" : "manual"
+    },
+    "Hamro Sahakarya" : {
+      "extractionState" : "manual"
+    },
+    "Login" : {
+      "extractionState" : "manual"
+    },
+    "OR" : {
+      "extractionState" : "manual"
+    },
+    "Password" : {
+      "extractionState" : "manual"
+    },
+    "UserDefaults: Failed to decode." : {
+      "extractionState" : "manual"
+    },
+    "UserDefaults: Failed to encode." : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

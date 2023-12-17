@@ -1,13 +1,16 @@
-import HamroSahakarya
-import UIKit
+import HamroSahakaryaV2
+import SwiftUI
 
 @main
-final class AppDelegate: HamroSahakarya.AppDelegate {
-    override init() {
-        // set environment
-        // Self.primitiveEnvironment = .mockServer
-    }
+struct DevelopmentApp: HamroSahakaryaV2.App {
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
 }
-
-final class SceneDelegate: HamroSahakarya.SceneDelegate {
-}
+//final class AppDelegate: HamroSahakarya.AppDelegate {
+//    override init() {
+//        // set environment
+//        // Self.primitiveEnvironment = .mockServer
+//    }
+//}
+//
+//final class SceneDelegate: HamroSahakarya.SceneDelegate {
+//}
