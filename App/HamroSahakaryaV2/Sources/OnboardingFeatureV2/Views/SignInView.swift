@@ -8,59 +8,65 @@ public struct SignInView: View {
         self.store = store
     }
     
-    @FocusState var focusedField: SignIn.State.Field?
+    @FocusState private var focusedField: SignIn.State.Field?
     private let store: StoreOf<SignIn>
     
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                VStack(spacing: 24) {
-                    Text(#localized("Sign In"))
-                        .font(.customLargeTitle)
-                    
-                    Text("Don't have an account yet, Please contact the administrator to request an account.")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(#color("secondary"))
-                        .fixedSize(horizontal: false, vertical: true)
-                    
-                    VStack(alignment: .leading) {
-                        Text(#localized("Email"))
-                            .font(.customSubHeadline)
-                            .foregroundStyle(#color("secondary"))
+            NavigationStack {
+                ZStack {
+                    VStack(spacing: 24) {
+                        Text(#localized("Sign In"))
+                            .font(.customLargeTitle)
                         
-                        TextField("", text: viewStore.$email)
-                            .customTextField(image: #img("icon_email"))
-                            .focused($focusedField, equals: .email)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text(#localized("Password"))
-                            .font(.customSubHeadline)
+                        Text("Don't have an account yet, Please contact the administrator to request an account.")
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(#color("secondary"))
+                            .fixedSize(horizontal: false, vertical: true)
                         
-                        SecureField("", text:viewStore.$password)
-                            .customTextField(image: #img("icon_lock"))
-                            .focused($focusedField, equals: .password)
-                    }
-                    
-                    signInButton(viewStore)
-                    
-                    separator
-                    
-                    Text(#localized("Forgot Password"))
-                        .font(.customSubHeadline)
-                        .foregroundStyle(#color("secondary"))
-                        .onTapGesture {
-                            viewStore.send(.forgotPasswordButtonTapped)
+                        VStack(alignment: .leading) {
+                            Text(#localized("Email"))
+                                .font(.customSubHeadline)
+                                .foregroundStyle(#color("secondary"))
+                            
+                            TextField("", text: viewStore.$email)
+                                .customTextField(image: #img("icon_email"))
+                                .focused($focusedField, equals: .email)
                         }
+                        
+                        VStack(alignment: .leading) {
+                            Text(#localized("Password"))
+                                .font(.customSubHeadline)
+                                .foregroundStyle(#color("secondary"))
+                            
+                            SecureField("", text: viewStore.$password)
+                                .customTextField(image: #img("icon_lock"))
+                                .focused($focusedField, equals: .password)
+                        }
+                        
+                        signInButton(viewStore)
+                        
+                        separator
+                        
+                        Text(#localized("Forgot Password"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                            .onTapGesture {
+                                viewStore.send(.forgotPasswordButtonTapped)
+                            }
+                    }
+                    .padding(30)
+                    .padding()
+                    .bind(viewStore.$focusedField, to: self.$focusedField)
                 }
-                .padding(30)
-                .padding()
-                .bind(viewStore.$focusedField, to: self.$focusedField)
+                .frame(maxHeight: .infinity)
+                .background(.ultraThinMaterial)
+                .background(background)
+                .navigationDestination(
+                    store: store.scope(state: \.$destination.forgotPassword, action: \.destination.forgotPassword),
+                    destination: ForgotPasswordView.init(store:)
+                )
             }
-            .frame(maxHeight: .infinity)
-            .background(.ultraThinMaterial)
-            .background(background)
         }
     }
 }

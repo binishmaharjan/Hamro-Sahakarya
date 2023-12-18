@@ -11,9 +11,11 @@ public struct SignIn {
         
         public init() {}
         
+        @PresentationState var destination: Destination.State?
         @BindingState var email: String = ""
         @BindingState var password: String = ""
         @BindingState var focusedField: Field? = .email
+        
         var isValidInput: Bool {
             let isEmailValid = email.contains("@") && email.contains(".")
             let isPasswordValid = password.count > 5
@@ -22,6 +24,7 @@ public struct SignIn {
     }
     
     public enum Action: BindableAction, Equatable {
+        case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
         
         case signInButtonTapped
@@ -40,12 +43,15 @@ public struct SignIn {
                 return .none
                 
             case .forgotPasswordButtonTapped:
-                print("Forgot Password Button Tapped")
+                state.destination = .forgotPassword(.init())
                 return .none
                 
-            case .binding:
+            case .binding, .destination:
                 return .none
             }
+        }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
         }
     }
 }
@@ -54,17 +60,17 @@ public struct SignIn {
 extension SignIn {
     @Reducer
     public struct Destination {
-        public struct State: Equatable {
-            
+        public enum State: Equatable {
+            case forgotPassword(ForgotPassword.State)
         }
         
-        public struct Action: Equatable {
-            
+        public enum Action: Equatable {
+            case forgotPassword(ForgotPassword.Action)
         }
         
         public var body: some Reducer<State, Action> {
-            Reduce<State, Action> { state, action in
-                return .none
+            Scope(state: \.forgotPassword, action: \.forgotPassword) {
+                ForgotPassword()
             }
         }
     }
