@@ -44,6 +44,7 @@ let package = Package(
             name: "OnboardingFeatureV2",
             dependencies: [
                 "SharedUIs",
+                "AuthClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

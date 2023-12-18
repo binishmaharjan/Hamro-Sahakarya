@@ -18,7 +18,7 @@ public struct ForgotPasswordView: View {
                     Text(#localized("Forgot Password"))
                         .font(.customLargeTitle)
                     
-                    Text("Reset your password by entering the email of your account, and follow the instructions sent to that email")
+                    Text(#localized("Reset your password by entering the email of your account, and follow the instructions sent to that email."))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(#color("secondary"))
                         .fixedSize(horizontal: false, vertical: true)

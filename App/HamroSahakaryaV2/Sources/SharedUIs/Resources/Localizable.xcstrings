@@ -19,6 +19,9 @@
     "Password" : {
       "extractionState" : "manual"
     },
+    "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
+      "extractionState" : "manual"
+    },
     "Sign In" : {
       "extractionState" : "manual"
     },

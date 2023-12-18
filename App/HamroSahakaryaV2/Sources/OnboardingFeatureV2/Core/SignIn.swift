@@ -1,5 +1,6 @@
 import Foundation
 import ComposableArchitecture
+import AuthClient
 
 @Reducer
 public struct SignIn {
@@ -32,6 +33,8 @@ public struct SignIn {
     }
     
     public init() {}
+    
+    @Dependency(\.authClient) private var authClient
     
     public var body: some Reducer<State, Action> {
         BindingReducer()
