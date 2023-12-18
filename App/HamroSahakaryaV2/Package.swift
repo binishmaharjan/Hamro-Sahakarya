@@ -43,6 +43,7 @@ let package = Package(
         .target(
             name: "OnboardingFeatureV2",
             dependencies: [
+                "SharedModels",
                 "SharedUIs",
                 "AuthClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
@@ -66,6 +67,7 @@ let package = Package(
             name: "SharedModels",
             dependencies: [
                 "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(

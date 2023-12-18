@@ -1,10 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Cancel" : {
+      "extractionState" : "manual"
+    },
     "Don't have an account yet, Please contact the administrator to request an account." : {
       "extractionState" : "manual"
     },
     "Email" : {
+      "extractionState" : "manual"
+    },
+    "Email Sent!" : {
+      "extractionState" : "manual"
+    },
+    "Error" : {
       "extractionState" : "manual"
     },
     "Forgot Password" : {
@@ -13,10 +22,16 @@
     "Hamro Sahakarya" : {
       "extractionState" : "manual"
     },
+    "Ok" : {
+      "extractionState" : "manual"
+    },
     "OR" : {
       "extractionState" : "manual"
     },
     "Password" : {
+      "extractionState" : "manual"
+    },
+    "Please check your email and follow the instructions sent to that email." : {
       "extractionState" : "manual"
     },
     "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
