@@ -19,12 +19,14 @@ extension View {
 }
 
 public struct LargeButton: ViewModifier {
+    @Environment(\.isEnabled) var isEnabled
+    
     public func body(content: Content) -> some View {
         content
             .padding(20)
             .frame(maxWidth: .infinity)
-            .background(#color("large_button"))
-            .foregroundStyle(#color("white"))
+            .background(isEnabled ? #color("large_button") : #color("large_button").opacity(0.5))
+            .foregroundStyle(isEnabled ? #color("white") : #color("white").opacity(0.5))
             .mask(RoundedCorner(radius: 20, corners: [.topRight, .bottomLeft, .bottomRight]))
             .mask(RoundedRectangle(cornerRadius: 8))
             .shadow(color: #color("large_button").opacity(0.5), radius: 20, x: 0, y: 10)

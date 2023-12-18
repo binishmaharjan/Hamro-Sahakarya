@@ -14,6 +14,11 @@ public struct SignIn {
         @BindingState var email: String = ""
         @BindingState var password: String = ""
         @BindingState var focusedField: Field? = .email
+        var isValidInput: Bool {
+            let isEmailValid = email.contains("@") && email.contains(".")
+            let isPasswordValid = password.count > 5
+            return isEmailValid && isPasswordValid
+        }
     }
     
     public enum Action: BindableAction, Equatable {

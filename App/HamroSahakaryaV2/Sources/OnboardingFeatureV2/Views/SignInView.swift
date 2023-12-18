@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import SharedUIs
+import SharedModels
 
 public struct SignInView: View {
     public init(store: StoreOf<SignIn>) {
@@ -20,6 +21,7 @@ public struct SignInView: View {
                     Text("Don't have an account yet, Please contact the administrator to request an account.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(#color("secondary"))
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     VStack(alignment: .leading) {
                         Text(#localized("Email"))
@@ -53,17 +55,11 @@ public struct SignInView: View {
                         }
                 }
                 .padding(30)
-                .background(.regularMaterial)
-                .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .shadow(color: #color("shadow").opacity(0.3), radius: 5, x: 0, y: 3)
-                .shadow(color: #color("shadow").opacity(0.3), radius: 30, x: 0, y: 30)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .stroke(.linearGradient(colors: [.white.opacity(0.8), .white.opacity(0.1)], startPoint: .topLeading, endPoint: .bottomTrailing))
-                )
                 .padding()
                 .bind(viewStore.$focusedField, to: self.$focusedField)
             }
+            .frame(maxHeight: .infinity)
+            .background(.ultraThinMaterial)
             .background(background)
         }
     }
@@ -104,6 +100,7 @@ extension SignInView {
             }
             .largeButton()
         }
+        .disabled(!viewStore.isValidInput)
     }
 }
 
