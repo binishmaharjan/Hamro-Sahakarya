@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Icon Lock.pdf",
+      "filename" : "icon_lock.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icon_lock@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icon_lock@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

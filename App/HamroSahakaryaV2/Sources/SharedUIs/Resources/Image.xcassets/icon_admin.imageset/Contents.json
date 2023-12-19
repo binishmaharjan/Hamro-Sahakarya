@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_envelope.png",
+      "filename" : "icon_admin.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_envelope@2x.png",
+      "filename" : "icon_admin@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_envelope@3x.png",
+      "filename" : "icon_admin@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
