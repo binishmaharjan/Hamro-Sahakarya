@@ -62,6 +62,7 @@ public struct SignInView: View {
                 .frame(maxHeight: .infinity)
                 .background(.ultraThinMaterial)
                 .background(background)
+                .dismissKeyboardOnTap()
                 .navigationDestination(
                     store: store.scope(state: \.$destination.forgotPassword, action: \.destination.forgotPassword),
                     destination: ForgotPasswordView.init(store:)

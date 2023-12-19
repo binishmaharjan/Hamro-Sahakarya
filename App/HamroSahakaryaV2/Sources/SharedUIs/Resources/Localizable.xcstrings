@@ -37,6 +37,9 @@
     "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
       "extractionState" : "manual"
     },
+    "Send Email" : {
+      "extractionState" : "manual"
+    },
     "Sign In" : {
       "extractionState" : "manual"
     },

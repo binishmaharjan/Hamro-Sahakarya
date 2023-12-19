@@ -59,6 +59,7 @@ public struct ForgotPasswordView: View {
             .frame(maxHeight: .infinity)
             .background(.ultraThinMaterial)
             .background(background)
+            .dismissKeyboardOnTap()
         }
     }
 }
@@ -77,7 +78,7 @@ extension ForgotPasswordView {
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
-                Text(#localized("Forgot Password"))
+                Text(#localized("Send Email"))
                     .font(.customHeadline)
             }
             .largeButton()
