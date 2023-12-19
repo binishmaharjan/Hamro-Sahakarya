@@ -30,6 +30,7 @@ public struct SignIn {
         
         case signInButtonTapped
         case forgotPasswordButtonTapped
+        case viewTappedTwice
     }
     
     public init() {}
@@ -49,6 +50,10 @@ public struct SignIn {
                 state.destination = .forgotPassword(.init())
                 return .none
                 
+            case .viewTappedTwice:
+                state.destination = .createUser(.init())
+                return .none
+                
             case .binding, .destination:
                 return .none
             }
@@ -65,15 +70,21 @@ extension SignIn {
     public struct Destination {
         public enum State: Equatable {
             case forgotPassword(ForgotPassword.State)
+            case createUser(CreateUser.State)
         }
         
         public enum Action: Equatable {
             case forgotPassword(ForgotPassword.Action)
+            case createUser(CreateUser.Action)
         }
         
         public var body: some Reducer<State, Action> {
             Scope(state: \.forgotPassword, action: \.forgotPassword) {
                 ForgotPassword()
+            }
+            
+            Scope(state: \.createUser, action: \.createUser) {
+                CreateUser()
             }
         }
     }

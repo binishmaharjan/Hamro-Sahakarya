@@ -62,10 +62,17 @@ public struct SignInView: View {
                 .frame(maxHeight: .infinity)
                 .background(.ultraThinMaterial)
                 .background(background)
+                .onTapGesture(count: 2) {
+                    viewStore.send(.viewTappedTwice)
+                }
                 .dismissKeyboardOnTap()
                 .navigationDestination(
                     store: store.scope(state: \.$destination.forgotPassword, action: \.destination.forgotPassword),
                     destination: ForgotPasswordView.init(store:)
+                )
+                .navigationDestination(
+                    store: store.scope(state: \.$destination.createUser, action: \.destination.createUser),
+                    destination: CreateUserView.init(store:)
                 )
             }
         }
