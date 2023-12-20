@@ -49,7 +49,7 @@ public struct SecureTextFieldStyle: TextFieldStyle {
 }
 
 extension TextFieldStyle where Self == SecureTextFieldStyle {
-    /// A text field style with custom icon decoration.
+    /// A secure text field style with custom icon decoration.
     public static func secure(_ image: Image, isSecure: Bool, onSecureIconTapped: (() -> Void)?) -> SecureTextFieldStyle {
         return SecureTextFieldStyle(image: image, isSecure: isSecure, onSecureIconTapped: onSecureIconTapped)
     }

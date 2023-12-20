@@ -98,5 +98,11 @@ let package = Package(
                 "AppFeatureV2"
             ]
         ),
+        .testTarget(
+            name: "OnboardingFeatureV2Tests",
+            dependencies: [
+                "OnboardingFeatureV2"
+            ]
+        ),
     ]
 )
