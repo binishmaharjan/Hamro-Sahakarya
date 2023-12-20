@@ -12,21 +12,21 @@ public struct CreateUserView: View {
     
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ScrollView {
-                ZStack {
-                    
+            ZStack {
+                ScrollView {
                     VStack(spacing: 24) {
                         Text(#localized("Create User"))
                             .font(.customLargeTitle)
+                            .lineLimit(1)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         VStack(alignment: .leading) {
                             Text(#localized("Email"))
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_email"))
-                            //                            .focused($focusedField, equals: .email)
+                            TextField(#localized("Email"), text: viewStore.$email)
+                                .textFieldStyle(.icon(#img("icon_email")))
                         }
                         
                         VStack(alignment: .leading) {
@@ -34,9 +34,8 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_person"))
-                            //                            .focused($focusedField, equals: .email)
+                            TextField(#localized("Fullname"), text: viewStore.$fullname)
+                                .textFieldStyle(.icon(#img("icon_person")))
                         }
                         
                         VStack(alignment: .leading) {
@@ -44,9 +43,8 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_lock"))
-                            //                            .focused($focusedField, equals: .email)
+                            SecureField(#localized("Password"), text: viewStore.$password)
+                                .textFieldStyle(.icon(#img("icon_lock")))
                         }
                         
                         VStack(alignment: .leading) {
@@ -54,9 +52,8 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_admin"))
-                            //                            .focused($focusedField, equals: .email)
+                            TextField(#localized("Status"), text: .constant(""))
+                                .textFieldStyle(.icon(#img("icon_admin")))
                         }
                         
                         VStack(alignment: .leading) {
@@ -64,9 +61,8 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_palatte"))
-                            //                            .focused($focusedField, equals: .email)
+                            TextField(#localized("Color"), text: viewStore.$colorHex)
+                                .textFieldStyle(.icon(#img("icon_palatte")))
                         }
                         
                         VStack(alignment: .leading) {
@@ -74,40 +70,35 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: .constant(""))
-                                .customTextField(image: #img("icon_yen"))
-                            //                            .focused($focusedField, equals: .email)
+                            TextField(#localized("Initial Amount"), text: viewStore.$initialAmount)
+                                .textFieldStyle(.icon(#img("icon_yen")))
                         }
                         
                         createUserButton(viewStore)
                     }
                     .padding(30)
                     .padding()
-                    //                .bind(viewStore.$focusedField, to: self.$focusedField)
-                    //                }
-                    
-                    Button {
-                        // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
-                        self.presentationMode.wrappedValue.dismiss()
-                        //                    viewStore.send(.closeButtonTapped)
-                    } label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.white)
-                            .frame(width: 36, height: 36)
-                            .background(.black)
-                            .mask(Circle())
-                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                    .padding(20)
                 }
                 .navigationBarHidden(true)
-                .frame(maxHeight: .infinity)
-                .background(.ultraThinMaterial)
-                .background(background)
+                .splineBackground()
                 .dismissKeyboardOnTap()
+                .ignoresSafeArea()
+                
+                Button {
+                    // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
+                    self.presentationMode.wrappedValue.dismiss()
+                    // viewStore.send(.closeButtonTapped)
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.white)
+                        .frame(width: 36, height: 36)
+                        .background(.black)
+                        .mask(Circle())
+                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                .padding(20)
             }
-            .ignoresSafeArea()
         }
     }
 }
@@ -122,7 +113,7 @@ extension CreateUserView {
     
     private func createUserButton(_ viewStore: ViewStoreOf<CreateUser>) -> some View {
         Button {
-            //            viewStore.send(.forgotPasswordButtonTapped)
+            viewStore.send(.createUserButtonTapped)
         } label: {
             HStack {
                 Image(systemName: "arrow.right")

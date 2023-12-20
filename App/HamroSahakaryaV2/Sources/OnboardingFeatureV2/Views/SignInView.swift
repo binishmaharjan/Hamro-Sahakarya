@@ -18,6 +18,8 @@ public struct SignInView: View {
                     VStack(spacing: 24) {
                         Text(#localized("Sign In"))
                             .font(.customLargeTitle)
+                            .lineLimit(1)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         Text("Don't have an account yet, Please contact the administrator to request an account.")
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -29,8 +31,8 @@ public struct SignInView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: viewStore.$email)
-                                .customTextField(image: #img("icon_email"))
+                            TextField(#localized("Email"), text: viewStore.$email)
+                                .textFieldStyle(.icon(#img("icon_email")))
                                 .focused($focusedField, equals: .email)
                         }
                         
@@ -39,9 +41,7 @@ public struct SignInView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            SecureField("", text: viewStore.$password)
-                                .customTextField(image: #img("icon_lock"))
-                                .focused($focusedField, equals: .password)
+                            passwordTextField(viewStore)
                         }
                         
                         signInButton(viewStore)
@@ -59,9 +59,7 @@ public struct SignInView: View {
                     .padding()
                     .bind(viewStore.$focusedField, to: self.$focusedField)
                 }
-                .frame(maxHeight: .infinity)
-                .background(.ultraThinMaterial)
-                .background(background)
+                .splineBackground()
                 .onTapGesture(count: 2) {
                     viewStore.send(.viewTappedTwice)
                 }
@@ -101,6 +99,23 @@ extension SignInView {
                 .frame(height: 1)
                 .opacity(0.1)
         }
+    }
+    
+    @MainActor
+    private func passwordTextField(_ viewStore: ViewStoreOf<SignIn>) -> some View {
+        Group {
+            if viewStore.isSecure {
+                SecureField(#localized("Password"), text: viewStore.$password)
+            } else {
+                TextField(#localized("Password"), text: viewStore.$password)
+            }
+        }
+        .textFieldStyle(
+            .secure(#img("icon_lock"), isSecure: viewStore.isSecure) {
+                viewStore.send(.isSecureButtonTapped)
+            }
+        )
+        .focused($focusedField, equals: .password)
     }
     
     private func signInButton(_ viewStore: ViewStoreOf<SignIn>) -> some View {

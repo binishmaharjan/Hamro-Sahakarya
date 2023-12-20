@@ -16,6 +16,7 @@ public struct SignIn {
         @BindingState var email: String = ""
         @BindingState var password: String = ""
         @BindingState var focusedField: Field? = .email
+        var isSecure: Bool = true
         
         var isValidInput: Bool {
             let isEmailValid = email.contains("@") && email.contains(".")
@@ -31,6 +32,7 @@ public struct SignIn {
         case signInButtonTapped
         case forgotPasswordButtonTapped
         case viewTappedTwice
+        case isSecureButtonTapped
     }
     
     public init() {}
@@ -52,6 +54,10 @@ public struct SignIn {
                 
             case .viewTappedTwice:
                 state.destination = .createUser(.init())
+                return .none
+                
+            case .isSecureButtonTapped:
+                state.isSecure.toggle()
                 return .none
                 
             case .binding, .destination:

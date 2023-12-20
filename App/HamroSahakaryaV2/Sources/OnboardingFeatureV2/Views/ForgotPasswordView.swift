@@ -17,6 +17,9 @@ public struct ForgotPasswordView: View {
                 VStack(spacing: 24) {
                     Text(#localized("Forgot Password"))
                         .font(.customLargeTitle)
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Text(#localized("Reset your password by entering the email of your account, and follow the instructions sent to that email."))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -28,8 +31,8 @@ public struct ForgotPasswordView: View {
                             .font(.customSubHeadline)
                             .foregroundStyle(#color("secondary"))
                         
-                        TextField("", text: viewStore.$email)
-                            .customTextField(image: #img("icon_email"))
+                        TextField(#localized("Email"), text: viewStore.$email)
+                            .textFieldStyle(.icon(#img("icon_email")))
                             .focused($focusedField, equals: .email)
                     }
                     
@@ -56,9 +59,7 @@ public struct ForgotPasswordView: View {
                 .padding(20)
             }
             .navigationBarHidden(true)
-            .frame(maxHeight: .infinity)
-            .background(.ultraThinMaterial)
-            .background(background)
+            .splineBackground()
             .dismissKeyboardOnTap()
         }
     }

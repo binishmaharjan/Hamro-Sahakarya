@@ -1,9 +1,10 @@
 import SwiftUI
 
-public struct CustomTextField: ViewModifier {
+public struct IconTextFieldStyle: TextFieldStyle {
     var image: Image
-    public func body(content: Content) -> some View {
-        content
+    
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
             .padding(15)
             .padding(.leading, 36)
             .background(#color("white"))
@@ -13,8 +14,43 @@ public struct CustomTextField: ViewModifier {
     }
 }
 
-extension View {
-    public func customTextField(image: Image) -> some View {
-        modifier(CustomTextField(image: image))
+extension TextFieldStyle where Self == IconTextFieldStyle {
+    /// A text field style with custom icon decoration.
+    public static func icon(_ image: Image) -> IconTextFieldStyle {
+        return IconTextFieldStyle(image: image)
+    }
+}
+
+public struct SecureTextFieldStyle: TextFieldStyle {
+    var image: Image
+    var isSecure: Bool
+    var onSecureIconTapped: (() -> Void)?
+    
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .frame(height: 52)
+//            .padding(15)
+            .padding(.leading, 36 + 15)
+            .padding(.trailing, 36)
+            .background(#color("white"))
+            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(lineWidth: 1).fill(.black.opacity(0.1)))
+            .overlay(image.frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 8))
+            .overlay(
+                Image(systemName: isSecure ? "eye" : "eye.slash")
+                    .foregroundStyle(#color("secondary"))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 8)
+                    .onTapGesture {
+                        onSecureIconTapped?()
+                    }
+            )
+    }
+}
+
+extension TextFieldStyle where Self == SecureTextFieldStyle {
+    /// A text field style with custom icon decoration.
+    public static func secure(_ image: Image, isSecure: Bool, onSecureIconTapped: (() -> Void)?) -> SecureTextFieldStyle {
+        return SecureTextFieldStyle(image: image, isSecure: isSecure, onSecureIconTapped: onSecureIconTapped)
     }
 }
