@@ -43,6 +43,10 @@ final class ForgotPasswordTests: XCTestCase {
                 }
             )
         }
+        
+        await store.send(.destination(.dismiss)) {
+            $0.destination = nil
+        }
     }
     
     func test_ForgotPassword_ErrorFlow() async {
@@ -64,6 +68,10 @@ final class ForgotPasswordTests: XCTestCase {
                     TextState(SomeError().localizedDescription)
                 }
             )
+        }
+        
+        await store.send(.destination(.dismiss)) {
+            $0.destination = nil
         }
     }
 }

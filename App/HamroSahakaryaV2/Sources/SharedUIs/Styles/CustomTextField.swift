@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: IconTextFieldStyle
 public struct IconTextFieldStyle: TextFieldStyle {
     var image: Image
     
@@ -21,6 +22,7 @@ extension TextFieldStyle where Self == IconTextFieldStyle {
     }
 }
 
+// MARK: SecureTextFieldStyle
 public struct SecureTextFieldStyle: TextFieldStyle {
     var image: Image
     var isSecure: Bool
@@ -52,5 +54,27 @@ extension TextFieldStyle where Self == SecureTextFieldStyle {
     /// A secure text field style with custom icon decoration.
     public static func secure(_ image: Image, isSecure: Bool, onSecureIconTapped: (() -> Void)?) -> SecureTextFieldStyle {
         return SecureTextFieldStyle(image: image, isSecure: isSecure, onSecureIconTapped: onSecureIconTapped)
+    }
+}
+
+// MARK: TapOnlyTextFieldStyle
+public struct TapOnlyTextFieldStyle: TextFieldStyle {
+    var image: Image
+    var onTapped: (() -> Void)?
+    
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .textFieldStyle(.icon(image))
+            .disabled(true)
+            .onTapGesture {
+               onTapped?()
+            }
+    }
+}
+
+extension TextFieldStyle where Self == TapOnlyTextFieldStyle {
+    /// A secure text field style with custom icon decoration, but not editable.
+    public static func tapOnly(_ image: Image, onTapped: (() -> Void)?) -> TapOnlyTextFieldStyle {
+        return TapOnlyTextFieldStyle(image: image, onTapped: onTapped)
     }
 }

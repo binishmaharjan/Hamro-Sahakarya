@@ -42,25 +42,16 @@ public struct ForgotPasswordView: View {
                 .padding()
                 .bind(viewStore.$focusedField, to: self.$focusedField)
                 
-                Button {
-                    // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
-                    // TODO: Find a fix
-                    self.presentationMode.wrappedValue.dismiss()
-//                    viewStore.send(.closeButtonTapped)
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.white)
-                        .frame(width: 36, height: 36)
-                        .background(.black)
-                        .mask(Circle())
-                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
-                }
+                closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
             }
             .navigationBarHidden(true)
             .splineBackground()
             .dismissKeyboardOnTap()
+            .alert(
+                store: store.scope(state: \.$destination.alert, action: \.destination.alert)
+            )
         }
     }
 }
@@ -71,6 +62,21 @@ extension ForgotPasswordView {
         #img("img_spline")
             .blur(radius: 60)
             .offset(x: 200, y: 100)
+    }
+    
+    private var closeButton: some View {
+        Button {
+            // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
+            self.presentationMode.wrappedValue.dismiss()
+            // viewStore.send(.closeButtonTapped)
+        } label: {
+            Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .frame(width: 36, height: 36)
+                .background(.black)
+                .mask(Circle())
+                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+        }
     }
     
     private func forgotPasswordButton(_ viewStore: ViewStoreOf<ForgotPassword>) -> some View {

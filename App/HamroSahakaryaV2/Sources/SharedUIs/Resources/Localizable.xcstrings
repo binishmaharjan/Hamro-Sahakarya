@@ -4,6 +4,12 @@
     "Cancel" : {
       "extractionState" : "manual"
     },
+    "Color" : {
+      "extractionState" : "manual"
+    },
+    "Create User" : {
+      "extractionState" : "manual"
+    },
     "Don't have an account yet, Please contact the administrator to request an account." : {
       "extractionState" : "manual"
     },
@@ -19,7 +25,13 @@
     "Forgot Password" : {
       "extractionState" : "manual"
     },
+    "Fullname" : {
+      "extractionState" : "manual"
+    },
     "Hamro Sahakarya" : {
+      "extractionState" : "manual"
+    },
+    "Initial Amount" : {
       "extractionState" : "manual"
     },
     "Ok" : {
@@ -41,6 +53,9 @@
       "extractionState" : "manual"
     },
     "Sign In" : {
+      "extractionState" : "manual"
+    },
+    "Status" : {
       "extractionState" : "manual"
     },
     "UserDefaults: Failed to decode." : {

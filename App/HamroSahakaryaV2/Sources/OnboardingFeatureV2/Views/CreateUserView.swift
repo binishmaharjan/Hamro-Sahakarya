@@ -43,7 +43,7 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            SecureField(#localized("Password"), text: viewStore.$password)
+                            TextField(#localized("Password"), text: viewStore.$password)
                                 .textFieldStyle(.icon(#img("icon_lock")))
                         }
                         
@@ -52,8 +52,10 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField(#localized("Status"), text: .constant(""))
-                                .textFieldStyle(.icon(#img("icon_admin")))
+                            TextField(#localized("Status"), text: .constant(viewStore.status.rawValue))
+                                .textFieldStyle(.tapOnly(#img("icon_admin")) {
+                                    viewStore.send(.memberFieldTapped)
+                                })
                         }
                         
                         VStack(alignment: .leading) {
@@ -84,21 +86,13 @@ public struct CreateUserView: View {
                 .dismissKeyboardOnTap()
                 .ignoresSafeArea()
                 
-                Button {
-                    // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
-                    self.presentationMode.wrappedValue.dismiss()
-                    // viewStore.send(.closeButtonTapped)
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.white)
-                        .frame(width: 36, height: 36)
-                        .background(.black)
-                        .mask(Circle())
-                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
-                }
+                closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
             }
+            .confirmationDialog(
+                store: store.scope(state: \.$destination.confirmationDialog, action: \.destination.confirmationDialog)
+            )
         }
     }
 }
@@ -109,6 +103,21 @@ extension CreateUserView {
         #img("img_spline")
             .blur(radius: 60)
             .offset(x: 200, y: 100)
+    }
+    
+    private var closeButton: some View {
+        Button {
+            // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
+            self.presentationMode.wrappedValue.dismiss()
+            // viewStore.send(.closeButtonTapped)
+        } label: {
+            Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .frame(width: 36, height: 36)
+                .background(.black)
+                .mask(Circle())
+                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+        }
     }
     
     private func createUserButton(_ viewStore: ViewStoreOf<CreateUser>) -> some View {
