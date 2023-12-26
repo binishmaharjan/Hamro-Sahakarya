@@ -78,3 +78,39 @@ extension TextFieldStyle where Self == TapOnlyTextFieldStyle {
         return TapOnlyTextFieldStyle(image: image, onTapped: onTapped)
     }
 }
+
+// MARK: ColorPickerTextFieldStyle
+public struct ColorPickerTextFieldStyle: TextFieldStyle {
+    var image: Image
+    var selectedColor: Color = .clear
+    var onTapped: (() -> Void)?
+    
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .frame(height: 52)
+            .padding(.leading, 36 + 16)
+            .padding(.trailing, 36)
+            .background(#color("white"))
+            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(lineWidth: 1).fill(.black.opacity(0.1)))
+            .overlay(image.frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 8))
+            .overlay(
+                RoundedRectangle(cornerRadius: 4, style: .continuous)
+                    .padding(.leading, 36 + 15)
+                    .padding(.trailing, 8)
+                    .padding(.vertical, 8)
+                    .foregroundStyle(selectedColor)
+            )
+            .disabled(true)
+            .onTapGesture {
+               onTapped?()
+            }
+    }
+}
+
+extension TextFieldStyle where Self == ColorPickerTextFieldStyle {
+    /// A secure text field style with custom icon decoration for color pickers.
+    public static func colorPicker(_ image: Image, selectedColor: Color = .clear, onTapped: (() -> Void)?) -> ColorPickerTextFieldStyle {
+        return ColorPickerTextFieldStyle(image: image, selectedColor: selectedColor, onTapped: onTapped)
+    }
+}

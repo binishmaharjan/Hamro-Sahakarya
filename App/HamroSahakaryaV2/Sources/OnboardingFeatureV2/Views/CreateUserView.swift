@@ -63,8 +63,10 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField(#localized("Color"), text: viewStore.$colorHex)
-                                .textFieldStyle(.icon(#img("icon_palatte")))
+                            TextField("", text: viewStore.$colorHex)
+                                .textFieldStyle(.colorPicker(#img("icon_palatte")) {
+                                    print("Tapped")
+                                })
                         }
                         
                         VStack(alignment: .leading) {

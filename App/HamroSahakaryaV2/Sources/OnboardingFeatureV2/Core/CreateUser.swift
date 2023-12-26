@@ -27,8 +27,7 @@ public struct CreateUser {
     
     public init(){ }
     
-    public var body: some
-    ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         BindingReducer()
         
         Reduce<State, Action> { state, action in

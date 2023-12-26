@@ -10,12 +10,13 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v12)],
     products: [
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
-        .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
-        .library(name: "AuthClient", targets: ["AuthClient"]),
-        .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
+        .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
+        .library(name: "AuthClient", targets: ["AuthClient"]),
+        .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
+        .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -77,6 +78,13 @@ let package = Package(
             ],
             resources: [
                 .process("Resources"),
+            ]
+        ),
+        .target(
+            name: "ColorPaletteFeatureV2",
+            dependencies: [
+                "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .macro(

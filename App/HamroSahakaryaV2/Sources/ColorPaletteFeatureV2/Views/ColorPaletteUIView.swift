@@ -1,11 +1,7 @@
 import UIKit
 
-public protocol ColorPaletteProtocol {
-    var onColorDidChange: ((_ color: UIColor) -> ())? { get }
-}
-
 /// Color Picker For Choosing a Color
-public final class ColorPalette: UIView, ColorPaletteProtocol {
+public final class ColorPaletteUIView: UIView {
     public var onColorDidChange: ((_ color: UIColor) -> ())?
     public var elementSize: CGFloat = 1 {
         didSet { setNeedsDisplay() }
@@ -36,7 +32,7 @@ public final class ColorPalette: UIView, ColorPaletteProtocol {
         // Main Palette
         for y in stride(from: CGFloat.zero, to: mainPaletteRect.height, by: elementSize) {
             
-            var saturation = y < mainPaletteRect.height / 2.0 ? 
+            var saturation = y < mainPaletteRect.height / 2.0 ?
             CGFloat(2 * y) / mainPaletteRect.height :
             2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
             
@@ -49,7 +45,7 @@ public final class ColorPalette: UIView, ColorPaletteProtocol {
                 )
             )
             
-            let brightness = y < mainPaletteRect.height / 2.0 ? 
+            let brightness = y < mainPaletteRect.height / 2.0 ?
             CGFloat(1.0) :
             2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
             
