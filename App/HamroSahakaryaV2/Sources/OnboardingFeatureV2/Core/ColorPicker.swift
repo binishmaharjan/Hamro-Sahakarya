@@ -2,21 +2,23 @@ import Foundation
 import SwiftUI
 import ComposableArchitecture
 
+public typealias ColorHex = String
+
 @Reducer
-public struct ColorPalette {
+public struct ColorPicker {
     public struct State: Equatable {
         public init() { }
         
-        var selectedColor: Color = .clear
+        var colorHex: ColorHex = ""
     }
     
     public enum Action: Equatable {
         public enum Delegate: Equatable {
-            case colorSelected(Color)
+            case colorSelected(ColorHex)
         }
         
         case delegate(Delegate)
-        case viewTappedOn(Color)
+        case selectButtonTapped
     }
     
     public init() { }
@@ -25,9 +27,8 @@ public struct ColorPalette {
     ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
-            case .viewTappedOn(let color):
-                state.selectedColor = color
-                return .send(.delegate(.colorSelected(state.selectedColor)))
+            case .selectButtonTapped:
+                return .send(.delegate(.colorSelected(state.colorHex)))
                 
             case .delegate:
                 return .none

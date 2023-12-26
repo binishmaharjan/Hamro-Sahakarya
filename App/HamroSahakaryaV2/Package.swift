@@ -44,6 +44,7 @@ let package = Package(
         .target(
             name: "OnboardingFeatureV2",
             dependencies: [
+                "ColorPaletteFeatureV2",
                 "SharedModels",
                 "SharedUIs",
                 "AuthClient",

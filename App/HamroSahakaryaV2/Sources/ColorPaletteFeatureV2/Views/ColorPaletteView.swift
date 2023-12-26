@@ -12,7 +12,7 @@ public struct ColorPaletteView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             ColorPaletteRepresentable { color in
-                viewStore.send(.delegate(.colorSelected(color)))
+                viewStore.send(.viewTappedOn(color))
             }
             .border(#color("gray"))
         }
