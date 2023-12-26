@@ -14,19 +14,15 @@ public struct ColorPickerView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack(spacing: 24) {
-                ColorPaletteView(
-                    store: .init(
-                        initialState: .init(),
-                        reducer: ColorPalette.init
-                    )
-                )
-                .aspectRatio(1, contentMode: .fit)
+                ColorPaletteView(store: store.scope(state: \.colorPalette, action: \.colorPalette))
+                    .aspectRatio(1, contentMode: .fit)
                 
                 HStack {
-                    Rectangle().fill()
+                    Rectangle()
+                        .fill(Color(hex: viewStore.state.colorHex))
                         .frame(maxWidth: .infinity)
                     
-                    Text("#000000")
+                    Text(viewStore.state.colorHex)
                         .frame(maxWidth: .infinity)
                         .font(.title2)
                         .foregroundStyle(#color("secondary"))
@@ -35,7 +31,7 @@ public struct ColorPickerView: View {
                 
                 selectColorButton(viewStore)
                     .padding(.bottom, 8)
-            }
+            } 
             .padding(30)
             .background(.regularMaterial)
             .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
@@ -60,8 +56,8 @@ extension ColorPickerView {
         } label: {
             Image(systemName: "xmark")
                 .frame(width: 36, height: 36)
-                .foregroundColor(.black)
-                .background(.white)
+                .foregroundColor(#color("black"))
+                .background(#color("white"))
                 .mask(Circle())
                 .shadow(color: #color("shadow").opacity(0.3), radius: 5, x: 0, y: 3)
         }
@@ -73,7 +69,7 @@ extension ColorPickerView {
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
-                Text(#localized("Create User"))
+                Text(#localized("Select Color"))
                     .font(.customHeadline)
             }
             .largeButton()

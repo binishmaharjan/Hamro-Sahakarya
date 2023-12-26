@@ -12,7 +12,9 @@ public struct ColorPaletteView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             ColorPaletteRepresentable { color in
-                viewStore.send(.viewTappedOn(color))
+                if let colorHex = color.toHexString() {
+                    viewStore.send(.viewTappedOn(colorHex))
+                }
             }
             .border(#color("gray"))
         }
