@@ -13,7 +13,7 @@ public struct CreateUser {
         @BindingState var fullname: String = ""
         @BindingState var password: String = ""
         @BindingState var status: Status = .member
-        @BindingState var colorHex: String = ""
+        @BindingState var colorHex: String = "#F77D8E"
         @BindingState var initialAmount: String = "0"
     }
     
@@ -23,6 +23,7 @@ public struct CreateUser {
         
         case createUserButtonTapped
         case memberFieldTapped
+        case colorPickerFieldTapped
     }
     
     public init(){ }
@@ -37,6 +38,15 @@ public struct CreateUser {
                 state.status = option.toStatus
                 return .none
                 
+            case .destination(.presented(.colorPicker(.delegate(.colorSelected(let colorHex))))):
+                state.colorHex = colorHex
+                state.destination = nil
+                return .none
+                
+            case .destination(.presented(.colorPicker(.delegate(.close)))):
+                state.destination = nil
+                return .none
+                
             case .createUserButtonTapped:
                 return .none
                 
@@ -44,9 +54,16 @@ public struct CreateUser {
                 state.destination = .confirmationDialog(.selectStatus)
                 return .none
                 
+            case .colorPickerFieldTapped:
+                state.destination = .colorPicker(.init())
+                return .none
+                
             case .binding, .destination:
                 return .none
             }
+        }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
         }
     }
 }
@@ -57,6 +74,7 @@ extension CreateUser {
     public struct Destination {
         public enum State: Equatable {
             case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
+            case colorPicker(ColorPicker.State)
         }
         
         public enum Action: Equatable {
@@ -66,14 +84,14 @@ extension CreateUser {
             }
             
             case confirmationDialog(PresentationAction<ConfirmationDialog>)
+            case colorPicker(ColorPicker.Action)
         }
         
         public init(){ }
         
-        public var body: some
-        ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
+        public var body: some ReducerOf<Self> {
+            Scope(state: \.colorPicker, action: \.colorPicker) {
+                ColorPicker()
             }
         }
     }

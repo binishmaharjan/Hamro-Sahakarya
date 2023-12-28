@@ -15,12 +15,14 @@ public struct ColorPicker {
     public enum Action: Equatable {
         public enum Delegate: Equatable {
             case colorSelected(ColorHex)
+            case close
         }
         
         case delegate(Delegate)
         
         case colorPalette(ColorPalette.Action)
         case selectButtonTapped
+        case closeButtonTapped
     }
     
     public init() { }
@@ -35,6 +37,9 @@ public struct ColorPicker {
             case .colorPalette(.delegate(.colorSelected(let colorHex))):
                 state.colorHex = colorHex
                 return .none
+                
+            case .closeButtonTapped:
+                return .send(.delegate(.close))
                 
             case .delegate, .colorPalette:
                 return .none

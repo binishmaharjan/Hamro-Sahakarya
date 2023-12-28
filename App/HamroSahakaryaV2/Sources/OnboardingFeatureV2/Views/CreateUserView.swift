@@ -63,10 +63,12 @@ public struct CreateUserView: View {
                                 .font(.customSubHeadline)
                                 .foregroundStyle(#color("secondary"))
                             
-                            TextField("", text: viewStore.$colorHex)
-                                .textFieldStyle(.colorPicker(#img("icon_palatte")) {
-                                    print("Tapped")
-                                })
+                            TextField("", text: .constant(""))
+                                .textFieldStyle(
+                                    .colorPicker(#img("icon_palatte"), colorHex: viewStore.colorHex) {
+                                        viewStore.send(.colorPickerFieldTapped)
+                                    }
+                                )
                         }
                         
                         VStack(alignment: .leading) {
@@ -95,6 +97,10 @@ public struct CreateUserView: View {
             .confirmationDialog(
                 store: store.scope(state: \.$destination.confirmationDialog, action: \.destination.confirmationDialog)
             )
+            .fullScreenCover(store: store.scope(state: \.$destination.colorPicker, action: \.destination.colorPicker)) { store in
+                ColorPickerView(store: store)
+                    .presentationBackground(#color("secondary"))
+            }
         }
     }
 }

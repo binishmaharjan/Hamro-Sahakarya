@@ -82,7 +82,7 @@ extension TextFieldStyle where Self == TapOnlyTextFieldStyle {
 // MARK: ColorPickerTextFieldStyle
 public struct ColorPickerTextFieldStyle: TextFieldStyle {
     var image: Image
-    var selectedColor: Color = .clear
+    var colorHex: ColorHex = "#F77D8E"
     var onTapped: (() -> Void)?
     
     public func _body(configuration: TextField<Self._Label>) -> some View {
@@ -99,7 +99,7 @@ public struct ColorPickerTextFieldStyle: TextFieldStyle {
                     .padding(.leading, 36 + 15)
                     .padding(.trailing, 8)
                     .padding(.vertical, 8)
-                    .foregroundStyle(selectedColor)
+                    .foregroundStyle(Color(hex: colorHex))
             )
             .disabled(true)
             .onTapGesture {
@@ -110,7 +110,7 @@ public struct ColorPickerTextFieldStyle: TextFieldStyle {
 
 extension TextFieldStyle where Self == ColorPickerTextFieldStyle {
     /// A secure text field style with custom icon decoration for color pickers.
-    public static func colorPicker(_ image: Image, selectedColor: Color = .clear, onTapped: (() -> Void)?) -> ColorPickerTextFieldStyle {
-        return ColorPickerTextFieldStyle(image: image, selectedColor: selectedColor, onTapped: onTapped)
+    public static func colorPicker(_ image: Image, colorHex: ColorHex, onTapped: (() -> Void)?) -> ColorPickerTextFieldStyle {
+        return ColorPickerTextFieldStyle(image: image, colorHex: colorHex, onTapped: onTapped)
     }
 }
