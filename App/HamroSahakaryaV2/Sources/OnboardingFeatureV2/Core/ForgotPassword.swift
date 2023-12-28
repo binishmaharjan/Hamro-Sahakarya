@@ -15,7 +15,7 @@ public struct ForgotPassword {
         @PresentationState var destination: Destination.State?
         @BindingState var email: String = ""
         @BindingState var focusedField: Field? = .email
-        var isLoading = true
+        var isLoading = false
         
         var isValidInput: Bool {
             email.contains("@") && email.contains(".")
@@ -42,6 +42,7 @@ public struct ForgotPassword {
         Reduce<State, Action> { state, action in
             switch action {
             case .forgotPasswordButtonTapped:
+                state.isLoading = true
                 return .run { [email = state.email] send in
                     await send(
                         .sendPasswordReset(
@@ -58,10 +59,12 @@ public struct ForgotPassword {
                 }
                 
             case .sendPasswordReset(.success):
+                state.isLoading = false
                 state.destination = .alert(.sendPasswordResetSuccess)
                 return .none
                 
             case .sendPasswordReset(.failure(let error)):
+                state.isLoading = false
                 state.destination = .alert(.sendPasswordResetFailed(error))
                 return .none
                 

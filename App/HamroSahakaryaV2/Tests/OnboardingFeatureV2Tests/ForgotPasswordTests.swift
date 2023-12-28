@@ -31,8 +31,12 @@ final class ForgotPasswordTests: XCTestCase {
             $0.authClient.sendPasswordReset = { _ in return Void() }
         }
         
-        await store.send(.forgotPasswordButtonTapped)
+        await store.send(.forgotPasswordButtonTapped) {
+            $0.isLoading = true
+        }
+        
         await store.receive(\.sendPasswordReset.success) {
+            $0.isLoading = false
             $0.destination = .alert(
                 AlertState<ForgotPassword.Destination.Action.Alert> {
                     TextState(#localized("Email Sent"))
@@ -57,8 +61,12 @@ final class ForgotPasswordTests: XCTestCase {
             $0.authClient.sendPasswordReset = { _ in throw SomeError() }
         }
         
-        await store.send(.forgotPasswordButtonTapped)
+        await store.send(.forgotPasswordButtonTapped) {
+            $0.isLoading = true
+        }
+        
         await store.receive(\.sendPasswordReset.failure) {
+            $0.isLoading = false
             $0.destination = .alert(
                 AlertState<ForgotPassword.Destination.Action.Alert> {
                     TextState(#localized("Error"))

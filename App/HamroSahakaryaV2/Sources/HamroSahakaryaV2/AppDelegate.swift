@@ -1,5 +1,6 @@
 import UIKit
 import ComposableArchitecture
+import Firebase
 import AppFeatureV2
 import SharedUIs
 
@@ -21,10 +22,19 @@ public final class AppDelegate: NSObject, UIApplicationDelegate {
         
         // Call method to register custom font
         CustomFontManager.registerFonts()
+        // Setup Firebase
+        setupFirebaseServer()
         
         viewStore.send(.didFinishLaunching)
         
         return true
+    }
+}
+
+// MARK: Firebase
+extension AppDelegate {
+    private func setupFirebaseServer(){
+        FirebaseApp.configure()
     }
 }
 
