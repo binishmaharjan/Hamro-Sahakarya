@@ -28,7 +28,7 @@ public struct ForgotPassword {
         
         case forgotPasswordButtonTapped
         case closeButtonTapped
-        case sendPasswordReset(TaskResult<VoidSuccess>)
+        case sendPasswordResetResponse(TaskResult<VoidSuccess>)
     }
     
     public init(){ }
@@ -45,7 +45,7 @@ public struct ForgotPassword {
                 state.isLoading = true
                 return .run { [email = state.email] send in
                     await send(
-                        .sendPasswordReset(
+                        .sendPasswordResetResponse(
                             TaskResult {
                                 return try await authClient.sendPasswordReset(email)
                             }
@@ -58,12 +58,12 @@ public struct ForgotPassword {
                     await dismiss()
                 }
                 
-            case .sendPasswordReset(.success):
+            case .sendPasswordResetResponse(.success):
                 state.isLoading = false
                 state.destination = .alert(.sendPasswordResetSuccess)
                 return .none
                 
-            case .sendPasswordReset(.failure(let error)):
+            case .sendPasswordResetResponse(.failure(let error)):
                 state.isLoading = false
                 state.destination = .alert(.sendPasswordResetFailed(error))
                 return .none

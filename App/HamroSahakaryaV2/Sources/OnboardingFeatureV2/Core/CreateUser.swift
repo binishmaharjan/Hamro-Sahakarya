@@ -15,6 +15,16 @@ public struct CreateUser {
         @BindingState var status: Status = .member
         @BindingState var colorHex: String = "#F77D8E"
         @BindingState var initialAmount: String = "0"
+        
+        var isLoading: Bool = false
+        
+        var isValidInput: Bool {
+            let isEmailValid = email.contains("@") && email.contains(".")
+            let isPasswordValid = password.count > 5
+            let isFullNameValid = !fullname.isEmpty
+            
+            return isEmailValid && isPasswordValid && isFullNameValid
+        }
     }
     
     public enum Action: BindableAction, Equatable {
@@ -24,9 +34,12 @@ public struct CreateUser {
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
+        case createUserResponse(TaskResult<AccountId>)
     }
     
     public init(){ }
+    
+    @Dependency(\.authClient) private var authClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -47,15 +60,22 @@ public struct CreateUser {
                 state.destination = nil
                 return .none
                 
-            case .createUserButtonTapped:
-                return .none
-                
             case .memberFieldTapped:
                 state.destination = .confirmationDialog(.selectStatus)
                 return .none
                 
             case .colorPickerFieldTapped:
                 state.destination = .colorPicker(.init())
+                return .none
+                
+            case .createUserButtonTapped:
+                state.isLoading = false
+                return .none
+                
+            case .createUserResponse(.success(let accountId)):
+                return .none
+                
+            case .createUserResponse(.failure(let error)):
                 return .none
                 
             case .binding, .destination:

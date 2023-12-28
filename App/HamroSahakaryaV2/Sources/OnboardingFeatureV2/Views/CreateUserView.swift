@@ -139,7 +139,7 @@ extension CreateUserView {
             }
             .largeButton()
         }
-        //        .disabled(!viewStore.isValidInput)
+        .disabled(!viewStore.isValidInput)
     }
 }
 
