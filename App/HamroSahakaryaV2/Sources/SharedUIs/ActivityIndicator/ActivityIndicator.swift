@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: Activity Indicator
 public struct ActivityIndicator: View {
     public init() { }
     
@@ -36,4 +37,19 @@ public struct ActivityIndicator: View {
 
 #Preview {
     ActivityIndicator()
+}
+
+// MARK: View + Extension
+extension View {
+    public func loadingView(_ isLoading: Bool) -> some View {
+        overlay {
+            ZStack {
+                if isLoading {
+                    ActivityIndicator()
+                }
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            .allowsHitTesting(false)
+        }
+    }
 }

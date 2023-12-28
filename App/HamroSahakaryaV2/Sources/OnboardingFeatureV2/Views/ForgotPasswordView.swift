@@ -49,6 +49,7 @@ public struct ForgotPasswordView: View {
             .navigationBarHidden(true)
             .splineBackground()
             .dismissKeyboardOnTap()
+            .loadingView(viewStore.isLoading)
             .alert(
                 store: store.scope(state: \.$destination.alert, action: \.destination.alert)
             )
