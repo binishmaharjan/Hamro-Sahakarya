@@ -8,7 +8,6 @@ public struct ForgotPassword {
     public struct State: Equatable {
         public enum Field: Equatable {
             case email
-            case password
         }
         
         public init() {}
@@ -16,6 +15,7 @@ public struct ForgotPassword {
         @PresentationState var destination: Destination.State?
         @BindingState var email: String = ""
         @BindingState var focusedField: Field? = .email
+        var isLoading = true
         
         var isValidInput: Bool {
             email.contains("@") && email.contains(".")
