@@ -1,7 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
-import FirebaseAuth
+import FirebaseFirestore
 
 // MARK: Dependency (liveValue)
 extension UserLogClient: DependencyKey {

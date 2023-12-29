@@ -20,7 +20,7 @@ public struct UserApiClient {
     ///
     /// - Parameter none
     /// - Returns: Void
-    public var signOut: @Sendable (Account) async throws -> Void
+    public var signOut: @Sendable () async throws -> Void
     /// Delete User Account Information from the server and add log to the server
     ///
     /// - Parameters account: Account Information to delete
@@ -30,7 +30,7 @@ public struct UserApiClient {
     ///
     /// - Parameters: none
     /// - Returns: all logs information
-    public var getLogs: @Sendable () async throws -> [GroupLog]
+    public var fetchLogs: @Sendable () async throws -> [GroupLog]
     /// Add monthly fee log
     ///
     /// - Parameters:
@@ -140,7 +140,7 @@ extension UserApiClient: TestDependencyKey {
         createUser: unimplemented(),
         signOut: unimplemented(),
         removeMember: unimplemented(),
-        getLogs: unimplemented(),
+        fetchLogs: unimplemented(),
         addMonthlyFeeLog: unimplemented(),
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),
@@ -162,7 +162,7 @@ extension UserApiClient: TestDependencyKey {
         createUser: unimplemented(),
         signOut: unimplemented(),
         removeMember: unimplemented(),
-        getLogs: unimplemented(),
+        fetchLogs: unimplemented(),
         addMonthlyFeeLog: unimplemented(),
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),

@@ -67,7 +67,7 @@ let package = Package(
             dependencies: [
                 "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
             ]
         ),
         .target(
@@ -75,7 +75,7 @@ let package = Package(
             dependencies: [
                 "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
             ]
         ),
         .target(
@@ -83,7 +83,7 @@ let package = Package(
             dependencies: [
                 "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
             ]
         ),
         .target(
@@ -95,7 +95,6 @@ let package = Package(
                 "UserStorageClient",
                 "UserDefaultsClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
             ]
         ),
         .target(

@@ -1,7 +1,7 @@
 import Foundation
 import Dependencies
 import SharedModels
-import FirebaseAuth
+import FirebaseFirestore
 
 // MARK: Dependency (liveValue)
 extension UserDataClient: DependencyKey {

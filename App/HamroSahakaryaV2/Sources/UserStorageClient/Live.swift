@@ -1,7 +1,8 @@
 import Foundation
-import UIKit
+import SwiftUI
 import Dependencies
 import SharedModels
+import FirebaseStorage
 
 // MARK: Dependency (liveValue)
 extension UserStorageClient: DependencyKey {
@@ -22,7 +23,7 @@ extension UserStorageClient {
 
 extension UserStorageClient {
     actor Session {
-        func saveImage(user: Account, image: UIImage) async throws -> URL {
+        func saveImage(user: Account, image: Image) async throws -> URL {
             fatalError()
         }
         
