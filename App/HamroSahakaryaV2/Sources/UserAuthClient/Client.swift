@@ -2,7 +2,7 @@ import Foundation
 import Dependencies
 import SharedModels
 
-public struct AuthClient {
+public struct UserAuthClient {
     /// SignIn the user.
     ///
     /// - Parameters:
@@ -34,15 +34,15 @@ public struct AuthClient {
 
 // MARK: DependencyValues
 extension DependencyValues {
-    public var authClient: AuthClient {
-        get { self[AuthClient.self] }
-        set { self[AuthClient.self] = newValue }
+    public var userAuthClient: UserAuthClient {
+        get { self[UserAuthClient.self] }
+        set { self[UserAuthClient.self] = newValue }
     }
 }
 
 // MARK: Dependency (testValue, previewValue)
-extension AuthClient: TestDependencyKey {
-    public static let testValue = AuthClient(
+extension UserAuthClient: TestDependencyKey {
+    public static let testValue = UserAuthClient(
         signIn: unimplemented(),
         createUser: unimplemented(),
         signOut: unimplemented(),
@@ -50,7 +50,7 @@ extension AuthClient: TestDependencyKey {
         sendPasswordReset: unimplemented()
     )
 
-    public static let previewValue = AuthClient(
+    public static let previewValue = UserAuthClient(
         signIn: unimplemented(),
         createUser: unimplemented(),
         signOut: unimplemented(),

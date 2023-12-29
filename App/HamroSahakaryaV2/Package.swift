@@ -13,7 +13,7 @@ let package = Package(
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
-        .library(name: "AuthClient", targets: ["AuthClient"]),
+        .library(name: "UserAuthClient", targets: ["UserAuthClient"]),
         .library(name: "UserDataClient", targets: ["UserDataClient"]),
         .library(name: "UserLogClient", targets: ["UserLogClient"]),
         .library(name: "UserStorageClient", targets: ["UserStorageClient"]),
@@ -50,12 +50,12 @@ let package = Package(
                 "ColorPaletteFeatureV2",
                 "SharedModels",
                 "SharedUIs",
-                "AuthClient",
+                "UserAuthClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
-            name: "AuthClient",
+            name: "UserAuthClient",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),

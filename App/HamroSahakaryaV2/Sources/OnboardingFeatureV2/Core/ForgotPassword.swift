@@ -34,7 +34,7 @@ public struct ForgotPassword {
     public init(){ }
     
     @Dependency(\.dismiss) private var dismiss
-    @Dependency(\.authClient) private var authClient
+    @Dependency(\.userAuthClient) private var userAuthClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -47,7 +47,7 @@ public struct ForgotPassword {
                     await send(
                         .sendPasswordResetResponse(
                             TaskResult {
-                                return try await authClient.sendPasswordReset(email)
+                                return try await userAuthClient.sendPasswordReset(email)
                             }
                         )
                     )

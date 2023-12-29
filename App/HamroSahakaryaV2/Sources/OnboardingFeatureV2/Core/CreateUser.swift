@@ -39,7 +39,7 @@ public struct CreateUser {
     
     public init(){ }
     
-    @Dependency(\.authClient) private var authClient
+    @Dependency(\.userAuthClient) private var userAuthClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()

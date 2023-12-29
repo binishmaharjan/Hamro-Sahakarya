@@ -28,7 +28,7 @@ final class ForgotPasswordTests: XCTestCase {
         let store = TestStore(initialState: ForgotPassword.State()) {
             ForgotPassword()
         } withDependencies: {
-            $0.authClient.sendPasswordReset = { _ in return Void() }
+            $0.userAuthClient.sendPasswordReset = { _ in return Void() }
         }
         
         await store.send(.forgotPasswordButtonTapped) {
@@ -58,7 +58,7 @@ final class ForgotPasswordTests: XCTestCase {
         let store = TestStore(initialState: ForgotPassword.State()) {
             ForgotPassword()
         } withDependencies: {
-            $0.authClient.sendPasswordReset = { _ in throw SomeError() }
+            $0.userAuthClient.sendPasswordReset = { _ in throw SomeError() }
         }
         
         await store.send(.forgotPasswordButtonTapped) {
