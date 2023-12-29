@@ -3,14 +3,18 @@ import Foundation
 public typealias AccountId = String
 public typealias Email = String
 public typealias Password = String
+public typealias ImageUrl = String
+public typealias ColorHex = String
+public typealias Balance = Int
+public typealias Loan = Int
 
 public struct Account: Equatable, Identifiable, Codable {
     public let id: AccountId
     public let username: String
     public let email: String
     public let status: Status
-    public let colorHex: String
-    public let iconUrl: String?
+    public let colorHex: ColorHex
+    public let iconUrl: ImageUrl?
     public let dateCreated: String
     public let keyword: String
 

@@ -3,7 +3,6 @@ import Dependencies
 import SharedModels
 import FirebaseAuth
 
-
 // MARK: Dependency (liveValue)
 extension AuthClient: DependencyKey {
     public static let liveValue = AuthClient.live()
@@ -17,7 +16,7 @@ extension AuthClient {
         return AuthClient(
             signIn: { try await session.signIn(withEmail: $0, password: $1) },
             createUser: { try await session.createUser(withAccount: $0) },
-            signOut: {try await session.signOut() },
+            signOut: { try await session.signOut() },
             changePassword: { try await session.updatePassword(to: $0) },
             sendPasswordReset: { try await session.sendPasswordReset(withEmail: $0) }
         )
@@ -26,7 +25,7 @@ extension AuthClient {
 
 extension AuthClient {
     actor Session {
-        func signIn (withEmail email: Email, password: Password) async throws -> AccountId {
+        func signIn(withEmail email: Email, password: Password) async throws -> AccountId {
             let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
             
             return authDataResult.user.uid
