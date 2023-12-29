@@ -64,6 +64,14 @@ public struct UserLogClient {
     public var addRemoveMemberLog: @Sendable (Account, Account) async throws -> Void
 }
 
+// MARK: DependencyValues
+extension DependencyValues {
+    public var userLogClient: UserLogClient {
+        get { self[UserLogClient.self] }
+        set { self[UserLogClient.self] = newValue }
+    }
+}
+
 // MARK: Dependency (testValue, previewValue)
 extension UserLogClient: TestDependencyKey {
     public static let testValue = UserLogClient(

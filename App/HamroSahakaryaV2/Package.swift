@@ -14,9 +14,9 @@ let package = Package(
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "AuthClient", targets: ["AuthClient"]),
-        .library(name: "StorageClient", targets: ["StorageClient"]),
         .library(name: "UserDataClient", targets: ["UserDataClient"]),
         .library(name: "UserLogClient", targets: ["UserLogClient"]),
+        .library(name: "UserStorageClient", targets: ["UserStorageClient"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
         .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
@@ -62,7 +62,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "StorageClient",
+            name: "UserStorageClient",
             dependencies: [
                 "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
