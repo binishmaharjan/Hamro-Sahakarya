@@ -40,7 +40,6 @@ extension DependencyValues {
     }
 }
 
-
 // MARK: Dependency (testValue, previewValue)
 extension AuthClient: TestDependencyKey {
     public static let testValue = AuthClient(

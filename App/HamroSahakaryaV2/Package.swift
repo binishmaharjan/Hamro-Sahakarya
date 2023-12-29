@@ -16,6 +16,7 @@ let package = Package(
         .library(name: "AuthClient", targets: ["AuthClient"]),
         .library(name: "StorageClient", targets: ["StorageClient"]),
         .library(name: "UserDataClient", targets: ["UserDataClient"]),
+        .library(name: "UserLogClient", targets: ["UserLogClient"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
         .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
@@ -63,6 +64,7 @@ let package = Package(
         .target(
             name: "StorageClient",
             dependencies: [
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
             ]
@@ -70,6 +72,15 @@ let package = Package(
         .target(
             name: "UserDataClient",
             dependencies: [
+                "SharedModels",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+            ]
+        ),
+        .target(
+            name: "UserLogClient",
+            dependencies: [
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
             ]
