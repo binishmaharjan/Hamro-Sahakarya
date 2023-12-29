@@ -18,7 +18,7 @@ extension UserDataClient {
             save: { try await session.save(account: $0) },
             remove: { try await session.remove(account: $0) },
             updateImageUrl: { try await session.updateImageUrl(account: $0, imageUrl: $1) },
-            updatePassword: { try await session.updatePassword(account: $0, password: $1) },
+            changePassword: { try await session.changePassword(account: $0, password: $1) },
             fetchAllMembers: { try await session.fetchAllMembers() },
             fetchAllMembersWithLoan: { try await session.fetchAllMemberWithLoan() },
             changeStatusForUser: { try await session.changeStatusForUser(account: $0) },
@@ -52,7 +52,7 @@ extension UserDataClient {
             fatalError()
         }
         
-        func updatePassword(account: Account, password: Password) async throws -> Void {
+        func changePassword(account: Account, password: Password) async throws -> Void {
             fatalError()
         }
         

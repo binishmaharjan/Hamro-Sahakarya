@@ -3,7 +3,7 @@ import ComposableArchitecture
 import SharedModels
 
 public struct UserLogClient {
-    /// SignIn the user.
+    /// Fetch all logs
     ///
     /// - Parameters: none
     /// - Returns: all logs information

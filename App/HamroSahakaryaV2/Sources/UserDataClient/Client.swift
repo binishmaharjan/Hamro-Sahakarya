@@ -31,7 +31,7 @@ public struct UserDataClient {
     ///  - account: Account Information to update
     ///  - newPassword: New Password set to the url
     /// - Returns: Void
-    public var updatePassword: @Sendable (Account, Password) async throws -> Void
+    public var changePassword: @Sendable (Account, Password) async throws -> Void
     /// Fetch the information of the all members
     ///
     /// - Parameters: none
@@ -83,7 +83,7 @@ public struct UserDataClient {
     ///  - balance: new balance
     /// - Returns: Void
     public var updateAmountFor: @Sendable (Account, Balance) async throws -> Void
-    /// Change User Status for the member
+    /// Fetch group detail
     ///
     /// - Parameters: none
     /// - Returns: Current Group Detail
@@ -117,7 +117,7 @@ extension UserDataClient: TestDependencyKey {
         save: unimplemented(),
         remove: unimplemented(),
         updateImageUrl: unimplemented(),
-        updatePassword: unimplemented(),
+        changePassword: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
         changeStatusForUser: unimplemented(),
@@ -136,7 +136,7 @@ extension UserDataClient: TestDependencyKey {
         save: unimplemented(),
         remove: unimplemented(),
         updateImageUrl: unimplemented(),
-        updatePassword: unimplemented(),
+        changePassword: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
         changeStatusForUser: unimplemented(),
