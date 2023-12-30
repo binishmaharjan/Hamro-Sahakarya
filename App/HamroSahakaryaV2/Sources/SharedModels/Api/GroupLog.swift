@@ -15,7 +15,7 @@ public struct GroupLog: Codable, Equatable {
         case logType = "log_type"
         case logCreator = "log_creator"
         case logTarget = "log_owner"
-        case amount
+        case amount = "amount"
         case reason
     }
 

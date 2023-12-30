@@ -10,7 +10,7 @@ public struct UserLogClient {
     public var fetchLogs: @Sendable () async throws -> [GroupLog]
     /// Add use joined log
     ///
-    /// - Parameters admin: Admin who registered log.
+    /// - Parameters user: Detail of the member
     /// - Returns: Void
     public var addJoinedLog: @Sendable (Account) async throws -> Void
     /// Add monthly fee log
@@ -18,7 +18,7 @@ public struct UserLogClient {
     /// - Parameters:
     ///   - admin: Admin who registered log.
     ///   - account: user account information
-    ///   - balance: balance to be added
+    ///   - amount: amount to be added as monthly fee
     /// - Returns: Void
     public var addMonthlyFeeLog: @Sendable (Account, Account, Balance) async throws -> Void
     /// Add extra or expense  log
@@ -26,7 +26,7 @@ public struct UserLogClient {
     /// - Parameters:
     ///   - extraOrExpense: Extra or expenses
     ///   - admin: Admin who registered log.
-    ///   - balance: balance amount to be added
+    ///   - amount: amount amount to be added as extra or expenses
     ///   - reason: Reason for the log
     /// - Returns: Void
     public var addExtraOrExpensesLog: @Sendable (ExtraOrExpenses, Account, Balance, String) async throws -> Void
@@ -36,7 +36,7 @@ public struct UserLogClient {
     ///   - addOrDeduct: Add or Deduct
     ///   - admin: Admin who registered log.
     ///   - account: member whose log is being added
-    ///   - balance: balance amount to be added
+    ///   - amount: amount amount to be added or deducted
     /// - Returns: Void
     public var addAmountOrDeductAmountLog: @Sendable (AddOrDeduct, Account, Account, Balance) async throws -> Void
     /// Add loan given log

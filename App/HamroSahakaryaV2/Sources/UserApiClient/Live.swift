@@ -1,5 +1,5 @@
 import Foundation
-import SwiftUI
+import UIKit
 import Dependencies
 import SharedModels
 import UserAuthClient
@@ -116,7 +116,7 @@ extension UserApiClient {
             try await userLogClient.addLoanReturnedLog(admin, user, loan)
         }
         
-        func changeProfileImage(user: Account, image: Image) async throws -> Void {
+        func changeProfileImage(user: Account, image: UIImage) async throws -> Void {
             let imageUrl = try await userStorageClient.saveImage(user, image)
             try await userDataClient.updateImageUrl(user, imageUrl.absoluteString)
             

@@ -1,7 +1,7 @@
 import Foundation
 import Dependencies
 import SharedModels
-import SwiftUI
+import UIKit
 
 public struct UserApiClient {
     /// SignIn the user.
@@ -84,7 +84,7 @@ public struct UserApiClient {
     ///   - user: User account to save user profile image
     ///   - image: UIImageData
     /// - Returns: URL in the storage
-    public var changeProfileImage: @Sendable (Account, Image) async throws -> Void
+    public var changeProfileImage: @Sendable (Account, UIImage) async throws -> Void
     /// Update the keyword saved in the Account Information
     ///
     /// - Parameters:
