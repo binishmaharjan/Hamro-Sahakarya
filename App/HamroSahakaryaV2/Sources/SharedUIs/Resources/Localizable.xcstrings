@@ -19,6 +19,9 @@
     "Email Sent!" : {
       "extractionState" : "manual"
     },
+    "Empty data" : {
+      "extractionState" : "manual"
+    },
     "Error" : {
       "extractionState" : "manual"
     },

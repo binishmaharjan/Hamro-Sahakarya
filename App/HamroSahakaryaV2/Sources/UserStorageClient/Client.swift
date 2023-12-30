@@ -1,5 +1,5 @@
 import Foundation
-import SwiftUI
+import UIKit
 import Dependencies
 import SharedModels
 
@@ -10,7 +10,7 @@ public struct UserStorageClient {
     ///   - user: User account to save user profile image
     ///   - image: UIImageData
     /// - Returns: URL in the storage
-    public var saveImage: @Sendable (Account, Image) async throws -> URL
+    public var saveImage: @Sendable (Account, UIImage) async throws -> URL
     /// Download terms and condition pdf
     ///
     /// - Parameters: none

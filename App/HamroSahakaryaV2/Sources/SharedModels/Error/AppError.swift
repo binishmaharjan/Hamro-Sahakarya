@@ -17,5 +17,11 @@ public enum AppError {
     
     public enum ApiError: LocalizedError {
         case emptyData
+        
+        public var errorDescription: String {
+            switch self {
+            case .emptyData: return #localized("Empty data")
+            }
+        }
     }
 }
