@@ -14,3 +14,11 @@ Profiles/
 
 ## DS_Store
 *.DS_Store
+
+## User settings
+xcuserdata/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
