@@ -8,13 +8,13 @@ public struct UserAuthClient {
     /// - Parameters:
     ///   - email: Email Id of user
     ///   - password: Password for the account
-    /// - Returns: AccountId
-    public var signIn: @Sendable (Email, Password) async throws -> AccountId
+    /// - Returns: UserId
+    public var signIn: @Sendable (Email, Password) async throws -> UserId
     /// Create new account for the user. Only Admin can create new accounts
     ///
     /// - Parameter newAccount: User info for the new account
-    /// - Returns: AccountId
-    public var createUser: @Sendable (NewAccount) async throws -> AccountId
+    /// - Returns: UserId
+    public var createUser: @Sendable (NewUser) async throws -> UserId
     /// SignOut User
     ///
     /// - Parameter none

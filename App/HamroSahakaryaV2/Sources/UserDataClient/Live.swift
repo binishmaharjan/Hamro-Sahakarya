@@ -15,108 +15,108 @@ extension UserDataClient {
         
         return UserDataClient(
             fetch: { try await session.fetch(uuid: $0) },
-            save: { try await session.save(account: $0) },
-            remove: { try await session.remove(account: $0) },
-            updateImageUrl: { try await session.updateImageUrl(account: $0, imageUrl: $1) },
-            changePassword: { try await session.changePassword(account: $0, password: $1) },
+            save: { try await session.save(user: $0) },
+            remove: { try await session.remove(user: $0) },
+            updateImageUrl: { try await session.updateImageUrl(user: $0, imageUrl: $1) },
+            changePassword: { try await session.changePassword(user: $0, password: $1) },
             fetchAllMembers: { try await session.fetchAllMembers() },
             fetchAllMembersWithLoan: { try await session.fetchAllMemberWithLoan() },
-            changeStatusForUser: { try await session.changeStatusForUser(account: $0) },
-            addMonthlyFeeFor: { try await session.addMonthlyFeeFor(account: $0, balance: $1) },
-            loanMember: { try await session.loanMember(account: $0, loan: $1) },
-            loanReturned: { try await session.loanReturned(account: $0, loan: $1) },
+            changeStatusForUser: { try await session.changeStatusForUser(user: $0) },
+            addMonthlyFeeFor: { try await session.addMonthlyFeeFor(user: $0, balance: $1) },
+            loanMember: { try await session.loanMember(user: $0, loan: $1) },
+            loanReturned: { try await session.loanReturned(user: $0, loan: $1) },
             updateExtraAndExpenses: { try await session.updateExtraAndExpenses(groupDetail: $0, extra: $1, expenses: $2) },
-            updateAmountFor: { try await session.updateAmountFor(account: $0, balance: $1) },
+            updateAmountFor: { try await session.updateAmountFor(user: $0, balance: $1) },
             fetchGroupDetail: { try await session.fetchGroupDetail() },
             fetchNotice: { try await session.fetchNotice() },
-            updateNotice: { try await session.updateNotice(account: $0, message: $1) }
+            updateNotice: { try await session.updateNotice(user: $0, message: $1) }
         )
     }
 }
 
 extension UserDataClient {
     actor Session {
-        func fetch (uuid: AccountId) async throws -> Account {
+        func fetch (uuid: UserId) async throws -> User {
             let reference = Firestore.firestore().collection("members").document(uuid)
             
-            let user = try await reference.getDocument(as: Account.self)
+            let user = try await reference.getDocument(as: User.self)
             return user
         }
         
-        func save(account: Account) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
+        func save(user: User) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
             
-            try reference.setData(from: account)
+            try reference.setData(from: user)
         }
         
-        func remove(account: Account) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
+        func remove(user: User) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
             
             try await reference.delete()
         }
         
-        func updateImageUrl(account: Account, imageUrl: ImageUrl) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
+        func updateImageUrl(user: User, imageUrl: ImageUrl) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
             let updateData = ["icon_url": imageUrl]
             
             try await reference.updateData(updateData)
         }
         
-        func changePassword(account: Account, password: Password) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
+        func changePassword(user: User, password: Password) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
             let updateData = ["keyword" : password]
             
             try await reference.updateData(updateData)
         }
         
-        func fetchAllMembers() async throws -> [Account] {
+        func fetchAllMembers() async throws -> [User] {
             let reference = Firestore.firestore().collection("members")
             let snapshots = try await reference.getDocuments()
             
-            var users: [Account] = try snapshots.documents.map {
-                try $0.data(as: Account.self)
+            let users: [User] = try snapshots.documents.map {
+                try $0.data(as: User.self)
             }
 
             return users
         }
         
-        func fetchAllMemberWithLoan() async throws -> [Account] {
+        func fetchAllMemberWithLoan() async throws -> [User] {
             let reference = Firestore.firestore().collection("members")
             
             let snapshots = try await reference.whereField("loan_taken", isGreaterThan: 0).getDocuments()
             
-            var users: [Account] = try snapshots.documents.map {
-                try $0.data(as: Account.self)
+            let users: [User] = try snapshots.documents.map {
+                try $0.data(as: User.self)
             }
 
             return users
         }
         
-        func changeStatusForUser(account: Account) async throws -> Void {
-            let newStatus: Status = account.status == .admin ? .member : .admin
+        func changeStatusForUser(user: User) async throws -> Void {
+            let newStatus: Status = user.status == .admin ? .member : .admin
             let updateData = ["status": newStatus.rawValue]
-            let reference = Firestore.firestore().collection("members").document(account.id)
+            let reference = Firestore.firestore().collection("members").document(user.id)
             
             try await reference.updateData(updateData)
         }
         
-        func addMonthlyFeeFor(account: Account, balance: Balance) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
-            let updateData = ["balance": account.balance + balance]
+        func addMonthlyFeeFor(user: User, balance: Balance) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
+            let updateData = ["balance": user.balance + balance]
             
             try await reference.updateData(updateData)
         }
         
-        func loanMember(account: Account, loan: Loan) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
-            let updateData = ["loan_taken": account.loanTaken + loan]
+        func loanMember(user: User, loan: Loan) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
+            let updateData = ["loan_taken": user.loanTaken + loan]
             
             try await reference.updateData(updateData)
         }
         
-        func loanReturned(account: Account, loan: Loan) async throws -> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
-            let updateData = ["loan_taken": account.loanTaken - loan]
+        func loanReturned(user: User, loan: Loan) async throws -> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
+            let updateData = ["loan_taken": user.loanTaken - loan]
             
             try await reference.updateData(updateData)
         }
@@ -131,8 +131,8 @@ extension UserDataClient {
             try await reference.updateData(updateData)
         }
         
-        func updateAmountFor(account: Account, balance: Balance) async throws-> Void {
-            let reference = Firestore.firestore().collection("members").document(account.id)
+        func updateAmountFor(user: User, balance: Balance) async throws-> Void {
+            let reference = Firestore.firestore().collection("members").document(user.id)
             let updateData = ["balance": balance]
             
             try await reference.updateData(updateData)
@@ -158,10 +158,10 @@ extension UserDataClient {
             return notice
         }
         
-        func updateNotice(account: Account, message: String) async throws -> Void {
+        func updateNotice(user: User, message: String) async throws -> Void {
             let notice = Notice(
                 message: message, 
-                admin: account.username, 
+                admin: user.username,
                 dateCreated: Date.now.toString
             )
             let reference = Firestore.firestore().collection("notice").document(notice.dateCreated)

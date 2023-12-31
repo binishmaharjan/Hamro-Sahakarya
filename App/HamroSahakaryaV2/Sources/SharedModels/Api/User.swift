@@ -1,6 +1,6 @@
 import Foundation
 
-public typealias AccountId = String
+public typealias UserId = String
 public typealias Email = String
 public typealias Password = String
 public typealias ImageUrl = String
@@ -8,8 +8,8 @@ public typealias ColorHex = String
 public typealias Balance = Int
 public typealias Loan = Int
 
-public struct Account: Equatable, Identifiable, Codable {
-    public let id: AccountId
+public struct User: Equatable, Identifiable, Codable {
+    public let id: UserId
     public let username: String
     public let email: String
     public let status: Status
@@ -18,7 +18,7 @@ public struct Account: Equatable, Identifiable, Codable {
     public let dateCreated: String
     public let keyword: String
 
-    //Account
+    // Account
     public let loanTaken: Int
     public let balance: Int
     public let dateUpdated: String
@@ -58,7 +58,7 @@ public struct Account: Equatable, Identifiable, Codable {
 }
 
 // MARK: No User
-extension Account {
+extension User {
     /// Represent no user user data
-    static let none: Account? = nil
+    static let none: User? = nil
 }

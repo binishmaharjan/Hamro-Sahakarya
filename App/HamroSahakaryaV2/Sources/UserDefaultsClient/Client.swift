@@ -4,11 +4,11 @@ import SharedModels
 
 public struct UserDefaultsClient {
     /// Get User Account Info From UserDefaults
-    public var userAccount: () -> Account?
+    public var user: () -> User?
     /// Save User Account Info To UserDefaults
-    public var saveUserAccount: (Account) -> Void
+    public var saveUser: (User) -> Void
     /// Delete Current User Account Info From UserDefaults
-    public var deleteUserAccount: () -> Void
+    public var deleteUser: () -> Void
 }
 
 // MARK: DependencyValues
@@ -23,21 +23,21 @@ extension DependencyValues {
 // MARK: Dependency (testValue, previewValue)
 extension UserDefaultsClient: TestDependencyKey {
     public static let testValue = UserDefaultsClient(
-        userAccount: unimplemented(),
-        saveUserAccount: unimplemented(),
-        deleteUserAccount: unimplemented()
+        user: unimplemented(),
+        saveUser: unimplemented(),
+        deleteUser: unimplemented()
     )
 
     public static let previewValue = UserDefaultsClient(
-        userAccount: { .mock },
-        saveUserAccount: unimplemented(),
-        deleteUserAccount: unimplemented()
+        user: { .mock },
+        saveUser: unimplemented(),
+        deleteUser: unimplemented()
     )
 }
 
 // MARK: Mock
-extension Account {
-    public static var mock: Account = Account(
+extension User {
+    public static var mock: User = User(
         id: "62x2j84hM9YCSrtiNwhg2F86NSv2",
         username: "Member One",
         email: "memberone@gmail.com",

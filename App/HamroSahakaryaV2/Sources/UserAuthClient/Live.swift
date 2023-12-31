@@ -25,13 +25,13 @@ extension UserAuthClient {
 
 extension UserAuthClient {
     actor Session {
-        func signIn(withEmail email: Email, password: Password) async throws -> AccountId {
+        func signIn(withEmail email: Email, password: Password) async throws -> UserId {
             let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
             
             return authDataResult.user.uid
         }
         
-        func createUser(withAccount newAccount: NewAccount) async throws -> AccountId {
+        func createUser(withAccount newAccount: NewUser) async throws -> UserId {
             let authDataResult = try await Auth.auth().createUser(withEmail: newAccount.email, password: newAccount.keyword)
             
             let changeRequest = authDataResult.user.createProfileChangeRequest()

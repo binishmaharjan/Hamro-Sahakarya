@@ -23,7 +23,7 @@ extension UserStorageClient {
 
 extension UserStorageClient {
     actor Session {
-        func saveImage(user: Account, image: UIImage) async throws -> URL {
+        func saveImage(user: User, image: UIImage) async throws -> URL {
             let metaData = getMetaData(for: .jpeg)
             let uuid = user.id
             
@@ -57,7 +57,7 @@ extension UserStorageClient.Session {
         case jpeg = "image/jpeg"
     }
     
-    private func generateStorageReference(for uuid: AccountId) -> FirebaseStorage.StorageReference {
+    private func generateStorageReference(for uuid: UserId) -> FirebaseStorage.StorageReference {
         let storageReference = Storage.storage().reference().child("user_profile/\(uuid)/profile_image.jpg")
         return storageReference
     }
@@ -68,13 +68,13 @@ extension UserStorageClient.Session {
         return metaData
     }
     
-    private func putData(image: UIImage, metaData: StorageMetadata, uuid: AccountId) async throws -> Void {
+    private func putData(image: UIImage, metaData: StorageMetadata, uuid: UserId) async throws -> Void {
         let storageReference = generateStorageReference(for: uuid)
         let imageData = image.jpegData(compressionQuality: 0.5)!
         _ = try await storageReference.putDataAsync(imageData, metadata: metaData)
     }
     
-    private func downloadImageUrl(for uuid: AccountId) async throws -> URL {
+    private func downloadImageUrl(for uuid: UserId) async throws -> URL {
         let storageReference = generateStorageReference(for: uuid)
         let imageUrl = try await storageReference.downloadURL()
         return imageUrl

@@ -15,7 +15,8 @@ extension UserApiClient {
         
         return UserApiClient(
             signIn:  { try await session.signIn(email: $0, password: $1) },
-            createUser:  { try await session.createUser(newAccount: $0) },
+            createUser:  { try await session.createUser(newUser: $0) },
+            sendPasswordReset: { try await session.sendPasswordReset(email: $0) },
             signOut:  { try await session.signOut() },
             removeMember:  { try await session.removeMember(admin: $0, user: $1) },
             fetchLogs:  { try await session.fetchLogs() },
@@ -45,34 +46,38 @@ extension UserApiClient {
         @Dependency(\.userStorageClient) var userStorageClient
         @Dependency(\.userDefaultsClient) var userDefaultsClient
         
-        func signIn(email: Email, password: Password) async throws -> Account {
-            let accountId = try await userAuthClient.signIn(email, password)
-            let user = try await userDataClient.fetch(accountId)
+        func signIn(email: Email, password: Password) async throws -> User {
+            let uuid = try await userAuthClient.signIn(email, password)
+            let user = try await userDataClient.fetch(uuid)
             
-            userDefaultsClient.saveUserAccount(user)
+            userDefaultsClient.saveUser(user)
             
             return user
         }
         
-        func createUser(newAccount: NewAccount) async throws -> Account {
-            let accountId = try await userAuthClient.createUser(newAccount)
-            let account = newAccount.createAccount(with: accountId)
+        func createUser(newUser: NewUser) async throws -> User {
+            let uuid = try await userAuthClient.createUser(newUser)
+            let user = newUser.createAccount(with: uuid)
             
-            try await userDataClient.save(account)
-            try await userLogClient.addJoinedLog(account)
+            try await userDataClient.save(user)
+            try await userLogClient.addJoinedLog(user)
             
-            userDefaultsClient.saveUserAccount(account)
+            userDefaultsClient.saveUser(user)
             
-            return account
+            return user
+        }
+        
+        func sendPasswordReset(email: Email) async throws -> Void {
+            try await userAuthClient.sendPasswordReset(email)
         }
         
         func signOut() async throws -> Void {
             try await userAuthClient.signOut()
             
-            userDefaultsClient.deleteUserAccount()
+            userDefaultsClient.deleteUser()
         }
         
-        func removeMember(admin: Account, user: Account) async throws -> Void {
+        func removeMember(admin: User, user: User) async throws -> Void {
             try await userDataClient.remove(user)
             try await userLogClient.addRemoveMemberLog(admin, user)
         }
@@ -81,12 +86,12 @@ extension UserApiClient {
             try await userLogClient.fetchLogs()
         }
         
-        func addMonthlyFeeLog(admin: Account, user: Account, balance: Balance) async throws -> Void {
+        func addMonthlyFeeLog(admin: User, user: User, balance: Balance) async throws -> Void {
             try await userDataClient.addMonthlyFeeFor(user, balance)
             try await userLogClient.addMonthlyFeeLog(admin, user, balance)
         }
         
-        func addExtraAndExpenses(admin: Account, type: ExtraOrExpenses, balance: Balance, reason: String) async throws -> Void {
+        func addExtraAndExpenses(admin: User, type: ExtraOrExpenses, balance: Balance, reason: String) async throws -> Void {
             let extra = (type == .extra) ? balance : 0
             let expenses = (type == .extra) ? 0 : balance
             let groupDetail = try await userDataClient.fetchGroupDetail()
@@ -95,7 +100,7 @@ extension UserApiClient {
             try await userLogClient.addExtraOrExpensesLog(type, admin, balance, reason)
         }
         
-        func addOrDeductAmount(admin: Account, user: Account, type: AddOrDeduct, balance: Balance) async throws -> Void {
+        func addOrDeductAmount(admin: User, user: User, type: AddOrDeduct, balance: Balance) async throws -> Void {
             let newBalance = (type == .add) ? (user.balance + balance) : (user.balance - balance)
 
             try await userDataClient.updateAmountFor(user, newBalance)
@@ -106,37 +111,38 @@ extension UserApiClient {
             try await userDataClient.fetchGroupDetail()
         }
         
-        func loanMember(admin: Account, user: Account, loan: Loan) async throws -> Void {
+        func loanMember(admin: User, user: User, loan: Loan) async throws -> Void {
             try await userDataClient.loanMember(user, loan)
             try await userLogClient.addLoanMemberLog(admin, user, loan)
         }
         
-        func loanReturned(admin: Account, user: Account, loan: Loan) async throws -> Void {
+        func loanReturned(admin: User, user: User, loan: Loan) async throws -> Void {
             try await userDataClient.loanReturned(user, loan)
             try await userLogClient.addLoanReturnedLog(admin, user, loan)
         }
         
-        func changeProfileImage(user: Account, image: UIImage) async throws -> Void {
+        func changeProfileImage(user: User, image: UIImage) async throws -> Void {
             let imageUrl = try await userStorageClient.saveImage(user, image)
             try await userDataClient.updateImageUrl(user, imageUrl.absoluteString)
             
             let updatedUser = try await userDataClient.fetch(user.id)
+            userDefaultsClient.saveUser(updatedUser)
         }
         
-        func changePassword(user: Account, newPassword: Password) async throws -> Void {
+        func changePassword(user: User, newPassword: Password) async throws -> Void {
             try await userAuthClient.changePassword(newPassword)
             try await userDataClient.changePassword(user, newPassword)
         }
         
-        func changeStatus(for user: Account) async throws -> Void {
+        func changeStatus(for user: User) async throws -> Void {
             try await userDataClient.changeStatusForUser(user)
         }
         
-        func fetchAllMembers() async throws -> [Account] {
+        func fetchAllMembers() async throws -> [User] {
             try await userDataClient.fetchAllMembers()
         }
         
-        func fetchAllMembersWithLoan() async throws -> [Account] {
+        func fetchAllMembersWithLoan() async throws -> [User] {
             try await userDataClient.fetchAllMembersWithLoan()
         }
         
@@ -144,7 +150,7 @@ extension UserApiClient {
             try await userDataClient.fetchNotice()
         }
         
-        func updateNotice(admin: Account, message: String) async throws -> Void {
+        func updateNotice(admin: User, message: String) async throws -> Void {
             try await userDataClient.updateNotice(admin, message)
         }
         

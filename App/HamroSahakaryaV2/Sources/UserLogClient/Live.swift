@@ -39,7 +39,7 @@ extension UserLogClient {
             return logs
         }
         
-        func addJoinedLog(user: Account) async throws -> Void {
+        func addJoinedLog(user: User) async throws -> Void {
             let logCreator = user.username, logTarget = user.username
             let balance = user.balance
             let log = generateLog(logType: .joined, logCreator: logCreator, logTarget: logTarget, amount: balance, reason: "")
@@ -49,7 +49,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addMonthlyFeeLog(admin: Account, user: Account, amount: Balance) async throws -> Void {
+        func addMonthlyFeeLog(admin: User, user: User, amount: Balance) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let log = generateLog(logType: .monthlyFee, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
             
@@ -57,7 +57,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addExtraOrExpensesLog(extraOrExpenses: ExtraOrExpenses, admin: Account, amount: Balance, reason: String) async throws -> Void {
+        func addExtraOrExpensesLog(extraOrExpenses: ExtraOrExpenses, admin: User, amount: Balance, reason: String) async throws -> Void {
             let logCreator = admin.username, logTarget = ""
             let logType: GroupLogType = (extraOrExpenses == .extra) ? .extra : .expenses
             let log = generateLog(logType: logType, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: reason)
@@ -66,7 +66,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addAmountOrDeductAmountLog(addOrDeduct: AddOrDeduct, admin: Account, user: Account, amount: Balance) async throws -> Void {
+        func addAmountOrDeductAmountLog(addOrDeduct: AddOrDeduct, admin: User, user: User, amount: Balance) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let logType: GroupLogType = (addOrDeduct == .add) ? .addAmount : .deductAmount
             let log = generateLog(logType: logType, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
@@ -75,7 +75,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addLoanMemberLog(admin: Account, user: Account, loan: Loan) async throws -> Void {
+        func addLoanMemberLog(admin: User, user: User, loan: Loan) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let log = generateLog(logType: .loanGiven, logCreator: logCreator, logTarget: logTarget, amount: loan, reason: "")
             
@@ -83,7 +83,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addLoanReturnedLog(admin: Account, user: Account, loan: Loan) async throws -> Void {
+        func addLoanReturnedLog(admin: User, user: User, loan: Loan) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let log = generateLog(logType: .loanGiven, logCreator: logCreator, logTarget: logTarget, amount: loan, reason: "")
             
@@ -91,7 +91,7 @@ extension UserLogClient {
             try logReference.setData(from: log)
         }
         
-        func addRemoveMemberLog(admin: Account, user: Account) async throws -> Void {
+        func addRemoveMemberLog(admin: User, user: User) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let amount = user.balance
             let log = generateLog(logType: .loanGiven, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")

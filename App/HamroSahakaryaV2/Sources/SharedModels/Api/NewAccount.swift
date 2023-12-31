@@ -1,6 +1,6 @@
 import Foundation
 
-public struct NewAccount: Codable {
+public struct NewUser: Codable {
     public let username: String
     public let email: String
     public let status: Status
@@ -21,9 +21,9 @@ public struct NewAccount: Codable {
 }
 
 // MARK: Account Creation
-extension NewAccount {
-    public func createAccount(with id: AccountId) -> Account {
-        Account(
+extension NewUser {
+    public func createAccount(with id: UserId) -> User {
+        User(
             id: id,
             username: username,
             email: email,

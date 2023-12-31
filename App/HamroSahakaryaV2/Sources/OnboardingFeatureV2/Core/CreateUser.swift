@@ -34,7 +34,7 @@ public struct CreateUser {
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
-        case createUserResponse(TaskResult<AccountId>)
+        case createUserResponse(TaskResult<UserId>)
     }
     
     public init(){ }
@@ -72,7 +72,7 @@ public struct CreateUser {
                 state.isLoading = false
                 return .none
                 
-            case .createUserResponse(.success(let accountId)):
+            case .createUserResponse(.success(let userId)):
                 return .none
                 
             case .createUserResponse(.failure(let error)):

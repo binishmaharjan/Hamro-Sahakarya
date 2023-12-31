@@ -25,7 +25,7 @@ public struct Root {
                 state.destination = .signIn(.init())
                 return .none
 
-            case let .destination(.presented(.launch(.delegate(.showMainView(userAccount))))):
+            case let .destination(.presented(.launch(.delegate(.showMainView(user))))):
                 print("Show Main")
                 return .none
                 
