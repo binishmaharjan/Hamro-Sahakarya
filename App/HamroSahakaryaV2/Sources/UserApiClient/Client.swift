@@ -116,9 +116,9 @@ public struct UserApiClient {
     ///
     /// - Parameters:
     ///  - account: Admin who updated the notice
-    ///  - notice: new notice
+    ///  - message: new notice
     /// - Returns: Void
-    public var updateNotice: @Sendable (Account, Notice) async throws -> Void
+    public var updateNotice: @Sendable (Account, String) async throws -> Void
     /// Download terms and condition pdf
     ///
     /// - Parameters: none

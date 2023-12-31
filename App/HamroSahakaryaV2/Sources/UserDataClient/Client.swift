@@ -5,7 +5,7 @@ import SharedModels
 public struct UserDataClient {
     /// Fetch User Account Information for the server
     ///
-    /// - Parameters accountId: AccountId of which data to fetch
+    /// - Parameters uuid: AccountId of which data to fetch
     /// - Returns: AccountId
     public var fetch: @Sendable (AccountId) async throws -> Account
     /// Save User Account Information to the server
@@ -97,9 +97,9 @@ public struct UserDataClient {
     ///
     /// - Parameters:
     ///  - account: Admin who updated the notice
-    ///  - notice: new notice
+    ///  - message: new notice
     /// - Returns: Void
-    public var updateNotice: @Sendable (Account, Notice) async throws -> Void
+    public var updateNotice: @Sendable (Account, String) async throws -> Void
 }
 
 // MARK: DependencyValues

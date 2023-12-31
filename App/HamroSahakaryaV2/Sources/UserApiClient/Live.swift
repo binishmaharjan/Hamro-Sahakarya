@@ -31,7 +31,7 @@ extension UserApiClient {
             fetchAllMembers:  { try await session.fetchAllMembers() },
             fetchAllMembersWithLoan:  { try await session.fetchAllMembersWithLoan() },
             fetchNotice:  { try await session.fetchNotice() },
-            updateNotice:  { try await session.updateNotice(admin: $0, notice: $1) },
+            updateNotice:  { try await session.updateNotice(admin: $0, message: $1) },
             downloadTermsAndCondition:  { try await session.downloadTermsAndCondition() }
         )
     }
@@ -144,8 +144,8 @@ extension UserApiClient {
             try await userDataClient.fetchNotice()
         }
         
-        func updateNotice(admin: Account, notice: Notice) async throws -> Void {
-            try await userDataClient.updateNotice(admin, notice)
+        func updateNotice(admin: Account, message: String) async throws -> Void {
+            try await userDataClient.updateNotice(admin, message)
         }
         
         func downloadTermsAndCondition() async throws -> Data {
