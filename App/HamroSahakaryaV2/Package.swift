@@ -58,6 +58,7 @@ let package = Package(
         .target(
             name: "UserAuthClient",
             dependencies: [
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
             ]
@@ -94,6 +95,7 @@ let package = Package(
                 "UserLogClient",
                 "UserStorageClient",
                 "UserDefaultsClient",
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

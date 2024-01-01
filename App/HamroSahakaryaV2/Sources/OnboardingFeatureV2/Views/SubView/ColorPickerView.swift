@@ -14,6 +14,11 @@ public struct ColorPickerView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack(spacing: 24) {
+                Text(#localized("Select Color"))
+                    .font(.customLargeTitle)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: false, vertical: true)
+                
                 ColorPaletteView(store: store.scope(state: \.colorPalette, action: \.colorPalette))
                     .aspectRatio(1, contentMode: .fit)
                 

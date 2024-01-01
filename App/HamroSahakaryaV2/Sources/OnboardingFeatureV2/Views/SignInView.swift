@@ -72,6 +72,13 @@ public struct SignInView: View {
                     store: store.scope(state: \.$destination.createUser, action: \.destination.createUser),
                     destination: CreateUserView.init(store:)
                 )
+                .fullScreenCover(store: store.scope(state: \.$destination.adminPasswordInput, action: \.destination.adminPasswordInput)) { store in
+                    AdminPasswordInputView(store: store)
+                        .presentationBackground(Color.clear)
+                }
+                .alert(
+                    store: store.scope(state: \.$destination.alert, action: \.destination.alert)
+                )
             }
         }
     }

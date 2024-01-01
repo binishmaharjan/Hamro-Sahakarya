@@ -122,6 +122,7 @@ extension CreateUser {
             }
             
             case confirmationDialog(PresentationAction<ConfirmationDialog>)
+            case alert(Alert)
             case colorPicker(ColorPicker.Action)
         }
         

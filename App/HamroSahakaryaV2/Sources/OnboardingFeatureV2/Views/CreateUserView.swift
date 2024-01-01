@@ -100,8 +100,11 @@ public struct CreateUserView: View {
             )
             .fullScreenCover(store: store.scope(state: \.$destination.colorPicker, action: \.destination.colorPicker)) { store in
                 ColorPickerView(store: store)
-                    .presentationBackground(#color("secondary"))
+                    .presentationBackground(Color.clear)
             }
+            .alert(
+                store: store.scope(state: \.$destination.alert, action: \.destination.alert)
+            )
         }
     }
 }

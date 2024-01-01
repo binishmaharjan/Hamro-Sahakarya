@@ -1,10 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Admin Password" : {
+      "extractionState" : "manual"
+    },
     "Cancel" : {
       "extractionState" : "manual"
     },
     "Color" : {
+      "extractionState" : "manual"
+    },
+    "Couldn't verify admin password" : {
       "extractionState" : "manual"
     },
     "Create User" : {
@@ -20,6 +26,12 @@
       "extractionState" : "manual"
     },
     "Empty data" : {
+      "extractionState" : "manual"
+    },
+    "Enter" : {
+      "extractionState" : "manual"
+    },
+    "Enter Admin Password" : {
       "extractionState" : "manual"
     },
     "Error" : {
@@ -56,6 +68,9 @@
       "extractionState" : "manual"
     },
     "Sign In" : {
+      "extractionState" : "manual"
+    },
+    "Sorry" : {
       "extractionState" : "manual"
     },
     "Status" : {
