@@ -28,14 +28,14 @@ final class ForgotPasswordTests: XCTestCase {
         let store = TestStore(initialState: ForgotPassword.State()) {
             ForgotPassword()
         } withDependencies: {
-            $0.userAuthClient.sendPasswordReset = { _ in return Void() }
+            $0.userApiClient.sendPasswordReset = { _ in return Void() }
         }
         
         await store.send(.forgotPasswordButtonTapped) {
             $0.isLoading = true
         }
         
-        await store.receive(\.sendPasswordReset.success) {
+        await store.receive(\.sendPasswordResetResponse.success) {
             $0.isLoading = false
             $0.destination = .alert(
                 AlertState<ForgotPassword.Destination.Action.Alert> {
@@ -58,14 +58,14 @@ final class ForgotPasswordTests: XCTestCase {
         let store = TestStore(initialState: ForgotPassword.State()) {
             ForgotPassword()
         } withDependencies: {
-            $0.userAuthClient.sendPasswordReset = { _ in throw SomeError() }
+            $0.userApiClient.sendPasswordReset = { _ in throw SomeError() }
         }
         
         await store.send(.forgotPasswordButtonTapped) {
             $0.isLoading = true
         }
         
-        await store.receive(\.sendPasswordReset.failure) {
+        await store.receive(\.sendPasswordResetResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(
                 AlertState<ForgotPassword.Destination.Action.Alert> {

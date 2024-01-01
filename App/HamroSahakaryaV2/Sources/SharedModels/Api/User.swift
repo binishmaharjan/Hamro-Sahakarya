@@ -62,3 +62,19 @@ extension User {
     /// Represent no user user data
     static let none: User? = nil
 }
+
+// MARK: Mock Data
+extension User {
+    static let mock = User(
+        id: "0",
+        username: "username",
+        email: "email@gmail.com",
+        status: .member,
+        colorHex: "#FFFFFF",
+        dateCreated: "2024-01-01 22:00:00.000",
+        keyword: "keyword",
+        loanTaken: 0,
+        balance: 0,
+        dateUpdated: "2024-01-01 22:00:00.000"
+    )
+}
