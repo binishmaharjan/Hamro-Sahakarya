@@ -8,6 +8,11 @@ import UserDefaultsClient
 import UserLogClient
 import UserStorageClient
 
+// MARK: Dependency (liveValue)
+extension UserApiClient: DependencyKey {
+    public static let liveValue = UserApiClient.live()
+}
+
 // MARK: - Live Implementation
 extension UserApiClient {
     public static func live() -> UserApiClient {

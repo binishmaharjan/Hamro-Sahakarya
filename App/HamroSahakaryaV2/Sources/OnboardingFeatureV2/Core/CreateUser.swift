@@ -1,6 +1,8 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
+import SharedUIs
+import UserApiClient
 
 @Reducer
 public struct CreateUser {
@@ -34,12 +36,12 @@ public struct CreateUser {
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
-        case createUserResponse(TaskResult<UserId>)
+        case createUserResponse(TaskResult<User>)
     }
     
     public init(){ }
     
-    @Dependency(\.userAuthClient) private var userAuthClient
+    @Dependency(\.userApiClient) private var userApiClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -69,13 +71,27 @@ public struct CreateUser {
                 return .none
                 
             case .createUserButtonTapped:
-                state.isLoading = false
-                return .none
+                state.isLoading = true
+                let newUser = createNewUser(state: state)
+                return .run { send in
+                    await send(
+                        .createUserResponse(
+                            TaskResult {
+                                return try await userApiClient.createUser(newUser)
+                            }
+                        )
+                    )
+                }
                 
-            case .createUserResponse(.success(let userId)):
+            case .createUserResponse(.success(let user)):
+                state.isLoading = false
+                // TODO: Create user session and show main view
+                print(user)
                 return .none
                 
             case .createUserResponse(.failure(let error)):
+                state.isLoading = false
+                state.destination = .alert(.createUserFailed(error))
                 return .none
                 
             case .binding, .destination:
@@ -94,10 +110,12 @@ extension CreateUser {
     public struct Destination {
         public enum State: Equatable {
             case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
+            case alert(AlertState<Action.Alert>)
             case colorPicker(ColorPicker.State)
         }
         
         public enum Action: Equatable {
+            public enum Alert: Equatable { }
             public enum ConfirmationDialog: Equatable {
                 case memberTapped
                 case adminTapped
@@ -129,6 +147,21 @@ extension Equatable where Self == CreateUser.Destination.Action.ConfirmationDial
     }
 }
 
+// MARK: New User
+extension CreateUser {
+    private func createNewUser(state: State) -> NewUser {
+        return NewUser(
+            username: state.fullname,
+            email: state.email,
+            status: state.status,
+            colorHex: state.colorHex,
+            dateCreated: Date.now.toString,
+            keyword: state.password,
+            initialAmount: Int(state.initialAmount) ?? 0
+        )
+    }
+}
+
 
 // MARK: Confirmation Dialog
 extension ConfirmationDialogState where Action == CreateUser.Destination.Action.ConfirmationDialog {
@@ -146,5 +179,18 @@ extension ConfirmationDialogState where Action == CreateUser.Destination.Action.
         }
     } message: {
         TextState("Select the member status.")
+    }
+}
+
+// MARK: AlertState
+extension AlertState where Action == CreateUser.Destination.Action.Alert {
+    static func createUserFailed(_ error: Error) -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Cancel")) }
+        } message: {
+            TextState(error.localizedDescription)
+        }
     }
 }

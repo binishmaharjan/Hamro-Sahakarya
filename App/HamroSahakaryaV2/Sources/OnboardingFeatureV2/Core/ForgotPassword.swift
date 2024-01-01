@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import SharedModels
 import SharedUIs
+import UserApiClient
 
 @Reducer
 public struct ForgotPassword {
@@ -34,7 +35,7 @@ public struct ForgotPassword {
     public init(){ }
     
     @Dependency(\.dismiss) private var dismiss
-    @Dependency(\.userAuthClient) private var userAuthClient
+    @Dependency(\.userApiClient) private var userApiClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -47,7 +48,7 @@ public struct ForgotPassword {
                     await send(
                         .sendPasswordResetResponse(
                             TaskResult {
-                                return try await userAuthClient.sendPasswordReset(email)
+                                return try await userApiClient.sendPasswordReset(email)
                             }
                         )
                     )

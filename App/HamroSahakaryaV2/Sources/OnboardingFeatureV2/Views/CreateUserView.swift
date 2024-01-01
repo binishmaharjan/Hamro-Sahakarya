@@ -94,6 +94,7 @@ public struct CreateUserView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
             }
+            .loadingView(viewStore.isLoading)
             .confirmationDialog(
                 store: store.scope(state: \.$destination.confirmationDialog, action: \.destination.confirmationDialog)
             )

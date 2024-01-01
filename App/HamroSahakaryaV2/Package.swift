@@ -51,7 +51,7 @@ let package = Package(
                 "ColorPaletteFeatureV2",
                 "SharedModels",
                 "SharedUIs",
-                "UserAuthClient",
+                "UserApiClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
