@@ -29,8 +29,13 @@ public struct SignIn {
     }
     
     public enum Action: BindableAction, Equatable {
+        public enum Delegate: Equatable {
+            case authenticationSuccessful(User)
+        }
+        
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
+        case delegate(Delegate)
         
         case forgotPasswordButtonTapped
         case isSecureButtonTapped
@@ -58,6 +63,9 @@ public struct SignIn {
                     try await clock.sleep(for: .seconds(0.3))
                     await send(.isAdminPasswordVerified(isVerified(adminPassword)))
                 }
+                
+            case .destination(.presented(.createUser(.delegate(.createAccountSuccessful(let user))))):
+                return .send(.delegate(.authenticationSuccessful(user)))
                 
             case .signInButtonTapped:
                 state.isLoading = true
@@ -95,16 +103,14 @@ public struct SignIn {
                 
             case .signInResponse(.success(let user)):
                 state.isLoading = false
-                // TODO: Create user session and show main view
-                print(user)
-                return .none
+                return .send(.delegate(.authenticationSuccessful(user)))
                 
             case .signInResponse(.failure(let error)):
                 state.isLoading = false
                 state.destination = .alert(.signInFailed(error))
                 return .none
                 
-            case .binding, .destination:
+            case .binding, .destination, .delegate:
                 return .none
             }
         }

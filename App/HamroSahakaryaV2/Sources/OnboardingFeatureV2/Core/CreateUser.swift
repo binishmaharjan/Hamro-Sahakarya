@@ -30,8 +30,12 @@ public struct CreateUser {
     }
     
     public enum Action: BindableAction, Equatable {
+        public enum Delegate: Equatable {
+            case createAccountSuccessful(User)
+        }
         case binding(BindingAction<State>)
         case destination(PresentationAction<Destination.Action>)
+        case delegate(Delegate)
         
         case createUserButtonTapped
         case memberFieldTapped
@@ -85,16 +89,14 @@ public struct CreateUser {
                 
             case .createUserResponse(.success(let user)):
                 state.isLoading = false
-                // TODO: Create user session and show main view
-                print(user)
-                return .none
+                return .send(.delegate(.createAccountSuccessful(user)))
                 
             case .createUserResponse(.failure(let error)):
                 state.isLoading = false
                 state.destination = .alert(.createUserFailed(error))
                 return .none
                 
-            case .binding, .destination:
+            case .binding, .destination, .delegate:
                 return .none
             }
         }

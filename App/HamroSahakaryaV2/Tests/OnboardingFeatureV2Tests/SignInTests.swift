@@ -110,7 +110,7 @@ final class SignInTests: XCTestCase {
         }
     }
     
-    func test_SignIN_ErrorFlow() async {
+    func test_SignIn_ErrorFlow() async {
         struct SomeError: Error, Equatable {}
         let store = TestStore(initialState: SignIn.State()) {
             SignIn()

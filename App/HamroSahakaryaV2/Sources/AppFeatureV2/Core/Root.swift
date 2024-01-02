@@ -1,6 +1,8 @@
 import ComposableArchitecture
 import Foundation
+import UserSession
 import OnboardingFeatureV2
+import SignedInFeatureV2
 
 @Reducer
 public struct Root {
@@ -24,9 +26,11 @@ public struct Root {
             case .destination(.presented(.launch(.delegate(.showSignInView)))):
                 state.destination = .signIn(.init())
                 return .none
-
-            case let .destination(.presented(.launch(.delegate(.showMainView(user))))):
-                print("Show Main")
+                
+            case .destination(.presented(.launch(.delegate(.showMainView(let user))))),
+                 .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
+                let userSession = UserSession.createUserSession(from: user)
+                state.destination = .signedIn(.init(userSession: userSession))
                 return .none
                 
             case .onAppear:
@@ -49,11 +53,13 @@ extension Root {
         public enum State: Equatable {
             case launch(Launch.State)
             case signIn(SignIn.State)
+            case signedIn(SignedIn.State)
         }
         
         public enum Action: Equatable {
             case launch(Launch.Action)
             case signIn(SignIn.Action)
+            case signedIn(SignedIn.Action)
         }
         
         public init() { }
@@ -64,6 +70,9 @@ extension Root {
             }
             Scope(state: \.signIn, action: \.signIn) {
                 SignIn()
+            }
+            Scope(state: \.signedIn, action: \.signedIn) {
+                SignedIn()
             }
         }
     }

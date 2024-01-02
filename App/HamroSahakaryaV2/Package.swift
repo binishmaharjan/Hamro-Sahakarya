@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
+        .library(name: "UserSession", targets: ["UserSession"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "UserAuthClient", targets: ["UserAuthClient"]),
         .library(name: "UserDataClient", targets: ["UserDataClient"]),
@@ -21,6 +22,7 @@ let package = Package(
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
         .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
+        .library(name: "SignedInFeatureV2", targets: ["SignedInFeatureV2"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
@@ -37,21 +39,32 @@ let package = Package(
             ]
         ),
         .target(
-            name: "AppFeatureV2",
+            name: "SharedModels",
             dependencies: [
-                "OnboardingFeatureV2",
-                "UserDefaultsClient",
                 "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
-            name: "OnboardingFeatureV2",
+            name: "SharedUIs",
             dependencies: [
-                "ColorPaletteFeatureV2",
+                "SharedMacros",
+            ],
+            resources: [
+                .process("Resources"),
+            ]
+        ),
+        .target(
+            name: "UserSession",
+            dependencies: [
                 "SharedModels",
-                "SharedUIs",
-                "UserApiClient",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "UserDefaultsClient",
+            dependencies: [
+                "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -64,19 +77,19 @@ let package = Package(
             ]
         ),
         .target(
-            name: "UserStorageClient",
-            dependencies: [
-                "SharedModels",
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
-            ]
-        ),
-        .target(
             name: "UserDataClient",
             dependencies: [
                 "SharedModels",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
+            ]
+        ),
+        .target(
+            name: "UserStorageClient",
+            dependencies: [
+                "SharedModels",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
             ]
         ),
         .target(
@@ -100,32 +113,38 @@ let package = Package(
             ]
         ),
         .target(
-            name: "UserDefaultsClient",
+            name: "AppFeatureV2",
             dependencies: [
-                "SharedModels",
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-            ]
-        ),
-        .target(
-            name: "SharedModels",
-            dependencies: [
+                "UserDefaultsClient",
                 "SharedUIs",
+                "OnboardingFeatureV2",
+                "SignedInFeatureV2",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
-            name: "SharedUIs",
+            name: "OnboardingFeatureV2",
             dependencies: [
-                "SharedMacros",
-            ],
-            resources: [
-                .process("Resources"),
+                "ColorPaletteFeatureV2",
+                "SharedModels",
+                "SharedUIs",
+                "UserApiClient",
+                "UserSession",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
             name: "ColorPaletteFeatureV2",
             dependencies: [
                 "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "SignedInFeatureV2",
+            dependencies: [
+                "SharedUIs",
+                "UserSession",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

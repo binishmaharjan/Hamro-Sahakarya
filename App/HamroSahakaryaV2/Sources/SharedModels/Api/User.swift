@@ -65,7 +65,7 @@ extension User {
 
 // MARK: Mock Data
 extension User {
-    static let mock = User(
+    public static let mock = User(
         id: "0",
         username: "username",
         email: "email@gmail.com",
