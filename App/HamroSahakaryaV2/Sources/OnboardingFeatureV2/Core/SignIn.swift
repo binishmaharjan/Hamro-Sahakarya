@@ -19,6 +19,7 @@ public struct SignIn {
         @BindingState var password: String = ""
         @BindingState var focusedField: Field? = .email
         var isSecure: Bool = true
+        var isLoading: Bool = false
         
         var isValidInput: Bool {
             let isEmailValid = email.contains("@") && email.contains(".")
@@ -36,11 +37,12 @@ public struct SignIn {
         case viewTappedTwice
         case isSecureButtonTapped
         case isAdminPasswordVerified(Bool)
+        case signInResponse(TaskResult<User>)
     }
     
     public init() {}
     
-    @Dependency(\.userAuthClient) private var userAuthClient
+    @Dependency(\.userApiClient) private var userApiClient
     @Dependency(\.continuousClock) private var clock
     
     public var body: some Reducer<State, Action> {
@@ -58,8 +60,17 @@ public struct SignIn {
                 }
                 
             case .signInButtonTapped:
-                print("signIn Button Tapped")
-                return .none
+                state.isLoading = true
+                
+                return .run { [email = state.email, password = state.password] send in
+                    await send(
+                        .signInResponse(
+                            TaskResult {
+                                return try await userApiClient.signIn(email, password)
+                            }
+                        )
+                    )
+                }
                 
             case .forgotPasswordButtonTapped:
                 state.destination = .forgotPassword(.init())
@@ -80,6 +91,17 @@ public struct SignIn {
                     state.destination =  .alert(.adminPasswordVerificationFailed())
                 }
                 
+                return .none
+                
+            case .signInResponse(.success(let user)):
+                state.isLoading = false
+                // TODO: Create user session and show main view
+                print(user)
+                return .none
+                
+            case .signInResponse(.failure(let error)):
+                state.isLoading = false
+                state.destination = .alert(.signInFailed(error))
                 return .none
                 
             case .binding, .destination:
@@ -144,6 +166,16 @@ extension AlertState where Action == SignIn.Destination.Action.Alert {
             ButtonState { TextState(#localized("Cancel")) }
         } message: {
             TextState("Couldn't verify admin password")
+        }
+    }
+    
+    static func signInFailed(_ error: Error) -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Cancel")) }
+        } message: {
+            TextState(error.localizedDescription)
         }
     }
 }
