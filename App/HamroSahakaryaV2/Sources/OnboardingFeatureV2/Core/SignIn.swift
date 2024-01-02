@@ -32,11 +32,11 @@ public struct SignIn {
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
         
-        case signInButtonTapped
         case forgotPasswordButtonTapped
-        case viewTappedTwice
         case isSecureButtonTapped
+        case viewTappedTwice
         case isAdminPasswordVerified(Bool)
+        case signInButtonTapped
         case signInResponse(TaskResult<User>)
     }
     
