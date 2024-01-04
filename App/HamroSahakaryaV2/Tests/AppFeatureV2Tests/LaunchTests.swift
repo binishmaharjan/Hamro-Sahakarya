@@ -6,7 +6,7 @@ import XCTest
 @MainActor
 final class LaunchTests: XCTestCase {
     
-    func test_ShowLogin_When_NoSavedUser() async {
+    func test_ShowSignIn_When_NoSavedUser() async {
         let store = TestStore(initialState: Launch.State()) {
             Launch()
         } withDependencies: {
@@ -15,7 +15,7 @@ final class LaunchTests: XCTestCase {
         
         await store.send(.onAppear)
         await store.receive(\.fetchUserAccount)
-        await store.receive(.delegate(.showLoginView))
+        await store.receive(.delegate(.showSignInView))
     }
     
     func test_ShowMain_When_SavedUser() async {

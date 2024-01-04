@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Icon Email.pdf",
+      "filename" : "icon_envelope.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icon_envelope@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icon_envelope@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

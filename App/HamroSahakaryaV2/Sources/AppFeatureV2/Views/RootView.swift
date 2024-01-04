@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import OnboardingFeatureV2
+import SignedInFeatureV2
 
 // MARK: ViewState
 extension RootView {
@@ -34,9 +35,14 @@ public struct RootView: View {
                                 LaunchView(store: launchStore)
                             }
                             
-                        case .login:
-                            CaseLet(\Root.Destination.State.login, action: Root.Destination.Action.login) { loginStore in
-                                LoginView(store: loginStore)
+                        case .signIn:
+                            CaseLet(\Root.Destination.State.signIn, action: Root.Destination.Action.signIn) { signInStore in
+                                SignInView(store: signInStore)
+                            }
+                            
+                        case .signedIn:
+                            CaseLet(\Root.Destination.State.signedIn, action: Root.Destination.Action.signedIn) { signedInStore in
+                                SignedInView(store: signedInStore)
                             }
                         }
                     }

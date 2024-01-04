@@ -1,25 +1,79 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Admin Password" : {
+      "extractionState" : "manual"
+    },
+    "Cancel" : {
+      "extractionState" : "manual"
+    },
+    "Color" : {
+      "extractionState" : "manual"
+    },
+    "Couldn't verify admin password" : {
+      "extractionState" : "manual"
+    },
+    "Create User" : {
+      "extractionState" : "manual"
+    },
     "Don't have an account yet, Please contact the administrator to request an account." : {
       "extractionState" : "manual"
     },
     "Email" : {
       "extractionState" : "manual"
     },
+    "Email Sent!" : {
+      "extractionState" : "manual"
+    },
+    "Empty data" : {
+      "extractionState" : "manual"
+    },
+    "Enter" : {
+      "extractionState" : "manual"
+    },
+    "Enter Admin Password" : {
+      "extractionState" : "manual"
+    },
+    "Error" : {
+      "extractionState" : "manual"
+    },
     "Forgot Password" : {
+      "extractionState" : "manual"
+    },
+    "Fullname" : {
       "extractionState" : "manual"
     },
     "Hamro Sahakarya" : {
       "extractionState" : "manual"
     },
-    "Login" : {
+    "Initial Amount" : {
+      "extractionState" : "manual"
+    },
+    "Ok" : {
       "extractionState" : "manual"
     },
     "OR" : {
       "extractionState" : "manual"
     },
     "Password" : {
+      "extractionState" : "manual"
+    },
+    "Please check your email and follow the instructions sent to that email." : {
+      "extractionState" : "manual"
+    },
+    "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
+      "extractionState" : "manual"
+    },
+    "Send Email" : {
+      "extractionState" : "manual"
+    },
+    "Sign In" : {
+      "extractionState" : "manual"
+    },
+    "Sorry" : {
+      "extractionState" : "manual"
+    },
+    "Status" : {
       "extractionState" : "manual"
     },
     "UserDefaults: Failed to decode." : {

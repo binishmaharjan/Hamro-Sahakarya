@@ -11,14 +11,14 @@ public struct Launch {
     
     public enum Action: Equatable {
         public enum Delegate: Equatable {
-            case showMainView(Account)
-            case showLoginView
+            case showMainView(User)
+            case showSignInView
         }
         
         case delegate(Delegate)
         
         case onAppear
-        case fetchUserAccount
+        case fetchUser
     }
     
     @Dependency(\.userDefaultsClient) private var userDefaultsClient
@@ -27,14 +27,14 @@ public struct Launch {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
-                return .send(.fetchUserAccount)
+                return .send(.fetchUser)
                 
-            case .fetchUserAccount:
-                let userAccount = userDefaultsClient.userAccount()
-                if let userAccount {
-                    return .send(.delegate(.showMainView(userAccount)))
+            case .fetchUser:
+                let user = userDefaultsClient.user()
+                if let user {
+                    return .send(.delegate(.showMainView(user)))
                 } else {
-                    return .send(.delegate(.showLoginView))
+                    return .send(.delegate(.showSignInView))
                 }
                 
             case .delegate:

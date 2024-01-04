@@ -1,6 +1,8 @@
 import ComposableArchitecture
 import Foundation
+import UserSession
 import OnboardingFeatureV2
+import SignedInFeatureV2
 
 @Reducer
 public struct Root {
@@ -21,12 +23,14 @@ public struct Root {
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
-            case .destination(.presented(.launch(.delegate(.showLoginView)))):
-                state.destination = .login(.init())
+            case .destination(.presented(.launch(.delegate(.showSignInView)))):
+                state.destination = .signIn(.init())
                 return .none
-
-            case let .destination(.presented(.launch(.delegate(.showMainView(userAccount))))):
-                print("Show Main")
+                
+            case .destination(.presented(.launch(.delegate(.showMainView(let user))))),
+                 .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
+                let userSession = UserSession.createUserSession(from: user)
+                state.destination = .signedIn(.init(userSession: userSession))
                 return .none
                 
             case .onAppear:
@@ -48,12 +52,14 @@ extension Root {
     public struct Destination {
         public enum State: Equatable {
             case launch(Launch.State)
-            case login(Login.State)
+            case signIn(SignIn.State)
+            case signedIn(SignedIn.State)
         }
         
         public enum Action: Equatable {
             case launch(Launch.Action)
-            case login(Login.Action)
+            case signIn(SignIn.Action)
+            case signedIn(SignedIn.Action)
         }
         
         public init() { }
@@ -62,8 +68,11 @@ extension Root {
             Scope(state: \.launch, action: \.launch) {
                 Launch()
             }
-            Scope(state: \.login, action: \.login) {
-                Login()
+            Scope(state: \.signIn, action: \.signIn) {
+                SignIn()
+            }
+            Scope(state: \.signedIn, action: \.signedIn) {
+                SignedIn()
             }
         }
     }

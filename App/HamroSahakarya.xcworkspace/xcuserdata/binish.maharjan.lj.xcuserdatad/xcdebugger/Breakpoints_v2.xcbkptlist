@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2029457B-531E-4880-9062-B9D911C0B148"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "Notice"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9 - c658d9d939c29fff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SharedModels.Notice.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9 - 8c3ab66a9d7357f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SharedModels.Notice.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "OnboardingFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
