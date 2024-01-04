@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import SharedUIs
 
 public struct ProfileView: View {
     public init(store: StoreOf<Profile>) {
@@ -9,7 +10,11 @@ public struct ProfileView: View {
     private let store: StoreOf<Profile>
     
     public var body: some View {
-        Text("Profile")
+        VStack {
+            Text("Profile")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(#color("background"))
     }
 }
 

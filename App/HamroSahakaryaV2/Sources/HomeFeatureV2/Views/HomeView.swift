@@ -1,5 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
+import SharedUIs
 
 public struct HomeView: View {
     public init(store: StoreOf<Home>) {
@@ -9,7 +10,11 @@ public struct HomeView: View {
     private let store: StoreOf<Home>
     
     public var body: some View {
-        Text("Home")
+        VStack {
+            Text("Home")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(#color("background"))
     }
 }
 

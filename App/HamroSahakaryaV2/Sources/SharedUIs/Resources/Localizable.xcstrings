@@ -46,7 +46,13 @@
     "Hamro Sahakarya" : {
       "extractionState" : "manual"
     },
+    "Home" : {
+      "extractionState" : "manual"
+    },
     "Initial Amount" : {
+      "extractionState" : "manual"
+    },
+    "Logs" : {
       "extractionState" : "manual"
     },
     "Ok" : {
@@ -59,6 +65,9 @@
       "extractionState" : "manual"
     },
     "Please check your email and follow the instructions sent to that email." : {
+      "extractionState" : "manual"
+    },
+    "Profile" : {
       "extractionState" : "manual"
     },
     "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
