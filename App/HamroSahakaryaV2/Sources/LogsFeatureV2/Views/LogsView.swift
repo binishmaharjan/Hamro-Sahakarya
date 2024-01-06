@@ -12,26 +12,21 @@ public struct LogsView: View {
     public var body: some View {
         NavigationView {
             VStack {
-                ScrollView {
-                    Text("Hello World")
-                }
-                .frame(maxWidth: .infinity)
+                Text("Hello World")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
-            .navigationTitle("Logs")
-            .navigationBarTitleDisplayMode(.inline)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationBarHidden(true)
             .background(#color("background"))
         }
     }
 }
 
 #Preview {
-    NavigationView{
-        LogsView(
-            store: .init(
-                initialState: .init(),
-                reducer: Logs.init
-            )
+    LogsView(
+        store: .init(
+            initialState: .init(),
+            reducer: Logs.init
         )
-    }
+    )
 }
