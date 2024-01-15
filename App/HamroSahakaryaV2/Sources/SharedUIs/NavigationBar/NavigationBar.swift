@@ -18,7 +18,6 @@ public struct NavigationBar: View {
                 .frame(maxWidth: .infinity, alignment: .center)
         }
             .frame(height: 44)
-            .frame(maxHeight: .infinity, alignment: .top)
     }
 }
 
