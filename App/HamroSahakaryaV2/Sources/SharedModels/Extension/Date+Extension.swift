@@ -15,20 +15,6 @@ extension Date {
         formatter.dateFormat = format.rawValue
         return formatter.string(from: self)
     }
-//    public var toString: String {
-//        let formatter = DateFormatter()
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-//        return formatter.string(from: self)
-//    }
-//
-//    public var toGregorianMonthDateYearString: String {
-//        let formatter = DateFormatter()
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-//        formatter.dateFormat = "MMM dd, yyyy"
-//        return formatter.string(from: self)
-//    }
-
 }
 
 // MARK: String To Date

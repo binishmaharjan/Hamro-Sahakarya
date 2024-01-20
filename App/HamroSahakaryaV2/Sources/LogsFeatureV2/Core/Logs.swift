@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
+import SharedUIs
 import UserApiClient
 
 @Reducer
@@ -49,12 +50,11 @@ public struct Logs {
                 state.isLoading = false
                 state.logs = logs
                 state.groupedLogs = logs.groupByYearAndMonth()
-                
                 return .none
                 
             case .logsResponse(.failure(let error)):
                 state.isLoading = false
-                
+                state.destination = .alert(.fetchLogFailed(error))
                 return .none
                 
             case .destination:
@@ -85,6 +85,19 @@ extension Logs {
             Reduce { state, action in
                 return .none
             }
+        }
+    }
+}
+
+// MARK: AlertState
+extension AlertState where Action == Logs.Destination.Action.Alert {
+    static func fetchLogFailed(_ error: Error) -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Cancel")) }
+        } message: {
+            TextState(error.localizedDescription)
         }
     }
 }

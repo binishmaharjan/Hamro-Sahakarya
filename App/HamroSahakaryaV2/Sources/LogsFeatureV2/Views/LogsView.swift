@@ -38,9 +38,10 @@ public struct LogsView: View {
                 .navigationBarHidden(true)
                 .background(#color("background"))
                 .loadingView(viewStore.isLoading)
-                .onAppear {
-                    viewStore.send(.onAppear)
-                }
+                .onAppear { viewStore.send(.onAppear) }
+                .alert(
+                    store: store.scope(state: \.$destination.alert, action: \.destination.alert)
+                )
             }
         }
     }
