@@ -72,7 +72,7 @@ extension GroupLog {
 // MARK: Year And Month For Sorting
 extension GroupLog {
     var yearMonth: Date.FormatStyle.FormatOutput {
-        dateCreated.toDateAndTime.formatted(.dateTime.year().month())
+        dateCreated.toDate(for: .dateTime).formatted(.dateTime.year().month())
     }
 }
 
@@ -84,7 +84,7 @@ extension Array where Element == GroupLog {
         // Grouping Logs with YearMonth(Date.FormatStyle.FormatOutput)
         var logsDictionary: LogDictionary = Dictionary(
             grouping: self,
-            by: { $0.yearMonth}
+            by: { $0.yearMonth }
         )
         // Within each group, sorting Logs with date created.
         logsDictionary.forEach {
@@ -92,9 +92,10 @@ extension Array where Element == GroupLog {
         }
         // Sort the group by YearMonth
         let sortedGroupedLog = logsDictionary
-            .sorted { $0.key < $1.key }
+            .sorted {
+                return $0.key.toDate(for: .monthYear) > $1.key.toDate(for: .monthYear)
+            }
             .map(GroupedLogs.init(element:))
-        
-        return logsDictionary.map(GroupedLogs.init(element:))
+        return sortedGroupedLog
     }
 }

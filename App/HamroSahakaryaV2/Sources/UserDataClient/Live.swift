@@ -162,7 +162,7 @@ extension UserDataClient {
             let notice = Notice(
                 message: message, 
                 admin: user.username,
-                dateCreated: Date.now.toString
+                dateCreated: Date.now.toString(for: .dateTime)
             )
             let reference = Firestore.firestore().collection("notice").document(notice.dateCreated)
             

@@ -22,7 +22,7 @@ public struct LogItemView: View {
                         .foregroundStyle(#color("large_button"))
                         .lineLimit(1)
                     
-                    Text(groupLog.dateCreated.toDateAndTime.formatted(.logDate))
+                    Text(groupLog.dateCreated.toDate(for: .dateTime).formatted(.logDate))
                         .font(.customFootnote)
                         .foregroundStyle(#color("gray"))
                         .lineLimit(1)
