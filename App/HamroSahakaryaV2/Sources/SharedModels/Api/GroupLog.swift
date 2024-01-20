@@ -1,6 +1,6 @@
 import Foundation
 
-public struct GroupLog: Codable, Equatable {
+public struct GroupLog: Codable, Equatable, Hashable {
     public let logId: String
     public let dateCreated: String
     public let logType: GroupLogType

@@ -35,8 +35,7 @@ public struct SignedIn {
     
     public init() { }
     
-    public var body: some
-    ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         BindingReducer()
         
         Reduce<State, Action> { state, action in
@@ -48,6 +47,18 @@ public struct SignedIn {
             case .binding, .home, .logs, .profile:
                 return .none
             }
+        }
+        
+        Scope(state: \.home, action: \.home) {
+            Home()
+        }
+        
+        Scope(state: \.logs, action: \.logs) {
+            Logs()
+        }
+        
+        Scope(state: \.profile, action: \.profile) {
+            Profile()
         }
     }
 }

@@ -27,7 +27,7 @@ public struct LogDateFormatStyle: FormatStyle {
     public func format(_ value: Date) -> String {
         let formatter = DateFormatter()
         formatter.doesRelativeDateFormatting = true
-        formatter.timeStyle = .none
+        formatter.timeStyle = .short
         formatter.dateStyle = .full
         return formatter.string(from: value)
     }
