@@ -62,7 +62,7 @@ extension GroupLog {
         case .deductAmount:
             return #localized("An amount of \(amount.safeUnwrap.jaCurrency) has been deducted from the account of \(logTarget) in the group. This transaction was authorized by admin \(logCreator).")
         case .madeAdmin: 
-            return #localized("\(logTarget) has promoted [Member Name] to the position of [Admin] by admin \(logCreator).")
+            return #localized("\(logTarget) has promoted to the position of [Admin] by admin \(logCreator).")
         case .removedAdmin:
             return #localized("\(logTarget) has demoted from the position of [Admin] to a regular member by admin \(logCreator).")
         }

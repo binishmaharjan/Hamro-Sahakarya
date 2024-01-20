@@ -1,95 +1,569 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld has demoted from the position of [Admin] to a regular member by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has demoted from the position of [Admin] to a regular member by admin %lld."
+          }
+        }
+      }
+    },
+    "%lld has given a monthly fee of %lld. This transaction was authorized by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has given a monthly fee of %lld. This transaction was authorized by admin %lld."
+          }
+        }
+      }
+    },
+    "%lld has joined the group and provided the fixed deposit of %lld. Welcome to the group." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has joined the group and provided the fixed deposit of %lld. Welcome to the group."
+          }
+        }
+      }
+    },
+    "%lld has left the group. The deposit of %lld has been returned. Thank you for being part of the group." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has left the group. The deposit of %lld has been returned. Thank you for being part of the group."
+          }
+        }
+      }
+    },
+    "%lld has made a loan repayment of %lld. This transaction was authorized by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has made a loan repayment of %lld. This transaction was authorized by admin %lld."
+          }
+        }
+      }
+    },
+    "%lld has promoted to the position of [Admin] by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld has promoted to the position of [Admin] by admin %lld."
+          }
+        }
+      }
+    },
+    "A loan of %lld has been provided to %lld. This transaction was authorized by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A loan of %lld has been provided to %lld. This transaction was authorized by admin %lld."
+          }
+        }
+      }
+    },
+    "A Member Left the Group" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Member Left the Group"
+          }
+        }
+      }
+    },
+    "A New Member has Joined" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A New Member has Joined"
+          }
+        }
+      }
+    },
     "Admin Password" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Admin Password"
+          }
+        }
+      }
+    },
+    "Amount Added to Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount Added to Member"
+          }
+        }
+      }
+    },
+    "Amount Deducted from Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount Deducted from Member"
+          }
+        }
+      }
+    },
+    "An amount of %lld has been added to the account of %lld in the group. This transaction was authorized by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An amount of %lld has been added to the account of %lld in the group. This transaction was authorized by admin %lld."
+          }
+        }
+      }
+    },
+    "An amount of %lld has been deducted from the account of %lld in the group. This transaction was authorized by admin %lld." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An amount of %lld has been deducted from the account of %lld in the group. This transaction was authorized by admin %lld."
+          }
+        }
+      }
+    },
+    "An extra amount of %lld has been added to the group. This transaction was authorized by admin %lld.\\n\\nReason: %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An extra amount of %lld has been added to the group. This transaction was authorized by admin %lld.\\n\\nReason: %lld"
+          }
+        }
+      }
     },
     "Cancel" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
     },
     "Color" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Color"
+          }
+        }
+      }
     },
     "Couldn't verify admin password" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't verify admin password"
+          }
+        }
+      }
     },
     "Create User" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create User"
+          }
+        }
+      }
+    },
+    "Demoted to Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demoted to Member"
+          }
+        }
+      }
     },
     "Don't have an account yet, Please contact the administrator to request an account." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account yet, Please contact the administrator to request an account."
+          }
+        }
+      }
     },
     "Email" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
     },
     "Email Sent!" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email Sent!"
+          }
+        }
+      }
     },
     "Empty data" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empty data"
+          }
+        }
+      }
     },
     "Enter" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter"
+          }
+        }
+      }
     },
     "Enter Admin Password" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter Admin Password"
+          }
+        }
+      }
     },
     "Error" : {
       "extractionState" : "manual"
     },
+    "Expenses amounting to %lld have been incurred in the group. This transaction was authorized by admin %lld.\\n\\nReason: %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expenses amounting to %lld have been incurred in the group. This transaction was authorized by admin %lld.\\n\\nReason: %lld"
+          }
+        }
+      }
+    },
+    "Expenses Incurred" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expenses Incurred"
+          }
+        }
+      }
+    },
+    "Extra Amount Added" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Amount Added"
+          }
+        }
+      }
+    },
     "Forgot Password" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot Password"
+          }
+        }
+      }
     },
     "Fullname" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fullname"
+          }
+        }
+      }
     },
     "Hamro Sahakarya" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hamro Sahakarya"
+          }
+        }
+      }
     },
     "Home" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
     "Initial Amount" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initial Amount"
+          }
+        }
+      }
+    },
+    "Loan Given to Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loan Given to Member"
+          }
+        }
+      }
+    },
+    "Loan Repayment by Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loan Repayment by Member"
+          }
+        }
+      }
     },
     "Logs" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logs"
+          }
+        }
+      }
+    },
+    "Monthly Fee Received" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly Fee Received"
+          }
+        }
+      }
     },
     "Ok" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
     },
     "OR" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OR"
+          }
+        }
+      }
     },
     "Password" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
     },
     "Please check your email and follow the instructions sent to that email." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your email and follow the instructions sent to that email."
+          }
+        }
+      }
     },
     "Profile" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        }
+      }
+    },
+    "Promoted to Admin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Promoted to Admin"
+          }
+        }
+      }
     },
     "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset your password by entering the email of your account, and follow the instructions sent to that email."
+          }
+        }
+      }
     },
     "Send Email" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send Email"
+          }
+        }
+      }
     },
     "Sign In" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign In"
+          }
+        }
+      }
     },
     "Sorry" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sorry"
+          }
+        }
+      }
     },
     "Status" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        }
+      }
     },
     "UserDefaults: Failed to decode." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UserDefaults: Failed to decode."
+          }
+        }
+      }
     },
     "UserDefaults: Failed to encode." : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UserDefaults: Failed to encode."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
