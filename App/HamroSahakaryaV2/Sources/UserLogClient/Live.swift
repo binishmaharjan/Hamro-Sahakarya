@@ -114,7 +114,7 @@ extension UserLogClient.Session {
     private func generateLog(logType: GroupLogType, logCreator: String, logTarget: String, amount: Balance, reason: String) -> GroupLog {
         GroupLog(
             logId: generateRandomID(length: 20),
-            dateCreated: Date().toString,
+            dateCreated: Date().toString(for: .dateTime),
             logType: logType,
             logCreator: logCreator,
             logTarget: logTarget,

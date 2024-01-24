@@ -158,7 +158,7 @@ extension CreateUser {
             email: state.email,
             status: state.status,
             colorHex: state.colorHex,
-            dateCreated: Date.now.toString,
+            dateCreated: Date.now.toString(for: .dateTime),
             keyword: state.password,
             initialAmount: Int(state.initialAmount) ?? 0
         )

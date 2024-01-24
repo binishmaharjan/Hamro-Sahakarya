@@ -28,9 +28,6 @@ extension Font {
         custom(font.rawValue, size: style.size, relativeTo: style)
     }
     
-    //    largeTitle, .title, .title2, .title3:
-    // .body, .subheadline, .footnote, .caption:
-    // .headline, .subheadline2, .footnote2, .caption2:
     public static let customLargeTitle = custom(.bold, relativeTo: .largeTitle)
     public static let customTitle = custom(.bold, relativeTo: .title)
     public static let customTitle2 = custom(.bold, relativeTo: .title2)

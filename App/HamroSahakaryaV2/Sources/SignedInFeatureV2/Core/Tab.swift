@@ -1,10 +1,19 @@
 import Foundation
 import SwiftUI
+import SharedUIs
 
-public enum Tab: String {
+public enum Tab {
     case home
     case logs
     case profile
+    
+    public var title: String {
+        switch self {
+        case .home: return #localized("Home")
+        case .logs: return #localized("Logs")
+        case .profile: return #localized("Profile")
+        }
+    }
     
     public static var items = [
         TabItem(icon: .init(systemName: "house.fill"), tab: .home),

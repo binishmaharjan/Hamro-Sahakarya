@@ -30,11 +30,11 @@ extension NewUser {
             status: status,
             colorHex: colorHex,
             iconUrl: "",
-            dateCreated: Date().toString,
+            dateCreated: Date().toString(for: .dateTime),
             keyword: keyword,
             loanTaken: 0,
             balance: initialAmount,
-            dateUpdated: Date().toString
+            dateUpdated: Date().toString(for: .dateTime)
         )
     }
 }
