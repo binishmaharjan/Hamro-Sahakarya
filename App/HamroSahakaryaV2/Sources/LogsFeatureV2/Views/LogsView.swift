@@ -37,7 +37,12 @@ public struct LogsView: View {
                         }
                     }
                 } onRefresh: {
-                    try! await Task.sleep(nanoseconds: 3_000_000_000)
+                    // Send Action to Reducer
+                    viewStore.send(.pulledToRefresh)
+                    // Waiting until the state changes back
+                    while viewStore.isPullToRefresh {
+                        try? await Task.sleep(nanoseconds: 1 * 1_00)
+                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .overlay(
