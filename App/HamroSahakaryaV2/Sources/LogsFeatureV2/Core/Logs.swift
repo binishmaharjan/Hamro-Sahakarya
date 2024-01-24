@@ -31,8 +31,8 @@ public struct Logs {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                guard state.logs.isEmpty else { return .none }
                 state.isLoading = true
-                
                 return .send(.fetchLogs)
                 
             case .fetchLogs:
