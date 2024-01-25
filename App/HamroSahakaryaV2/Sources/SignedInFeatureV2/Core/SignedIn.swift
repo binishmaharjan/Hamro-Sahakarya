@@ -42,7 +42,7 @@ public struct SignedIn {
             switch action {
             case .tabSelected(let tab):
                 state.selectedTab = tab
-                return .none
+                return tab == .logs ? .none : .send(.logs(.tabBarTapped))
                 
             case .binding, .home, .logs, .profile:
                 return .none
