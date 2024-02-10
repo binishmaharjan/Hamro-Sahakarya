@@ -204,5 +204,11 @@ let package = Package(
                 "OnboardingFeatureV2"
             ]
         ),
+        .testTarget(
+            name: "LogsFeatureV2Tests",
+            dependencies: [
+                "LogsFeatureV2"
+            ]
+        ),
     ]
 )
