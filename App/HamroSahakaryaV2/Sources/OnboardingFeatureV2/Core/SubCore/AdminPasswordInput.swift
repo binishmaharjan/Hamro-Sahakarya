@@ -7,10 +7,11 @@ import SharedModels
 
 @Reducer
 public struct AdminPasswordInput {
+    @ObservableState
     public struct State: Equatable {
         public init() { }
         
-        @BindingState var password: Password = ""
+        var password: Password = ""
         
         var isValidPassword: Bool { !password.isEmpty }
     }

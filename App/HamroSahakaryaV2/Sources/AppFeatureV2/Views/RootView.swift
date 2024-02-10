@@ -24,27 +24,20 @@ public struct RootView: View {
     private let store: StoreOf<Root>
     
     public var body: some View {
-        WithViewStore(store, observe: ViewState.init) { viewStore in
-            ZStack {
-                IfLetStore(store.scope(state: \.$destination, action: \.destination)) { store in
-                    SwitchStore(store) { initialState in
-                        switch initialState {
-                            // Launch View
-                        case .launch:
-                            CaseLet(\Root.Destination.State.launch, action: Root.Destination.Action.launch) { launchStore in
-                                LaunchView(store: launchStore)
-                            }
-                            
-                        case .signIn:
-                            CaseLet(\Root.Destination.State.signIn, action: Root.Destination.Action.signIn) { signInStore in
-                                SignInView(store: signInStore)
-                            }
-                            
-                        case .signedIn:
-                            CaseLet(\Root.Destination.State.signedIn, action: Root.Destination.Action.signedIn) { signedInStore in
-                                SignedInView(store: signedInStore)
-                            }
-                        }
+        ZStack {
+            if let store = store.scope(state: \.destination, action: \.destination) {
+                switch store.state {
+                case .launch:
+                    if let launchStore = store.scope(state: \.launch, action: \.launch) {
+                        LaunchView(store: launchStore)
+                    }
+                case .signIn:
+                    if let signInStore = store.scope(state: \.signIn, action: \.signIn) {
+                        SignInView(store: signInStore)
+                    }
+                case .signedIn:
+                    if let signedInStore = store.scope(state: \.signedIn, action: \.signedIn) {
+                        SignedInView(store: signedInStore)
                     }
                 }
             }

@@ -3,8 +3,9 @@ import ComposableArchitecture
 import UserDefaultsClient
 import SharedModels
 
-@Reducer
+@Reducer 
 public struct Launch {
+    @ObservableState 
     public struct State: Equatable {
         public init() { }
     }

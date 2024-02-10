@@ -28,7 +28,7 @@ let package = Package(
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.5.5"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.7.2"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.19.0"),
         .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2"),
     ],

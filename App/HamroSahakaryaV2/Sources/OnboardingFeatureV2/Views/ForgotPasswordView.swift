@@ -9,51 +9,49 @@ public struct ForgotPasswordView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @FocusState private var focusedField: ForgotPassword.State.Field?
-    private let store: StoreOf<ForgotPassword>
+    @Bindable private var store: StoreOf<ForgotPassword>
     
     public var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                VStack(spacing: 24) {
-                    Text(#localized("Forgot Password"))
-                        .font(.customLargeTitle)
-                        .minimumScaleFactor(0.1)
-                        .lineLimit(1)
-                        .fixedSize(horizontal: false, vertical: true)
-                    
-                    Text(#localized("Reset your password by entering the email of your account, and follow the instructions sent to that email."))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(#color("secondary"))
-                        .fixedSize(horizontal: false, vertical: true)
-                    
-                    VStack(alignment: .leading) {
-                        Text(#localized("Email"))
-                            .font(.customSubHeadline)
-                            .foregroundStyle(#color("secondary"))
-                        
-                        TextField(#localized("Email"), text: viewStore.$email)
-                            .textFieldStyle(.icon(#img("icon_email")))
-                            .focused($focusedField, equals: .email)
-                    }
-                    
-                    forgotPasswordButton(viewStore)
-                }
-                .padding(30)
-                .padding()
-                .bind(viewStore.$focusedField, to: self.$focusedField)
+        ZStack {
+            VStack(spacing: 24) {
+                Text(#localized("Forgot Password"))
+                    .font(.customLargeTitle)
+                    .minimumScaleFactor(0.1)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: false, vertical: true)
                 
-                closeButton
+                Text(#localized("Reset your password by entering the email of your account, and follow the instructions sent to that email."))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundStyle(#color("secondary"))
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                VStack(alignment: .leading) {
+                    Text(#localized("Email"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("Email"), text: $store.email)
+                        .textFieldStyle(.icon(#img("icon_email")))
+                        .focused($focusedField, equals: .email)
+                }
+                
+                forgotPasswordButton
+            }
+            .padding(30)
+            .padding()
+            .bind($store.focusedField, to: self.$focusedField)
+            
+            closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
-            }
-            .navigationBarHidden(true)
-            .splineBackground()
-            .dismissKeyboardOnTap()
-            .loadingView(viewStore.isLoading)
-            .alert(
-                store: store.scope(state: \.$destination.alert, action: \.destination.alert)
-            )
         }
+        .navigationBarHidden(true)
+        .splineBackground()
+        .dismissKeyboardOnTap()
+        .loadingView(store.isLoading)
+        .alert(
+            $store.scope(state: \.destination?.alert, action: \.destination.alert)
+        )
     }
 }
 
@@ -80,9 +78,9 @@ extension ForgotPasswordView {
         }
     }
     
-    private func forgotPasswordButton(_ viewStore: ViewStoreOf<ForgotPassword>) -> some View {
+    private var forgotPasswordButton: some View {
         Button {
-            viewStore.send(.forgotPasswordButtonTapped)
+            store.send(.forgotPasswordButtonTapped)
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
@@ -91,7 +89,7 @@ extension ForgotPasswordView {
             }
             .largeButton()
         }
-        .disabled(!viewStore.isValidInput)
+        .disabled(!store.isValidInput)
     }
 }
 

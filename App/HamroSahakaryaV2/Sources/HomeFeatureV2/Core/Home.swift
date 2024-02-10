@@ -3,6 +3,7 @@ import ComposableArchitecture
 
 @Reducer
 public struct Home {
+    @ObservableState
     public struct State: Equatable {
         public init() { }
     }

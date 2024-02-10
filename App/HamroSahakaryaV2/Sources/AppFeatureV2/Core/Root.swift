@@ -6,10 +6,11 @@ import SignedInFeatureV2
 
 @Reducer
 public struct Root {
+    @ObservableState
     public struct State: Equatable {
         public init() {}
         
-        @PresentationState var destination: Destination.State? = .launch(.init())
+        @Presents var destination: Destination.State? = .launch(.init())
     }
     
     public enum Action: Equatable {
@@ -28,7 +29,7 @@ public struct Root {
                 return .none
                 
             case .destination(.presented(.launch(.delegate(.showMainView(let user))))),
-                 .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
+                    .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
                 let userSession = UserSession.createUserSession(from: user)
                 state.destination = .signedIn(.init(userSession: userSession))
                 return .none
@@ -50,6 +51,7 @@ public struct Root {
 extension Root {
     @Reducer
     public struct Destination {
+        @ObservableState
         public enum State: Equatable {
             case launch(Launch.State)
             case signIn(SignIn.State)

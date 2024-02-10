@@ -10,13 +10,11 @@ public struct LaunchView: View {
     private let store: StoreOf<Launch>
     
     public var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            VStack {
-                Text(#localized("Hamro Sahakarya"))
-            }
-            .onAppear {
-                viewStore.send(.onAppear)
-            }
+        VStack {
+            Text(#localized("Hamro Sahakarya"))
+        }
+        .onAppear {
+            store.send(.onAppear)
         }
     }
 }

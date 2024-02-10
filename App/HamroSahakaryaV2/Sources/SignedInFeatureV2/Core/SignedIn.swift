@@ -8,6 +8,7 @@ import ProfileFeatureV2
 
 @Reducer
 public struct SignedIn {
+    @ObservableState
     public struct State: Equatable {
         public init(userSession: UserSession) {
             self.userSession = userSession
@@ -21,7 +22,7 @@ public struct SignedIn {
         public var home: Home.State
         public var logs: Logs.State
         public var profile: Profile.State
-        @BindingState public var selectedTab: Tab
+        public var selectedTab: Tab
     }
     
     public enum Action: BindableAction, Equatable {

@@ -8,104 +8,104 @@ public struct CreateUserView: View {
     }
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    private let store: StoreOf<CreateUser>
+    @Bindable private var store: StoreOf<CreateUser>
     
     public var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                ScrollView {
-                    VStack(spacing: 24) {
-                        Text(#localized("Create User"))
-                            .font(.customLargeTitle)
-                            .lineLimit(1)
-                            .fixedSize(horizontal: false, vertical: true)
+        ZStack {
+            ScrollView {
+                VStack(spacing: 24) {
+                    Text(#localized("Create User"))
+                        .font(.customLargeTitle)
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Email"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
                         
-                        VStack(alignment: .leading) {
-                            Text(#localized("Email"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField(#localized("Email"), text: viewStore.$email)
-                                .textFieldStyle(.icon(#img("icon_email")))
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(#localized("Fullname"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField(#localized("Fullname"), text: viewStore.$fullname)
-                                .textFieldStyle(.icon(#img("icon_person")))
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(#localized("Password"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField(#localized("Password"), text: viewStore.$password)
-                                .textFieldStyle(.icon(#img("icon_lock")))
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(#localized("Status"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField(#localized("Status"), text: .constant(viewStore.status.rawValue))
-                                .textFieldStyle(.tapOnly(#img("icon_admin")) {
-                                    viewStore.send(.memberFieldTapped)
-                                })
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(#localized("Color"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField("", text: .constant(""))
-                                .textFieldStyle(
-                                    .colorPicker(#img("icon_palatte"), colorHex: viewStore.colorHex) {
-                                        viewStore.send(.colorPickerFieldTapped)
-                                    }
-                                )
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text(#localized("Initial Amount"))
-                                .font(.customSubHeadline)
-                                .foregroundStyle(#color("secondary"))
-                            
-                            TextField(#localized("Initial Amount"), text: viewStore.$initialAmount)
-                                .textFieldStyle(.icon(#img("icon_yen")))
-                        }
-                        
-                        createUserButton(viewStore)
+                        TextField(#localized("Email"), text: $store.email)
+                            .textFieldStyle(.icon(#img("icon_email")))
                     }
-                    .padding(30)
-                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Fullname"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                        
+                        TextField(#localized("Fullname"), text: $store.fullname)
+                            .textFieldStyle(.icon(#img("icon_person")))
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Password"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                        
+                        TextField(#localized("Password"), text: $store.password)
+                            .textFieldStyle(.icon(#img("icon_lock")))
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Status"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                        
+                        TextField(#localized("Status"), text: .constant(store.status.rawValue))
+                            .textFieldStyle(.tapOnly(#img("icon_admin")) {
+                                store.send(.memberFieldTapped)
+                            })
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Color"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                        
+                        TextField("", text: .constant(""))
+                            .textFieldStyle(
+                                .colorPicker(#img("icon_palatte"), colorHex: store.colorHex) {
+                                    store.send(.colorPickerFieldTapped)
+                                }
+                            )
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(#localized("Initial Amount"))
+                            .font(.customSubHeadline)
+                            .foregroundStyle(#color("secondary"))
+                        
+                        TextField(#localized("Initial Amount"), text: $store.initialAmount)
+                            .textFieldStyle(.icon(#img("icon_yen")))
+                    }
+                    
+                    createUserButton
                 }
-                .navigationBarHidden(true)
-                .splineBackground()
-                .dismissKeyboardOnTap()
-                .ignoresSafeArea()
-                
-                closeButton
+                .padding(30)
+                .padding()
+            }
+            .navigationBarHidden(true)
+            .splineBackground()
+            .dismissKeyboardOnTap()
+            .ignoresSafeArea()
+            
+            closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
-            }
-            .loadingView(viewStore.isLoading)
-            .confirmationDialog(
-                store: store.scope(state: \.$destination.confirmationDialog, action: \.destination.confirmationDialog)
-            )
-            .fullScreenCover(store: store.scope(state: \.$destination.colorPicker, action: \.destination.colorPicker)) { store in
-                ColorPickerView(store: store)
-                    .presentationBackground(Color.clear)
-            }
-            .alert(
-                store: store.scope(state: \.$destination.alert, action: \.destination.alert)
-            )
         }
+        .loadingView(store.isLoading)
+        .confirmationDialog(
+            $store.scope(state: \.destination?.confirmationDialog, action: \.destination.confirmationDialog)
+        )
+        .fullScreenCover(
+            item: $store.scope(state: \.destination?.colorPicker, action: \.destination.colorPicker)
+        ) { store in
+            ColorPickerView(store: store)
+                .presentationBackground(Color.clear)
+        }
+        .alert(
+            $store.scope(state: \.destination?.alert, action: \.destination.alert)
+        )
     }
 }
 
@@ -132,9 +132,9 @@ extension CreateUserView {
         }
     }
     
-    private func createUserButton(_ viewStore: ViewStoreOf<CreateUser>) -> some View {
+    private var createUserButton: some View {
         Button {
-            viewStore.send(.createUserButtonTapped)
+            store.send(.createUserButtonTapped)
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
@@ -143,7 +143,7 @@ extension CreateUserView {
             }
             .largeButton()
         }
-        .disabled(!viewStore.isValidInput)
+        .disabled(!store.isValidInput)
     }
 }
 

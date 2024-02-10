@@ -10,14 +10,12 @@ public struct ColorPaletteView: View {
     private let store: StoreOf<ColorPalette>
     
     public var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            ColorPaletteRepresentable { color in
-                if let colorHex = color.toHexString() {
-                    viewStore.send(.viewTappedOn(colorHex))
-                }
+        ColorPaletteRepresentable { color in
+            if let colorHex = color.toHexString() {
+                store.send(.viewTappedOn(colorHex))
             }
-            .border(#color("gray"))
         }
+        .border(#color("gray"))
     }
 }
 
