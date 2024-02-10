@@ -2,7 +2,7 @@ import SwiftUI
 
 private enum Configuration {
     static var maxScrollOffset: CGFloat = 75
-    static var scrollCoordinateSpace: String = "ScrollView"
+    static var scrollCoordinateSpace: String = UUID().uuidString
 }
 
 public struct CustomRefreshView<Content: View>: View {

@@ -3,6 +3,9 @@ import ComposableArchitecture
 import SharedUIs
 
 public struct LogsView: View {
+    private enum Configuration {
+        static var scrollToTopId = UUID().uuidString
+    }
     public init(store: StoreOf<Logs>) {
         self.store = store
     }
@@ -16,32 +19,42 @@ public struct LogsView: View {
     public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             NavigationStack {
-                CustomRefreshView(scrollDelegate: LogsView.scrollDelegate, navigationHeight: 50) {
-                    // MARK: Adding a clear frame to avoid space from Custom Navigation Bar
-                    Color.clear
-                        .frame(height: 50)
-
-                    ForEach(viewStore.groupedLogs, id: \.self) { groupedLogs in
-                        Section {
-                            ForEach(groupedLogs.logs, id: \.self) { log in
-                                LogItemView(groupLog: log)
-                                    .padding(.bottom, 4)
+                ScrollViewReader { value in
+                    CustomRefreshView(scrollDelegate: LogsView.scrollDelegate, navigationHeight: 50) {
+                        // MARK: Adding a clear frame to avoid space from Custom Navigation Bar
+                        Color.clear
+                            .frame(height: 50)
+                            .id(Configuration.scrollToTopId)
+                        
+                        ForEach(viewStore.groupedLogs, id: \.self) { groupedLogs in
+                            Section {
+                                ForEach(groupedLogs.logs, id: \.self) { log in
+                                    LogItemView(groupLog: log)
+                                        .padding(.bottom, 4)
+                                }
+                            } header: {
+                                Text(groupedLogs.title)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.customSubHeadline2)
+                                    .foregroundStyle(#color("gray"))
+                                    .padding(.leading, 24)
+                                    .padding(.bottom, 8)
                             }
-                        } header: {
-                            Text(groupedLogs.title)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.customSubHeadline2)
-                                .foregroundStyle(#color("gray"))
-                                .padding(.leading, 24)
-                                .padding(.bottom, 8)
+                        }
+                    } onRefresh: {
+                        // Send Action to Reducer
+                        viewStore.send(.pulledToRefresh)
+                        // Waiting until the state changes back
+                        while viewStore.isPullToRefresh {
+                            try? await Task.sleep(nanoseconds: 1 * 1_00)
                         }
                     }
-                } onRefresh: {
-                    // Send Action to Reducer
-                    viewStore.send(.pulledToRefresh)
-                    // Waiting until the state changes back
-                    while viewStore.isPullToRefresh {
-                        try? await Task.sleep(nanoseconds: 1 * 1_00)
+                    .onChange(of: viewStore.needsScrollToTop) { _, newValue in
+                        guard newValue else { return }
+                        withAnimation {
+                            value.scrollTo(Configuration.scrollToTopId, anchor: .top)
+                        }
+                        viewStore.send(.scrolledToTop)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -14,6 +14,7 @@ public struct Logs {
         public var groupedLogs: [GroupedLogs] = []
         public var isLoading: Bool = false
         public var isPullToRefresh: Bool = false
+        public var needsScrollToTop: Bool = false
     }
     
     public enum Action: Equatable {
@@ -21,6 +22,8 @@ public struct Logs {
         
         case onAppear
         case pulledToRefresh
+        case scrolledToTop
+        case tabBarTapped
         case fetchLogs
         case logsResponse(TaskResult<[GroupLog]>)
     }
@@ -46,6 +49,14 @@ public struct Logs {
                     // start fetching logs.
                     await send(.fetchLogs)
                 }
+                
+            case .tabBarTapped:
+                state.needsScrollToTop = true
+                return .none
+                
+            case .scrolledToTop:
+                state.needsScrollToTop = false
+                return .none
                 
             case .fetchLogs:
                 return .run { send in
@@ -90,8 +101,7 @@ extension Logs {
         }
         
         public enum Action: Equatable {
-            public enum Alert: Equatable {
-            }
+            public enum Alert: Equatable {}
             case alert(Alert)
         }
         
