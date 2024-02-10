@@ -10,39 +10,37 @@ public struct SignedInView: View {
         self.store = store
     }
     
-    private let store: StoreOf<SignedIn>
+    @Bindable private var store: StoreOf<SignedIn>
     // MARK: Tabbar Position
     @State var selectedXOffset: CGFloat = 0
     @State var xOffsetValues: [CGFloat] = [0, 0, 0]
     
     public var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                TabView(selection: viewStore.$selectedTab) {
-                    HomeView(store: store.scope(state: \.home, action: \.home))
-                        .tag(Tab.home)
-                    
-                    LogsView(store: store.scope(state: \.logs, action: \.logs))
-                        .tag(Tab.logs)
-                    
-                    ProfileView(store: store.scope(state: \.profile, action: \.profile))
-                        .tag(Tab.profile)
-                }
+        ZStack {
+            TabView(selection: $store.selectedTab) {
+                HomeView(store: store.scope(state: \.home, action: \.home))
+                    .tag(Tab.home)
                 
-                tabBar(viewStore: viewStore)
+                LogsView(store: store.scope(state: \.logs, action: \.logs))
+                    .tag(Tab.logs)
+                
+                ProfileView(store: store.scope(state: \.profile, action: \.profile))
+                    .tag(Tab.profile)
             }
+            
+            tabBar
         }
     }
 }
 
 // MARK: View Parts
 extension SignedInView {
-    private func tabBar(viewStore: ViewStoreOf<SignedIn>) -> some View {
+    private var tabBar: some View {
         GeometryReader { proxy in
             let hasHomeIndicator = proxy.safeAreaInsets.bottom > 0
             
             HStack {
-                tabItems(viewStore: viewStore)
+                tabItems
             }
             .padding(.bottom, hasHomeIndicator ? 16 : 0)
             .frame(maxWidth: .infinity, maxHeight: hasHomeIndicator ? 88 : 64)
@@ -62,12 +60,12 @@ extension SignedInView {
         }
     }
     
-    private func tabItems(viewStore: ViewStoreOf<SignedIn>) -> some View {
+    private var tabItems: some View {
         ForEach(Array(Tab.items.enumerated()), id: \.offset) { index, item in
             if index == 0 { Spacer() }
             
             Button {
-                viewStore.send(.tabSelected(item.tab))
+                store.send(.tabSelected(item.tab))
                 withAnimation {
                     selectedXOffset = xOffsetValues[index]
                 }
@@ -90,7 +88,7 @@ extension SignedInView {
                         Color.clear.preference(key: TabPreferenceKey.self, value: offset)
                             .onPreferenceChange(TabPreferenceKey.self) { value in
                                 xOffsetValues[index] = value
-                                if viewStore.selectedTab == item.tab {
+                                if store.selectedTab == item.tab {
                                     selectedXOffset = xOffsetValues[index]
                                 }
                             }
@@ -99,7 +97,7 @@ extension SignedInView {
             }
             .frame(width: 44)
             .frame(maxWidth: .infinity)
-            .opacity(viewStore.selectedTab == item.tab ? 1.0 : 0.5)
+            .opacity(store.selectedTab == item.tab ? 1.0 : 0.5)
         }
     }
 }

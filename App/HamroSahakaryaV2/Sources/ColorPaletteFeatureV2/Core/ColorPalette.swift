@@ -4,6 +4,7 @@ import SharedUIs
 
 @Reducer
 public struct ColorPalette {
+    @ObservableState
     public struct State: Equatable {
         public init() { }
         

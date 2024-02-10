@@ -6,10 +6,11 @@ import UserApiClient
 
 @Reducer
 public struct Logs {
+    @ObservableState
     public struct State: Equatable {
         public init() { }
         
-        @PresentationState public var destination: Destination.State?
+        @Presents public var destination: Destination.State?
         public var logs: [GroupLog] = []
         public var groupedLogs: [GroupedLogs] = []
         public var isLoading: Bool = false
@@ -96,6 +97,7 @@ public struct Logs {
 extension Logs {
     @Reducer
     public struct Destination {
+        @ObservableState
         public enum State: Equatable {
             case alert(AlertState<Action.Alert>)
         }

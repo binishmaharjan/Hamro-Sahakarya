@@ -6,6 +6,7 @@ import UserApiClient
 
 @Reducer
 public struct ForgotPassword {
+    @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
             case email
@@ -13,9 +14,9 @@ public struct ForgotPassword {
         
         public init() {}
         
-        @PresentationState var destination: Destination.State?
-        @BindingState var email: String = ""
-        @BindingState var focusedField: Field? = .email
+        @Presents var destination: Destination.State?
+        var email: String = ""
+        var focusedField: Field? = .email
         var isLoading = false
         
         var isValidInput: Bool {
@@ -83,6 +84,7 @@ public struct ForgotPassword {
 extension ForgotPassword {
     @Reducer
     public struct Destination: Equatable {
+        @ObservableState
         public enum State: Equatable {
             case alert(AlertState<Action.Alert>)
         }
@@ -93,7 +95,7 @@ extension ForgotPassword {
             case alert(Alert)
         }
         
-        public init(){ }
+        public init() { }
         
         public var body: some
         ReducerOf<Self> {

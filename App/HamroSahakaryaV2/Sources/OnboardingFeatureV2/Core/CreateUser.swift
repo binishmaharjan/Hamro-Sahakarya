@@ -6,17 +6,18 @@ import UserApiClient
 
 @Reducer
 public struct CreateUser {
+    @ObservableState
     public struct State: Equatable {
         
         public init() {}
         
-        @PresentationState var destination: Destination.State?
-        @BindingState var email: String = ""
-        @BindingState var fullname: String = ""
-        @BindingState var password: String = ""
-        @BindingState var status: Status = .member
-        @BindingState var colorHex: String = "#F77D8E"
-        @BindingState var initialAmount: String = "0"
+        @Presents var destination: Destination.State?
+        var email: String = ""
+        var fullname: String = ""
+        var password: String = ""
+        var status: Status = .member
+        var colorHex: String = "#F77D8E"
+        var initialAmount: String = "0"
         
         var isLoading: Bool = false
         
@@ -110,6 +111,7 @@ public struct CreateUser {
 extension CreateUser {
     @Reducer
     public struct Destination {
+        @ObservableState
         public enum State: Equatable {
             case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
             case alert(AlertState<Action.Alert>)

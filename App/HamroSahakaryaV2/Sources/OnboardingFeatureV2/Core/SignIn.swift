@@ -6,6 +6,7 @@ import SharedModels
 
 @Reducer
 public struct SignIn {
+    @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
             case email
@@ -14,10 +15,10 @@ public struct SignIn {
         
         public init() {}
         
-        @PresentationState var destination: Destination.State?
-        @BindingState var email: String = ""
-        @BindingState var password: String = ""
-        @BindingState var focusedField: Field? = .email
+        @Presents var destination: Destination.State?
+        var email: String = ""
+        var password: String = ""
+        var focusedField: Field? = .email
         var isSecure: Bool = true
         var isLoading: Bool = false
         
@@ -124,6 +125,7 @@ public struct SignIn {
 extension SignIn {
     @Reducer
     public struct Destination {
+        @ObservableState
         public enum State: Equatable {
             case alert(AlertState<Action.Alert>)
             case forgotPassword(ForgotPassword.State)
