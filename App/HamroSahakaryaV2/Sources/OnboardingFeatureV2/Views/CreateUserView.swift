@@ -111,11 +111,11 @@ public struct CreateUserView: View {
 
 // MARK: Views Parts
 extension CreateUserView {
-    private var background: some View {
-        #img("img_spline")
-            .blur(radius: 60)
-            .offset(x: 200, y: 100)
-    }
+//    private var background: some View {
+//        #img("img_spline")
+//            .blur(radius: 60)
+//            .offset(x: 200, y: 100)
+//    }
     
     private var closeButton: some View {
         Button {

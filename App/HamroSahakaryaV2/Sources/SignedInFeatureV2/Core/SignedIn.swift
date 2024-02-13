@@ -14,7 +14,7 @@ public struct SignedIn {
             self.userSession = userSession
             self.home = Home.State()
             self.logs = Logs.State()
-            self.profile = Profile.State()
+            self.profile = Profile.State(user: userSession.user)
             self.selectedTab = .logs
         }
         

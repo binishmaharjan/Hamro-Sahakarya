@@ -36,3 +36,18 @@ public struct LogDateFormatStyle: FormatStyle {
 extension FormatStyle where Self == LogDateFormatStyle {
     public static var logDate: LogDateFormatStyle { .init() }
 }
+
+// MARK: MemberListDateFormat
+public struct YearMonthDateFormatStyle: FormatStyle {
+    public func format(_ value: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.doesRelativeDateFormatting = true
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        return formatter.string(from: value)
+    }
+}
+
+extension FormatStyle where Self == YearMonthDateFormatStyle {
+    public static var yearMonthDate: YearMonthDateFormatStyle { .init() }
+}
