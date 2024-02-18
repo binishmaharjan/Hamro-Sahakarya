@@ -51,6 +51,7 @@ public struct Profile {
                 return .none
                 
             case .onMemberMenuTapped(.changePassword):
+                state.destination = .changePassword(.init())
                 return .none
                 
             case .onMemberMenuTapped(.members):
@@ -124,6 +125,7 @@ extension Profile {
         public enum State: Equatable {
             case alert(AlertState<Action.Alert>)
             case membersList(MembersList.State)
+            case changePassword(ChangePassword.State)
         }
         
         public enum Action: Equatable {
@@ -131,6 +133,7 @@ extension Profile {
             
             case alert(Alert)
             case membersList(MembersList.Action)
+            case changePassword(ChangePassword.Action)
         }
         
         public init() { }
@@ -138,6 +141,9 @@ extension Profile {
         public var body: some ReducerOf<Self> {
             Scope(state: \.membersList, action: \.membersList) {
                 MembersList()
+            }
+            Scope(state: \.changePassword, action: \.changePassword) {
+                ChangePassword()
             }
         }
     }
