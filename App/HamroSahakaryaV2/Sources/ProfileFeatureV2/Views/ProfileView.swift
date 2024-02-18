@@ -137,24 +137,3 @@ extension ProfileView {
         )
     )
 }
-
-
-//private var adminMenus: some View {
-//    ForEach(Menu.Admin.allCases, id: \.self) { menu in
-//        LabeledContent {
-//            chevron
-//        } label: {
-//            Button {
-//                store.send(.onAdminMenuTapped(menu))
-//            } label: {
-//                HStack {
-//                    Image(systemName: menu.icon)
-//                        .frame(minWidth: 32)
-//                    
-//                    Text(menu.title)
-//                        .foregroundStyle(#color("black"))
-//                }
-//            }
-//        }
-//    }
-//}

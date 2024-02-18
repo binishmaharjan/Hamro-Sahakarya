@@ -8,7 +8,7 @@ public struct MembersListView: View {
         self.store = store
     }
     
-    private let store: StoreOf<MembersList>
+    @Bindable private var store: StoreOf<MembersList>
     
     public var body: some View {
         ScrollView {
@@ -49,6 +49,7 @@ public struct MembersListView: View {
         .background(#color("background"))
         .loadingView(store.isLoading)
         .onAppear { store.send(.onAppear) }
+        .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
     }
 }
 
