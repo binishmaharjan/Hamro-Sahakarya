@@ -62,6 +62,9 @@ public struct MembersList {
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
+        }
     }
 }
 

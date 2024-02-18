@@ -211,5 +211,11 @@ let package = Package(
                 "LogsFeatureV2"
             ]
         ),
+        .testTarget(
+            name: "ProfileFeatureV2Tests",
+            dependencies: [
+                "ProfileFeatureV2"
+            ]
+        )
     ]
 )
