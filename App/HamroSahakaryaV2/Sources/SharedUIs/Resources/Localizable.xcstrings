@@ -221,6 +221,17 @@
         }
       }
     },
+    "Change Password Successful" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Password Successful"
+          }
+        }
+      }
+    },
     "Change Picture" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -239,6 +250,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Color"
+          }
+        }
+      }
+    },
+    "Confirm Password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm Password"
           }
         }
       }
@@ -539,6 +561,17 @@
         }
       }
     },
+    "New Password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Password"
+          }
+        }
+      }
+    },
     "Ok" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -568,6 +601,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Password"
+          }
+        }
+      }
+    },
+    "Password doesn`t match" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password doesn`t match"
           }
         }
       }
@@ -659,6 +703,9 @@
         }
       }
     },
+    "Sign Out" : {
+      "extractionState" : "manual"
+    },
     "Sorry" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -688,6 +735,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Notice"
+          }
+        }
+      }
+    },
+    "User will sign out.Please sign in again with new password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User will sign out.Please sign in again with new password"
           }
         }
       }

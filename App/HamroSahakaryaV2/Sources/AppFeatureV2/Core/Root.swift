@@ -34,7 +34,8 @@ public struct Root {
                 state.destination = .signedIn(.init(userSession: userSession))
                 return .none
                 
-            case .destination(.presented(.signedIn(.profile(.delegate(.signOutSuccessful))))):
+            case .destination(.presented(.signedIn(.profile(.delegate(.signOutSuccessful))))),
+                 .destination(.presented(.signedIn(.profile(.destination(.presented(.changePassword(.delegate(.signOutSuccessful)))))))):
                 state.destination = .signIn(.init())
                 return .none
                 

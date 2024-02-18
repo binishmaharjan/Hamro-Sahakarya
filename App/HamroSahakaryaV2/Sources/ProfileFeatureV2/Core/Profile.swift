@@ -51,7 +51,7 @@ public struct Profile {
                 return .none
                 
             case .onMemberMenuTapped(.changePassword):
-                state.destination = .changePassword(.init())
+                state.destination = .changePassword(.init(user: state.user))
                 return .none
                 
             case .onMemberMenuTapped(.members):
