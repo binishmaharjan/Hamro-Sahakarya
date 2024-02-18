@@ -46,7 +46,7 @@ public struct MembersListView: View {
             }
             .padding(.top, 16)
         }
-        .customNavigationBar("Members")
+        .customNavigationBar(#localized("Members"))
         .background(#color("background"))
         .loadingView(store.isLoading)
         .onAppear { store.send(.onAppear) }

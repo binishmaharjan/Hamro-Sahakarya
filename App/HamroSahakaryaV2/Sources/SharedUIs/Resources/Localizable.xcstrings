@@ -100,6 +100,28 @@
         }
       }
     },
+    "Add Monthly Fee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Monthly Fee"
+          }
+        }
+      }
+    },
+    "Add Or Deduct Amount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Or Deduct Amount"
+          }
+        }
+      }
+    },
     "Admin Password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -173,6 +195,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "Change Member Status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Member Status"
+          }
+        }
+      }
+    },
+    "Change Password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Password"
+          }
+        }
+      }
+    },
+    "Change Picture" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Picture"
           }
         }
       }
@@ -287,8 +342,27 @@
         }
       }
     },
+    "erms And Condition" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "erms And Condition"
+          }
+        }
+      }
+    },
     "Error" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
     },
     "Expenses amounting to %lld have been incurred in the group. This transaction was authorized by admin %lld.\\n\\nReason: %lld" : {
       "extractionState" : "manual",
@@ -323,8 +397,26 @@
         }
       }
     },
+    "Extra Income And Expenses" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Income And Expenses"
+          }
+        }
+      }
+    },
     "Fetching Data.." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetching Data.."
+          }
+        }
+      }
     },
     "Forgot Password" : {
       "extractionState" : "manual",
@@ -392,6 +484,17 @@
         }
       }
     },
+    "Loan Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loan Member"
+          }
+        }
+      }
+    },
     "Loan Repayment by Member" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -410,6 +513,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Logs"
+          }
+        }
+      }
+    },
+    "Members" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Members"
           }
         }
       }
@@ -492,7 +606,25 @@
       }
     },
     "Pull To Refresh" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pull To Refresh"
+          }
+        }
+      }
+    },
+    "Remove Member" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove Member"
+          }
+        }
+      }
     },
     "Reset your password by entering the email of your account, and follow the instructions sent to that email." : {
       "extractionState" : "manual",
@@ -545,6 +677,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Status"
+          }
+        }
+      }
+    },
+    "Update Notice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Notice"
           }
         }
       }
