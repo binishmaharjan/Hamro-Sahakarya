@@ -24,7 +24,7 @@ public struct LogsView: View {
                         Section {
                             ForEach(groupedLogs.logs, id: \.self) { log in
                                 LogItemView(groupLog: log)
-                                    .padding(.bottom, 4)
+                                    .padding(.bottom, 8)
                             }
                         } header: {
                             Text(groupedLogs.title)
