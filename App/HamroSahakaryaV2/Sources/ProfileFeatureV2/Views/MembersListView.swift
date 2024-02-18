@@ -12,7 +12,7 @@ public struct MembersListView: View {
     
     public var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(spacing: 8) {
                 ForEach(store.members) { member in
                     HStack(spacing: 16) {
                         BorderedImageView(urlString: member.iconUrl)
@@ -40,6 +40,7 @@ public struct MembersListView: View {
                     .padding(.vertical)
                     .background(#color("white"))
                     .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .shadow(color: #color("background2").opacity(0.1), radius: 10, x: 0, y: 1)
                     .padding(.horizontal, 20)
                 }
             }
