@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
+import SharedUIs
 
 @Reducer
 public struct Profile {
@@ -15,11 +16,16 @@ public struct Profile {
         }
         
         @Presents var destination: Destination.State?
+        public var isLoading: Bool = false
         public var user: User
     }
     
     public enum Action: BindableAction, Equatable {
+        public enum Delegate: Equatable {
+            case signOutSuccessful
+        }
         case destination(PresentationAction<Destination.Action>)
+        case delegate(Delegate)
         case binding(BindingAction<State>)
         
         case onAppear
@@ -27,9 +33,13 @@ public struct Profile {
         case onAdminMenuTapped(Menu.Admin)
         case onOtherMenuTapped(Menu.Other)
         case onSignOutButtonTapped
+        case signOutUser
+        case signOutResponse(TaskResult<VoidSuccess>)
     }
     
     public init() { }
+    
+    @Dependency(\.userApiClient) private var userApiClient
     
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
@@ -75,10 +85,28 @@ public struct Profile {
                 return .none
                 
             case .onSignOutButtonTapped:
-                print("onSignOutButtonTapped")
+                return .send(.signOutUser)
+                
+            case .signOutUser:
+                state.isLoading = true
+                return .run { send in
+                    await send(
+                        .signOutResponse(
+                            TaskResult { try await userApiClient.signOut() }
+                        )
+                    )
+                }
+                
+            case .signOutResponse(.success):
+                state.isLoading = false
+                return .send(.delegate(.signOutSuccessful))
+                
+            case .signOutResponse(.failure(let error)):
+                state.isLoading = false
+                state.destination = .alert(.signOutFailed(error))
                 return .none
                 
-            case .binding, .destination:
+            case .binding, .destination, .delegate:
                 return .none
             }
         }
@@ -94,10 +122,14 @@ extension Profile {
     public struct Destination {
         @ObservableState
         public enum State: Equatable {
+            case alert(AlertState<Action.Alert>)
             case membersList(MembersList.State)
         }
         
         public enum Action: Equatable {
+            public enum Alert: Equatable {}
+            
+            case alert(Alert)
             case membersList(MembersList.Action)
         }
         
@@ -107,6 +139,19 @@ extension Profile {
             Scope(state: \.membersList, action: \.membersList) {
                 MembersList()
             }
+        }
+    }
+}
+
+// MARK: AlertState
+extension AlertState where Action == Profile.Destination.Action.Alert {
+    static func signOutFailed(_ error: Error) -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Ok")) }
+        } message: {
+            TextState(error.localizedDescription)
         }
     }
 }

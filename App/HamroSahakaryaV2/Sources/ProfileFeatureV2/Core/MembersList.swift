@@ -93,7 +93,7 @@ extension AlertState where Action == MembersList.Destination.Action.Alert {
         AlertState {
             TextState(#localized("Error"))
         } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
+            ButtonState { TextState(#localized("Ok")) }
         } message: {
             TextState(error.localizedDescription)
         }
