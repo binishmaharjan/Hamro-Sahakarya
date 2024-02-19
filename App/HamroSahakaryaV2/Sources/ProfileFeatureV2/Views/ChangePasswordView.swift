@@ -40,6 +40,7 @@ public struct ChangePasswordView: View {
         }
         .padding(20)
         .padding()
+        .background(#color("background"))
         .bind($store.focusedField, to: self.$focusedField)
         .customNavigationBar(#localized("Change Password"))
         .loadingView(store.isLoading)
