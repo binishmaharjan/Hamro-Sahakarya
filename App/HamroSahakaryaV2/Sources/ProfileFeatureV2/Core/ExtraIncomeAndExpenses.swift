@@ -21,7 +21,7 @@ public struct ExtraIncomeAndExpenses {
         @Presents var destination: Destination.State?
         public var user: User
         var type: ExtraOrExpenses = .extra
-        var amount: String = "0"
+        var amount: String = ""
         var reason: String = ""
         var focusedField: Field? = .amount
         var isLoading: Bool = false
@@ -53,14 +53,6 @@ public struct ExtraIncomeAndExpenses {
         
         Reduce<State, Action> { state, action in
             switch action {
-            case .binding(\.amount):
-                print(state.amount)
-                return .none
-                
-            case .binding(\.reason):
-                print(state.reason)
-                return .none
-                
             case .destination(.presented(.confirmationDialog(.presented(let option)))):
                 state.destination = nil
                 state.type = option.toType
