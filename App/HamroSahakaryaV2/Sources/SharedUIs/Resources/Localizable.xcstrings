@@ -869,7 +869,15 @@
       }
     },
     "Update Successful" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Successful"
+          }
+        }
+      }
     },
     "User will sign out.Please sign in again with new password" : {
       "extractionState" : "manual",
