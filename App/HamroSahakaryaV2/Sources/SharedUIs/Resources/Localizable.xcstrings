@@ -868,6 +868,9 @@
         }
       }
     },
+    "Update Successful" : {
+      "extractionState" : "manual"
+    },
     "User will sign out.Please sign in again with new password" : {
       "extractionState" : "manual",
       "localizations" : {

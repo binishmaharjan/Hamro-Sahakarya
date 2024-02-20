@@ -8,7 +8,6 @@ import UserApiClient
 public struct CreateUser {
     @ObservableState
     public struct State: Equatable {
-        
         public init() {}
         
         @Presents var destination: Destination.State?

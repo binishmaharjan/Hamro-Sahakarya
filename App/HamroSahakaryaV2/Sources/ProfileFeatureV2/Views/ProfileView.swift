@@ -70,6 +70,10 @@ public struct ProfileView: View {
                 item: $store.scope(state: \.destination?.changePassword, action: \.destination.changePassword),
                 destination: { ChangePasswordView(store: $0).withCustomBackButton() }
             )
+            .navigationDestination(
+                item: $store.scope(state: \.destination?.extraIncomeAndExpenses, action: \.destination.extraIncomeAndExpenses),
+                destination: { ExtraIncomeAndExpensesView(store: $0).withCustomBackButton() }
+            )
         }
     }
 }

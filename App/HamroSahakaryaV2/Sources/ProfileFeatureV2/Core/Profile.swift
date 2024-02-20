@@ -16,8 +16,8 @@ public struct Profile {
         }
         
         @Presents var destination: Destination.State?
-        public var isLoading: Bool = false
         public var user: User
+        public var isLoading: Bool = false
     }
     
     public enum Action: BindableAction, Equatable {
@@ -59,6 +59,7 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.expenseAndExtra):
+                state.destination = .extraIncomeAndExpenses(.init(user: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.monthlyFee):
@@ -126,6 +127,7 @@ extension Profile {
             case alert(AlertState<Action.Alert>)
             case membersList(MembersList.State)
             case changePassword(ChangePassword.State)
+            case extraIncomeAndExpenses(ExtraIncomeAndExpenses.State)
         }
         
         public enum Action: Equatable {
@@ -134,6 +136,7 @@ extension Profile {
             case alert(Alert)
             case membersList(MembersList.Action)
             case changePassword(ChangePassword.Action)
+            case extraIncomeAndExpenses(ExtraIncomeAndExpenses.Action)
         }
         
         public init() { }
@@ -144,6 +147,9 @@ extension Profile {
             }
             Scope(state: \.changePassword, action: \.changePassword) {
                 ChangePassword()
+            }
+            Scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
+                ExtraIncomeAndExpenses()
             }
         }
     }
