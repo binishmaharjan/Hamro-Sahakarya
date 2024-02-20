@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "HamroSahakaryaV2",targets: ["HamroSahakaryaV2"]),
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
+        .library(name: "SwiftHelpers", targets: ["SwiftHelpers"]),
         .library(name: "UserSession", targets: ["UserSession"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "UserAuthClient", targets: ["UserAuthClient"]),
@@ -45,6 +46,7 @@ let package = Package(
             name: "SharedModels",
             dependencies: [
                 "SharedUIs",
+                "SwiftHelpers",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -52,9 +54,16 @@ let package = Package(
             name: "SharedUIs",
             dependencies: [
                 "SharedMacros",
+                "SwiftHelpers",
             ],
             resources: [
                 .process("Resources"),
+            ]
+        ),
+        .target(
+            name: "SwiftHelpers",
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(
