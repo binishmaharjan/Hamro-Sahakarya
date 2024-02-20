@@ -26,6 +26,7 @@ public struct CreateUserView: View {
                         
                         TextField(#localized("Email"), text: $store.email)
                             .textFieldStyle(.icon(#img("icon_email")))
+                            .keyboardType(.emailAddress)
                     }
                     
                     VStack(alignment: .leading) {
@@ -77,6 +78,7 @@ public struct CreateUserView: View {
                         
                         TextField(#localized("Initial Amount"), text: $store.initialAmount)
                             .textFieldStyle(.icon(#img("icon_yen")))
+                            .keyboardType(.numberPad)
                     }
                     
                     createUserButton
@@ -111,11 +113,11 @@ public struct CreateUserView: View {
 
 // MARK: Views Parts
 extension CreateUserView {
-    private var background: some View {
-        #img("img_spline")
-            .blur(radius: 60)
-            .offset(x: 200, y: 100)
-    }
+//    private var background: some View {
+//        #img("img_spline")
+//            .blur(radius: 60)
+//            .offset(x: 200, y: 100)
+//    }
     
     private var closeButton: some View {
         Button {

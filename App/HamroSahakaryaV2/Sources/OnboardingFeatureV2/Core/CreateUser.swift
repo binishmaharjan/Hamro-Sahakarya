@@ -8,7 +8,6 @@ import UserApiClient
 public struct CreateUser {
     @ObservableState
     public struct State: Equatable {
-        
         public init() {}
         
         @Presents var destination: Destination.State?
@@ -171,19 +170,19 @@ extension CreateUser {
 // MARK: Confirmation Dialog
 extension ConfirmationDialogState where Action == CreateUser.Destination.Action.ConfirmationDialog {
     static let selectStatus = ConfirmationDialogState {
-        TextState("Status Select")
+        TextState(#localized("Status Select"))
     } actions: {
         ButtonState(role: .cancel) {
-          TextState("Cancel")
+          TextState(#localized("Cancel"))
         }
         ButtonState(action: .memberTapped) {
-          TextState("Member")
+          TextState(#localized("Member"))
         }
         ButtonState(action: .adminTapped) {
-          TextState("Admin")
+          TextState(#localized("Admin"))
         }
     } message: {
-        TextState("Select the member status.")
+        TextState(#localized("Select the member status."))
     }
 }
 

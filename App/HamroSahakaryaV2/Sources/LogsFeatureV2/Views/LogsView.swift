@@ -19,17 +19,12 @@ public struct LogsView: View {
     public var body: some View {
         NavigationStack {
             ScrollViewReader { value in
-                CustomRefreshView(scrollDelegate: LogsView.scrollDelegate, navigationHeight: 50) {
-                    // MARK: Adding a clear frame to avoid space from Custom Navigation Bar
-                    Color.clear
-                        .frame(height: 50)
-                        .id(Configuration.scrollToTopId)
-                    
+                CustomRefreshView(scrollDelegate: LogsView.scrollDelegate) {
                     ForEach(store.groupedLogs, id: \.self) { groupedLogs in
                         Section {
                             ForEach(groupedLogs.logs, id: \.self) { log in
                                 LogItemView(groupLog: log)
-                                    .padding(.bottom, 4)
+                                    .padding(.bottom, 8)
                             }
                         } header: {
                             Text(groupedLogs.title)
@@ -38,6 +33,7 @@ public struct LogsView: View {
                                 .foregroundStyle(#color("gray"))
                                 .padding(.leading, 24)
                                 .padding(.bottom, 8)
+                                .padding(.top, 16)
                         }
                     }
                 } onRefresh: {
@@ -57,11 +53,7 @@ public struct LogsView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(
-                NavigationBar(title: "Logs")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            )
-            .navigationBarHidden(true)
+            .customNavigationBar(#localized("Logs"))
             .background(#color("background"))
             .loadingView(store.isLoading)
             .onAppear { store.send(.onAppear) }

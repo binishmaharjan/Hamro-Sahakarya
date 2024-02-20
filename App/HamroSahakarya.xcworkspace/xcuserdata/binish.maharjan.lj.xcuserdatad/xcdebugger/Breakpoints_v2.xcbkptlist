@@ -7,145 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9"
+            uuid = "2D9AE219-2DC1-4361-BB1D-BFC9E61E7B09"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
+            filePath = "HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/ExtraIncomeAndExpenses.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7"
-            endingLineNumber = "7"
-            landmarkName = "Notice"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9 - c658d9d939c29fff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SharedModels.Notice.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "Development"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  uuid = "A7490D13-9BBE-4E35-924A-4D4C422B3FA9 - 8c3ab66a9d7357f3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SharedModels.Notice.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "OnboardingFeatureV2Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedModels/Api/Notice.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "128">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1412234D-FF04-4FE8-B160-9CC785C2C63E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "onGestureChanged(gesture:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1412234D-FF04-4FE8-B160-9CC785C2C63E - 8e978d0e99d1f870"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SharedUIs.ScrollViewModel.onGestureChanged(gesture: __C.UIPanGestureRecognizer) -&gt; ()"
-                  moduleName = "Development"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "576">
-               </Location>
-               <Location
-                  uuid = "1412234D-FF04-4FE8-B160-9CC785C2C63E - 8e978d0e99d1f870"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SharedUIs.ScrollViewModel.onGestureChanged(gesture: __C.UIPanGestureRecognizer) -&gt; ()"
-                  moduleName = "Development"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "568">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9491B8CB-4D7B-4511-8403-602EA7D74976"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "removeGesture()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9491B8CB-4D7B-4511-8403-602EA7D74976 - 4e2f29f146eed289"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGestureRecognizer) -&gt; Swift.Bool in SharedUIs.ScrollViewModel.removeGesture() -&gt; ()"
-                  moduleName = "Development"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "484">
-               </Location>
-               <Location
-                  uuid = "9491B8CB-4D7B-4511-8403-602EA7D74976 - 4e2f29f146eed289"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGestureRecognizer) -&gt; Swift.Bool in SharedUIs.ScrollViewModel.removeGesture() -&gt; ()"
-                  moduleName = "Development"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/SharedUIs/CustomRefreshView/CustomRefreshView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "isValidInput"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

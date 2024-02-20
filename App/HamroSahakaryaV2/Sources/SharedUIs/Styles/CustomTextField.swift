@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftHelpers
 
 // MARK: IconTextFieldStyle
 public struct IconTextFieldStyle: TextFieldStyle {

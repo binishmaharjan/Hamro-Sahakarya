@@ -72,7 +72,7 @@ extension GroupLog {
 // MARK: Year And Month For Sorting
 extension GroupLog {
     var yearMonth: Date.FormatStyle.FormatOutput {
-        dateCreated.toDate(for: .dateTime).formatted(.dateTime.year().month())
+        dateCreated.toDate(for: .dateTime).formatted(.dateTime.year().month(.wide))
     }
 }
 

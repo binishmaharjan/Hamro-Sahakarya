@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import ColorPaletteFeatureV2
 import SharedUIs
+import SwiftHelpers
 
 @Reducer
 public struct ColorPicker {

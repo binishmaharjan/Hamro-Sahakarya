@@ -16,8 +16,8 @@ public struct SignIn {
         public init() {}
         
         @Presents var destination: Destination.State?
-        var email: String = ""
-        var password: String = ""
+        var email: Email = ""
+        var password: Password = ""
         var focusedField: Field? = .email
         var isSecure: Bool = true
         var isLoading: Bool = false

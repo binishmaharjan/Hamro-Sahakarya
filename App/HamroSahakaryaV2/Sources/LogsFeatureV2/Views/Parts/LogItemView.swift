@@ -43,10 +43,9 @@ public struct LogItemView: View {
         .frame(maxWidth: .infinity)
         .padding(8)
         .background(.white)
-        .mask(RoundedRectangle(cornerRadius: 4, style: .continuous))
+        .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .shadow(color: #color("background2").opacity(0.1), radius: 10, x: 0, y: 1)
-        .padding(.horizontal, 24)
-        .padding(.bottom, 4)
+        .padding(.horizontal, 20)
     }
 }
 

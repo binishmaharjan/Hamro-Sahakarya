@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import SharedUIs
 import ColorPaletteFeatureV2
+import SwiftHelpers
 
 public struct ColorPickerView: View {
     public init(store: StoreOf<ColorPicker>) {

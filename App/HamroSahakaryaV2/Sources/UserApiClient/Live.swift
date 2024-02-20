@@ -101,7 +101,7 @@ extension UserApiClient {
             let expenses = (type == .extra) ? 0 : balance
             let groupDetail = try await userDataClient.fetchGroupDetail()
             
-            try await userDataClient.updateExtraAndExpenses(groupDetail, extra, extra)
+            try await userDataClient.updateExtraAndExpenses(groupDetail, extra, expenses)
             try await userLogClient.addExtraOrExpensesLog(type, admin, balance, reason)
         }
         

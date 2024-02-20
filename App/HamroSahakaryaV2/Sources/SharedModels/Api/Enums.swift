@@ -1,8 +1,8 @@
 import Foundation
 
-public enum ExtraOrExpenses: String, CaseIterable {
-    case extra = "Extra Income"
-    case expenses = "Expenses"
+public enum ExtraOrExpenses: CaseIterable {
+    case extra
+    case expenses
 }
 
 public enum AddOrDeduct: String, CaseIterable {

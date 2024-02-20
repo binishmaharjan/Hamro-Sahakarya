@@ -29,9 +29,14 @@ public struct Root {
                 return .none
                 
             case .destination(.presented(.launch(.delegate(.showMainView(let user))))),
-                    .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
+                 .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
                 let userSession = UserSession.createUserSession(from: user)
                 state.destination = .signedIn(.init(userSession: userSession))
+                return .none
+                
+            case .destination(.presented(.signedIn(.profile(.delegate(.signOutSuccessful))))),
+                 .destination(.presented(.signedIn(.profile(.destination(.presented(.changePassword(.delegate(.signOutSuccessful)))))))):
+                state.destination = .signIn(.init())
                 return .none
                 
             case .onAppear:

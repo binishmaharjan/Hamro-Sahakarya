@@ -32,6 +32,7 @@ public struct SignInView: View {
                         
                         TextField(#localized("Email"), text: $store.email)
                             .textFieldStyle(.icon(#img("icon_email")))
+                            .keyboardType(.emailAddress)
                             .focused($focusedField, equals: .email)
                     }
                     

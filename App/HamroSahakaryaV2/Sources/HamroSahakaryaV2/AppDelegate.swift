@@ -24,6 +24,8 @@ public final class AppDelegate: NSObject, UIApplicationDelegate {
         CustomFontManager.registerFonts()
         // Setup Firebase
         setupFirebaseServer()
+        // Setup Navigation Bar
+        setupNavigationBar()
         
         viewStore.send(.didFinishLaunching)
         
@@ -35,6 +37,15 @@ public final class AppDelegate: NSObject, UIApplicationDelegate {
 extension AppDelegate {
     private func setupFirebaseServer(){
         FirebaseApp.configure()
+    }
+}
+
+// MARK: Navigation Bar Customization
+extension AppDelegate {
+    private func setupNavigationBar() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        UINavigationBar.appearance().standardAppearance = appearance
     }
 }
 
