@@ -27,7 +27,7 @@ public struct ExtraIncomeAndExpenses {
         var isLoading: Bool = false
         
         var isValidInput: Bool {
-            let isAmountValid = Int(amount) ?? 0 > 0
+            let isAmountValid = amount.int > 0
             let isReasonValid = reason.count > 1
             
             return isAmountValid && isReasonValid
@@ -49,6 +49,8 @@ public struct ExtraIncomeAndExpenses {
     @Dependency(\.userApiClient) private var userApiClient
     
     public var body: some ReducerOf<Self> {
+        BindingReducer()
+        
         Reduce<State, Action> { state, action in
             switch action {
             case .binding(\.amount):
@@ -80,7 +82,7 @@ public struct ExtraIncomeAndExpenses {
                                 return try await userApiClient.addExtraAndExpenses(
                                     state.user,
                                     state.type,
-                                    Int(state.amount) ?? 0,
+                                    state.amount.int,
                                     state.reason
                                 )
                             }
