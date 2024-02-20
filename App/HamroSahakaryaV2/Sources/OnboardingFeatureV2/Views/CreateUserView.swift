@@ -26,6 +26,7 @@ public struct CreateUserView: View {
                         
                         TextField(#localized("Email"), text: $store.email)
                             .textFieldStyle(.icon(#img("icon_email")))
+                            .keyboardType(.emailAddress)
                     }
                     
                     VStack(alignment: .leading) {
@@ -77,6 +78,7 @@ public struct CreateUserView: View {
                         
                         TextField(#localized("Initial Amount"), text: $store.initialAmount)
                             .textFieldStyle(.icon(#img("icon_yen")))
+                            .keyboardType(.numberPad)
                     }
                     
                     createUserButton
