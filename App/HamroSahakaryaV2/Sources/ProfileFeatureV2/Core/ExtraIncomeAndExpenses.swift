@@ -86,12 +86,12 @@ public struct ExtraIncomeAndExpenses {
                 state.isLoading = false
                 state.amount = ""
                 state.reason = ""
-                state.destination = .alert(.addExtraOrExpensesSuccess())
+                state.destination = .alert(.onUpdateSuccessful())
                 return .none
                 
             case .addExtraOrExpensesResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.addExtraOrExpensesFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination:
@@ -162,29 +162,6 @@ extension ExtraIncomeAndExpenses {
             Reduce<State, Action> { state, action in
                 return .none
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == ExtraIncomeAndExpenses.Destination.Action.Alert {
-    static func addExtraOrExpensesFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
-    }
-    
-    static func addExtraOrExpensesSuccess() -> AlertState {
-        AlertState {
-            TextState(#localized("Success"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(#localized("Update Successful"))
         }
     }
 }

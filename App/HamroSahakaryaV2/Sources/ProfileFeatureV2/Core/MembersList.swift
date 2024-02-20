@@ -55,7 +55,7 @@ public struct MembersList {
                 
             case .membersListResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.fetchLMembersListFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .destination:
@@ -86,19 +86,6 @@ extension MembersList {
             Reduce { state, action in
                 return .none
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == MembersList.Destination.Action.Alert {
-    static func fetchLMembersListFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

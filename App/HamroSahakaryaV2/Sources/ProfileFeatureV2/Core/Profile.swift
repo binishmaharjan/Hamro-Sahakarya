@@ -106,7 +106,7 @@ public struct Profile {
                 
             case .signOutResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.signOutFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -152,19 +152,6 @@ extension Profile {
             Scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
                 ExtraIncomeAndExpenses()
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == Profile.Destination.Action.Alert {
-    static func signOutFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

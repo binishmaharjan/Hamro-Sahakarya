@@ -68,7 +68,7 @@ public struct ForgotPassword {
                 
             case .sendPasswordResetResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.sendPasswordResetFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination:
@@ -115,15 +115,5 @@ extension AlertState where Action == ForgotPassword.Destination.Action.Alert {
         ButtonState { TextState(#localized("Ok")) }
     } message: {
         TextState(#localized("Please check your email and follow the instructions sent to that email."))
-    }
-    
-    static func sendPasswordResetFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
     }
 }

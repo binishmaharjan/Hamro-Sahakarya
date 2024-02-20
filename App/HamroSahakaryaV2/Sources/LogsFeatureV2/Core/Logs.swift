@@ -80,7 +80,7 @@ public struct Logs {
             case .logsResponse(.failure(let error)):
                 state.isLoading = false
                 state.isPullToRefresh = false
-                state.destination = .alert(.fetchLogFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .destination:
@@ -111,19 +111,6 @@ extension Logs {
             Reduce { state, action in
                 return .none
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == Logs.Destination.Action.Alert {
-    static func fetchLogFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

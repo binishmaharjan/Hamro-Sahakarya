@@ -161,16 +161,6 @@ extension AlertState where Action == ChangePassword.Destination.Action.Alert {
         }
     }
     
-    static func onError(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
-    }
-    
     static func changePasswordSuccess() -> AlertState {
         AlertState {
             TextState(#localized("Change Password Successful"))

@@ -108,7 +108,7 @@ public struct SignIn {
                 
             case .signInResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.signInFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -174,16 +174,6 @@ extension AlertState where Action == SignIn.Destination.Action.Alert {
             ButtonState { TextState(#localized("Cancel")) }
         } message: {
             TextState("Couldn't verify admin password")
-        }
-    }
-    
-    static func signInFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

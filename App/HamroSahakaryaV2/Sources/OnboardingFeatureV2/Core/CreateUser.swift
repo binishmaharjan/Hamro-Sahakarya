@@ -93,7 +93,7 @@ public struct CreateUser {
                 
             case .createUserResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.createUserFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -183,18 +183,5 @@ extension ConfirmationDialogState where Action == CreateUser.Destination.Action.
         }
     } message: {
         TextState(#localized("Select the member status."))
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == CreateUser.Destination.Action.Alert {
-    static func createUserFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
     }
 }
