@@ -84,6 +84,8 @@ public struct ExtraIncomeAndExpenses {
                 
             case .addExtraOrExpensesResponse(.success):
                 state.isLoading = false
+                state.amount = ""
+                state.reason = ""
                 state.destination = .alert(.addExtraOrExpensesSuccess())
                 return .none
                 
