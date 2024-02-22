@@ -40,7 +40,6 @@ public struct ExtraIncomeAndExpenses {
         
         case typeFieldTapped
         case updateButtonTapped
-        case addExtraOrExpenses
         case addExtraOrExpensesResponse(TaskResult<VoidSuccess>)
     }
     
@@ -59,13 +58,10 @@ public struct ExtraIncomeAndExpenses {
                 return .none
                 
             case .typeFieldTapped:
-                state.destination = .confirmationDialog(.selectedType)
+                state.destination = .confirmationDialog(.selectType)
                 return .none
                 
             case .updateButtonTapped:
-                return .send(.addExtraOrExpenses)
-                
-            case .addExtraOrExpenses:
                 state.isLoading = true
                 return .run { [state = state] send in
                     await send(
@@ -106,7 +102,7 @@ public struct ExtraIncomeAndExpenses {
 
 // MARK: Confirmation Dialog
 extension ConfirmationDialogState where Action == ExtraIncomeAndExpenses.Destination.Action.ConfirmationDialog {
-    static let selectedType = ConfirmationDialogState {
+    static let selectType = ConfirmationDialogState {
         TextState("Select Type")
     } actions: {
         ButtonState(role: .cancel) {
