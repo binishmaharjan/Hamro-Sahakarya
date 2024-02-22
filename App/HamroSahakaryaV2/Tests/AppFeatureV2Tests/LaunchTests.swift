@@ -10,11 +10,11 @@ final class LaunchTests: XCTestCase {
         let store = TestStore(initialState: Launch.State()) {
             Launch()
         } withDependencies: {
-            $0.userDefaultsClient.userAccount = { nil }
+            $0.userDefaultsClient.user = { nil }
         }
         
         await store.send(.onAppear)
-        await store.receive(\.fetchUserAccount)
+        await store.receive(\.fetchUser)
         await store.receive(.delegate(.showSignInView))
     }
     
@@ -22,11 +22,11 @@ final class LaunchTests: XCTestCase {
         let store = TestStore(initialState: Launch.State()) {
             Launch()
         } withDependencies: {
-            $0.userDefaultsClient.userAccount = { .mock }
+            $0.userDefaultsClient.user = { .mock }
         }
         
         await store.send(.onAppear)
-        await store.receive(\.fetchUserAccount)
+        await store.receive(\.fetchUser)
         await store.receive(.delegate(.showMainView(.mock)))
     }
 }

@@ -52,7 +52,7 @@ final class MembersListTests: XCTestCase {
         
         await store.receive(\.membersListResponse.failure) {
             $0.isLoading = false
-            $0.destination = .alert(.fetchLMembersListFailed(SomeError()))
+            $0.destination = .alert(.onError(SomeError()))
         }
         
         await store.send(.destination(.dismiss)) {

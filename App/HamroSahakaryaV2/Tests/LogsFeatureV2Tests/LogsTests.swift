@@ -101,7 +101,7 @@ final class LogsTest: XCTestCase {
         await store.receive(.fetchLogs)
         await store.receive(\.logsResponse.failure) {
             $0.isLoading = false
-            $0.destination = .alert(.fetchLogFailed(SomeError()))
+            $0.destination = .alert(.onError(SomeError()))
         }
         
         await store.send(.destination(.dismiss)) {

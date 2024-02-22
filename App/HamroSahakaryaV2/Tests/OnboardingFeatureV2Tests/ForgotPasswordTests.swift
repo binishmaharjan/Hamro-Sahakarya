@@ -13,12 +13,12 @@ final class ForgotPasswordTests: XCTestCase {
             ForgotPassword()
         }
         
-        await store.send(.set(\.$email, "a")) {
+        await store.send(.set(\.email, "a")) {
             $0.email = "a"
         }
         XCTAssertFalse(store.state.isValidInput)
         
-        await store.send(.set(\.$email, "a@b.com")){
+        await store.send(.set(\.email, "a@b.com")){
             $0.email = "a@b.com"
         }
         XCTAssertTrue(store.state.isValidInput)
@@ -71,7 +71,7 @@ final class ForgotPasswordTests: XCTestCase {
                 AlertState<ForgotPassword.Destination.Action.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
-                    ButtonState { TextState(#localized("Cancel")) }
+                    ButtonState { TextState(#localized("Ok")) }
                 } message: {
                     TextState(SomeError().localizedDescription)
                 }

@@ -13,12 +13,12 @@ final class SignInTests: XCTestCase {
             SignIn()
         }
         
-        await store.send(.set(\.$email, "a@b.com")) {
+        await store.send(.set(\.email, "a@b.com")) {
             $0.email = "a@b.com"
         }
         XCTAssertFalse(store.state.isValidInput)
         
-        await store.send(.set(\.$password, "password")) {
+        await store.send(.set(\.password, "password")) {
             $0.password = "password"
         }
         XCTAssertTrue(store.state.isValidInput)
@@ -108,6 +108,8 @@ final class SignInTests: XCTestCase {
         await store.receive(.signInResponse(.success(.mock))) {
             $0.isLoading = false
         }
+        
+        await store.receive(.delegate(.authenticationSuccessful(.mock)))
     }
     
     func test_SignIn_ErrorFlow() async {
@@ -128,7 +130,7 @@ final class SignInTests: XCTestCase {
                 AlertState<SignIn.Destination.Action.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
-                    ButtonState { TextState(#localized("Cancel")) }
+                    ButtonState { TextState(#localized("Ok")) }
                 } message: {
                     TextState(SomeError().localizedDescription)
                 }
