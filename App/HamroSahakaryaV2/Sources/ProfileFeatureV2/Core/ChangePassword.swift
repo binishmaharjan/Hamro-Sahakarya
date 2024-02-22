@@ -40,7 +40,7 @@ public struct ChangePassword {
         case delegate(Delegate)
         
         case changePasswordTapped
-        case passwordDoesntMatch
+        case passwordDoesNotMatch
         case changePasswordResponse(TaskResult<VoidSuccess>)
         case signOutUser
         case signOutResponse(TaskResult<VoidSuccess>)
@@ -57,7 +57,7 @@ public struct ChangePassword {
             switch action {
             case .changePasswordTapped:
                 guard state.password == state.confirmPassword else {
-                    return .send(.passwordDoesntMatch)
+                    return .send(.passwordDoesNotMatch)
                 }
                 
                 state.isLoading = true
@@ -72,8 +72,8 @@ public struct ChangePassword {
                     )
                 }
                 
-            case .passwordDoesntMatch:
-                state.destination = .alert(.passwordDoesntMatch())
+            case .passwordDoesNotMatch:
+                state.destination = .alert(.passwordDoesNotMatch())
                 return .none
                 
             case .changePasswordResponse(.success):
@@ -151,13 +151,13 @@ extension ChangePassword {
 
 // MARK: AlertState
 extension AlertState where Action == ChangePassword.Destination.Action.Alert {
-    static func passwordDoesntMatch() -> AlertState {
+    static func passwordDoesNotMatch() -> AlertState {
         AlertState {
             TextState(#localized("Error"))
         } actions: {
             ButtonState { TextState(#localized("Ok")) }
         } message: {
-            TextState("Password doesn`t match")
+            TextState("Password doesn't match")
         }
     }
     

@@ -660,13 +660,13 @@
         }
       }
     },
-    "Password doesn`t match" : {
+    "Password doesn't match" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Password doesn`t match"
+            "value" : "Password doesn't match"
           }
         }
       }
