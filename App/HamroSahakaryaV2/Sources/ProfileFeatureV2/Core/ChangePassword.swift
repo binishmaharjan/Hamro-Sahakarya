@@ -107,7 +107,7 @@ public struct ChangePassword {
                 return .send(.delegate(.signOutSuccessful))
                 
             case .signOutResponse(.failure(let error)):
-                state.isLoading = true
+                state.isLoading = false
                 state.destination = .alert(.onError(error))
                 return .none
                 
