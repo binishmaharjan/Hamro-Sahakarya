@@ -49,4 +49,17 @@ extension User {
         balance: 275000,
         dateUpdated: "2020-05-26 13:44:32.715"
     )
+    
+    public static var mock2: User = User(
+        id: "62x2452hM9YCSrti6jug2F86NSv2",
+        username: "Member Two",
+        email: "membertwo@gmail.com",
+        status: .admin,
+        colorHex: "6684FF",
+        dateCreated: "2020-05-26 13:44:32.715",
+        keyword: "password",
+        loanTaken: 0,
+        balance: 275000,
+        dateUpdated: "2020-05-26 13:44:32.715"
+    )
 }
