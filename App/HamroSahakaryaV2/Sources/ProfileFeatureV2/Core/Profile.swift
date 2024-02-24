@@ -64,6 +64,7 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.monthlyFee):
+                state.destination = .addMonthlyFee(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.loanMember):
@@ -129,6 +130,7 @@ extension Profile {
             case membersList(MembersList.State)
             case changePassword(ChangePassword.State)
             case extraIncomeAndExpenses(ExtraIncomeAndExpenses.State)
+            case addMonthlyFee(AddMonthlyFee.State)
         }
         
         public enum Action: Equatable {
@@ -138,6 +140,7 @@ extension Profile {
             case membersList(MembersList.Action)
             case changePassword(ChangePassword.Action)
             case extraIncomeAndExpenses(ExtraIncomeAndExpenses.Action)
+            case addMonthlyFee(AddMonthlyFee.Action)
         }
         
         public init() { }
@@ -151,6 +154,9 @@ extension Profile {
             }
             Scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
                 ExtraIncomeAndExpenses()
+            }
+            Scope(state: \.addMonthlyFee, action: \.addMonthlyFee) {
+                AddMonthlyFee()
             }
         }
     }
