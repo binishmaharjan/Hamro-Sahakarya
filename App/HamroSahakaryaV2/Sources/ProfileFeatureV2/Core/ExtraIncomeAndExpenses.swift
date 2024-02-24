@@ -5,7 +5,6 @@ import SharedModels
 import UserApiClient
 import SwiftHelpers
 
-// TODO: Text Field binding is not working
 @Reducer
 public struct ExtraIncomeAndExpenses {
     @ObservableState
@@ -19,7 +18,7 @@ public struct ExtraIncomeAndExpenses {
         }
         
         @Presents var destination: Destination.State?
-        public var user: User
+        var user: User
         var type: ExtraOrExpenses = .extra
         var amount: String = ""
         var reason: String = ""
