@@ -45,7 +45,7 @@ public struct UserApiClient {
     ///   - user: user account information
     ///   - balance: balance to be added
     /// - Returns: Void
-    public var addMonthlyFeeLog: @Sendable (User, User, Balance) async throws -> Void
+    public var addMonthlyFee: @Sendable (User, User, Balance) async throws -> Void
     /// Add extra or expense  log
     ///
     /// - Parameters:
@@ -149,7 +149,7 @@ extension UserApiClient: TestDependencyKey {
         signOut: unimplemented(),
         removeMember: unimplemented(),
         fetchLogs: unimplemented(),
-        addMonthlyFeeLog: unimplemented(),
+        addMonthlyFee: unimplemented(),
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),
@@ -172,7 +172,7 @@ extension UserApiClient: TestDependencyKey {
         signOut: unimplemented(),
         removeMember: unimplemented(),
         fetchLogs: unimplemented(),
-        addMonthlyFeeLog: unimplemented(),
+        addMonthlyFee: unimplemented(),
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),

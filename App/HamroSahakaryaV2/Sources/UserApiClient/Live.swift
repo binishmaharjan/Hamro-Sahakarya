@@ -25,7 +25,7 @@ extension UserApiClient {
             signOut:  { try await session.signOut() },
             removeMember:  { try await session.removeMember(admin: $0, user: $1) },
             fetchLogs:  { try await session.fetchLogs() },
-            addMonthlyFeeLog:  { try await session.addMonthlyFeeLog(admin: $0, user: $1, balance: $2) },
+            addMonthlyFee:  { try await session.addMonthlyFee(admin: $0, user: $1, balance: $2) },
             addExtraAndExpenses:  { try await session.addExtraAndExpenses(admin: $0, type: $1, balance: $2, reason: $3) },
             addOrDeductAmount:  { try await session.addOrDeductAmount(admin: $0, user: $1, type: $2, balance: $3) },
             fetchGroupDetail:  { try await session.fetchGroupDetail() },
@@ -91,7 +91,7 @@ extension UserApiClient {
             try await userLogClient.fetchLogs()
         }
         
-        func addMonthlyFeeLog(admin: User, user: User, balance: Balance) async throws -> Void {
+        func addMonthlyFee(admin: User, user: User, balance: Balance) async throws -> Void {
             try await userDataClient.addMonthlyFeeFor(user, balance)
             try await userLogClient.addMonthlyFeeLog(admin, user, balance)
         }
