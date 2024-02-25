@@ -18,12 +18,12 @@ public struct MembersList {
         public var members: [User] = []
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         case destination(PresentationAction<Destination.Action>)
         
         case onAppear
         case fetchMembersList
-        case membersListResponse(TaskResult<[User]>)
+        case membersListResponse(Result<[User], Error>)
     }
     
     public init() { }
@@ -41,7 +41,7 @@ public struct MembersList {
                 return .run { send in
                     await send(
                         .membersListResponse(
-                            TaskResult {
+                            Result {
                                 try await userApiClient.fetchAllMembers()
                             }
                         )
@@ -77,8 +77,8 @@ extension MembersList {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
-            public enum Alert: Equatable {}
+        public enum Action {
+            public enum Alert: Equatable { }
             case alert(Alert)
         }
         

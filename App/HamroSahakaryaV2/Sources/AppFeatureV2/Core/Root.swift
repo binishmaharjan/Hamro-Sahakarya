@@ -13,7 +13,7 @@ public struct Root {
         @Presents var destination: Destination.State? = .launch(.init())
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         case destination(PresentationAction<Destination.Action>)
         
         case onAppear
@@ -63,7 +63,7 @@ extension Root {
             case signedIn(SignedIn.State)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             case launch(Launch.Action)
             case signIn(SignIn.Action)
             case signedIn(SignedIn.Action)

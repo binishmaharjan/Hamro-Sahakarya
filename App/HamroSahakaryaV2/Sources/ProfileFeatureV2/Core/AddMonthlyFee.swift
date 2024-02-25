@@ -40,7 +40,7 @@ public struct AddMonthlyFee {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum SelectionType: Equatable {
             case all
             case member(User)
@@ -49,10 +49,10 @@ public struct AddMonthlyFee {
         case binding(BindingAction<State>)
         
         case onAppear
-        case membersListResponse(TaskResult<[User]>)
+        case membersListResponse(Result<[User], Error>)
         case rowSelected(SelectionType)
         case addMonthlyFeeTapped
-        case addMonthlyResponse(TaskResult<VoidSuccess>)
+        case addMonthlyResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -70,7 +70,7 @@ public struct AddMonthlyFee {
                 return .run { send in
                     await send(
                         .membersListResponse(
-                            TaskResult {
+                            Result {
                                 try await userApiClient.fetchAllMembers()
                             }
                         )
@@ -106,7 +106,7 @@ public struct AddMonthlyFee {
                     
                     await send(
                         .addMonthlyResponse(
-                            TaskResult {
+                            Result {
                                 try await addMonthlyFee(
                                     admin: state.admin,
                                     members: targetMembers,
@@ -141,7 +141,7 @@ public struct AddMonthlyFee {
 // MARK: Apis
 extension AddMonthlyFee {
     /// Add monthly fee for multiple users. (Hit multiple api in parallel)
-    private func addMonthlyFee(admin: User, members: [User], amount: Balance) async throws -> VoidSuccess {
+    private func addMonthlyFee(admin: User, members: [User], amount: Balance) async throws -> Void {
         // Create a task group to run multiple apis
         try await withThrowingTaskGroup(of: Void.self) { group in
             for member in members {
@@ -153,7 +153,7 @@ extension AddMonthlyFee {
             // Wait for all task to complete
             for try await _ in group { }
             
-            return VoidSuccess()
+            return Void()
         }
     }
 }
@@ -166,7 +166,7 @@ extension AddMonthlyFee {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable {}
             
             case alert(Alert)

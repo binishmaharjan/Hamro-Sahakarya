@@ -14,7 +14,7 @@ public struct ColorPicker {
         var colorHex: ColorHex = "#000000"
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         public enum Delegate: Equatable {
             case colorSelected(ColorHex)
             case close

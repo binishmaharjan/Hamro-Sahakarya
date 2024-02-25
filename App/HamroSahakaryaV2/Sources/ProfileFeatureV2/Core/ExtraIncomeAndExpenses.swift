@@ -33,13 +33,13 @@ public struct ExtraIncomeAndExpenses {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         case binding(BindingAction<State>)
         case destination(PresentationAction<Destination.Action>)
         
         case typeFieldTapped
         case updateButtonTapped
-        case addExtraOrExpensesResponse(TaskResult<VoidSuccess>)
+        case addExtraOrExpensesResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -65,7 +65,7 @@ public struct ExtraIncomeAndExpenses {
                 return .run { [state = state] send in
                     await send(
                         .addExtraOrExpensesResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.addExtraAndExpenses(
                                     state.user,
                                     state.type,
@@ -140,7 +140,7 @@ extension ExtraIncomeAndExpenses {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable { }
             public enum ConfirmationDialog: Equatable {
                 case extraTapped

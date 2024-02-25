@@ -30,7 +30,7 @@ public struct ChangePassword {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum Delegate: Equatable {
             case signOutSuccessful
         }
@@ -41,9 +41,9 @@ public struct ChangePassword {
         
         case changePasswordTapped
         case passwordDoesNotMatch
-        case changePasswordResponse(TaskResult<VoidSuccess>)
+        case changePasswordResponse(Result<Void, Error>)
         case signOutUser
-        case signOutResponse(TaskResult<VoidSuccess>)
+        case signOutResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -65,7 +65,7 @@ public struct ChangePassword {
                 return .run { [user = state.user, password = state.password] send in
                     await send(
                         .changePasswordResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.changePassword(user, password)
                             }
                         )
@@ -95,7 +95,7 @@ public struct ChangePassword {
                 return .run { send in
                     await send(
                         .signOutResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.signOut()
                             }
                         )
@@ -133,7 +133,7 @@ extension ChangePassword {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable {
                 case signOutButtonTapped
             }

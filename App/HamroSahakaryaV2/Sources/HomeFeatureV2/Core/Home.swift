@@ -8,7 +8,7 @@ public struct Home {
         public init() { }
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         
     }
     

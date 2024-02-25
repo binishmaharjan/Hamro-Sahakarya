@@ -29,7 +29,7 @@ public struct CreateUser {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum Delegate: Equatable {
             case createAccountSuccessful(User)
         }
@@ -40,7 +40,7 @@ public struct CreateUser {
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
-        case createUserResponse(TaskResult<User>)
+        case createUserResponse(Result<User, Error>)
     }
     
     public init(){ }
@@ -80,7 +80,7 @@ public struct CreateUser {
                 return .run { send in
                     await send(
                         .createUserResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.createUser(newUser)
                             }
                         )
@@ -117,7 +117,7 @@ extension CreateUser {
             case colorPicker(ColorPicker.State)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable { }
             public enum ConfirmationDialog: Equatable {
                 case memberTapped

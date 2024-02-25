@@ -25,13 +25,13 @@ public struct ForgotPassword {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
         
         case forgotPasswordButtonTapped
         case closeButtonTapped
-        case sendPasswordResetResponse(TaskResult<VoidSuccess>)
+        case sendPasswordResetResponse(Result<Void, Error>)
     }
     
     public init(){ }
@@ -49,7 +49,7 @@ public struct ForgotPassword {
                 return .run { [email = state.email] send in
                     await send(
                         .sendPasswordResetResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.sendPasswordReset(email)
                             }
                         )
@@ -90,7 +90,7 @@ extension ForgotPassword {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable {
             }
             case alert(Alert)

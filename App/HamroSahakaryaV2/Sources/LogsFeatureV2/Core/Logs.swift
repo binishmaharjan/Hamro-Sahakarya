@@ -18,7 +18,7 @@ public struct Logs {
         public var needsScrollToTop: Bool = false
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         case destination(PresentationAction<Destination.Action>)
         
         case onAppear
@@ -26,7 +26,7 @@ public struct Logs {
         case scrolledToTop
         case tabBarTapped
         case fetchLogs
-        case logsResponse(TaskResult<[GroupLog]>)
+        case logsResponse(Result<[GroupLog], Error>)
     }
     
     public init() { }
@@ -63,7 +63,7 @@ public struct Logs {
                 return .run { send in
                     await send(
                         .logsResponse(
-                            TaskResult {
+                            Result {
                                 try await userApiClient.fetchLogs()
                             }
                         )
@@ -102,7 +102,7 @@ extension Logs {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable {}
             case alert(Alert)
         }

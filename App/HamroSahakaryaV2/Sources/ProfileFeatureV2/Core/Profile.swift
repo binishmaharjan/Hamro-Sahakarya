@@ -21,7 +21,7 @@ public struct Profile {
         public var isLoading: Bool = false
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum Delegate: Equatable {
             case signOutSuccessful
         }
@@ -35,7 +35,7 @@ public struct Profile {
         case onOtherMenuTapped(Menu.Other)
         case onSignOutButtonTapped
         case signOutUser
-        case signOutResponse(TaskResult<VoidSuccess>)
+        case signOutResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -96,7 +96,7 @@ public struct Profile {
                 return .run { send in
                     await send(
                         .signOutResponse(
-                            TaskResult { try await userApiClient.signOut() }
+                            Result { try await userApiClient.signOut() }
                         )
                     )
                 }
@@ -133,8 +133,8 @@ extension Profile {
             case addMonthlyFee(AddMonthlyFee.State)
         }
         
-        public enum Action: Equatable {
-            public enum Alert: Equatable {}
+        public enum Action {
+            public enum Alert: Equatable { }
             
             case alert(Alert)
             case membersList(MembersList.Action)
