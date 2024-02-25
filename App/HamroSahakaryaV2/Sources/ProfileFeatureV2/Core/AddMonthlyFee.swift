@@ -93,12 +93,14 @@ public struct AddMonthlyFee {
             case .addMonthlyFeeTapped:
                 state.isLoading = true
                 return .run { [state = state] send in
+                    let targetMembers = state.selectedMembers.isEmpty ? state.members: state.selectedMembers
+                    
                     await send(
                         .addMonthlyResponse(
                             TaskResult {
                                 try await addMonthlyFee(
                                     admin: state.admin,
-                                    members: state.members,
+                                    members: targetMembers,
                                     amount: state.amount.int
                                 )
                             }
