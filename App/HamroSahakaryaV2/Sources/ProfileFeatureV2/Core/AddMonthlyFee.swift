@@ -65,6 +65,7 @@ public struct AddMonthlyFee {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                guard state.members.isEmpty else { return .none }
                 state.isLoading = true
                 return .run { send in
                     await send(
