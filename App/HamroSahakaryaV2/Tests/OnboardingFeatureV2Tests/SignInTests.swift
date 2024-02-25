@@ -7,7 +7,6 @@ import SharedUIs
 
 @MainActor
 final class SignInTests: XCTestCase {
-    
     func test_IsValidInput() async {
         let store = TestStore(initialState: SignIn.State()) {
             SignIn()
@@ -51,7 +50,7 @@ final class SignInTests: XCTestCase {
         }
         
         await testClock.advance(by: .seconds(0.3))
-        await store.receive(.isAdminPasswordVerified(true)) {
+        await store.receive(\.isAdminPasswordVerified) {
             $0.destination = .createUser(.init())
         }
     }
@@ -73,7 +72,7 @@ final class SignInTests: XCTestCase {
         }
         
         await testClock.advance(by: .seconds(0.3))
-        await store.receive(.isAdminPasswordVerified(false)) {
+        await store.receive(\.isAdminPasswordVerified) {
             $0.destination = .alert(.adminPasswordVerificationFailed())
         }
     }
@@ -105,11 +104,11 @@ final class SignInTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.signInResponse(.success(.mock))) {
+        await store.receive(\.signInResponse.success) {
             $0.isLoading = false
         }
         
-        await store.receive(.delegate(.authenticationSuccessful(.mock)))
+        await store.receive(\.delegate.authenticationSuccessful)
     }
     
     func test_SignIn_ErrorFlow() async {

@@ -30,6 +30,7 @@ public struct SignIn {
     }
     
     public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case authenticationSuccessful(User)
         }

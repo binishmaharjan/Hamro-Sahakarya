@@ -18,7 +18,7 @@ final class LogsTest: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.fetchLogs)
+        await store.receive(\.fetchLogs)
     }
     
     func test_FetchNoLogs_OnSecondAppear() async {
@@ -47,8 +47,8 @@ final class LogsTest: XCTestCase {
         }
         
         await clock.advance(by: .seconds(1))
-        await store.receive(.fetchLogs)
-        await store.receive(.logsResponse(.success([.mockExtra]))) {
+        await store.receive(\.fetchLogs)
+        await store.receive(\.logsResponse.success) {
             $0.isPullToRefresh = false
             $0.logs = [.mockExtra]
             $0.groupedLogs = $0.logs.groupByYearAndMonth()
@@ -79,8 +79,8 @@ final class LogsTest: XCTestCase {
         await store.send(.onAppear) {
             $0.isLoading = true
         }
-        await store.receive(.fetchLogs)
-        await store.receive(.logsResponse(.success([.mockExtra]))) {
+        await store.receive(\.fetchLogs)
+        await store.receive(\.logsResponse.success) {
             $0.isLoading = false
             $0.logs = [.mockExtra]
             $0.groupedLogs = $0.logs.groupByYearAndMonth()
@@ -98,7 +98,7 @@ final class LogsTest: XCTestCase {
         await store.send(.onAppear) {
             $0.isLoading = true
         }
-        await store.receive(.fetchLogs)
+        await store.receive(\.fetchLogs)
         await store.receive(\.logsResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(.onError(SomeError()))

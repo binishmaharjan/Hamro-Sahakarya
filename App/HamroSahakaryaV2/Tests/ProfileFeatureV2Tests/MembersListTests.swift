@@ -16,7 +16,7 @@ final class MembersListTests: XCTestCase {
         
         await store.send(.onAppear)
         
-        await store.receive(.fetchMembersList)
+        await store.receive(\.fetchMembersList)
     }
     
     func test_FetchMembers_SuccessFlow() async {
@@ -27,11 +27,11 @@ final class MembersListTests: XCTestCase {
         }
         
         await store.send(.onAppear)
-        await store.receive(.fetchMembersList) {
+        await store.receive(\.fetchMembersList) {
             $0.isLoading = true
         }
         
-        await store.receive(.membersListResponse(.success([.mock]))) {
+        await store.receive(\.membersListResponse.success) {
             $0.isLoading = false
             $0.members = [.mock]
         }
@@ -46,7 +46,7 @@ final class MembersListTests: XCTestCase {
         }
         
         await store.send(.onAppear)
-        await store.receive(.fetchMembersList) {
+        await store.receive(\.fetchMembersList) {
             $0.isLoading = true
         }
         

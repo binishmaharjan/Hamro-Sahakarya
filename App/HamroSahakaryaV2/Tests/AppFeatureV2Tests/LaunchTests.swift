@@ -4,8 +4,7 @@ import XCTest
 @testable import AppFeatureV2
 
 @MainActor
-final class LaunchTests: XCTestCase {
-    
+final class LaunchTests: XCTestCase {    
     func test_ShowSignIn_When_NoSavedUser() async {
         let store = TestStore(initialState: Launch.State()) {
             Launch()
@@ -15,7 +14,7 @@ final class LaunchTests: XCTestCase {
         
         await store.send(.onAppear)
         await store.receive(\.fetchUser)
-        await store.receive(.delegate(.showSignInView))
+        await store.receive(\.delegate.showSignInView)
     }
     
     func test_ShowMain_When_SavedUser() async {
@@ -27,6 +26,6 @@ final class LaunchTests: XCTestCase {
         
         await store.send(.onAppear)
         await store.receive(\.fetchUser)
-        await store.receive(.delegate(.showMainView(.mock)))
+        await store.receive(\.delegate.showMainView)
     }
 }

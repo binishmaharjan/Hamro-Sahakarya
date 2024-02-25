@@ -12,7 +12,41 @@
 
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "AppFeatureV2Tests",
+        "name" : "AppFeatureV2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "HamroSahakaryaV2Tests",
+        "name" : "HamroSahakaryaV2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "LogsFeatureV2Tests",
+        "name" : "LogsFeatureV2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "OnboardingFeatureV2Tests",
+        "name" : "OnboardingFeatureV2Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ProfileFeatureV2Tests",
+        "name" : "ProfileFeatureV2Tests"
+      }
+    }
   ],
   "version" : 1
 }

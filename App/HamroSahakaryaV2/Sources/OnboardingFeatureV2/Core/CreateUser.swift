@@ -30,6 +30,7 @@ public struct CreateUser {
     }
     
     public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case createAccountSuccessful(User)
         }

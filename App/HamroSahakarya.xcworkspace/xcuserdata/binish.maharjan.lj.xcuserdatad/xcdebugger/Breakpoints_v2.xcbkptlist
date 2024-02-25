@@ -3,4 +3,69 @@
    uuid = "2029457B-531E-4880-9062-B9D911C0B148"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "test_CreateUser_SuccessFlow()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - f2086a40c1de7b67"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
+                  moduleName = "OnboardingFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - 28454723d9942e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
+                  moduleName = "OnboardingFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - 3c47dd5423e73f65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
+                  moduleName = "OnboardingFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -15,6 +15,7 @@ public struct ColorPicker {
     }
     
     public enum Action {
+        @CasePathable
         public enum Delegate: Equatable {
             case colorSelected(ColorHex)
             case close

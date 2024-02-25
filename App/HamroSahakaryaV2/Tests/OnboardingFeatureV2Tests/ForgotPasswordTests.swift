@@ -7,7 +7,6 @@ import SharedUIs
 
 @MainActor
 final class ForgotPasswordTests: XCTestCase {
-    
     func test_IsValidEmail() async {
         let store = TestStore(initialState: ForgotPassword.State()) {
             ForgotPassword()

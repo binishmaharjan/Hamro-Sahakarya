@@ -59,7 +59,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.addExtraOrExpensesResponse(.success(.init()))) {
+        await store.receive(\.addExtraOrExpensesResponse.success) {
             $0.isLoading = false
             $0.destination = .alert(.onUpdateSuccessful())
         }
@@ -77,7 +77,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.addExtraOrExpensesResponse(.failure(SomeError()))) {
+        await store.receive(\.addExtraOrExpensesResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(.onError(SomeError()))
         }

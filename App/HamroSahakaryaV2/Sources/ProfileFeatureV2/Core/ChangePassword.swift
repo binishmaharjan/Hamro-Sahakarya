@@ -31,6 +31,7 @@ public struct ChangePassword {
     }
     
     public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case signOutSuccessful
         }

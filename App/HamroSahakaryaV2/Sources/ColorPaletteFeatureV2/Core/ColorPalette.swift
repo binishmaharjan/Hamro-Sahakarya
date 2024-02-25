@@ -13,6 +13,7 @@ public struct ColorPalette {
     }
     
     public enum Action {
+        @CasePathable
         public enum Delegate: Equatable {
             case colorSelected(ColorHex)
         }

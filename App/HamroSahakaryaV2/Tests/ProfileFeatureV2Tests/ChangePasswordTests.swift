@@ -39,7 +39,7 @@ final class ChangePasswordTests: XCTestCase {
         }
         
         await store.send(.changePasswordTapped)
-        await store.receive(.passwordDoesNotMatch) {
+        await store.receive(\.passwordDoesNotMatch) {
             $0.destination = .alert(.passwordDoesNotMatch())
         }
     }
@@ -61,7 +61,7 @@ final class ChangePasswordTests: XCTestCase {
         }
         
         await store.send(.changePasswordTapped)
-        await store.receive(.changePasswordResponse(.success(.init())))
+        await store.receive(\.changePasswordResponse.success)
     }
     
     func test_ChangePassword_SuccessFlow() async {
@@ -75,7 +75,7 @@ final class ChangePasswordTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.changePasswordResponse(.success(.init()))) {
+        await store.receive(\.changePasswordResponse.success) {
             $0.isLoading = false
             $0.destination = .alert(.changePasswordSuccess())
         }
@@ -93,7 +93,7 @@ final class ChangePasswordTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.changePasswordResponse(.failure(SomeError()))) {
+        await store.receive(\.changePasswordResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(.onError(SomeError()))
         }
@@ -110,11 +110,11 @@ final class ChangePasswordTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.signOutResponse(.success(.init()))) {
+        await store.receive(\.signOutResponse.success) {
             $0.isLoading = false
         }
         
-        await store.receive(.delegate(.signOutSuccessful))
+        await store.receive(\.delegate.signOutSuccessful)
     }
     
     func test_SignOut_FailureFlow() async {
@@ -129,7 +129,7 @@ final class ChangePasswordTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.signOutResponse(.failure(SomeError()))) {
+        await store.receive(\.signOutResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(.onError(SomeError()))
         }

@@ -4,8 +4,7 @@ import XCTest
 @testable import AppFeatureV2
 
 @MainActor
-final class RootTests: XCTestCase {
-    
+final class RootTests: XCTestCase {    
     func test_InitialState_Is_Launch() async {
         let store = TestStore(initialState: Root.State()) {
             Root()
