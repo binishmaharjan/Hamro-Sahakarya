@@ -29,7 +29,8 @@ public struct AddMonthlyFeeView: View {
                     .foregroundStyle(#color("gray"))
                 
                 ScrollView() {
-                    MemberSelectionItemView(label: #localized("All Members")) {
+                    let isAllSelected = store.state.isAllMemberSelected()
+                    MemberSelectionItemView(label: #localized("All Members"), isSelected: isAllSelected) {
                         store.send(.rowSelected(.all))
                     }
                     
@@ -37,7 +38,8 @@ public struct AddMonthlyFeeView: View {
                     
                     VStack(spacing: 0) {
                         ForEach(store.state.members) { member in
-                            MemberSelectionItemView(label: member.username) {
+                            let isSelected = store.state.isSelected(member: member)
+                            MemberSelectionItemView(label: member.username, isSelected: isSelected) {
                                 store.send(.rowSelected(.member(member)))
                             }
                         }

@@ -30,6 +30,14 @@ public struct AddMonthlyFee {
         var isValidInput: Bool {
             return amount.int > 0
         }
+        
+        func isAllMemberSelected() -> Bool {
+            return selectedMembers.isEmpty
+        }
+        
+        func isSelected(member: User) -> Bool {
+            return selectedMembers.contains(member)
+        }
     }
     
     public enum Action: BindableAction, Equatable {
