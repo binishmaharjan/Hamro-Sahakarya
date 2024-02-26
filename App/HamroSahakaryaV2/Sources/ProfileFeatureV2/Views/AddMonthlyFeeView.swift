@@ -28,27 +28,8 @@ public struct AddMonthlyFeeView: View {
                     .font(.customSubHeadline2)
                     .foregroundStyle(#color("gray"))
                 
-                ScrollView() {
-                    let isAllSelected = store.state.isAllMemberSelected()
-                    MemberSelectionItemView(member: .allMember, isSelected: isAllSelected) {
-                        store.send(.rowSelected(.all))
-                    }
-                    
-                    separator
-                    
-                    VStack(spacing: 0) {
-                        ForEach(store.state.members) { member in
-                            let isSelected = store.state.isSelected(member: member)
-                            MemberSelectionItemView(member: member, isSelected: isSelected) {
-                                store.send(.rowSelected(.member(member)))
-                            }
-                        }
-                    }
-                    .background(#color("white"))
-                    .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
+                MemberSelectView(store: store.scope(state: \.memberSelect, action: \.memberSelect))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
             addMonthlyFeeButton
@@ -81,22 +62,6 @@ extension AddMonthlyFeeView {
             .largeButton()
         }
         .disabled(!store.isValidInput)
-    }
-    
-    private var separator: some View {
-        HStack {
-            Rectangle()
-                .frame(height: 1)
-                .opacity(0.1)
-            
-            Text(#localized("OR"))
-                .font(.customSubHeadline2)
-                .foregroundStyle(#color("black").opacity(0.3))
-            
-            Rectangle()
-                .frame(height: 1)
-                .opacity(0.1)
-        }
     }
 }
 

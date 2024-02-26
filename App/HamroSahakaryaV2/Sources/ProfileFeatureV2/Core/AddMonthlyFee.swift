@@ -15,42 +15,31 @@ public struct AddMonthlyFee {
         public init(admin: User) {
             self.admin = admin
         }
-        public init(admin: User = .mock, members: [User]) {
+        /// For preview
+        init(admin: User = .mock, members: [User]) {
             self.admin = admin
             self.members = members
         }
         
         @Presents var destination: Destination.State?
+        var memberSelect: MemberSelect.State = MemberSelect.State(members: [])
         var admin: User
         var isLoading: Bool = false
         var amount: String = ""
         var members: [User] = []
-        var selectedMembers: [User] = []
         var focusedField: Field? = .amount
         var isValidInput: Bool {
             return amount.int > 0
         }
-        
-        func isAllMemberSelected() -> Bool {
-            return selectedMembers.isEmpty
-        }
-        
-        func isSelected(member: User) -> Bool {
-            return selectedMembers.contains(member)
-        }
     }
     
     public enum Action: BindableAction {
-        public enum SelectionType: Equatable {
-            case all
-            case member(User)
-        }
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
+        case memberSelect(MemberSelect.Action)
         
         case onAppear
         case membersListResponse(Result<[User], Error>)
-        case rowSelected(SelectionType)
         case addMonthlyFeeTapped
         case addMonthlyResponse(Result<Void, Error>)
     }
@@ -61,6 +50,10 @@ public struct AddMonthlyFee {
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
+        
+        Scope(state: \.memberSelect, action: \.memberSelect) {
+            MemberSelect()
+        }
         
         Reduce<State, Action> { state, action in
             switch action {
@@ -80,6 +73,7 @@ public struct AddMonthlyFee {
             case .membersListResponse(.success(let members)):
                 state.isLoading = false
                 state.members = members
+                state.memberSelect = MemberSelect.State(members: members)
                 return .none
                 
             case .membersListResponse(.failure(let error)):
@@ -87,22 +81,12 @@ public struct AddMonthlyFee {
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .rowSelected(.all):
-                state.selectedMembers = []
-                return .none
-                
-            case .rowSelected(.member(let member)):
-                if let index = state.selectedMembers.firstIndex(of: member) {
-                    state.selectedMembers.remove(at: index)
-                } else {
-                    state.selectedMembers.append(member)
-                }
-                return .none
-                
             case .addMonthlyFeeTapped:
                 state.isLoading = true
                 return .run { [state = state] send in
-                    let targetMembers = state.selectedMembers.isEmpty ? state.members: state.selectedMembers
+                    let targetMembers = state.memberSelect.selectedMembers.isEmpty
+                    ? state.members
+                    : state.memberSelect.selectedMembers
                     
                     await send(
                         .addMonthlyResponse(
@@ -128,7 +112,7 @@ public struct AddMonthlyFee {
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .binding, .destination:
+            case .binding, .destination, .memberSelect:
                 return .none
             }
         }
