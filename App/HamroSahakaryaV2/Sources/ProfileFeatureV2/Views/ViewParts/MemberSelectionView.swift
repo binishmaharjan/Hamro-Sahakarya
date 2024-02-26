@@ -1,8 +1,9 @@
 import SwiftUI
 import SharedUIs
+import SharedModels
 
 struct MemberSelectionItemView: View {
-    var label: String
+    var member: User
     var isSelected: Bool
     var onTapped: (() -> Void)?
     
@@ -12,11 +13,11 @@ struct MemberSelectionItemView: View {
         } label: {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    BorderedImageView(urlString: "")
+                    BorderedImageView(urlString: member.iconUrl)
                         .frame(width: 44, height: 44)
                         .padding(8)
                     
-                    Text(label)
+                    Text(member.username)
                         .minimumScaleFactor(0.5)
                         .font(.customHeadline)
                         .foregroundStyle(#color("large_button"))
@@ -41,5 +42,5 @@ struct MemberSelectionItemView: View {
 }
 
 #Preview {
-    MemberSelectionItemView(label: "Member One", isSelected: true)
+    MemberSelectionItemView(member: .mock, isSelected: true)
 }

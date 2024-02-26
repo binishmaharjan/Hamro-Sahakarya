@@ -77,4 +77,18 @@ extension User {
         balance: 0,
         dateUpdated: "2024-01-01 22:00:00.000"
     )
+    
+    /// Mock member representing all members
+    public static let allMember = User(
+        id: "0",
+        username: "All Members",
+        email: "",
+        status: .member,
+        colorHex: "",
+        dateCreated: "2024-01-01 22:00:00.000",
+        keyword: "keyword",
+        loanTaken: 0,
+        balance: 0,
+        dateUpdated: "2024-01-01 22:00:00.000"
+    )
 }
