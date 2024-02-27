@@ -60,7 +60,7 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.expenseAndExtra):
-                state.destination = .extraIncomeAndExpenses(.init(user: state.user))
+                state.destination = .extraIncomeAndExpenses(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.monthlyFee):

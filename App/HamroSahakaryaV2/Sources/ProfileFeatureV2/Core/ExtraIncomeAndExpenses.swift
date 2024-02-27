@@ -13,12 +13,12 @@ public struct ExtraIncomeAndExpenses {
             case amount
             case reason
         }
-        public init(user: User) {
-            self.user = user
+        public init(admin: User) {
+            self.admin = admin
         }
         
         @Presents var destination: Destination.State?
-        var user: User
+        var admin: User
         var type: ExtraOrExpenses = .extra
         var amount: String = ""
         var reason: String = ""
@@ -67,7 +67,7 @@ public struct ExtraIncomeAndExpenses {
                         .addExtraOrExpensesResponse(
                             Result {
                                 return try await userApiClient.addExtraAndExpenses(
-                                    state.user,
+                                    state.admin,
                                     state.type,
                                     state.amount.int,
                                     state.reason
