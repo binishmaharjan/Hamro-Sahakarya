@@ -9,14 +9,14 @@ public struct LoanMemberView: View {
     @Bindable private var store: StoreOf<LoanMember>
     
     public var body: some View {
-        Text("Hello World")
+        Text("Loan Member")
     }
 }
 
 #Preview {
     LoanMemberView(
         store: .init(
-            initialState: .init(),
+            initialState: .init(admin: .mock),
             reducer: LoanMember.init
         )
     )

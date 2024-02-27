@@ -1,11 +1,15 @@
 import Foundation
 import ComposableArchitecture
+import SharedModels
 
 @Reducer
 public struct LoanMember {
     @ObservableState
     public struct State: Equatable {
-        public init() { }
+        public init(admin: User) {
+            self.admin = admin
+        }
+        var admin: User
     }
     
     public enum Action {
