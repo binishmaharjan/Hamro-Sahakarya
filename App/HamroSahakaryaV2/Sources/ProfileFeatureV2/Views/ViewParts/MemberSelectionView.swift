@@ -2,7 +2,7 @@ import SwiftUI
 import SharedUIs
 import SharedModels
 
-struct MemberSelectionItemView: View {
+struct MemberSelectItemView: View {
     var member: User
     var isSelected: Bool
     var onTapped: (() -> Void)?
@@ -42,5 +42,5 @@ struct MemberSelectionItemView: View {
 }
 
 #Preview {
-    MemberSelectionItemView(member: .mock, isSelected: true)
+    MemberSelectItemView(member: .mock, isSelected: true)
 }

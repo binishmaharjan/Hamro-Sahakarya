@@ -12,7 +12,7 @@ public struct MemberSelectView: View {
     public var body: some View {
         ScrollView() {
             let isAllSelected = store.state.isAllMemberSelected()
-            MemberSelectionItemView(member: .allMember, isSelected: isAllSelected) {
+            MemberSelectItemView(member: .allMember, isSelected: isAllSelected) {
                 store.send(.rowSelected(.all))
             }
             
@@ -21,7 +21,7 @@ public struct MemberSelectView: View {
             VStack(spacing: 0) {
                 ForEach(store.state.members) { member in
                     let isSelected = store.state.isSelected(member: member)
-                    MemberSelectionItemView(member: member, isSelected: isSelected) {
+                    MemberSelectItemView(member: member, isSelected: isSelected) {
                         store.send(.rowSelected(.member(member)))
                     }
                 }
