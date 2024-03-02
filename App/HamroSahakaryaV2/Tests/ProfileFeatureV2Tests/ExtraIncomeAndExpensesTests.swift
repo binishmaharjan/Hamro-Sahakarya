@@ -6,7 +6,7 @@ import XCTest
 @MainActor
 final class ExtraIncomeAndExpensesTests: XCTestCase {
     func test_Type_Changed() async {
-        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(user: .mock)) {
+        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         }
         
@@ -31,7 +31,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
     }
     
     func test_IsValidInput() async {
-        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(user: .mock)) {
+        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         }
         
@@ -49,7 +49,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
     }
     
     func test_AddExtraOrExpenses_SuccessFlow() async {
-        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(user: .mock)) {
+        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         } withDependencies: {
             $0.userApiClient.addExtraAndExpenses = { _, _, _, _ in Void() }
@@ -67,7 +67,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
     
     func test_AddExtraOrExpenses_FailureFlow() async {
         struct SomeError: Error, Equatable { }
-        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(user: .mock)) {
+        let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         } withDependencies: {
             $0.userApiClient.addExtraAndExpenses = { _, _, _, _ in throw SomeError() }
