@@ -74,7 +74,7 @@ public struct UserApiClient {
     /// - Parameters:
     ///  - admin: Admin who registered log
     ///  - user: Account Information to update
-    ///  - newPassword: Loan amount
+    ///  - amount: Loan amount
     /// - Returns: Void
     public var loanMember: @Sendable (User, User, Loan) async throws -> Void
     /// Loan returned by a member and save log to the server
