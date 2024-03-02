@@ -11,12 +11,14 @@ public struct MemberSelectView: View {
     
     public var body: some View {
         ScrollView() {
-            let isAllSelected = store.state.isAllMemberSelected()
-            MemberSelectItemView(member: .allMember, isSelected: isAllSelected) {
-                store.send(.rowSelected(.all))
+            if store.mode == .all {
+                let isAllSelected = store.state.isAllMemberSelected()
+                MemberSelectItemView(member: .allMember, isSelected: isAllSelected) {
+                    store.send(.rowSelected(.all))
+                }
+                
+                separator
             }
-            
-            separator
             
             VStack(spacing: 0) {
                 ForEach(store.state.members) { member in
@@ -54,7 +56,7 @@ extension MemberSelectView {
 #Preview {
     MemberSelectView(
         store: .init(
-            initialState: .init(members: [.mock, .mock2]),
+            initialState: .init(members: [.mock, .mock2], mode: .all),
             reducer: MemberSelect.init
         )
     )

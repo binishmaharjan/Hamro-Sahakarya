@@ -22,7 +22,7 @@ public struct AddMonthlyFee {
         }
         
         @Presents var destination: Destination.State?
-        var memberSelect: MemberSelect.State = MemberSelect.State(members: [])
+        var memberSelect: MemberSelect.State = MemberSelect.State(members: [], mode: .all)
         var admin: User
         var isLoading: Bool = false
         var amount: String = ""
@@ -73,7 +73,7 @@ public struct AddMonthlyFee {
             case .membersListResponse(.success(let members)):
                 state.isLoading = false
                 state.members = members
-                state.memberSelect = MemberSelect.State(members: members)
+                state.memberSelect = MemberSelect.State(members: members, mode: .all)
                 return .none
                 
             case .membersListResponse(.failure(let error)):
