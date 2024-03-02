@@ -86,6 +86,10 @@ public struct ProfileView: View {
                 item: $store.scope(state: \.destination?.loanReturned, action: \.destination.loanReturned),
                 destination: { LoanReturnedView(store: $0).withCustomBackButton() }
             )
+            .navigationDestination(
+                item: $store.scope(state: \.destination?.addOrDeductAmount, action: \.destination.addOrDeductAmount),
+                destination: { AddOrDeductAmountView(store: $0).withCustomBackButton() }
+            )
         }
     }
 }

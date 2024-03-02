@@ -76,6 +76,7 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.addOrDeduct):
+                state.destination = .addOrDeductAmount(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.changeStatus):
@@ -135,6 +136,7 @@ extension Profile {
             case addMonthlyFee(AddMonthlyFee.State)
             case loanMember(LoanMember.State)
             case loanReturned(LoanReturned.State)
+            case addOrDeductAmount(AddOrDeductAmount.State)
         }
         
         public enum Action {
@@ -147,6 +149,7 @@ extension Profile {
             case addMonthlyFee(AddMonthlyFee.Action)
             case loanMember(LoanMember.Action)
             case loanReturned(LoanReturned.Action)
+            case addOrDeductAmount(AddOrDeductAmount.Action)
         }
         
         public init() { }
@@ -169,6 +172,9 @@ extension Profile {
             }
             Scope(state: \.loanReturned, action: \.loanReturned) {
                 LoanReturned()
+            }
+            Scope(state: \.addOrDeductAmount, action: \.addOrDeductAmount) {
+                AddOrDeductAmount()
             }
         }
     }
