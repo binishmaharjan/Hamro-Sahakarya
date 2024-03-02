@@ -11,6 +11,7 @@ public struct Launch {
     }
     
     public enum Action: Equatable {
+        @CasePathable
         public enum Delegate: Equatable {
             case showMainView(User)
             case showSignInView

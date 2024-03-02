@@ -18,12 +18,12 @@ public struct MembersList {
         public var members: [User] = []
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         case destination(PresentationAction<Destination.Action>)
         
         case onAppear
         case fetchMembersList
-        case membersListResponse(TaskResult<[User]>)
+        case membersListResponse(Result<[User], Error>)
     }
     
     public init() { }
@@ -41,7 +41,7 @@ public struct MembersList {
                 return .run { send in
                     await send(
                         .membersListResponse(
-                            TaskResult {
+                            Result {
                                 try await userApiClient.fetchAllMembers()
                             }
                         )
@@ -55,7 +55,7 @@ public struct MembersList {
                 
             case .membersListResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.fetchLMembersListFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .destination:
@@ -77,8 +77,8 @@ extension MembersList {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
-            public enum Alert: Equatable {}
+        public enum Action {
+            public enum Alert: Equatable { }
             case alert(Alert)
         }
         
@@ -86,19 +86,6 @@ extension MembersList {
             Reduce { state, action in
                 return .none
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == MembersList.Destination.Action.Alert {
-    static func fetchLMembersListFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

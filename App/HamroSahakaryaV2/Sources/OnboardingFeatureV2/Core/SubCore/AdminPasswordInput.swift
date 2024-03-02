@@ -16,7 +16,7 @@ public struct AdminPasswordInput {
         var isValidPassword: Bool { !password.isEmpty }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum Delegate: Equatable {
             case verifyAdminPassword(Password)
         }

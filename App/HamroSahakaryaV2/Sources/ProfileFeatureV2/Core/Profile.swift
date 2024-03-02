@@ -21,7 +21,7 @@ public struct Profile {
         public var isLoading: Bool = false
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         public enum Delegate: Equatable {
             case signOutSuccessful
         }
@@ -35,7 +35,7 @@ public struct Profile {
         case onOtherMenuTapped(Menu.Other)
         case onSignOutButtonTapped
         case signOutUser
-        case signOutResponse(TaskResult<VoidSuccess>)
+        case signOutResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -60,19 +60,23 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.expenseAndExtra):
-                state.destination = .extraIncomeAndExpenses(.init(user: state.user))
+                state.destination = .extraIncomeAndExpenses(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.monthlyFee):
+                state.destination = .addMonthlyFee(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.loanMember):
+                state.destination = .loanMember(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.loanReturned):
+                state.destination = .loanReturned(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.addOrDeduct):
+                state.destination = .addOrDeductAmount(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.changeStatus):
@@ -95,7 +99,7 @@ public struct Profile {
                 return .run { send in
                     await send(
                         .signOutResponse(
-                            TaskResult { try await userApiClient.signOut() }
+                            Result { try await userApiClient.signOut() }
                         )
                     )
                 }
@@ -106,7 +110,7 @@ public struct Profile {
                 
             case .signOutResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.signOutFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -129,15 +133,23 @@ extension Profile {
             case membersList(MembersList.State)
             case changePassword(ChangePassword.State)
             case extraIncomeAndExpenses(ExtraIncomeAndExpenses.State)
+            case addMonthlyFee(AddMonthlyFee.State)
+            case loanMember(LoanMember.State)
+            case loanReturned(LoanReturned.State)
+            case addOrDeductAmount(AddOrDeductAmount.State)
         }
         
-        public enum Action: Equatable {
-            public enum Alert: Equatable {}
+        public enum Action {
+            public enum Alert: Equatable { }
             
             case alert(Alert)
             case membersList(MembersList.Action)
             case changePassword(ChangePassword.Action)
             case extraIncomeAndExpenses(ExtraIncomeAndExpenses.Action)
+            case addMonthlyFee(AddMonthlyFee.Action)
+            case loanMember(LoanMember.Action)
+            case loanReturned(LoanReturned.Action)
+            case addOrDeductAmount(AddOrDeductAmount.Action)
         }
         
         public init() { }
@@ -152,19 +164,18 @@ extension Profile {
             Scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
                 ExtraIncomeAndExpenses()
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == Profile.Destination.Action.Alert {
-    static func signOutFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
+            Scope(state: \.addMonthlyFee, action: \.addMonthlyFee) {
+                AddMonthlyFee()
+            }
+            Scope(state: \.loanMember, action: \.loanMember) {
+                LoanMember()
+            }
+            Scope(state: \.loanReturned, action: \.loanReturned) {
+                LoanReturned()
+            }
+            Scope(state: \.addOrDeductAmount, action: \.addOrDeductAmount) {
+                AddOrDeductAmount()
+            }
         }
     }
 }

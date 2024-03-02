@@ -14,17 +14,17 @@ final class CreateUserTests: XCTestCase {
             CreateUser()
         }
         
-        await store.send(.set(\.$email, "a@b.com")) {
+        await store.send(.set(\.email, "a@b.com")) {
             $0.email = "a@b.com"
         }
         XCTAssertFalse(store.state.isValidInput)
         
-        await store.send(.set(\.$fullname, "ab")) {
+        await store.send(.set(\.fullname, "ab")) {
             $0.fullname = "ab"
         }
         XCTAssertFalse(store.state.isValidInput)
         
-        await store.send(.set(\.$password, "password")) {
+        await store.send(.set(\.password, "password")) {
             $0.password = "password"
         }
         XCTAssertTrue(store.state.isValidInput)
@@ -80,9 +80,8 @@ final class CreateUserTests: XCTestCase {
         }
         
         // Step 2: Delegate Action is send towards the ColorPicker Reducer, and ColorPicker State is changed
-        await store.receive(.destination(.presented(.colorPicker(.colorPalette(.delegate(.colorSelected("#FFFFFF"))))))) {
+        await store.receive(\.destination.presented.colorPicker.colorPalette.delegate.colorSelected) {
             colorPickerState.colorHex = "#FFFFFF"
-            
             $0.destination = .colorPicker(colorPickerState)
         }
         
@@ -90,7 +89,7 @@ final class CreateUserTests: XCTestCase {
         await store.send(.destination(.presented(.colorPicker(.selectButtonTapped))))
         
         // Step 4: Delegate Action is send toward the CreateUser Reducer, and CreateUser State is changed
-        await store.receive(.destination(.presented(.colorPicker(.delegate(.colorSelected("#FFFFFF")))))) {
+        await store.receive(\.destination.presented.colorPicker.delegate.colorSelected) {
             $0.destination = nil
             $0.colorHex = "#FFFFFF"
         }
@@ -107,9 +106,11 @@ final class CreateUserTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.createUserResponse(.success(.mock))) {
+        await store.receive(\.createUserResponse.success) {
             $0.isLoading = false
         }
+    
+        await store.receive(\.delegate.createAccountSuccessful)
     }
     
     func test_CreateUser_ErrorFlow() async {
@@ -130,7 +131,7 @@ final class CreateUserTests: XCTestCase {
                 AlertState<CreateUser.Destination.Action.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
-                    ButtonState { TextState(#localized("Cancel")) }
+                    ButtonState { TextState(#localized("Ok")) }
                 } message: {
                     TextState(SomeError().localizedDescription)
                 }

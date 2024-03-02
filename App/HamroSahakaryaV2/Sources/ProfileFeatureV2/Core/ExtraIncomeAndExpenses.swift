@@ -5,7 +5,6 @@ import SharedModels
 import UserApiClient
 import SwiftHelpers
 
-// TODO: Text Field binding is not working
 @Reducer
 public struct ExtraIncomeAndExpenses {
     @ObservableState
@@ -14,12 +13,12 @@ public struct ExtraIncomeAndExpenses {
             case amount
             case reason
         }
-        public init(user: User) {
-            self.user = user
+        public init(admin: User) {
+            self.admin = admin
         }
         
         @Presents var destination: Destination.State?
-        public var user: User
+        var admin: User
         var type: ExtraOrExpenses = .extra
         var amount: String = ""
         var reason: String = ""
@@ -34,14 +33,13 @@ public struct ExtraIncomeAndExpenses {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
         case binding(BindingAction<State>)
         case destination(PresentationAction<Destination.Action>)
         
         case typeFieldTapped
         case updateButtonTapped
-        case addExtraOrExpenses
-        case addExtraOrExpensesResponse(TaskResult<VoidSuccess>)
+        case addExtraOrExpensesResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -59,20 +57,17 @@ public struct ExtraIncomeAndExpenses {
                 return .none
                 
             case .typeFieldTapped:
-                state.destination = .confirmationDialog(.selectedType)
+                state.destination = .confirmationDialog(.selectType)
                 return .none
                 
             case .updateButtonTapped:
-                return .send(.addExtraOrExpenses)
-                
-            case .addExtraOrExpenses:
                 state.isLoading = true
                 return .run { [state = state] send in
                     await send(
                         .addExtraOrExpensesResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.addExtraAndExpenses(
-                                    state.user,
+                                    state.admin,
                                     state.type,
                                     state.amount.int,
                                     state.reason
@@ -86,12 +81,12 @@ public struct ExtraIncomeAndExpenses {
                 state.isLoading = false
                 state.amount = ""
                 state.reason = ""
-                state.destination = .alert(.addExtraOrExpensesSuccess())
+                state.destination = .alert(.onUpdateSuccessful())
                 return .none
                 
             case .addExtraOrExpensesResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.addExtraOrExpensesFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination:
@@ -106,7 +101,7 @@ public struct ExtraIncomeAndExpenses {
 
 // MARK: Confirmation Dialog
 extension ConfirmationDialogState where Action == ExtraIncomeAndExpenses.Destination.Action.ConfirmationDialog {
-    static let selectedType = ConfirmationDialogState {
+    static let selectType = ConfirmationDialogState {
         TextState("Select Type")
     } actions: {
         ButtonState(role: .cancel) {
@@ -145,7 +140,7 @@ extension ExtraIncomeAndExpenses {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable { }
             public enum ConfirmationDialog: Equatable {
                 case extraTapped
@@ -162,29 +157,6 @@ extension ExtraIncomeAndExpenses {
             Reduce<State, Action> { state, action in
                 return .none
             }
-        }
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == ExtraIncomeAndExpenses.Destination.Action.Alert {
-    static func addExtraOrExpensesFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
-    }
-    
-    static func addExtraOrExpensesSuccess() -> AlertState {
-        AlertState {
-            TextState(#localized("Success"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(#localized("Update Successful"))
         }
     }
 }

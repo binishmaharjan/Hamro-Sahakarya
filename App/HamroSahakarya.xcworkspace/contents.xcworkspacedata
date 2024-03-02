@@ -25,4 +25,7 @@
    <FileRef
       location = "group:HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/ProfileFeatureV2.xctestplan">
    </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/HamroSahakaryaV2Tests/HamroSahakaryaV2Tests.xctestplan">
+   </FileRef>
 </Workspace>

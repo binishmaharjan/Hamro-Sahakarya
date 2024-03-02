@@ -30,7 +30,8 @@ public struct ChangePassword {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case signOutSuccessful
         }
@@ -40,10 +41,10 @@ public struct ChangePassword {
         case delegate(Delegate)
         
         case changePasswordTapped
-        case passwordDoesntMatch
-        case changePasswordResponse(TaskResult<VoidSuccess>)
+        case passwordDoesNotMatch
+        case changePasswordResponse(Result<Void, Error>)
         case signOutUser
-        case signOutResponse(TaskResult<VoidSuccess>)
+        case signOutResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -57,7 +58,7 @@ public struct ChangePassword {
             switch action {
             case .changePasswordTapped:
                 guard state.password == state.confirmPassword else {
-                    return .send(.passwordDoesntMatch)
+                    return .send(.passwordDoesNotMatch)
                 }
                 
                 state.isLoading = true
@@ -65,15 +66,15 @@ public struct ChangePassword {
                 return .run { [user = state.user, password = state.password] send in
                     await send(
                         .changePasswordResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.changePassword(user, password)
                             }
                         )
                     )
                 }
                 
-            case .passwordDoesntMatch:
-                state.destination = .alert(.passwordDoesntMatch())
+            case .passwordDoesNotMatch:
+                state.destination = .alert(.passwordDoesNotMatch())
                 return .none
                 
             case .changePasswordResponse(.success):
@@ -95,7 +96,7 @@ public struct ChangePassword {
                 return .run { send in
                     await send(
                         .signOutResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.signOut()
                             }
                         )
@@ -107,7 +108,7 @@ public struct ChangePassword {
                 return .send(.delegate(.signOutSuccessful))
                 
             case .signOutResponse(.failure(let error)):
-                state.isLoading = true
+                state.isLoading = false
                 state.destination = .alert(.onError(error))
                 return .none
                 
@@ -133,7 +134,7 @@ extension ChangePassword {
             case alert(AlertState<Action.Alert>)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable {
                 case signOutButtonTapped
             }
@@ -151,23 +152,13 @@ extension ChangePassword {
 
 // MARK: AlertState
 extension AlertState where Action == ChangePassword.Destination.Action.Alert {
-    static func passwordDoesntMatch() -> AlertState {
+    static func passwordDoesNotMatch() -> AlertState {
         AlertState {
             TextState(#localized("Error"))
         } actions: {
             ButtonState { TextState(#localized("Ok")) }
         } message: {
-            TextState("Password doesn`t match")
-        }
-    }
-    
-    static func onError(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(error.localizedDescription)
+            TextState("Password doesn't match")
         }
     }
     

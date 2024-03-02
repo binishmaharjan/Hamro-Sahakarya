@@ -29,7 +29,8 @@ public struct CreateUser {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case createAccountSuccessful(User)
         }
@@ -40,7 +41,7 @@ public struct CreateUser {
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
-        case createUserResponse(TaskResult<User>)
+        case createUserResponse(Result<User, Error>)
     }
     
     public init(){ }
@@ -80,7 +81,7 @@ public struct CreateUser {
                 return .run { send in
                     await send(
                         .createUserResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.createUser(newUser)
                             }
                         )
@@ -93,7 +94,7 @@ public struct CreateUser {
                 
             case .createUserResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.createUserFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -117,7 +118,7 @@ extension CreateUser {
             case colorPicker(ColorPicker.State)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable { }
             public enum ConfirmationDialog: Equatable {
                 case memberTapped
@@ -183,18 +184,5 @@ extension ConfirmationDialogState where Action == CreateUser.Destination.Action.
         }
     } message: {
         TextState(#localized("Select the member status."))
-    }
-}
-
-// MARK: AlertState
-extension AlertState where Action == CreateUser.Destination.Action.Alert {
-    static func createUserFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
-        }
     }
 }

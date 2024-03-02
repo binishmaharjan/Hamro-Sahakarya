@@ -29,7 +29,8 @@ public struct SignIn {
         }
     }
     
-    public enum Action: BindableAction, Equatable {
+    public enum Action: BindableAction {
+        @CasePathable
         public enum Delegate: Equatable {
             case authenticationSuccessful(User)
         }
@@ -43,7 +44,7 @@ public struct SignIn {
         case viewTappedTwice
         case isAdminPasswordVerified(Bool)
         case signInButtonTapped
-        case signInResponse(TaskResult<User>)
+        case signInResponse(Result<User, Error>)
     }
     
     public init() {}
@@ -74,7 +75,7 @@ public struct SignIn {
                 return .run { [email = state.email, password = state.password] send in
                     await send(
                         .signInResponse(
-                            TaskResult {
+                            Result {
                                 return try await userApiClient.signIn(email, password)
                             }
                         )
@@ -108,7 +109,7 @@ public struct SignIn {
                 
             case .signInResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.signInFailed(error))
+                state.destination = .alert(.onError(error))
                 return .none
                 
             case .binding, .destination, .delegate:
@@ -133,7 +134,7 @@ extension SignIn {
             case adminPasswordInput(AdminPasswordInput.State)
         }
         
-        public enum Action: Equatable {
+        public enum Action {
             public enum Alert: Equatable { }
             
             case alert(Alert)
@@ -174,16 +175,6 @@ extension AlertState where Action == SignIn.Destination.Action.Alert {
             ButtonState { TextState(#localized("Cancel")) }
         } message: {
             TextState("Couldn't verify admin password")
-        }
-    }
-    
-    static func signInFailed(_ error: Error) -> AlertState {
-        AlertState {
-            TextState(#localized("Error"))
-        } actions: {
-            ButtonState { TextState(#localized("Cancel")) }
-        } message: {
-            TextState(error.localizedDescription)
         }
     }
 }

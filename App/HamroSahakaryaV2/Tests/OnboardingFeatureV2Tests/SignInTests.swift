@@ -7,18 +7,17 @@ import SharedUIs
 
 @MainActor
 final class SignInTests: XCTestCase {
-    
     func test_IsValidInput() async {
         let store = TestStore(initialState: SignIn.State()) {
             SignIn()
         }
         
-        await store.send(.set(\.$email, "a@b.com")) {
+        await store.send(.set(\.email, "a@b.com")) {
             $0.email = "a@b.com"
         }
         XCTAssertFalse(store.state.isValidInput)
         
-        await store.send(.set(\.$password, "password")) {
+        await store.send(.set(\.password, "password")) {
             $0.password = "password"
         }
         XCTAssertTrue(store.state.isValidInput)
@@ -51,7 +50,7 @@ final class SignInTests: XCTestCase {
         }
         
         await testClock.advance(by: .seconds(0.3))
-        await store.receive(.isAdminPasswordVerified(true)) {
+        await store.receive(\.isAdminPasswordVerified) {
             $0.destination = .createUser(.init())
         }
     }
@@ -73,7 +72,7 @@ final class SignInTests: XCTestCase {
         }
         
         await testClock.advance(by: .seconds(0.3))
-        await store.receive(.isAdminPasswordVerified(false)) {
+        await store.receive(\.isAdminPasswordVerified) {
             $0.destination = .alert(.adminPasswordVerificationFailed())
         }
     }
@@ -105,9 +104,11 @@ final class SignInTests: XCTestCase {
             $0.isLoading = true
         }
         
-        await store.receive(.signInResponse(.success(.mock))) {
+        await store.receive(\.signInResponse.success) {
             $0.isLoading = false
         }
+        
+        await store.receive(\.delegate.authenticationSuccessful)
     }
     
     func test_SignIn_ErrorFlow() async {
@@ -128,7 +129,7 @@ final class SignInTests: XCTestCase {
                 AlertState<SignIn.Destination.Action.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
-                    ButtonState { TextState(#localized("Cancel")) }
+                    ButtonState { TextState(#localized("Ok")) }
                 } message: {
                     TextState(SomeError().localizedDescription)
                 }

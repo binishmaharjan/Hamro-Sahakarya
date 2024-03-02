@@ -85,7 +85,7 @@ extension ExtraIncomeAndExpensesView {
 #Preview {
     ExtraIncomeAndExpensesView(
         store: .init(
-            initialState: .init(user: .mock),
+            initialState: .init(admin: .mock),
             reducer: ExtraIncomeAndExpenses.init
         )
     )
