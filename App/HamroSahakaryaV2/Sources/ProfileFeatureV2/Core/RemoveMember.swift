@@ -23,7 +23,8 @@ public struct RemoveMember {
         }
     }
     
-    public enum Action {
+    public enum Action: BindableAction {
+        case binding(BindingAction<State>)
         case destination(PresentationAction<Destination.Action>)
         case memberSelect(MemberSelect.Action)
         
@@ -38,6 +39,8 @@ public struct RemoveMember {
     @Dependency(\.userApiClient) private var userApiClient
     
     public var body: some ReducerOf<Self> {
+        BindingReducer()
+        
         Scope(state: \.memberSelect, action: \.memberSelect) {
             MemberSelect()
         }
@@ -64,7 +67,7 @@ public struct RemoveMember {
 
                 // if refetch flag after the removing member is true, show alert
                 if state.isRemovingMember {
-                    state.isRemovingMember = true
+                    state.isRemovingMember = false
                     state.destination = .alert(.onMemberRemoved())
                 }
                 
@@ -115,7 +118,7 @@ public struct RemoveMember {
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .destination, .memberSelect:
+            case .destination, .memberSelect, .binding:
                 return .none
             }
         }
