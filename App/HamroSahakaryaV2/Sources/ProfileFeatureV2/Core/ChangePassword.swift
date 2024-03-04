@@ -112,10 +112,6 @@ public struct ChangePassword {
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .destination(.presented(.alert(.signOutButtonTapped))):
-                state.isLoading = true
-                return .none
-                
             case .binding, .destination, .delegate:
                 return .none
             }
