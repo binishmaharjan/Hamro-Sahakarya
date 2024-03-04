@@ -90,6 +90,10 @@ public struct ProfileView: View {
                 item: $store.scope(state: \.destination?.addOrDeductAmount, action: \.destination.addOrDeductAmount),
                 destination: { AddOrDeductAmountView(store: $0).withCustomBackButton() }
             )
+            .navigationDestination(
+                item: $store.scope(state: \.destination?.removeMember, action: \.destination.removeMember),
+                destination: { RemoveMemberView(store: $0).withCustomBackButton() }
+            )
         }
     }
 }
