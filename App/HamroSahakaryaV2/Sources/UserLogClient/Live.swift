@@ -85,7 +85,7 @@ extension UserLogClient {
         
         func addLoanReturnedLog(admin: User, user: User, loan: Loan) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
-            let log = generateLog(logType: .loanGiven, logCreator: logCreator, logTarget: logTarget, amount: loan, reason: "")
+            let log = generateLog(logType: .loanReturned, logCreator: logCreator, logTarget: logTarget, amount: loan, reason: "")
             
             let logReference = Firestore.firestore().collection("logs").document(log.logId)
             try logReference.setData(from: log)
@@ -94,7 +94,7 @@ extension UserLogClient {
         func addRemoveMemberLog(admin: User, user: User) async throws -> Void {
             let logCreator = admin.username, logTarget = user.username
             let amount = user.balance
-            let log = generateLog(logType: .loanGiven, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
+            let log = generateLog(logType: .removed, logCreator: logCreator, logTarget: logTarget, amount: amount, reason: "")
             
             let logReference = Firestore.firestore().collection("logs").document(log.logId)
             try logReference.setData(from: log)
