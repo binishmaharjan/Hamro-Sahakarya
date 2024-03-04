@@ -105,6 +105,9 @@ public struct LoanMember {
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
+        }
     }
 }
 

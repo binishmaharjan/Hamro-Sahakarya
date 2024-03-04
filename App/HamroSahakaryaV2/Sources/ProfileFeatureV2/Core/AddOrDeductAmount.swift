@@ -118,6 +118,9 @@ public struct AddOrDeductAmount {
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
+        }
     }
 }
 

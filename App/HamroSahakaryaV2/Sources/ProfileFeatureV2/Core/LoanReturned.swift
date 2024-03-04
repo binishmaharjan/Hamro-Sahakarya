@@ -104,6 +104,9 @@ public struct LoanReturned {
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
+        }
     }
 }
 
