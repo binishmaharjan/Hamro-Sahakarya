@@ -1,6 +1,28 @@
 import SwiftUI
 import SwiftHelpers
 
+// MARK: BorderedTextFieldStyle
+public struct BorderedTextFieldStyle: TextFieldStyle {
+    var height: CGFloat
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(15)
+            .frame(height: height, alignment: .top)
+            .background(#color("white"))
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(#color("large_button"), lineWidth: 2)
+            }
+    }
+}
+
+extension TextFieldStyle where Self == BorderedTextFieldStyle {
+    /// A text field style with custom border.
+    public static func bordered(height: CGFloat) -> BorderedTextFieldStyle {
+        return BorderedTextFieldStyle(height: height)
+    }
+}
+
 // MARK: IconTextFieldStyle
 public struct IconTextFieldStyle: TextFieldStyle {
     var image: Image
