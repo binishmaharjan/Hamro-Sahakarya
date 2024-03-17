@@ -26,6 +26,7 @@ public enum Menu {
     
     public enum Other: Int, CaseIterable, MenuOption {
         case termsAndCondition
+        case license
     }
     
     public enum SignOut: Int, CaseIterable {
@@ -83,12 +84,14 @@ extension Menu.Other {
     var title: String {
         switch self {
         case .termsAndCondition: return #localized("Terms And Condition")
+        case .license: return #localized("License")
         }
     }
     
     var icon: String {
         switch self {
-        case .termsAndCondition: return "doc.plaintext"
+        case .termsAndCondition: return "doc.richtext.fill"
+        case .license: return "doc.plaintext"
         }
     }
 }
