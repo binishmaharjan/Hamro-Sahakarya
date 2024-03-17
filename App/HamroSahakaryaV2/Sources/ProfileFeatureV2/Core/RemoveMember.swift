@@ -6,6 +6,15 @@ import SharedUIs
 
 @Reducer
 public struct RemoveMember {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable {
+            case removeConfirmationTapped
+        }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public init(admin: User) {
@@ -122,40 +131,12 @@ public struct RemoveMember {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension RemoveMember {
-    @Reducer
-    public struct Destination {
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable {
-                case removeConfirmationTapped
-            }
-            
-            case alert(Alert)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: AlertState
-extension AlertState where Action == RemoveMember.Destination.Action.Alert {
+extension AlertState where Action == RemoveMember.Destination.Alert {
     static func removeMemberConfirmation() -> AlertState {
         AlertState {
             TextState(#localized("Remove Confirmation"))

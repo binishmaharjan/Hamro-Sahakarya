@@ -5,6 +5,18 @@ import SharedUIs
 
 @Reducer
 public struct AddOrDeductAmount {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case confirmationDialog(ConfirmationDialogState<ConfirmationDialog>)
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable { }
+        public enum ConfirmationDialog: Equatable {
+            case addTapped
+            case deductTapped
+        }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -81,7 +93,7 @@ public struct AddOrDeductAmount {
                 state.destination = .confirmationDialog(.selectType)
                 return .none
                 
-            case .destination(.presented(.confirmationDialog(.presented(let option)))):
+            case .destination(.presented(.confirmationDialog(let option))):
                 state.destination = nil
                 state.type = option.toType
                 return .none
@@ -118,45 +130,12 @@ public struct AddOrDeductAmount {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension AddOrDeductAmount {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable { }
-            public enum ConfirmationDialog: Equatable {
-                case addTapped
-                case deductTapped
-            }
-            
-            case confirmationDialog(PresentationAction<ConfirmationDialog>)
-            case alert(Alert)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: Confirmation Dialog
-extension ConfirmationDialogState where Action == AddOrDeductAmount.Destination.Action.ConfirmationDialog {
+extension ConfirmationDialogState where Action == AddOrDeductAmount.Destination.ConfirmationDialog {
     static let selectType = ConfirmationDialogState {
         TextState("Select Type")
     } actions: {
@@ -177,7 +156,7 @@ extension ConfirmationDialogState where Action == AddOrDeductAmount.Destination.
 // MARK: Confirmation Dialog to Status Domain
 // TODO: Could not extend AddOrDeductAmount.Destination.Action.ConfirmationDialog
 // TODO: Not sure its a good idea to extend Equatable
-extension Equatable where Self == AddOrDeductAmount.Destination.Action.ConfirmationDialog {
+extension Equatable where Self == AddOrDeductAmount.Destination.ConfirmationDialog {
     var toType: AddOrDeduct {
         switch self {
         case .addTapped: return .add

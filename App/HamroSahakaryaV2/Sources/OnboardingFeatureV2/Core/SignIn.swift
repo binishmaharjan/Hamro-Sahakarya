@@ -6,6 +6,16 @@ import SharedModels
 
 @Reducer
 public struct SignIn {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        case forgotPassword(ForgotPassword)
+        case createUser(CreateUser)
+        case adminPasswordInput(AdminPasswordInput)
+        
+        public enum Alert: Equatable { }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -116,46 +126,7 @@ public struct SignIn {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension SignIn {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-            case forgotPassword(ForgotPassword.State)
-            case createUser(CreateUser.State)
-            case adminPasswordInput(AdminPasswordInput.State)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable { }
-            
-            case alert(Alert)
-            case forgotPassword(ForgotPassword.Action)
-            case createUser(CreateUser.Action)
-            case adminPasswordInput(AdminPasswordInput.Action)
-        }
-        
-        public var body: some Reducer<State, Action> {
-            Scope(state: \.forgotPassword, action: \.forgotPassword) {
-                ForgotPassword()
-            }
-            
-            Scope(state: \.createUser, action: \.createUser) {
-                CreateUser()
-            }
-            
-            Scope(state: \.adminPasswordInput, action: \.adminPasswordInput) {
-                AdminPasswordInput()
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
@@ -167,7 +138,7 @@ extension SignIn {
 }
 
 // MARK: AlertState
-extension AlertState where Action == SignIn.Destination.Action.Alert {
+extension AlertState where Action == SignIn.Destination.Alert {
     static func adminPasswordVerificationFailed() -> AlertState {
         AlertState {
             TextState(#localized("Sorry"))

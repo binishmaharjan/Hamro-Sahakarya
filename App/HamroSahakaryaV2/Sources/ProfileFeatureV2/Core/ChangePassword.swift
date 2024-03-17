@@ -6,6 +6,15 @@ import SwiftHelpers
 
 @Reducer
 public struct ChangePassword {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable {
+            case signOutButtonTapped
+        }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -116,38 +125,12 @@ public struct ChangePassword {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-// MARK: Destination
-extension ChangePassword {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable {
-                case signOutButtonTapped
-            }
-            
-            case alert(Alert)
-        }
-        
-        public var body: some Reducer<State, Action> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: AlertState
-extension AlertState where Action == ChangePassword.Destination.Action.Alert {
+extension AlertState where Action == ChangePassword.Destination.Alert {
     static func passwordDoesNotMatch() -> AlertState {
         AlertState {
             TextState(#localized("Error"))

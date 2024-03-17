@@ -6,6 +6,22 @@ import SwiftHelpers
 
 @Reducer
 public struct Profile {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        case membersList(MembersList)
+        case changePassword(ChangePassword)
+        case extraIncomeAndExpenses(ExtraIncomeAndExpenses)
+        case addMonthlyFee(AddMonthlyFee)
+        case loanMember(LoanMember)
+        case loanReturned(LoanReturned)
+        case addOrDeductAmount(AddOrDeductAmount)
+        case removeMember(RemoveMember)
+        case updateNotice(UpdateNotice)
+        
+        public enum Alert: Equatable { }
+    }
+    
     @ObservableState @dynamicMemberLookup
     public struct State: Equatable {
         public init(user: User) {
@@ -119,75 +135,6 @@ public struct Profile {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension Profile {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-            case membersList(MembersList.State)
-            case changePassword(ChangePassword.State)
-            case extraIncomeAndExpenses(ExtraIncomeAndExpenses.State)
-            case addMonthlyFee(AddMonthlyFee.State)
-            case loanMember(LoanMember.State)
-            case loanReturned(LoanReturned.State)
-            case addOrDeductAmount(AddOrDeductAmount.State)
-            case removeMember(RemoveMember.State)
-            case updateNotice(UpdateNotice.State)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable { }
-            
-            case alert(Alert)
-            case membersList(MembersList.Action)
-            case changePassword(ChangePassword.Action)
-            case extraIncomeAndExpenses(ExtraIncomeAndExpenses.Action)
-            case addMonthlyFee(AddMonthlyFee.Action)
-            case loanMember(LoanMember.Action)
-            case loanReturned(LoanReturned.Action)
-            case addOrDeductAmount(AddOrDeductAmount.Action)
-            case removeMember(RemoveMember.Action)
-            case updateNotice(UpdateNotice.Action)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Scope(state: \.membersList, action: \.membersList) {
-                MembersList()
-            }
-            Scope(state: \.changePassword, action: \.changePassword) {
-                ChangePassword()
-            }
-            Scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
-                ExtraIncomeAndExpenses()
-            }
-            Scope(state: \.addMonthlyFee, action: \.addMonthlyFee) {
-                AddMonthlyFee()
-            }
-            Scope(state: \.loanMember, action: \.loanMember) {
-                LoanMember()
-            }
-            Scope(state: \.loanReturned, action: \.loanReturned) {
-                LoanReturned()
-            }
-            Scope(state: \.addOrDeductAmount, action: \.addOrDeductAmount) {
-                AddOrDeductAmount()
-            }
-            Scope(state: \.removeMember, action: \.removeMember) {
-                RemoveMember()
-            }
-            Scope(state: \.updateNotice, action: \.updateNotice) {
-                UpdateNotice()
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }

@@ -5,6 +5,13 @@ import UserApiClient
 
 @Reducer
 public struct UpdateNotice {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable { }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -71,32 +78,6 @@ public struct UpdateNotice {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension UpdateNotice {
-    @Reducer
-    public struct Destination {
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable {}
-            
-            case alert(Alert)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }

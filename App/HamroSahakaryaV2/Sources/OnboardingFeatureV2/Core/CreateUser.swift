@@ -6,6 +6,19 @@ import UserApiClient
 
 @Reducer
 public struct CreateUser {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case confirmationDialog(ConfirmationDialogState<ConfirmationDialog>)
+        case alert(AlertState<Alert>)
+        case colorPicker(ColorPicker)
+        
+        public enum Alert: Equatable { }
+        public enum ConfirmationDialog: Equatable {
+            case memberTapped
+            case adminTapped
+        }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public init() {}
@@ -53,7 +66,7 @@ public struct CreateUser {
         
         Reduce<State, Action> { state, action in
             switch action {
-            case .destination(.presented(.confirmationDialog(.presented(let option)))):
+            case .destination(.presented(.confirmationDialog(let option))):
                 state.destination = nil
                 state.status = option.toStatus
                 return .none
@@ -101,49 +114,14 @@ public struct CreateUser {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension CreateUser {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
-            case alert(AlertState<Action.Alert>)
-            case colorPicker(ColorPicker.State)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable { }
-            public enum ConfirmationDialog: Equatable {
-                case memberTapped
-                case adminTapped
-            }
-            
-            case confirmationDialog(PresentationAction<ConfirmationDialog>)
-            case alert(Alert)
-            case colorPicker(ColorPicker.Action)
-        }
-        
-        public init(){ }
-        
-        public var body: some ReducerOf<Self> {
-            Scope(state: \.colorPicker, action: \.colorPicker) {
-                ColorPicker()
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: Confirmation Dialog to Status Domain
 // TODO: Could not extend CreateUser.Destination.Action.ConfirmationDialog
 // TODO: Not sure its a good idea to extend Equatable
-extension Equatable where Self == CreateUser.Destination.Action.ConfirmationDialog {
+extension Equatable where Self == CreateUser.Destination.ConfirmationDialog {
     var toStatus: Status {
         switch self {
         case .memberTapped: return .member
@@ -169,7 +147,7 @@ extension CreateUser {
 
 
 // MARK: Confirmation Dialog
-extension ConfirmationDialogState where Action == CreateUser.Destination.Action.ConfirmationDialog {
+extension ConfirmationDialogState where Action == CreateUser.Destination.ConfirmationDialog {
     static let selectStatus = ConfirmationDialogState {
         TextState(#localized("Status Select"))
     } actions: {
