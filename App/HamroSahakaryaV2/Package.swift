@@ -187,6 +187,9 @@ let package = Package(
                 "UserSession",
                 "UserApiClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ],
+            plugins: [
+                .plugin(name: "LicensePlugin")
             ]
         ),
         .macro(
@@ -195,6 +198,10 @@ let package = Package(
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
             ]
+        ),
+        .plugin(
+            name: "LicensePlugin",
+            capability: .buildTool()
         ),
         .testTarget(
             name: "HamroSahakaryaV2Tests",

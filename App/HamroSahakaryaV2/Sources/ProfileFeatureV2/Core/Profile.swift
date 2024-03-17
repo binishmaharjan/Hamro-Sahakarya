@@ -18,6 +18,7 @@ public struct Profile {
         case addOrDeductAmount(AddOrDeductAmount)
         case removeMember(RemoveMember)
         case updateNotice(UpdateNotice)
+        case license(License)
         
         public enum Alert: Equatable { }
     }
@@ -107,6 +108,10 @@ public struct Profile {
                 return .none
                 
             case .onOtherMenuTapped(.termsAndCondition):
+                return .none
+                
+            case .onOtherMenuTapped(.license):
+                state.destination = .license(.init())
                 return .none
                 
             case .onSignOutButtonTapped:

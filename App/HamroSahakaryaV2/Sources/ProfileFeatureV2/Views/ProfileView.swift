@@ -55,6 +55,24 @@ public struct ProfileView: View {
                 .padding(.top, -16)
                 .tint(#color("large_button"))
                 .font(.customSubHeadline)
+                // TODO: When we use 10 navigationDestination, it shows error. WHY?
+                .navigationDestination(
+                    item: $store.scope(state: \.destination?.membersList, action: \.destination.membersList),
+                    destination: { MembersListView(store: $0).withCustomBackButton() }
+                )
+                .navigationDestination(
+                    item: $store.scope(state: \.destination?.changePassword, action: \.destination.changePassword),
+                    destination: { ChangePasswordView(store: $0).withCustomBackButton() }
+                )
+                .navigationDestination(
+                    item: $store.scope(state: \.destination?.extraIncomeAndExpenses, action: \.destination.extraIncomeAndExpenses),
+                    destination: { ExtraIncomeAndExpensesView(store: $0).withCustomBackButton() }
+                )
+                .navigationDestination(
+                    item: $store.scope(state: \.destination?.addMonthlyFee, action: \.destination.addMonthlyFee),
+                    destination: { AddMonthlyFeeView(store: $0).withCustomBackButton() }
+                )
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .customNavigationBar(#localized("Profile"))
@@ -62,22 +80,6 @@ public struct ProfileView: View {
             .onAppear {
                 store.send(.onAppear)
             }
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.membersList, action: \.destination.membersList),
-                destination: { MembersListView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.changePassword, action: \.destination.changePassword),
-                destination: { ChangePasswordView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.extraIncomeAndExpenses, action: \.destination.extraIncomeAndExpenses),
-                destination: { ExtraIncomeAndExpensesView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.addMonthlyFee, action: \.destination.addMonthlyFee),
-                destination: { AddMonthlyFeeView(store: $0).withCustomBackButton() }
-            )
             .navigationDestination(
                 item: $store.scope(state: \.destination?.loanMember, action: \.destination.loanMember),
                 destination: { LoanMemberView(store: $0).withCustomBackButton() }
@@ -97,6 +99,10 @@ public struct ProfileView: View {
             .navigationDestination(
                 item: $store.scope(state: \.destination?.updateNotice, action: \.destination.updateNotice),
                 destination: { UpdateNoticeView(store: $0).withCustomBackButton() }
+            )
+            .navigationDestination(
+                item: $store.scope(state: \.destination?.license, action: \.destination.license),
+                destination: { LicenseView(store: $0).withCustomBackButton() }
             )
         }
     }
