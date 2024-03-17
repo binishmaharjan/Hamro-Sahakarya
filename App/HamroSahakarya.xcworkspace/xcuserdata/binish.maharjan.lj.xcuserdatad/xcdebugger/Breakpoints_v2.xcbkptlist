@@ -7,62 +7,293 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9"
+            uuid = "BE88045D-1F6B-4493-BF90-009532B6859F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+            filePath = "HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "test_CreateUser_SuccessFlow()"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "test_LoanMember_SuccessFlow()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - f2086a40c1de7b67"
+                  uuid = "BE88045D-1F6B-4493-BF90-009532B6859F - ac5fb0515646b8f1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
-                  moduleName = "OnboardingFeatureV2Tests"
+                  symbolName = "closure #5 (inout ProfileFeatureV2.LoanMember.State) -&gt; () in ProfileFeatureV2Tests.LoanMemberTests.test_LoanMember_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "160">
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "228">
                </Location>
                <Location
-                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - 28454723d9942e1b"
+                  uuid = "BE88045D-1F6B-4493-BF90-009532B6859F - 7400d0bbca3334d5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(6) await resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
-                  moduleName = "OnboardingFeatureV2Tests"
+                  symbolName = "(7) suspend resume partial function for ProfileFeatureV2Tests.LoanMemberTests.test_LoanMember_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "BE88045D-1F6B-4493-BF90-009532B6859F - 5fb6fea0515819ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for ProfileFeatureV2Tests.LoanMemberTests.test_LoanMember_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
                   offsetFromSymbolStart = "40">
                </Location>
                <Location
-                  uuid = "3DE08D9E-5778-4BBE-9E42-733B913F7DD9 - 3c47dd5423e73f65"
+                  uuid = "BE88045D-1F6B-4493-BF90-009532B6859F - aa0ac138adda78d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for OnboardingFeatureV2Tests.CreateUserTests.test_CreateUser_SuccessFlow() async -&gt; ()"
-                  moduleName = "OnboardingFeatureV2Tests"
+                  symbolName = "(9) suspend resume partial function for ProfileFeatureV2Tests.LoanMemberTests.test_LoanMember_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/CreateUserTests.swift"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "BE88045D-1F6B-4493-BF90-009532B6859F - 2c32093b9b4d0611"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #6 (inout ProfileFeatureV2.LoanMember.State) -&gt; () in ProfileFeatureV2Tests.LoanMemberTests.test_LoanMember_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/LoanMemberTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - 18d60c9032984ea1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - ffb013829450a95e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable (ComposableArchitecture.Send&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt;) async -&gt; () in closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - 8085cc3165bf79cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable (ComposableArchitecture.Send&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt;) async -&gt; () in closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - 30fa68bdee48c00a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable (ComposableArchitecture.Send&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt;) async -&gt; () in closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - 18d60c9032984f6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "Development"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "1948">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - cbad6ed2a2eae37c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "AppFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "2068">
+               </Location>
+               <Location
+                  uuid = "BA396D2C-3773-47C9-80F7-27DECC1135AD - 79f4c32bf5f1a2d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (inout ProfileFeatureV2.AddMonthlyFee.State, ProfileFeatureV2.AddMonthlyFee.Action) -&gt; ComposableArchitecture.Effect&lt;ProfileFeatureV2.AddMonthlyFee.Action&gt; in ProfileFeatureV2.AddMonthlyFee.body.getter : some"
+                  moduleName = "HamroSahakaryaV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Sources/ProfileFeatureV2/Core/AddMonthlyFee.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "2068">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C21C227-5CC5-4AF5-B71E-C06B62DDAA25"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/UpdateNoticeTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "test_UpdateNotice_SuccessFlow()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1C21C227-5CC5-4AF5-B71E-C06B62DDAA25 - 31c1766f11479c12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for ProfileFeatureV2Tests.UpdateNoticeTests.test_UpdateNotice_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/UpdateNoticeTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "1C21C227-5CC5-4AF5-B71E-C06B62DDAA25 - f073ffdc3bc3030f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for ProfileFeatureV2Tests.UpdateNoticeTests.test_UpdateNotice_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/UpdateNoticeTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "1C21C227-5CC5-4AF5-B71E-C06B62DDAA25 - 4cfbb86c8b2ed010"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for ProfileFeatureV2Tests.UpdateNoticeTests.test_UpdateNotice_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/UpdateNoticeTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "1C21C227-5CC5-4AF5-B71E-C06B62DDAA25 - 5abfe324e8a6f637"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (inout ProfileFeatureV2.UpdateNotice.State) -&gt; () in ProfileFeatureV2Tests.UpdateNoticeTests.test_UpdateNotice_SuccessFlow() async -&gt; ()"
+                  moduleName = "ProfileFeatureV2Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/binish.maharjan.lj/Documents/iOS/Hamro-Sahakarya/App/HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/UpdateNoticeTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>

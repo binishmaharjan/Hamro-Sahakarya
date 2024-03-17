@@ -41,7 +41,7 @@ final class CreateUserTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectStatus)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.adminTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.adminTapped)))) {
             $0.destination = nil
             $0.status = .admin
         }
@@ -50,7 +50,7 @@ final class CreateUserTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectStatus)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.memberTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.memberTapped)))) {
             $0.destination = nil
             $0.status = .member
         }
@@ -128,7 +128,7 @@ final class CreateUserTests: XCTestCase {
         await store.receive(\.createUserResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(
-                AlertState<CreateUser.Destination.Action.Alert> {
+                AlertState<CreateUser.Destination.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
                     ButtonState { TextState(#localized("Ok")) }

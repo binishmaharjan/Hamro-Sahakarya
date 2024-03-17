@@ -7,6 +7,13 @@ import SwiftHelpers
 
 @Reducer
 public struct ForgotPassword {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable { }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -75,40 +82,12 @@ public struct ForgotPassword {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension ForgotPassword {
-    @Reducer
-    public struct Destination: Equatable {
-        @ObservableState
-        public enum State: Equatable {
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable {
-            }
-            case alert(Alert)
-        }
-        
-        public init() { }
-        
-        public var body: some
-        ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: Alerts
-extension AlertState where Action == ForgotPassword.Destination.Action.Alert {
+extension AlertState where Action == ForgotPassword.Destination.Alert {
     static let sendPasswordResetSuccess = AlertState {
         TextState(#localized("Email Sent"))
     } actions: {

@@ -7,6 +7,18 @@ import SwiftHelpers
 
 @Reducer
 public struct ExtraIncomeAndExpenses {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case confirmationDialog(ConfirmationDialogState<ConfirmationDialog>)
+        case alert(AlertState<Alert>)
+        
+        public enum Alert: Equatable { }
+        public enum ConfirmationDialog: Equatable {
+            case extraTapped
+            case expensesTapped
+        }
+    }
+    
     @ObservableState
     public struct State: Equatable {
         public enum Field: Equatable {
@@ -51,7 +63,7 @@ public struct ExtraIncomeAndExpenses {
         
         Reduce<State, Action> { state, action in
             switch action {
-            case .destination(.presented(.confirmationDialog(.presented(let option)))):
+            case .destination(.presented(.confirmationDialog(let option))):
                 state.destination = nil
                 state.type = option.toType
                 return .none
@@ -93,14 +105,12 @@ public struct ExtraIncomeAndExpenses {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 
 // MARK: Confirmation Dialog
-extension ConfirmationDialogState where Action == ExtraIncomeAndExpenses.Destination.Action.ConfirmationDialog {
+extension ConfirmationDialogState where Action == ExtraIncomeAndExpenses.Destination.ConfirmationDialog {
     static let selectType = ConfirmationDialogState {
         TextState("Select Type")
     } actions: {
@@ -121,42 +131,11 @@ extension ConfirmationDialogState where Action == ExtraIncomeAndExpenses.Destina
 // MARK: Confirmation Dialog to Status Domain
 // TODO: Could not extend CreateUser.Destination.Action.ConfirmationDialog
 // TODO: Not sure its a good idea to extend Equatable
-extension Equatable where Self == ExtraIncomeAndExpenses.Destination.Action.ConfirmationDialog {
+extension Equatable where Self == ExtraIncomeAndExpenses.Destination.ConfirmationDialog {
     var toType: ExtraOrExpenses {
         switch self {
         case .extraTapped: return .extra
         case .expensesTapped: return .expenses
-        }
-    }
-}
-
-// MARK: Destination
-extension ExtraIncomeAndExpenses {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case confirmationDialog(ConfirmationDialogState<Action.ConfirmationDialog>)
-            case alert(AlertState<Action.Alert>)
-        }
-        
-        public enum Action {
-            public enum Alert: Equatable { }
-            public enum ConfirmationDialog: Equatable {
-                case extraTapped
-                case expensesTapped
-            }
-            
-            case confirmationDialog(PresentationAction<ConfirmationDialog>)
-            case alert(Alert)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Reduce<State, Action> { state, action in
-                return .none
-            }
         }
     }
 }

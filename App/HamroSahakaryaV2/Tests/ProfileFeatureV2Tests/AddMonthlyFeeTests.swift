@@ -101,28 +101,31 @@ final class AddMonthlyFeeTests: XCTestCase {
         }
     }
     
-    // TODO: Check why this test fails
-//    func test_AddMonthlyFee_ErrorFlow() async {
-//        struct SomeError: Error, Equatable { }
-//        let store = TestStore(initialState: AddMonthlyFee.State(admin: .mock)) {
-//            AddMonthlyFee()
-//        } withDependencies: {
-//            $0.userApiClient.addMonthlyFee = { _, _, _ in throw SomeError() }
-//        }
-//        
-//        await store.send(.set(\.amount, "500")) {
-//            $0.amount = "500"
-//        }
-//        
-//        await store.send(.addMonthlyFeeTapped) {
-//            $0.isLoading = true
-//        }
-//        
-//        await store.receive(\.addMonthlyResponse.failure) {
-//            $0.isLoading = false
-//            $0.destination = .alert(.onError(SomeError()))
-//        }
-//    }
+    func test_AddMonthlyFee_ErrorFlow() async {
+        struct SomeError: Error, Equatable { }
+        let store = TestStore(initialState: AddMonthlyFee.State(admin: .mock)) {
+            AddMonthlyFee()
+        } withDependencies: {
+            $0.userApiClient.addMonthlyFee = { _, _, _ in throw SomeError() }
+        }
+        
+        await store.send(.set(\.amount, "500")) {
+            $0.amount = "500"
+        }
+        
+        await store.send(.set(\.members, [.mock, .mock2])) {
+            $0.members = [.mock, .mock2]
+        }
+        
+        await store.send(.addMonthlyFeeTapped) {
+            $0.isLoading = true
+        }
+        
+        await store.receive(\.addMonthlyResponse.failure) {
+            $0.isLoading = false
+            $0.destination = .alert(.onError(SomeError()))
+        }
+    }
 }
 
 

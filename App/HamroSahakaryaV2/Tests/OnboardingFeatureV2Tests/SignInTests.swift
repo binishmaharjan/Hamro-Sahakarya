@@ -126,7 +126,7 @@ final class SignInTests: XCTestCase {
         await store.receive(\.signInResponse.failure) {
             $0.isLoading = false
             $0.destination = .alert(
-                AlertState<SignIn.Destination.Action.Alert> {
+                AlertState<SignIn.Destination.Alert> {
                     TextState(#localized("Error"))
                 } actions: {
                     ButtonState { TextState(#localized("Ok")) }

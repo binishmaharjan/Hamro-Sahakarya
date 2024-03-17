@@ -15,7 +15,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectType)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.expensesTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.expensesTapped)))) {
             $0.destination = nil
             $0.type = .expenses
         }
@@ -24,7 +24,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectType)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.extraTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.extraTapped)))) {
             $0.destination = nil
             $0.type = .extra
         }

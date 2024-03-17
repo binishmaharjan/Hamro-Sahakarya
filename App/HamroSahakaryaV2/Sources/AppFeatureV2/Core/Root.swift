@@ -6,6 +6,13 @@ import SignedInFeatureV2
 
 @Reducer
 public struct Root {
+    @Reducer(state: .equatable)
+    public enum Destination {
+        case launch(Launch)
+        case signIn(SignIn)
+        case signedIn(SignedIn)
+    }
+
     @ObservableState
     public struct State: Equatable {
         public init() {}
@@ -46,41 +53,6 @@ public struct Root {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination) {
-            Destination()
-        }
-    }
-}
-
-// MARK: Destination
-extension Root {
-    @Reducer
-    public struct Destination {
-        @ObservableState
-        public enum State: Equatable {
-            case launch(Launch.State)
-            case signIn(SignIn.State)
-            case signedIn(SignedIn.State)
-        }
-        
-        public enum Action {
-            case launch(Launch.Action)
-            case signIn(SignIn.Action)
-            case signedIn(SignedIn.Action)
-        }
-        
-        public init() { }
-        
-        public var body: some ReducerOf<Self> {
-            Scope(state: \.launch, action: \.launch) {
-                Launch()
-            }
-            Scope(state: \.signIn, action: \.signIn) {
-                SignIn()
-            }
-            Scope(state: \.signedIn, action: \.signedIn) {
-                SignedIn()
-            }
-        }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
