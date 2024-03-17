@@ -53,7 +53,7 @@ final class AddOrDeductAmountTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectType)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.deductTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.deductTapped)))) {
             $0.destination = nil
             $0.type = .deduct
         }
@@ -62,7 +62,7 @@ final class AddOrDeductAmountTests: XCTestCase {
             $0.destination = .confirmationDialog(.selectType)
         }
         
-        await store.send(.destination(.presented(.confirmationDialog(.presented(.addTapped))))) {
+        await store.send(.destination(.presented(.confirmationDialog(.addTapped)))) {
             $0.destination = nil
             $0.type = .add
         }
