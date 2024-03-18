@@ -19,6 +19,7 @@ public struct Profile {
         case removeMember(RemoveMember)
         case updateNotice(UpdateNotice)
         case license(License)
+        case termsAndCondition(TermsAndCondition)
         
         public enum Alert: Equatable { }
     }
@@ -108,6 +109,7 @@ public struct Profile {
                 return .none
                 
             case .onOtherMenuTapped(.termsAndCondition):
+                state.destination = .termsAndCondition(.init())
                 return .none
                 
             case .onOtherMenuTapped(.license):

@@ -101,6 +101,10 @@ public struct ProfileView: View {
                 destination: { UpdateNoticeView(store: $0).withCustomBackButton() }
             )
             .navigationDestination(
+                item: $store.scope(state: \.destination?.termsAndCondition, action: \.destination.termsAndCondition),
+                destination: { TermsAndConditionView(store: $0).withCustomBackButton() }
+            )
+            .navigationDestination(
                 item: $store.scope(state: \.destination?.license, action: \.destination.license),
                 destination: { LicenseView(store: $0).withCustomBackButton() }
             )

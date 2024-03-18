@@ -27,6 +27,7 @@ let package = Package(
         .library(name: "HomeFeatureV2", targets: ["HomeFeatureV2"]),
         .library(name: "LogsFeatureV2", targets: ["LogsFeatureV2"]),
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
+        .library(name: "PDFViewer", targets: ["PDFViewer"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.9.2"),
@@ -186,10 +187,17 @@ let package = Package(
                 "SharedUIs",
                 "UserSession",
                 "UserApiClient",
+                "PDFViewer",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ],
             plugins: [
                 .plugin(name: "LicensePlugin")
+            ]
+        ),
+        .target(
+            name: "PDFViewer",
+            dependencies: [
+                "SharedUIs"
             ]
         ),
         .macro(
