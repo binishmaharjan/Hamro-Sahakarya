@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import SharedUIs
-import PDFViewer
+import PDFService
 
 public struct TermsAndConditionView: View {
     public init(store: StoreOf<TermsAndCondition>) {
