@@ -8,8 +8,8 @@ import SwiftHelpers
 public struct Profile {
     @Reducer(state: .equatable)
     public enum Destination {
-        case alert(AlertState<Alert>)
         case membersList(MembersList)
+        case changePicture(ChangePicture)
         case changePassword(ChangePassword)
         case extraIncomeAndExpenses(ExtraIncomeAndExpenses)
         case addMonthlyFee(AddMonthlyFee)
@@ -20,9 +20,9 @@ public struct Profile {
         case updateNotice(UpdateNotice)
         case license(License)
         case termsAndCondition(TermsAndCondition)
-        
-        public enum Alert: Equatable { }
     }
+    
+    public enum Alert: Equatable { }
     
     @ObservableState @dynamicMemberLookup
     public struct State: Equatable {
@@ -35,6 +35,7 @@ public struct Profile {
         }
         
         @Presents var destination: Destination.State?
+        @Presents var alert: AlertState<Alert>?
         public var user: User
         public var isLoading: Bool = false
     }
@@ -44,6 +45,7 @@ public struct Profile {
             case signOutSuccessful
         }
         case destination(PresentationAction<Destination.Action>)
+        case alert(PresentationAction<Alert>)
         case delegate(Delegate)
         case binding(BindingAction<State>)
         
@@ -67,6 +69,7 @@ public struct Profile {
                 return .none
 
             case .onMemberMenuTapped(.changePicture):
+                state.destination = .changePicture(.init())
                 return .none
                 
             case .onMemberMenuTapped(.changePassword):
@@ -135,13 +138,14 @@ public struct Profile {
                 
             case .signOutResponse(.failure(let error)):
                 state.isLoading = false
-                state.destination = .alert(.onError(error))
+                state.alert = .onError(error)
                 return .none
                 
-            case .binding, .destination, .delegate:
+            case .binding, .destination, .delegate, .alert:
                 return .none
             }
         }
         .ifLet(\.$destination, action: \.destination)
+        .ifLet(\.$alert, action: \.alert)
     }
 }
