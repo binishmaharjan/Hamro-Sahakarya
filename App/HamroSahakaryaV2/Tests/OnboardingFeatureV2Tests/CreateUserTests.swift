@@ -4,7 +4,7 @@ import SharedModels
 import SharedUIs
 
 @testable import OnboardingFeatureV2
-@testable import ColorPaletteFeatureV2
+@testable import ColorPaletteService
 
 @MainActor
 final class CreateUserTests: XCTestCase {

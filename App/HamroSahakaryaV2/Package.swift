@@ -22,11 +22,11 @@ let package = Package(
         .library(name: "UserApiClient", targets: ["UserApiClient"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
-        .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
         .library(name: "SignedInFeatureV2", targets: ["SignedInFeatureV2"]),
         .library(name: "HomeFeatureV2", targets: ["HomeFeatureV2"]),
         .library(name: "LogsFeatureV2", targets: ["LogsFeatureV2"]),
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
+        .library(name: "ColorPaletteService", targets: ["ColorPaletteService"]),
         .library(name: "PDFService", targets: ["PDFService"]),
     ],
     dependencies: [
@@ -138,7 +138,7 @@ let package = Package(
         .target(
             name: "OnboardingFeatureV2",
             dependencies: [
-                "ColorPaletteFeatureV2",
+                "ColorPaletteService",
                 "SharedModels",
                 "SharedUIs",
                 "UserApiClient",
@@ -147,7 +147,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ColorPaletteFeatureV2",
+            name: "ColorPaletteService",
             dependencies: [
                 "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
