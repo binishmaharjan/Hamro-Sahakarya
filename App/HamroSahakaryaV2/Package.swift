@@ -28,6 +28,7 @@ let package = Package(
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
         .library(name: "ColorPaletteService", targets: ["ColorPaletteService"]),
         .library(name: "PDFService", targets: ["PDFService"]),
+        .library(name: "PhotosService", targets: ["PhotosService"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.9.2"),
@@ -198,6 +199,13 @@ let package = Package(
             name: "PDFService",
             dependencies: [
                 "SharedUIs"
+            ]
+        ),
+        .target(
+            name: "PhotosService",
+            dependencies: [
+                "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .macro(
