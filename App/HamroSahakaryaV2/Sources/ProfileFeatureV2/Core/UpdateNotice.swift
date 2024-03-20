@@ -55,8 +55,8 @@ public struct UpdateNotice {
                         .updateNoticeResponse(
                             Result {
                                 try await userApiClient.updateNotice(
-                                    state.admin,
-                                    state.notice
+                                    by: state.admin,
+                                    message: state.notice
                                 )
                             }
                         )

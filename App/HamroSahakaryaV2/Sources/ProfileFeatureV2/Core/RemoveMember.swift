@@ -101,8 +101,8 @@ public struct RemoveMember {
                         .removeMemberResponse(
                             Result {
                                 try await userApiClient.removeMember(
-                                    admin,
-                                    targetMember
+                                    by: admin,
+                                    user: targetMember
                                 )
                             }
                         )

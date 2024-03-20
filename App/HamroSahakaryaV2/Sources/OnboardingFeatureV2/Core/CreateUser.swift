@@ -95,7 +95,7 @@ public struct CreateUser {
                     await send(
                         .createUserResponse(
                             Result {
-                                return try await userApiClient.createUser(newUser)
+                                return try await userApiClient.createUser(with: newUser)
                             }
                         )
                     )

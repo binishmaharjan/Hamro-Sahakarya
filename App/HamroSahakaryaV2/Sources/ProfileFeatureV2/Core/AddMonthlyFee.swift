@@ -136,7 +136,7 @@ extension AddMonthlyFee {
             for member in members {
                 group.addTask {
                     // Hit multiple apis
-                    try await userApiClient.addMonthlyFee(admin, member, amount)
+                    try await userApiClient.addMonthlyFee(by: admin, user: member, balance: amount)
                 }
             }
             // Wait for all task to complete

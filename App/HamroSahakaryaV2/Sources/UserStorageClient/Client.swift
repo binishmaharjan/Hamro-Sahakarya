@@ -1,8 +1,10 @@
 import Foundation
 import UIKit
 import Dependencies
+import DependenciesMacros
 import SharedModels
 
+@DependencyClient
 public struct UserStorageClient {
     /// Save user profile image to storage
     ///
@@ -10,7 +12,7 @@ public struct UserStorageClient {
     ///   - user: User account to save user profile image
     ///   - image: UIImageData
     /// - Returns: URL in the storage
-    public var saveImage: @Sendable (User, UIImage) async throws -> URL
+    public var saveImage: @Sendable (_ for: User, _ image: UIImage) async throws -> URL
     /// Download terms and condition pdf
     ///
     /// - Parameters: none

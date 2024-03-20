@@ -1,13 +1,15 @@
 import Foundation
 import Dependencies
+import DependenciesMacros
 import SharedModels
 
+@DependencyClient
 public struct UserDataClient {
     /// Fetch User Account Information for the server
     ///
     /// - Parameters uuid: userId of which data to fetch
     /// - Returns: User
-    public var fetch: @Sendable (UserId) async throws -> User
+    public var fetch: @Sendable (_ by: UserId) async throws -> User
     /// Save User Account Information to the server
     ///
     /// - Parameters user: Account Information to save
@@ -24,14 +26,14 @@ public struct UserDataClient {
     ///  - user: Account Information to update
     ///  - imageUrl: Url of the image in the storage
     /// - Returns: Void
-    public var updateImageUrl: @Sendable (User, ImageUrl) async throws -> Void
+    public var updateImageUrl: @Sendable (_ for: User, _ imageUrl: ImageUrl) async throws -> Void
     /// Update the keyword saved in the Account Information
     ///
     /// - Parameters:
     ///  - user: Account Information to update
     ///  - newPassword: New Password set to the url
     /// - Returns: Void
-    public var changePassword: @Sendable (User, Password) async throws -> Void
+    public var changePassword: @Sendable (_ for: User, _ newPassword: Password) async throws -> Void
     /// Fetch the information of the all members
     ///
     /// - Parameters: none
@@ -46,28 +48,28 @@ public struct UserDataClient {
     ///
     /// - Parameters user: Member status whose status needs to be changed
     /// - Returns: Void
-    public var changeStatusForUser: @Sendable (User) async throws -> Void
+    public var changeStatus: @Sendable (_ for: User) async throws -> Void
     /// Add Monthly Fee for single User.
     ///
     /// - Parameters:
     ///  - user: Account Information to update
-    ///  - newPassword: Balance to be added
+    ///  - balance: Balance to be added
     /// - Returns: Void
-    public var addMonthlyFeeFor: @Sendable (User, Balance) async throws -> Void
+    public var addMonthlyFee: @Sendable (_ for: User, _ balance: Balance) async throws -> Void
     /// Loan a member
     ///
     /// - Parameters:
     ///  - user: Account Information to update
-    ///  - newPassword: Loan amount
+    ///  - loan: Loan amount
     /// - Returns: Void
-    public var loanMember: @Sendable (User, Loan) async throws -> Void
+    public var loanGiven: @Sendable (_ to: User, _ loan: Loan) async throws -> Void
     /// Loan returned by a member
     ///
     /// - Parameters:
     ///  - user: Account Information to update
-    ///  - newPassword: Loan amount
+    ///  - loan: Loan amount
     /// - Returns: Void
-    public var loanReturned: @Sendable (User, Loan) async throws -> Void
+    public var loanReturned: @Sendable (_ by: User, _ loan: Loan) async throws -> Void
     /// Update extra and expenses amount of group.
     ///
     /// - Parameters:
@@ -75,14 +77,14 @@ public struct UserDataClient {
     ///  - extra: new extra amount
     ///  - expenses: new expenses amount
     /// - Returns: Void
-    public var updateExtraAndExpenses: @Sendable (GroupDetail, Balance, Balance) async throws -> Void
+    public var updateExtraAndExpenses: @Sendable (_ with: GroupDetail, _ extra: Balance, _ expenses: Balance) async throws -> Void
     /// Update amount for a user
     ///
     /// - Parameters:
     ///  - user: Account Information to update
     ///  - balance: new balance
     /// - Returns: Void
-    public var updateAmountFor: @Sendable (User, Balance) async throws -> Void
+    public var updateAmount: @Sendable (_ for: User, _ balance: Balance) async throws -> Void
     /// Fetch group detail
     ///
     /// - Parameters: none
@@ -99,7 +101,7 @@ public struct UserDataClient {
     ///  - user: Admin who updated the notice
     ///  - message: new notice
     /// - Returns: Void
-    public var updateNotice: @Sendable (User, String) async throws -> Void
+    public var updateNotice: @Sendable (_ by: User, _ message: String) async throws -> Void
 }
 
 // MARK: DependencyValues
@@ -120,12 +122,12 @@ extension UserDataClient: TestDependencyKey {
         changePassword: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
-        changeStatusForUser: unimplemented(),
-        addMonthlyFeeFor: unimplemented(),
-        loanMember: unimplemented(),
+        changeStatus: unimplemented(),
+        addMonthlyFee: unimplemented(),
+        loanGiven: unimplemented(),
         loanReturned: unimplemented(),
         updateExtraAndExpenses: unimplemented(),
-        updateAmountFor: unimplemented(),
+        updateAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),
         fetchNotice: unimplemented(),
         updateNotice: unimplemented()
@@ -139,12 +141,12 @@ extension UserDataClient: TestDependencyKey {
         changePassword: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
-        changeStatusForUser: unimplemented(),
-        addMonthlyFeeFor: unimplemented(),
-        loanMember: unimplemented(),
+        changeStatus: unimplemented(),
+        addMonthlyFee: unimplemented(),
+        loanGiven: unimplemented(),
         loanReturned: unimplemented(),
         updateExtraAndExpenses: unimplemented(),
-        updateAmountFor: unimplemented(),
+        updateAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),
         fetchNotice: unimplemented(),
         updateNotice: unimplemented()

@@ -86,7 +86,7 @@ public struct SignIn {
                     await send(
                         .signInResponse(
                             Result {
-                                return try await userApiClient.signIn(email, password)
+                                return try await userApiClient.signIn(withEmail: email, password: password)
                             }
                         )
                     )

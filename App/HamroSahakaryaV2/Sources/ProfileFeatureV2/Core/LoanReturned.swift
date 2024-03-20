@@ -87,9 +87,9 @@ public struct LoanReturned {
                         .loanReturnedResponse(
                             Result {
                                 try await userApiClient.loanReturned(
-                                    state.admin,
-                                    state.memberSelect.selectedMembers[0],
-                                    state.amount.int
+                                    by: state.admin,
+                                    user: state.memberSelect.selectedMembers[0],
+                                    loan: state.amount.int
                                 )
                             }
                         )
