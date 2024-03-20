@@ -189,6 +189,7 @@ let package = Package(
                 "UserSession",
                 "UserApiClient",
                 "PDFService",
+                "PhotosService",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ],
             plugins: [

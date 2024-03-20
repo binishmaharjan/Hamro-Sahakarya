@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import SharedUIs
+import PhotosService
 
 public struct ChangePictureView: View {
     public init(store: StoreOf<ChangePicture>) {
@@ -18,11 +19,13 @@ public struct ChangePictureView: View {
             .background(Color.red.opacity(0.3))
             .padding(.top, 8)
             
-            VStack {
-                
-            }
+            PhotoPickerView(
+                store: store.scope(
+                    state: \.photoPicker,
+                    action: \.photoPicker
+                )
+            )
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.blue.opacity(0.3))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(#color("background"))
