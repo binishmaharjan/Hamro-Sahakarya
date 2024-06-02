@@ -47,19 +47,44 @@ public enum FetchImageType {
 
 // MARK: Load Image Response
 @dynamicMemberLookup
-public struct LoadPhotoResponse: Equatable {
+public struct PhotosFetchResult: Equatable {
     var assets: PHFetchResult<PHAsset> = .init()
+    private let imageManager: PHCachingImageManager = PHCachingImageManager()
+    private let options = PHImageRequestOptions()
     
     public subscript<T>(dynamicMember keyPath: KeyPath<PHFetchResult<PHAsset>, T>) -> T {
         return assets[keyPath: keyPath]
+    }
+    
+    public func fetchImage(imageType: FetchImageType, index: Int) -> Image? {
+        let asset = assets.object(at: index)
+        
+        var resultImage: Image?
+        let targetSize: CGSize = switch imageType {
+        case .thumbnail: .init(width: 150, height: 150)
+        case .original: .init(width: asset.pixelWidth, height: asset.pixelHeight)
+        }
+        
+        options.isSynchronous = true
+        
+        imageManager.requestImage(
+            for: asset,
+            targetSize: targetSize,
+            contentMode: .aspectFill,
+            options: options) { image, _ in
+                if let image {
+                    resultImage = Image(uiImage: image)
+                }
+            }
+        
+        return resultImage
     }
 }
 
 @DependencyClient
 public struct PhotosClient {
     public var requestAuthorization: @Sendable () async -> AuthorizationStatus = { .notDetermined }
-    public var loadPhotos: @Sendable () async -> LoadPhotoResponse = { .init() }
-    public var fetchImage: @Sendable(FetchImageType, PHAsset) async -> Image?
+    public var loadPhotos: @Sendable () -> PhotosFetchResult  = { .init() }
 }
 
 // MARK: DependencyValues
@@ -73,7 +98,6 @@ extension DependencyValues {
 extension PhotosClient: TestDependencyKey {
     public static var testValue = PhotosClient(
         requestAuthorization: unimplemented(),
-        loadPhotos: unimplemented(),
-        fetchImage: unimplemented()
+        loadPhotos: unimplemented()
     )
 }

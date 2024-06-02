@@ -1,21 +1,28 @@
 import Foundation
+import UIKit
 import ComposableArchitecture
+import Photos
 
 @Reducer
 public struct PhotoPicker {
-    @ObservableState
+    @ObservableState @dynamicMemberLookup
     public struct State: Equatable {
         public init() { }
         
+        public subscript<T>(dynamicMember keyPath: KeyPath<PhotosFetchResult , T>) -> T {
+            return assets[keyPath: keyPath]
+        }
+        
         var authorizationStatus: AuthorizationStatus = .notDetermined
-        var assets: LoadPhotoResponse = LoadPhotoResponse()
+        var assets: PhotosFetchResult = .init()
     }
     
     public enum Action {
         case onAppear
         case saveAuthorizationStatus(AuthorizationStatus)
         case loadPhotos
-        case savePhotoResponse(LoadPhotoResponse)
+        case savePhotoResponse(PhotosFetchResult)
+        case openSettingsButtonTapped
     }
     
     public init() { }
@@ -44,7 +51,11 @@ public struct PhotoPicker {
                 
             case .savePhotoResponse(let assets):
                 state.assets = assets
-                print("assets.count: \(assets.count)")
+                return .none
+                
+            case .openSettingsButtonTapped:
+                guard let url = URL(string: UIApplication.openSettingsURLString) else { return .none }
+                UIApplication.shared.open(url)
                 return .none
             }
         }

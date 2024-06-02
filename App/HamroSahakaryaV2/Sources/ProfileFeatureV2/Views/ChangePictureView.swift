@@ -13,7 +13,7 @@ public struct ChangePictureView: View {
     public var body: some View {
         VStack {
             VStack {
-                
+                Text("is Picture Loaded: \(store.state.photoPicker.count)")
             }
             .frame(width: 300, height: 300)
             .background(Color.red.opacity(0.3))
