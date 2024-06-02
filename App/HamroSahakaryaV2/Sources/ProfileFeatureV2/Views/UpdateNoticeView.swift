@@ -47,7 +47,7 @@ extension UpdateNoticeView {
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
-                Text(#localized("Change Password"))
+                Text(#localized("Update Notice"))
                     .font(.customHeadline)
             }
             .largeButton()
