@@ -17,7 +17,12 @@ public struct PhotoPickerView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 0) {
                         ForEach(0 ..< store.assets.count, id: \.self) { index in
-                            imageItem(for: index)
+                            Button {
+                                store.send(.imageSelected(at: index))
+                            } label: {
+                                imageItem(for: index)
+                                    .selectedBorder(for: store.selectedImageIndex == index)
+                            }
                         }
                     }
                 }

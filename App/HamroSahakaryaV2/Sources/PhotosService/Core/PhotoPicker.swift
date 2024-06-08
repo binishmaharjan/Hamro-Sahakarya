@@ -15,6 +15,7 @@ public struct PhotoPicker {
         
         var authorizationStatus: AuthorizationStatus = .notDetermined
         var assets: PhotosFetchResult = .init()
+        var selectedImageIndex: Int? = nil
     }
     
     public enum Action {
@@ -23,6 +24,7 @@ public struct PhotoPicker {
         case loadPhotos
         case savePhotoResponse(PhotosFetchResult)
         case openSettingsButtonTapped
+        case imageSelected(at: Int)
     }
     
     public init() { }
@@ -45,7 +47,7 @@ public struct PhotoPicker {
                 
             case .loadPhotos:
                 return .run { send in
-                    let assets = await photoClient.loadPhotos()
+                    let assets = photoClient.loadPhotos()
                     await send(.savePhotoResponse(assets))
                 }
                 
@@ -56,6 +58,14 @@ public struct PhotoPicker {
             case .openSettingsButtonTapped:
                 guard let url = URL(string: UIApplication.openSettingsURLString) else { return .none }
                 UIApplication.shared.open(url)
+                return .none
+
+            case .imageSelected(let index):
+                if let selectedImageIndex = state.selectedImageIndex, selectedImageIndex == index {
+                    state.selectedImageIndex = nil
+                } else {
+                    state.selectedImageIndex = index
+                }
                 return .none
             }
         }
