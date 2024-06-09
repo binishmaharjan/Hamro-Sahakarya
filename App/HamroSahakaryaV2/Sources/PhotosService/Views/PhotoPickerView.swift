@@ -69,7 +69,7 @@ extension PhotoPickerView {
     private func imageItem(for index: Int) -> some View {
         VStack {
             if let image = store.assets.fetchImage(imageType: .thumbnail, index: index) {
-                image
+                Image(uiImage: image)
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                 
@@ -81,7 +81,6 @@ extension PhotoPickerView {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .aspectRatio(1, contentMode: .fit)
         .overlay {
             Rectangle().stroke(#color("background"), lineWidth: 1)
         }

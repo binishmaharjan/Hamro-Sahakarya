@@ -13,9 +13,9 @@ public struct PhotoPicker {
             return assets[keyPath: keyPath]
         }
         
-        var authorizationStatus: AuthorizationStatus = .notDetermined
-        var assets: PhotosFetchResult = .init()
-        var selectedImageIndex: Int? = nil
+        public var authorizationStatus: AuthorizationStatus = .notDetermined
+        public var assets: PhotosFetchResult = .init()
+        public var selectedImageIndex: Int? = nil
     }
     
     public enum Action {

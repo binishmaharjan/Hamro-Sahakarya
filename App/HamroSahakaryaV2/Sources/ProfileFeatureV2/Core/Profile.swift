@@ -69,7 +69,7 @@ public struct Profile {
                 return .none
 
             case .onMemberMenuTapped(.changePicture):
-                state.destination = .changePicture(.init())
+                state.destination = .changePicture(.init(user: state.user))
                 return .none
                 
             case .onMemberMenuTapped(.changePassword):
