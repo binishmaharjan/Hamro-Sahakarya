@@ -13,7 +13,7 @@ public struct ChangePictureView: View {
     public var body: some View {
         VStack {
             VStack {
-                Text("is Picture Loaded: \(store.state.photoPicker.count)")
+                imagePreview(for: store.imageData)
             }
             .frame(width: 300, height: 300)
             .background(Color.red.opacity(0.3))
@@ -35,6 +35,15 @@ public struct ChangePictureView: View {
 
 // Views
 extension ChangePictureView {
+    private func imagePreview(for imageData: Data?) -> some View {
+        guard let imageData, let image = Image(from: imageData) else { return AnyView(EmptyView()) }
+        return AnyView(
+            image
+                .resizable()
+                .frame(width: 300, height: 300)
+                .aspectRatio(contentMode: .fill)
+        )
+    }
     private var updateButton: some View {
         Button {
 //            store.send(.updateButtonTapped)

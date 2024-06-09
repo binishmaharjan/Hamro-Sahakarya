@@ -1,7 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import Photos
-import SwiftUI
+import UIKit
 
 // MARK: AuthorizationStatus
 public enum AuthorizationStatus {
@@ -56,10 +56,10 @@ public struct PhotosFetchResult: Equatable {
         return assets[keyPath: keyPath]
     }
     
-    public func fetchImage(imageType: FetchImageType, index: Int) -> Image? {
+    public func fetchImage(imageType: FetchImageType, index: Int) -> UIImage? {
         let asset = assets.object(at: index)
         
-        var resultImage: Image?
+        var resultImage: UIImage?
         let targetSize: CGSize = switch imageType {
         case .thumbnail: .init(width: 150, height: 150)
         case .original: .init(width: asset.pixelWidth, height: asset.pixelHeight)
@@ -72,12 +72,15 @@ public struct PhotosFetchResult: Equatable {
             targetSize: targetSize,
             contentMode: .aspectFill,
             options: options) { image, _ in
-                if let image {
-                    resultImage = Image(uiImage: image)
-                }
+                resultImage = image
             }
         
         return resultImage
+    }
+
+    public func fetchImageData(imageType: FetchImageType, index: Int) -> Data? {
+        let uiImage = fetchImage(imageType: imageType, index: index)
+        return uiImage?.jpegData(compressionQuality: 1)
     }
 }
 

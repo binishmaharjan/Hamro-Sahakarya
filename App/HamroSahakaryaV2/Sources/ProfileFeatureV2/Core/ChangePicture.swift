@@ -9,6 +9,7 @@ public struct ChangePicture {
         public init() { }
         
         var photoPicker: PhotoPicker.State = .init()
+        var imageData: Data?
     }
     
     public enum Action{
@@ -24,6 +25,13 @@ public struct ChangePicture {
         
         Reduce<State, Action> { state, action in
             switch action {
+            case .photoPicker(.delegate(.imageSelected(let imageData))):
+                state.imageData = imageData
+                return .none
+
+            case .photoPicker(.delegate(.imageDeselected)):
+                return .none
+
             case .photoPicker:
                 return .none
             }

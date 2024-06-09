@@ -19,6 +19,12 @@ public struct PhotoPicker {
     }
     
     public enum Action {
+        @CasePathable public enum Delegate: Equatable {
+            case imageSelected(Data?)
+            case imageDeselected
+        }
+
+        case delegate(Delegate)
         case onAppear
         case saveAuthorizationStatus(AuthorizationStatus)
         case loadPhotos
@@ -63,9 +69,18 @@ public struct PhotoPicker {
             case .imageSelected(let index):
                 if let selectedImageIndex = state.selectedImageIndex, selectedImageIndex == index {
                     state.selectedImageIndex = nil
+                    return .run { send in
+                        await send(.delegate(.imageDeselected))
+                    }
                 } else {
                     state.selectedImageIndex = index
+                    return .run { [assets = state.assets] send in
+                        let imageData = assets.fetchImageData(imageType: .original, index: index)
+                        await send(.delegate(.imageSelected(imageData)))
+                    }
                 }
+
+            case .delegate:
                 return .none
             }
         }
