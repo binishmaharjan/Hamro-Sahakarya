@@ -249,6 +249,12 @@ let package = Package(
             dependencies: [
                 "ProfileFeatureV2"
             ]
+        ),
+        .testTarget(
+            name: "PhotosServiceTests",
+            dependencies: [
+                "PhotosService"
+            ]
         )
     ]
 )
