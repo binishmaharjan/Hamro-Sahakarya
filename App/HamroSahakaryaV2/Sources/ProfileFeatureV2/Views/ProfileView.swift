@@ -22,14 +22,16 @@ public struct ProfileView: View {
                         memberMenus
                     }
                     
-                    Section {
-                        adminMenus
-                    } header: {
-                        Text("Admin Menu")
-                            .font(.customSubHeadline2)
-                            .offset(x: -16)
+                    if store.user.status == .admin {
+                        Section {
+                            adminMenus
+                        } header: {
+                            Text("Admin Menu")
+                                .font(.customSubHeadline2)
+                                .offset(x: -16)
+                        }
+                        .textCase(nil)                        
                     }
-                    .textCase(nil)
                     
                     Section {
                         otherMenus
