@@ -16,6 +16,7 @@ public struct Profile {
         case loanMember(LoanMember)
         case loanReturned(LoanReturned)
         case addOrDeductAmount(AddOrDeductAmount)
+        case changeMemberStatus(ChangeMemberStatus)
         case removeMember(RemoveMember)
         case updateNotice(UpdateNotice)
         case license(License)
@@ -101,6 +102,7 @@ public struct Profile {
                 return .none
                 
             case .onAdminMenuTapped(.changeStatus):
+                state.destination = .changeMemberStatus(.init(admin: state.user))
                 return .none
                 
             case .onAdminMenuTapped(.removeMember):

@@ -99,6 +99,10 @@ public struct ProfileView: View {
                     if let store = store.scope(state: \.addOrDeductAmount, action: \.addOrDeductAmount) {
                         AddOrDeductAmountView(store: store).withCustomBackButton()
                     }
+                case .changeMemberStatus:
+                    if let store = store.scope(state: \.changeMemberStatus, action: \.changeMemberStatus) {
+                        ChangeMemberStatusView(store: store).withCustomBackButton()
+                    }
                 case .removeMember:
                     if let store = store.scope(state: \.removeMember, action: \.removeMember) {
                         RemoveMemberView(store: store).withCustomBackButton()
