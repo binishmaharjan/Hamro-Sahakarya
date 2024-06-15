@@ -1,6 +1,6 @@
 import Foundation
 import ComposableArchitecture
-import ColorPaletteFeatureV2
+import ColorPaletteService
 import SharedUIs
 import SwiftHelpers
 

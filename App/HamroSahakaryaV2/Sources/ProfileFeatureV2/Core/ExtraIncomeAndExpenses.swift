@@ -79,10 +79,10 @@ public struct ExtraIncomeAndExpenses {
                         .addExtraOrExpensesResponse(
                             Result {
                                 return try await userApiClient.addExtraAndExpenses(
-                                    state.admin,
-                                    state.type,
-                                    state.amount.int,
-                                    state.reason
+                                    for: state.type,
+                                    admin: state.admin,
+                                    balance: state.amount.int,
+                                    reason: state.reason
                                 )
                             }
                         )

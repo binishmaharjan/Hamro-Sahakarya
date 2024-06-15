@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import SharedModels
 
+@DependencyClient
 public struct UserLogClient {
     /// Fetch all logs
     ///
@@ -12,7 +13,7 @@ public struct UserLogClient {
     ///
     /// - Parameters user: Detail of the member
     /// - Returns: Void
-    public var addJoinedLog: @Sendable (User) async throws -> Void
+    public var addJoinedLog: @Sendable (_ for: User) async throws -> Void
     /// Add monthly fee log
     ///
     /// - Parameters:
@@ -20,7 +21,7 @@ public struct UserLogClient {
     ///   - account: user account information
     ///   - amount: amount to be added as monthly fee
     /// - Returns: Void
-    public var addMonthlyFeeLog: @Sendable (User, User, Balance) async throws -> Void
+    public var addMonthlyFeeLog: @Sendable (_ by: User, _ user: User, _ balance: Balance) async throws -> Void
     /// Add extra or expense  log
     ///
     /// - Parameters:
@@ -29,7 +30,7 @@ public struct UserLogClient {
     ///   - amount: amount amount to be added as extra or expenses
     ///   - reason: Reason for the log
     /// - Returns: Void
-    public var addExtraOrExpensesLog: @Sendable (ExtraOrExpenses, User, Balance, String) async throws -> Void
+    public var addExtraOrExpensesLog: @Sendable (_ for: ExtraOrExpenses, _ admin: User, _ balance: Balance, _ reason: String) async throws -> Void
     /// Add amount added or amount deducted  log
     ///
     /// - Parameters:
@@ -38,7 +39,7 @@ public struct UserLogClient {
     ///   - user: member whose log is being added
     ///   - amount: amount amount to be added or deducted
     /// - Returns: Void
-    public var addAmountOrDeductAmountLog: @Sendable (AddOrDeduct, User, User, Balance) async throws -> Void
+    public var addAmountOrDeductAmountLog: @Sendable (_ for: AddOrDeduct, _ admin: User, _ user: User, _ balance: Balance) async throws -> Void
     /// Add loan given log
     ///
     /// - Parameters:
@@ -46,7 +47,7 @@ public struct UserLogClient {
     ///   - user: member whose log is being added
     ///   - loan: loan given to the member
     /// - Returns: Void
-    public var addLoanMemberLog: @Sendable (User, User, Loan) async throws -> Void
+    public var addLoanMemberLog: @Sendable (_ by: User, _ user: User, _ loan: Loan) async throws -> Void
     /// Add loan returned log
     ///
     /// - Parameters:
@@ -54,14 +55,14 @@ public struct UserLogClient {
     ///   - user: member whose log is being added
     ///   - loan: loan returned to the member
     /// - Returns: Void
-    public var addLoanReturnedLog: @Sendable (User, User, Loan) async throws -> Void
+    public var addLoanReturnedLog: @Sendable (_ by: User, _ user: User, _ loan: Loan) async throws -> Void
     /// Add remove member log
     ///
     /// - Parameters:
     ///   - admin: Admin who registered log.
     ///   - user: member whose log is being added
     /// - Returns: Void
-    public var addRemoveMemberLog: @Sendable (User, User) async throws -> Void
+    public var addRemoveMemberLog: @Sendable (_ by: User, _ user: User) async throws -> Void
 }
 
 // MARK: DependencyValues

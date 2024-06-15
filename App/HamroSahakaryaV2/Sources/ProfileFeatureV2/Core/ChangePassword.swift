@@ -76,7 +76,10 @@ public struct ChangePassword {
                     await send(
                         .changePasswordResponse(
                             Result {
-                                return try await userApiClient.changePassword(user, password)
+                                return try await userApiClient.changePassword(
+                                    for: user,
+                                    newPassword: password
+                                )
                             }
                         )
                     )

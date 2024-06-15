@@ -1,20 +1,19 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
-import UserApiClient
 import SharedUIs
 
 @Reducer
-public struct RemoveMember {
+public struct ChangeMemberStatus {
     @Reducer(state: .equatable)
     public enum Destination {
         case alert(AlertState<Alert>)
         
         public enum Alert: Equatable {
-            case removeConfirmationTapped
+            case changeConfimationTapped
         }
     }
-    
+
     @ObservableState
     public struct State: Equatable {
         public init(admin: User) {
@@ -23,10 +22,10 @@ public struct RemoveMember {
         
         @Presents var destination: Destination.State?
         var admin: User
+        var isLoading: Bool = false
         var members: [User] = []
         var memberSelect: MemberSelect.State = MemberSelect.State(members: [], mode: .membersOnly)
-        var isLoading: Bool = false
-        var isRemovingMember: Bool = false
+        var isStatusChanged: Bool = false
         var isValidInput: Bool {
             return !memberSelect.selectedMembers.isEmpty
         }
@@ -39,8 +38,8 @@ public struct RemoveMember {
         
         case onAppear
         case membersListResponse(Result<[User], Error>)
-        case removeMemberTapped
-        case removeMemberResponse(Result<Void, Error>)
+        case changeMemberStatusTapped
+        case changeMemberStatusResponse(Result<Void, Error>)
     }
     
     public init() { }
@@ -56,7 +55,7 @@ public struct RemoveMember {
         
         Reduce<State, Action> { state, action in
             switch action {
-            case.onAppear:
+            case .onAppear:
                 guard state.members.isEmpty else { return .none }
                 state.isLoading = true
                 return .run { send in
@@ -73,11 +72,11 @@ public struct RemoveMember {
                 state.isLoading = false
                 state.members = members
                 state.memberSelect = MemberSelect.State(members: members, mode: .membersOnly)
-
-                // if flag is true, then show member removed  alert
-                if state.isRemovingMember {
-                    state.isRemovingMember = false
-                    state.destination = .alert(.onMemberRemoved())
+                
+                // if flag is true, then show member status chnaged  alert
+                if state.isStatusChanged {
+                    state.isStatusChanged = false
+                    state.destination = .alert(.onUpdateSuccessful())
                 }
                 
                 return .none
@@ -87,35 +86,34 @@ public struct RemoveMember {
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .removeMemberTapped:
+            case .changeMemberStatusTapped:
                 guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
-                if state.memberSelect.selectedMembers[0].id == state.admin.id {
+                
+                let selectedMember = state.memberSelect.selectedMembers[0]
+                if selectedMember.id == state.admin.id {
                     state.destination = .alert(.actionProhibited())
                 } else {
-                    state.destination = .alert(.removeMemberConfirmation())
+                    state.destination = .alert(.changeMemberStatusConfirmation(currentStatus: selectedMember.status))
                 }
                 return .none
-                
-            case .destination(.presented(.alert(.removeConfirmationTapped))):
+
+            case .destination(.presented(.alert(.changeConfimationTapped))):
                 guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
                 let targetMember = state.memberSelect.selectedMembers[0]
                 state.isLoading = true
-                return .run { [admin = state.admin] send in
+                return .run { send in
                     await send(
-                        .removeMemberResponse(
+                        .changeMemberStatusResponse(
                             Result {
-                                try await userApiClient.removeMember(
-                                    by: admin,
-                                    user: targetMember
-                                )
+                                try await userApiClient.changeStatus(for: targetMember)
                             }
                         )
                     )
                 }
                 
-            case .removeMemberResponse(.success):
+            case .changeMemberStatusResponse(.success):
                 // Creating flag to show alert after refetching member
-                state.isRemovingMember = true
+                state.isStatusChanged = true
                 return .run { send in
                     await send(
                         .membersListResponse(
@@ -126,12 +124,12 @@ public struct RemoveMember {
                     )
                 }
                 
-            case .removeMemberResponse(.failure(let error)):
+            case .changeMemberStatusResponse(.failure(let error)):
                 state.isLoading = false
                 state.destination = .alert(.onError(error))
                 return .none
                 
-            case .destination, .memberSelect, .binding:
+            case .binding, .destination, .memberSelect:
                 return .none
             }
         }
@@ -140,29 +138,29 @@ public struct RemoveMember {
 }
 
 // MARK: AlertState
-extension AlertState where Action == RemoveMember.Destination.Alert {
-    static func removeMemberConfirmation() -> AlertState {
+extension AlertState where Action == ChangeMemberStatus.Destination.Alert {
+    static func changeMemberStatusConfirmation(currentStatus: Status) -> AlertState {
         AlertState {
             TextState(#localized("Remove Confirmation"))
         } actions: {
             ButtonState(role: .cancel) {
                 TextState(#localized("Cancel"))
             }
-            ButtonState(action: .removeConfirmationTapped) {
-                TextState(#localized("Yes, Remove Member"))
+            ButtonState(action: .changeConfimationTapped) {
+                TextState("Yes, Change")
             }
         } message: {
-            TextState(#localized("Are you sure you want to remove this member? This action is irreversible and member data will be completed removed."))
+            TextState(currentStatus.confirmationAlertText)
         }
     }
+}
 
-    public static func onMemberRemoved() -> AlertState {
-        AlertState {
-            TextState(#localized("Success"))
-        } actions: {
-            ButtonState { TextState(#localized("Ok")) }
-        } message: {
-            TextState(#localized("The member has been removed successfully"))
+// MARK: Alert + Status
+extension Status {
+    var confirmationAlertText: String {
+        switch self {
+        case .member: return "Are you sure you want to promote this member to Status: Admin ?"
+        case .admin: return "Are you sure you want to demote this member to Status: Member ?"
         }
     }
 }

@@ -83,7 +83,7 @@ final class LoanReturnedTests: XCTestCase {
         let store = TestStore(initialState: LoanReturned.State(admin: .mock)) {
             LoanReturned()
         } withDependencies: {
-            $0.userApiClient.loanReturned = { _, _, _ in Void() }
+            $0.userApiClient.loanReturned = { @Sendable _, _, _ in Void() }
         }
         
         await store.send(.set(\.amount, "500")) {

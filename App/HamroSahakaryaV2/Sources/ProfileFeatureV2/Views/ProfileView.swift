@@ -22,14 +22,16 @@ public struct ProfileView: View {
                         memberMenus
                     }
                     
-                    Section {
-                        adminMenus
-                    } header: {
-                        Text("Admin Menu")
-                            .font(.customSubHeadline2)
-                            .offset(x: -16)
+                    if store.user.status == .admin {
+                        Section {
+                            adminMenus
+                        } header: {
+                            Text("Admin Menu")
+                                .font(.customSubHeadline2)
+                                .offset(x: -16)
+                        }
+                        .textCase(nil)                        
                     }
-                    .textCase(nil)
                     
                     Section {
                         otherMenus
@@ -55,24 +57,6 @@ public struct ProfileView: View {
                 .padding(.top, -16)
                 .tint(#color("large_button"))
                 .font(.customSubHeadline)
-                // TODO: When we use 10 navigationDestination, it shows error. WHY?
-                .navigationDestination(
-                    item: $store.scope(state: \.destination?.membersList, action: \.destination.membersList),
-                    destination: { MembersListView(store: $0).withCustomBackButton() }
-                )
-                .navigationDestination(
-                    item: $store.scope(state: \.destination?.changePassword, action: \.destination.changePassword),
-                    destination: { ChangePasswordView(store: $0).withCustomBackButton() }
-                )
-                .navigationDestination(
-                    item: $store.scope(state: \.destination?.extraIncomeAndExpenses, action: \.destination.extraIncomeAndExpenses),
-                    destination: { ExtraIncomeAndExpensesView(store: $0).withCustomBackButton() }
-                )
-                .navigationDestination(
-                    item: $store.scope(state: \.destination?.addMonthlyFee, action: \.destination.addMonthlyFee),
-                    destination: { AddMonthlyFeeView(store: $0).withCustomBackButton() }
-                )
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .customNavigationBar(#localized("Profile"))
@@ -80,30 +64,65 @@ public struct ProfileView: View {
             .onAppear {
                 store.send(.onAppear)
             }
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.loanMember, action: \.destination.loanMember),
-                destination: { LoanMemberView(store: $0).withCustomBackButton() }
+            .alert(
+                $store.scope(state: \.alert, action: \.alert)
             )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.loanReturned, action: \.destination.loanReturned),
-                destination: { LoanReturnedView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.addOrDeductAmount, action: \.destination.addOrDeductAmount),
-                destination: { AddOrDeductAmountView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.removeMember, action: \.destination.removeMember),
-                destination: { RemoveMemberView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.updateNotice, action: \.destination.updateNotice),
-                destination: { UpdateNoticeView(store: $0).withCustomBackButton() }
-            )
-            .navigationDestination(
-                item: $store.scope(state: \.destination?.license, action: \.destination.license),
-                destination: { LicenseView(store: $0).withCustomBackButton() }
-            )
+            .navigationDestination(item: $store.scope(state: \.destination, action: \.destination)) { store in
+                switch store.state {
+                case .membersList:
+                    if let store = store.scope(state: \.membersList, action: \.membersList) {
+                        MembersListView(store: store).withCustomBackButton()
+                    }
+                case .changePicture:
+                    if let store = store.scope(state: \.changePicture, action: \.changePicture) {
+                        ChangePictureView(store: store).withCustomBackButton()
+                    }
+                case .changePassword:
+                    if let store = store.scope(state: \.changePassword, action: \.changePassword) {
+                        ChangePasswordView(store: store).withCustomBackButton()
+                    }
+                case .extraIncomeAndExpenses:
+                    if let store = store.scope(state: \.extraIncomeAndExpenses, action: \.extraIncomeAndExpenses) {
+                        ExtraIncomeAndExpensesView(store: store).withCustomBackButton()
+                    }
+                case .addMonthlyFee:
+                    if let store = store.scope(state: \.addMonthlyFee, action: \.addMonthlyFee) {
+                        AddMonthlyFeeView(store: store).withCustomBackButton()
+                    }
+                case .loanMember:
+                    if let store = store.scope(state: \.loanMember, action: \.loanMember) {
+                        LoanMemberView(store: store).withCustomBackButton()
+                    }
+                case .loanReturned:
+                    if let store = store.scope(state: \.loanReturned, action: \.loanReturned) {
+                        LoanReturnedView(store: store).withCustomBackButton()
+                    }
+                case .addOrDeductAmount:
+                    if let store = store.scope(state: \.addOrDeductAmount, action: \.addOrDeductAmount) {
+                        AddOrDeductAmountView(store: store).withCustomBackButton()
+                    }
+                case .changeMemberStatus:
+                    if let store = store.scope(state: \.changeMemberStatus, action: \.changeMemberStatus) {
+                        ChangeMemberStatusView(store: store).withCustomBackButton()
+                    }
+                case .removeMember:
+                    if let store = store.scope(state: \.removeMember, action: \.removeMember) {
+                        RemoveMemberView(store: store).withCustomBackButton()
+                    }
+                case .updateNotice:
+                    if let store = store.scope(state: \.updateNotice, action: \.updateNotice) {
+                        UpdateNoticeView(store: store).withCustomBackButton()
+                    }
+                case .termsAndCondition:
+                    if let store = store.scope(state: \.termsAndCondition, action: \.termsAndCondition) {
+                        TermsAndConditionView(store: store).withCustomBackButton()
+                    }
+                case .license:
+                    if let store = store.scope(state: \.license, action: \.license) {
+                        LicenseView(store: store).withCustomBackButton()
+                    }
+                }
+            }
         }
     }
 }

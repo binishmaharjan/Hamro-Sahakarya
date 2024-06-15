@@ -66,9 +66,22 @@ extension User {
 // MARK: Mock Data
 extension User {
     public static let mock = User(
-        id: "0",
+        id: "1",
         username: "username",
         email: "email@gmail.com",
+        status: .member,
+        colorHex: "#FFFFFF",
+        dateCreated: "2024-01-01 22:00:00.000",
+        keyword: "keyword",
+        loanTaken: 0,
+        balance: 0,
+        dateUpdated: "2024-01-01 22:00:00.000"
+    )
+
+    public static let mock2 = User(
+        id: "2",
+        username: "username2",
+        email: "email2@gmail.com",
         status: .member,
         colorHex: "#FFFFFF",
         dateCreated: "2024-01-01 22:00:00.000",

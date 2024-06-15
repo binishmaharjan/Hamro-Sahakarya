@@ -57,7 +57,7 @@ public struct ForgotPassword {
                     await send(
                         .sendPasswordResetResponse(
                             Result {
-                                return try await userApiClient.sendPasswordReset(email)
+                                return try await userApiClient.sendPasswordReset(withEmail: email)
                             }
                         )
                     )

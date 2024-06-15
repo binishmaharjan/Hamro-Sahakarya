@@ -1,8 +1,10 @@
 import Foundation
 import Dependencies
+import DependenciesMacros
 import SharedModels
 import UIKit
 
+@DependencyClient
 public struct UserApiClient {
     /// SignIn the user.
     ///
@@ -10,17 +12,17 @@ public struct UserApiClient {
     ///   - email: Email Id of user
     ///   - password: Password for the user account
     /// - Returns: User
-    public var signIn: @Sendable (Email, Password) async throws -> User
+    public var signIn: @Sendable (_ withEmail: Email, _ password: Password) async throws -> User
     /// Create new account for the user and add log to the server. Only Admin can create new accounts
     ///
     /// - Parameter newUser: User info for the new account
     /// - Returns: User
-    public var createUser: @Sendable (NewUser) async throws -> User
+    public var createUser: @Sendable (_ with: NewUser) async throws -> User
     /// Forgot Password
     ///
     /// - Parameter email: Email to send password reset mail.
     /// - Returns: Void
-    public var sendPasswordReset: @Sendable (Email) async throws -> Void
+    public var sendPasswordReset: @Sendable (_ withEmail: Email) async throws -> Void
     /// SignOut User
     ///
     /// - Parameter none
@@ -32,7 +34,7 @@ public struct UserApiClient {
     ///   - admin: admin who is taking the action
     ///   - user: user Information to delete
     /// - Returns: Void
-    public var removeMember: @Sendable (User, User) async throws -> Void
+    public var removeMember: @Sendable (_ by: User, _ user: User) async throws -> Void
     /// Fetch all logs
     ///
     /// - Parameters: none
@@ -45,7 +47,7 @@ public struct UserApiClient {
     ///   - user: user account information
     ///   - balance: balance to be added
     /// - Returns: Void
-    public var addMonthlyFee: @Sendable (User, User, Balance) async throws -> Void
+    public var addMonthlyFee: @Sendable (_ by: User, _ user: User, _ balance: Balance) async throws -> Void
     /// Add extra or expense  log
     ///
     /// - Parameters:
@@ -54,7 +56,7 @@ public struct UserApiClient {
     ///   - balance: balance amount to be added
     ///   - reason: Reason for the log
     /// - Returns: Void
-    public var addExtraAndExpenses: @Sendable (User, ExtraOrExpenses, Balance, String) async throws -> Void
+    public var addExtraAndExpenses: @Sendable (_ for: ExtraOrExpenses, _ admin: User, _ balance: Balance, _ reason: String) async throws -> Void
     /// Add amount added or amount deducted  log
     ///
     /// - Parameters:
@@ -63,7 +65,7 @@ public struct UserApiClient {
     ///   - user: member whose log is being added
     ///   - balance: balance amount to be added
     /// - Returns: Void
-    public var addOrDeductAmount: @Sendable (User, User, AddOrDeduct, Balance) async throws -> Void
+    public var addOrDeductAmount: @Sendable (_ for: AddOrDeduct, _ admin: User, _ user: User, _ balance: Balance) async throws -> Void
     /// Fetch group detail
     ///
     /// - Parameters: none
@@ -76,7 +78,7 @@ public struct UserApiClient {
     ///  - user: Account Information to update
     ///  - amount: Loan amount
     /// - Returns: Void
-    public var loanMember: @Sendable (User, User, Loan) async throws -> Void
+    public var loanGiven: @Sendable (_ by: User, _ user: User, _ loan: Loan) async throws -> Void
     /// Loan returned by a member and save log to the server
     ///
     /// - Parameters:
@@ -84,26 +86,26 @@ public struct UserApiClient {
     ///  - user: Account Information to update
     ///  - newPassword: Loan amount
     /// - Returns: Void
-    public var loanReturned: @Sendable (User, User, Loan) async throws -> Void
+    public var loanReturned: @Sendable (_ by: User, _ user: User, _ loan: Loan) async throws -> Void
     /// Change profile image and save it to the server
     ///
     /// - Parameters:
     ///   - user: User account to save user profile image
     ///   - image: UIImageData
     /// - Returns: URL in the storage
-    public var changeProfileImage: @Sendable (User, UIImage) async throws -> Void
+    public var changeProfileImage: @Sendable (_ for: User, _ image: UIImage) async throws -> Void
     /// Update the keyword saved in the Account Information
     ///
     /// - Parameters:
     ///  - user: Account Information to update
     ///  - newPassword: New Password set to the url
     /// - Returns: Void
-    public var changePassword: @Sendable (User, Password) async throws -> Void
+    public var changePassword: @Sendable (_ for: User, _ newPassword: Password) async throws -> Void
     /// Change User Status for the member
     ///
     /// - Parameters user: Member status whose status needs to be changed
     /// - Returns: Void
-    public var changeStatusForUser: @Sendable (User) async throws -> Void
+    public var changeStatus: @Sendable (_ for: User) async throws -> Void
     /// Fetch the information of the all members
     ///
     /// - Parameters: none
@@ -125,7 +127,7 @@ public struct UserApiClient {
     ///  - admin: Admin who updated the notice
     ///  - message: new notice
     /// - Returns: Void
-    public var updateNotice: @Sendable (User, String) async throws -> Void
+    public var updateNotice: @Sendable (_ by: User, _ message: String) async throws -> Void
     /// Download terms and condition pdf
     ///
     /// - Parameters: none
@@ -153,11 +155,11 @@ extension UserApiClient: TestDependencyKey {
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),
-        loanMember: unimplemented(),
+        loanGiven: unimplemented(),
         loanReturned: unimplemented(),
         changeProfileImage: unimplemented(),
         changePassword: unimplemented(),
-        changeStatusForUser: unimplemented(),
+        changeStatus: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
         fetchNotice: unimplemented(),
@@ -176,11 +178,11 @@ extension UserApiClient: TestDependencyKey {
         addExtraAndExpenses: unimplemented(),
         addOrDeductAmount: unimplemented(),
         fetchGroupDetail: unimplemented(),
-        loanMember: unimplemented(),
+        loanGiven: unimplemented(),
         loanReturned: unimplemented(),
         changeProfileImage: unimplemented(),
         changePassword: unimplemented(),
-        changeStatusForUser: unimplemented(),
+        changeStatus: unimplemented(),
         fetchAllMembers: unimplemented(),
         fetchAllMembersWithLoan: unimplemented(),
         fetchNotice: unimplemented(),

@@ -22,7 +22,7 @@ final class UpdateNoticeTests: XCTestCase {
         let store = TestStore(initialState: UpdateNotice.State(admin: .mock)) {
             UpdateNotice()
         } withDependencies: {
-            $0.userApiClient.updateNotice = { _, _ in Void() }
+            $0.userApiClient.updateNotice = { @Sendable _, _ in Void() }
         }
         
         await store.send(.set(\.notice, "Tests")) {
@@ -45,7 +45,7 @@ final class UpdateNoticeTests: XCTestCase {
         let store = TestStore(initialState: UpdateNotice.State(admin: .mock)) {
             UpdateNotice()
         } withDependencies: {
-            $0.userApiClient.updateNotice = { _, _ in throw SomeError() }
+            $0.userApiClient.updateNotice = { @Sendable _, _ in throw SomeError() }
         }
         
         await store.send(.set(\.notice, "Tests")) {

@@ -105,10 +105,10 @@ public struct AddOrDeductAmount {
                         .addOrDeductAmountResponse(
                             Result {
                                 try await userApiClient.addOrDeductAmount(
-                                    state.admin,
-                                    state.memberSelect.selectedMembers[0],
-                                    state.type,
-                                    state.amount.int
+                                    for: state.type,
+                                    admin: state.admin,
+                                    user: state.memberSelect.selectedMembers[0],
+                                    balance: state.amount.int
                                 )
                             }
                         )

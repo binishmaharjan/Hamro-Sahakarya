@@ -83,7 +83,7 @@ final class AddMonthlyFeeTests: XCTestCase {
         let store = TestStore(initialState: AddMonthlyFee.State(admin: .mock)) {
             AddMonthlyFee()
         } withDependencies: {
-            $0.userApiClient.addMonthlyFee = { _, _, _ in Void() }
+            $0.userApiClient.addMonthlyFee = { @Sendable _, _, _ in Void() }
         }
         
         await store.send(.set(\.amount, "500")) {
@@ -106,7 +106,7 @@ final class AddMonthlyFeeTests: XCTestCase {
         let store = TestStore(initialState: AddMonthlyFee.State(admin: .mock)) {
             AddMonthlyFee()
         } withDependencies: {
-            $0.userApiClient.addMonthlyFee = { _, _, _ in throw SomeError() }
+            $0.userApiClient.addMonthlyFee = { @Sendable _, _, _ in throw SomeError() }
         }
         
         await store.send(.set(\.amount, "500")) {

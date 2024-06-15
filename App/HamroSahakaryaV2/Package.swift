@@ -22,11 +22,13 @@ let package = Package(
         .library(name: "UserApiClient", targets: ["UserApiClient"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
-        .library(name: "ColorPaletteFeatureV2", targets: ["ColorPaletteFeatureV2"]),
         .library(name: "SignedInFeatureV2", targets: ["SignedInFeatureV2"]),
         .library(name: "HomeFeatureV2", targets: ["HomeFeatureV2"]),
         .library(name: "LogsFeatureV2", targets: ["LogsFeatureV2"]),
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
+        .library(name: "ColorPaletteService", targets: ["ColorPaletteService"]),
+        .library(name: "PDFService", targets: ["PDFService"]),
+        .library(name: "PhotosService", targets: ["PhotosService"]),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.9.2"),
@@ -137,7 +139,7 @@ let package = Package(
         .target(
             name: "OnboardingFeatureV2",
             dependencies: [
-                "ColorPaletteFeatureV2",
+                "ColorPaletteService",
                 "SharedModels",
                 "SharedUIs",
                 "UserApiClient",
@@ -146,7 +148,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ColorPaletteFeatureV2",
+            name: "ColorPaletteService",
             dependencies: [
                 "SharedUIs",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
@@ -186,10 +188,25 @@ let package = Package(
                 "SharedUIs",
                 "UserSession",
                 "UserApiClient",
+                "PDFService",
+                "PhotosService",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ],
             plugins: [
                 .plugin(name: "LicensePlugin")
+            ]
+        ),
+        .target(
+            name: "PDFService",
+            dependencies: [
+                "SharedUIs"
+            ]
+        ),
+        .target(
+            name: "PhotosService",
+            dependencies: [
+                "SharedUIs",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .macro(
@@ -231,6 +248,12 @@ let package = Package(
             name: "ProfileFeatureV2Tests",
             dependencies: [
                 "ProfileFeatureV2"
+            ]
+        ),
+        .testTarget(
+            name: "PhotosServiceTests",
+            dependencies: [
+                "PhotosService"
             ]
         )
     ]

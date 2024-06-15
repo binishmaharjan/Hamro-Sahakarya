@@ -21,12 +21,12 @@ extension UserDataClient {
             changePassword: { try await session.changePassword(user: $0, password: $1) },
             fetchAllMembers: { try await session.fetchAllMembers() },
             fetchAllMembersWithLoan: { try await session.fetchAllMemberWithLoan() },
-            changeStatusForUser: { try await session.changeStatusForUser(user: $0) },
-            addMonthlyFeeFor: { try await session.addMonthlyFeeFor(user: $0, balance: $1) },
-            loanMember: { try await session.loanMember(user: $0, loan: $1) },
+            changeStatus: { try await session.changeStatusForUser(user: $0) },
+            addMonthlyFee: { try await session.addMonthlyFeeFor(user: $0, balance: $1) },
+            loanGiven: { try await session.loanGiven(user: $0, loan: $1) },
             loanReturned: { try await session.loanReturned(user: $0, loan: $1) },
             updateExtraAndExpenses: { try await session.updateExtraAndExpenses(groupDetail: $0, extra: $1, expenses: $2) },
-            updateAmountFor: { try await session.updateAmountFor(user: $0, balance: $1) },
+            updateAmount: { try await session.updateAmountFor(user: $0, balance: $1) },
             fetchGroupDetail: { try await session.fetchGroupDetail() },
             fetchNotice: { try await session.fetchNotice() },
             updateNotice: { try await session.updateNotice(user: $0, message: $1) }
@@ -107,7 +107,7 @@ extension UserDataClient {
             try await reference.updateData(updateData)
         }
         
-        func loanMember(user: User, loan: Loan) async throws -> Void {
+        func loanGiven(user: User, loan: Loan) async throws -> Void {
             let reference = Firestore.firestore().collection("members").document(user.id)
             let updateData = ["loan_taken": user.loanTaken + loan]
             

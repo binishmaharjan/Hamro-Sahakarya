@@ -1,13 +1,14 @@
 import ComposableArchitecture
+import SharedModels
 import XCTest
 
 @testable import ProfileFeatureV2
 
 @MainActor
-final class RemoveMemberTests: XCTestCase {
+final class ChangeMemberStatusTests: XCTestCase {
     func test_FetchMemberList_OnFirstAppear() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         } withDependencies: {
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
@@ -24,8 +25,8 @@ final class RemoveMemberTests: XCTestCase {
     }
     
     func test_FetchNoMemberList_OnSecondAppear() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         } withDependencies: {
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
@@ -42,10 +43,10 @@ final class RemoveMemberTests: XCTestCase {
         
         await store.send(.onAppear)
     }
-    
+ 
     func test_FetchMemberList_SuccessFlow() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         } withDependencies: {
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
@@ -60,11 +61,11 @@ final class RemoveMemberTests: XCTestCase {
             $0.memberSelect = .init(members: [.mock], mode: .membersOnly)
         }
     }
-    
+
     func test_FetchMemberList_ErrorFlow() async {
         struct SomeError: Error, Equatable { }
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         } withDependencies: {
             $0.userApiClient.fetchAllMembers = { throw SomeError() }
         }
@@ -78,10 +79,10 @@ final class RemoveMemberTests: XCTestCase {
             $0.destination = .alert(.onError(SomeError()))
         }
     }
-    
+
     func test_IsValidInput() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         }
         
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {
@@ -90,17 +91,17 @@ final class RemoveMemberTests: XCTestCase {
         
         XCTAssertTrue(store.state.isValidInput)
     }
-    
-    func test_RemoveMember_ShowActionProhibitedAlert() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock)) {
-            RemoveMember()
+
+    func test_ChangeMemberStatus_ShowActionProhibitedAlert() async {
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock)) {
+            ChangeMemberStatus()
         }
         
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {
             $0.memberSelect.selectedMembers = [.mock]
         }
         
-        await store.send(.removeMemberTapped) {
+        await store.send(.changeMemberStatusTapped) {
             $0.destination = .alert(.actionProhibited())
         }
         
@@ -108,18 +109,18 @@ final class RemoveMemberTests: XCTestCase {
             $0.destination = nil
         }
     }
-    
-    func test_RemoveMember_CancelFlow() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock2)) {
-            RemoveMember()
+
+    func test_ChangeMemberStatus_CancelFlow() async {
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock2)) {
+            ChangeMemberStatus()
         }
-        
+
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {
             $0.memberSelect.selectedMembers = [.mock]
         }
         
-        await store.send(.removeMemberTapped) {
-            $0.destination = .alert(.removeMemberConfirmation())
+        await store.send(.changeMemberStatusTapped) {
+            $0.destination = .alert(.changeMemberStatusConfirmation(currentStatus: User.mock.status))
         }
         
         await store.send(.destination(.dismiss)) {
@@ -127,11 +128,11 @@ final class RemoveMemberTests: XCTestCase {
         }
     }
     
-    func test_RemoveMember_SuccessFlow() async {
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock2)) {
-            RemoveMember()
+    func test_ChangeMemberStatus_SuccessFlow() async {
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock2)) {
+            ChangeMemberStatus()
         } withDependencies: {
-            $0.userApiClient.removeMember = { @Sendable _, _ in Void() }
+            $0.userApiClient.changeStatus = { @Sendable _ in Void() }
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
         
@@ -139,50 +140,50 @@ final class RemoveMemberTests: XCTestCase {
             $0.memberSelect.selectedMembers = [.mock]
         }
         
-        await store.send(.removeMemberTapped) {
-            $0.destination = .alert(.removeMemberConfirmation())
+        await store.send(.changeMemberStatusTapped) {
+            $0.destination = .alert(.changeMemberStatusConfirmation(currentStatus: User.mock.status))
         }
         
-        await store.send(.destination(.presented(.alert(.removeConfirmationTapped)))) {
+        await store.send(.destination(.presented(.alert(.changeConfimationTapped)))) {
             $0.destination = nil
             $0.isLoading = true
         }
         
-        await store.receive(\.removeMemberResponse.success) {
-            $0.isRemovingMember = true
+        await store.receive(\.changeMemberStatusResponse.success) {
+            $0.isStatusChanged = true
         }
         
         await store.receive(\.membersListResponse.success) {
             $0.members = [.mock]
             $0.memberSelect = .init(members: [.mock], mode: .membersOnly)
             $0.isLoading = false
-            $0.isRemovingMember = false
-            $0.destination = .alert(.onMemberRemoved())
+            $0.isStatusChanged = false
+            $0.destination = .alert(.onUpdateSuccessful())
         }
     }
     
-    func test_RemoveMember_ErrorFlow() async {
+    func test_ChangeMemberStatus_ErrorFlow() async {
         struct SomeError: Error, Equatable { }
-        let store = TestStore(initialState: RemoveMember.State(admin: .mock2)) {
-            RemoveMember()
+        let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock2)) {
+            ChangeMemberStatus()
         } withDependencies: {
-            $0.userApiClient.removeMember = { @Sendable _, _ in throw SomeError() }
+            $0.userApiClient.changeStatus = { @Sendable _ in throw SomeError() }
         }
         
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {
             $0.memberSelect.selectedMembers = [.mock]
         }
         
-        await store.send(.removeMemberTapped) {
-            $0.destination = .alert(.removeMemberConfirmation())
+        await store.send(.changeMemberStatusTapped) {
+            $0.destination = .alert(.changeMemberStatusConfirmation(currentStatus: User.mock.status))
         }
         
-        await store.send(.destination(.presented(.alert(.removeConfirmationTapped)))) {
+        await store.send(.destination(.presented(.alert(.changeConfimationTapped)))) {
             $0.destination = nil
             $0.isLoading = true
         }
         
-        await store.receive(\.removeMemberResponse.failure) {
+        await store.receive(\.changeMemberStatusResponse.failure) {
             $0.destination = .alert(.onError(SomeError()))
             $0.isLoading = false
         }

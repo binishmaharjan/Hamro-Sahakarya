@@ -100,6 +100,9 @@
         }
       }
     },
+    "Action Prohibited" : {
+
+    },
     "Add Monthly Fee" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -847,6 +850,9 @@
       }
     },
     "Success" : {
+
+    },
+    "This action is prohibited. You cannot remove yourself or change your own status." : {
 
     },
     "Type" : {

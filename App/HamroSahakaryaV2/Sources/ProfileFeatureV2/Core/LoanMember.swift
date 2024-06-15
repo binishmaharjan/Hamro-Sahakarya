@@ -87,10 +87,10 @@ public struct LoanMember {
                     await send(
                         .loanMemberResponse(
                             Result {
-                                try await userApiClient.loanMember(
-                                    state.admin,
-                                    state.memberSelect.selectedMembers[0],
-                                    state.amount.int
+                                try await userApiClient.loanGiven(
+                                    by: state.admin,
+                                    user: state.memberSelect.selectedMembers[0],
+                                    loan: state.amount.int
                                 )
                             }
                         )
