@@ -52,7 +52,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
         let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         } withDependencies: {
-            $0.userApiClient.addExtraAndExpenses = { _, _, _, _ in Void() }
+            $0.userApiClient.addExtraAndExpenses = { @Sendable _, _, _, _ in Void() }
         }
         
         await store.send(.updateButtonTapped) {
@@ -70,7 +70,7 @@ final class ExtraIncomeAndExpensesTests: XCTestCase {
         let store = TestStore(initialState: ExtraIncomeAndExpenses.State(admin: .mock)) {
             ExtraIncomeAndExpenses()
         } withDependencies: {
-            $0.userApiClient.addExtraAndExpenses = { _, _, _, _ in throw SomeError() }
+            $0.userApiClient.addExtraAndExpenses = { @Sendable _, _, _, _ in throw SomeError() }
         }
         
         await store.send(.updateButtonTapped) {

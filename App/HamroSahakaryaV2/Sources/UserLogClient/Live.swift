@@ -32,7 +32,7 @@ extension UserLogClient {
             let reference = Firestore.firestore().collection("logs").order(by: "date_created", descending: true)
             
             let snapshots = try await reference.getDocuments()
-            var logs: [GroupLog] = try snapshots.documents.map {
+            let logs: [GroupLog] = try snapshots.documents.map {
                 try $0.data(as: GroupLog.self)
             }
             

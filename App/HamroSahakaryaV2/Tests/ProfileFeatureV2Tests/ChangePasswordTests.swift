@@ -48,7 +48,7 @@ final class ChangePasswordTests: XCTestCase {
         let store = TestStore(initialState: ChangePassword.State(user: .mock)) {
             ChangePassword()
         } withDependencies: {
-            $0.userApiClient.changePassword = { _, _ in return Void() }
+            $0.userApiClient.changePassword = { @Sendable _, _ in return Void() }
         }
         
         store.exhaustivity = .off
@@ -68,7 +68,7 @@ final class ChangePasswordTests: XCTestCase {
         let store = TestStore(initialState: ChangePassword.State(user: .mock)) {
             ChangePassword()
         } withDependencies: {
-            $0.userApiClient.changePassword = { _, _ in return Void() }
+            $0.userApiClient.changePassword = { @Sendable _, _ in return Void() }
         }
         
         await store.send(.changePasswordTapped) {
@@ -86,7 +86,7 @@ final class ChangePasswordTests: XCTestCase {
         let store = TestStore(initialState: ChangePassword.State(user: .mock)) {
             ChangePassword()
         } withDependencies: {
-            $0.userApiClient.changePassword = { _, _ in throw SomeError() }
+            $0.userApiClient.changePassword = { @Sendable _, _ in throw SomeError() }
         }
         
         await store.send(.changePasswordTapped) {

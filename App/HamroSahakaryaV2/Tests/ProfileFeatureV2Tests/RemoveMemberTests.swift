@@ -131,7 +131,7 @@ final class RemoveMemberTests: XCTestCase {
         let store = TestStore(initialState: RemoveMember.State(admin: .mock2)) {
             RemoveMember()
         } withDependencies: {
-            $0.userApiClient.removeMember = { _, _ in Void() }
+            $0.userApiClient.removeMember = { @Sendable _, _ in Void() }
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
         
@@ -166,7 +166,7 @@ final class RemoveMemberTests: XCTestCase {
         let store = TestStore(initialState: RemoveMember.State(admin: .mock2)) {
             RemoveMember()
         } withDependencies: {
-            $0.userApiClient.removeMember = { _, _ in throw SomeError() }
+            $0.userApiClient.removeMember = { @Sendable _, _ in throw SomeError() }
         }
         
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {

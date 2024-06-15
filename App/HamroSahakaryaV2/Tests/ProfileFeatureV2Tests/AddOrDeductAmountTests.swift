@@ -121,7 +121,7 @@ final class AddOrDeductAmountTests: XCTestCase {
         let store = TestStore(initialState: AddOrDeductAmount.State(admin: .mock)) {
             AddOrDeductAmount()
         } withDependencies: {
-            $0.userApiClient.addOrDeductAmount = { _, _, _, _ in Void() }
+            $0.userApiClient.addOrDeductAmount = { @Sendable _, _, _, _ in Void() }
         }
         
         await store.send(.set(\.amount, "500")) {
@@ -148,7 +148,7 @@ final class AddOrDeductAmountTests: XCTestCase {
         let store = TestStore(initialState: AddOrDeductAmount.State(admin: .mock)) {
             AddOrDeductAmount()
         } withDependencies: {
-            $0.userApiClient.addOrDeductAmount = { _, _, _, _ in throw SomeError() }
+            $0.userApiClient.addOrDeductAmount = { @Sendable _, _, _, _ in throw SomeError() }
         }
         
         await store.send(.set(\.amount, "500")) {

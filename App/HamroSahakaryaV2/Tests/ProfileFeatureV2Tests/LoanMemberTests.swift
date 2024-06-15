@@ -83,7 +83,7 @@ final class LoanMemberTests: XCTestCase {
         let store = TestStore(initialState: LoanMember.State(admin: .mock)) {
             LoanMember()
         } withDependencies: {
-            $0.userApiClient.loanGiven = { _, _, _ in Void() }
+            $0.userApiClient.loanGiven = {@Sendable  _, _, _ in Void() }
         }
         
         await store.send(.set(\.amount, "500")) {
@@ -110,7 +110,7 @@ final class LoanMemberTests: XCTestCase {
         let store = TestStore(initialState: LoanMember.State(admin: .mock)) {
             LoanMember()
         } withDependencies: {
-            $0.userApiClient.loanGiven = { _, _, _ in throw SomeError() }
+            $0.userApiClient.loanGiven = { @Sendable _, _, _ in throw SomeError() }
         }
         
         await store.send(.set(\.amount, "500")) {

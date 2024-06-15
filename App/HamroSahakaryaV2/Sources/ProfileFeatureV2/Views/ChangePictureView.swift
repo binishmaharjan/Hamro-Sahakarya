@@ -57,7 +57,7 @@ extension ChangePictureView {
     private var saveButton: some View {
         Button {
             Task { @MainActor in
-               await store.send(.saveButtonTapped(renderImage()))
+               store.send(.saveButtonTapped(renderImage()))
             }
         } label: {
             Text(#localized("Save"))

@@ -132,7 +132,7 @@ final class ChangeMemberStatusTests: XCTestCase {
         let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock2)) {
             ChangeMemberStatus()
         } withDependencies: {
-            $0.userApiClient.changeStatus = { _ in Void() }
+            $0.userApiClient.changeStatus = { @Sendable _ in Void() }
             $0.userApiClient.fetchAllMembers = { return [.mock] }
         }
         
@@ -167,7 +167,7 @@ final class ChangeMemberStatusTests: XCTestCase {
         let store = TestStore(initialState: ChangeMemberStatus.State(admin: .mock2)) {
             ChangeMemberStatus()
         } withDependencies: {
-            $0.userApiClient.changeStatus = { _ in throw SomeError() }
+            $0.userApiClient.changeStatus = { @Sendable _ in throw SomeError() }
         }
         
         await store.send(.set(\.memberSelect.selectedMembers, [.mock])) {
