@@ -14,9 +14,25 @@ public struct SplineBackground: ViewModifier {
 }
 
 extension View {
-
     public func splineBackground() -> some View {
         modifier(SplineBackground())
     }
 }
 
+public struct BluredSakuraBackground: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .frame(maxHeight: .infinity)
+            .background(
+                #img("img_background2")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .blur(radius: 30)
+            )
+    }
+}
+
+extension View {
+    public func bluredSakuraBackground() -> some View {
+        modifier(BluredSakuraBackground())
+    }
+}
