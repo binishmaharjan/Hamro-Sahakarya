@@ -10,9 +10,6 @@ public struct LogsView: View {
         self.store = store
     }
     
-    // MARK: If ScrollViewModel is hold by CustomRefreshView,
-    // then the scrollViewModel state is reset when TCA state is also changed.
-    // So passing the static instance so that ScrollViewModel state does not change.
     private static var scrollDelegate = ScrollViewModel()
     @Bindable private var store: StoreOf<Logs>
     
@@ -20,6 +17,10 @@ public struct LogsView: View {
         NavigationStack {
             ScrollViewReader { value in
                 CustomRefreshView(scrollDelegate: LogsView.scrollDelegate) {
+                    Spacer()
+                        .frame(height: 0)
+                        .id(Configuration.scrollToTopId)
+                    
                     ForEach(store.groupedLogs, id: \.self) { groupedLogs in
                         Section {
                             ForEach(groupedLogs.logs, id: \.self) { log in

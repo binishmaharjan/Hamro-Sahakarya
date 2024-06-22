@@ -170,6 +170,7 @@ let package = Package(
             dependencies: [
                 "SharedUIs",
                 "UserSession",
+                "UserApiClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),

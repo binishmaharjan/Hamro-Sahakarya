@@ -12,10 +12,10 @@ public struct SignedIn {
     public struct State: Equatable {
         public init(userSession: UserSession) {
             self.userSession = userSession
-            self.home = Home.State()
+            self.home = Home.State(user: userSession.user)
             self.logs = Logs.State()
             self.profile = Profile.State(user: userSession.user)
-            self.selectedTab = .profile
+            self.selectedTab = .home
         }
         
         public var userSession: UserSession
@@ -43,7 +43,7 @@ public struct SignedIn {
             switch action {
             case .tabSelected(let tab):
                 state.selectedTab = tab
-                return tab == .logs ? .none : .send(.logs(.tabBarTapped))
+                return tab == .logs ? .send(.logs(.tabBarTapped)) : .none 
                 
             case .binding, .home, .logs, .profile:
                 return .none
