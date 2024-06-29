@@ -5,7 +5,7 @@ import SharedModels
 Model for combining all the api responses for the Home View.
 */
 public struct HomeResponse {
-    public init(allMembers: [User], groupDetail: GroupDetail, notice: Notice) {
+    public init(allMembers: [User], groupDetail: GroupDetail, notice: NoticeInfo) {
         self.id = UUID()
         self.allMembers = allMembers
         self.groupDetail = groupDetail
@@ -14,7 +14,7 @@ public struct HomeResponse {
     private let id: UUID
     var allMembers: [User] = [.mock]
     var groupDetail: GroupDetail
-    var notice: Notice
+    var notice: NoticeInfo
 }
 
 // MARK: Properties
@@ -48,6 +48,6 @@ extension HomeResponse {
     static let mock = HomeResponse(
         allMembers: [.mock, .mock2],
         groupDetail: GroupDetail(extra: 50000, expenses: 2500),
-        notice: Notice(message: "This is a preview", admin: "Admin", dateCreated: "2020-04-29 05:49:30.864")
+        notice: NoticeInfo(message: "This is a preview", admin: "Admin", dateCreated: "2020-04-29 05:49:30.864")
     )
 }

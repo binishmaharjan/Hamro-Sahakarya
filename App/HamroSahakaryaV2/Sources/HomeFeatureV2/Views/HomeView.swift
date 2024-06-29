@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import SharedUIs
 import SharedModels
+import NoticeFeatureV2
 import Charts
 
 // MARK: Home Cards
@@ -95,6 +96,17 @@ public struct HomeView: View {
                 .background(#color("background"))
                 .loadingView(store.isLoading)
                 .onAppear { store.send(.onAppear) }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        noticeButton
+                    }
+                }
+                .fullScreenCover(
+                    item: $store.scope(state: \.destination?.notice, action: \.destination.notice)
+                ) { store in
+                    NoticeView(store: store)
+                        .presentationBackground(Color.black.opacity(0.1))
+                }
                 .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
             }
         }
@@ -103,6 +115,16 @@ public struct HomeView: View {
 
 // MARK: Views
 extension HomeView {
+    private var noticeButton: some View {
+        Button {
+               store.send(.noticeButtonTapped)
+        } label: {
+            Image(systemName: "info.circle")
+                .font(.customSubHeadline2)
+                .foregroundStyle(#color("large_button"))
+        }
+    }
+
     private var chartView: some View {
         ZStack {
             VStack {

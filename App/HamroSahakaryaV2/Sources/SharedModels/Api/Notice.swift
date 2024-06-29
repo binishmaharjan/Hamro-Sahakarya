@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Notice: Codable {
+public struct NoticeInfo: Codable, Equatable {
     public let message: String
     public let admin: String
     public let dateCreated: String
@@ -18,5 +18,6 @@ public struct Notice: Codable {
     }
 
     // MARK: Static Instances
-    public static var blankNotice = Notice(message: "", admin: "", dateCreated: "")
+    public static var blankNotice = NoticeInfo(message: "", admin: "", dateCreated: "")
+    public static var mock = NoticeInfo(message: "Next meeting 2024/06/30 Sunday 13:00 At Saginomiya Park Thank you.", admin: "John Appleseed", dateCreated: "2020-05-26 12:56:12.068")
 }

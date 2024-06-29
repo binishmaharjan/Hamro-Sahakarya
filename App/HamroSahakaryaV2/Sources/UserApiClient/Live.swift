@@ -151,7 +151,7 @@ extension UserApiClient {
             try await userDataClient.fetchAllMembersWithLoan()
         }
         
-        func fetchNotice() async throws -> Notice {
+        func fetchNotice() async throws -> NoticeInfo {
             try await userDataClient.fetchNotice()
         }
         

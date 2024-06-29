@@ -26,6 +26,7 @@ let package = Package(
         .library(name: "HomeFeatureV2", targets: ["HomeFeatureV2"]),
         .library(name: "LogsFeatureV2", targets: ["LogsFeatureV2"]),
         .library(name: "ProfileFeatureV2", targets: ["ProfileFeatureV2"]),
+        .library(name: "NoticeFeatureV2", targets: ["NoticeFeatureV2"]),
         .library(name: "ColorPaletteService", targets: ["ColorPaletteService"]),
         .library(name: "PDFService", targets: ["PDFService"]),
         .library(name: "PhotosService", targets: ["PhotosService"]),
@@ -171,6 +172,7 @@ let package = Package(
                 "SharedUIs",
                 "UserSession",
                 "UserApiClient",
+                "NoticeFeatureV2",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -195,6 +197,14 @@ let package = Package(
             ],
             plugins: [
                 .plugin(name: "LicensePlugin")
+            ]
+        ),
+        .target(
+            name: "NoticeFeatureV2",
+            dependencies: [
+                "SharedUIs",
+                "SharedModels",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
         .target(

@@ -2,12 +2,14 @@ import Foundation
 import ComposableArchitecture
 import UserApiClient
 import SharedModels
+import NoticeFeatureV2
 
 @Reducer
 public struct Home {
     @Reducer(state: .equatable)
     public enum Destination {
         case alert(AlertState<Alert>)
+        case notice(Notice)
         
         public enum Alert: Equatable { }
     }
@@ -51,6 +53,7 @@ public struct Home {
         
         case onAppear
         case pulledToRefresh
+        case noticeButtonTapped
         case fetchAllData
         case fetchAllDataResponse(Result<HomeResponse, Error>)
         case updateChartSelectedUserId(UserId)
@@ -77,6 +80,11 @@ public struct Home {
                     // start fetching logs.
                     await send(.fetchAllData)
                 }
+                
+            case .noticeButtonTapped:
+                guard let notice = state.homeResponse?.notice else { return .none }
+                state.destination = .notice(Notice.State(notice: notice))
+                return .none
                 
             case .fetchAllData:
                 return .run { send in
@@ -110,6 +118,7 @@ public struct Home {
                 return .none
             }
         }
+        .ifLet(\.$destination, action: \.destination)
     }
 }
 

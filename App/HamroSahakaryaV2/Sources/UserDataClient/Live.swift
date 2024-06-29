@@ -145,7 +145,7 @@ extension UserDataClient {
             return groupDetail
         }
         
-        func fetchNotice() async throws -> Notice {
+        func fetchNotice() async throws -> NoticeInfo {
             let reference = Firestore.firestore().collection("notice").limit(to: 1).order(by: "date_created", descending: true)
             let snapshots = try await reference.getDocuments()
             
@@ -153,13 +153,13 @@ extension UserDataClient {
                 throw AppError.ApiError.emptyData
             }
             
-            let notice = try snapshot.data(as: Notice.self)
+            let notice = try snapshot.data(as: NoticeInfo.self)
             
             return notice
         }
         
         func updateNotice(user: User, message: String) async throws -> Void {
-            let notice = Notice(
+            let notice = NoticeInfo(
                 message: message, 
                 admin: user.username,
                 dateCreated: Date.now.toString(for: .dateTime)
