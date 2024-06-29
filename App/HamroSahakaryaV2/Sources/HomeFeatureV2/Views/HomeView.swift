@@ -29,9 +29,14 @@ public struct HomeView: View {
                         // Paging View
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 0) {
-                                ForEach(CardTypes.allCases, id: \.self) { _ in
+                                ForEach(CardTypes.allCases, id: \.self) { card in
                                     VStack {
-                                        MyDetailCardView(user: store.user)
+                                        switch card {
+                                        case .myAccount:
+                                            MyDetailCardView(user: store.user)
+                                        case .groudDetail:
+                                            GroupDetailCardView(homeResponse: store.homeResponse)
+                                        }
                                     }
                                     .padding(.horizontal, 20)
                                     .containerRelativeFrame(.horizontal)

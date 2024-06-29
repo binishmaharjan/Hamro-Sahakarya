@@ -17,6 +17,25 @@ public struct HomeResponse {
     var notice: Notice
 }
 
+// MARK: Properties
+extension HomeResponse {
+    public var totalBalance: Int {
+        allMembers.map(\.balance).reduce(0, +)
+    }
+    
+    public var profit: Int {
+        groupDetail.extra - groupDetail.expenses
+    }
+    
+    public var loanGiven: Int {
+        allMembers.map(\.loanTaken).reduce(0, +)
+    }
+    
+    public var currentBalance: Int {
+        totalBalance - loanGiven + profit
+    }
+}
+
 // MARK: Equatable
 extension HomeResponse: Equatable {
     public static func == (lhs: HomeResponse, rhs: HomeResponse) -> Bool {

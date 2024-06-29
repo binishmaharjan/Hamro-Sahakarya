@@ -18,24 +18,19 @@ struct MyDetailCardView: View {
             
             Spacer()
             
-            Text(#localized("Balance"))
-                .font(.customFootnote)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-            
-            Text(user.balance.jaCurrency)
-                .font(.customTitle)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            CardItemView(
+                type: .large,
+                title: #localized("Balance"),
+                value: user.balance.jaCurrency
+            )
             
             Color.clear.frame(height: 2)
             
-            Text(#localized("Loan"))
-                .font(.customFootnote)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-            
-            Text(user.loanTaken.jaCurrency)
-                .font(.customSubHeadline2)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-            
+            CardItemView(
+                type: .small,
+                title: #localized("Loan"),
+                value: user.loanTaken.jaCurrency
+            )
         }
         .foregroundStyle(.white)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
