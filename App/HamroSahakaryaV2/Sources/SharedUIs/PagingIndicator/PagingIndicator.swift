@@ -64,7 +64,7 @@ public struct PagingIndicator: View {
                 .offset(x: -minX)
             }
         }
-        .frame(height: 30)
+        .frame(height: 20)
     }
 }
 

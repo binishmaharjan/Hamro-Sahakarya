@@ -46,8 +46,10 @@ public struct ProfileView: View {
                         signOutButton
                     } footer: {
                         VStack {
+                            Color.clear.frame(height: 24)
                             Text(Bundle.appName)
                             Text(Bundle.appVersion)
+                            Color.clear.frame(height: 24)
                         }
                         .font(.customSubHeadline2)
                         .frame(maxWidth: .infinity, alignment: .center)

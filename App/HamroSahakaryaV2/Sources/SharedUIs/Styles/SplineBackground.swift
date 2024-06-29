@@ -25,7 +25,7 @@ public struct BluredSakuraBackground: ViewModifier {
             .frame(maxHeight: .infinity)
             .background(
                 #img("img_background2")
-                    .blur(radius: 80)
+                    .blur(radius: 40)
             )
     }
 }

@@ -4,6 +4,14 @@ import SharedUIs
 import SharedModels
 import Charts
 
+// MARK: Home Cards
+extension HomeView {
+    enum CardTypes: CaseIterable {
+        case myAccount
+        case groudDetail
+    }
+}
+
 public struct HomeView: View {
     public init(store: StoreOf<Home>) {
         self.store = store
@@ -23,8 +31,7 @@ public struct HomeView: View {
                             LazyHStack(spacing: 0) {
                                 ForEach(CardTypes.allCases, id: \.self) { _ in
                                     VStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.gray)
+                                        MyDetailCardView(user: store.user)
                                     }
                                     .padding(.horizontal, 20)
                                     .containerRelativeFrame(.horizontal)
@@ -157,12 +164,4 @@ extension HomeView {
             reducer: Home.init
         )
     )
-}
-
-// MARK: Home Cards
-extension HomeView {
-    enum CardTypes: CaseIterable {
-        case myAccount
-        case groudDetail
-    }
 }
