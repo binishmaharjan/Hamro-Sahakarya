@@ -46,8 +46,10 @@ public struct ProfileView: View {
                         signOutButton
                     } footer: {
                         VStack {
-                            Text("HamroSahakarya")
-                            Text("v8.0.0")
+                            Color.clear.frame(height: 24)
+                            Text(Bundle.appName)
+                            Text(Bundle.appVersion)
+                            Color.clear.frame(height: 24)
                         }
                         .font(.customSubHeadline2)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -131,25 +133,26 @@ public struct ProfileView: View {
 extension ProfileView {
     private var profileView: some View {
         VStack {
-            BorderedImageView(urlString: store.iconUrl)
+            BorderedImageView(urlString: store.iconUrl, borderColor: .white.opacity(0.8))
                 .frame(width: 69, height: 69)
             
-            Text(store.username)
-                .font(.customHeadline)
-            
-            Text(store.email)
-                .font(.customSubHeadline2)
-                .foregroundStyle(#color("white"))
+            VStack {
+                Text(store.username)
+                    .font(.customHeadline)
+                    .minimumScaleFactor(0.5)
+                
+                Text(store.email)
+                    .font(.customSubHeadline2)
+                    .foregroundStyle(#color("large_button"))
+                    .minimumScaleFactor(0.5)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.white.opacity(0.5))
+            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         }
-        .background(
-            #img("img_background")
-                .resizable()
-                .scaledToFill()
-                .frame(height: 170)
-                .blur(radius: 5)
-        )
         .frame(maxWidth: .infinity)
-        .padding()
+        .bluredSakuraBackground()
     }
     
     private var memberMenus: some View {

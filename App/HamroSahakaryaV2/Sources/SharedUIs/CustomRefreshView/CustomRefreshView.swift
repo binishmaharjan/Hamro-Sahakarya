@@ -87,6 +87,7 @@ public struct CustomRefreshView<Content: View>: View {
             // MARK: Calling Async Method
             if newValue {
                 Task {
+                    // Wait for the duration the that takes time to execute onRefresh
                     await onRefresh()
                     // MARK: After Refresh, resetting the properties
                     withAnimation(.easeInOut(duration: 0.25)) {
@@ -157,6 +158,12 @@ struct OffsetKey: PreferenceKey {
 }
 
 // MARK: For Simultaneous Pan Gesture
+
+/**
+ Note: If ScrollViewModel is hold by CustomRefreshView,
+ then the scrollViewModel state is reset when TCA state is also changed.
+ So create a static instance in each view to prevent ScrollViewModel state from changing unexpectedly.
+ */
 @Observable
 final public class ScrollViewModel: NSObject, UIGestureRecognizerDelegate {
     // MARK: Properties

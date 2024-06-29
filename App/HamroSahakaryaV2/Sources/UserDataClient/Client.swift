@@ -94,7 +94,7 @@ public struct UserDataClient {
     ///
     /// - Parameters: none
     /// - Returns: Current Notice Information
-    public var fetchNotice: @Sendable () async throws -> Notice
+    public var fetchNotice: @Sendable () async throws -> NoticeInfo
     /// Update amount for a user
     ///
     /// - Parameters:

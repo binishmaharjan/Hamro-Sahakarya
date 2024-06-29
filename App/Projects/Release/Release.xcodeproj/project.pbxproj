@@ -11,6 +11,7 @@
 		64DAADEB29741604003CFFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEA29741604003CFFF2 /* Assets.xcassets */; };
 		64DAADEE29741604003CFFF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DAADEC29741604003CFFF2 /* LaunchScreen.storyboard */; };
 		64DAADF72974166F003CFFF2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DAADF62974166F003CFFF2 /* App.swift */; };
+		D187FCBB2C2FF172008C3F1D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D187FCBA2C2FF139008C3F1D /* PrivacyInfo.xcprivacy */; };
 		D1D615102B2D83810052DDC9 /* HamroSahakaryaV2 in Frameworks */ = {isa = PBXBuildFile; productRef = D1D6150F2B2D83810052DDC9 /* HamroSahakaryaV2 */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +21,7 @@
 		64DAADEA29741604003CFFF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64DAADED29741604003CFFF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64DAADF62974166F003CFFF2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D187FCBA2C2FF139008C3F1D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				64DAADEA29741604003CFFF2 /* Assets.xcassets */,
 				64DAADEC29741604003CFFF2 /* LaunchScreen.storyboard */,
 				64DAADF62974166F003CFFF2 /* App.swift */,
+				D187FCBA2C2FF139008C3F1D /* PrivacyInfo.xcprivacy */,
 			);
 			path = Release;
 			sourceTree = "<group>";
@@ -133,6 +136,7 @@
 			files = (
 				64DAADEE29741604003CFFF2 /* LaunchScreen.storyboard in Resources */,
 				64DAADEB29741604003CFFF2 /* Assets.xcassets in Resources */,
+				D187FCBB2C2FF172008C3F1D /* PrivacyInfo.xcprivacy in Resources */,
 				64B9110729742AEA005B381B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
