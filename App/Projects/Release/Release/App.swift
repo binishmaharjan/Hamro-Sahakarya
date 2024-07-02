@@ -3,7 +3,7 @@ import SwiftUI
 
 @main
 struct ReleaseApp: HamroSahakaryaV2.App {
-    
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
 }
 
 //@main
