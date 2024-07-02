@@ -74,7 +74,7 @@ extension AddOrDeductAmountView {
         } label: {
             HStack {
                 Image(systemName: "arrow.right")
-                Text(#localized("Change Password"))
+                Text(#localized("Update"))
                     .font(.customHeadline)
             }
             .largeButton()
