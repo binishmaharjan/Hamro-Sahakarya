@@ -21,20 +21,22 @@ public struct LogsView: View {
                         .frame(height: 0)
                         .id(Configuration.scrollToTopId)
                     
-                    ForEach(store.groupedLogs, id: \.self) { groupedLogs in
-                        Section {
-                            ForEach(groupedLogs.logs, id: \.self) { log in
-                                LogItemView(groupLog: log)
+                    LazyVStack {
+                        ForEach(store.groupedLogs, id: \.self) { groupedLogs in
+                            Section {
+                                ForEach(groupedLogs.logs, id: \.self) { log in
+                                    LogItemView(groupLog: log)
+                                        .padding(.bottom, 8)
+                                }
+                            } header: {
+                                Text(groupedLogs.title)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.customSubHeadline2)
+                                    .foregroundStyle(#color("gray"))
+                                    .padding(.leading, 24)
                                     .padding(.bottom, 8)
+                                    .padding(.top, 16)
                             }
-                        } header: {
-                            Text(groupedLogs.title)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.customSubHeadline2)
-                                .foregroundStyle(#color("gray"))
-                                .padding(.leading, 24)
-                                .padding(.bottom, 8)
-                                .padding(.top, 16)
                         }
                     }
                 } onRefresh: {
