@@ -7,7 +7,6 @@ public struct ChangePasswordView: View {
         self.store = store
     }
     
-    @FocusState private var focusedField: ChangePassword.State.Field?
     @Bindable private var store: StoreOf<ChangePassword>
     
     public var body: some View {
@@ -20,7 +19,6 @@ public struct ChangePasswordView: View {
                 TextField(#localized("New Password"), text: $store.password)
                     .textFieldStyle(.icon(#img("icon_lock")))
                     .textInputAutocapitalization(.never)
-                    .focused($focusedField, equals: .password)
             }
             
             VStack(alignment: .leading) {
@@ -31,7 +29,6 @@ public struct ChangePasswordView: View {
                 TextField(#localized("Confirm Password"), text: $store.confirmPassword)
                     .textFieldStyle(.icon(#img("icon_lock")))
                     .textInputAutocapitalization(.never)
-                    .focused($focusedField, equals: .confirmPassword)
             }
             
             changePasswordButton
@@ -41,7 +38,6 @@ public struct ChangePasswordView: View {
         .padding(20)
         .padding()
         .background(#color("background"))
-        .bind($store.focusedField, to: self.$focusedField)
         .customNavigationBar(#localized("Change Password"))
         .loadingView(store.isLoading)
         .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))

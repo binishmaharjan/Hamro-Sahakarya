@@ -17,10 +17,6 @@ public struct ChangePassword {
     
     @ObservableState
     public struct State: Equatable {
-        public enum Field: Equatable {
-            case password
-            case confirmPassword
-        }
         public init(user: User) {
             self.user = user
         }
@@ -29,7 +25,6 @@ public struct ChangePassword {
         var user: User
         var password: Password = ""
         var confirmPassword: Password = ""
-        var focusedField: Field? = .password
         var isLoading: Bool = false
         
         var isValidInput: Bool {

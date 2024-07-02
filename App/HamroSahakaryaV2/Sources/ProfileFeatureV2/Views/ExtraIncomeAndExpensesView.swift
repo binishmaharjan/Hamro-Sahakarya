@@ -7,7 +7,6 @@ public struct ExtraIncomeAndExpensesView: View {
         self.store = store
     }
     
-    @FocusState private var focusedField: ExtraIncomeAndExpenses.State.Field?
     @Bindable private var store: StoreOf<ExtraIncomeAndExpenses>
     
     public var body: some View {
@@ -31,7 +30,6 @@ public struct ExtraIncomeAndExpensesView: View {
                 TextField(#localized("Amount"), text: $store.amount)
                     .textFieldStyle(.icon(#img("icon_yen")))
                     .keyboardType(.numberPad)
-                    .focused($focusedField, equals: .amount)
             }
             
             VStack(alignment: .leading) {
@@ -42,7 +40,6 @@ public struct ExtraIncomeAndExpensesView: View {
                 TextField(#localized("Reason"), text: $store.reason, axis: .vertical)
                     .lineLimit(5)
                     .textFieldStyle(.icon(#img("icon_person")))
-                    .focused($focusedField, equals: .reason)
             }
             
             updateButton
@@ -52,7 +49,6 @@ public struct ExtraIncomeAndExpensesView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
         .padding()
-        .bind($store.focusedField, to: self.$focusedField)
         .background(#color("background"))
         .customNavigationBar(#localized("Extra Income And Expenses"))
         .loadingView(store.isLoading)

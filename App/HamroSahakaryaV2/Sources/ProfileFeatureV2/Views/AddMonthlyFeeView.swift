@@ -7,7 +7,6 @@ public struct AddMonthlyFeeView: View {
         self.store = store
     }
     
-    @FocusState private var focusedField: AddMonthlyFee.State.Field?
     @Bindable private var store: StoreOf<AddMonthlyFee>
     
     public var body: some View {
@@ -20,7 +19,6 @@ public struct AddMonthlyFeeView: View {
                 TextField(#localized("Amount"), text: $store.amount)
                     .textFieldStyle(.icon(#img("icon_yen")))
                     .keyboardType(.numberPad)
-                    .focused($focusedField, equals: .amount)
             }
             VStack {
                 Text(#localized("Select Target Members"))
@@ -37,7 +35,6 @@ public struct AddMonthlyFeeView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
         .padding()
-        .bind($store.focusedField, to: self.$focusedField)
         .background(#color("background"))
         .customNavigationBar(#localized("Add Monthly Fee"))
         .loadingView(store.isLoading)

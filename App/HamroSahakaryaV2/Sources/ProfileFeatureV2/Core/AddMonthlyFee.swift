@@ -15,10 +15,6 @@ public struct AddMonthlyFee {
     
     @ObservableState
     public struct State: Equatable {
-        public enum Field: Equatable {
-            case amount
-        }
-        
         public init(admin: User) {
             self.admin = admin
         }
@@ -34,7 +30,6 @@ public struct AddMonthlyFee {
         var isLoading: Bool = false
         var amount: String = ""
         var members: [User] = []
-        var focusedField: Field? = .amount
         var isValidInput: Bool {
             return amount.int > 0
         }

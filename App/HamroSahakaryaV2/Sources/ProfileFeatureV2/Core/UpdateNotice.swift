@@ -14,9 +14,6 @@ public struct UpdateNotice {
     
     @ObservableState
     public struct State: Equatable {
-        public enum Field: Equatable {
-            case notice
-        }
         public init(admin: User) {
             self.admin = admin
         }
@@ -25,7 +22,6 @@ public struct UpdateNotice {
         var admin: User
         var notice: String = ""
         var isLoading: Bool = false
-        var focusedField: Field? = .notice
         var isValidInput: Bool {
             return notice.count > 0
         }

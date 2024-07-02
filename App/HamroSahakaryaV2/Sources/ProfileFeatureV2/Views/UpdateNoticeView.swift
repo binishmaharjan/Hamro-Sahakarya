@@ -8,7 +8,6 @@ public struct UpdateNoticeView: View {
         self.store = store
     }
     
-    @FocusState private var focusedField: UpdateNotice.State.Field?
     @Bindable private var store: StoreOf<UpdateNotice>
     
     public var body: some View {
@@ -29,7 +28,6 @@ public struct UpdateNoticeView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
         .padding()
-        .bind($store.focusedField, to: self.$focusedField)
         .background(#color("background"))
         .customNavigationBar(#localized("Update Notice"))
         .loadingView(store.isLoading)

@@ -19,9 +19,6 @@ public struct AddOrDeductAmount {
     
     @ObservableState
     public struct State: Equatable {
-        public enum Field: Equatable {
-            case amount
-        }
         public init(admin: User) {
             self.admin = admin
         }
@@ -32,7 +29,6 @@ public struct AddOrDeductAmount {
         var type: AddOrDeduct = .add
         var members: [User] = []
         var amount: String = ""
-        var focusedField: Field? = .amount
         var isLoading: Bool = false
         
         var isValidInput: Bool {

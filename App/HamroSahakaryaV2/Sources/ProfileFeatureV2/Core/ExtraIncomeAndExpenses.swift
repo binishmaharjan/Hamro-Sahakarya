@@ -21,10 +21,6 @@ public struct ExtraIncomeAndExpenses {
     
     @ObservableState
     public struct State: Equatable {
-        public enum Field: Equatable {
-            case amount
-            case reason
-        }
         public init(admin: User) {
             self.admin = admin
         }
@@ -34,7 +30,6 @@ public struct ExtraIncomeAndExpenses {
         var type: ExtraOrExpenses = .extra
         var amount: String = ""
         var reason: String = ""
-        var focusedField: Field? = .amount
         var isLoading: Bool = false
         
         var isValidInput: Bool {

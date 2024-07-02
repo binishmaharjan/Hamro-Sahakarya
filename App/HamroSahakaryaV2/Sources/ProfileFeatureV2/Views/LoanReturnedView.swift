@@ -7,7 +7,6 @@ public struct LoanReturnedView: View {
         self.store = store
     }
     
-    @FocusState private var focusedField: LoanReturned.State.Field?
     @Bindable private var store: StoreOf<LoanReturned>
     
     public var body: some View {
@@ -20,7 +19,6 @@ public struct LoanReturnedView: View {
                 TextField(#localized("Amount"), text: $store.amount)
                     .textFieldStyle(.icon(#img("icon_yen")))
                     .keyboardType(.numberPad)
-                    .focused($focusedField, equals: .amount)
             }
             
             VStack {
@@ -38,7 +36,6 @@ public struct LoanReturnedView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
         .padding()
-        .bind($store.focusedField, to: self.$focusedField)
         .background(#color("background"))
         .customNavigationBar(#localized("Loan Member"))
         .loadingView(store.isLoading)

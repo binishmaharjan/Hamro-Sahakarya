@@ -6,8 +6,7 @@ public struct AddOrDeductAmountView: View {
     public init(store: StoreOf<AddOrDeductAmount>) {
         self.store = store
     }
-    
-    @FocusState private var focusedField: AddOrDeductAmount.State.Field?
+
     @Bindable private var store: StoreOf<AddOrDeductAmount>
     
     public var body: some View {
@@ -31,7 +30,6 @@ public struct AddOrDeductAmountView: View {
                 TextField(#localized("Amount"), text: $store.amount)
                     .textFieldStyle(.icon(#img("icon_yen")))
                     .keyboardType(.numberPad)
-                    .focused($focusedField, equals: .amount)
             }
             
             VStack {
@@ -51,7 +49,6 @@ public struct AddOrDeductAmountView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
         .padding()
-        .bind($store.focusedField, to: self.$focusedField)
         .background(#color("background"))
         .customNavigationBar(#localized("Add Or Deduct Amount"))
         .loadingView(store.isLoading)
