@@ -57,6 +57,19 @@ public struct User: Equatable, Identifiable, Codable {
     }
 }
 
+// MARK: Menu Access
+extension User {
+    /// Has access to view admin menu
+    public var isViewAdminMenu: Bool {
+        status == .admin || status == .developer
+    }
+
+    /// Has permission to use admin menu
+    public var isUseAdminMenu: Bool {
+        status == .admin
+    }
+}
+
 // MARK: No User
 extension User {
     /// Represent no user user data

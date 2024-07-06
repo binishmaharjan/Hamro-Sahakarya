@@ -86,7 +86,6 @@ extension UserDataClient {
             let reference = Firestore.firestore().collection("members")
             
             let snapshots = try await reference
-                .whereField("status", isNotEqualTo: Status.developer.rawValue)
                 .whereField("loan_taken", isGreaterThan: 0)
                 .getDocuments()
             

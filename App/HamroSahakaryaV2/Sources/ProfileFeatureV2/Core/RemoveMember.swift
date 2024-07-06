@@ -88,7 +88,15 @@ public struct RemoveMember {
                 return .none
                 
             case .removeMemberTapped:
+                // If no user is selected, do nothing
                 guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
+                
+                // If user  is developer, show alert
+                guard state.admin.isUseAdminMenu else {
+                    state.destination = .alert(.onNoPermissionAlert())
+                    return .none
+                }
+                
                 if state.memberSelect.selectedMembers[0].id == state.admin.id {
                     state.destination = .alert(.actionProhibited())
                 } else {

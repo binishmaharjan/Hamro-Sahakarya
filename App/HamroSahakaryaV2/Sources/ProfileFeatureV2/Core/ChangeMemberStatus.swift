@@ -87,7 +87,14 @@ public struct ChangeMemberStatus {
                 return .none
                 
             case .changeMemberStatusTapped:
+                // If no member is selected, do nothing
                 guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
+                
+                // If user  is developer, show alert
+                guard state.admin.isUseAdminMenu else {
+                    state.destination = .alert(.onNoPermissionAlert())
+                    return .none
+                }
                 
                 let selectedMember = state.memberSelect.selectedMembers[0]
                 if selectedMember.id == state.admin.id {

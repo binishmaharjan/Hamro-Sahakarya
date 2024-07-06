@@ -22,7 +22,7 @@ public struct ProfileView: View {
                         memberMenus
                     }
                     
-                    if store.user.status == .admin {
+                    if store.user.isViewAdminMenu {
                         Section {
                             adminMenus
                         } header: {
@@ -142,6 +142,7 @@ extension ProfileView {
                     .minimumScaleFactor(0.5)
                 
                 Text(store.email)
+                    .lineLimit(1)
                     .font(.customSubHeadline2)
                     .foregroundStyle(#color("large_button"))
                     .minimumScaleFactor(0.5)
