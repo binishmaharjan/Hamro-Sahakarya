@@ -1,9 +1,14 @@
 # Hamro-Sahakarya
 App for the Hamro Sahakarya.
 [Link to AppStore](https://apps.apple.com/us/app/hamro-sahakarya/id1352496359)
+- Branch: [master](https://github.com/binishmaharjan/Hamro-Sahakarya/tree/master)
+- UI: [SwiftUI]([https://developer.apple.com/documentation/uikit](https://developer.apple.com/documentation/swiftui))
+
+TODO
 
 # Hamro-Sahakarya v7.30.0
 - Branch: [change_to_version_3](https://github.com/binishmaharjan/Hamro-Sahakarya/tree/change_to_version_3)
+- UI: [UIKit](https://developer.apple.com/documentation/uikit)
   
 ## Xcode And Build Version
 + ![Xcode](https://img.shields.io/badge/Xcode-14.1-blue)
