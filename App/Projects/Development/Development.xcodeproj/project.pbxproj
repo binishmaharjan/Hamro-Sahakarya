@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6447AEC32A5651FF00E2CF56 /* HamroSahakarya in Frameworks */ = {isa = PBXBuildFile; productRef = 6447AEC22A5651FF00E2CF56 /* HamroSahakarya */; };
 		64CAA6EC295EBBD800444E51 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAA6EB295EBBD800444E51 /* App.swift */; };
 		64CAA6F5295EBBDA00444E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64CAA6F4295EBBDA00444E51 /* Assets.xcassets */; };
 		64CAA6F8295EBBDA00444E51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CAA6F6295EBBDA00444E51 /* LaunchScreen.storyboard */; };
 		64EBD5D82962E7B70062E030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64EBD5D72962E7B70062E030 /* GoogleService-Info.plist */; };
+		D1D6150E2B2D812E0052DDC9 /* HamroSahakaryaV2 in Frameworks */ = {isa = PBXBuildFile; productRef = D1D6150D2B2D812E0052DDC9 /* HamroSahakaryaV2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6447AEC32A5651FF00E2CF56 /* HamroSahakarya in Frameworks */,
+				D1D6150E2B2D812E0052DDC9 /* HamroSahakaryaV2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 			);
 			name = Development;
 			packageProductDependencies = (
-				6447AEC22A5651FF00E2CF56 /* HamroSahakarya */,
+				D1D6150D2B2D812E0052DDC9 /* HamroSahakaryaV2 */,
 			);
 			productName = Development;
 			productReference = 64CAA6E8295EBBD800444E51 /* Development.app */;
@@ -294,7 +294,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,7 +325,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,9 +366,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6447AEC22A5651FF00E2CF56 /* HamroSahakarya */ = {
+		D1D6150D2B2D812E0052DDC9 /* HamroSahakaryaV2 */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HamroSahakarya;
+			productName = HamroSahakaryaV2;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

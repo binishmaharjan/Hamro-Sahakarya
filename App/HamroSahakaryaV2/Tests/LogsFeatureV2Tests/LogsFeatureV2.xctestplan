@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "680201F4-D0F3-4BF6-8566-5EAFE6CACE76",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "LogsFeatureV2Tests",
+        "name" : "LogsFeatureV2Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,6 +8,24 @@
       location = "group:Projects/Development/Development.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:HamroSahakaryaV2">
+   </FileRef>
+   <FileRef
       location = "group:HamroSahakarya">
+   </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/AppFeatureV2Tests/AppFeatureV2.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/OnboardingFeatureV2Tests/OnboardingFeatureV2.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/LogsFeatureV2Tests/LogsFeatureV2.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/ProfileFeatureV2Tests/ProfileFeatureV2.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:HamroSahakaryaV2/Tests/HamroSahakaryaV2Tests/HamroSahakaryaV2Tests.xctestplan">
    </FileRef>
 </Workspace>

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "C6FAE704-5222-4697-8CB0-3D4380B542DB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PhotosServiceTests",
+        "name" : "PhotosServiceTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,23 +8,23 @@ extension Observable {
    メソッドを使う時によく return Disposables.create() と書くことが多いので
    その処理をラップする
    */
-  public static func create<O>(_ handler: @escaping (AnyObserver<O>) -> Void) -> Observable<O> {
-    return Observable<O>.create { (observer: AnyObserver<O>) -> Disposable in
-      handler(observer)
-      return Disposables.create()
-    }
-  }
-  /**
-   上記メソッドの flatMapLatest バージョン
-   */
-  public func flatMapLatest<O>(_ handler: @escaping (Element, AnyObserver<O>) -> Void) -> Observable<O> {
-    return self.flatMapLatest { (element: Element) -> Observable<O> in
-      return Observable<O>.create { (observer: AnyObserver<O>) -> Disposable in
-        handler(element, observer)
-        return Disposables.create()
-      }
-    }
-  }
+//  public static func create<O>(_ handler: @escaping (AnyObserver<O>) -> Void) -> Observable<O> {
+//    return Observable<O>.create { (observer: AnyObserver<O>) -> Disposable in
+//      handler(observer)
+//      return Disposables.create()
+//    }
+//  }
+//  /**
+//   上記メソッドの flatMapLatest バージョン
+//   */
+//  public func flatMapLatest<O>(_ handler: @escaping (Element, AnyObserver<O>) -> Void) -> Observable<O> {
+//    return self.flatMapLatest { (element: Element) -> Observable<O> in
+//      return Observable<O>.create { (observer: AnyObserver<O>) -> Disposable in
+//        handler(element, observer)
+//        return Disposables.create()
+//      }
+//    }
+//  }
 }
 // MARK: - Bool
 public extension Observable where Element == Bool {

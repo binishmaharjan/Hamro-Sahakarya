@@ -36,10 +36,22 @@ public final class ColorPalette: UIView, ColorPaletteProtocol {
         // Main Palette
         for y in stride(from: CGFloat.zero, to: mainPaletteRect.height, by: elementSize) {
             
-            var saturation = y < mainPaletteRect.height / 2.0 ? CGFloat(2 * y) / mainPaletteRect.height : 2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
-            saturation = CGFloat(powf(Float(saturation), y < mainPaletteRect.height / 2.0 ? saturationExponentTop : saturationExponentBottom))
+            var saturation = y < mainPaletteRect.height / 2.0 ? 
+            CGFloat(2 * y) / mainPaletteRect.height :
+            2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
             
-            let brightness = y < mainPaletteRect.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
+            saturation = CGFloat(
+                powf(
+                    Float(saturation),
+                    y < mainPaletteRect.height / 2.0 ?
+                        saturationExponentTop :
+                        saturationExponentBottom
+                )
+            )
+            
+            let brightness = y < mainPaletteRect.height / 2.0 ? 
+            CGFloat(1.0) :
+            2.0 * CGFloat(mainPaletteRect.height - y) / mainPaletteRect.height
             
             for x in stride(from: CGFloat.zero, to: mainPaletteRect.width, by: elementSize) {
                 guard let context = context else { fatalError("No Context") }

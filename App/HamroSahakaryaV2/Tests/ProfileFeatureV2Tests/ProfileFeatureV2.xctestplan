@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "822C0E2F-3697-4C73-90E5-575B14D9A7CA",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ProfileFeatureV2Tests",
+        "name" : "ProfileFeatureV2Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
