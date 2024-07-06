@@ -2,6 +2,9 @@
 App for the Hamro Sahakarya.
 [Link to AppStore](https://apps.apple.com/us/app/hamro-sahakarya/id1352496359)
 
+# Hamro-Sahakarya v7.30.0
+- Branch: [change_to_version_3](https://github.com/binishmaharjan/Hamro-Sahakarya/tree/change_to_version_3)
+  
 ## Xcode And Build Version
 + ![Xcode](https://img.shields.io/badge/Xcode-14.1-blue)
 + ![iOS](https://img.shields.io/badge/iOS-15.0%20or%20later-green)
