@@ -68,6 +68,12 @@ public struct ExtraIncomeAndExpenses {
                 return .none
                 
             case .updateButtonTapped:
+                // If user  is developer, show alert
+                guard state.admin.isUseAdminMenu else {
+                    state.destination = .alert(.onNoPermissionAlert())
+                    return .none
+                }
+                
                 state.isLoading = true
                 return .run { [state = state] send in
                     await send(

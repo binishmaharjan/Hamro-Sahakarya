@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
+import SharedUIs
 
 @Reducer
 public struct LoanReturned {
@@ -77,6 +78,21 @@ public struct LoanReturned {
                 return .none
                 
             case .loanReturnedTapped:
+                // If no user is selected, do nothing
+                guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
+                
+                // If loan returned is greater than loan taken, show error
+                guard state.amount.int <= state.memberSelect.selectedMembers[0].loanTaken else {
+                    state.destination = .alert(.onLoanAmountOverError())
+                    return .none
+                }
+                
+                // If user  is developer, show alert
+                guard state.admin.isUseAdminMenu else {
+                    state.destination = .alert(.onNoPermissionAlert())
+                    return .none
+                }
+                
                 state.isLoading = true
                 return .run { [state = state] send in
                     await send(
@@ -108,5 +124,18 @@ public struct LoanReturned {
             }
         }
         .ifLet(\.$destination, action: \.destination)
+    }
+}
+
+// MARK: AlertState
+extension AlertState where Action == LoanReturned.Destination.Alert {
+    public static func onLoanAmountOverError() -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Ok")) }
+        } message: {
+            TextState(#localized("The loan amount is more than loan taken."))
+        }
     }
 }
