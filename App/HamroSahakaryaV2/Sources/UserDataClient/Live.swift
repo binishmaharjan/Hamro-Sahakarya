@@ -71,7 +71,9 @@ extension UserDataClient {
         
         func fetchAllMembers() async throws -> [User] {
             let reference = Firestore.firestore().collection("members")
-            let snapshots = try await reference.getDocuments()
+            let snapshots = try await reference
+                .whereField("status", isNotEqualTo: Status.developer.rawValue)
+                .getDocuments()
             
             let users: [User] = try snapshots.documents.map {
                 try $0.data(as: User.self)
@@ -83,7 +85,10 @@ extension UserDataClient {
         func fetchAllMemberWithLoan() async throws -> [User] {
             let reference = Firestore.firestore().collection("members")
             
-            let snapshots = try await reference.whereField("loan_taken", isGreaterThan: 0).getDocuments()
+            let snapshots = try await reference
+                .whereField("status", isNotEqualTo: Status.developer.rawValue)
+                .whereField("loan_taken", isGreaterThan: 0)
+                .getDocuments()
             
             let users: [User] = try snapshots.documents.map {
                 try $0.data(as: User.self)
