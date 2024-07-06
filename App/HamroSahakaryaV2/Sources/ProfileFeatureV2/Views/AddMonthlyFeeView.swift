@@ -10,31 +10,34 @@ public struct AddMonthlyFeeView: View {
     @Bindable private var store: StoreOf<AddMonthlyFee>
     
     public var body: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading) {
-                Text(#localized("Amount"))
-                    .font(.customSubHeadline)
-                    .foregroundStyle(#color("secondary"))
+        ScrollView {
+            VStack(spacing: 24) {
+                VStack(alignment: .leading) {
+                    Text(#localized("Amount"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("Amount"), text: $store.amount)
+                        .textFieldStyle(.icon(#img("icon_yen")))
+                        .keyboardType(.numberPad)
+                }
+                VStack {
+                    Text(#localized("Select Target Members"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.customSubHeadline2)
+                        .foregroundStyle(#color("gray"))
+                    
+                    MemberSelectView(store: store.scope(state: \.memberSelect, action: \.memberSelect))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
                 
-                TextField(#localized("Amount"), text: $store.amount)
-                    .textFieldStyle(.icon(#img("icon_yen")))
-                    .keyboardType(.numberPad)
+                addMonthlyFeeButton
             }
-            VStack {
-                Text(#localized("Select Target Members"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.customSubHeadline2)
-                    .foregroundStyle(#color("gray"))
-                
-                MemberSelectView(store: store.scope(state: \.memberSelect, action: \.memberSelect))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
-            addMonthlyFeeButton
+            .padding(20)
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(20)
-        .padding()
+        .dismissKeyboardOnTap()
         .background(#color("background"))
         .customNavigationBar(#localized("Add Monthly Fee"))
         .loadingView(store.isLoading)

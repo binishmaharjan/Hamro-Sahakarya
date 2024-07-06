@@ -86,15 +86,15 @@ public struct CreateUserView: View {
                 .padding(30)
                 .padding()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarHidden(true)
-            .splineBackground()
             .dismissKeyboardOnTap()
-            .ignoresSafeArea()
             
             closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
         }
+        .splineBackground()
         .loadingView(store.isLoading)
         .confirmationDialog(
             $store.scope(state: \.destination?.confirmationDialog, action: \.destination.confirmationDialog)
@@ -113,12 +113,6 @@ public struct CreateUserView: View {
 
 // MARK: Views Parts
 extension CreateUserView {
-//    private var background: some View {
-//        #img("img_spline")
-//            .blur(radius: 60)
-//            .offset(x: 200, y: 100)
-//    }
-    
     private var closeButton: some View {
         Button {
             // TODO: When @Dependency(\.dismiss) is used view is emptied when animation starts.
