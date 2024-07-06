@@ -62,6 +62,7 @@ public struct Profile {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.userSessionClient) private var userSessionClient
     
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
@@ -141,6 +142,12 @@ public struct Profile {
             case .signOutResponse(.failure(let error)):
                 state.isLoading = false
                 state.alert = .onError(error)
+                return .none
+                
+            case .destination(.presented(.changePicture(.delegate(.changeImageSuccessful)))):
+                if let updateUser = userSessionClient.read() {
+                    state.user = updateUser
+                }
                 return .none
                 
             case .binding, .destination, .delegate, .alert:

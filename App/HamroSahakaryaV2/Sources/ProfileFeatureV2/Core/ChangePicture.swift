@@ -28,7 +28,13 @@ public struct ChangePicture {
     }
     
     public enum Action {
+        public enum Delegate: Equatable {
+            case changeImageSuccessful
+        }
+        
         case destination(PresentationAction<Destination.Action>)
+        case delegate(Delegate)
+        
         case photoPicker(PhotoPicker.Action)
         case saveButtonTapped(UIImage)
         case changeProfileImageResponse(Result<Void, Error>)
@@ -73,14 +79,14 @@ public struct ChangePicture {
                 state.imageData = nil
                 state.photoPicker.selectedImageIndex = nil
                 state.destination = .alert(.onUpdateSuccessful())
-                return .none
+                return .send(.delegate(.changeImageSuccessful))
 
             case .changeProfileImageResponse(.failure(let error)):
                 state.isLoading = false
                 state.destination = .alert(.onError(error))
                 return .none
 
-            case .photoPicker, .destination:
+            case .photoPicker, .destination, .delegate:
                 return .none
             }
         }
