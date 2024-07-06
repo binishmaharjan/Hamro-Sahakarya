@@ -87,7 +87,14 @@ public struct ChangeMemberStatus {
                 return .none
                 
             case .changeMemberStatusTapped:
+                // If no member is selected, do nothing
                 guard !state.memberSelect.selectedMembers.isEmpty else { return .none }
+                
+                // If user  is developer, show alert
+                guard state.admin.isUseAdminMenu else {
+                    state.destination = .alert(.onNoPermissionAlert())
+                    return .none
+                }
                 
                 let selectedMember = state.memberSelect.selectedMembers[0]
                 if selectedMember.id == state.admin.id {
@@ -161,6 +168,7 @@ extension Status {
         switch self {
         case .member: return "Are you sure you want to promote this member to Status: Admin ?"
         case .admin: return "Are you sure you want to demote this member to Status: Member ?"
+        case .developer: return "Some Problem Occurred."
         }
     }
 }

@@ -13,6 +13,17 @@ extension AlertState {
         }
     }
     
+    /// Common Alert for error
+    public static func onNoPermissionAlert() -> AlertState {
+        AlertState {
+            TextState(#localized("Error"))
+        } actions: {
+            ButtonState { TextState(#localized("Ok")) }
+        } message: {
+            TextState(#localized("Sorry, You don't have permission to perform this action."))
+        }
+    }
+    
     /// Common Alert for api success
     public static func onUpdateSuccessful() -> AlertState {
         AlertState {

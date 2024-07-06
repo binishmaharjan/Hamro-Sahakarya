@@ -17,6 +17,7 @@ Profiles/
 
 ## User settings
 xcuserdata/
+*/xcuserdata/
 
 ## App packaging
 *.ipa

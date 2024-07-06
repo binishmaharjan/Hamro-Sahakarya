@@ -10,34 +10,37 @@ public struct LoanReturnedView: View {
     @Bindable private var store: StoreOf<LoanReturned>
     
     public var body: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading) {
-                Text(#localized("Amount"))
-                    .font(.customSubHeadline)
-                    .foregroundStyle(#color("secondary"))
+        ScrollView {
+            VStack(spacing: 24) {
+                VStack(alignment: .leading) {
+                    Text(#localized("Amount"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("Amount"), text: $store.amount)
+                        .textFieldStyle(.icon(#img("icon_yen")))
+                        .keyboardType(.numberPad)
+                }
                 
-                TextField(#localized("Amount"), text: $store.amount)
-                    .textFieldStyle(.icon(#img("icon_yen")))
-                    .keyboardType(.numberPad)
-            }
-            
-            VStack {
-                Text(#localized("Select Target Members"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.customSubHeadline2)
-                    .foregroundStyle(#color("gray"))
+                VStack {
+                    Text(#localized("Select Target Members"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.customSubHeadline2)
+                        .foregroundStyle(#color("gray"))
+                    
+                    MemberSelectView(store: store.scope(state: \.memberSelect, action: \.memberSelect))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
                 
-                MemberSelectView(store: store.scope(state: \.memberSelect, action: \.memberSelect))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                addLoanMemberButton
             }
-            
-            addLoanMemberButton
+            .padding(20)
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(20)
-        .padding()
+        .dismissKeyboardOnTap()
         .background(#color("background"))
-        .customNavigationBar(#localized("Loan Member"))
+        .customNavigationBar(#localized("Loan Returned"))
         .loadingView(store.isLoading)
         .onAppear { store.send(.onAppear) }
         .alert(
