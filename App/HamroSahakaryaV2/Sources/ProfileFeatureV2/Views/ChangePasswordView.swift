@@ -10,33 +10,35 @@ public struct ChangePasswordView: View {
     @Bindable private var store: StoreOf<ChangePassword>
     
     public var body: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading) {
-                Text(#localized("New Password"))
-                    .font(.customSubHeadline)
-                    .foregroundStyle(#color("secondary"))
+        ScrollView {
+            VStack(spacing: 24) {
+                VStack(alignment: .leading) {
+                    Text(#localized("New Password"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("New Password"), text: $store.password)
+                        .textFieldStyle(.icon(#img("icon_lock")))
+                        .textInputAutocapitalization(.never)
+                }
                 
-                TextField(#localized("New Password"), text: $store.password)
-                    .textFieldStyle(.icon(#img("icon_lock")))
-                    .textInputAutocapitalization(.never)
-            }
-            
-            VStack(alignment: .leading) {
-                Text(#localized("Confirm Password"))
-                    .font(.customSubHeadline)
-                    .foregroundStyle(#color("secondary"))
+                VStack(alignment: .leading) {
+                    Text(#localized("Confirm Password"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("Confirm Password"), text: $store.confirmPassword)
+                        .textFieldStyle(.icon(#img("icon_lock")))
+                        .textInputAutocapitalization(.never)
+                }
                 
-                TextField(#localized("Confirm Password"), text: $store.confirmPassword)
-                    .textFieldStyle(.icon(#img("icon_lock")))
-                    .textInputAutocapitalization(.never)
+                changePasswordButton
+                
+                Spacer()
             }
-            
-            changePasswordButton
-            
-            Spacer()
+            .padding(20)
+            .padding()
         }
-        .padding(20)
-        .padding()
         .background(#color("background"))
         .customNavigationBar(#localized("Change Password"))
         .loadingView(store.isLoading)

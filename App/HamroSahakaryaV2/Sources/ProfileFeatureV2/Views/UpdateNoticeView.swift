@@ -11,23 +11,25 @@ public struct UpdateNoticeView: View {
     @Bindable private var store: StoreOf<UpdateNotice>
     
     public var body: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading) {
-                Text(#localized("Type"))
-                    .font(.customSubHeadline)
-                    .foregroundStyle(#color("secondary"))
+        ScrollView {
+            VStack(spacing: 24) {
+                VStack(alignment: .leading) {
+                    Text(#localized("Type"))
+                        .font(.customSubHeadline)
+                        .foregroundStyle(#color("secondary"))
+                    
+                    TextField(#localized("Write something"), text: $store.notice, axis: .vertical)
+                        .textFieldStyle(.bordered(height: 200))
+                }
                 
-                TextField(#localized("Write something"), text: $store.notice, axis: .vertical)
-                    .textFieldStyle(.bordered(height: 200))
+                updateButton
+                
+                Spacer()
             }
-            
-            updateButton
-            
-            Spacer()
+            .padding(20)
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(20)
-        .padding()
         .background(#color("background"))
         .customNavigationBar(#localized("Update Notice"))
         .loadingView(store.isLoading)

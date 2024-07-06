@@ -86,15 +86,15 @@ public struct CreateUserView: View {
                 .padding(30)
                 .padding()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarHidden(true)
-            .splineBackground()
             .dismissKeyboardOnTap()
-            .ignoresSafeArea()
             
             closeButton
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(20)
         }
+        .splineBackground()
         .loadingView(store.isLoading)
         .confirmationDialog(
             $store.scope(state: \.destination?.confirmationDialog, action: \.destination.confirmationDialog)
