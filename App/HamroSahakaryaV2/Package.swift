@@ -33,7 +33,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.9.2"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.19.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.28.0"),
         .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2"),
     ],
     targets: [

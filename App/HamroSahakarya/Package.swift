@@ -25,7 +25,7 @@ let package = Package(
         .package(url: "https://github.com/mxcl/PromiseKit", exact: "6.18.1"),
         .package(url: "https://github.com/danielgindi/Charts", exact: "4.1.0"),
         .package(url: "https://github.com/ReactiveX/RxSwift", exact: "6.5.0"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.19.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", exact: "10.28.0"),
         .package(url: "https://github.com/alickbass/CodableFirebase", branch: "master"),
 //        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", exact: "6.6.1"),
     ],
