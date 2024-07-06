@@ -4,7 +4,7 @@ import Dependencies
 import SharedModels
 import UserAuthClient
 import UserDataClient
-import UserDefaultsClient
+import UserSessionClient
 import UserLogClient
 import UserStorageClient
 
@@ -49,13 +49,13 @@ extension UserApiClient {
         @Dependency(\.userLogClient) var userLogClient
         @Dependency(\.userDataClient) var userDataClient
         @Dependency(\.userStorageClient) var userStorageClient
-        @Dependency(\.userDefaultsClient) var userDefaultsClient
+        @Dependency(\.userSessionClient) var userSessionClient
         
         func signIn(email: Email, password: Password) async throws -> User {
             let uuid = try await userAuthClient.signIn(withEmail: email, password: password)
             let user = try await userDataClient.fetch(by: uuid)
             
-            userDefaultsClient.saveUser(user)
+            userSessionClient.save(user)
             
             return user
         }
@@ -67,7 +67,7 @@ extension UserApiClient {
             try await userDataClient.save(user)
             try await userLogClient.addJoinedLog(for: user)
             
-            userDefaultsClient.saveUser(user)
+            userSessionClient.save(user)
             
             return user
         }
@@ -79,7 +79,7 @@ extension UserApiClient {
         func signOut() async throws -> Void {
             try await userAuthClient.signOut()
             
-            userDefaultsClient.deleteUser()
+            userSessionClient.delete()
         }
         
         func removeMember(admin: User, user: User) async throws -> Void {
@@ -131,7 +131,7 @@ extension UserApiClient {
             try await userDataClient.updateImageUrl(for: user, imageUrl: imageUrl.absoluteString)
             
             let updatedUser = try await userDataClient.fetch(by: user.id)
-            userDefaultsClient.saveUser(updatedUser)
+            userSessionClient.save(updatedUser)
         }
         
         func changePassword(user: User, newPassword: Password) async throws -> Void {
@@ -144,7 +144,15 @@ extension UserApiClient {
         }
         
         func fetchAllMembers() async throws -> [User] {
-            try await userDataClient.fetchAllMembers()
+            let users = try await userDataClient.fetchAllMembers()
+            
+            // update user info in user default
+            if let savedUser = userSessionClient.read(),
+               let updatedUser = users.first(where: { $0.id == savedUser.id }) {
+                userSessionClient.save(updatedUser)
+            }
+
+            return users
         }
         
         func fetchAllMembersWithLoan() async throws -> [User] {

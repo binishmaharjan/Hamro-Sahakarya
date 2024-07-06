@@ -105,7 +105,7 @@ extension SignedInView {
 #Preview {
     SignedInView(
         store: .init(
-            initialState: .init(userSession: .mock),
+            initialState: .init(user: .mock),
             reducer: SignedIn.init
         )
     )

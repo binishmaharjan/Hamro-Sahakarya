@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import UserDefaultsClient
+import UserSessionClient
 import SharedModels
 
 @Reducer 
@@ -23,7 +24,7 @@ public struct Launch {
         case fetchUser
     }
     
-    @Dependency(\.userDefaultsClient) private var userDefaultsClient
+    @Dependency(\.userSessionClient) private var userSessionClient
     
     public var body: some Reducer<State, Action> {
         Reduce<State, Action> { state, action in
@@ -32,7 +33,7 @@ public struct Launch {
                 return .send(.fetchUser)
                 
             case .fetchUser:
-                let user = userDefaultsClient.user()
+                let user = userSessionClient.read()
                 if let user {
                     return .send(.delegate(.showMainView(user)))
                 } else {

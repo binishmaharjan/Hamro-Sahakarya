@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import UserApiClient
+import UserSessionClient
 import SharedModels
 import NoticeFeatureV2
 
@@ -62,6 +63,7 @@ public struct Home {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.userSessionClient) private var userSessionClient
     @Dependency(\.continuousClock) private var clock
     
     public var body: some ReducerOf<Self> {
@@ -102,6 +104,9 @@ public struct Home {
                 state.isPullToRefresh = false
                 state.homeResponse = homeResponse
                 state.chartSelectedUserId = setInitialChartSelectedUser(homeResponse: homeResponse, userId: state.user.id)
+                if let updatedUser = userSessionClient.read() {
+                    state.user = updatedUser
+                }
                 return .none
                 
             case .fetchAllDataResponse(.failure(let error)):

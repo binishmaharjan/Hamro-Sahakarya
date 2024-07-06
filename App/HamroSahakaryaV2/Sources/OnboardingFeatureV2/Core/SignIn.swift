@@ -1,6 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import UserAuthClient
+import UserSessionClient
 import SharedUIs
 import SharedModels
 
@@ -60,6 +61,7 @@ public struct SignIn {
     public init() {}
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.userSessionClient) private var userSessionClient
     @Dependency(\.continuousClock) private var clock
     
     public var body: some Reducer<State, Action> {
@@ -97,7 +99,7 @@ public struct SignIn {
                 return .none
                 
             case .viewTappedTwice:
-                state.destination =  .adminPasswordInput(.init())
+                state.destination = .adminPasswordInput(.init())
                 return .none
                 
             case .isSecureButtonTapped:
@@ -115,6 +117,7 @@ public struct SignIn {
                 
             case .signInResponse(.success(let user)):
                 state.isLoading = false
+                userSessionClient.save(user)
                 return .send(.delegate(.authenticationSuccessful(user)))
                 
             case .signInResponse(.failure(let error)):

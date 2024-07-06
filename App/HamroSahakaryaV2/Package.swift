@@ -13,7 +13,7 @@ let package = Package(
         .library(name: "SharedModels", targets: ["SharedModels"]),
         .library(name: "SharedUIs", targets: ["SharedUIs"]),
         .library(name: "SwiftHelpers", targets: ["SwiftHelpers"]),
-        .library(name: "UserSession", targets: ["UserSession"]),
+        .library(name: "UserSessionClient", targets: ["UserSessionClient"]),
         .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
         .library(name: "UserAuthClient", targets: ["UserAuthClient"]),
         .library(name: "UserDataClient", targets: ["UserDataClient"]),
@@ -70,9 +70,10 @@ let package = Package(
             ]
         ),
         .target(
-            name: "UserSession",
+            name: "UserSessionClient",
             dependencies: [
                 "SharedModels",
+                "UserDefaultsClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -144,7 +145,7 @@ let package = Package(
                 "SharedModels",
                 "SharedUIs",
                 "UserApiClient",
-                "UserSession",
+                "UserSessionClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -159,7 +160,7 @@ let package = Package(
             name: "SignedInFeatureV2",
             dependencies: [
                 "SharedUIs",
-                "UserSession",
+                "UserSessionClient",
                 "HomeFeatureV2",
                 "LogsFeatureV2",
                 "ProfileFeatureV2",
@@ -170,7 +171,7 @@ let package = Package(
             name: "HomeFeatureV2",
             dependencies: [
                 "SharedUIs",
-                "UserSession",
+                "UserSessionClient",
                 "UserApiClient",
                 "NoticeFeatureV2",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
@@ -180,7 +181,7 @@ let package = Package(
             name: "LogsFeatureV2",
             dependencies: [
                 "SharedUIs",
-                "UserSession",
+                "UserSessionClient",
                 "UserApiClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
@@ -189,7 +190,7 @@ let package = Package(
             name: "ProfileFeatureV2",
             dependencies: [
                 "SharedUIs",
-                "UserSession",
+                "UserSessionClient",
                 "UserApiClient",
                 "PDFService",
                 "PhotosService",

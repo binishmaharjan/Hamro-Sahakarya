@@ -1,6 +1,6 @@
 import ComposableArchitecture
 import Foundation
-import UserSession
+import UserSessionClient
 import OnboardingFeatureV2
 import SignedInFeatureV2
 
@@ -37,8 +37,7 @@ public struct Root {
                 
             case .destination(.presented(.launch(.delegate(.showMainView(let user))))),
                  .destination(.presented(.signIn(.delegate(.authenticationSuccessful(let user))))):
-                let userSession = UserSession.createUserSession(from: user)
-                state.destination = .signedIn(.init(userSession: userSession))
+                state.destination = .signedIn(.init(user: user))
                 return .none
                 
             case .destination(.presented(.signedIn(.profile(.delegate(.signOutSuccessful))))),

@@ -1,7 +1,7 @@
 import Foundation
 import ComposableArchitecture
 import SharedModels
-import UserSession
+import UserSessionClient
 import HomeFeatureV2
 import LogsFeatureV2
 import ProfileFeatureV2
@@ -10,15 +10,15 @@ import ProfileFeatureV2
 public struct SignedIn {
     @ObservableState
     public struct State: Equatable {
-        public init(userSession: UserSession) {
-            self.userSession = userSession
-            self.home = Home.State(user: userSession.user)
+        public init(user: User) {
+            self.user = user
+            self.home = Home.State(user: user)
             self.logs = Logs.State()
-            self.profile = Profile.State(user: userSession.user)
+            self.profile = Profile.State(user: user)
             self.selectedTab = .home
         }
         
-        public var userSession: UserSession
+        public var user: User
         public var home: Home.State
         public var logs: Logs.State
         public var profile: Profile.State
