@@ -161,6 +161,7 @@ extension Status {
         switch self {
         case .member: return "Are you sure you want to promote this member to Status: Admin ?"
         case .admin: return "Are you sure you want to demote this member to Status: Member ?"
+        case .developer: return "Some Problem Occurred."
         }
     }
 }
