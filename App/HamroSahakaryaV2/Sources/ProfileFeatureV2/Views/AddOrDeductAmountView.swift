@@ -51,6 +51,7 @@ public struct AddOrDeductAmountView: View {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .dismissKeyboardOnTap()
         .background(#color("background"))
         .customNavigationBar(#localized("Add Or Deduct Amount"))
         .loadingView(store.isLoading)

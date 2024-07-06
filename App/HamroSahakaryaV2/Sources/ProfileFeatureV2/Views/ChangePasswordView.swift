@@ -39,6 +39,7 @@ public struct ChangePasswordView: View {
             .padding(20)
             .padding()
         }
+        .dismissKeyboardOnTap()
         .background(#color("background"))
         .customNavigationBar(#localized("Change Password"))
         .loadingView(store.isLoading)

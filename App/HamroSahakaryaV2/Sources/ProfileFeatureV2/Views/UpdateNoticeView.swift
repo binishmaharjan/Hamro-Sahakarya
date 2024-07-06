@@ -30,6 +30,7 @@ public struct UpdateNoticeView: View {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .dismissKeyboardOnTap()
         .background(#color("background"))
         .customNavigationBar(#localized("Update Notice"))
         .loadingView(store.isLoading)

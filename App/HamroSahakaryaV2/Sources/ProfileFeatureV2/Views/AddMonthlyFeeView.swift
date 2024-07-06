@@ -37,6 +37,7 @@ public struct AddMonthlyFeeView: View {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .dismissKeyboardOnTap()
         .background(#color("background"))
         .customNavigationBar(#localized("Add Monthly Fee"))
         .loadingView(store.isLoading)

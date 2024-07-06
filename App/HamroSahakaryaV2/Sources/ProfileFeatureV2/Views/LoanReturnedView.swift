@@ -38,8 +38,9 @@ public struct LoanReturnedView: View {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .dismissKeyboardOnTap()
         .background(#color("background"))
-        .customNavigationBar(#localized("Loan Member"))
+        .customNavigationBar(#localized("Loan Returned"))
         .loadingView(store.isLoading)
         .onAppear { store.send(.onAppear) }
         .alert(
