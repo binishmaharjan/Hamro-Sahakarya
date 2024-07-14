@@ -42,6 +42,7 @@ public struct NoticeView: View {
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .shadow(color: #color("background2").opacity(0.1), radius: 10, x: 0, y: 1)
         .padding(30)
+        .onAppear { store.send(.onAppear) }
     }
 }
 
