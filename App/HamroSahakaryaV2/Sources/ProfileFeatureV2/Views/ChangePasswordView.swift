@@ -43,6 +43,7 @@ public struct ChangePasswordView: View {
         .background(#color("background"))
         .customNavigationBar(#localized("Change Password"))
         .loadingView(store.isLoading)
+        .onAppear { store.send(.onAppear) }
         .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
     }
 }

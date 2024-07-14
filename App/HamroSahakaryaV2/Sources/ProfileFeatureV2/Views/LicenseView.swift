@@ -32,6 +32,7 @@ public struct LicenseView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(#color("background"))
         .customNavigationBar(#localized("License"))
+        .onAppear { store.send(.onAppear) }
     }
 }
 

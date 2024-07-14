@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import PDFKit
 import UserApiClient
+import AnalyticsClient
 
 @Reducer
 public struct TermsAndCondition {
@@ -32,6 +33,7 @@ public struct TermsAndCondition {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -39,7 +41,9 @@ public struct TermsAndCondition {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 guard state.pdfDocument == nil else { return .none }
+
                 state.isLoading = true
                 return .run { send in
                     await send(
@@ -67,3 +71,29 @@ public struct TermsAndCondition {
         }
     }
 }
+
+// Analytics
+extension TermsAndCondition {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "terms_and_condition_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
+    }
+}
+

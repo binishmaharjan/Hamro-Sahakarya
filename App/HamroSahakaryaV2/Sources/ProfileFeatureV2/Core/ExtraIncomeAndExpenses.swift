@@ -4,6 +4,7 @@ import SharedUIs
 import SharedModels
 import UserApiClient
 import SwiftHelpers
+import AnalyticsClient
 
 @Reducer
 public struct ExtraIncomeAndExpenses {
@@ -44,6 +45,7 @@ public struct ExtraIncomeAndExpenses {
         case binding(BindingAction<State>)
         case destination(PresentationAction<Destination.Action>)
         
+        case onAppear
         case typeFieldTapped
         case updateButtonTapped
         case addExtraOrExpensesResponse(Result<Void, Error>)
@@ -52,6 +54,7 @@ public struct ExtraIncomeAndExpenses {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -61,6 +64,10 @@ public struct ExtraIncomeAndExpenses {
             case .destination(.presented(.confirmationDialog(let option))):
                 state.destination = nil
                 state.type = option.toType
+                return .none
+                
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 return .none
                 
             case .typeFieldTapped:
@@ -138,5 +145,30 @@ extension Equatable where Self == ExtraIncomeAndExpenses.Destination.Confirmatio
         case .extraTapped: return .extra
         case .expensesTapped: return .expenses
         }
+    }
+}
+
+// Analytics
+extension ExtraIncomeAndExpenses {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "extra_and_expenses_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

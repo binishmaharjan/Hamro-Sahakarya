@@ -36,6 +36,7 @@ public struct ChangePictureView: View {
             }
         }
         .loadingView(store.isLoading)
+        .onAppear { store.send(.onAppear) }
         .alert(
             $store.scope(state: \.destination?.alert, action: \.destination.alert)
         )

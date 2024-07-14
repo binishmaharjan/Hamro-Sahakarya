@@ -15,9 +15,9 @@ public struct Notice {
     }
     
     public enum Action {
+        case onAppear
         case doNotShowAgainChecked
         case okButtonTapped
-        case onAppear
     }
     
     public init() { }
@@ -31,6 +31,7 @@ public struct Notice {
             case .onAppear:
                 handleTrackingEvent(eventType: .screenView)
                 return .none
+
             case .doNotShowAgainChecked:
                 return .none
                 

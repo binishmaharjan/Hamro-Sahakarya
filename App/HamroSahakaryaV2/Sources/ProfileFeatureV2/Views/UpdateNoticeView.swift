@@ -34,6 +34,7 @@ public struct UpdateNoticeView: View {
         .background(#color("background"))
         .customNavigationBar(#localized("Update Notice"))
         .loadingView(store.isLoading)
+        .onAppear { store.send(.onAppear) }
         .alert(
             $store.scope(state: \.destination?.alert, action: \.destination.alert)
         )

@@ -3,6 +3,7 @@ import ComposableArchitecture
 import PhotosService
 import SharedModels
 import UIKit
+import AnalyticsClient
 
 @Reducer
 public struct ChangePicture {
@@ -32,6 +33,7 @@ public struct ChangePicture {
             case changeImageSuccessful
         }
         
+        case onAppear
         case destination(PresentationAction<Destination.Action>)
         case delegate(Delegate)
         
@@ -43,6 +45,7 @@ public struct ChangePicture {
     public init() { }
     
     @Dependency(\.userApiClient) var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         Scope(state: \.photoPicker, action: \.photoPicker) {
@@ -51,6 +54,10 @@ public struct ChangePicture {
         
         Reduce<State, Action> { state, action in
             switch action {
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
+                return .none
+                
             case .photoPicker(.delegate(.imageSelected(let imageData))):
                 state.imageData = imageData
                 return .none
@@ -91,5 +98,30 @@ public struct ChangePicture {
             }
         }
         .ifLet(\.$destination, action: \.destination)
+    }
+}
+
+// Analytics
+extension ChangePicture {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "change_picture_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }
