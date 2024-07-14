@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import UserApiClient
 import UserSessionClient
+import AnalyticsClient
 import SharedModels
 import NoticeFeatureV2
 
@@ -65,16 +66,21 @@ public struct Home {
     @Dependency(\.userApiClient) private var userApiClient
     @Dependency(\.userSessionClient) private var userSessionClient
     @Dependency(\.continuousClock) private var clock
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 guard state.homeResponse.isEmpty else { return .none }
+                
                 state.isLoading = true
                 return .send(.fetchAllData)
                 
             case .pulledToRefresh:
+                handleTrackingEvent(eventType: .pulledToRefresh)
+                
                 state.isPullToRefresh = true
                 return .run { send in
                     // Waiting 1 second so that user can see custom refresh.
@@ -85,6 +91,8 @@ public struct Home {
                 
             case .noticeButtonTapped:
                 guard let notice = state.homeResponse?.notice else { return .none }
+                handleTrackingEvent(eventType: .tapNotice)
+                
                 state.destination = .notice(Notice.State(notice: notice))
                 return .none
                 
@@ -116,6 +124,8 @@ public struct Home {
                 return .none
                 
             case .updateChartSelectedUserId(let userId):
+                handleTrackingEvent(eventType: .tapGraph)
+                
                 state.chartSelectedUserId = userId
                 return .none
                 
@@ -146,5 +156,40 @@ extension Home {
         let initialSelectedUser = homeResponse.allMembers.first { $0.id == userId }
         guard let initialSelectedUser else { return "" }
         return initialSelectedUser.id
+    }
+}
+
+// Analytics
+extension Home {
+    enum EventType {
+        case screenView
+        case tapNotice
+        case tapGraph
+        case pulledToRefresh
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            case .tapNotice, .tapGraph:
+                return .buttonTap
+            case .pulledToRefresh:
+                return .pullToRefresh
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            case .tapNotice: return "notice"
+            case .tapGraph: return "graph"
+            case .pulledToRefresh: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "home_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }
