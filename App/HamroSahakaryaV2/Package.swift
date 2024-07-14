@@ -203,6 +203,7 @@ let package = Package(
                 "UserApiClient",
                 "PDFService",
                 "PhotosService",
+                "AnalyticsClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ],
             plugins: [
