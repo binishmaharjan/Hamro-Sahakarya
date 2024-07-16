@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SharedModels
 import SharedUIs
 import UserApiClient
+import AnalyticsClient
 
 @Reducer
 public struct CreateUser {
@@ -51,6 +52,7 @@ public struct CreateUser {
         case destination(PresentationAction<Destination.Action>)
         case delegate(Delegate)
         
+        case onAppear
         case createUserButtonTapped
         case memberFieldTapped
         case colorPickerFieldTapped
@@ -60,6 +62,7 @@ public struct CreateUser {
     public init(){ }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -78,6 +81,10 @@ public struct CreateUser {
                 
             case .destination(.presented(.colorPicker(.delegate(.close)))):
                 state.destination = nil
+                return .none
+                
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 return .none
                 
             case .memberFieldTapped:
@@ -162,5 +169,30 @@ extension ConfirmationDialogState where Action == CreateUser.Destination.Confirm
         }
     } message: {
         TextState(#localized("Select the member status."))
+    }
+}
+
+// Analytics
+extension CreateUser {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "create_user_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

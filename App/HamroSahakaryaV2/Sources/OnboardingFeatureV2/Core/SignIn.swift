@@ -4,6 +4,7 @@ import UserAuthClient
 import UserSessionClient
 import SharedUIs
 import SharedModels
+import AnalyticsClient
 
 @Reducer
 public struct SignIn {
@@ -50,6 +51,7 @@ public struct SignIn {
         case binding(BindingAction<State>)
         case delegate(Delegate)
         
+        case onAppear
         case forgotPasswordButtonTapped
         case isSecureButtonTapped
         case viewTappedTwice
@@ -63,6 +65,7 @@ public struct SignIn {
     @Dependency(\.userApiClient) private var userApiClient
     @Dependency(\.userSessionClient) private var userSessionClient
     @Dependency(\.continuousClock) private var clock
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some Reducer<State, Action> {
         BindingReducer()
@@ -80,6 +83,10 @@ public struct SignIn {
                 
             case .destination(.presented(.createUser(.delegate(.createAccountSuccessful(let user))))):
                 return .send(.delegate(.authenticationSuccessful(user)))
+                
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
+                return .none
                 
             case .signInButtonTapped:
                 state.isLoading = true
@@ -150,5 +157,30 @@ extension AlertState where Action == SignIn.Destination.Alert {
         } message: {
             TextState("Couldn't verify admin password")
         }
+    }
+}
+
+// Analytics
+extension SignIn {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "sign_in_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }
