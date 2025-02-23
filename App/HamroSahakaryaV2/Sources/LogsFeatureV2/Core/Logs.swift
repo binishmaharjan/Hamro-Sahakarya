@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SharedModels
 import SharedUIs
 import UserApiClient
+import AnalyticsClient
 
 @Reducer
 public struct Logs {
@@ -40,16 +41,21 @@ public struct Logs {
     
     @Dependency(\.userApiClient) private var userApiClient
     @Dependency(\.continuousClock) private var clock
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 guard state.logs.isEmpty else { return .none }
+                
                 state.isLoading = true
                 return .send(.fetchLogs)
                 
             case .pulledToRefresh:
+                handleTrackingEvent(eventType: .pullToRefresh)
+                
                 state.isPullToRefresh = true
                 return .run { send in
                     // Waiting 1 second so that user can see custom refresh.
@@ -95,5 +101,31 @@ public struct Logs {
             }
         }
         .ifLet(\.$destination, action: \.destination)
+    }
+}
+
+// Analytics
+extension Logs {
+    enum EventType {
+        case screenView
+        case pullToRefresh
+        
+        var event: Event {
+            switch self {
+            case .screenView: return .screenView
+            case .pullToRefresh: return .pullToRefresh
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView, .pullToRefresh: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "logs_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

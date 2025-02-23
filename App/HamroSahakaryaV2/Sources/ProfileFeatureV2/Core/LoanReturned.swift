@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import SharedModels
 import SharedUIs
+import AnalyticsClient
 
 @Reducer
 public struct LoanReturned {
@@ -43,6 +44,7 @@ public struct LoanReturned {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -54,7 +56,9 @@ public struct LoanReturned {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 guard state.members.isEmpty else { return .none }
+
                 state.isLoading = true
                 return .run { send in
                     await send(
@@ -137,5 +141,30 @@ extension AlertState where Action == LoanReturned.Destination.Alert {
         } message: {
             TextState(#localized("The loan amount is more than loan taken."))
         }
+    }
+}
+
+// Analytics
+extension LoanReturned {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "loan_returned_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

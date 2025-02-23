@@ -55,6 +55,7 @@ public struct ExtraIncomeAndExpensesView: View {
         .background(#color("background"))
         .customNavigationBar(#localized("Extra Income And Expenses"))
         .loadingView(store.isLoading)
+        .onAppear { store.send(.onAppear) }
         .confirmationDialog(
             $store.scope(state: \.destination?.confirmationDialog, action: \.destination.confirmationDialog)
         )

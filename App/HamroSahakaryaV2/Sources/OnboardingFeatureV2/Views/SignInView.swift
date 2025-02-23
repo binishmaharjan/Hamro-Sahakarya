@@ -65,6 +65,7 @@ public struct SignInView: View {
             }
             .dismissKeyboardOnTap()
             .loadingView(store.isLoading)
+            .onAppear { store.send(.onAppear) }
             .navigationDestination(
                 item: $store.scope(state: \.destination?.forgotPassword, action: \.destination.forgotPassword),
                 destination: ForgotPasswordView.init(store:)

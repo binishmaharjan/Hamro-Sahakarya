@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SharedModels
 import SharedUIs
 import SwiftHelpers
+import AnalyticsClient
 
 @Reducer
 public struct ChangePassword {
@@ -44,6 +45,7 @@ public struct ChangePassword {
         case destination(PresentationAction<Destination.Action>)
         case delegate(Delegate)
         
+        case onAppear
         case changePasswordTapped
         case passwordDoesNotMatch
         case changePasswordResponse(Result<Void, Error>)
@@ -54,12 +56,17 @@ public struct ChangePassword {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
         
         Reduce<State, Action> { state, action in
             switch action {
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
+                return .none
+                
             case .changePasswordTapped:
                 guard state.password == state.confirmPassword else {
                     return .send(.passwordDoesNotMatch)
@@ -149,5 +156,31 @@ extension AlertState where Action == ChangePassword.Destination.Alert {
         } message: {
             TextState(#localized("User will sign out.Please sign in again with new password"))
         }
+    }
+}
+
+
+// Analytics
+extension ChangePassword {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "change_password_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

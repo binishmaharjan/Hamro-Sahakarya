@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SharedModels
 import SharedUIs
 import UserApiClient
+import AnalyticsClient
 
 @Reducer
 public struct MembersList {
@@ -36,11 +37,13 @@ public struct MembersList {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 return .send(.fetchMembersList)
                 
             case .fetchMembersList:
@@ -70,5 +73,30 @@ public struct MembersList {
             }
         }
         .ifLet(\.$destination, action: \.destination)
+    }
+}
+
+// Analytics
+extension MembersList {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "mebmer_list_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

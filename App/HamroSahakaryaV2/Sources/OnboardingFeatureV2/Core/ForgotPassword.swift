@@ -4,6 +4,7 @@ import SharedModels
 import SharedUIs
 import UserApiClient
 import SwiftHelpers
+import AnalyticsClient
 
 @Reducer
 public struct ForgotPassword {
@@ -36,6 +37,7 @@ public struct ForgotPassword {
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
         
+        case onAppear
         case forgotPasswordButtonTapped
         case closeButtonTapped
         case sendPasswordResetResponse(Result<Void, Error>)
@@ -45,6 +47,7 @@ public struct ForgotPassword {
     
     @Dependency(\.dismiss) private var dismiss
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -62,6 +65,10 @@ public struct ForgotPassword {
                         )
                     )
                 }
+                
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
+                return .none
                 
             case .closeButtonTapped:
                 return .run { _ in
@@ -94,5 +101,30 @@ extension AlertState where Action == ForgotPassword.Destination.Alert {
         ButtonState { TextState(#localized("Ok")) }
     } message: {
         TextState(#localized("Please check your email and follow the instructions sent to that email."))
+    }
+}
+
+// Analytics
+extension ForgotPassword {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "forgot_password_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

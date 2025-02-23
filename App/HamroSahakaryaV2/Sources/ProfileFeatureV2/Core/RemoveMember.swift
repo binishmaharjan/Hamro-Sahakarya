@@ -3,6 +3,7 @@ import ComposableArchitecture
 import SharedModels
 import UserApiClient
 import SharedUIs
+import AnalyticsClient
 
 @Reducer
 public struct RemoveMember {
@@ -46,6 +47,7 @@ public struct RemoveMember {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -57,7 +59,9 @@ public struct RemoveMember {
         Reduce<State, Action> { state, action in
             switch action {
             case.onAppear:
+                handleTrackingEvent(eventType: .screenView)
                 guard state.members.isEmpty else { return .none }
+
                 state.isLoading = true
                 return .run { send in
                     await send(
@@ -172,5 +176,30 @@ extension AlertState where Action == RemoveMember.Destination.Alert {
         } message: {
             TextState(#localized("The member has been removed successfully"))
         }
+    }
+}
+
+// Analytics
+extension RemoveMember {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "remove_member_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

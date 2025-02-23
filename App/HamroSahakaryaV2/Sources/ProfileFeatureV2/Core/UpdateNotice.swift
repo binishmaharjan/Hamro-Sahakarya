@@ -2,6 +2,7 @@ import Foundation
 import ComposableArchitecture
 import SharedModels
 import UserApiClient
+import AnalyticsClient
 
 @Reducer
 public struct UpdateNotice {
@@ -31,6 +32,7 @@ public struct UpdateNotice {
         case destination(PresentationAction<Destination.Action>)
         case binding(BindingAction<State>)
         
+        case onAppear
         case updateButtonTapped
         case updateNoticeResponse(Result<Void, Error>)
     }
@@ -38,12 +40,17 @@ public struct UpdateNotice {
     public init() { }
     
     @Dependency(\.userApiClient) private var userApiClient
+    @Dependency(\.analyticsClient) private var analyticsClient
     
     public var body: some ReducerOf<Self> {
         BindingReducer()
         
         Reduce<State, Action> { state, action in
             switch action {
+            case .onAppear:
+                handleTrackingEvent(eventType: .screenView)
+                return .none
+
             case .updateButtonTapped:
                 // If user  is developer, show alert
                 guard state.admin.isUseAdminMenu else {
@@ -81,5 +88,30 @@ public struct UpdateNotice {
             }
         }
         .ifLet(\.$destination, action: \.destination)
+    }
+}
+
+// Analytics
+extension UpdateNotice {
+    enum EventType {
+        case screenView
+        
+        var event: Event {
+            switch self {
+            case .screenView:
+                return .screenView
+            }
+        }
+        
+        var actionName: String {
+            switch self {
+            case .screenView: return ""
+            }
+        }
+    }
+    
+    private func handleTrackingEvent(eventType: EventType) {
+        let parameter = Parameter(screenName: "update_notice_view", actionName: eventType.actionName)
+        analyticsClient.trackEvent(event: eventType.event, parameter: parameter)
     }
 }

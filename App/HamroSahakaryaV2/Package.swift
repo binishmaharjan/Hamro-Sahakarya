@@ -20,6 +20,7 @@ let package = Package(
         .library(name: "UserLogClient", targets: ["UserLogClient"]),
         .library(name: "UserStorageClient", targets: ["UserStorageClient"]),
         .library(name: "UserApiClient", targets: ["UserApiClient"]),
+        .library(name: "AnalyticsClient", targets: ["AnalyticsClient"]),
         .library(name: "AppFeatureV2", targets: ["AppFeatureV2"]),
         .library(name: "OnboardingFeatureV2", targets: ["OnboardingFeatureV2"]),
         .library(name: "SignedInFeatureV2", targets: ["SignedInFeatureV2"]),
@@ -129,6 +130,13 @@ let package = Package(
             ]
         ),
         .target(
+            name: "AnalyticsClient",
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+            ]
+        ),
+        .target(
             name: "AppFeatureV2",
             dependencies: [
                 "UserDefaultsClient",
@@ -173,6 +181,7 @@ let package = Package(
                 "SharedUIs",
                 "UserSessionClient",
                 "UserApiClient",
+                "AnalyticsClient",
                 "NoticeFeatureV2",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
@@ -194,6 +203,7 @@ let package = Package(
                 "UserApiClient",
                 "PDFService",
                 "PhotosService",
+                "AnalyticsClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ],
             plugins: [

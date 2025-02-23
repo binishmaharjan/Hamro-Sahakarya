@@ -11,9 +11,6 @@
       location = "group:HamroSahakaryaV2">
    </FileRef>
    <FileRef
-      location = "group:HamroSahakarya">
-   </FileRef>
-   <FileRef
       location = "group:HamroSahakaryaV2/Tests/AppFeatureV2Tests/AppFeatureV2.xctestplan">
    </FileRef>
    <FileRef
